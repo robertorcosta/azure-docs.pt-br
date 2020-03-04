@@ -28,7 +28,7 @@ O [Banco de Dados do Azure para MySQL](/azure/mysql/overview) é um serviço de 
 > * Consultar os servidores disponíveis do MySQL
 > * Listar todos os bancos de dados nos servidores conectados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

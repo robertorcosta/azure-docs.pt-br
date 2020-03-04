@@ -27,7 +27,7 @@ Este artigo mostra como começar a criação de Azure Functions que usam os Serv
 
 Se você quiser explorar e implantar as Azure Functions existentes que usam o Serviços de Mídia do Azure, confira [Azure Functions dos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Esse repositório contém exemplosque usam os Serviços de Mídia para mostrar os fluxos de trabalho relativos à ingestão de conteúdo diretamente do armazenamento de blobs, à codificação e à gravação do conteúdo de volta no armazenamento de blobs. Ele também inclui exemplos de como monitorar as notificações de trabalho por meio de Webhooks e Filas do Azure. Você também pode desenvolver as Funções com base em exemplos do repositório [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implantar as funções, pressione o botão **Implantar no Azure**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Antes de criar sua primeira função, você precisará ter uma conta ativa do Azure. Se você ainda não tiver uma conta do Azure, [há contas gratuitas disponíveis](https://azure.microsoft.com/free/).
 - Se você pretende criar Azure Functions que executam ações em sua conta do AMS (Serviços de Mídia do Azure) ou escutar eventos enviados pelos Serviços de Mídia, crie uma conta do AMS conforme descrito [aqui](media-services-portal-create-account.md).
@@ -80,7 +80,7 @@ A função do Azure está associada a arquivos de código e a outros arquivos de
 
 ### <a name="functionjson"></a>function.json
 
-O arquivo function.json define as associações de função e outras definições de configuração. O tempo de execução usa esse arquivo para determinar os eventos a serem monitorados, bem como para passar e retornar dados da execução da função. Para obter mais informações, consulte [Associações HTTP e de webhook do Azure Functions](../../azure-functions/functions-reference.md#function-code).
+O arquivo function.json define as associações de função e outras definições de configuração. O runtime usa esse arquivo para determinar os eventos a serem monitorados, bem como para passar e retornar dados da execução da função. Para obter mais informações, consulte [Associações HTTP e de webhook do Azure Functions](../../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
 >Defina a propriedade **disabled** como **true** para impedir que a função seja executada. 

@@ -30,7 +30,7 @@ Este artigo discute como começar a desenvolver aplicativos de serviços de míd
 
 A biblioteca do **SDK do .NET dos Serviços de Mídia** permite que você programe em relação aos serviços de mídia usando o .NET. Para facilitar ainda mais o desenvolvimento com o .NET, a biblioteca de **Extensões do SDK do .NET dos Serviços de Mídia** é fornecida. Esta biblioteca contém um conjunto de métodos de extensão e funções auxiliares simplificam o seu código .NET. As duas bibliotecas estão disponíveis por meio do **NuGet** e **GitHub**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Uma conta de Serviços de Mídia em uma assinatura nova ou existente do Azure. Confira o artigo [Como criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
 * Sistemas operacionais: Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou posterior.

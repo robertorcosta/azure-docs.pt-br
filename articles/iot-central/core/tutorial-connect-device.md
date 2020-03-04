@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Usar uma exibição para gerenciar as propriedades do dispositivo.
 > * Chamar comandos para controlar o dispositivo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 

@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o Verkada Command ao Azure AD (Azure
 
 Para saber mais sobre a integração de aplicativos SaaS ao logon único no Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 

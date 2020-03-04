@@ -19,7 +19,7 @@ Quando você configura Micro foco Enterprise Server 4.0 e 4.0 de desenvolvedor E
 
 CICs representa o sistema de controle de informações do cliente, a plataforma de transações usada por muitos dos aplicativos de mainframe on-line. O aplicativo BankDemo é ótimo para aprender como o Enterprise Server e do Enterprise Developer operam e como gerenciar e implantar um aplicativo real completo com terminais de tela verde.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma VM com [Enterprise Developer](set-up-micro-focus-azure.md). Tenha em mente que o desenvolvedor empresarial tem uma instância completa do Enterprise Server nele para fins de desenvolvimento e teste. Esta instância é a instância do Enterprise Server usados para a demonstração.
 

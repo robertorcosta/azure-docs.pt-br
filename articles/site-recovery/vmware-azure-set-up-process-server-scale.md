@@ -41,7 +41,7 @@ Verifique os requisitos de dimensionamento resumidos na tabela. Em geral, se for
 
 Onde cada computador de origem protegido é configurado com três discos de 100 GB cada.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Os pré-requisitos para o servidor de processo adicional são resumidos na tabela a seguir.
 

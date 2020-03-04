@@ -42,7 +42,7 @@ Para obter mais informações, confira os artigos [Visão geral](/azure/sql-data
 > [!TIP]
 > O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente sobre como [Proteger seu Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 

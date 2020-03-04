@@ -22,7 +22,7 @@ ms.locfileid: "77169504"
 
 Neste início rápido, você criará uma regra que envia um email quando a temperatura informada por um sensor do dispositivo que ultrapassou 90&deg; F.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, você deve concluir os dois inícios rápidos anteriores [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) para criar o modelo de dispositivo **MXChip IoT DevKit** com o qual trabalhar.
 

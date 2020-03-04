@@ -25,7 +25,7 @@ Use este início rápido para enviar solicitações de pesquisa para a API de Pe
 
 O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) com anotações e tratamentos de erro adicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * O [Java Development Kit(JDK)](https://aka.ms/azure-jdks)
 

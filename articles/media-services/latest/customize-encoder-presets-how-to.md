@@ -30,7 +30,7 @@ Ao criar predefinições personalizadas, as seguintes considerações se aplicam
 * Todos os valores de altura e largura no conteúdo de AVC devem ser um múltiplo de 4.
 * Serviços de mídia do Azure v3, todas as taxas de bits de codifica são em bits por segundo. Isso é diferente das predefinições com nossas APIs v2, que usado quilobits por segundo, como a unidade. Por exemplo, se a taxa de bits na versão 2 foi especificada como 128 (quilobits/segundo), na v3 ele deve ser definido como 128000 (bits/segundo).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Criar uma conta dos Serviços de Mídia](create-account-cli-how-to.md)
 

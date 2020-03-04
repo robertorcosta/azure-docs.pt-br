@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Examinar os encargos pendentes para estimar sua próxima fatura
 > * Analisar os encargos de uso do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa ter uma conta de cobrança para um Contrato de Cliente da Microsoft.
 

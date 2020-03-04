@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Exibir detalhes do experimento.
 > * Implantar o modelo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
 

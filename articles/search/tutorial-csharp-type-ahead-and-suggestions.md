@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Adicionar preenchimento automático
 > * Combinar o preenchimento automático e sugestões
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

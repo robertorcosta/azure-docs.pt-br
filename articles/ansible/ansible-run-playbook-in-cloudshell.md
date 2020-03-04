@@ -15,7 +15,7 @@ ms.locfileid: "77193643"
 
 O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure. O Cloud Shell fornece permite que você use uma linha de comando do PowerShell ou do Bash. Neste artigo, você usará o Bash no Azure Cloud Shell para executar um guia estratégico do Ansible.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Configurar o Azure Cloud Shell** – se você não estiver familiarizado com o Azure Cloud Shell, confira [Início Rápido do Bash no Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).

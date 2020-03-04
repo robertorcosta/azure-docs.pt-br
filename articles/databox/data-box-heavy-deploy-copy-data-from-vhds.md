@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Copiar dados para o Data Box Heavy
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 

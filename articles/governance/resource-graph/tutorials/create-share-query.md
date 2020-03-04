@@ -24,7 +24,7 @@ Neste tutorial, você concluirá as seguintes tarefas:
 > - Descobrir consultas compartilhadas
 > - Excluir uma consulta compartilhada
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

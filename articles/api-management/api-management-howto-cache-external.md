@@ -40,7 +40,7 @@ O que você aprenderá:
 > [!div class="checklist"]
 > * Adicionar um cache externo no Gerenciamento de API
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

@@ -27,7 +27,7 @@ As etapas deste guia de instruções mostram como:
 1. Configurar a Simulação de Dispositivo para usar sua nova imagem do Docker
 1. Executar uma simulação usando a nova imagem
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste guia de instruções, você precisará de:
 

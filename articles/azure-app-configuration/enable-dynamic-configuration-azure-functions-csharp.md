@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Configure seu aplicativo Azure Functions para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Insira a configuração mais recente para suas chamadas do Azure Functions.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento do Azure**

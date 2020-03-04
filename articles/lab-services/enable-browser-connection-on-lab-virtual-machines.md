@@ -31,7 +31,7 @@ Como proprietário de um laboratório, você pode habilitar o acesso a todas as 
 
 Este artigo mostra como habilitar a conexão do navegador em máquinas virtuais do laboratório.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 Implante um host de bastiões na rede virtual do laboratório existente **(ou)** Conecte seu laboratório com uma VNet configurada para bastiões. 
 
 Para saber como implantar um host de bastiões em uma VNet, confira [criar um host de bastiões do Azure (versão prévia)](../bastion/bastion-create-host-portal.md). Ao criar o host de bastiões, selecione a rede virtual do laboratório. 

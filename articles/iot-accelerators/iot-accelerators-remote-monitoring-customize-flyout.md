@@ -24,7 +24,7 @@ Este artigo mostra como adicionar um novo desdobrável em uma página na interfa
 
 O flyout de exemplo deste artigo é exibido na página com a grade que a seção [Adicionar uma grade personalizada ao artigo explicativo de UI da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-grid.md) mostra como adicionar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 

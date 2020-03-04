@@ -23,7 +23,7 @@ Neste tutorial, você aprenderá a aceitar um convite de compartilhamento de dad
 > * Especificar um destino para seus dados
 > * Criar uma assinatura para seu compartilhamento de dados para a atualização agendada
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de aceitar um convite de compartilhamento de dados, é preciso provisionar vários recursos do Azure, que estão listados abaixo. 
 
 Cumpra todos os pré-requisitos antes de aceitar um convite de compartilhamento de dados. 

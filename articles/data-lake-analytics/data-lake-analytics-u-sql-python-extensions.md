@@ -18,7 +18,7 @@ ms.locfileid: "60813409"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código Python no Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, certifique-se de que as extensões de Python estejam instaladas na sua conta do Azure Data Lake Analytics.
 

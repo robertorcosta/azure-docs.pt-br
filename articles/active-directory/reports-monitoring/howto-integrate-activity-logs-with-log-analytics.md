@@ -51,7 +51,7 @@ Você pode rotear os logs de atividade de auditoria e logs de atividade de entra
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.
 >
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para usar esse recurso, você precisa de:
 

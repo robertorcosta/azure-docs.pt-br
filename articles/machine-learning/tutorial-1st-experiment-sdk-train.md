@@ -31,7 +31,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 > * Exibir resultados de treinamento no portal
 > * Recuperar o melhor modelo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O único pré-requisito é executar a parte um deste tutorial, [Configurar o ambiente e o workspace](tutorial-1st-experiment-sdk-setup.md).
 

@@ -23,11 +23,11 @@ Este tutorial descreve os procedimentos usados para se conectar ao Armazenamento
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se ao Armazenamento de Blobs do Data Box via *HTTP* ou *HTTPS*
 > * Copiar dados para caixa de dados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 
@@ -227,7 +227,7 @@ A próxima etapa é preparar seu dispositivo para envio.
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se ao Armazenamento de Blobs do Data Box via *HTTP* ou *HTTPS*
 > * Copiar dados para caixa de dados
 

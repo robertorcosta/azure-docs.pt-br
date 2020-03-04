@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os scripts da CLI executados neste tutorial usam a [Extensão do Microsoft Azure IoT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Para instalar essa extensão, execute o comando da CLI a seguir:
 

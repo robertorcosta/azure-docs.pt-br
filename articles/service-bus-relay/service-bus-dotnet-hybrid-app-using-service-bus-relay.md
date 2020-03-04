@@ -41,7 +41,7 @@ Você realiza as seguintes tarefas neste tutorial:
 > * Implante o aplicativo Web no Azure.
 > * Execute o aplicativo no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 

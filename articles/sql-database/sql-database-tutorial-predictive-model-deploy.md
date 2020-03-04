@@ -40,7 +40,7 @@ Na [parte 2](sql-database-tutorial-predictive-model-build-compare.md), você apr
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Na parte 3 deste tutorial, assumimos que você concluiu a [**parte 1**](sql-database-tutorial-predictive-model-prepare-data.md) e a [**parte 2**](sql-database-tutorial-predictive-model-build-compare.md).
 

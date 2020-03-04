@@ -26,7 +26,7 @@ Clusters dedicados são provisionados e cobrados por **Unidades de Capacidade (C
 > Atualmente, essa experiência de autoatendimento está disponível em versão prévia no [Portal do Azure](https://aka.ms/eventhubsclusterquickstart). Se você tiver alguma dúvida sobre a oferta Dedicada, entre em contato com o [equipe de Hubs de Eventos](mailto:askeventhubs@microsoft.com).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este início rápido, verifique se você tem:
 
 - Uma conta do Azure. Se você não tiver, [compre uma conta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) antes de começar. Esse recurso não tem suporte com uma conta gratuita do Azure. 

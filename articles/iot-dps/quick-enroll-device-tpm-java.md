@@ -22,7 +22,7 @@ ms.locfileid: "77605377"
 
 Neste início rápido, você criará de maneira programática um registro individual para um dispositivo TPM simulado no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do Serviço Java com a ajuda de um aplicativo Java de exemplo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 - Conclusão de [Ler as chaves de criptografia por meio do dispositivo TPM](quick-create-simulated-device.md#simulatetpm).

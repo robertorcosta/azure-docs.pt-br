@@ -28,7 +28,7 @@ O Aprendiz de Conversa reduz a complexidade de compilar bots. Ele permite um flu
 
 O Aprendiz de Conversa do Projeto consiste em um SDK que você adiciona ao bot e um serviço de nuvem que o SDK acessa para aprendizado de máquina.  Atualmente, o acesso ao serviço de nuvem do Aprendiz de Conversa do Projeto exige um convite.  Se você ainda não foi convidado, [solicite um convite](https://aka.ms/conversation-learner-request-invite).  Se você não recebeu um convite, não poderá acessar a API de nuvem.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Nó 8.5.0 ou superior e npm 5.3.0 ou superior. Instalar de [https://nodejs.org](https://nodejs.org).
   

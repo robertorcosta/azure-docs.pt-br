@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Copiar dados para o Data Box Heavy
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 

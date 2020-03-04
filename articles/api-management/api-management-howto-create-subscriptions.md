@@ -25,7 +25,7 @@ Quando você publica APIs por meio do Gerenciamento de API do Azure, é fácil e
 
 Este artigo explica as etapas para criar assinaturas no portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar as etapas neste artigo, os pré-requisitos são da seguinte maneira:
 

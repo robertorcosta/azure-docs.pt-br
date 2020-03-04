@@ -22,7 +22,7 @@ Este artigo explica como implantar o serviço de gerenciamento de certificados d
 > [!NOTE]
 > Para obter mais informações, consulte o [repositório do cofre OPC](https://github.com/Azure/azure-iiot-opc-vault-service)do github.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="install-required-software"></a>Instalar o software necessário
 

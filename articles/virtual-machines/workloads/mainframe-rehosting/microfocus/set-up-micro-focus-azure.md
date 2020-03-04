@@ -29,7 +29,7 @@ Essa configuração usa VMs do Azure que executam a imagem do Windows Server 201
 
 O ambiente de desenvolvimento correspondente para o Enterprise Server é o desenvolvedor corporativo, que é executado no Microsoft Visual Studio 2017 ou posterior, na Comunidade do Visual Studio (gratuito para download) ou eclipse. Este artigo mostra como implantá-lo usando uma máquina virtual do Windows Server 2016 que vem com o Visual Studio 2017 ou posterior instalado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, confira estes pré-requisitos:
 

@@ -23,7 +23,7 @@ Este guia de início rápido mostra como criar um aplicativo de exemplo de dispo
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, você precisará instalar o .NET Core 3.0 no computador de desenvolvimento. Baixe esta versão do SDK do .NET Core para várias plataformas em [Baixar o .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 

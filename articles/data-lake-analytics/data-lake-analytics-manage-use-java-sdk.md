@@ -21,7 +21,7 @@ ms.locfileid: "70813627"
 
 Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando um aplicativo codificado com o SDK do Java do Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * **Java Development Kit (JDK) 8** (usando a versão 1.8 do Java).
 * **IntelliJ** ou outro ambiente de desenvolvimento Java adequado. As instruções neste documento usam o IntelliJ.
 * Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, a **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../active-directory/develop/howto-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois que o aplicativo for criado e a chave for gerada.

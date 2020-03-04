@@ -37,7 +37,7 @@ Neste artigo, você aprenderá a:
 > * Exportar os rótulos
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Os dados que deseja rotular, em arquivos locais ou no Armazenamento do Azure.
 * O conjunto de rótulos que deseja aplicar.

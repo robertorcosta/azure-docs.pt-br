@@ -23,7 +23,7 @@ Docker adiciona isolamento e portabilidade para aplicativos. Por exemplo, você 
 
 Este tutorial instala o **Windows 2016 Datacenter com contêineres** VM (máquina virtual) do Azure Marketplace. Essa VM inclui **Docker 18.09.0**. As etapas a seguir mostram como implantar o contêiner, executá-lo e, em seguida, conecte-se a ele com o emulador 3270.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, confira estes pré-requisitos:
 

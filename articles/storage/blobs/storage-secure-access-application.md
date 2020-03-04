@@ -30,7 +30,7 @@ Na terceira parte da série, você aprenderá a:
 
 O [Armazenamento de Blobs do Azure](../common/storage-introduction.md#blob-storage) fornece um serviço robusto para armazenar arquivos de aplicativos. Este tutorial estende o [tópico anterior][previous-tutorial] para mostrar como proteger o acesso à sua conta de armazenamento de um aplicativo Web. Quando você terminar as imagens são criptografadas e o aplicativo Web usa tokens SAS seguros para acessar as imagens em miniatura.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos][previous-tutorial].
 

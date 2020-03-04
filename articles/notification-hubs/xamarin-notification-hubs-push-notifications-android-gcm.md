@@ -40,7 +40,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Criar um aplicativo Xamarin.Android e conectar-se ao hub de notificação
 > * Enviar notificações por push de teste do portal do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * [Visual Studio com Xamarin] no Windows ou [Visual Studio para Mac] no OS X.

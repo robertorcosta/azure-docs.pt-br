@@ -21,7 +21,7 @@ ms.locfileid: "74774825"
 
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia de início rápido mostra como usar o comando [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) para criar um servidor Banco de Dados do Azure para PostgreSQL usando a CLI do Azure. Além de criar o servidor, o `az postgres up` comando cria um banco de dados de exemplo, um usuário raiz no banco de dados, abre o firewall para serviços do Azure e cria regras de firewall para o computador cliente de padrão. Esses padrões ajudam a acelerar o processo de desenvolvimento.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

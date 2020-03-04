@@ -49,7 +49,7 @@ Configurar o HDInsight para trabalhar com o Data Lake Storage Gen1 usando o Powe
 * Criar o cluster HDInsight com a autenticação para o Data Lake armazenamento Gen1
 * Executar um trabalho de teste no cluster
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

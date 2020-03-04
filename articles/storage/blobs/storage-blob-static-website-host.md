@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar a hospedagem de sites estáticos
 > * Implantar um site Olá, Mundo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

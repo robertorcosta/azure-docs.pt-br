@@ -44,7 +44,7 @@ Para aqueles que desejam aprofundamento após este tutorial, aqui estão alguns 
 * [Documentação do Flask](http://flask.pocoo.org/)
 * [Flask for Dummies – Um guia para iniciantes no Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Vamos analisar as chaves de software e assinatura que você precisará para este tutorial.
 

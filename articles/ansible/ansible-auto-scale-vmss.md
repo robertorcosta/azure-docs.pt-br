@@ -29,7 +29,7 @@ O recurso de ajustar automaticamente o número de instâncias de VM é chamado [
 > * Recuperar informações de configurações de dimensionamento automático 
 > * Desabilitar uma configuração de dimensionamento automático
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 

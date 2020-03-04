@@ -24,7 +24,7 @@ O Ansible pode ser usado para extrair informações de inventário de várias fo
 > * Instalar o Nginx nas máquinas virtuais marcadas
 > * Configurar um inventário dinâmico que inclua os recursos configurados do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

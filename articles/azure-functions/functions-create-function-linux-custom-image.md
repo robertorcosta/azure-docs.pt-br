@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Você pode seguir este tutorial em qualquer computador que execute o Windows, o Mac OS ou o Linux. A realização do tutorial gerará custos de alguns dólares americanos em sua conta do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - O [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1846 ou posterior

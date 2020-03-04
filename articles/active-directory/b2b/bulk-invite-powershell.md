@@ -29,7 +29,7 @@ Se você usar a colaboração B2B do Azure AD (Azure Active Directory) para trab
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Instalar o módulo AzureADPreview mais recente
 

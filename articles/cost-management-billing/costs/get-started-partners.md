@@ -41,7 +41,7 @@ Veja um exemplo que mostra os custos de um só cliente.
 
 Todas as funcionalidades disponíveis no Gerenciamento de Custos do Azure também estão disponíveis nas APIs REST. Use as APIs para automatizar as tarefas de gerenciamento de custos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Como parceiro, o Gerenciamento de Custos do Azure está disponível nativamente apenas para as assinaturas que estão no plano do Azure.
 

@@ -32,7 +32,7 @@ Este tutorial contém quatro lições:
 3. Selecionar fluxos do Smooth Streaming
 4. Selecionar faixas do Smooth Streaming
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 > [!NOTE]
 > A versão de projetos 8.1 da Windows Store e versões anteriores não têm suporte no Visual Studio 2017.  Para saber mais, confira [Direcionamento e compatibilidade da plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
@@ -85,7 +85,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
     | Nome | Valor |
     | --- | --- |
     | Grupo de referências |Windows/Extensions |
-    | Referência |Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ |
+    | Referência |Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Runtime do Microsoft Visual C++ |
 
 1. Clique em **OK**. 
 

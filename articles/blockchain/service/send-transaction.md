@@ -24,7 +24,7 @@ Você usa o Azure Blockchain Development Kit for Ethereum para:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Concluir [Início Rápido: usar o Visual Studio Code para se conectar a uma rede de consórcio do Azure Blockchain Service](connect-vscode.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)

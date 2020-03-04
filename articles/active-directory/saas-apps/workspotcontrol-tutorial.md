@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o Controle do Workspot ao Azure AD (
 
 Para obter mais informações sobre a integração de aplicativo SaaS ao Azure AD, confira [Logon único em aplicativos no Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD ao Workspot Control, você precisa dos seguintes itens:
 

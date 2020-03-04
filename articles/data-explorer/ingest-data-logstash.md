@@ -18,7 +18,7 @@ ms.locfileid: "66494537"
 
 O [Logstash](https://www.elastic.co/products/logstash) é um software livre de pipeline de processamento de dados no lado do servidor que ingere dados de muitas origens simultaneamente, transforma os dados e, depois, envia os dados ao seu "stash" favorito. Neste artigo, você vai enviar esses dados para o Gerenciador de dados do Azure, que é um serviço de exploração de dados rápida e altamente escalonável para dados de log e telemetria. Inicialmente, você criará um mapeamento de tabela e dados em um cluster de teste e, depois, instruirá o Logstash a enviar dados para a tabela e validar os resultados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/), caso ainda não tenha uma, antes de começar.
 * Um [cluster e banco de dados de teste](create-cluster-database-portal.md) do Azure Data Explorer

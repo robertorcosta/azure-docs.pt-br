@@ -34,7 +34,7 @@ Neste tutorial, você irá:
 > [!NOTE]
 > Este tutorial mostra como mover as VMs do Azure de uma região para outra. Se você precisar melhorar a disponibilidade, movendo as VMs em um conjunto de disponibilidade para VMs fixas de zona em uma região diferente, consulte o tutorial [Mover as VMs do Azure para Zonas de Disponibilidade](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Verifique se as VMs do Azure estão na região do Azure a partir da qual você quer mover.
 - Verifique se [há suporte para sua escolha de combinação de região de origem – região de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e tome uma decisão informada sobre a região de destino.

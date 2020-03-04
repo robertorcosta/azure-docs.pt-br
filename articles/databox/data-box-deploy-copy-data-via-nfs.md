@@ -22,11 +22,11 @@ Este tutorial descreve como conectar-se e copiar dados do computador host usando
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 
@@ -148,7 +148,7 @@ Para garantir a integridade dos dados, a soma de verificação é computada em l
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 

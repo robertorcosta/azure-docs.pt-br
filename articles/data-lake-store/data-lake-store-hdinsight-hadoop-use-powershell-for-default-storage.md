@@ -37,7 +37,7 @@ Aqui estão algumas considerações importantes para usar o HDInsight com o Data
 
 Para configurar o HDInsight para trabalhar com Data Lake armazenamento Gen1 usando o PowerShell, siga as instruções nas próximas cinco seções.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

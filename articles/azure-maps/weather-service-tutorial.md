@@ -31,7 +31,7 @@ Neste tutorial, você irá:
 > * Plotar dados de previsão em gráficos.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, primeiro você precisará:
 

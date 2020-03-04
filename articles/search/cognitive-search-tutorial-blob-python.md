@@ -40,7 +40,7 @@ Este tutorial é executado no serviço gratuito, mas o número de transações g
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os serviços, as ferramentas e os dados a seguir são usados neste tutorial. 
 

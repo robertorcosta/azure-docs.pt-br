@@ -44,7 +44,7 @@ Neste tutorial, você cria/atualiza o código para executar as seguintes tarefas
 > * Configurar o hub de notificação para notificações por push do iOS
 > * Enviar notificações por push de teste
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * Versão mais recente do [Xcode][Install Xcode]

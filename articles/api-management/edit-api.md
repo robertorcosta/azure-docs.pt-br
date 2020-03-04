@@ -26,7 +26,7 @@ As etapas neste tutorial mostram como usar o APIM (Gerenciamento de API) para ed
 + Você pode fazer isso adicionando, excluindo ou renomeando operações na instância de APIM. 
 + Você pode editar o swagger da API.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + [Importar e publicar sua primeira API](import-and-publish.md)

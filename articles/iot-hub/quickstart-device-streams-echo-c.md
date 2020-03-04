@@ -40,7 +40,7 @@ O código demonstra o processo de inicialização de um fluxo de dispositivos, a
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa dos pré-requisitos a seguir:
 

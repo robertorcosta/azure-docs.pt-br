@@ -26,7 +26,7 @@ Este é o último tutorial da série: Implantar o Azure Data Box Disk. Neste tut
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box Disk
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se você concluiu o [Tutorial: Devolução do Azure Data Box Disk](data-box-disk-deploy-picked-up.md).
 

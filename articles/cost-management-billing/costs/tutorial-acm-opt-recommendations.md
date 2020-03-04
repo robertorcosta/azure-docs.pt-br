@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Aja em uma recomendação para redimensionar uma máquina virtual para uma opção mais econômica
 > * Verifique a ação para garantir que a máquina virtual foi redimensionada com êxito
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 As recomendações estão disponíveis para uma variedade de escopos e de tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Subscription

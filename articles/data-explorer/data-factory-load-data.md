@@ -36,7 +36,7 @@ Neste artigo, você usa a ferramenta Data Factory Copiar Dados para carregar dad
 * [Oracle](/azure/data-factory/connector-oracle)
 * [Sistema de Arquivos](/azure/data-factory/connector-file-system)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Um cluster e um banco de dados do Azure Data Explorer](create-cluster-database-portal.md).

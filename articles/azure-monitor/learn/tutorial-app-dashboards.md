@@ -28,7 +28,7 @@ Você pode criar vários painéis no portal do Azure que incluam dados de visual
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 

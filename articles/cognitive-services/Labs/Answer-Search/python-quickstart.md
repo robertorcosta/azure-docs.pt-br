@@ -22,7 +22,7 @@ ms.locfileid: "68707074"
 
 O exemplo de Python a seguir cria e envia uma solicitação para obter informações sobre a “Pedra de Gibraltar”.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 

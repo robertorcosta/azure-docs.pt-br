@@ -29,7 +29,7 @@ ms.locfileid: "60877815"
 
 Neste artigo, você aprende sobre como usar a API REST para fazer a autenticação do usuário final com o Armazenamento de Dados do Azure Data Lake Gen1. Para autenticação de serviço a serviço com o Data Lake Storage Gen1 usando a API REST, consulte [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando a API REST](data-lake-store-service-to-service-authenticate-rest-api.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 

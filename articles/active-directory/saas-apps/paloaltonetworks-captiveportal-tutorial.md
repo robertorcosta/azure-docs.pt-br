@@ -37,7 +37,7 @@ Para saber mais sobre a integração de aplicativos de SaaS (software como servi
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para integrar o Azure AD ao Palo Alto Networks – Captive Portal, você precisa dos itens a seguir:
 

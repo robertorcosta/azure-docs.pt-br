@@ -25,7 +25,7 @@ No tutorial anterior, você aprendeu como configurar um dispositivo para se cone
 > * Iniciar o dispositivo
 > * Verificar se o dispositivo está registrado
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de prosseguir, certifique-se de configurar seu dispositivo e o respectivo *Hardware Security Module*, conforme discutido no tutorial [Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Azure Hub IoT](./tutorial-set-up-device.md).
 

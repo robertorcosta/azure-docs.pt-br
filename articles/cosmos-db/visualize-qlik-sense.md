@@ -34,7 +34,7 @@ Este artigo descreve os detalhes da conexão com a API de SQL do Cosmos DB usand
 
 Este artigo descreve os detalhes da conexão com a API de SQL do Cosmos DB usando o conector ODBC.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes recursos:
 

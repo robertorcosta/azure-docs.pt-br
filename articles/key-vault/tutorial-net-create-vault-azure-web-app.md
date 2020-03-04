@@ -37,7 +37,7 @@ Antes de começar, leia [Conceitos básicos do Key Vault](basic-concepts.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Para Windows: [SDK do .NET Core 2.1 ou posterior](https://www.microsoft.com/net/download/windows)
 * Para Mac: [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/)

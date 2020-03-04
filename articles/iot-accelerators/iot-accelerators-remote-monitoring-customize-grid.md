@@ -24,7 +24,7 @@ Este artigo mostra como adicionar uma nova grade a uma página na interface da W
 
 A grade de exemplo deste artigo exibe os dados do serviço que o artigo explicativo [Adicionar um serviço personalizado ao objeto de instruções da Web da aceleração de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md) mostra como adicionar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 

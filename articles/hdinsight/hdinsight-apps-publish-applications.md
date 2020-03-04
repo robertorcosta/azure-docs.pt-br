@@ -25,7 +25,7 @@ Para obter mais informações, consulte estes artigos relacionados ao aplicativo
 * [Instalar aplicativos HDInsight](hdinsight-apps-install-applications.md). Saiba como instalar um aplicativo HDInsight em seus clusters.
 * [Instalar aplicativos HDInsight personalizados](hdinsight-apps-install-custom-applications.md). Saiba como instalar e testar aplicativos HDInsight personalizados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para enviar seu aplicativo personalizado no Marketplace, primeiro [crie e teste seu aplicativo personalizado](hdinsight-apps-install-custom-applications.md).
 
 Também é necessário registrar sua conta de desenvolvedor. Para obter mais informações, consulte [Publish an offer in the Azure Marketplace](../marketplace/marketplace-publishers-guide.md) (Publicar uma oferta no Azure Marketplace) e [Create a Microsoft Developer account](../marketplace/marketplace-publishers-guide.md) (Criar uma conta de Desenvolvedor Microsoft).

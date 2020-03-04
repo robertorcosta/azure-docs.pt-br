@@ -21,7 +21,7 @@ Este artigo mostra como criar e publicar uma função Java no Azure Functions co
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para desenvolver funções usando Java, você deve ter o seguinte instalado:
 

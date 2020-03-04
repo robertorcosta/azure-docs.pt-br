@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 > * Conceder à identidade gerenciada atribuída pelo usuário acesso a um Grupo de Recursos no Azure Resource Manager 
 > * Obtenha um token de acesso usando a identidade gerenciada atribuída pelo usuário e use-o para chamar o Azure Resource Manager 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

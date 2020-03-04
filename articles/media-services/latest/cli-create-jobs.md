@@ -25,7 +25,7 @@ ms.locfileid: "71122386"
 
 Nos Serviços de Mídia v3, ao enviar Trabalhos para processar seus vídeos, você precisa informar os Serviços de Mídia onde encontrar o vídeo de entrada. Uma das opções é especificar uma URL HTTP como uma entrada de trabalho (conforme mostrado neste exemplo). 
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 

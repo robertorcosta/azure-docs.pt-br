@@ -24,14 +24,14 @@ A API de produtor do Kafka permite que os aplicativos enviam fluxos de dados par
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Compreender o código
 > * Compilar e implantar o aplicativo
 > * Executar o aplicativo no cluster
 
 Para obter mais informações sobre as APIs, consulte a documentação do Apache sobre [API de Produtor](https://kafka.apache.org/documentation/#producerapi) e [API de Consumidor](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Apache Kafka no cluster do HDInsight. Para saber como criar o cluster, confira [Primeiros passos com o Apache Kafka no HDInsight](apache-kafka-get-started.md).
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks) ou um equivalente, como o OpenJDK.

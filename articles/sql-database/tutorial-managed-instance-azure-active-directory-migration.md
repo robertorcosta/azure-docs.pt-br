@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 > - Migrar os usuários manualmente para a MI usando a sintaxe ALTER USER
 > - Testar a autenticação com os novos usuários mapeados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, os seguintes pré-requisitos se aplicam:
 

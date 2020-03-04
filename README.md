@@ -14,7 +14,7 @@ Bem-vindo à [documentação](https://docs.microsoft.com/azure) de código-fonte
 
 Contribuir com o código aberto é mais do que apenas as atualizações, mas também nos informar quando há um problema. Para obter mais informações, leia nossas [Diretrizes de contribuição](CONTRIBUTING.md).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Você decidiu contribuir, isso é ótimo! Para contribuir com a documentação, você precisa de algumas ferramentas.
 

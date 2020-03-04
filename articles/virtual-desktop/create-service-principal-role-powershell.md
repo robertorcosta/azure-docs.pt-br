@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a:
 > * Criar uma atribuição de função na Área de Trabalho Virtual do Windows.
 > * Entrar na Área de Trabalho Virtual do Windows usando a entidade de serviço.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de criar entidades de serviço e atribuições de função, você precisará realizar três tarefas:
 

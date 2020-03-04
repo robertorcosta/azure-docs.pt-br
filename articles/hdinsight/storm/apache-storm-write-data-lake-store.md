@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Exibir dados de saída
 > * Parar a topologia
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
 

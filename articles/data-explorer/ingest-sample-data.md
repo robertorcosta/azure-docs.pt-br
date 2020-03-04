@@ -21,7 +21,7 @@ Este artigo mostra como ingerir (carregar) dados de amostra em um banco de dados
 > [!NOTE]
 > Você já terá esses dados se tiver concluído [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [Um cluster de teste e um banco de dados](create-cluster-database-portal.md)
 

@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77445628"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 ou posterior](https://www.python.org/downloads/).

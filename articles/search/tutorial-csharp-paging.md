@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá como:
 > * Estender seu aplicativo com paginação numerada
 > * Estender seu aplicativo com rolagem infinita
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

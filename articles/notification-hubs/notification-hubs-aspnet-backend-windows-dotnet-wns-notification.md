@@ -46,7 +46,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Atualizar o código para o projeto cliente
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial se baseia no hub de notificação e no projeto do Visual Studio que você criou no [Tutorial: Enviar notificações para aplicativos da Plataforma Universal do Windows usando Hubs de Notificação do Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Portanto, conclua-o antes de iniciar este tutorial.
 

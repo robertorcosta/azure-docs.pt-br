@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Terraform**: [Instalar o Terraform e configurar o acesso ao Azure](terraform-install-configure.md).
 - **Par de chaves SSH**: [Criar um par de chaves SSH](/azure/virtual-machines/linux/mac-create-ssh-keys).

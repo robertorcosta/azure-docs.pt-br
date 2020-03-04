@@ -27,7 +27,7 @@ Para configurar a rede, você seguirá as etapas a seguir:
 
 Neste tutorial, você usará um módulo de aplicativo do servidor Web para demonstrar o cenário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, você precisará:
 

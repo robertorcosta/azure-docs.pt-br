@@ -16,7 +16,7 @@ ms.locfileid: "77586675"
 
 No [tutorial anterior](template-tutorial-create-first-template.md), você aprendeu como criar um modelo em branco e implantá-lo. Agora você está pronto para implantar um recurso real. Neste tutorial, você adiciona uma conta de armazenamento. Este tutorial demora cerca de **9 minutos** para ser concluído.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Recomendamos que você conclua o [tutorial introdutório sobre modelos](template-tutorial-create-first-template.md), mas isso não é obrigatório.
 

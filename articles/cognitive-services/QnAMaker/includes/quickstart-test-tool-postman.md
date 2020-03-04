@@ -19,7 +19,7 @@ ms.locfileid: "77112293"
 ---
 Este Início Rápido baseado no Postman fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [**Postman**](https://www.getpostman.com/) mais recente.
 * Você precisará ter

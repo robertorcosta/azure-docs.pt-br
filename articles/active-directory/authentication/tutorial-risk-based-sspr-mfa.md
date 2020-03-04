@@ -40,7 +40,7 @@ Mais informações sobre o Azure AD Identity Protection podem ser encontradas no
 > * Habilitar alterações de senha com base em risco
 > * Habilitar Autenticação Multifator baseada em risco
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Acesso a um locatário do Azure AD ativo com pelo menos uma licença de avaliação do Azure AD Premium P2 atribuída.
 * Uma conta com privilégios de Administrador Global em seu locatário do Azure AD.

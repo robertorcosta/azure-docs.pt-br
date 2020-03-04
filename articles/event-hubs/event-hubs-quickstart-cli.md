@@ -23,7 +23,7 @@ Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um se
 
 Neste início rápido, você criará um hub de eventos usando a CLI do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

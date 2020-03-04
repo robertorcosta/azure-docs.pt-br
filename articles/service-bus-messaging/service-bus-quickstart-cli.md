@@ -21,7 +21,7 @@ Este início rápido descreve como enviar e receber mensagens com o Barramento d
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][free account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

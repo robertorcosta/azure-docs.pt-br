@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="telefnica-iot-integration-setup"></a>Configuração da integração de IoT da Telefónica
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Atualmente, esse recurso adicional de Monitoramento Remoto está em versão prévia. Para sincronizar seus dados de conectividade na solução de monitoramento remoto do Azure, siga estas etapas:
 

@@ -24,7 +24,7 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 1. Escolha [Criar uma assinatura do Azure](https://azure.microsoft.com/free/) se você ainda não tiver uma e entre no [portal do Azure](https://portal.azure.com).
 2. Siga as instruções [neste artigo](devtest-lab-create-lab.md) para criar um laboratório usando o Azure DevTest Labs. Fixe o laboratório em seu painel para que possa localizá-lo facilmente na próxima vez que entrar. O Azure DevTest Labs permite criar recursos no Azure rapidamente, minimizando o desperdício e controlando os custos. Para saber mais sobre o DevTest Labs, confira a [Visão geral](devtest-lab-overview.md). 
 3. Crie uma conta de Armazenamento do Azure no grupo de recursos do laboratório seguindo as instruções no artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Na página **Criar conta de armazenamento**, selecione **Usar existente** para **Grupo de recursos** e selecione o **grupo de recursos do laboratório**. 

@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > * Renderizar vários quadros
 > * Exibir e baixar os arquivos de quadro renderizados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.
 

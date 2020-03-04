@@ -22,7 +22,7 @@ ms.locfileid: "71212482"
 # <a name="configure-microsoft-push-notification-service-mpns-settings-for-a-notification-hub-in-the-azure-portal"></a>Definir as configurações do MPNS (serviço de notificação por push da Microsoft) para um hub de notificação no portal do Azure
 Este artigo mostra como definir as configurações do MPNS (serviço de notificação por push da Microsoft) para um hub de notificação do Azure usando o portal do Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Se você ainda não criou um hub de notificação, crie um agora. Para obter mais informações, consulte [Criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
 
 ## <a name="configure-microsoft-push-notification-service-mpns"></a>Configurar o serviço de notificação por push da Microsoft (MPNS)

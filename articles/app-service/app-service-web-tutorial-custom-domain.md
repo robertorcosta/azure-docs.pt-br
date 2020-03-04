@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Redirecionar a URL padrão para um diretório personalizado
 > * Automatizar o mapeamento de domínio com scripts
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 

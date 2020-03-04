@@ -19,7 +19,7 @@ ms.locfileid: "77526103"
 
 Coloque tudo em funcionamento com a Máquina Virtual de Ciência de Dados do Ubuntu 18.04.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para criar uma Máquina Virtual de Ciência de Dados do Ubuntu 18.04, é necessário ter uma assinatura do Azure. [Experimentar o Azure gratuitamente](https://azure.com/free).
 Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitada para GPU.

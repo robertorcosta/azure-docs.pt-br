@@ -32,7 +32,7 @@ Neste tutorial, você executa as seguintes ações:
 > * Definir uma agenda para o laboratório
 > * Enviar um email de convite para os alunos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Neste tutorial, você configura um laboratório com máquinas virtuais para sua classe. Para configurar um laboratório de sala de aula em uma conta de laboratório, é necessário ser membro de uma destas funções na conta de laboratório: Proprietário, Criador de Laboratório ou Colaborador. A conta que você usou para criar uma conta de laboratório é adicionada automaticamente à função de proprietário. Portanto, você pode usar a conta de usuário usada para criar uma conta de laboratório para criar um laboratório de sala de aula. 
 
 Este é o fluxo de trabalho típico ao usar o Azure Lab Services:

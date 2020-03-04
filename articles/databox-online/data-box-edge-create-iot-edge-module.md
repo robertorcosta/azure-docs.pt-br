@@ -33,14 +33,14 @@ Neste artigo, você aprenderá a:
 Seu dispositivo Data Box Edge pode implantar e executar módulos do IoT Edge. Os módulos do Microsoft Edge são, essencialmente, contêineres do Microsoft Docker que executam uma tarefa específica, por exemplo, ingerir uma mensagem de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, você criará um módulo que copia arquivos de um compartilhamento local para um compartilhamento na nuvem em seu dispositivo do Data Box Edge.
 
 1. Os arquivos são gravados no compartilhamento local em seu dispositivo Data Box Edge.
-2. O gerador de evento de arquivo cria um evento de arquivo para cada arquivo gravado no compartilhamento local. Os eventos de arquivo também são gerados quando um arquivo é modificado. Depois, os eventos de arquivo são enviados ao Hub IoT Edge (no tempo de execução do IoT Edge).
+2. O gerador de evento de arquivo cria um evento de arquivo para cada arquivo gravado no compartilhamento local. Os eventos de arquivo também são gerados quando um arquivo é modificado. Depois, os eventos de arquivo são enviados ao Hub IoT Edge (no runtime do IoT Edge).
 3. O módulo personalizado do IoT Edge processa o evento de arquivo para criar um objeto de evento de arquivo que também contém um caminho relativo para o arquivo. O módulo gera um caminho absoluto usando o caminho relativo do arquivo e copia o arquivo do compartilhamento local para o compartilhamento na nuvem. Em seguida, o módulo exclui o arquivo do compartilhamento local.
 
 ![Como o módulo do Azure IoT Edge funciona no Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Assim que o arquivo chega ao compartilhamento na nuvem, ele é carregado automaticamente em sua conta do Armazenamento do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se você tem:
 
@@ -80,7 +80,7 @@ Um registro de contêiner do Azure é um registro particular do Docker no Azure 
 
     ![Obter chaves de acesso](./media/data-box-edge-create-iot-edge-module/get-access-keys-1.png)
  
-6. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha**. Você usará esses valores mais tarde para publicar a imagem do Docker no registro e adicionar as credenciais de registro ao tempo de execução do Azure IoT Edge.
+6. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha**. Você usará esses valores mais tarde para publicar a imagem do Docker no registro e adicionar as credenciais de registro ao runtime do Azure IoT Edge.
 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto de módulo do IoT Edge
@@ -158,7 +158,7 @@ Crie um modelo de solução de C# que possa ser personalizado com seu próprio c
     }
     ```
 
-5. No **método Init**, o código cria e configura um objeto **ModuleClient** . Esse objeto permite que o módulo se conecte ao tempo de execução do Azure IoT Edge local usando o protocolo MQTT para enviar e receber mensagens. A cadeia de caracteres de conexão utilizada no método Init é fornecida ao módulo pelo tempo de execução do IoT Edge. O código registra um retorno de chamada FileCopy para receber mensagens de um hub IoT Edge por meio do ponto de extremidade **input1**. Substitua o **método Init** pelo código a seguir.
+5. No **método Init**, o código cria e configura um objeto **ModuleClient** . Esse objeto permite que o módulo se conecte ao runtime do Azure IoT Edge local usando o protocolo MQTT para enviar e receber mensagens. A cadeia de caracteres de conexão utilizada no método Init é fornecida ao módulo pelo runtime do IoT Edge. O código registra um retorno de chamada FileCopy para receber mensagens de um hub IoT Edge por meio do ponto de extremidade **input1**. Substitua o **método Init** pelo código a seguir.
 
     ```
     /// <summary>

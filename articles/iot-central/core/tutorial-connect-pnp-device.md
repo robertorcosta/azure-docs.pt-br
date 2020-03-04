@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Execute o código do dispositivo no Windows e veja ele se conectar ao aplicativo do IoT Central.
 > * Exiba a telemetria simulada enviada pelo dispositivo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o início rápido [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) para criar um aplicativo do IoT Central usando o modelo de **App personalizado > Aplicativo personalizado**.
 

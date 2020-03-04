@@ -22,7 +22,7 @@ ms.locfileid: "77471917"
 
 Neste guia de início rápido, você executa um aplicativo do lado do serviço e, usando fluxos de dispositivos, configura a comunicação entre um dispositivo e um serviço. Os fluxos de dispositivos do Hub IoT do Azure permitem que aplicativos de serviço e de dispositivo se comuniquem de maneira segura e consoante com o firewall. Durante a versão prévia pública, o SDK do Node.js dá suporte somente a fluxos de dispositivos no lado do serviço. Consequentemente, este início rápido contém apenas instruções para executar o aplicativo no lado do serviço.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * A conclusão de [Comunicação com aplicativos de dispositivo no C por meio de fluxos de dispositivos do Hub IoT](./quickstart-device-streams-echo-c.md) ou [Comunicação com aplicativos de dispositivo em C# por meio de fluxos de dispositivos do Hub IoT](./quickstart-device-streams-echo-csharp.md).
 

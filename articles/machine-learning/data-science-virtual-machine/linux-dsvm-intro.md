@@ -19,7 +19,7 @@ ms.locfileid: "77526018"
 
 Inicie o funcionamento usando a Máquina Virtual de Ciência de Dados com base no CentOS.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para criar uma Máquina Virtual de Ciência de Dados do CentOS, é necessário ter uma **assinatura do Azure**. [Criar uma assinatura grátis](https://azure.com/free).
 

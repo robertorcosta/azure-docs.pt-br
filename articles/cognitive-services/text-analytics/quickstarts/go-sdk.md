@@ -24,7 +24,7 @@ ms.locfileid: "77560772"
 > [!NOTE]
 > Este início rápido só se aplica à Análise de Texto versão 2.1. Atualmente, uma biblioteca de clientes v3 para o Go não está disponível.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão mais recente do [Go](https://golang.org/dl/)

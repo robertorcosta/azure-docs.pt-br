@@ -23,7 +23,7 @@ ms.locfileid: "77471258"
 
 Neste início rápido, você envia telemetria a um Hub IoT do Azure de um aplicativo Android em execução em um dispositivo simulado ou físico. O Hub IoT é um serviço do Azure que permite a ingestão de grandes volumes de telemetria de seus dispositivos IoT pela nuvem para processamento ou armazenamento. Este início rápido usa um aplicativo do Android previamente escrito para enviar a telemetria. A telemetria será lida no Hub IoT usando o Azure Cloud Shell. Antes de executar o aplicativo, crie um hub IoT e registre um dispositivo com o hub.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

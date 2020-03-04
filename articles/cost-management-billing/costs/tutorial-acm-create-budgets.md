@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 > * Criar e editar orçamentos com o PowerShell
 > * Criar um orçamento com um modelo do Azure Resource Manager
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Há suporte para orçamentos de diversos tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os orçamentos, você precisará, pelo menos, de acesso de leitura em sua conta do Azure.
 

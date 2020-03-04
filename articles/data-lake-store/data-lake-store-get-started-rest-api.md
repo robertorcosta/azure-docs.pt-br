@@ -29,7 +29,7 @@ ms.locfileid: "60877092"
 
 Neste artigo, você aprenderá a executar operações de gerenciamento de conta no Azure Data Lake armazenamento Gen1 usando a API REST. As operações de gerenciamento de conta incluem a criação de uma conta do Data Lake Storage Gen1, a exclusão de uma conta do Data Lake Storage Gen1 etc. Para obter instruções sobre como executar operações do sistema de arquivos no Data Lake Storage Gen1 usando a API REST, consulte [Operações do sistema de arquivos no Data Lake Storage Gen1 usando a API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **[cURL](https://curl.haxx.se/)** . Este artigo usa cURL para demonstrar como fazer chamadas à API REST em uma conta do Data Lake Storage Gen1.

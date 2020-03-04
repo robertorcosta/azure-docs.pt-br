@@ -26,7 +26,7 @@ Nós examinamos a maioria das infraestruturas de teste populares e escolhemos o 
 - **Todos os casos de teste são escritos em linguagem Go.** A maioria dos desenvolvedores que usa o Terraform é de desenvolvedores Go. Se você for um desenvolvedor Go, não precisará aprender outra linguagem de programação para usar o Terratest. Além disso, as únicas dependências necessárias para executar casos de teste no Terratest são Go e Terraform.
 - **A infraestrutura é altamente extensível**. Você pode estender funções adicionais sobre o Terratest, incluindo recursos específicos do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este artigo prático não depende de plataforma. Você pode executar os exemplos de código que usamos neste artigo no Windows, no Linux ou no MacOS. 
 

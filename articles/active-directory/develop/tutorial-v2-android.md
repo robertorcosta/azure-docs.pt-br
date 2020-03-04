@@ -58,7 +58,7 @@ Esta amostra usa a MSAL (Biblioteca de Autenticação da Microsoft) para Android
 
  A MSAL automaticamente renovará tokens, fornecerá o SSO (logon único) entre outros aplicativos no dispositivo e ajudará a gerenciar as contas.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 * Este tutorial exige o Android Studio versão 3.5+
 

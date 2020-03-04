@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa ter experiência com o [Docker Compose](https://docs.docker.com/compose/).
 

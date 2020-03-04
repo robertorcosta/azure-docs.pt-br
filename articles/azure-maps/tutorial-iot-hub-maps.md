@@ -83,7 +83,7 @@ A figura a seguir representa a área de cerca geográfica realçada em azul. A r
   ![Rota de delimitação geográfica](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

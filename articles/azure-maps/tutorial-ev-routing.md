@@ -35,7 +35,7 @@ Neste tutorial, você irá:
 > * Localizar e visualizar uma rota para o posto de recarga de veículos elétricos mais próximo de acordo com o tempo de condução.
 
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para concluir este tutorial, primeiro, é necessário criar uma conta dos Azure Mapas e obter a chave primária (chave de assinatura). 
 

@@ -22,7 +22,7 @@ ms.locfileid: "71212504"
 # <a name="configure-google-firebase-cloud-messaging-fcm-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurar as configurações do FCM (Google firebase Cloud Messaging) para um hub de notificação no portal do Azure
 Este artigo mostra como configurar as configurações do FCM (Google firebase Cloud Messaging) para um hub de notificação do Azure usando o portal do Azure.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Se você ainda não criou um hub de notificação, crie um agora. Para obter mais informações, consulte [Criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
 
 ## <a name="configure-google-firebase-cloud-messaging-fcm"></a>Configurar o Google firebase Cloud Messaging (FCM)

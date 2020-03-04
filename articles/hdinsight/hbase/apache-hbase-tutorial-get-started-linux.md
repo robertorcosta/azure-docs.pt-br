@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Usar APIs de REST do HBase usando Curl
 > * Verificar o status do cluster
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

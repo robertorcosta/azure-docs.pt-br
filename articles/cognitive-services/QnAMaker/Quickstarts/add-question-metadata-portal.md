@@ -33,7 +33,7 @@ Depois que os metadados forem adicionados a um conjunto de QnA, o aplicativo cli
 * Receber todas as respostas, mas pós-processá-las dependendo dos metadados de cada resposta.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Concluir o [início rápido anterior](./create-publish-knowledge-base.md)
 

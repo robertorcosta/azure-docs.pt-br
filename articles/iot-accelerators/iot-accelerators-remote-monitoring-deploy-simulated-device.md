@@ -35,7 +35,7 @@ Para concluir as etapas neste guia de instruções, é necessário ter uma assin
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este guia de instruções, é necessário ter:
 

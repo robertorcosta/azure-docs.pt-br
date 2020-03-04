@@ -23,7 +23,7 @@ ms.locfileid: "71266466"
 
 Este artigo fornece scripts de exemplo para tarefas comuns. Para cada exemplo, atualize as variáveis com os valores apropriados e, em seguida, execute o comando.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * CLI do Azure. Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter as etapas.
 
@@ -90,7 +90,7 @@ az hdinsight create \
     --cluster-users-group-dns $groupDNS
 ```
 
-### <a name="create-a-kafka-cluster-with-disk-encryptionkafkaapache-kafka-byokmd"></a>Criar um cluster Kafka com a [criptografia de disco](kafka/apache-kafka-byok.md)
+### <a name="create-a-kafka-cluster-with-disk-encryption"></a>Criar um cluster Kafka com a [criptografia de disco](kafka/apache-kafka-byok.md)
 
 ```azurecli
 export clusterName=CLUSTERNAME

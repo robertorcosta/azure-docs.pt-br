@@ -53,7 +53,7 @@ Com esses valores, o Azure AD remove o valor de **#** e envia o valor correto `h
 > [!Note]
 > Use apenas o aplicativo da galeria.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 

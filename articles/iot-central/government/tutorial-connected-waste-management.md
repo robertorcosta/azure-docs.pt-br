@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar trabalhos
 > * Personalizar a identidade visual do aplicativo usando white labeling
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 -  Uma assinatura do Azure é recomendada. Opcionalmente, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).

@@ -40,7 +40,7 @@ Neste tutorial, você irá:
 > * Examinar o script completo.
 > * Implantar pacotes do SSIS.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

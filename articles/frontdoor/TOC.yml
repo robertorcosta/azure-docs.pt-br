@@ -4,7 +4,8 @@
   items:
     - name: O que é o Azure Front Door Service?
       href: front-door-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
+  expanded: true
   items:
     - name: Criar um Front Door
       href: quickstart-create-front-door.md
@@ -44,7 +45,7 @@
       href: front-door-routing-architecture.md
     - name: Métodos de roteamento de tráfego
       href: front-door-routing-methods.md
-    - name: Regravação de URL
+    - name: Reconfiguração de URL
       href: front-door-url-rewrite.md
     - name: Redirecionamento de URL
       href: front-door-url-redirect.md

@@ -25,7 +25,7 @@ Este artigo mostra como definir as configurações de push do Baidu Cloud para u
 > [!IMPORTANT]
 > Este tutorial foi preterido. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Se você ainda não criou um hub de notificação, crie um agora. Para obter mais informações, consulte [Criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
 
 ## <a name="configure-baidu-cloud-push"></a>Configurar o push da nuvem Baidu

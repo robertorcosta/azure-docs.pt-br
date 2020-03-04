@@ -37,7 +37,7 @@ Este tutorial explica como o Cloudyn dá suporte ao Azure e a RIs (Instâncias R
 
 Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Você deve ter uma conta do Azure.
 - Você precisa ter um registro de avaliação ou uma assinatura paga do Cloudyn.

@@ -25,7 +25,7 @@ A API do etcd no Azure Cosmos DB permite que você use o Azure Cosmos DB como ar
 
 Para saber mais sobre a API do etcd no Azure Cosmos DB, veja o artigo de [visão geral](etcd-api-introduction.md). Esse artigo mostra como usar o [Mecanismo de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (aks-engine) para inicializar um cluster Kubernetes no Azure que usa o [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/), em vez de um etcd instalado e configurado localmente. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Instale a [versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest) da CLI do Azure. Você pode baixar a CLI do Azure específica para seu sistema operacional e instalar.
 

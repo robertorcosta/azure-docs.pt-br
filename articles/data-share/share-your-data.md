@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > * Habilitar uma agenda de instantâneo para seu Data Share. 
 > * Adicionar destinatários a seu Data Share. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * O endereço de email de logon do Azure de seus destinatários (usar o alias de email não funcionará).

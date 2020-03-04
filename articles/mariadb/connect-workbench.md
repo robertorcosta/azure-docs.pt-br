@@ -18,7 +18,7 @@ ms.locfileid: "74772054"
 
 Este início rápido demonstra como se conectar a um Banco de Dados do Azure para MariaDB usando o MySQL Workbench. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este guia de início rápido usa os recursos que são criados em um destes guias como ponto de partida:
 

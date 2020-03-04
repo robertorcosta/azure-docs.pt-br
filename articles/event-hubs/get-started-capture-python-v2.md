@@ -37,7 +37,7 @@ Neste início rápido, você:
 > * Enviar dados para o hub de eventos usando um script Python.
 > * Ler e processar arquivos da Captura dos Hubs de Eventos usando outro script Python.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Python 2.7 e 3.5 ou posterior, com PIP instalado e atualizado.  
 - Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.  

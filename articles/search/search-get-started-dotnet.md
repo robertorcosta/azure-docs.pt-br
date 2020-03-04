@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 > [!NOTE]
 > O código de demonstração deste artigo usa os métodos síncronos do SDK do .NET da Pesquisa Cognitiva do Azure para manter a simplicidade. No entanto, para cenários de produção, recomendamos usar os métodos assíncronos em seus próprios aplicativos para mantê-los escalonáveis e dinâmicos. Por exemplo, você pode usar `CreateAsync` e `DeleteAsync` em vez de `Create` e `Delete`.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os serviços e as ferramentas a seguir são necessários para este início rápido.
 

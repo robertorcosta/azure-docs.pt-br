@@ -35,7 +35,7 @@ ms.locfileid: "67171636"
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação pode ser executada. Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
 
-    ![Pré-requisitos](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. Em **Configuração do MySQL**, crie credenciais para fazer logon na instância do servidor MySQL instalada.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)

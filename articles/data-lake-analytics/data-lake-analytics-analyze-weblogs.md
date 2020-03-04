@@ -19,7 +19,7 @@ ms.locfileid: "71672872"
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar logs de site usando o Azure Data Lake Analytics
 Saiba como analisar os logs do site usando a Análise Data Lake, principalmente para descobrir quais referenciadores resultaram em erros ao tentar visitar o site.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * **Visual Studio 2015 ou Visual Studio 2013**.
 * **[Ferramentas do Data Lake para Visual Studio](https://aka.ms/adltoolsvs)** .
 

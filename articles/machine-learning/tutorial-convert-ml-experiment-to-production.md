@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Criar scripts Python para tarefas relacionadas
 > * Criar testes de unidade
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Gere o [modelo MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) e use os notebooks `experimentation/Diabetes Ridge Regression Training.ipynb` e `experimentation/Diabetes Ridge Regression Scoring.ipynb`. Esses notebooks são usados como um exemplo de conversão de experimentação para produção.
 - Instale o nbconvert. Siga apenas as instruções de instalação da seção __Como instalar o nbconvert__ na página [Instalação](https://nbconvert.readthedocs.io/en/latest/install.html).

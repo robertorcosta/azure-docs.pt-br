@@ -19,7 +19,7 @@ ms.locfileid: "77202438"
 
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Este artigo mostra como configurar o Ansible para algumas das distribuições do Linux mais comuns. Para instalar o Ansible em outras distribuições, ajuste os pacotes instalados para sua plataforma específica. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

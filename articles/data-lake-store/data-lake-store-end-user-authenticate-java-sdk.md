@@ -29,7 +29,7 @@ ms.locfileid: "60878094"
 
 Neste artigo, você aprende como usar o SDK do Java para fazer autenticação de usuário final com Azure Data Lake Storage Gen1. Para autenticação de serviço a serviço com Data Lake Storage Gen1 usando SDK do Java, consulte [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando Java](data-lake-store-service-to-service-authenticate-java.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Criar um aplicativo "Nativo" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação de usuário final com Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).

@@ -31,7 +31,7 @@ Com locais nomeados, você pode rotular os intervalos de endereços IP confiáve
 
 Neste início rápido, você aprenderá a configurar locais nomeados no seu ambiente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, você precisa de:
 

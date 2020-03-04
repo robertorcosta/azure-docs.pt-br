@@ -41,7 +41,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma chave da Configuração de Aplicativos que referencia um valor armazenado no Key Vault.
 > * Acessar o valor dessa chave por meio de um aplicativo Web ASP.NET Core.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 

@@ -37,7 +37,7 @@ Neste tutorial, você irá:
 > * Adicionar itens ao contêiner.
 > * Execute operações básicas nos itens, no contêiner e no banco de dados.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Verifique se você tem os seguintes recursos:
 

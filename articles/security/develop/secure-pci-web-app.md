@@ -94,7 +94,7 @@ Por exemplo, a injeção de SQL na saída do modelo de ameaça anterior é atenu
 Os desenvolvedores melhoram a segurança geral do sistema, reduzindo cada uma das ameaças na saída do modelo de ameaça.
 
 ## <a name="deployment"></a>Implantação
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 Para colocar o aplicativo em funcionamento, você precisa instalar essas ferramentas:
 
 - Um editor de código para modificar e exibir o código do aplicativo. [Visual Studio Code](https://code.visualstudio.com/) é uma opção de código-fonte aberto.
@@ -257,7 +257,7 @@ Crie um cofre para a organização no qual armazenar chaves e mantenha a respons
 - Todas as chaves e segredos no Key Vault têm datas de validade
 - Todas as chaves no Key Vault são protegidas pelo HSM [tipo de chave = chave RSA de 2048 bits protegida por HSM]
 - Todos os usuários/identidades recebem as permissões mínimas necessárias usando o RBAC (controle de acesso baseado em função)
-- Aplicativos não compartilham um Key Vault, exceto se confiam uns nos outros e precisam ter acesso aos mesmos segredos em tempo de execução
+- Aplicativos não compartilham um Key Vault, exceto se confiam uns nos outros e precisam ter acesso aos mesmos segredos em runtime
 - Os Logs de diagnóstico para Key Vault são habilitados com um período de retenção de pelo menos 365 dias.
 - Operações criptográficas permitidas para chaves são restritas às necessárias
 

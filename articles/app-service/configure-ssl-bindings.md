@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > * Impor o TLS 1.1/1.2
 > * Automatizar o gerenciamento de TLS com scripts
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este guia de instruções, é necessário ter:
 

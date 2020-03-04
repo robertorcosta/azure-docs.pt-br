@@ -19,7 +19,7 @@ O modelo de solução do Ansible para Azure destina-se a configurar uma instânc
 - **CLI (interface de linha de comando) do Azure 2.0** – a [CLI do Azure 2.0](/cli/azure/?view=azure-cli-latest) é a experiência da linha de comando multiplataforma da Microsoft para gerenciar os recursos do Azure. 
 - **Identidades gerenciadas para recursos do Azure** – o recurso [Identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) aborda a questão de manter as credenciais de aplicativo de nuvem seguras.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 

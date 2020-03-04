@@ -23,7 +23,7 @@ Você faz o download do aplicativo no Power BI Desktop. Você pode usar o aplica
 
 No momento, o Aplicativo Power BI do Gerenciamento de Custos do Azure dá suporte apenas a clientes com um [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma [licença de Power BI Pro](/power-bi/service-self-service-signup-for-power-bi) para instalar e usar o aplicativo
 - Para se conectar aos dados, você deve usar uma conta de [Administrador Corporativo](../manage/understand-ea-roles.md)

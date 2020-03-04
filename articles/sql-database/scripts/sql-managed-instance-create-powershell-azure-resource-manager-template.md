@@ -38,7 +38,7 @@ Os comandos do PowerShell do Azure podem começar a implantação usando o model
 
 O nome da instância, o nome de usuário do administrador do SQL, a rede virtual/sub-rede e a ordenação não podem ser alterados posteriormente. As outras propriedades da instância podem ser alteradas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este exemplo pressupõe que você tenha [criado um ambiente de rede válido](../sql-database-managed-instance-create-vnet-subnet.md) ou [modificado a VNet existente](../sql-database-managed-instance-configure-vnet-subnet.md) para sua Instância Gerenciada. A amostra usa os cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) e [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork), portanto, verifique se você instalou os seguintes módulos do PowerShell:
 

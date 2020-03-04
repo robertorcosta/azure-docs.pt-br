@@ -32,7 +32,7 @@ Para obter detalhes completos sobre o controle de acesso do Key Vault, confira [
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um cofre de chaves. Você pode usar um cofre de chaves existente ou criar um seguindo as etapas em um destes inícios rápidos:
    - [Criar um cofre de chaves com a CLI do Azure](quick-create-cli.md)

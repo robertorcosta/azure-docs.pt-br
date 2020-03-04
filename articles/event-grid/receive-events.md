@@ -22,7 +22,7 @@ Este artigo descreve como [validar um ponto de extremidade HTTP](security-authen
 > [!NOTE]
 > É **fortemente** recomendado que você use um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md) ao disparar uma função do Azure com a Grade de Eventos. O uso de um gatilho WebHook genérico aqui serve apenas como demonstração.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 É necessário ter um aplicativo de funções com uma função disparada por HTTP.
 

@@ -30,7 +30,7 @@ Neste tutorial:
 
 Se você quiser usar a CLI do Azure localmente, precisará ter a versão da CLI do Azure **2.0.46** ou posterior instalada. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="complete-the-previous-tutorials"></a>Conclua os tutoriais anteriores
 

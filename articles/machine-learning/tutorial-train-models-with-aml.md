@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 >[!NOTE]
 > O código neste artigo foi testado com a versão 1.0.65 do [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Conclua o [Tutorial: Introdução à criação do seu primeiro experimento do Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md) para:
     * Criar um workspace

@@ -32,7 +32,7 @@ Saiba como a usar o SDK do Java do Azure Data Lake Storage Gen1 para executar op
 
 É possível acessar os documentos da API do SDK do Java para Data Lake Storage Gen1 nos [documentos de API do Java do Azure Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Java Development Kit (JDK 7 ou superior, usando Java versão 1.7 ou superior)
 * Conta do Data Lake Storage Gen1. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Este tutorial usa o Maven para compilação e dependências de projeto. Embora seja possível compilar sem usar um sistema de compilação como Maven ou Gradle, com esses sistemas é muito mais fácil gerenciar dependências.

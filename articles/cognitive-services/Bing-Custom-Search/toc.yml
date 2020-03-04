@@ -8,7 +8,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar uma instância de pesquisa personalizada
@@ -21,18 +21,14 @@
               href: call-endpoint-csharp.md
             - name: Usando Java
               href: call-endpoint-java.md
-            - name: Usando o Node.js
+            - name: Usando Node.js
               href: call-endpoint-nodejs.md
             - name: Usando Python
               href: call-endpoint-python.md
         - name: .
           items:
-            - name: 'Usando C#'
-              href: sdk-csharp-quick-start.md
-            - name: Usando Python
-              href: sdk-python-quickstart.md
-            - name: Usando Java
-              href: sdk-java-quickstart.md
+            - name: Bibliotecas de cliente da Pesquisa Personalizada do Bing
+              href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: Compilar uma página da Web de pesquisa personalizada

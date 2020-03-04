@@ -41,7 +41,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar a transformação e a transferência de dados
 
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de configurar uma função de computação em seu dispositivo do Data Box Edge, certifique-se de que:
 
@@ -74,7 +74,7 @@ Para configurar a computação no Data Box Edge, você criará um recurso do Hub
     
     ![Introdução à computação](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
-    Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um tempo de execução do IoT Edge também está em execução no dispositivo do IoT Edge.
+    Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge.
 
     No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
 
@@ -211,7 +211,7 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 
         ![A caixa Opções de Criação de Contêiner](./media/data-box-edge-deploy-configure-compute-advanced/add-module-5.png) 
  
-    4. Se necessário, defina as configurações avançadas de tempo de execução do Edge e, em seguida, clique em **Avançar**.
+    4. Se necessário, defina as configurações avançadas de runtime do Edge e, em seguida, clique em **Avançar**.
 
         ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute-advanced/add-module-6.png)
  
@@ -231,7 +231,7 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 
     ![A página Definir Módulos](./media/data-box-edge-deploy-configure-compute-advanced/add-module-9.png)
  
-    Essa ação inicia a implantação do módulo. Depois que a implantação for concluída, o **Status de tempo de execução** do módulo será **em execução**.
+    Essa ação inicia a implantação do módulo. Depois que a implantação for concluída, o **Status de runtime** do módulo será **em execução**.
 
     ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute-advanced/add-module-10.png)
 

@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Explorar os resultados do experimento.
 > * Implantar o melhor modelo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um workspace do Azure Machine Learning da edição Enterprise. Caso não tenha um workspace, [crie um workspace da edição Enterprise](how-to-manage-workspace.md). 
     * O machine learning automatizado no Azure Machine Learning Studio só está disponível para workspaces da edição Enterprise. 

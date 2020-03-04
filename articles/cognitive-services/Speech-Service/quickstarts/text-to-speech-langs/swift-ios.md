@@ -21,7 +21,7 @@ ms.locfileid: "74975883"
 
 Neste artigo, você aprenderá a criar um aplicativo iOS em Swift usando o SDK de Fala dos Serviços Cognitivos para sintetizar fala com base em texto.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, aqui está uma lista de pré-requisitos:
 

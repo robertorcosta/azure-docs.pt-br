@@ -21,7 +21,7 @@ Neste artigo, você aprende a realizar as seguintes tarefas:
 > * Executar o módulo do Terraform usando um arquivo do Docker.
 > * Executar o módulo do Terraform nativamente no Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - **Visual Studio Code**: [Baixar o Visual Studio Code](https://code.visualstudio.com/download) para sua plataforma.

@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Usar arquivos de composição XDF
 > * Converter XDF em CSV
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster de serviços de Machine Learning do Azure HDInsight. Acesse [Criar clusters do Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e, para **Tipo de cluster**, selecione **Serviços de ML**.
 

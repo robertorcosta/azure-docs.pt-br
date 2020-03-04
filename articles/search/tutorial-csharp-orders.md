@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Filtrar os resultados conforme uma distância de um ponto geográfico
 > * Ordenar os resultados conforme um perfil de pontuação
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

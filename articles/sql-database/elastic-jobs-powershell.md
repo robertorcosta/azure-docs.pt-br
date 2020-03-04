@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá as etapas necessárias para executar uma consul
 > * Iniciar a execução de um trabalho
 > * Monitorar um trabalho
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 A versão atualizada dos trabalhos de Banco de Dados Elástico tem um novo conjunto de cmdlets do PowerShell para uso durante a migração. Esses novos cmdlets transferem todas as suas credenciais de trabalho existentes, destinos (incluindo bancos de dados, servidores, coleções personalizadas), gatilhos de trabalho, agendas de trabalho, conteúdos de trabalhos e trabalhos de failover para um novo agente de Trabalho Elástico.
 

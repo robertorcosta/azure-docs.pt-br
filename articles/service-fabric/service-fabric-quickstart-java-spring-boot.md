@@ -17,7 +17,7 @@ ms.locfileid: "77121491"
 
 Neste início rápido, você implantará um aplicativo Java Spring Boot no Azure Service Fabric usando ferramentas de linha de comando conhecidas no Linux ou no macOS. O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 

@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar tópicos Kafka
 > * Executar o código
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster Kafka no HDInsight 3.6. Para saber como criar um Kafka no cluster HDInsight, consulte o documento [Iniciar com Apache Kafka no HDInsight](apache-kafka-get-started.md).
 

@@ -30,7 +30,7 @@ Crie um aplicativo de console Java que cria, carrega e consulta um índice de pe
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Usamos os seguintes programas de software e serviços para criar e testar este início rápido:
 

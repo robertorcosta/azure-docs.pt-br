@@ -17,7 +17,7 @@ ms.locfileid: "77605328"
 
 Neste início rápido, você configurará o Azure Dev Spaces com um cluster do Kubernetes gerenciado e usará um aplicativo Java no Visual Studio Code para desenvolver e depurar o código em contêineres de maneira iterativa. O Azure Dev Spaces permite depurar e testar todos os componentes do aplicativo no AKS (Serviço de Kubernetes do Azure) com a configuração mínima do computador de desenvolvimento. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [JDK (Java Development Kit) 1.8.0+](https://aka.ms/azure-jdks).

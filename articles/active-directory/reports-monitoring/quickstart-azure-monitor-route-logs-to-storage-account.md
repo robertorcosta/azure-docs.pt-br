@@ -28,7 +28,7 @@ ms.locfileid: "74007856"
 
 Neste tutorial, você aprende a definir as configurações de diagnóstico do Azure Monitor para encaminhar logs do Azure AD (Active Directory) para uma conta de armazenamento do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para usar esse recurso, você precisa de:
 

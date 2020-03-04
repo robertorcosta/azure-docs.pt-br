@@ -42,7 +42,7 @@ O artigo mostra dois exemplos de código:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copiar blobs entre duas contas do AMS  
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Duas contas dos Serviços de Mídia. Confira o artigo [Como criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
 
@@ -160,7 +160,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copiar blobs de uma conta de armazenamento para uma conta do AMS 
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 - Uma conta de armazenamento do qual você deseja copiar blobs.
 - Uma conta do AMS para qual você deseja copiar blobs.

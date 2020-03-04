@@ -26,7 +26,7 @@ ms.locfileid: "71266068"
 
 Você pode usar inúmeros recursos do Azure para implantar bancos de dados críticos como o SAP HANA nas VMs do Azure. Este artigo fornece diretrizes sobre como alcançar disponibilidade para instâncias do SAP HANA hospedadas em VMs do Azure. O artigo descreve vários cenários que você pode implementar usando a infraestrutura do Azure para aumentar a disponibilidade do SAP HANA no Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este artigo pressupõe que você está familiarizado com infraestruturas como serviço (IaaS) no Azure, incluindo: 
 

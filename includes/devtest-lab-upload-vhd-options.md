@@ -11,7 +11,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 06/18/2019
 ms.locfileid: "67172517"
 ---
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 Para concluir este tutorial, você deve ter um arquivo VHD carregado para a conta de armazenamento associada ao laboratório em que você está criando a imagem personalizada. Selecione qualquer um dos links a seguir para carregar um arquivo VHD:
 
 - [Carregar usando o utilitário de linha de comando AzCopy](../articles/lab-services/devtest-lab-upload-vhd-using-azcopy.md)

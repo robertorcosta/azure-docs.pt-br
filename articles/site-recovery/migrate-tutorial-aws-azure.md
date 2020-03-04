@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 > [!NOTE]
 > Agora, você pode usar o serviço de Migrações para Azure para migrar instâncias da AWS para o Azure. [Saiba mais](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Assegure-se de que as VMs que você quer migrar estejam executando uma versão do sistema operacional com suporte. Versões com suporte incluem: 
   - Windows Server 2016 
   - Windows Server 2012 R2

@@ -21,7 +21,7 @@ Um *ponto de extremidade do servidor* representa uma localização específica e
 
 Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivos do Azure de ponta a ponta.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para criar um ponto de extremidade do servidor, primeiro você deve garantir que os seguintes critérios sejam atendidos: 
 - O servidor tem o agente de Sincronização de Arquivo do Azure instalado e foi registrado. As instruções para instalar o Agente de Sincronização de Arquivos do Azure podem ser encontradas no artigo [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md). 
 - Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter detalhes sobre como implantar um Serviço de Sincronização de Armazenamento. 

@@ -27,7 +27,7 @@ Aqui, você aprenderá os conceitos principais do serviço Lote e estará pronto
 
 ![Visão geral do fluxo de trabalho do Lote do Azure](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Uma conta do **Lote do Azure** e uma conta do **Armazenamento do Azure** vinculada. Use o [portal do Azure](quick-create-portal.md) ou a [CLI](quick-create-cli.md) para criar essas contas.

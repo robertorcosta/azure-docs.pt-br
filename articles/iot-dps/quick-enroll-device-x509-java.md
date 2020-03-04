@@ -22,7 +22,7 @@ ms.locfileid: "77604909"
 
 Neste início rápido, você usará o Java para registrar de maneira programática um grupo de dispositivos simulados X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure. Os dispositivos são registrados em uma instância do serviço de provisionamento com a criação de um grupo de registro ou um registro individual. Este início rápido mostra como criar os dois tipos de registros usando o SDK do Serviço Java e um aplicativo Java de exemplo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 - Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

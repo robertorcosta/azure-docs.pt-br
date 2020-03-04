@@ -26,7 +26,7 @@ Este artigo explica como adicionar um pacote R aos Serviços de Machine Learning
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Instalar o [R](https://www.r-project.org) e o [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) em seu computador local. R está disponível para Windows, macOS e Linux. Este artigo pressupõe que você está usando o Windows.
 

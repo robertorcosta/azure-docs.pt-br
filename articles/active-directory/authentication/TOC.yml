@@ -13,6 +13,8 @@
       href: tutorial-enable-azure-mfa.md
     - name: Habilitar o write-back de senha para local
       href: tutorial-enable-sspr-writeback.md
+    - name: Configurar listas de senhas banidas personalizadas
+      href: tutorial-configure-custom-password-protection.md
     - name: Integrar o Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Conceitos
@@ -40,13 +42,13 @@
       items:
         - name: Como funciona o MFA
           href: concept-mfa-howitworks.md
-        - name: Dê uma licença aos seus usuários
+        - name: Autorize seus usuários
           href: concept-mfa-licensing.md
         - name: Gerenciar um Provedor de Autenticação
           href: concept-mfa-authprovider.md
         - name: Diretrizes de segurança
           href: multi-factor-authentication-security-best-practices.md
-        - name: Residência de dados
+        - name: Residência de dadosResidência de dados
           href: concept-mfa-data-residency.md
         - name: MFA para Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
@@ -62,7 +64,7 @@
       href: concept-resilient-controls.md
 - name: Guias de instruções
   items:
-    - name: Redefinição de senha por autoatendimento
+    - name: Redefinição de senha de autoatendimento
       items:
         - name: Guia de implantação
           href: howto-sspr-deployment.md
@@ -90,7 +92,7 @@
               href: howto-mfa-adfs.md
         - name: Integração do RADIUS
           items:
-            - name: Usar servidores de política de rede existentes
+            - name: Usar servidores de políticas de rede existentes
               href: howto-mfa-nps-extension.md
             - name: Configuração avançada de extensão do NPS
               href: howto-mfa-nps-extension-advanced.md
@@ -108,8 +110,6 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Proteção de senha do Azure AD
       items:
-        - name: Configurar a lista de senhas proibidas
-          href: howto-password-ban-bad-configure.md
         - name: Integração local
           items:
             - name: Implantar proteção de senha do Azure AD
@@ -203,7 +203,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Solucionar problemas
       items:
-        - name: Solucionar problemas do SSPR
+        - name: SSP de solução de problemas
           href: active-directory-passwords-troubleshoot.md
         - name: PERGUNTAS FREQUENTES SOBRE O SSPR
           href: active-directory-passwords-faq.md

@@ -32,7 +32,7 @@ Este tutorial mostra como:
 > - Moderar a transcrição com o serviço de moderação de texto
 > - Adicionar a transcrição moderada à análise de vídeo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Inscreva-se no site da [ferramenta de Análise do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e crie marcas personalizadas. Confira [Usar marcas](Review-Tool-User-Guide/tags.md) se precisar de ajuda com esta etapa.
 

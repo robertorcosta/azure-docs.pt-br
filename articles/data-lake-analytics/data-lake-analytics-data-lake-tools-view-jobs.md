@@ -19,7 +19,7 @@ O serviço Azure Data Lake Analytics arquiva trabalhos enviados em um repositór
 
 Por padrão, o serviço Data Lake Analytics arquiva os trabalhos por 30 dias. O período de validade pode ser configurado do Portal do Azure, configurando a política de expiração personalizada. Você não poderá acessar as informações sobre o trabalho após a expiração. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Veja [Pré-requisitos das Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Abrir o Navegador de Trabalhos
@@ -163,7 +163,7 @@ Detalhes do Trabalho mostra as informações detalhadas do trabalho, incluindo o
     Você pode encontrar as saídas de compilação de trabalho armazenadas no repositório de consultas por meio de Recursos. Por exemplo, você pode encontrar aqui o "algebra.xml", que é usado para mostrar o Grafo do Trabalho, os assemblies que você registrou, etc.
 * Modo de exibição de execução de vértice
   
-    Mostra detalhes de execução de vértices. O Perfil de Trabalho arquiva o todos os logs de execução de vértices, como o total de dados lidos/gravados, tempo de execução, estado, etc. Por meio desse modo de exibição, você pode obter mais detalhes sobre como um trabalho foi executado. Para obter mais informações, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+    Mostra detalhes de execução de vértices. O Perfil de Trabalho arquiva o todos os logs de execução de vértices, como o total de dados lidos/gravados, runtime, estado, etc. Por meio desse modo de exibição, você pode obter mais detalhes sobre como um trabalho foi executado. Para obter mais informações, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para registrar em log as informações de diagnóstico, veja [Acessando os logs de diagnóstico para o Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)

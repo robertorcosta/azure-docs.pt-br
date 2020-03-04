@@ -63,7 +63,7 @@ Você pode executar consultas usando o Data Explorer no Portal do Azure, por mei
 Para saber mais sobre consultas SQL, confira:
 * [Consulta e sintaxe SQL](sql-query-getting-started.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tenho nenhum deles? Conclua o [início rápido de 5 minutos](create-cosmosdb-resources-portal.md).
 

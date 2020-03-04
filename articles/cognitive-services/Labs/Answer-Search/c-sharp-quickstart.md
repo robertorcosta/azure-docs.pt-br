@@ -22,7 +22,7 @@ ms.locfileid: "68705490"
 
 O exemplo em C# a seguir cria e envia uma consulta para obter informações sobre a terceira lei de cálculo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará ter o [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/) para executar esse código no Windows. (O Community Edition gratuito funcionará.)
 

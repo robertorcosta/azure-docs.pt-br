@@ -29,7 +29,7 @@ ms.locfileid: "66243720"
 
 Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticação do usuário final com o Armazenamento de Dados do Azure Data Lake Gen1. Para a autenticação serviço a serviço com Data Lake armazenamento Gen1 usando o SDK do .NET, consulte [autenticação de serviço a serviço com Data Lake armazenamento Gen1 usando o SDK do .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * **Visual Studio 2013 ou superior**. As instruções abaixo usam o Visual Studio de 2019.
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).

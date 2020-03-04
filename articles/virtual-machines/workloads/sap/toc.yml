@@ -62,7 +62,7 @@
           href: hana-failover-procedure.md
     - name: Solucionar problemas e monitorar
       items:
-        - name: Monitorar a HLI
+        - name: Monitorando HLI
           href: troubleshooting-monitoring.md
         - name: Monitoramento e solução de problemas no lado do HANA
           href: hana-monitor-troubleshoot.md
@@ -76,7 +76,7 @@
           href: os-backup-type-ii-skus.md
         - name: Atualização do sistema operacional para grandes instâncias do HANA
           href: os-upgrade-hana-large-instance.md
-        - name: Configurar o servidor SMT para o SUSE Linux
+        - name: Configurando o servidor SMT para o SUSE Linux
           href: hana-setup-smt.md
         - name: Migração de VM do HLI para o Azure
           href: hana-large-instance-virtual-machine-migration.md
@@ -112,8 +112,6 @@
       href: sap-hana-backup-guide.md
     - name: Backup de nível de arquivo do SAP HANA
       href: sap-hana-backup-file-level.md
-    - name: Backups de instantâneos de armazenamento do SAP HANA
-      href: sap-hana-backup-storage-snapshots.md
 - name: SAP NetWeaver e Business One em Máquinas Virtuais do Azure
   items:
     - name: Lista de verificação de planejamento e implantação de carga de trabalho do SAP
@@ -159,7 +157,7 @@
       href: cal-ides-erp6-erp7-sp3-sql.md
     - name: Conector SAP LaMa para o Azure
       href: lama-installation.md
-    - name: Alta disponibilidade (HA) no Windows e Linux
+    - name: Alta disponibilidade (AD) no Windows e Linux
       items:
         - name: Visão geral
           href: sap-high-availability-guide-start.md
@@ -173,9 +171,9 @@
               href: sap-ha-availability-zones.md
             - name: HA no Windows com disco compartilhado para a instância do (A)SCS
               href: sap-high-availability-guide-wsfc-shared-disk.md
-            - name: HA no Windows com o compartilhamento de arquivo SOFS para a Instância do (A)SCS
+            - name: HA no Windows com o compartilhamento de arquivos SOFS para a Instância do (A)SCS
               href: sap-high-availability-guide-wsfc-file-share.md
-            - name: HA para o SAP NetWeaver no Windows com o Azure NetApp Files (SMB)
+            - name: Alta disponibilidade para o SAP NetWeaver no Windows com o Azure NetApp Files (SMB)
               href: high-availability-guide-windows-netapp-files-smb.md
             - name: HA no SUSE Linux para a instância do (A)SCS
               href: high-availability-guide-suse.md
@@ -189,7 +187,7 @@
           items:
             - name: Windows com disco compartilhado para a instância do (A)SCS
               href: sap-high-availability-infrastructure-wsfc-shared-disk.md
-            - name: Windows com compartilhamento de arquivo SOFS para a instância do (A)SCS
+            - name: Windows com compartilhamento de arquivos SOFS para a instância do (A)SCS
               href: sap-high-availability-infrastructure-wsfc-file-share.md
             - name: Alta disponibilidade do NFS em VMs do Azure no SLES
               href: high-availability-guide-suse-nfs.md
@@ -205,9 +203,9 @@
           items:
             - name: Windows com disco compartilhado para a instância do (A)SCS
               href: sap-high-availability-installation-wsfc-shared-disk.md
-            - name: Windows com compartilhamento de arquivo SOFS para a instância do (A)SCS
+            - name: Windows com compartilhamento de arquivos SOFS para a instância do (A)SCS
               href: sap-high-availability-installation-wsfc-file-share.md
-            - name: HA para o SAP NetWeaver no Windows com o Azure NetApp Files (SMB)
+            - name: Alta disponibilidade para o SAP NetWeaver no Windows com o Azure NetApp Files (SMB)
               href: high-availability-guide-windows-netapp-files-smb.md
             - name: SUSE Linux com NFS para a instância do (A)SCS
               href: high-availability-guide-suse.md
@@ -221,7 +219,7 @@
           items:
             - name: Windows com disco compartilhado para a instância do (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
-            - name: Windows com compartilhamento de arquivo SOFS para a instância do (A)SCS
+            - name: Windows com compartilhamento de arquivos SOFS para a instância do (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
             - name: SLES com SIDs múltiplos do Pacemaker para uma instância do A(SCS)
               href: high-availability-guide-suse-multi-sid.md

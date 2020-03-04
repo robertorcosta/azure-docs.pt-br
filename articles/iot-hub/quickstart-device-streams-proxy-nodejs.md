@@ -22,7 +22,7 @@ ms.locfileid: "77470676"
 
 Neste guia de início rápido, você permite que o tráfego de SSH (Secure Shell) e de protocolo RDP seja enviado ao dispositivo por meio de um fluxo de dispositivos. Os fluxos de dispositivos do Hub IoT do Azure permitem que aplicativos de serviço e de dispositivo se comuniquem de maneira segura e consoante com o firewall. Este guia de início rápido descreve a execução de um aplicativo de proxy Node.js executado no lado do serviço. Durante a versão prévia pública, o SDK do Node.js dá suporte somente a fluxos de dispositivos no lado do serviço. Consequentemente, este início rápido contém instruções para executar somente o aplicativo proxy local do serviço.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * A conclusão de [Habilitar o SSH e o RDP em fluxos de dispositivos do Hub IoT usando um aplicativo proxy do C](./quickstart-device-streams-proxy-c.md) ou [Habilitar SSH e protocolo RDP em fluxos de dispositivos do Hub IoT usando um aplicativo proxy do C#](./quickstart-device-streams-proxy-csharp.md).
 

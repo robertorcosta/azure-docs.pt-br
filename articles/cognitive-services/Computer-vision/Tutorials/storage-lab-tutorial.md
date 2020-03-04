@@ -33,7 +33,7 @@ Este tutorial mostra como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ou posterior, com as cargas de trabalho "ASP.NET e desenvolvimento para a Web" e "Desenvolvimento do Azure" instaladas.
 - Uma conta do Armazenamento do Azure com um contêiner de blobs configurado para armazenamento de imagens (siga o [Exercício 1 do Laboratório do Armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) caso precise de ajuda com esta etapa).

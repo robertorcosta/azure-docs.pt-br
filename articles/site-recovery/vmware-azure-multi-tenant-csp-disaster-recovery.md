@@ -22,7 +22,7 @@ Com o [Azure Site Recovery](site-recovery-overview.md), como parceiros, você po
 
 Este artigo descreve como você como um parceiro pode criar e gerenciar assinaturas de locatários por meio do CSP, para um cenário de replicação do VMware multilocatário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a replicação do VMware, você precisa fazer o seguinte:
 

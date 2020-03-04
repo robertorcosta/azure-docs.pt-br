@@ -29,7 +29,7 @@ Esse artigo fornece:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [SDK do Azure HDInsight para Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
 

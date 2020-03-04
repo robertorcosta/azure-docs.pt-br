@@ -47,7 +47,7 @@ Neste tutorial, você executará as seguintes tarefas:
 > * Enviar notificações marcadas
 > * Executar o aplicativo e gerar notificações
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o [Tutorial: Enviar notificações aos aplicativos da Plataforma Universal do Windows usando os Hubs de Notificação do Azure][get-started] antes de iniciar este tutorial.  
 

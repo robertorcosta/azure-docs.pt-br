@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Ler dos Hubs de Eventos para Kafka
 > * Gravar nos Hubs de Eventos para o Kafka
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial, verifique se você possui:
 -   Assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/).

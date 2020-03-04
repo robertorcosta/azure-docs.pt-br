@@ -30,7 +30,7 @@ Você pode executar esse exemplo como um bloco de anotações do Jupyter em [MyB
 O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) com anotações e tratamentos de erro adicionais.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.x ou 3.x](https://www.python.org/)
 * A [PIL (Biblioteca de Imagens Python)](https://pillow.readthedocs.io/en/stable/index.html)

@@ -28,7 +28,7 @@ ms.locfileid: "68989688"
 
 Neste início rápido, você aprenderá a baixar um arquivo CSV dos logs de auditoria do seu locatário nas últimas 24 horas. É possível baixar até 250.000 registros do portal do Azure. Os registros são classificados por mais recentes; por padrão, você obterá os 250.000 registros mais recentes. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa de:
 

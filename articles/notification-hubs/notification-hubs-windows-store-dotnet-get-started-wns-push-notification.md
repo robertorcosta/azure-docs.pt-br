@@ -39,7 +39,7 @@ Siga estas etapas:
 > * Criar um aplicativo de exemplo do Windows
 > * Enviar notificações de teste
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Microsoft Visual Studio 2017 ou posterior. Os exemplos neste tutorial usam o [Visual Studio 2019](https://www.visualstudio.com/products).

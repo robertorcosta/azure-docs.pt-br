@@ -37,7 +37,7 @@ Você vai:
 > * Examinar o pipeline de CI/CD do Azure Pipelines
 > * Limpar recursos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Acesso ao GitHub ou a um repositório Git externo que contenha .NET, Java, PHP, Node.js, Python ou código da Web estático.

@@ -28,7 +28,7 @@ Neste guia de início rápido, você adiciona um modelo de dispositivo a uma pla
 * Responde a comandos como ativar e desativar.
 * Relata propriedades genéricas de dispositivo como a versão de firmware e o número de série.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o início rápido [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) para criar um aplicativo do IoT Central usando o modelo de **App personalizado > Aplicativo personalizado**.
 

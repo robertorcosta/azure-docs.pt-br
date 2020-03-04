@@ -36,7 +36,7 @@ Você pode realizar toda a operação de atualização do certificado SSL para o
 >[!NOTE]
 >Para saber mais sobre os certificados usados pelo AD FS, confira [Noções básicas sobre os certificados usados pelo AD FS](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Farm do AD FS**: certifique-se de que seu farm do AD FS seja baseado no Windows Server 2012 R2 ou posterior.
 * **Azure AD Connect**: certifique-se de que a versão do Azure AD Connect seja 1.1.553.0 ou posterior. Você usará a tarefa **Atualizar certificado SSL do AD FS**.

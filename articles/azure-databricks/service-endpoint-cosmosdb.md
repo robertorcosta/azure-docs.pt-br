@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá a:
 > * Criar um cluster do Azure Databricks
 > * Consultar o Cosmos DB de um notebook do Azure Databricks
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, faça o seguinte:
 

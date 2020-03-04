@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Definir as propriedades do modelo como _IsFacetable_
 > * Adicionar navegação de faceta ao seu aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

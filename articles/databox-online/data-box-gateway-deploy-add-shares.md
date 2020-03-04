@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Conectar-se para compartilhar
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de adicionar compartilhamentos ao Data Box Gateway, verifique se:
 

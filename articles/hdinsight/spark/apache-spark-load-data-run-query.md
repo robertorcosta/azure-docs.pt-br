@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá como:
 > * Criar um dataframe usando um arquivo CSV
 > * Executar consultas no dataframe
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Um cluster do Apache Spark no HDInsight. Veja [Criar um cluster do Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 

@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar trabalhos.
 > * Personalizar a identidade visual do seu aplicativo usando white labeling.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

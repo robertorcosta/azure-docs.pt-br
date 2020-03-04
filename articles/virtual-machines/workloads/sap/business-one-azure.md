@@ -31,7 +31,7 @@ O Business One dá suporte para dois bancos de dados diferentes:
 
 Com relação ao SQL Server, aplicam-se as considerações básicas de implantação, conforme documentadas na [implantação do DBMS de Máquinas Virtuais do Microsoft Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide). para SAP HANA, as considerações são mencionadas neste documento.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para usar este guia, você precisa ter um conhecimento básico dos seguintes componentes do Azure:
 
 - [Máquinas Virtuais do Microsoft Azure no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)

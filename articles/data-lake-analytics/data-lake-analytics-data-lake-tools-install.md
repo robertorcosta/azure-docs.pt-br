@@ -20,7 +20,7 @@ ms.locfileid: "70914062"
 
 Saiba como usar o Visual Studio para criar contas de Azure Data Lake Analytics. Você pode definir trabalhos no [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos para o serviço de data Lake Analytics. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Visual Studio**: Todas as edições, exceto Express, têm suporte.
 

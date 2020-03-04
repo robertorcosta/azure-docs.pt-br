@@ -27,7 +27,7 @@ Este guia mostra como gerenciar a configuração de protocolos e cifras para uma
 
 ![Gerenciar protocolos e cifras no APIM](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir as etapas deste artigo, você precisa ter:
 

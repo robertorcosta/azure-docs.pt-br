@@ -15,7 +15,7 @@
         - name: Oferta de máquina virtual do autor
           href: ./cloud-partner-portal-publish-virtual-machine.md
           items:
-            - name: Pré-requisitos
+            - name: Prerequisites
               href: './cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm'
             - name: Registro da conta de desenvolvedor Microsoft
               href: ./cloud-partner-portal-dev-center-accounts-registration.md

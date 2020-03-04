@@ -25,7 +25,7 @@ Ao registrar um aplicativo na Microsoft Identity Platform, talvez você queira q
 
 Neste início rápido, você aprenderá a modificar a configuração do aplicativo para alterar quem, ou que contas, pode acessá-lo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, atenda aos seguintes pré-requisitos:
 

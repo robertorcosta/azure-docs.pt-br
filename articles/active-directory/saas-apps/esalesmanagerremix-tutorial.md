@@ -35,7 +35,7 @@ Ao integrar o E Sales Manager Remix ao Microsoft Azure Active Directory, você o
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD ao E Sales Manager Remix, você precisará dos seguintes itens:
 

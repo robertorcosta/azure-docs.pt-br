@@ -23,7 +23,7 @@ Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um se
 
 Neste início rápido, você cria um hub de eventos usando o Azure PowerShell.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -25,7 +25,7 @@ ms.locfileid: "74896113"
 
 O script de CLI do Azure neste artigo mostra como criar um Localizador de Streaming e recuperas as URLs de Streaming. 
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 

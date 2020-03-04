@@ -24,7 +24,7 @@ Este artigo mostra como adicionar um novo painel a uma página de dashboard na i
 
 O painel de exemplo neste artigo é exibido na página do dashboard existente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 

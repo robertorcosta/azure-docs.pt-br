@@ -29,7 +29,7 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Executar um failback para devolver as operações do hub IoT para a localização primária. 
 > * Confirmar se o hub está sendo executado corretamente no local certo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -19,7 +19,7 @@ ms.locfileid: "61447005"
 
 Este guia prático mostra como implantar o acelerador de solução de monitoramento remoto. Implante a solução usando a CLI. Você também pode implantar a solução usando a interface do usuário baseada na web em azureiotsolutions.com, para saber mais sobre essa opção, consulte a [implantar o Acelerador de solução de monitoramento remoto](quickstart-remote-monitoring-deploy.md) guia de início rápido.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para implantar o acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
@@ -52,7 +52,7 @@ Há várias opções para configurar o processo de implantação ao implantar o 
 | Opção | Valores | DESCRIÇÃO |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Uma implantação _básica_ destina-se a testes e demonstrações, e implanta todos os microsserviços em uma única máquina virtual. Uma implementação _padrão_ é destinada à produção, ela implanta os micros serviços em várias máquinas virtuais. Uma implantação _local_ configura um contêiner Docker para executar os microsserviços na sua máquina local e usa os serviços de nuvem do Azure, como armazenamento e o Cosmos DB. |
-| Tempo de execução | `dotnet`, `java` | Seleciona a implementação de linguagem dos microsserviços. |
+| Runtime | `dotnet`, `java` | Seleciona a implementação de linguagem dos microsserviços. |
 
 Para saber como usar a opção de implantação local, consulte [Executando a solução de monitoramento remoto localmente](iot-accelerators-remote-monitoring-deploy-local.md).
 

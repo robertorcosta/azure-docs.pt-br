@@ -26,7 +26,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Importar dados com o AzCopy
 > * Migrar da API de Tabela (versão prévia) para a API de Tabela 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Aumentar a taxa de transferência:** a duração da sua migração de dados depende da taxa de transferência que você configurar para um contêiner individual ou um conjunto de contêineres. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, consulte Níveis de desempenho e tipos de preço no Azure Cosmos DB.
 

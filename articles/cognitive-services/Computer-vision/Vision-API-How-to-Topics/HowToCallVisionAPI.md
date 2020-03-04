@@ -25,7 +25,7 @@ Este artigo demonstra como chamar a API da Pesquisa Visual Computacional usando 
 - Como obter marcas, uma descrição e categorias
 - Como obter informações específicas do domínio ou "celebridades"
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma URL de imagem ou um caminho para uma imagem armazenada localmente
 - Métodos de entrada compatíveis: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem

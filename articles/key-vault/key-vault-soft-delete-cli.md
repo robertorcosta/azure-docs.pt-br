@@ -22,7 +22,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 - Suporte à exclusão reversível de cofres de chaves
 - Suporte à exclusão reversível de objetos do cofre de chaves, chaves, segredos e certificados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - CLI do Azure – se essa configuração não existir para o seu ambiente, veja [Gerenciar Key Vault usando a CLI do Azure](key-vault-manage-with-cli2.md).
 

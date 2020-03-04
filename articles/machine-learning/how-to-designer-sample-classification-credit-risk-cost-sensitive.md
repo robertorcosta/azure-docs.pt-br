@@ -1,7 +1,7 @@
 ---
 title: 'Designer: exemplo de previsão do risco de crédito'
 titleSuffix: Azure Machine Learning
-description: Crie um classificador e use scripts personalizados do Python para prever o risco de crédito usando o designer do Azure Machine Learning.
+description: Criar um classificador e usar scripts personalizados do Python para prever o risco de crédito usando o designer do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 02/02/2020
 ms.locfileid: "76964593"
 ---
-# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Crie um classificador e use scripts do Python para prever o risco de crédito usando o designer do Azure Machine Learning
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Criar um classificador e usar scripts do Python para prever o risco de crédito usando o designer do Azure Machine Learning
 
 **Amostra 4 do designer (versão prévia)**
 
@@ -27,11 +27,11 @@ Este artigo mostra como criar um pipeline complexo de aprendizado de máquina us
 
 Esta amostra treina um classificador para prever o risco de crédito usando informações de pedido de crédito, como histórico de crédito, idade e número de cartões de crédito. No entanto, você pode aplicar os conceitos deste artigo para resolver os próprios problemas de aprendizado de máquina.
 
-Este é o grafo concluído deste pipeline:
+Este é o grafo completo deste pipeline:
 
 [![Grafo do pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -60,7 +60,7 @@ Este é o grafo do pipeline:
 
 Comece usando o módulo **Editor de Metadados** para adicionar nomes de colunas e substituir os nomes de colunas padrão por nomes mais significativos, obtidos na descrição do conjunto de dados no site do UCI. Forneça os novos nomes de colunas como valores separados por vírgula no campo do nome da **Nova coluna** do **Editor de Metadados**.
 
-Em seguida, gere os conjuntos de treinamento e teste usados para desenvolver o modelo de previsão de risco. Divida o conjunto de dados original em conjuntos de treinamento e teste do mesmo tamanho usando o módulo **Dividir Dados**. Para criar conjuntos de tamanho igual, defina a opção **Fração de linhas no primeiro conjunto de dados de saída** como 0,7.
+Em seguida, gere os conjuntos de treinamento e teste usados para desenvolver o modelo de previsão de risco. Divida o conjunto de dados original em conjuntos de treinamento e de teste do mesmo tamanho usando o módulo **Dividir Dados**. Para criar conjuntos de tamanho igual, defina a opção **Fração de linhas no primeiro conjunto de dados de saída** como 0,7.
 
 ### <a name="generate-the-new-dataset"></a>Gerar o novo conjunto de dados
 
@@ -69,7 +69,7 @@ Como o custo de subestimação do risco é alto, defina o custo de classificaç�
 - Para casos de alto risco classificados incorretamente como de baixo risco: 5
 - Para casos de baixo risco classificados incorretamente como de alto risco: 1
 
-Para refletir essa função de custo, gere um novo conjunto de dados. No novo conjunto de dados, cada exemplo de alto risco é replicado cinco vezes, mas o número de exemplos de baixo risco não é alterado. Divida os dados em conjuntos de dados de treinamento e teste antes da replicação para impedir que a mesma linha apareça em ambos os conjuntos.
+Para refletir essa função de custo, gere um novo conjunto de dados. No novo conjunto de dados, cada exemplo de alto risco é replicado cinco vezes, mas o número de exemplos de baixo risco não é alterado. Divida os dados em conjuntos de dados de treinamento e de teste antes da replicação para impedir que a mesma linha apareça em ambos os conjuntos.
 
 Para replicar os dados de alto risco, coloque este código do Python em um módulo **Executar Script do Python**:
 
@@ -85,7 +85,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-O módulo **Executar Script do Python** replica os conjuntos de dados de treinamento e teste.
+O módulo **Executar Script do Python** replica os conjuntos de dados de treinamento e de teste.
 
 ### <a name="feature-engineering"></a>Engenharia de recursos
 
@@ -106,7 +106,7 @@ Esta amostra usa o fluxo de trabalho de ciência de dados padrão para criar, tr
 
 1. Inicialize os algoritmos de aprendizado usando **Computador de Vetor de Suporte de Duas Classes** e **Árvore de Decisão Aumentada de Duas Classes**.
 1. Use o módulo **Treinar Modelo** para aplicar o algoritmo aos dados e criar o modelo real.
-1. Use o módulo **Pontuar Modelo** para produzir pontuações usando os exemplos de teste.
+1. Use o módulo **Pontuar Modelo** para criar pontuações usando os exemplos de teste.
 
 O diagrama a seguir mostra uma parte desse pipeline, na qual os conjuntos de treinamento original e replicado são usados para treinar dois modelos de SVM diferentes. O módulo **Treinar Modelo** está conectado ao conjunto de treinamento, e o módulo **Pontuar Modelo** está conectado ao conjunto de teste.
 
@@ -116,11 +116,11 @@ No estágio de avaliação do pipeline, você calculará a precisão de cada um 
 
 O módulo **Avaliar Modelo** pode calcular as métricas de desempenho para até dois modelos pontuados. Portanto, você pode usar uma instância de **Avaliar Modelo** para avaliar os dois modelos de SVM e outra instância de **Avaliar Modelo** para avaliar os dois modelos de Árvore de Decisão Aumentada.
 
-Observe que o conjunto de dados de teste replicado é usado como a entrada de **Pontuar Modelo**. Em outras palavras, as pontuações de precisão final incluem o custo da classificação incorreta dos rótulos.
+Observe que o conjunto de dados de teste replicado é usado como a entrada do módulo **Pontuar Modelo**. Em outras palavras, as pontuações de precisão final incluem o custo da classificação incorreta dos rótulos.
 
 ## <a name="combine-multiple-results"></a>Combinar vários resultados
 
-O módulo **Avaliar Modelo** produz uma tabela com uma só linha que contém várias métricas. Para criar um só conjunto de resultados de precisão, primeiro usamos **Adicionar Linhas** para combinar os resultados em uma só tabela. Em seguida, usamos o seguinte script do Python no módulo **Executar Script do Python** para adicionar o nome do modelo e a abordagem de treinamento a cada linha na tabela de resultados:
+O módulo **Avaliar Modelo** cria uma tabela com apenas uma linha que contém várias métricas. Para criar somente um conjunto de resultados de precisão, primeiro usamos **Adicionar Linhas** para combinar os resultados em apenas uma tabela. Em seguida, usamos o seguinte script do Python no módulo **Executar Script do Python** para adicionar o nome do modelo e a abordagem de treinamento a cada linha na tabela de resultados:
 
 ```Python
 import pandas as pd
@@ -142,7 +142,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Resultados
 
-Para ver os resultados do pipeline, clique com o botão direito do mouse na saída Visualizar do último módulo **Selecionar Colunas no Conjunto de Dados**.
+Para ver os resultados do pipeline, clique com o botão direito do mouse em Visualizar saída do último módulo **Selecionar Colunas no Conjunto de Dados**.
 
 ![Visualizar saída](media/how-to-designer-sample-classification-credit-risk-cost-sensitive/sample4-lastselect-1225.png)
 
@@ -162,9 +162,9 @@ Com base nesses resultados, você poderá ver que a melhor precisão é fornecid
 
 Explore as outras amostras disponíveis para o designer:
 
-- [Amostra 1: regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Amostra 2: regressão: comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Amostra 3: classificação com seleção de recursos: previsão de receita](how-to-designer-sample-classification-predict-income.md)
-- [Amostra 5: classificação: prever a rotatividade](how-to-designer-sample-classification-churn.md)
-- [Amostra 6: classificação: prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
-- [Amostra 7: classificação de textos: conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)
+- [Amostra 1 – Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 2 – Regressão: Comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 3 – Classificação com seleção de recursos: Previsão de receita](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 5 – Classificação: Prever a rotatividade](how-to-designer-sample-classification-churn.md)
+- [Amostra 6 – Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7 – Classificação de textos: Conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)

@@ -27,7 +27,7 @@ ms.locfileid: "77049962"
 
 Neste início rápido, você usará a experiência simplificada do Azure DevOps Projects para configurar um pipeline de CI (integração contínua) e CD (entrega contínua) para o seu aplicativo Java no Azure Pipelines. Use o Azure DevOps Projects para configurar tudo o que você precisa para desenvolver, implantar e monitorar seu aplicativo. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - Uma conta e uma organização do [Azure DevOps](https://azure.microsoft.com/services/devops/).

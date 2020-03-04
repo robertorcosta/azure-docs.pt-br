@@ -21,7 +21,7 @@ O ML Services no Azure HDInsight permite que os scripts R usem Apache Spark e Ap
 
 Neste início rápido, você aprende como executar um script R com o console de R que demonstra o uso do Spark para cálculos de R distribuídos. Você vai definir um contexto de computação para executar cálculos localmente em um nó de borda e distribuídos entre os nós no cluster HDInsight.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster**.
 

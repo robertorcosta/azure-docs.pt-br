@@ -24,7 +24,7 @@ Este artigo mostra como adicionar uma nova página na interface do usuário web 
 
 Outros guias de instruções ampliam esse cenário para adicionar mais recursos para a página que você adicionar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 

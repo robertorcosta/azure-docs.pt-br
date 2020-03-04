@@ -23,7 +23,7 @@ ms.locfileid: "74978791"
 
 Use este Início Rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo Go envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em Go, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
 * [Binários do Go](https://golang.org/dl/)

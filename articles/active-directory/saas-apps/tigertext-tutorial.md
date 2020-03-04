@@ -34,7 +34,7 @@ A integração do TigerText Secure Messenger ao Azure AD oferece os seguintes be
 
 Para obter detalhes sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD ao TigerText Secure Messenger, você precisa dos seguintes itens:
 

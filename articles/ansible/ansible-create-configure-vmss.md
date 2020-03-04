@@ -25,7 +25,7 @@ ms.locfileid: "74156539"
 > * Configurar um conjunto de dimensionamento
 > * Dimensionar o conjunto de dimensionamento aumentando as instâncias da VM 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

@@ -27,7 +27,7 @@ Extensão de VM de Diagnóstico de Desempenho do Azure ajuda a coletar dados de 
 > [!NOTE]
 > Se você quer executar o diagnóstico na sua VM do portal do Azure para VMs não clássicas, é recomendável usar a nova experiência. Para obter mais informações, consulte [Diagnóstico de Desempenho para máquinas virtuais do Azure](performance-diagnostics.md) 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Esta extensão pode ser instalada no Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. Também pode ser instalada no Windows 8.1 e no Windows 10.
 

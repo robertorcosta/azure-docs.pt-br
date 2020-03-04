@@ -50,7 +50,7 @@ Qualquer que seja o caso, garanta que os nomes do compartilhamento e das pastas,
 
 ::: zone target = "docs"
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 

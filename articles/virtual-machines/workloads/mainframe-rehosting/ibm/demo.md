@@ -27,7 +27,7 @@ Este artigo mostra como configurar uma instância do ADCD em um ambiente zD & T 
 
 Como zD & T, ADCDs estão disponíveis apenas para clientes e parceiros da IBM e são exclusivamente para fins de desenvolvimento e teste. Eles não devem ser usados para ambientes de produção. Vários pacotes de instalação IBM estão disponíveis para download por meio do [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) ou [IBM Partnerworld](https://www.ibm.com/partnerworld/public).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

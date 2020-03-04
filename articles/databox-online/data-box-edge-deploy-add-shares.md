@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Conectar-se ao compartilhamento
 
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de adicionar compartilhamentos ao Data Box Edge, verifique se:
 
@@ -52,7 +52,7 @@ Para criar um compartilhamento, siga o procedimento a seguir:
 
 3. No painel **Adicionar compartilhamento**, siga o procedimento a seguir:
 
-     a. Na caixa **Nome**, forneça um nome exclusivo para seu compartilhamento.  
+    a. Na caixa **Nome**, forneça um nome exclusivo para seu compartilhamento.  
     O nome do compartilhamento pode ter apenas letras minúsculas, números e hifens. Ele deve entre 3 e 63 caracteres e começar com uma letra ou um número. Hifens devem ser precedidos e seguidos por uma letra ou um número.
     
     b. Escolha um **Tipo** para o compartilhamento.  

@@ -28,7 +28,7 @@ Neste tutorial, você irá:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Criar uma conta do Azure Data Lake Storage Gen2.
 

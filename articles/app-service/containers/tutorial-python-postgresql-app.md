@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Você pode seguir as etapas deste artigo no macOS, no Linux ou no Windows. As etapas são semelhantes na maioria dos casos, embora as diferenças não sejam detalhadas neste tutorial. A maioria dos exemplos abaixo usa uma janela de terminal `bash` no Linux. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 

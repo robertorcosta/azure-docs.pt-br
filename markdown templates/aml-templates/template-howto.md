@@ -11,7 +11,7 @@ author: your-github-account-name
 ms.date: 04/10/2018
 ms.openlocfilehash: 1367f09fa9cac3a5d3a23a1192ada49f16976125
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61487793"
@@ -23,7 +23,7 @@ Orientação aqui: https://review.docs.microsoft.com/help/contribute/contribute-
 
 1º parágrafo fornece a principal intenção do artigo em frases curtas 1 ou 2. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para seguir este guia de instruções, você precisa:
 - [Uma conta de aprendizado de máquina](template-howto.md)
 

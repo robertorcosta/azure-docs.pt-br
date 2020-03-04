@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Conectar-se a um dispositivo físico
 > * Configurar e ativar o dispositivo físico
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de configurar e configurar seu dispositivo Data Box Edge, verifique o seguinte:
 

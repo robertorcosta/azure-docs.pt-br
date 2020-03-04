@@ -20,7 +20,7 @@ ms.locfileid: "71827910"
 
 Este guia fornece instruções passo a passo para habilitar o log de diagnóstico para um serviço de cognitiva do Azure. Esses logs fornecem dados avançados e frequentes sobre a operação de um recurso que são usados para identificação e depuração de problemas. Antes de continuar, você deve ter uma conta do Azure com uma assinatura para pelo menos um serviço cognitiva, como [pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)ou [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para habilitar o log de diagnóstico, você precisará de algum lugar para armazenar os dados de log. Este tutorial usa o armazenamento do Azure e o Log Analytics.
 

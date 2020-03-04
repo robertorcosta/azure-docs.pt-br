@@ -39,7 +39,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Depurar o script com falha
 > * Limpar os recursos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este artigo, você precisa do seguinte:
 

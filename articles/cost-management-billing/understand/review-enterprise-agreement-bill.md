@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Examinar encargos de excedente de serviços
 > * Examinar a fatura do Marketplace
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para examinar e verificar os encargos na sua fatura, você deve ser um Administrador Corporativo. Para obter mais informações, consulte [Entendendo as funções administrativas do Azure Enterprise Agreement no Azure](../manage/understand-ea-roles.md). Se você não souber quem é o Administrador Corporativo da sua organização [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

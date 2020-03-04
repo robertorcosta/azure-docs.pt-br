@@ -27,7 +27,7 @@ O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usa
 
 [Código-fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java) | [Documentação do produto](index.yml) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior

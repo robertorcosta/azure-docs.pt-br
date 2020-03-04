@@ -35,7 +35,7 @@ Antes de tentar este tutorial, considere os itens a seguir:
 
 4. Este é um cenário avançado. Certifique-se de seguir as etapas documentadas neste tutorial com precisão.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 A seguir estão os pré-requisitos necessários para concluir este tutorial
 - Um ambiente de teste com a versão de sincronização 1.4.32.0 ou posterior do Azure AD Connect
 - Uma UO ou grupo que esteja no escopo da sincronização e que possa ser usado pelo piloto. Recomenda-se começar com um pequeno conjunto de objetos.

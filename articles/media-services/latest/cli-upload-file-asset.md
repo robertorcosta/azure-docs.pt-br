@@ -25,7 +25,7 @@ ms.locfileid: "74970101"
 
 O script de CLI do Azure neste artigo mostra como carregar um arquivo local para um contêiner de armazenamento.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 

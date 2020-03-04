@@ -28,7 +28,7 @@ ms.locfileid: "77614469"
 
 ---
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * O [IDE do Visual Studio](https://visualstudio.microsoft.com/vs/)

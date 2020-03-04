@@ -24,7 +24,7 @@ Depois de ter [exportado seu modelo TensorFlow](https://docs.microsoft.com/azure
 > [!NOTE]
 > Este tutorial se aplica somente a modelos exportados de projetos de classificação de imagem.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar o tutorial, você precisa do seguinte:
 

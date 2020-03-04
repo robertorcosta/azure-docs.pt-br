@@ -35,13 +35,13 @@ Este tutorial descreve como devolver o Azure Data Box e verificar os dados carre
 Neste tutorial, você aprenderá sobre tópicos como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 

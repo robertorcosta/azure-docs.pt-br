@@ -37,7 +37,7 @@ Na [terceira parte](sql-database-tutorial-clustering-model-deploy.md), você apr
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * A parte dois deste tutorial presume que você concluiu a [**parte um**](sql-database-tutorial-clustering-model-prepare-data.md) e seus pré-requisitos.
 

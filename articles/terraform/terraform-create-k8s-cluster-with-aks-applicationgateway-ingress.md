@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Usar o Terraform e o AKS para criar um cluster do Kubernetes.
 > * Usar a ferramenta kubectl para testar a disponibilidade de um cluster do Kubernetes.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 

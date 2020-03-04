@@ -19,7 +19,7 @@ ms.locfileid: "77494977"
 ---
 Este início rápido baseado em cURL fornece uma orientação para obtenção de uma resposta de base de dados de conhecimento.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [**cURL**](https://curl.haxx.se/) mais recente.
 * Você precisará ter

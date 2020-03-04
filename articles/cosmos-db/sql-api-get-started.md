@@ -44,7 +44,7 @@ Você não tem tempo? Não se preocupe! A solução completa está disponível e
 
 Agora vamos começar!
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
 

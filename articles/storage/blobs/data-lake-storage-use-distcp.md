@@ -21,7 +21,7 @@ ms.locfileid: "69543660"
 
 O DistCp fornece uma variedade de parâmetros de linha de comando e é altamente recomendável que você leia este artigo para otimizar o uso dessa ferramenta. Este artigo mostra a funcionalidade básica com foco no uso para copiar dados em uma conta habilitada para namespace hierárquico.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de Armazenamento do Microsoft Azure existente sem os recursos do Data Lake Storage Gen2 (namespace hierárquico) habilitados**.

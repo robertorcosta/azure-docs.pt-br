@@ -27,7 +27,7 @@ Se você deseja importar uma API existente, consulte a seção de [tópicos rela
 
 Neste artigo, criamos uma API em branco e especificamos [httpbin.org](https://httpbin.org) (um serviço de teste público) como a API de back-end.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 

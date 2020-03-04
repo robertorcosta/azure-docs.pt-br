@@ -36,7 +36,7 @@ Este exercício apresenta as seguintes tarefas:
 > * Em C#, definir sugestões e ações de preenchimento automático em HomeController.cs
 > * Em JavaScript, chamar as APIs REST diretamente para fornecer a mesma funcionalidade
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Um serviço da Pesquisa Cognitiva do Azure é opcional para este exercício, porque a solução usa um serviço de área restrita em tempo real que hospeda um índice de demonstração do NYCJobs preparado. Se quiser executar este exemplo em seu próprio serviço de pesquisa, consulte [Configurar o índice NYC Jobs](#configure-app) para obter instruções.
 

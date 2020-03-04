@@ -23,7 +23,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Verificar a conectividade entre redes diferentes
 > * Usar o Terraform para destruir todos os recursos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).

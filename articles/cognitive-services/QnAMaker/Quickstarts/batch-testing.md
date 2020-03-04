@@ -21,7 +21,7 @@ ms.locfileid: "77109002"
 
 Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de conhecimento em seu recurso do QnA Maker para respostas esperadas, pontuações de confiança e prompts de vários turnos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Crie um serviço do QnA Maker](create-publish-knowledge-base.md) ou use um serviço existente, que usa o idioma inglês.

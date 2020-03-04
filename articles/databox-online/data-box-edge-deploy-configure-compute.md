@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar a transformação e a transferência de dados
 
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de configurar uma função de computação em seu dispositivo do Data Box Edge, certifique-se de que:
 
@@ -64,7 +64,7 @@ Para configurar a computação no Data Box Edge, você criará um recurso do Hub
     > [!NOTE]
     > Se a caixa de diálogo **Configurar Computação** fechar antes que o Hub IoT seja associado ao dispositivo do Data Box Edge, o Hub IoT será criado, mas não será mostrado na configuração de computação. 
     
-    Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um tempo de execução do IoT Edge também está em execução no dispositivo do IoT Edge. No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
+    Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge. No momento, somente a plataforma Linux está disponível para o dispositivo IoT Edge.
 
 
 ## <a name="add-shares"></a>Adicionar compartilhamentos
@@ -132,7 +132,7 @@ A etapa final é garantir que o módulo esteja conectado e funcionando como espe
 
 Para verificar se o módulo está em execução, faça o seguinte:
 
-1. Selecione o bloco **Adicionar módulo**. Isso direcionará você para a folha **Módulos**. Na lista de módulos, identifique o módulo implantado. O status do tempo de execução do módulo adicionado deve ser *em execução*.
+1. Selecione o bloco **Adicionar módulo**. Isso direcionará você para a folha **Módulos**. Na lista de módulos, identifique o módulo implantado. O status do runtime do módulo adicionado deve ser *em execução*.
 
     ![Verifique a transformação de dados](./media/data-box-edge-deploy-configure-compute/verify-data-1.png)
  

@@ -38,7 +38,7 @@ Neste artigo, você executa as seguintes etapas:
 > * Execute o aplicativo que envia dados para o hub de eventos.
 > * Exiba os dados migrados no data warehouse.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

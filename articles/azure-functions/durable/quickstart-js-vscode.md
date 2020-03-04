@@ -22,7 +22,7 @@ Neste artigo, você aprenderá a usar a extensão do Azure Functions do Visual S
 
 ![Como executar funções duráveis no Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 

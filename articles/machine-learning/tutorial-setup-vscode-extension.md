@@ -27,7 +27,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 > * Entrar em sua conta do Azure por meio do Visual Studio Code
 > * Usar a extensão do Azure Machine Learning para executar um script de exemplo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure. Caso não tenha uma, inscreva-se para experimentar a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. Se você não tiver, [instale-o](https://code.visualstudio.com/docs/setup/setup-overview).

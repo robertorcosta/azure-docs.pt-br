@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 > * Enviar notificações marcadas
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o [Tutorial: Enviar notificações por push para aplicativos do Windows Phone usando Hubs de Notificação do Azure](notification-hubs-windows-mobile-push-notifications-mpns.md). Neste tutorial, você atualiza o aplicativo móvel para poder se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias.
 

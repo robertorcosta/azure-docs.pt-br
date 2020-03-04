@@ -22,7 +22,7 @@ ms.locfileid: "60879414"
 
 Saiba como usar o Azure Data Lake Storage Gen1 para capturar dados recebidos pelos Hubs de Eventos do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 

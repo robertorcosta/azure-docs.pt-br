@@ -21,7 +21,7 @@ ms.locfileid: "74975917"
 
 Neste artigo, você aprenderá a criar um aplicativo macOS em Objective-C usando o SDK de Fala dos Serviços Cognitivos para sintetizar fala com base em texto e reproduzi-la com a saída de áudio padrão.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, aqui está uma lista de pré-requisitos:
 

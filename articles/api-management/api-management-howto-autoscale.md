@@ -27,7 +27,7 @@ O artigo aborda o processo de configuração do dimensionamento automático e su
 > [!NOTE]
 > O serviço de gerenciamento de API na camada de **consumo** é dimensionado automaticamente com base no tráfego, sem nenhuma configuração adicional necessária.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar as etapas deste artigo, é necessário:
 

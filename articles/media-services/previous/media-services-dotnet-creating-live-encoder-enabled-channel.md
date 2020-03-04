@@ -87,7 +87,7 @@ O artigo mostra como fazer o seguinte:
 7. Mostrar e ocultar slates. Iniciar e parar anúncios. São usadas APIs de execução longa.
 8. Limpe seu canal e todos os recursos associados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Os itens a seguir são necessários para concluir o tutorial.
 
 * Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.

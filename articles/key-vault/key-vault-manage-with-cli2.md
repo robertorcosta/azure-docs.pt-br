@@ -38,7 +38,7 @@ O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter 
 Para obter uma visão geral do Azure Key Vault, consulte [O que é o Azure Key Vault?](key-vault-overview.md)
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar comandos da CLI do Azure neste artigo, você deve ter os seguintes itens:
 
@@ -119,7 +119,7 @@ az provider register -n Microsoft.KeyVault
 
 Use o comando `az keyvault create` para criar um cofre de chave. Esse script tem três parâmetros obrigatórios: um nome do grupo de recursos, um nome do cofre da chave e a localização geográfica.
 
-Para criar um novo cofre de chaves com o nome **ContosoKeyVault**, no grupo de recursos **ContosoResourceGroup**, residindo no local **Ásia Oriental**, digite: 
+Para criar um novo cofre de chaves com o nome **ContosoKeyVault**, no grupo de recursos **ContosoResourceGroup**, residindo no local **Leste da Ásia**, digite: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"

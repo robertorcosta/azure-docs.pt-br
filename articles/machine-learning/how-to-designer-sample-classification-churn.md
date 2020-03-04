@@ -29,7 +29,7 @@ Este pipeline treina dois classificadores de **árvore de decisão aumentada de 
 
 Como você está tentando responder à pergunta "Qual deles?", isso é chamado de problema de classificação, mas você pode aplicar a mesma lógica apresentada nesta amostra para resolver qualquer tipo de problema de aprendizado de máquina, seja regressão, classificação, clustering etc.
 
-Este é o grafo concluído deste pipeline:
+Este é o grafo completo deste pipeline:
 
 ![Grafo do pipeline](./media/how-to-designer-sample-classification-churn/pipeline-graph.png)
 
@@ -81,9 +81,9 @@ Visualize a saída do módulo **Avaliar Modelo** para ver o desempenho do modelo
 
 Explore as outras amostras disponíveis para o designer:
 
-- [Amostra 1: regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Amostra 2: regressão: comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Amostra 3: classificação com seleção de recursos: previsão de receita](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 1 – Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 2 – Regressão: Comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 3 – Classificação com seleção de recursos: Previsão de receita](how-to-designer-sample-classification-predict-income.md)
 - [Amostra 4: classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Amostra 6: classificação: prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
-- [Amostra 7: classificação de textos: conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)
+- [Amostra 6 – Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7 – Classificação de textos: Conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)

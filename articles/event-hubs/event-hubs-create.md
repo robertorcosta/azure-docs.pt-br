@@ -21,7 +21,7 @@ Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um se
 
 Neste início rápido, você cria um hub de eventos usando o [portal do Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, verifique se você tem:
 

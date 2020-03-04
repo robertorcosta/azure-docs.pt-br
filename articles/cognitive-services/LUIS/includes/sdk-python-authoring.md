@@ -26,7 +26,7 @@ Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para Py
 
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Pacote de Criação (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Conta do portal do LUIS (Reconhecimento Vocal): [Crie um gratuitamente](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
