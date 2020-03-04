@@ -1,16 +1,16 @@
 ---
-title: Solução de problemas
+title: solução de problemas
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 2b5a6f14899ec41b1740563f4e8174f65aa679c7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197990"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251119"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -44,7 +44,7 @@ Use a CLI do Azure Dev Spaces para excluir um controlador. Não é possível exc
 
 Se você não tiver a CLI do Azure Dev Spaces instalada, você poderá primeiro instalá-la usando o comando a seguir e excluir o controlador:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -80,8 +80,8 @@ Para corrigir esse problema, [Atualize sua configuração](../aks/operator-best-
 
 Uma atualização para a CLI do Azure Dev Spaces alterou seu caminho de instalação. Se você estiver usando uma versão do CLI do Azure anterior a 2.0.63, poderá ver esse erro. Para exibir sua versão do CLI do Azure, use `az --version`.
 
-```bash
-$ az --version
+```azurecli
+az --version
 azure-cli                         2.0.60 *
 ...
 ```
@@ -223,7 +223,7 @@ No Visual Studio:
 
 Você recebe um erro *O serviço não pode ser iniciado* ao tentar executar novamente um serviço após ter removido e, em seguida, recriado o controlador do Azure Dev Spaces associado a esse cluster. Nessa situação, a saída detalhada contém o texto a seguir:
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -329,7 +329,7 @@ Para corrigir esse problema:
 1. Verifique o local% ProgramFiles%/Microsoft SDKs\Azure\Azure dev Spaces CLI para `azds.exe`. Se estiver lá, adicione o local à variável de ambiente PATH.
 2. Se `azds.exe` não estiver instalado, execute o seguinte comando:
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
@@ -337,13 +337,13 @@ Para corrigir esse problema:
 
 Você precisa de acesso de *Proprietário* ou *Colaborador* em sua assinatura do Azure para gerenciar o Azure Dev Spaces. Se você estiver tentando gerenciar espaços de desenvolvimento e não tiver acesso de *proprietário* ou *colaborador* à assinatura do Azure associada, você poderá ver um erro de autorização. Por exemplo:
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
 Para corrigir esse problema, usando uma conta com acesso de *proprietário* ou *colaborador* à assinatura do Azure, Registre manualmente o namespace de `Microsoft.DevSpaces`:
 
-```console
+```azurecli
 az provider register --namespace Microsoft.DevSpaces
 ```
 
@@ -359,7 +359,7 @@ Esse problema pode afetar os pods em *todos os namespaces* no cluster, incluindo
 
 Para corrigir esse problema, [atualize a CLI de espaços de desenvolvimento para a versão mais recente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) e, em seguida, exclua o *azds InitializerConfiguration* do controlador de Azure dev Spaces:
 
-```bash
+```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
@@ -391,7 +391,7 @@ Para atualizar a função RBAC do usuário para o controlador:
     * Para *função*, selecione *colaborador* ou *proprietário*.
     * Para *Atribuir acesso a*, selecione *Usuário, grupo ou entidade de serviço do Azure AD*.
     * Para *selecionar*, pesquise o usuário que você deseja conceder permissões.
-1. Clique em *Salvar*.
+1. Clique em *Save* (Salvar).
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 
@@ -456,9 +456,12 @@ Você pode ter um cluster AKS existente e um namespace com pods em execução on
 
 Para habilitar Azure Dev Spaces em um namespace existente em um cluster AKS, execute `use-dev-spaces` e use `kubectl` para reiniciar todos os pods nesse namespace.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 
