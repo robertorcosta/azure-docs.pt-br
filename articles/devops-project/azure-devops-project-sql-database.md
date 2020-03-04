@@ -37,7 +37,7 @@ Neste tutorial, você irá:
 > * Conectar-se e ao banco de dados SQL do Azure 
 > * Limpar recursos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 

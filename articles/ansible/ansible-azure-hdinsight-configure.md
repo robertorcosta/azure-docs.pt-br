@@ -26,7 +26,7 @@ O [Azure HDInsight](/azure/hdinsight/) é um serviço de análise com base no Ha
 > * Redimensionar um cluster
 > * Excluir um cluster
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 

@@ -29,7 +29,7 @@ Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um se
 
 Este tutorial descreve como enviar eventos para um hub de eventos usando um aplicativo de console em C. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este tutorial, você precisará do seguinte:
 
 * Um ambiente de desenvolvimento C. Este tutorial considera a pilha gcc em uma VM Linux do Azure com o Ubuntu 14.04.

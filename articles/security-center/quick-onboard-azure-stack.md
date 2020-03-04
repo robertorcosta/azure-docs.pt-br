@@ -26,7 +26,7 @@ Após integrar sua assinatura do Azure, será possível permitir que a Central d
 
 Este início rápido mostra como adicionar a extensão da máquina virtual **Gerenciamento de Configuração, de Atualização e do Azure Monitor** em uma máquina virtual (há suporte para Linux e Windows) em execução no Azure Stack.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 É necessário ter uma assinatura do Azure na camada Standard da Central de Segurança antes de iniciar este início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. É possível experimentar a camada Standard da Central de Segurança sem custo por 30 dias. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).

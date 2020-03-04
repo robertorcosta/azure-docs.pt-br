@@ -46,7 +46,7 @@ Neste tutorial, você aprenderá como:
 > * Atualizar aplicativo de back-end para enviar notificações localizadas
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 

@@ -31,7 +31,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 
 ![Conexão de rede entre redes em nuvem](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Para estabelecer a conectividade entre o Azure e o OCI, você deve ter uma assinatura ativa do Azure e uma locação de OCI ativa.
 
@@ -57,7 +57,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 1. Crie um DRG (gateway de roteamento dinâmico). Você precisará disso ao criar seu circuito FastConnect. Para obter mais informações, consulte a documentação do [Gateway de roteamento dinâmico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Crie um circuito FastConnect em seu locatário do Oracle. Para obter mais informações, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute** como o provedor.
+    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute @ no__t-0 como o provedor.
     * Selecione o gateway de roteamento dinâmico que você provisionou na etapa anterior.
     * Selecione a largura de banda a ser provisionada. Para um desempenho ideal, a largura de banda deve corresponder à largura de banda selecionada ao criar o circuito de ExpressRoute.
     * Em **chave de serviço do provedor**, Cole a chave de serviço do ExpressRoute.
@@ -85,7 +85,7 @@ A Microsoft criou scripts Terraform para habilitar a implantação automatizada 
 
 Os scripts Terraform e a documentação relacionada para implantar a inter-Connect podem ser encontrados neste [repositório GitHub](https://aka.ms/azureociinterconnecttf).
 
-## <a name="monitoring"></a>Monitoramento
+## <a name="monitoring"></a>Monitorando
 
 Instalando agentes em ambas as nuvens, você pode aproveitar o Azure [Monitor de desempenho de rede (NPM)](../../../expressroute/how-to-npm.md) para monitorar o desempenho da rede de ponta a ponta. O NPM ajuda você a identificar rapidamente os problemas de rede e a eliminá-los.
 

@@ -29,7 +29,7 @@ O Azure Application Insights coleta informações de uso para ajudá-lo a entend
 > * Inspecione como os usuários navegam no seu aplicativo
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 

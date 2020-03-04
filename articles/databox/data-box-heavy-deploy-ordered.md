@@ -29,7 +29,7 @@ Este tutorial descreve como você pode solicitar um Azure Data Box Heavy. Neste 
 > * Acompanhar o pedido
 > * Cancelar o pedido
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Preencha os seguintes pré-requisitos de configuração para o serviço e dispositivo do Data Box antes de implantar o dispositivo.
 
@@ -160,7 +160,7 @@ Para excluir um pedido cancelado, vá para **Visão geral** e clique em **Exclui
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Heavy, como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Solicitar o Data Box Heavy
 > * Acompanhar o pedido
 > * Cancelar o pedido

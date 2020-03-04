@@ -32,7 +32,7 @@ Talvez você queira mover a infraestrutura do Azure como uma máquina virtual de
 > [!IMPORTANT]
 > Este tutorial descreve como mover as VMs do Azure de uma região para outra *no estado em que estão*. Se seu objetivo é melhorar a disponibilidade de sua infraestrutura, movendo VMs para as zonas de disponibilidade, consulte [Mover VMs do Azure para as zonas de disponibilidade](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Verifique se você tem as VMs do Azure na região de origem do Azure *da qual* deseja realizar a movimentação.
 - Verifique se [há suporte para sua escolha de combinação de região de origem – região de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e tome uma decisão informada sobre a região de destino.

@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 
 Para saber mais, confira os artigos [Visão geral](sql-database-managed-instance-index.yml) e [Recursos de Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 

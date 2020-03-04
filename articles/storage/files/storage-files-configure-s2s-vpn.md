@@ -23,7 +23,7 @@ Recomendamos que você leia [Visão geral da rede nos Arquivos do Azure](storage
 
 O artigo detalha as etapas de configuração de uma VPN Site a Site para montar compartilhamentos de arquivo do Azure diretamente no local. Se você deseja encaminhar o tráfego de sincronização para a Sincronização de Arquivos do Azure usando uma VPN Site a Site, confira [Definir configurações de proxy e firewall da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Um compartilhamento de arquivos do Azure que você gostaria de montar no local. Você pode usar um compartilhamento de arquivos do Azure [Padrão](storage-how-to-create-file-share.md) ou [Premium](storage-how-to-create-premium-fileshare.md) com a VPN Site a Site.
 
 - Um dispositivo de rede ou servidor em seu datacenter local compatível com o Gateway de VPN do Azure. Os Arquivos do Azure são independentes do dispositivo de rede local escolhido, mas o Gateway de VPN do Azure mantém uma [lista de dispositivos testados](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Dispositivos de rede diferentes oferecem recursos, características de desempenho e funcionalidades de gerenciamento diferentes, portanto, considere isso ao selecionar um dispositivo de rede.

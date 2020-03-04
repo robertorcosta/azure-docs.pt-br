@@ -22,7 +22,7 @@ No Azure Functions, associações de entrada e saída fornecem uma maneira decla
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
@@ -65,7 +65,7 @@ Antes de criar a associação de saída, você precisa ter uma conta do Azure Co
 
 Substitua o código existente da função pelo código a seguir na linguagem que você escolheu:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Substitua função de C# existente por este código:
 
@@ -102,7 +102,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Substitua função de JavaScript existente por este código:
 

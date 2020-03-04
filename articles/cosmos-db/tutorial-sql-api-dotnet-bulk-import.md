@@ -27,7 +27,7 @@ Este tutorial abrange:
 > * Conectar-se a uma conta do Azure Cosmos com suporte em massa habilitado
 > * Executar uma importação de dados por meio de operações de criação simultânea
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes recursos:
 

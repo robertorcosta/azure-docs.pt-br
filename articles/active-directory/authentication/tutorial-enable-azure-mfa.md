@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar as condições de política que solicitam MFA
 > * Testar o processo de MFA como um usuário
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 

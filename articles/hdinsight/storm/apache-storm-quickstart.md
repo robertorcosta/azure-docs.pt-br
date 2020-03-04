@@ -21,7 +21,7 @@ O Apache Storm é um sistema de computação escalável, tolerante a falhas, dis
 
 Neste início rápido, você usará um exemplo do projeto [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) do Apache para criar e monitorar uma topologia do Apache Storm em um cluster existente do Apache Storm.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster**.
 

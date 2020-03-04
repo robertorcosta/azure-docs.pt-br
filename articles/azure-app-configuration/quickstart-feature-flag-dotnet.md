@@ -27,7 +27,7 @@ Neste início rápido, você incorporará a Configuração de Aplicativos do Azu
 
 As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com suporte abrangente a sinalizadores de recursos. Essas bibliotecas se baseiam no sistema de configuração do .NET. Elas são integradas diretamente à Configuração de Aplicativos por meio de seu provedor de configuração do .NET.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)

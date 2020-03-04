@@ -28,7 +28,7 @@ O código para este tutorial está disponível para download no [repositório Az
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instale o [SDK do .NET Core](https://www.microsoft.com/net/download/windows).
 * Faça o download ou clone o repositório [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) do GitHub. 

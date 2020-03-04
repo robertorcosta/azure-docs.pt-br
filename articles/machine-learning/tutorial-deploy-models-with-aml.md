@@ -38,7 +38,7 @@ Instâncias de Contêiner são uma ótima solução para testar e compreender o 
 >[!NOTE]
 > O código deste artigo foi testado com a versão 1.0.41 do SDK do Azure Machine Learning.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar o notebook, primeiro conclua o treinamento de modelo no [Tutorial (parte 1): treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md).   Em seguida, abra o notebook *img-classification-part2-deploy.ipynb* na pasta *tutorials/image-classification-mnist-data* clonada.
 

@@ -30,7 +30,7 @@ Este artigo mostra como configurar a recuperação de desastre para um site secu
 > * Habilitar a replicação para uma VM
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este cenário:
 

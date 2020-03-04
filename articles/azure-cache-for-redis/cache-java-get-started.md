@@ -19,7 +19,7 @@ ms.locfileid: "74122699"
 
 Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo Java usando o cliente Redis do [Jedis](https://github.com/xetorthio/jedis) para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)

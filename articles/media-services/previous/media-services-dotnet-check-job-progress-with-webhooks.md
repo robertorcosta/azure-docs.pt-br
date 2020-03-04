@@ -42,7 +42,7 @@ Este artigo mostra como
 
 Encontre definições de várias Azure Functions do .NET dos Serviços de Mídia (incluindo a mostrada neste artigo) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os itens a seguir são necessários para concluir o tutorial:
 
@@ -83,7 +83,7 @@ A Azure Function está associada a arquivos de código e a outros arquivos descr
 
 #### <a name="functionjson"></a>function.json
 
-O arquivo function.json define as associações de função e outras definições de configuração. O tempo de execução usa esse arquivo para determinar os eventos a serem monitorados, bem como para passar e retornar dados da execução da função. 
+O arquivo function.json define as associações de função e outras definições de configuração. O runtime usa esse arquivo para determinar os eventos a serem monitorados, bem como para passar e retornar dados da execução da função. 
 
 ```json
 {

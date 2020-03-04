@@ -22,7 +22,7 @@ ms.locfileid: "73826922"
 
 Este início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para se conectar a um Banco de Dados SQL do Azure e consultar dados com instruções Transact-SQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, você precisará dos seguintes pré-requisitos:
 

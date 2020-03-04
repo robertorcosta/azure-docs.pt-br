@@ -32,7 +32,7 @@ O repositório GitHub [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-co
 * Links para as tarefas em cada um dos arquivos de exemplo do projeto C#.
 * Links para o conteúdo de referência da API relacionada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Visual Studio 2019 com o fluxo de trabalho de desenvolvimento do Azure instalado
 

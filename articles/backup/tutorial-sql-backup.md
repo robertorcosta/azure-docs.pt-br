@@ -21,7 +21,7 @@ Este tutorial mostra como fazer backup de um banco de dados do SQL Server em exe
 > * Configurar a proteção automática para bancos de dados.
 > * Executar um backup sob demanda.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de fazer backup de seu banco de dados do SQL Server, verifique as condições a seguir:
 

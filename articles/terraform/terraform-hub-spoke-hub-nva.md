@@ -24,7 +24,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Usar o Terraform para habilitar rotas usando extensões CustomScript
 > * Usar o Terraform para criar tabelas de rotas de gateway de Hub e Spoke
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).

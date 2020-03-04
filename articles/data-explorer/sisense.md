@@ -18,7 +18,7 @@ ms.locfileid: "66358177"
 
 Sisense é uma plataforma de inteligência de negócios de análise que permite que você crie aplicativos de análise que oferecem experiências de usuário altamente interativos. O business intelligence e o painel, relatório de software permite que você acesse e combinar dados em apenas alguns cliques. Você pode conectar-se aos dados estruturados e fontes de, unir tabelas de várias fontes com o mínimo de script e de codificação e criar relatórios e dashboards interativos da web. Neste artigo, você aprenderá a configurar o Data Explorer do Azure como uma fonte de dados para Sisense e visualize os dados de um cluster de exemplo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará do seguinte para concluir este artigo:
 

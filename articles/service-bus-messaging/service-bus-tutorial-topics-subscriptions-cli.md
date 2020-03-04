@@ -34,7 +34,7 @@ Um exemplo desse cenário é uma atualização de sortimento de estoque para vá
 
 Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][] antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para desenvolver um aplicativo de Barramento de Serviço com Java, você deve ter o seguinte instalado:
 

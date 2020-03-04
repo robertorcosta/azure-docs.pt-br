@@ -22,7 +22,7 @@ ms.locfileid: "73818248"
 
 Este Início Rápido mostra como criar uma [regra de firewall no nível do servidor](sql-database-firewall-configure.md) para bancos de dados individuais e em pool no Banco de Dados SQL do Azure usando o portal do Azure para permitir que você se conecte a servidores de banco de dados, bancos de dados individuais e pools elásticos e seus bancos de dados. Uma regra de firewall é necessária para se conectar em outros recursos do Azure e em recursos locais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este Início Rápido usa os recursos criados em [Criar um banco de dados individual usando o portal do Azure](sql-database-single-database-get-started.md) como ponto de partida.
 

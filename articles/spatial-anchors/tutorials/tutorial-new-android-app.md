@@ -19,7 +19,7 @@ ms.locfileid: "74276948"
 
 Este tutorial mostra como criar um novo aplicativo Android que se integra à funcionalidade de ARCore com Âncoras Espaciais do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, verifique se você tem:
 

@@ -28,7 +28,7 @@ A [Galeria de Imagens Compartilhadas](/azure/virtual-machines/windows/shared-ima
 > * Criar um conjunto de dimensionamento de máquinas virtuais usando a imagem generalizada
 > * Obtenha informações sobre a Galeria de Imagens Compartilhadas, a imagem e a versão.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

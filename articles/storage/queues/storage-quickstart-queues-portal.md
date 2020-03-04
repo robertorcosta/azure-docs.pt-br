@@ -19,7 +19,7 @@ ms.locfileid: "74269241"
 
 Neste início rápido, você aprenderá como usar o [portal do Azure](https://portal.azure.com/) para criar uma fila no Armazenamento do Azure e para adicionar mensagens removidas da fila.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

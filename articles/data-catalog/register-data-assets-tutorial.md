@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Gerenciar ativos de dados
 > * Excluir ativos de dados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você deve concluir o [início rápido](register-data-assets-tutorial.md).
 

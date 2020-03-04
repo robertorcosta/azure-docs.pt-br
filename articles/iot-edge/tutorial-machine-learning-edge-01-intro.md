@@ -74,7 +74,7 @@ A figura a seguir ilustra as etapas estimadas que seguimos este tutorial:
 
 1. **Manter e refinar o modelo**. Nosso trabalho não termina depois que o modelo é implantado. Em muitos casos, desejamos continuar coletando dados e fazer upload periodicamente desses dados na nuvem. Podemos, então, usar esses dados para treinar novamente nosso modelo e refiná-lo, que pode ser, então, implantado novamente no IoT Edge.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir o tutorial, é necessário ter acesso a uma assinatura do Azure na qual você tem direitos para criar recursos. Vários dos serviços usados neste tutorial incorrerão em encargos do Azure. Se você ainda não tiver uma assinatura do Azure, talvez possa começar com uma [Conta Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
 

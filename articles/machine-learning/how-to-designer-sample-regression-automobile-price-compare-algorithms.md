@@ -27,7 +27,7 @@ Saiba como criar um pipeline de aprendizado de máquina sem escrever uma só lin
 
 Se estiver começando a usar o aprendizado de máquina, confira a [versão básica](how-to-designer-sample-regression-automobile-price-basic.md) desse pipeline.
 
-Este é o grafo concluído deste pipeline:
+Este é o grafo completo deste pipeline:
 
 [![Grafo do pipeline](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png)](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png#lightbox)
 
@@ -92,9 +92,9 @@ Esses resultados mostram que o modelo criado com a **Regressão de Árvore de De
 
 Explore as outras amostras disponíveis para o designer:
 
-- [Amostra 1: regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Amostra 3: classificação com seleção de recursos: previsão de receita](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 1 – Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 3 – Classificação com seleção de recursos: Previsão de receita](how-to-designer-sample-classification-predict-income.md)
 - [Amostra 4: classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Amostra 5: classificação: prever a rotatividade](how-to-designer-sample-classification-churn.md)
-- [Amostra 6: classificação: prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
-- [Amostra 7: classificação de textos: conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)
+- [Amostra 5 – Classificação: Prever a rotatividade](how-to-designer-sample-classification-churn.md)
+- [Amostra 6 – Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7 – Classificação de textos: Conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)

@@ -26,7 +26,7 @@ Neste tutorial, você concluirá estas tarefas:
 
 Este tutorial pressupõe conhecimento intermediário dos principais serviços do Azure, AKS, ACR, Azure Dev Spaces, [pipelines](https://jenkins.io/doc/book/pipeline/) e plug-ins do Jenkins e GitHub. É útil ter uma familiaridade básica com ferramentas de suporte, como kubectl e Helm.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma conta do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

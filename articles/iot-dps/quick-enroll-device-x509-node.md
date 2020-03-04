@@ -22,7 +22,7 @@ ms.locfileid: "77605541"
 
 Neste início rápido, você usará o Node.js para criar de maneira programática um grupo de registro que usa certificados X.509 intermediários ou de AC raiz. O grupo de registro é criado com o SDK de IoT para Node.js e um aplicativo Node.js de exemplo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 - Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

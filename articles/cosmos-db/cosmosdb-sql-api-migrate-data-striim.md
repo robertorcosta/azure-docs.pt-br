@@ -20,7 +20,7 @@ A imagem Striim no Azure Marketplace oferece movimentação de dados contínua e
 
 Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database** para uma **conta Azure Cosmos DB API do SQL**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Se você não tiver uma [assinatura do Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 

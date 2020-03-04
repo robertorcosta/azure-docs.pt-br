@@ -23,7 +23,7 @@ Neste tutorial, você concluirá estas etapas:
 > - Inspecionar o novo grupo de recursos
 > - Cancelar a atribuição do blueprint para remover os bloqueios
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 

@@ -28,7 +28,7 @@ Depois que uma VM for implantada, configure-a com o software de que seu aplicati
 > * Criar um conjunto de dimensionamento a partir de uma imagem
 > * Atualizar a imagem personalizada
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

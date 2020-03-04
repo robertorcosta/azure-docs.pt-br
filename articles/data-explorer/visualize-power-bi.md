@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Criar um relatório com elementos visuais
 > * Publicar e compartilhar o relatório
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Além de assinaturas do Azure e Power BI, você precisará do seguinte para concluir este tutorial:
 

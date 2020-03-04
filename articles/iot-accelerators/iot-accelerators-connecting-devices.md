@@ -25,7 +25,7 @@ Assim como acontece com a maioria dos aplicativos inseridos que são executados 
 
 Se você preferir simular um dispositivo, consulte [Criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste guia de instruções, siga as etapas em [configurar o ambiente de desenvolvimento Windows](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) para adicionar as bibliotecas e ferramentas de desenvolvimento necessárias para seu computador Windows.
 

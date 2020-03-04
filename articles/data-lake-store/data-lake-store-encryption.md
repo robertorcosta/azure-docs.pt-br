@@ -107,7 +107,7 @@ O diagrama a seguir ilustra esses conceitos:
 
 Quando você estiver usando chaves gerenciados pelo cliente, você pode alterar a MEK. Para saber como configurar uma conta do Data Lake Storage Gen1 com chaves gerenciadas pelo cliente, consulte [Introdução](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Ao configurar a conta do Data Lake Storage Gen1, você optou por usar suas próprias chaves. Essa opção não pode ser alterada depois que a conta foi criada. As etapas a seguir pressupõem que você está usando as chaves gerenciadas pelo cliente (isto é, você escolheu suas próprias chaves do Key Vault).
 

@@ -33,7 +33,7 @@ Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincroniz
 > [!IMPORTANT]
 > No momento, a Sincronização de Dados SQL do Azure não é compatível com a Instância Gerenciada do Banco de Dados SQL do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Criar um Banco de Dados SQL do Azure usando o banco de dados de exemplo AdventureWorksLT como banco de dados hub
 - Criar um Banco de Dados SQL do Azure na mesma região que o banco de dados de sincronização

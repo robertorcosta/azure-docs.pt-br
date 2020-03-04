@@ -21,7 +21,7 @@ Este guia de início rápido mostra como transmitir para o Kafka habilitado dos 
 > [!NOTE]
 > Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, você precisa atender aos seguinte pré-requisitos:
 

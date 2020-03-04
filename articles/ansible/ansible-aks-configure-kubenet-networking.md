@@ -31,7 +31,7 @@ Para saber mais sobre o sistema de rede para seus aplicativos no AKS, confira [C
 > * Criar um cluster AKS
 > * Configurar a rede kubenet do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

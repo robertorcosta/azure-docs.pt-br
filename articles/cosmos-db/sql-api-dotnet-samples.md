@@ -32,7 +32,7 @@ O repositório GitHub [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-co
 
 Para obter exemplos de código do SDK do .NET versão 3.0 (versão prévia), confira as amostras mais recentes no repositório GitHub [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Visual Studio 2019 com o fluxo de trabalho de desenvolvimento do Azure instalado
 - Você pode baixar e usar o **Visual Studio 2019 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio. 

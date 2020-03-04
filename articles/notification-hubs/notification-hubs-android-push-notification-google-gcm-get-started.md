@@ -53,7 +53,7 @@ Neste tutorial, você executa as seguintes ações:
 > * Conectar seu aplicativo ao hub de notificação
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).

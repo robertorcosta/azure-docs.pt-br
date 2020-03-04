@@ -25,7 +25,7 @@ ms.locfileid: "74279098"
 
 Depois de integrar sua conta de armazenamento do Azure à CDN (Rede de Distribuição de Conteúdo) do Azure, você poderá adicionar um domínio personalizado e habilitar o HTTPS nesse domínio para o ponto de extremidade de Armazenamento de Blobs personalizado. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de concluir as etapas deste tutorial, primeiro você precisará integrar sua conta de armazenamento do Azure à CDN do Azure. Para saber mais, confira [Início Rápido: Integrar uma conta de armazenamento do Azure à CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
 

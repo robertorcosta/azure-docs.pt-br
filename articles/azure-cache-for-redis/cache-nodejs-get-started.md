@@ -19,7 +19,7 @@ ms.locfileid: "74122014"
 
 Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo Node.js para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [node_redis](https://github.com/mranney/node_redis), que você pode instalar com o comando `npm install redis`. 

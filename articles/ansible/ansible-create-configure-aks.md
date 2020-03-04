@@ -26,7 +26,7 @@ O AKS pode ser configurado para usar o [Azure AD (Active Directory)](/azure/acti
 > * Criar um cluster AKS
 > * Configurar um cluster do AKS
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

@@ -24,7 +24,7 @@ ms.locfileid: "71970872"
 
 Este documento descreve como publicar um aplicativo Web ASP.NET em uma VM (máquina virtual) do Azure usando o recurso de publicação **máquinas virtuais do Microsoft Azure** no Visual Studio 2019.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para usar o Visual Studio para publicar um projeto ASP.NET em uma VM do Azure, a VM deve estar configurada corretamente.
 
 - O computador deve estar configurado para executar um aplicativo Web ASP.NET e ter o WebDeploy instalado.

@@ -29,7 +29,7 @@ O tutorial a seguir orientará você pela configuração da sincronização de h
 >[!NOTE]
 >Se você não tem acesso ao servidor do Azure AD Connect ou se ele não tem acesso à Internet, contate o [Suporte da Microsoft](https://support.microsoft.com/en-us/contactus/) para ajudá-lo com as alterações no lado do Azure AD.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Esse tutorial é baseado no [Tutorial: Federar um ambiente com uma única floresta do AD na nuvem](tutorial-federation.md) e é um pré-requisito antes de tentar realizar este tutorial.  Se você não tiver concluído este tutorial, faça isso antes de tentar realizar as etapas neste documento.
 
 >[!IMPORTANT]

@@ -31,11 +31,11 @@ Não há suporte para o ingresso em um domínio local do AD (Active Directory) n
  
 Neste tutorial, você aprenderá a adicionar um dispositivo ao Azure AD durante a FRX:
  > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Ingressar em um dispositivo
 > * Verificação
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para mais informações, consulte [Definir configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
 

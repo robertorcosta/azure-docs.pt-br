@@ -17,7 +17,7 @@ ms.locfileid: "66743323"
 
 Esse script cria um firewall do aplicativo Web do Gateway de Aplicativo que usa regras personalizadas. A regra personalizada bloqueia o tráfego se o cabeçalho da solicitação contém o *evilbot* User-Agent.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="azure-powershell-module"></a>Módulo do Azure PowerShell
 

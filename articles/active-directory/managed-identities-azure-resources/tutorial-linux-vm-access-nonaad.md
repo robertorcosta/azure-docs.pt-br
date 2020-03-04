@@ -34,7 +34,7 @@ Você aprenderá como:
 > * Conceda o acesso da máquina virtual a um segredo armazenado em um Key Vault 
 > * Obtenha um token de acesso usando a identidade da VM e use-o para recuperar o segredo do Key Vault 
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

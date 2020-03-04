@@ -20,7 +20,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Além de uma assinatura do Azure, você precisará do seguinte para concluir este artigo:
 

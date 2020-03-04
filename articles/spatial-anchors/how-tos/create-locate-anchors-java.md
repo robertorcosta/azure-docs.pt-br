@@ -32,7 +32,7 @@ ms.locfileid: "74270183"
 - Fazer upload delas na nuvem.
 - Localizar e excluir âncoras espaciais na nuvem.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia, verifique se você tem:
 

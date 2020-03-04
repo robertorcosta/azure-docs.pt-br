@@ -26,7 +26,7 @@ ms.locfileid: "67795813"
 
 O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo gráficos-los no portal, acessá-los por meio da API REST ou consultá-las usando a CLI. Este artigo mostra como monitorar as métricas com os gráficos de portal do Azure e a CLI do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Criar uma conta dos Serviços de Mídia](create-account-cli-how-to.md)
 - Revisão [os logs de diagnóstico e métricas de serviços de mídia do Monitor](media-services-metrics-diagnostic-logs.md)

@@ -23,7 +23,7 @@ ms.locfileid: "60518447"
 
 À medida que o Armazenamento de Dados do Windows Azure Gen1 se torna disponível em novas regiões, você pode optar por fazer uma migração única para aproveitar a nova região. Saiba o que considerar ao planejar e concluir a migração.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Uma assinatura do Azure**. Para obter mais informações, consulte [Criar sua conta gratuita do Azure hoje mesmo](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Data Lake armazenamento Gen1 em duas regiões diferentes**. Para obter mais informações, consulte [Introdução ao Azure Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md).

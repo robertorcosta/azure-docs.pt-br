@@ -22,7 +22,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Usar o Terraform para criar um gateway de rede virtual privada do hub.
 > * Usar o Terraform para criar conexões de hub e gateway locais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).

@@ -30,7 +30,7 @@ Neste tutorial, você irá:
 
 Criaremos essa solução em ordem inversa, começando com o workspace do Azure Databricks.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -261,7 +261,7 @@ Crie uma função do Azure que executa o trabalho.
 
    ![Criar uma função do Azure](./media/data-lake-storage-events/function-app-create-flow.png "Criar função do Azure")
 
-4. Na página **Criar** do aplicativo de funções, é preciso que você selecione o **.NET Core** para a pilha de tempo de execução e que configure uma instância de Application Insights.
+4. Na página **Criar** do aplicativo de funções, é preciso que você selecione o **.NET Core** para a pilha de runtime e que configure uma instância de Application Insights.
 
    ![Configurar o aplicativo de funções](./media/data-lake-storage-events/new-function-app.png "Configurar o aplicativo de funções")
 

@@ -30,7 +30,7 @@ Além de permitir que dispositivos downstream se comuniquem com seu aplicativo I
 * Responder a atualizações de propriedade graváveis feitas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
 * Responder a comandos, como reinicialização do dispositivo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa [Criar um aplicativo Azure IoT Central](./quick-deploy-iot-central.md).
 

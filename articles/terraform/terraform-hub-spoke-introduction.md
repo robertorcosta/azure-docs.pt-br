@@ -26,7 +26,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Usar o Terraform para estabelecer gateways e conexões entre os locais e redes do Azure
 > * Usar o Terraform para criar os emparelhamentos de rede virtual para as redes de spoke
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 

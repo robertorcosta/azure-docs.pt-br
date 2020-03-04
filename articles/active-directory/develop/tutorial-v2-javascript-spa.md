@@ -65,7 +65,7 @@ Este guia usa a seguinte biblioteca:
 >
 > Pule para a [etapa de configuração](#register-your-application) a fim de configurar o exemplo de código antes de executá-lo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Para executar este tutorial, é necessário um servidor Web local como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) ou a integração do IIS Express com o [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 

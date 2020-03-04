@@ -25,7 +25,7 @@ Este artigo descreve as etapas necessárias para conectar a conta do Azure Cosmo
 > [!NOTE]
 > No momento, há suporte à conexão do Azure Cosmos DB com o conector do Power BI apenas em contas da API do SQL do Azure Cosmos DB e da API do Gremlin.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter acesso aos recursos seguintes:
 
 * [Baixe a última versão do Power BI Desktop](https://powerbi.microsoft.com/desktop).

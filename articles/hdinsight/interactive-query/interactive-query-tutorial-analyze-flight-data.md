@@ -28,7 +28,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Criar uma tabela em um Banco de Dados SQL do Azure
 > * Usar Sqoop para exportar dados para um Banco de Dados SQL do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster de Consulta interativa no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** como **tipo de Cluster**.
 

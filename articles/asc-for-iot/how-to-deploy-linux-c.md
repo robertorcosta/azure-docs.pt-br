@@ -33,7 +33,7 @@ Neste guia, você aprenderá a:
 > * Desinstalar o agente
 > * Solução de problemas 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para outras plataformas e tipos de agente, consulte [escolher o agente de segurança certo](how-to-deploy-agent.md).
 

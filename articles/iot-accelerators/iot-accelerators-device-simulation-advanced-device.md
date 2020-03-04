@@ -22,7 +22,7 @@ Este guia prático descreve os arquivos JSON e JavaScript que definem um modelo 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir as etapas deste guia prático, você precisa de uma instância implantada do Device Simulation em sua assinatura do Azure.
 

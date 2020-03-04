@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > * Associá-la a um host de front-end
 > * Configurar regras de WAF
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Crie um perfil de Front Door seguindo as instruções descritas no [Guia de Início Rápido: Crie um perfil de Front Door](../../frontdoor/quickstart-create-front-door.md). 
 

@@ -49,7 +49,7 @@ O restante do artigo mostra como usar a [CLI do Media Services V3](https://aka.m
 >
 > No momento, você não pode usar o portal do Azure para gerenciar outros recursos v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 

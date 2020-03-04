@@ -19,7 +19,7 @@ ms.locfileid: "70241237"
 
 Este artigo está entre uma série de artigos sobre a integração da API do Cassandra do Azure Cosmos DB usando o Spark. Os artigos abordam conectividade, operações de DDL (linguagem de definição de dados), operações de DML (linguagem de manipulação de dados) e integração avançada da API do Cassandra do Azure Cosmos DB usando o Spark. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * [Provisionar uma conta da API do Cassandra do Azure Cosmos DB.](create-cassandra-dotnet.md#create-a-database-account)
 
 * Provisione sua escolha do ambiente do Spark [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Outros].

@@ -38,7 +38,7 @@ Este é o grafo final e concluído do pipeline. Este artigo fornece a justificat
 
 ![Grafo do pipeline](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -87,9 +87,9 @@ Transmita as pontuações ao módulo **Avaliar Modelo** para gerar métricas de 
 
 Explore as outras amostras disponíveis para o designer:
 
-- [Amostra 2: regressão: comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Amostra 3: classificação com seleção de recursos: previsão de receita](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 2 – Regressão: Comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 3 – Classificação com seleção de recursos: Previsão de receita](how-to-designer-sample-classification-predict-income.md)
 - [Amostra 4: classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Amostra 5: classificação: prever a rotatividade](how-to-designer-sample-classification-churn.md)
-- [Amostra 6: classificação: prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
-- [Amostra 7: classificação de textos: conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)
+- [Amostra 5 – Classificação: Prever a rotatividade](how-to-designer-sample-classification-churn.md)
+- [Amostra 6 – Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7 – Classificação de textos: Conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)

@@ -16,7 +16,7 @@ A primeira etapa para usar o Azure Resource Graph é garantir que o módulo do A
 
 No final desse processo, você terá adicionado o módulo à instalação do Azure PowerShell de preferência e executado sua primeira consulta ao Resource Graph.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

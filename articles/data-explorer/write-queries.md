@@ -18,7 +18,7 @@ ms.locfileid: "68881189"
 
 Neste artigo, você aprenderá a usar a linguagem de consulta no Azure Data Explorer para executar consultas básicas com os operadores mais comuns. Você também poderá entrar em contato com alguns dos recursos mais avançados da linguagem.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você pode executar as consultas neste artigo em uma de duas maneiras:
 

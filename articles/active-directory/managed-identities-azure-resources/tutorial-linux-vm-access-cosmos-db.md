@@ -37,7 +37,7 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 > * Obter um token de acesso e usá-lo para chamar o Azure Resource Manager
 > * Obter chaves de acesso do Azure Resource Manager para realizar chamadas do Cosmos DB
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

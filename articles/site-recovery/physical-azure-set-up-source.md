@@ -19,7 +19,7 @@ ms.locfileid: "67589054"
 
 Este artigo descreve como configurar seu ambiente local para iniciar a replicação de servidores físicos executando Windows ou Linux no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O artigo supõe que você já tenha:
 - Um cofre de Serviços de Recuperação no [Portal do Azure](https://portal.azure.com "Portal do Azure").

@@ -20,7 +20,7 @@ Os [SDKs do Hub IoT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-d
 
 Este tutorial descreve as etapas para criar um aplicativo do lado do dispositivo no Android Things usando o SDK do Java do Azure IoT.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um hardware compatível com Android Things com o SO Android Things em execução.  Você pode seguir a [Documentação do Android Things](https://developer.android.com/things/get-started/kits#flash-at) sobre como iniciar o sistema operacional do Android Things.  Verifique se seu dispositivo Android Things está conectado à Internet com periféricos essenciais, como teclado, vídeo e mouse conectados.  Este tutorial usa o Raspberry Pi 3.
 

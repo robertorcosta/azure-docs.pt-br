@@ -44,7 +44,7 @@ Essa chamada inicia uma pesquisa de dados do Azure e retorna os resultados.
 ![Pesquisando por "piscina"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

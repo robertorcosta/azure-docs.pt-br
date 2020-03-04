@@ -35,7 +35,7 @@ A integração do Sectigo Certificate Manager ao Azure AD oferece a você os seg
 
 Para obter mais informações sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD com o Sectigo Certificate Manager, são necessários os seguintes itens:
 

@@ -42,7 +42,7 @@ Aqui estão algumas considerações importantes para usar HDInsight com Data Lak
 
 Neste artigo, provisionamos um cluster Hadoop com o Data Lake Storage Gen1 como armazenamento adicional. Para obter instruções sobre como criar um cluster Hadoop com Data Lake Storage Gen1 como armazenamento padrão, consulte [Criar um cluster HDInsight com Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

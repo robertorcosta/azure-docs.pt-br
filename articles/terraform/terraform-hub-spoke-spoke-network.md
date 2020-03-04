@@ -21,7 +21,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Use o Terraform para criar Máquinas Virtuais nas redes spoke
 > * Usar o Terraform para estabelecer emparelhamentos de rede virtual com as redes do hub
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).

@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Interromper as topologias
 > * Limpar recursos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Familiaridade com a criação de tópicos Kafka. Para obter mais informações, consulte o documento [Início rápido do Kafka no HDInsight](./kafka/apache-kafka-get-started.md).
 

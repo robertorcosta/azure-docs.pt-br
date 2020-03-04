@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar seu aplicativo para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Injetar a configuração mais recente nos controladores do aplicativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 

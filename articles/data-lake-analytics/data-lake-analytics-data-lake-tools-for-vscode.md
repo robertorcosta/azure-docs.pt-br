@@ -22,7 +22,7 @@ Neste artigo, saiba como usar as Ferramentas do Azure Data Lake para Visual Stud
 
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 As ferramentas do Azure Data Lake para VS Code dão suporte para Windows, Linux e macOS. A execução local do U-SQL e a depuração local funcionam somente no Windows.
 

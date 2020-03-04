@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Conectar-se a um dispositivo virtual
 > * Configurar e ativar o dispositivo virtual
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de configurar e configurar seu Data Box Gateway, verifique se:
 

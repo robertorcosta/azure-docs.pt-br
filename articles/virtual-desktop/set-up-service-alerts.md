@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 
 Para saber mais, veja a [documentação de Integridade do Serviço do Azure](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Tutorial: Criar um locatário na Área de Trabalho Virtual do Windows](tenant-setup-azure-active-directory.md)
 - [Tutorial: Criar entidades de serviço e atribuições de função com o PowerShell](create-service-principal-role-powershell.md)

@@ -125,7 +125,7 @@ Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um no
 - Somente as contas especificadas na solicitação são transferidas. Se todas as contas forem escolhidas, elas serão todas transferidas.
 - O registro de origem retém o próprio status como ativo ou estendido. Você poderá continuar usando o registro até que ele expire.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Ao solicitar uma transferência de conta, forneça as seguintes informações:
 
@@ -167,7 +167,7 @@ A data de efetivação da transferência pode ser a data de início do registro 
 
 O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Ao solicitar uma transferência de registro, forneça as seguintes informações:
 

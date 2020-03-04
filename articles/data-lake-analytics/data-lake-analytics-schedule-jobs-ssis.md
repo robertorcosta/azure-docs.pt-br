@@ -21,7 +21,7 @@ ms.locfileid: "71672903"
 
 Neste documento, você aprende como orquestrar e criar trabalhos do U-SQL usando SSIS (SQL Server Integration Service). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O [Feature Pack do Azure para Serviços de Integração](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) fornece a [tarefa do Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) e o [Gerenciador de Conexões do Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) que ajuda a conectar o serviço do Azure Data Lake Analytics. Para usar essa tarefa, certifique-se de instalar:
 

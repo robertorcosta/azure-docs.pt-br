@@ -28,7 +28,7 @@ Você pode usar o ambiente criado neste tutorial para testes ou para se familiar
 
 Nesse cenário, há uma floresta sincronizada usando a sincronização do Azure AD Connect para um locatário do Azure AD. Além disso, você tem uma nova floresta que deseja sincronizar com o mesmo locatário do Azure AD. Você configurará o provisionamento de nuvem para a nova floresta. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Azure Active Directory
 
 1. Crie uma conta de administrador global somente em nuvem no seu locatário do Azure AD. Dessa forma, você pode gerenciar a configuração do seu locatário caso seus serviços locais falhem ou fiquem indisponíveis. Saiba mais sobre [adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A conclusão dessa etapa é essencial para garantir que você não seja bloqueado de seu locatário.

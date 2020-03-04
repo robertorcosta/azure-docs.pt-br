@@ -25,7 +25,7 @@ Você aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma implantação do Blockchain Workbench. Para obter mais informações, consulte [implantação do Azure Blockchain Workbench](deploy.md) para obter detalhes sobre a implantação.
 * Usuários do Azure Active Directory no locatário associado ao Blockchain Workbench. Para obter mais informações, consulte [adicionar usuários do Microsoft Azure Active Directory no Azure Blockchain Workbench](manage-users.md#add-azure-ad-users).

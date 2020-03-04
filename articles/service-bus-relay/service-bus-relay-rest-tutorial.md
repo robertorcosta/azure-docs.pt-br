@@ -38,7 +38,7 @@ Você executará as seguintes tarefas neste tutorial:
 > * Hospedar e executar o serviço WCF baseado em REST.
 > * Executar e testar o serviço.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 

@@ -37,7 +37,7 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 
 Para obter informações de visão geral sobre o Key Vault, consulte [O que é o Azure Key Vault?](key-vault-overview.md). Para obter informações sobre onde o Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -75,7 +75,7 @@ Apontar o PowerShell para a assinatura correta é uma etapa importante, especial
 
 Embora você possa usar uma conta de armazenamento existente para seus logs, criaremos uma conta de armazenamento que será dedicada aos logs do Key Vault. Para conveniência quando tivermos de especificar isso posteriormente, armazenaremos os detalhes em uma variável chamada **sa**.
 
-Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que contém o cofre de chaves. No [tutorial de introdução](key-vault-get-started.md), esse grupo de recursos é denominado **ContosoResourceGroup** e continuaremos a usar o local Ásia Oriental. Substitua esses valores pelos seus, conforme aplicável:
+Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que contém o cofre de chaves. No [tutorial de introdução](key-vault-get-started.md), esse grupo de recursos é denominado **ContosoResourceGroup** e continuaremos a usar o local Leste da Ásia. Substitua esses valores pelos seus, conforme aplicável:
 
 ```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'

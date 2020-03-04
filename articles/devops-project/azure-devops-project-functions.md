@@ -37,9 +37,9 @@ Neste tutorial, você irá:
 >* Confirmar alterações no Git e implantá-las automaticamente no Azure
 >* Limpar recursos
 
-Atualmente, os tempos de execução com suporte para as funções são **.NET** e **Node.js**. Usamos o tempo de execução do .NET para este tutorial para implantação no Azure Functions. 
+Atualmente, os runtimes com suporte para as funções são **.NET** e **Node.js**. Usamos o tempo de execução do .NET para este tutorial para implantação no Azure Functions. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 

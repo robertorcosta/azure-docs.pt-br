@@ -25,7 +25,7 @@ Existem várias maneiras de convidar parceiros externos para aplicativos e servi
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Instalar o módulo AzureADPreview mais recente
 Instale a versão mais recente do módulo do Azure AD PowerShell para Graph (AzureADPreview). 

@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
 Entre no Portal do Azure em https://portal.azure.com.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 -Este início rápido requer que você implante duas instâncias de um aplicativo Web em execução em diferentes regiões do Azure (*Leste dos EUA* e *Europa Ocidental*). Ambas as instâncias do aplicativo Web são executadas no modo ativo/ativo, ou seja, qualquer uma delas pode usar o tráfego a qualquer momento, diferentemente de uma configuração ativo/stand-by em que um funciona como um failover.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Web** > **Aplicativo Web** > **Criar**.

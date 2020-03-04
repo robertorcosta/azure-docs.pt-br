@@ -38,7 +38,7 @@ O que você aprenderá:
 > * Usar cadeias de caracteres de consulta para controlar versões armazenadas em cache.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 

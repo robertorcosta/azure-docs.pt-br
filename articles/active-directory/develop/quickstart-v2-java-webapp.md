@@ -26,7 +26,7 @@ Após concluir este início rápido, seu aplicativo aceitará credenciais de con
 
 ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar esta amostra, você precisará do seguinte:
 

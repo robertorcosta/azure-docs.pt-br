@@ -19,7 +19,7 @@ O Azure SignalR Service fornece [API REST](https://github.com/Azure/azure-signal
 
 Neste início rápido, você aprenderá como enviar mensagens de um aplicativo de linha de comando para aplicativos cliente conectados em C#.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este início rápido pode ser executado no macOS, Windows ou Linux.
 

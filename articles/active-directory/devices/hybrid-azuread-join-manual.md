@@ -35,7 +35,7 @@ Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos
 > * Verificar dispositivos ingressados
 > * Solucionar problemas de implementação
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial presume que você já esteja familiarizado com:
 

@@ -22,7 +22,7 @@ As seguintes tarefas são explicadas:
 > * Usar o Terraform para criar máquina virtual local
 > * Usar o Terraform para criar gateway de rede virtual privada virtual local
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 

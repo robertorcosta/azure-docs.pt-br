@@ -24,7 +24,7 @@ ms.locfileid: "74155922"
 > * Obter fatos de um plano do Serviço de Aplicativo existente
 > * Escalar verticalmente o plano do Serviço de Aplicativo para o S2 com três funções de trabalho
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

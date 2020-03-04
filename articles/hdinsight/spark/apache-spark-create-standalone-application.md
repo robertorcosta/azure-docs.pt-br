@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Use IntelliJ para desenvolver um aplicativo Scala Maven
 > * Criar um projeto de Scala autônomo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 

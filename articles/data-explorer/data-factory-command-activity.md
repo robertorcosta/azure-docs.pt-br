@@ -19,7 +19,7 @@ ms.locfileid: "72264498"
 
 [Azure data Factory](/azure/data-factory/) (ADF) é um serviço de integração de dados baseado em nuvem que permite executar uma combinação de atividades nos dados. Use o ADF para criar fluxos de trabalho orientados a dados para orquestrar e automatizar a movimentação de dados e a transformação de dados. A atividade de **comando do data Explorer do Azure** no Azure data Factory permite que você execute [comandos do controle de data Explorer do Azure](/azure/kusto/concepts/#control-commands) em um fluxo de trabalho do ADF. Este artigo ensina como criar um pipeline com uma atividade de pesquisa e uma atividade ForEach que contém uma atividade de comando do Azure Data Explorer.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Um cluster de Data Explorer do Azure e um banco de dados](create-cluster-database-portal.md)

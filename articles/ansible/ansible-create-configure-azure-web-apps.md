@@ -25,7 +25,7 @@ ms.locfileid: "74156560"
 > * Criar um perfil do Gerenciador de Tráfego do Azure
 > * Definir um ponto de extremidade do Gerenciador de Tráfego usando o aplicativo criado
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

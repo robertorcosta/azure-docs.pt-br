@@ -25,7 +25,7 @@ Um tutorial passo a passo para criar uma sala de chat com autenticação e mensa
 * [Serviço Azure SignalR](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu): transmite novas mensagens para clientes de chat conectados
 * [Armazenamento do Azure](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu): hospeda o site estático para a interface do usuário do cliente de chat
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 O software a seguir é necessário para criar este tutorial.
 

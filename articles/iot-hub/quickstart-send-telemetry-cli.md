@@ -22,7 +22,7 @@ ms.locfileid: "73931827"
 
 O Hub IoT é um serviço do Azure que permite a ingestão de grandes volumes de telemetria de seus dispositivos IoT pela nuvem para processamento ou armazenamento. Neste guia de início rápido, você usa a CLI do Azure para criar um hub IoT e um dispositivo simulado, enviar telemetria do dispositivo para o hub e enviar uma mensagem da nuvem para o dispositivo. Você também usa o portal do Azure para visualizar as métricas do dispositivo. Esse é um fluxo de trabalho básico para desenvolvedores que usam a CLI para interagir com um aplicativo de Hub IoT.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Se você não tiver uma assinatura do Azure, [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - CLI do Azure. Você pode executar todos os comandos neste guia de início rápido usando o Azure Cloud Shell, um shell da CLI interativa que é executado em seu navegador. Se você usar o Cloud Shell, não precisará instalar nada. Se você preferir usar a CLI localmente, este guia de início rápido exigirá a CLI do Azure versão 2.0.76 ou posterior. Execute az --version para localizar a versão. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 

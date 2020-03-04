@@ -34,7 +34,7 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Executar o aplicativo até que os alertas comecem a ser disparados. 
 > * Ver os resultados das métricas e verificar os logs de diagnóstico. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

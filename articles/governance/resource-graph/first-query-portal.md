@@ -16,7 +16,7 @@ Toda a potência do Azure Resource Graph está disponível diretamente no portal
 
 No final deste início rápido, você terá usado o portal do Azure e o Resource Graph Explorer para executar sua primeira consulta do Resource Graph e terá fixado os resultados em um painel.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

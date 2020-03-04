@@ -25,7 +25,7 @@ Assim como acontece com a maioria dos aplicativos inseridos que são executados 
 
 Se você preferir simular um dispositivo, consulte [Criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar as etapas deste guia de instruções, você precisará de um dispositivo com Ubuntu versão 15.04 ou posterior. Antes de continuar, [configure o ambiente de desenvolvimento do Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
 

@@ -32,7 +32,7 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 > * Conceder acesso à VM para chaves de acesso da conta de armazenamento no Resource Manager 
 > * Obter um token de acesso usando a identidade da VM e usá-la para recuperar as chaves de acesso de armazenamento do Resource Manager  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

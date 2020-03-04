@@ -31,7 +31,7 @@ Na segunda parte da série, você aprenderá como:
 > * Simular uma falha com [uma rota estática inválida](#simulate-a-failure-with-an-invalid-static-route) ou o [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simular a restauração do ponto de extremidade primário
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial, conclua o tutorial anterior: [Tornar os dados de seu aplicativo altamente disponíveis com o Armazenamento do Azure][previous-tutorial].
 

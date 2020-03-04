@@ -26,7 +26,7 @@ Após concluir este guia, seu aplicativo aceitará conexões de contas Microsoft
 
 ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar esta amostra, você precisará do seguinte:
 

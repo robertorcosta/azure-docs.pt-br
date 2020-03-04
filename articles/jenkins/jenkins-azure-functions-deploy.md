@@ -15,7 +15,7 @@ ms.locfileid: "77470659"
 
 O [Azure Functions](/azure/azure-functions/) é um serviço de computação sem servidor. Usando o Azure Functions, você pode executar código sob demanda sem provisionamento nem gerenciamento de infraestrutura. Este tutorial mostra como implantar uma função Java no Azure Functions usando o plug-in do Azure Functions.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - **Servidor Jenkins**: se você não tiver um servidor Jenkins instalado, leia o artigo [Criar um servidor Jenkins no Azure](./install-jenkins-solution-template.md).

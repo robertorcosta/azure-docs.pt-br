@@ -21,7 +21,7 @@ ms.locfileid: "68707092"
 
 O exemplo de Node a seguir cria uma consulta para obter informações sobre o Parque Nacional de Yosemite.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 

@@ -35,7 +35,7 @@ Este artigo descreve como usar o Visual Studio para criar contas de Azure Data L
 >    - [Para o Visual Studio 2017 e 2019](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Para Visual Studio 2013 e 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Visual Studio**: Todas as edições, exceto Express, têm suporte.
 

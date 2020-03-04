@@ -37,7 +37,7 @@ Neste tutorial, você irá:
 > * Fazer commit das alterações no Git e implantá-las automaticamente no Azure
 > * Limpar os recursos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa de uma assinatura do Azure, que pode ser obtida por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) gratuitamente.
 

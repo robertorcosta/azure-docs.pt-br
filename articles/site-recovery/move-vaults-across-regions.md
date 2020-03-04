@@ -33,7 +33,7 @@ Neste documento, você vai:
 > [!IMPORTANT]
 > No momento, não há uma maneira não trabalhosa de mover um cofre dos Serviços de Recuperação e a configuração de recuperação de desastre no estado em que se encontram para uma região diferente. Este artigo explica o processo de desabilitar a replicação e configurá-la na nova região.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Não deixe de remover e excluir a configuração de recuperação de desastre antes de tentar mover as VMs do Azure para uma região diferente. 
 

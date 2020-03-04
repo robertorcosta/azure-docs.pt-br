@@ -22,11 +22,11 @@ Este tutorial descreve como se conectar aos dados e copiá-los do computador hos
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se ao Data Box Heavy
 > * Copiar dados para o Data Box Heavy
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 
@@ -156,7 +156,7 @@ Para garantir a integridade dos dados, a soma de verificação é computada em l
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Heavy, como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se ao Data Box Heavy
 > * Copiar dados para o Data Box Heavy
 

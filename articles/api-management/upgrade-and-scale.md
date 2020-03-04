@@ -29,7 +29,7 @@ O preço de cada unidade e os recursos disponíveis (por exemplo, a implantaçã
 >[!NOTE]
 >O artigo [detalhes de preços](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) mostra o número aproximado de capacidade da unidade em cada camada. Para obter números mais precisos, você precisará examinar um cenário realista para suas APIs. Consulte o artigo [Capacidade de uma instância de Gerenciamento de API do Azure](api-management-capacity.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar as etapas deste artigo, é necessário:
 

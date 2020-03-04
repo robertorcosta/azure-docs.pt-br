@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 ![Resposta de operação fictícia](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Compreenda o [conceito de políticas no Gerenciamento de API do Azure](api-management-howto-policies.md).

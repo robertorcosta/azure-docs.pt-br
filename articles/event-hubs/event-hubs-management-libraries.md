@@ -27,7 +27,7 @@ Você pode usar as bibliotecas de gerenciamento de Hubs de eventos podem provisi
 * Criação de Hubs de eventos, atualização, exclusão
 * Criação de grupo de consumidores, atualização, exclusão
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar a usar as bibliotecas de gerenciamento de Hubs de eventos, você deverá se autenticar com o Azure Active Directory (AAD). AAD exige que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 

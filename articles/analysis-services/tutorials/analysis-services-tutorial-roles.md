@@ -27,7 +27,7 @@ ms.locfileid: "73572367"
 
 Para saber mais sobre segurança do usuário no Azure Analysis Services, consulte [Autenticação e permissões de usuário](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um Azure Active Directory em sua assinatura.
 - Um [servidor do Azure Analysis Services](../analysis-services-create-server.md) criado em sua assinatura.

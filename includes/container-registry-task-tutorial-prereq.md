@@ -11,7 +11,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67133787"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="get-sample-code"></a>Obter código de exemplo
 

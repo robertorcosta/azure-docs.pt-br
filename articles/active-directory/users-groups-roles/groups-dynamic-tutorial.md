@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Esse recurso requer uma licença do Azure AD Premium para você como o administrador global do locatário. Se você não tiver uma, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
 

@@ -21,7 +21,7 @@ ms.locfileid: "73827007"
 
 Este artigo demonstra como usar o [PHP](https://php.net/manual/en/intro-whatis.php) para se conectar a um Banco de dados SQL do Azure. Depois você pode usar as instruções T-SQL para consultar dados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este modelo, é necessário atender aos seguintes pré-requisitos:
 

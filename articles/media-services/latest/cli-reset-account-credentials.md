@@ -25,7 +25,7 @@ ms.locfileid: "70967584"
 
 O script da CLI do Azure neste artigo mostra como redefinir as credenciais da sua conta e recuperar as configurações de app.config.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 

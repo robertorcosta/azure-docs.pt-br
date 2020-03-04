@@ -18,7 +18,7 @@ ms.locfileid: "73720918"
 
 Este artigo descreve como usar notebooks Jupyter internos para importar dados de varejo de exemplo para o Azure Cosmos DB. Você verá como usar os comandos magic do SQL e do Azure Cosmos DB para executar consultas, analisar os dados e visualizar os resultados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Habilitar suporte a notebooks ao criar a conta do Azure Cosmos](enable-notebooks.md)
 

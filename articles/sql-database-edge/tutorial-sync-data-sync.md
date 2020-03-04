@@ -22,7 +22,7 @@ Neste tutorial, você aprenderá a usar o *grupo de sincronização* da Sincroni
 
 Já que o Banco de Dados SQL no Edge é criado nas versões mais recentes do [Mecanismo de Banco de Dados do SQL Server](/sql/sql-server/sql-server-technical-documentation/), qualquer mecanismo de sincronização de dados aplicável a uma instância local do SQL Server também pode ser usado para sincronizar dados de ou para uma instância do Banco de Dados SQL no Edge em execução em um dispositivo de borda.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial requer um computador Windows configurado com o [Data Sync Agent para a Sincronização de Dados SQL do Azure](../sql-database/sql-database-data-sync-agent.md).
 

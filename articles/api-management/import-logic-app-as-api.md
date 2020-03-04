@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a:
 > -   Testar a API no Portal do Azure
 > -   Testar a API no Portal do desenvolvedor
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 -   Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 -   Verifique se há um aplicativo lógico em sua assinatura, que expõe um ponto de extremidade HTTP. Para obter mais informações, confira [Disparar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md)

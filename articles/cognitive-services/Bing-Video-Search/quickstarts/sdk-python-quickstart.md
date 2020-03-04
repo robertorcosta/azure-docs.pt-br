@@ -23,7 +23,7 @@ Use este início rápido para começar a pesquisar notícias com o SDK de Pesqui
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Python](https://www.python.org/) 2.x ou 3.x
 - O SDK da Pesquisa de Vídeo do Bing para Python

@@ -26,7 +26,7 @@ O serviço de exemplo deste artigo fornece os dados para uma grade que a seção
 
 Em um aplicativo React, um serviço normalmente interage com um serviço de back-end. Exemplos no acelerador de solução de Monitoramento Remoto incluem serviços que interagem com o gerenciador do hub IoT e microsserviços de configuração.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 

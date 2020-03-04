@@ -23,7 +23,7 @@ O tutorial a seguir usa o exemplo de blueprint **Grupos de Recursos com RBAC** p
 > - Inspecionar os recursos implantados para a atribuição
 > - Cancelar a atribuição do blueprint para remover os bloqueios
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, será necessária uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

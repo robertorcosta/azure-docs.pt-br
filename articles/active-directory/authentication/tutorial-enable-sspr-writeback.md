@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Habilitar a opção de write-back de senha no Azure AD Connect
 > * Habilitar write-back de senha no SSPR do Azure AD
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 

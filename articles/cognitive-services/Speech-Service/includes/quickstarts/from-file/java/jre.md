@@ -11,7 +11,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77446288"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
 > * [Criar um recurso de Fala do Azure](../../../../get-started.md)

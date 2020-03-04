@@ -34,7 +34,7 @@ Se quiser saber mais sobre a integração de aplicativos SaaS ao Azure AD, confi
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD ao ThirdLight, você precisa ter:
 

@@ -23,7 +23,7 @@ Neste tutorial, use o Power BI Desktop para se conectar ao modelo de banco de da
 > * Conectar-se usando o Power BI Desktop
 > * Criar um relatório básico
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Adicionar o modelo de banco de dados do exemplo adventureworks](../analysis-services-create-sample-model.md) ao seu servidor.
 - Ter permissões de [*leitura*](../analysis-services-server-admins.md) para o modelo de banco de dados do exemplo adventureworks.

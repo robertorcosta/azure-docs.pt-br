@@ -29,7 +29,7 @@ Antes de começar, verifique se a CLI do Azure está instalada. Para obter mais 
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
-### <a name="step-1-prerequisites"></a>Etapa 1: Pré-requisitos
+### <a name="step-1-prerequisites"></a>Etapa 1: Prerequisites
 
 *   Para executar o processo de backup e recuperação, você precisa primeiro criar uma VM Linux com uma instância do Bando de Dados Oracle 12c instalada. A imagem do Marketplace usada para criar a VM chama-se *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 

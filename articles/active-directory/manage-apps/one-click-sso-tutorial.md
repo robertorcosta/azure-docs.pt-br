@@ -37,7 +37,7 @@ O recurso SSO com um clique foi projetado para configurar o logon único para ap
 - Configuração de SSO mais eficiente e precisa.
 - Nenhuma comunicação de parceiro ou suporte necessário para a instalação. O aplicativo fornece a interface do usuário para a configuração do SAML.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura ativa do aplicativo a ser configurado com o SSO. Você também precisa ter credenciais de administrador.
 - A **extensão Entrada Segura dos Meus Aplicativos** da Microsoft instalada no navegador. Para obter mais informações, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).

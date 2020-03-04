@@ -18,7 +18,7 @@ Os repositórios GitHub fornecem armazenamento e controle de versão para Jupyte
 
 Como o clone do Azure Notebooks está na nuvem, você pode compartilhá-lo com outros colaboradores, que não precisam fazer nenhuma cópia local nem ter o Jupyter instalado nos computadores. Você também poderá clonar um notebook simplesmente como ponto de partida para um projeto próprio ou para obter arquivos de dados. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Nenhum.
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Clonar notebooks dos Serviços Cognitivos do Azure

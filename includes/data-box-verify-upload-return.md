@@ -50,7 +50,7 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure

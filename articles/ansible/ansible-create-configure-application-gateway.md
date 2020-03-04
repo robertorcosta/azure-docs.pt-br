@@ -25,7 +25,7 @@ O [Gateway de Aplicativo do Azure](/azure/application-gateway/overview) é um ba
 > * Criar duas instâncias de contêiner do Azure com imagem HTTPD
 > * Criar um gateway de aplicativo que funciona com as instâncias de contêiner do Azure no pool de servidores
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

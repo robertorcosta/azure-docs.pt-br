@@ -23,7 +23,7 @@ Esse pipeline de dados combina os dados de vários repositórios, remove os dado
 
 ![Arquitetura de ETL](./media/hdinsight-sales-insights-etl/architecture.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

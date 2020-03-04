@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Efetuar pull na nova imagem do docker
 > * Visualizar as alterações 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este tutorial, você precisa do seguinte:
 

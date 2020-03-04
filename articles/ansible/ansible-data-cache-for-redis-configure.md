@@ -27,7 +27,7 @@ O [Cache Redis do Azure](/azure/azure-cache-for-redis/) é um serviço compatív
 > * Adicionar uma regra de firewall a um cache
 > * Excluir um cache
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

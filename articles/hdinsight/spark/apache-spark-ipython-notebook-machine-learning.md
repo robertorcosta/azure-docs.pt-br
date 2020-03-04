@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Desenvolver um aplicativo de aprendizado de máquina do Apache Spark
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster do Apache Spark no HDInsight. Veja [Criar um cluster do Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 

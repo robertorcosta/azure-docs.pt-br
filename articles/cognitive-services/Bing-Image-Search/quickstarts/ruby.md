@@ -26,7 +26,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de I
 Embora esse aplicativo seja escrito no Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [A versão mais recente do Ruby](https://www.ruby-lang.org/en/downloads/).
 

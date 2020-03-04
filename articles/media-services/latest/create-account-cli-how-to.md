@@ -28,7 +28,7 @@ Para iniciar a criptografia, codificação, analise, gerenciamento e streaming d
 
 Este artigo descreve as etapas para criar uma nova conta dos Serviços de Mídia do Azure usando a CLI do Azure.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 

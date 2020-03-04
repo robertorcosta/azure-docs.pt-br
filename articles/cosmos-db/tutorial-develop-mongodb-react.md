@@ -34,7 +34,7 @@ Este tutorial com várias partes aborda as seguintes tarefas:
 
 Deseja criar esse mesmo aplicativo com Angular? Confira a [série de tutoriais em vídeo do Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Projeto concluído

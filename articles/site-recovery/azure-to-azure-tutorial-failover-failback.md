@@ -28,7 +28,7 @@ Este tutorial descreve como fazer failover de uma máquina virtual (VM) do Azure
 > Este tutorial contém o caminho mais simples com configurações padrão e personalização mínima. Para ver cenários mais complexos, use os artigos em “Como” para VMs do Azure.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Antes de começar, reveja as [perguntas frequentes](site-recovery-faq.md#failover) sobre failover.
 - É importante realizar uma [simulação de recuperação de desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se tudo está funcionando conforme o esperado.

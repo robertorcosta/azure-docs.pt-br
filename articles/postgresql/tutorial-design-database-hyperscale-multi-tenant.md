@@ -29,7 +29,7 @@ Neste tutorial, você usa o Banco de Dados do Azure para PostgreSQL – Hiperesc
 > * Consultar dados entre locatários
 > * Personalizar o esquema por locatário
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 

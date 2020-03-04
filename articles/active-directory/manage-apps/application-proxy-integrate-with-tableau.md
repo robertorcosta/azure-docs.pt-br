@@ -24,7 +24,7 @@ ms.locfileid: "65783859"
 
 O Proxy de Aplicativo do Active Directory do Azure e o Tableau fizeram uma parceria para garantir que você possa usar facilmente o Proxy de Aplicativo para fornecer acesso remoto à sua implantação do Tableau. Este artigo explica como configurar esse cenário.  
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 O cenário neste artigo pressupõe que você tenha:
 

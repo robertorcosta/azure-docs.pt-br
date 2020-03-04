@@ -57,7 +57,7 @@ Para decidir se deseja usar a migração sem agente ou baseada em agente, leia e
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar este tutorial, você deverá:
 

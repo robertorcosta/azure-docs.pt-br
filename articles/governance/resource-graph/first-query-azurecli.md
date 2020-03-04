@@ -16,7 +16,7 @@ A primeira etapa para usar o Azure Resource Graph é verificar se a extensão pa
 
 No final deste processo, você terá adicionado a extensão à sua instalação da CLI do Azure de preferência e executado sua primeira consulta ao Resource Graph.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

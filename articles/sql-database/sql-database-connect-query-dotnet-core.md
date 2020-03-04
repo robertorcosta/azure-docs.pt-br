@@ -25,7 +25,7 @@ Neste início rápido, você usará o [.NET Core](https://www.microsoft.com/net/
 > [!TIP]
 > O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente como [Desenvolver e configurar um aplicativo ASP.NET que consulta um Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para este tutorial, é necessário:
 

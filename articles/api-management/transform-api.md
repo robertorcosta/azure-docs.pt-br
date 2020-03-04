@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 ![Políticas](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 -   Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 -   Compreenda o [conceito de políticas no Gerenciamento de API do Azure](api-management-howto-policies.md).

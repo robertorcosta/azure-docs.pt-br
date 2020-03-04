@@ -26,7 +26,7 @@ Você pode cortar ou subclipe um vídeo quando estiver codificando-o usando um [
 
 O seguinte C# exemplo cria um trabalho que corta um vídeo em um ativo, ele envia um trabalho de codificação. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas descritas neste tópico, você precisa:
 

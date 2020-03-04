@@ -28,7 +28,7 @@ Você aprenderá como:
 > [!IMPORTANT]
 > O PowerShell para o Azure Functions está atualmente em versão prévia. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Confira [Criar sua primeira função do PowerShell no Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) para obter os pré-requisitos para instalar e usar o Visual Studio Code com o Azure Functions no sistema operacional.
 

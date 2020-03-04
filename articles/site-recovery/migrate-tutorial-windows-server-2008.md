@@ -46,7 +46,7 @@ A seção Limitações e problemas conhecidos lista algumas das limitações e s
 > - Verifique se você tem o Service Pack e as atualizações do Windows mais recentes instalados antes de migrar.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, vale a pena examinar a arquitetura do Azure Site Recovery para [migração de servidores VMware e físicos](vmware-azure-architecture.md) ou [migração de máquinas virtuais Hyper-V](hyper-v-azure-architecture.md) 
 

@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 ![Versão mostrada no portal do desenvolvedor](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).

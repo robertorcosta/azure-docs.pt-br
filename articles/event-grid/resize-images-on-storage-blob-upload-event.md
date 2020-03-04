@@ -27,15 +27,15 @@ Este tutorial é a segunda parte de uma série de tutoriais sobre o Armazenament
 
 Use a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a um aplicativo de upload de imagens existente.
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 ![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK do Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK do Node.js V2](#tab/nodejs)
 
 ![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK do Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 
 ![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
@@ -48,7 +48,7 @@ Neste tutorial, você aprenderá como:
 > * Implantar o código sem servidor usando o Azure Functions
 > * Criar uma assinatura de evento do armazenamento de Blobs na Grade de Eventos
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -115,7 +115,7 @@ Agora você deve configurar o aplicativo de função para se conectar à conta d
 
 A função precisa ter credenciais para a conta de Armazenamento de Blobs, que são adicionadas às configurações do aplicativo de funções usando o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 ```azurecli-interactive
 blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
@@ -127,7 +127,7 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK do Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK do Node.js V2](#tab/nodejs)
 
 ```azurecli-interactive
 blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
@@ -140,7 +140,7 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK do Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 
 ```azurecli-interactive
 blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
@@ -166,7 +166,7 @@ Agora você pode implantar um projeto de código de função nesse aplicativo de
 
 ## <a name="deploy-the-function-code"></a>Implantar o código de função 
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 A função de redimensionamento do C# de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implante esse projeto de código no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source). 
 
@@ -174,7 +174,7 @@ A função de redimensionamento do C# de exemplo está disponível no [GitHub](h
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK do Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK do Node.js V2](#tab/nodejs)
 
 A função de redimensionamento do exemplo Node.js está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
@@ -184,7 +184,7 @@ az functionapp deployment source config --name $functionapp \
 --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK do Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 
 A função de redimensionamento do exemplo Node.js está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Implante esse projeto de código do Functions no aplicativo de funções usando o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
@@ -201,15 +201,15 @@ Os dados passados para a função da notificação de Grade de Eventos incluem a
 
 Este projeto usa `EventGridTrigger` para o tipo de gatilho. O uso do gatilho de Grade de Eventos é recomendado em gatilhos HTTP genéricos. A Grade de Eventos valida automaticamente os gatilhos de Função da Grade de Eventos. Com os gatilhos HTTP genéricos, você deve implementar a [resposta de validação](security-authentication.md).
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 Para saber mais sobre essa função, consulte os [arquivos function.json e run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions).
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK do Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK do Node.js V2](#tab/nodejs)
 
 Para saber mais sobre essa função, confira os [arquivos function.json e index.js](https://github.com/Azure-Samples/storage-blob-resize-function-node/tree/master/Thumbnail).
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK do Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 
 Para saber mais sobre essa função, confira os [arquivos function.json e index.js](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
 
@@ -256,7 +256,7 @@ Agora que os serviços de back-end estão configurados, teste a funcionalidade d
 
 Para testar o redimensionamento de imagem no aplicativo Web, navegue para a URL do aplicativo publicado. A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 Clique na região **Carregar fotos** para selecionar e carregar um arquivo. Também arraste uma foto para essa região. 
 
@@ -264,13 +264,13 @@ Observe que, depois que a imagem carregada desaparece, uma cópia da imagem carr
 
 ![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK do Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK do Node.js V2](#tab/nodejs)
 
 Clique em **Escolher Arquivo** para selecionar um arquivo e, em seguida, clique em **Carregar Imagem**. Quando o upload for bem-sucedido, o navegador direcionará você para uma página de êxito. Clique no link para retornar à home page. Uma cópia da imagem carregada será exibida na área **Miniaturas geradas**. (Se a imagem não for exibida no início, tente recarregar a página.) Essa imagem foi redimensionada pela função, adicionada ao contêiner de *miniaturas* e baixada pelo cliente Web.
 
 ![Aplicativo Web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK do Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK do Node.js V10](#tab/nodejsv10)
 
 Clique em **Escolher Arquivo** para selecionar um arquivo e, em seguida, clique em **Carregar Imagem**. Quando o upload for bem-sucedido, o navegador direcionará você para uma página de êxito. Clique no link para retornar à home page. Uma cópia da imagem carregada será exibida na área **Miniaturas geradas**. (Se a imagem não for exibida no início, tente recarregar a página.) Essa imagem foi redimensionada pela função, adicionada ao contêiner de *miniaturas* e baixada pelo cliente Web.
 
