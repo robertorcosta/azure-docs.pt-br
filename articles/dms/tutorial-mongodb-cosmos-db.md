@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o MongoDB offline para Azure Cosmos DB API para MongoDB
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar do MongoDB local para Azure Cosmos DB API para MongoDB offline usando o serviço de migração de banco de dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: f90ece0f6aa95dd643cca65b42e284faba8e5be8
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 08fa94dbe71299a6653df0b40aa5083375526172
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747006"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255585"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutorial: migrar o MongoDB para a API do Azure Cosmos DB para MongoDB offline usando DMS
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Neste tutorial, você migrará um conjunto de dados do MongoDB hospedado em uma Máquina Virtual do Azure para a API do Azure Cosmos DB para MongoDB usando o Serviço de Migração de Banco de Dados do Azure. Se não houver uma origem do MongoDB configurada, confira o artigo [Instalar e configurar o MongoDB em uma VM do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -224,6 +224,6 @@ Depois de migrar os dados armazenados no banco de dados do MongoDB para a API do
 
 * [Informações sobre o serviço do Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Revisar as diretrizes de migração para saber sobre mais cenários no [Guia de Migração de Banco de Dados](https://datamigration.microsoft.com/) da Microsoft.

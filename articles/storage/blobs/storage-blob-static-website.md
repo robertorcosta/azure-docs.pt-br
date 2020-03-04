@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e9e2fe92939088420f973c5ca112b5f59d07f212
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906597"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252676"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 
@@ -50,7 +50,7 @@ Você pode usar qualquer uma dessas ferramentas para carregar conteúdo no cont�
 
 Os usuários podem exibir o conteúdo do site de um navegador usando a URL pública do site. Você pode encontrar a URL usando o portal do Azure, o CLI do Azure ou o PowerShell. Use essa tabela como um guia.
 
-|Ferramenta| Diretriz |
+|Ferramenta| Orientação |
 |----|----|
 |**Azure portal** | [Localize a URL do site usando o portal do Azure](storage-blob-static-website-how-to.md#portal-find-url) |
 |**CLI do Azure** | [Localize a URL do site usando o CLI do Azure](storage-blob-static-website-how-to.md#cli-find-url) |
@@ -92,6 +92,12 @@ Se a conta de armazenamento estiver configurada para [exigir transferência segu
 > [!TIP]
 > Considere hospedar seu domínio no Azure. Para obter mais informações, consulte [hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
+## <a name="adding-http-headers"></a>Adicionando cabeçalhos HTTP
+
+Não há como configurar cabeçalhos como parte do recurso de site estático. No entanto, você pode usar a CDN do Azure para adicionar cabeçalhos e acrescentar (ou substituir) valores de cabeçalho. Consulte [referência do mecanismo de regras padrão para a CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+
+Se você quiser usar cabeçalhos para controlar o cache, consulte [controlar o comportamento de cache da CDN do Azure com regras de cache](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
 ## <a name="pricing"></a>Preços
 
 Você pode habilitar a hospedagem de sites estáticos gratuitamente. Você é cobrado apenas pelo armazenamento de BLOBs que seu site utiliza e pelos custos de operações. Para obter mais detalhes sobre preços para Armazenamento de Blob do Azure, confira [Página de Preços do Armazenamento de Blob do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -102,10 +108,10 @@ Você pode habilitar métricas em páginas de site estáticos. Depois de habilit
 
 Para habilitar as métricas em suas páginas de site estáticos, consulte [habilitar métricas em páginas de site estático](storage-blob-static-website-how-to.md#metrics).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Hospedar um site estático no armazenamento do Azure](storage-blob-static-website-how-to.md)
-* [Mapear um domínio personalizado para um ponto de extremidade do armazenamento de BLOBs do Azure](storage-custom-domain-name.md)
+* [Mapear um domínio personalizado para um ponto de extremidade do Armazenamento de Blobs do Azure](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Serviço de Aplicativo do Azure](/azure/app-service/overview)
 * [Compile seu primeiro aplicativo web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3353451057037e5f3fd94347a007a9d3b2c0e15
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193077"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250961"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -159,12 +159,6 @@ Para obter mais informações sobre como trabalhar com modelos treinados fora do
 
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>Escolher um destino de computação
-
-Você pode usar os seguintes destinos de computação ou recursos de computação para hospedar a implantação do serviço Web:
-
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
 ## <a name="single-versus-multi-model-endpoints"></a>Pontos de extremidade únicos versus vários modelos
 O Azure ML dá suporte à implantação de modelos únicos ou múltiplos por trás de um único ponto de extremidade.
 
@@ -172,9 +166,9 @@ Os pontos de extremidade de vários modelos usam um contêiner compartilhado par
 
 Para obter um exemplo de E2E que mostra como usar vários modelos atrás de um único ponto de extremidade em contêiner, consulte [Este exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## <a name="prepare-deployment-artifacts"></a>Preparar artefatos de implantação
+## <a name="prepare-to-deploy"></a>Preparar-se para implantar
 
-Para implantar o modelo, você precisa do seguinte:
+Para implantar o modelo como um serviço, você precisa dos seguintes componentes:
 
 * O **script de entrada & dependências do código-fonte**. Esse script aceita solicitações, pontua as solicitações usando o modelo e retorna os resultados.
 
@@ -187,11 +181,9 @@ Para implantar o modelo, você precisa do seguinte:
     >
     >   Uma alternativa que pode funcionar para seu cenário é a [previsão de lote](how-to-use-parallel-run-step.md), que fornece acesso a armazenamentos de dados durante a pontuação.
 
-* **Ambiente de inferência**. A imagem base com as dependências de pacote instaladas necessárias para executar o modelo.
+* **Configuração de inferência**. A configuração de inferência especifica a configuração do ambiente, o script de entrada e outros componentes necessários para executar o modelo como um serviço.
 
-* **Configuração de implantação** para o destino de computação que hospeda o modelo implantado. Essa configuração descreve coisas como requisitos de memória e CPU necessários para executar o modelo.
-
-Esses itens são encapsulados em uma *configuração de inferência* e uma *configuração de implantação*. A configuração de inferência referencia o script de entrada e outras dependências. Você define essas configurações programaticamente ao usar o SDK para executar a implantação. Você os define em arquivos JSON ao usar a CLI.
+Depois de ter os componentes necessários, você pode criar o perfil do serviço que será criado como resultado da implantação do modelo para entender seus requisitos de CPU e memória.
 
 ### <a id="script"></a>1. definir seu script de entrada e dependências
 
@@ -267,33 +259,7 @@ Atualmente, esses tipos têm suporte:
 * `pyspark`
 * Objeto Python padrão
 
-Para usar a geração de esquema, inclua o pacote de `inference-schema` em seu arquivo de ambiente Conda. Para obter mais informações sobre este pacote, consulte [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema).
-
-##### <a name="example-dependencies-file"></a>Arquivo de dependências de exemplo
-
-O YAML a seguir é um exemplo de um arquivo de dependências Conda para inferência. Observe que você deve indicar os padrões do azureml com a versão > = 1.0.45 como uma dependência Pip, pois ele contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
-
-```YAML
-name: project_environment
-dependencies:
-  - python=3.6.2
-  - scikit-learn=0.20.0
-  - pip:
-      # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
-```
-
-> [!IMPORTANT]
-> Se sua dependência estiver disponível por meio de Conda e PIP (de PyPi), a Microsoft recomenda usar a versão Conda, já que os pacotes Conda normalmente são fornecidos com binários pré-criados que tornam a instalação mais confiável.
->
-> Para obter mais informações, consulte [Understanding Conda and Pip](https://www.anaconda.com/understanding-conda-and-pip/).
->
-> Para verificar se sua dependência está disponível por meio do Conda, use o comando `conda search <package-name>` ou use os índices de pacote em [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) e [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
-
-Se você quiser usar a geração de esquema automática, seu script de entrada deverá importar os pacotes de `inference-schema`.
-
-Defina os formatos de exemplo de entrada e saída nas variáveis `input_sample` e `output_sample`, que representam os formatos de solicitação e resposta para o serviço Web. Use esses exemplos nos decoradores da função de entrada e saída na função `run()`. O exemplo a seguir scikit-Learn usa a geração de esquema.
+Para usar a geração de esquema, inclua o pacote de `inference-schema` no arquivo de dependências. Para obter mais informações sobre este pacote, consulte [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema). Defina os formatos de exemplo de entrada e saída nas variáveis `input_sample` e `output_sample`, que representam os formatos de solicitação e resposta para o serviço Web. Use esses exemplos nos decoradores da função de entrada e saída na função `run()`. O exemplo a seguir scikit-Learn usa a geração de esquema.
 
 ##### <a name="example-entry-script"></a>Exemplo de script de entrada
 
@@ -485,24 +451,52 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inference-environment"></a>2. definir seu ambiente de inferência
+### <a name="2-define-your-inference-configuration"></a>2. definir sua configuração de inferência
 
-A configuração de inferência descreve como configurar o modelo para fazer previsões. Essa configuração não faz parte do seu script de entrada. Ele faz referência ao seu script de entrada e é usado para localizar todos os recursos exigidos pela implantação. Ele é usado posteriormente, quando você implanta o modelo.
+Configuração de inferência descreve como configurar o serviço Web que contém o modelo. Ele não faz parte de seu script de entrada. Ele faz referência ao seu script de entrada e é usado para localizar todos os recursos exigidos pela implantação. Ele é usado posteriormente, quando você implanta o modelo.
 
-A configuração de inferência usa ambientes Azure Machine Learning para definir as dependências de software necessárias para sua implantação. Os ambientes permitem que você crie, gerencie e reutilize as dependências de software necessárias para treinamento e implantação. O exemplo a seguir demonstra como carregar um ambiente do seu espaço de trabalho e usá-lo com a configuração de inferência:
+A configuração de inferência usa ambientes Azure Machine Learning para definir as dependências de software necessárias para sua implantação. Os ambientes permitem que você crie, gerencie e reutilize as dependências de software necessárias para treinamento e implantação. Você pode criar um ambiente a partir de arquivos de dependência personalizados ou usar um dos ambientes de Azure Machine Learning organizadas. O YAML a seguir é um exemplo de um arquivo de dependências Conda para inferência. Observe que você deve indicar os padrões do azureml com a versão > = 1.0.45 como uma dependência Pip, pois ele contém a funcionalidade necessária para hospedar o modelo como um serviço Web. Se você quiser usar a geração de esquema automática, o script de entrada também deverá importar os pacotes de `inference-schema`.
+
+```YAML
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - scikit-learn=0.20.0
+  - pip:
+      # You must list azureml-defaults as a pip dependency
+    - azureml-defaults>=1.0.45
+    - inference-schema[numpy-support]
+```
+
+> [!IMPORTANT]
+> Se sua dependência estiver disponível por meio de Conda e PIP (de PyPi), a Microsoft recomenda usar a versão Conda, já que os pacotes Conda normalmente são fornecidos com binários pré-criados que tornam a instalação mais confiável.
+>
+> Para obter mais informações, consulte [Understanding Conda and Pip](https://www.anaconda.com/understanding-conda-and-pip/).
+>
+> Para verificar se sua dependência está disponível por meio do Conda, use o comando `conda search <package-name>` ou use os índices de pacote em [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) e [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
+
+Você pode usar o arquivo de dependências para criar um objeto de ambiente e salvá-lo em seu espaço de trabalho para uso futuro:
+
+```python
+from azureml.core.environment import Environment
+
+
+myenv = Environment.from_conda_specification(name = 'myenv',
+                                             file_path = 'path-to-conda-specification-file'
+myenv.register(workspace=ws)
+```
+
+O exemplo a seguir demonstra como carregar um ambiente do seu espaço de trabalho e usá-lo com a configuração de inferência:
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-myenv = Environment.get(workspace=ws, name="myenv", version="1")
-inference_config = InferenceConfig(entry_script="x/y/score.py",
+
+myenv = Environment.get(workspace=ws, name='myenv', version='1')
+inference_config = InferenceConfig(entry_script='path-to-score.py',
                                    environment=myenv)
 ```
-
-Para obter mais informações sobre ambientes, consulte [criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md).
-
-Você também pode especificar diretamente as dependências sem usar um ambiente. O exemplo a seguir demonstra como criar uma configuração de inferência que carrega as dependências de software de um arquivo Conda:
 
 Para obter mais informações sobre ambientes, consulte [criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md).
 
@@ -510,7 +504,7 @@ Para obter mais informações sobre a configuração de inferência, consulte a 
 
 Para obter informações sobre como usar uma imagem personalizada do Docker com uma configuração de inferência, consulte [como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
-### <a name="cli-example-of-inferenceconfig"></a>Exemplo de CLI de InferenceConfig
+#### <a name="cli-example-of-inferenceconfig"></a>Exemplo de CLI de InferenceConfig
 
 [!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
@@ -528,7 +522,93 @@ Neste exemplo, a configuração especifica as seguintes configurações:
 
 Para obter informações sobre como usar uma imagem personalizada do Docker com uma configuração de inferência, consulte [como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
-### <a name="3-define-your-deployment-configuration"></a>3. definir sua configuração de implantação
+### <a id="profilemodel"></a>3. criar o perfil de seu modelo para determinar a utilização de recursos
+
+Depois de registrar seu modelo e preparar os outros componentes necessários para sua implantação, você pode determinar a CPU e a memória que o serviço implantado precisará. A criação de perfil testa o serviço que executa o modelo e retorna informações como uso da CPU, uso de memória e latência de resposta. Ele também fornece uma recomendação para a CPU e a memória com base no uso de recursos.
+
+Para criar o perfil de seu modelo, você precisará de:
+* Um modelo registrado.
+* Uma configuração de inferência com base em sua definição de ambiente de inferência e script de entrada.
+* Um conjunto de dados de tabela de coluna única, em que cada linha contém uma cadeia de caracteres que representa um exemplo de dado de solicitação
+
+> [!IMPORTANT]
+> Neste ponto, damos suporte apenas à criação de perfil de serviços que esperam que seus dados de solicitação sejam uma cadeia de caracteres, por exemplo: JSON serializado, texto, imagem serializada de cadeia de caracteres, etc. O conteúdo de cada linha do conjunto de linhas (cadeia de caracteres) será colocado no corpo da solicitação HTTP e enviado ao serviço que encapsula o modelo para pontuação.
+
+Abaixo está um exemplo de como você pode construir um conjunto de dados de entrada para criar o perfil de um serviço que espera que os seus serviços de solicitação de entrada contenham o JSON serializado. Nesse caso, criamos um conjunto de dados com base em instâncias 100 do mesmo conteúdo de dado de solicitação. Em cenários do mundo real, sugerimos que você use conjuntos de dados maiores contendo várias entradas, especialmente se o uso/comportamento do recurso de modelo for dependente de entrada.
+
+```python
+import json
+from azureml.core import Datastore
+from azureml.core.dataset import Dataset
+from azureml.data import dataset_type_definitions
+
+input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                       [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+# create a string that can be utf-8 encoded and
+# put in the body of the request
+serialized_input_json = json.dumps(input_json)
+dataset_content = []
+for i in range(100):
+    dataset_content.append(serialized_input_json)
+dataset_content = '\n'.join(dataset_content)
+file_name = 'sample_request_data.txt'
+f = open(file_name, 'w')
+f.write(dataset_content)
+f.close()
+
+# upload the txt file created above to the Datastore and create a dataset from it
+data_store = Datastore.get_default(ws)
+data_store.upload_files(['./' + file_name], target_path='sample_request_data')
+datastore_path = [(data_store, 'sample_request_data' +'/' + file_name)]
+sample_request_data = Dataset.Tabular.from_delimited_files(
+    datastore_path, separator='\n',
+    infer_column_types=True,
+    header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
+sample_request_data = sample_request_data.register(workspace=ws,
+                                                   name='sample_request_data',
+                                                   create_new_version=True)
+```
+
+Depois que você tiver o conjunto de dados que contém o exemplo de data de solicitação pronto, crie uma configuração de inferência. A configuração de inferência é baseada no score.py e na definição de ambiente. O exemplo a seguir demonstra como criar a configuração de inferência e executar a criação de perfil:
+
+```python
+from azureml.core.model import InferenceConfig, Model
+from azureml.core.dataset import Dataset
+
+
+model = Model(ws, id=model_id)
+inference_config = InferenceConfig(entry_script='path-to-score.py',
+                                   environment=myenv)
+input_dataset = Dataset.get_by_name(workspace=ws, name='sample_request_data')
+profile = Model.profile(ws,
+            'unique_name',
+            [model],
+            inference_config,
+            input_dataset=input_dataset)
+
+profile.wait_for_completion(True)
+
+# see the result
+details = profile.get_details()
+```
+
+O comando a seguir demonstra como criar um perfil de um modelo usando a CLI:
+
+```azurecli-interactive
+az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
+```
+
+## <a name="deploy-to-target"></a>Implantar no destino
+
+A implantação usa a configuração de implantação de configuração de inferência para implantar os modelos. O processo de implantação é semelhante, independentemente do destino de computação. A implantação em AKS é um pouco diferente, pois você deve fornecer uma referência ao cluster AKS.
+
+### <a name="choose-a-compute-target"></a>Escolher um destino de computação
+
+Você pode usar os seguintes destinos de computação ou recursos de computação para hospedar a implantação do serviço Web:
+
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+### <a name="define-your-deployment-configuration"></a>Definir sua configuração de implantação
 
 Antes de implantar seu modelo, você deve definir a configuração de implantação. *A configuração de implantação é específica para o destino de computação que hospedará o serviço Web.* Por exemplo, ao implantar um modelo localmente, você deve especificar a porta onde o serviço aceita solicitações. A configuração de implantação não faz parte do script de entrada. Ele é usado para definir as características do destino de computação que hospedará o modelo e o script de entrada.
 
@@ -547,10 +627,6 @@ As classes para local, instâncias de contêiner do Azure e serviços Web AKS po
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-## <a name="deploy-to-target"></a>Implantar no destino
-
-A implantação usa a configuração de implantação de configuração de inferência para implantar os modelos. O processo de implantação é semelhante, independentemente do destino de computação. A implantação em AKS é um pouco diferente, pois você deve fornecer uma referência ao cluster AKS.
 
 ### <a name="securing-deployments-with-ssl"></a>Protegendo implantações com SSL
 

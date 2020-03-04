@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905708"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251844"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Os aprendizes da série temporal nativa também são fornecidos como parte do ML
 
 A média de movimentação integrada de regressão automática (ARIMA) é um método estatístico popular para a previsão de série temporal. Essa técnica de previsão é normalmente usada em cenários de previsão de curto prazo, em que os dados mostram evidências de tendências, como ciclos, que podem ser imprevisíveis e difíceis de modelar ou prever. O ARIMA transforma seus dados em dados estáticos para receber resultados consistentes e confiáveis.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um Workspace do Azure Machine Learning. Para criar o espaço de trabalho, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 * Este artigo pressupõe familiaridade básica com a configuração de um experimento de aprendizado de máquina automatizado. Siga o [tutorial](tutorial-auto-train-models.md) ou [instruções](how-to-configure-auto-train.md) para ver os padrões básicos de design de experimento de aprendizado automático de máquina.
@@ -113,7 +113,7 @@ Para tarefas de previsão, o Machine Learning automatizado usa etapas de pré-pr
 
 O objeto [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) define as configurações e os dados necessários para uma tarefa de aprendizado de máquina automatizada. Semelhante a um problema de regressão, você define parâmetros de treinamento padrão, como tipo de tarefa, número de iterações, dados de treinamento e número de validações cruzadas. Para tarefas de previsão, há parâmetros adicionais que devem ser definidos para afetar o experimento. A tabela a seguir explica cada parâmetro e seu uso.
 
-| Param | Description | Obrigatório |
+| Param | DESCRIÇÃO | Obrigatório |
 |-------|-------|-------|
 |`time_column_name`|Usado para especificar a coluna datetime nos dados de entrada usados para criar a série temporal e inferir sua frequência.|✓|
 |`grain_column_names`|Nome (s) definindo grupos de séries individuais nos dados de entrada. Se a granulação não for definida, o conjunto de dados será considerado uma série temporal.||
@@ -178,13 +178,14 @@ Consulte os [notebooks de exemplo de previsão](https://github.com/Azure/Machine
 ### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurar um teste de previsão de DNN habilitar
 
 > [!NOTE]
-> O suporte do DNN para previsão no Machine Learning automatizado está em versão prévia.
+> O suporte do DNN para previsão no Machine Learning automatizado está em versão prévia e não tem suporte para execuções locais.
 
 Para aproveitar o DNNs para previsão, você precisará definir o parâmetro `enable_dnn` no AutoMLConfig como true. 
 
-Para usar o DNNs, é recomendável usar um cluster de computação AML com SKUs de GPU e pelo menos dois nós como o destino de computação. Para obter mais informações, consulte a [documentação de computação AML](how-to-set-up-training-targets.md#amlcompute). Consulte [tamanhos de máquina virtual otimizada para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) para obter mais informações sobre os tamanhos de VM que incluem GPUs.
+É recomendável usar um cluster de computação AML com SKUs de GPU e pelo menos dois nós como o destino de computação. Para permitir tempo suficiente para que o treinamento do DNN seja concluído, é recomendável definir o tempo limite do experimento como um mínimo de algumas horas.
+Para obter mais informações sobre a computação AML e os tamanhos de VM que incluem a GPU, consulte a documentação da [documentação de computação AML](how-to-set-up-training-targets.md#amlcompute) e [tamanhos de máquina virtual otimizados para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-Para permitir o tempo suficiente para que o treinamento do DNN seja concluído, é recomendável definir o tempo limite do experimento para pelo menos algumas horas.
+Exiba o [bloco](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) de notas de previsão de produção de bebidas para obter um exemplo de código Detalhado, aproveitando o DNNs.
 
 ### <a name="view-feature-engineering-summary"></a>Exibir Resumo de engenharia de recursos
 
@@ -241,7 +242,7 @@ Repita as etapas necessárias para carregar esses dados futuros em um dataframe 
 > [!NOTE]
 > Os valores não podem ser previstos para o número de períodos maiores que o `max_horizon`. O modelo deve ser treinado novamente com um horizonte maior para prever valores futuros além do horizonte atual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Siga o [tutorial](tutorial-auto-train-models.md) para aprender a criar experimentos com o Machine Learning automatizado.
 * Exiba a documentação de referência do [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035465"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255683"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para implantar a plataforma de contêiner do OpenShift 3,11 no Azure
 
@@ -102,9 +102,9 @@ O OpenShift se comunica com o Azure usando um nome de usuário e a senha ou uma 
 
 Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp) e gere as credenciais necessárias para o OpenShift.
 
-O exemplo a seguir cria um serviço de entidade e atribui permissões de colaborador a um grupo de recursos chamado openshiftrg.
+O exemplo a seguir cria uma entidade de serviço e atribui permissões de colaborador de ti a um grupo de recursos chamado *openshiftrg*.
 
-Primeiro, crie o grupo de recursos denominado openshiftrg:
+Primeiro, crie o grupo de recursos chamado *openshiftrg*:
 
 ```azurecli
 az group create -l eastus -n openshiftrg
@@ -173,5 +173,5 @@ Este artigo abordou os seguintes tópicos:
 
 Agora, implante um cluster de OpenShift:
 
-- [Implantar o OpenShift Container Platform](./openshift-container-platform-3x.md)
+- [Implantar a plataforma de contêiner do OpenShift](./openshift-container-platform-3x.md)
 - [Implantar a oferta do Marketplace autogerenciado da plataforma de contêiner do OpenShift](./openshift-container-platform-3x-marketplace-self-managed.md)

@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: b08ffa79e012344cad6cf72df98a0f1ba5240ce0
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 8754504655cdd08c9bf9f89311cb6c5d1057f0e6
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76508619"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262338"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
@@ -27,13 +27,13 @@ A primeira etapa é criar um subdomínio personalizado. Se você quiser usar um 
 
 1. Comece abrindo a Azure Cloud Shell. Em seguida, [Selecione uma assinatura](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
 
-   ```azurecli-interactive
+   ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
 2. Em seguida, [crie um recurso de serviços cognitivas](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) com um subdomínio personalizado. O nome do subdomínio precisa ser globalmente exclusivo e não pode incluir caracteres especiais, como: ".", "!", ",".
 
-   ```azurecli-interactive
+   ```powershell-interactive
    New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
    ```
 
@@ -49,7 +49,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
 
 1. Primeiro, vamos registrar um [aplicativo do AAD](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 
-   ```azurecli-interactive
+   ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
 
    New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
@@ -59,7 +59,7 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
 
 2. Em seguida, você precisa [criar uma entidade de serviço](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) para o aplicativo do AAD.
 
-   ```azurecli-interactive
+   ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
    ```
 
@@ -80,13 +80,13 @@ Agora que você tem um subdomínio personalizado associado ao recurso, será nec
 Neste exemplo, uma senha é usada para autenticar a entidade de serviço. O token fornecido é usado para chamar o API da Pesquisa Visual Computacional.
 
 1. Obtenha sua **tenantid**:
-   ```azurecli-interactive
+   ```powershell-interactive
    $context=Get-AzContext
    $context.Tenant.Id
    ```
 
 2. Obter um token:
-   ```azurecli-interactive
+   ```powershell-interactive
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
    $secureSecretObject = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.SecureClientSecret" -ArgumentList $SecureStringPassword   
    $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $secureSecretObject
@@ -94,7 +94,7 @@ Neste exemplo, uma senha é usada para autenticar a entidade de serviço. O toke
    $token
    ```
 3. Chame o API da Pesquisa Visual Computacional:
-   ```azurecli-interactive
+   ```powershell-interactive
    $url = $account.Endpoint+"vision/v1.0/models"
    $result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"=$token.CreateAuthorizationHeader()} -Verbose
    $result | ConvertTo-Json

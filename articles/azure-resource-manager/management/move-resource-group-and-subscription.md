@@ -2,13 +2,13 @@
 title: Mover recursos para uma nova assinatura ou grupo de recursos
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891349"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250162"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou assinatura
 
@@ -184,7 +184,7 @@ Quando for concluída, você será notificado sobre o resultado.
 
 Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
 
-## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
 Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando [Move-AzResource](/powershell/module/az.resources/move-azresource). O exemplo a seguir mostra como mover diversos recursos para um novo grupo de recursos.
 
@@ -276,6 +276,6 @@ Outro exemplo comum envolve a movimentação de uma rede virtual. Talvez seja ne
 
 No momento, nem todos os recursos no Azure dão suporte à movimentação. Para obter uma lista de recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](move-support-resources.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](move-support-resources.md).

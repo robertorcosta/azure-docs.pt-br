@@ -4,12 +4,12 @@ description: Saiba mais sobre perguntas frequentes e respostas relacionadas à M
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461986"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252502"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
 
@@ -46,8 +46,11 @@ Se isso acontecer, você poderá validar que o sistema a desliga executando o co
 
 Por exemplo: 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -164,6 +167,6 @@ No modelo de aplicativo, use a ID do recurso completa de redes e volumes para po
 
 Este é um bug e uma correção está sendo implementada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a Malha do Service Fabric, leia a [visão geral](service-fabric-mesh-overview.md).

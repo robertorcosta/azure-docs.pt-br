@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o MongoDB online para Azure Cosmos DB API para MongoDB'
 titleSuffix: Azure Database Migration Service
 description: Saiba como migrar do MongoDB local para Azure Cosmos DB API para o MongoDB online usando o serviço de migração de banco de dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 896ae35e1039548ea56967ff73d6a1781aa3c8a6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 66375d83dca4edef17919e3b493d5e45be37cc40
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751387"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255615"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: migrar o MongoDB para a API do Azure Cosmos DB para MongoDB online usando DMS
 
@@ -44,7 +44,7 @@ Neste tutorial, você migrará um conjunto de dados do MongoDB hospedado em uma 
 
 Este artigo descreve uma migração online do MongoDB à API do Azure Cosmos DB para MongoDB. Para uma migração offline, confira [Migração offline do MongoDB para a API do Azure Cosmos DB para MongoDB usando o DMS](tutorial-mongodb-cosmos-db.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -251,6 +251,6 @@ Depois de migrar os dados armazenados no banco de dados do MongoDB para a API do
 
 * [Informações sobre o serviço do Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Revisar as diretrizes de migração para saber sobre mais cenários no [Guia de Migração de Banco de Dados](https://datamigration.microsoft.com/) da Microsoft.

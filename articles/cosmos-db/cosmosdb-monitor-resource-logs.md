@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
-ms.openlocfilehash: 670797eb833b0a145a18e20c6bba711ca11609bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483278"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252048"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorar dados de Azure Cosmos DB usando as configurações de diagnóstico no Azure
 
@@ -99,7 +99,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
 
-1. Qual é a taxa de transferência máxima que uma partição fornece?
+1. Qual é a taxa de transferência máxima que uma partição consumiu?
 
    ```Kusto
    AzureDiagnostics
@@ -151,7 +151,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
     | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Azure Monitor para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
 * [Monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md)

@@ -4,12 +4,12 @@ description: Saiba como configurar um contêiner node. js predefinido para seu a
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920018"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255867"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo node. js do Linux para o serviço Azure App
 
@@ -261,7 +261,7 @@ if (req.secure) {
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Quando um aplicativo node. js de trabalho se comporta de forma diferente no serviço de aplicativo ou tem erros, tente o seguinte:
 
@@ -272,7 +272,9 @@ Quando um aplicativo node. js de trabalho se comporta de forma diferente no serv
     - Determinadas estruturas da Web podem usar scripts de inicialização personalizados ao serem executados no modo de produção.
 - Execute seu aplicativo no serviço de aplicativo no modo de desenvolvimento. Por exemplo, em [Mean. js](https://meanjs.org/), você pode definir seu aplicativo para o modo de desenvolvimento em tempo de execução [definindo a configuração do aplicativo `NODE_ENV`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
+
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Tutorial: aplicativo node. js com o MongoDB](tutorial-nodejs-mongodb-app.md)

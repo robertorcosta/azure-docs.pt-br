@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c816ade5ae6b416ba716433f385b75e1b32eb92
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 16b6a0cf3e43b172667f55b1ac95e8a278769f9d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226503"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246394"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Meu primeiro runbook de Fluxo de Trabalho do PowerShell
 
@@ -26,7 +26,7 @@ Este tutorial orienta você durante a criação de um [runbook de Fluxo de Traba
 >[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -210,7 +210,7 @@ O runbook inicia atualmente a VM que você codificou no runbook. Ele será mais 
 
 8. Quando o runbook for concluído, verifique se a VM foi iniciada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 * Para começar a usar runbooks gráficos, consulte [meu primeiro runbook gráfico](automation-first-runbook-graphical.md).

@@ -1,6 +1,6 @@
 ---
-title: Usar um compartilhamento de arquivos do Azure com o armazenamento do Azure | Microsoft Docs
-description: Saiba como usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
+title: Como recuperar uma conta de armazenamento excluída
+description: Saiba como recuperar uma conta de armazenamento excluída
 author: todmccoy
 manager: dcscontentpm
 ms.service: storage
@@ -10,12 +10,12 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: e1e581134b4e3821659c43bb7f55003239594bd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 05465d4a03335ac607ba8981116c66fd6dac9416
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233786"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252627"
 ---
 # <a name="how-to-recover-a-deleted-storage-account"></a>Como recuperar uma conta de armazenamento excluída
 
@@ -25,8 +25,8 @@ A tabela a seguir fornece uma visão geral do escopo da recuperação da conta d
 
 | |LRS|ZRS|GRS|RA-GRS|
 |---|---|---|---|---|
-|Azure Resource Manager da conta de armazenamento|sim|sim|sim|sim|
-|Conta de armazenamento clássica|sim|sim|sim|sim|
+|Azure Resource Manager da conta de armazenamento|Sim|Sim|Sim|Sim|
+|Conta de armazenamento clássica|Sim|Sim|Sim|Sim|
 
 Reúna as informações a seguir e arquivo uma solicitação de suporte com Suporte da Microsoft:
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d53a3f270c1de3c8d533b5886e0051f6aa1ef10d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 961d10f3a0bc4be25a2981e5411cc6a8a75d2105
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776731"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255095"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção de servidor MariaDB correta no Azure
 
@@ -43,7 +43,7 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 | Operações de banco de dados de monitoramento | Oferece aos clientes a capacidade de [definir alertas](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) na operação de banco de dados e agir sobre o alcance de limites. | Gerenciado por clientes |
 | Proteção Avançada contra Ameaças | Fornece [proteção avançada contra ameaças](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Essa proteção detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.<br/><br/>A proteção avançada contra ameaças está atualmente em visualização pública.| Os clientes devem criar essa proteção para si mesmos.
 | Recuperação de desastre | Armazena backups automatizados em armazenamento com redundância [local ou](https://docs.microsoft.com/azure/MariaDB/howto-restore-server-portal)com redundância geográfica configurado pelo usuário. Os backups também podem restaurar um servidor para um ponto no tempo. O período de retenção é de 7 a 35 dias. A restauração é realizada usando o portal do Azure. | Totalmente gerenciado pelos clientes. As responsabilidades incluem, mas não se limitam a agendamento, teste, arquivamento, armazenamento e retenção. Uma opção adicional é usar um cofre dos serviços de recuperação do Azure para fazer backup de VMs e bancos de dados do Azure em VMs. Esta opção está em visualização. |
-| Recomendações de desempenho | Fornece aos clientes [recomendações de desempenho](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) com base em arquivos de log de uso gerados pelo sistema. As recomendações ajudam a otimizar as cargas de trabalho.<br/><br/>As recomendações de desempenho estão atualmente em visualização pública. | Gerenciado por clientes |
+| Recomendações do desempenho | Fornece aos clientes [recomendações de desempenho](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) com base em arquivos de log de uso gerados pelo sistema. As recomendações ajudam a otimizar as cargas de trabalho.<br/><br/>As recomendações de desempenho estão atualmente em visualização pública. | Gerenciado por clientes |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivações de negócios para escolher PaaS ou IaaS
 
@@ -99,7 +99,7 @@ A lista a seguir descreve as considerações administrativas para cada opção:
 
   Como não há necessidade de alterar as camadas de apresentação, aplicativo e dados, você economiza tempo e orçamento na rearquitetura de sua solução existente. Em vez disso, você pode se concentrar em migrar todas as suas soluções para o Azure e abordar algumas otimizações de desempenho que a plataforma do Azure pode exigir.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Consulte o [banco de dados do Azure para obter o preço do MariaDB](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Comece com a [criação do seu primeiro servidor](https://review.docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Comece com a [criação do seu primeiro servidor](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).

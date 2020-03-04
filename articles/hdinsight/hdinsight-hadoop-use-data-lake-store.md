@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/01/2020
-ms.openlocfilehash: fddffee001266b96bc341738293bbdb42115a978
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 3e7e5919a3f862f5cad243654972683d1879c4ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228182"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251080"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usar Data Lake Storage Gen1 com clusters Azure HDInsight
 
@@ -40,7 +40,7 @@ Os clusters HDInsight podem usar o Data Lake Storage Gen1 de duas maneiras:
 
 A partir de agora, somente alguns tipos/versões do cluster HDInsight dão suporte ao uso do Data Lake Storage Gen1 como armazenamento padrão e contas de armazenamento adicionais:
 
-| Tipo de cluster HDInsight | Data Lake Storage Gen1 como armazenamento padrão | Data Lake Storage Gen1 como armazenamento adicional| {1&gt;Observações&lt;1} |
+| Tipo de cluster HDInsight | Data Lake Storage Gen1 como armazenamento padrão | Data Lake Storage Gen1 como armazenamento adicional| Observações |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight versão 4,0 | Não | Não |ADLS Gen1 não tem suporte com o HDInsight 4,0 |
 | HDInsight versão 3.6 | Sim | Sim | Com exceção do HBase|
@@ -299,7 +299,7 @@ Invoke-AzResourceAction `
     -Force
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a usar o Azure Data Lake Storage Gen1 compatível com HDFS com o HDInsight. Isso permite que você crie soluções de aquisição de dados para arquivamento de longo prazo escalonáveis e use o HDInsight para desbloquear as informações nos dados armazenados estruturados e não estruturados.
 

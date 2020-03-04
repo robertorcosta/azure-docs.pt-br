@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Saiba como instalar Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 0fd4cce9d25922bea50963c4e87e110759673bbc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: de4f91e3e0e0653519bb48db5e3e8a116e24cc78
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770621"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251998"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Instalar o Azure Dev Spaces no AKS e nas ferramentas do lado do cliente
 
@@ -25,15 +25,13 @@ Antes de poder instalar espaços de desenvolvimento usando a CLI, você precisa:
 
 Use o comando `use-dev-spaces` para habilitar o Dev Spaces no cluster do AKS e siga os prompts.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
 ```
 
 O comando acima habilita espaços de desenvolvimento no cluster *myAKSCluster* no grupo *MyResource* Group e cria um espaço de desenvolvimento *padrão* .
 
-```cmd
-$ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
-
+```console
 'An Azure Dev Spaces Controller' will be created that targets resource 'myAKSCluster' in resource group 'myResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'myAKSCluster' in resource group 'myResourceGroup' that targets resource 'myAKSCluster' in resource group 'myResourceGroup'...2m 24s
@@ -76,7 +74,7 @@ Você pode usar o Azure Dev Spaces ferramentas do lado do cliente para interagir
 * No Visual Studio 2017, instale a carga de trabalho de desenvolvimento Web e [Ferramentas do Visual Studio para kubernetes][visual-studio-k8s-tools].
 * Baixe e instale a CLI do [Windows][cli-win], [Mac][cli-mac]ou [Linux][cli-linux] .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como o Azure Dev Spaces ajuda você a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com versões diferentes ou branches do seu código em diferentes espaços.
 

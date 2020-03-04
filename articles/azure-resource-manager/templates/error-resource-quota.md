@@ -3,12 +3,12 @@ title: Erros de cota
 description: Descreve como resolver erros de cota de recursos ao implantar recursos com Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: d36f7d12f432839760b68c85e1c5761e0caf8d85
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 9b5cce3258a29b6ac6a3db50f880e3242c4d5e8c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659348"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250149"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolva erros de cota de recursos
 
@@ -40,9 +40,9 @@ please delete some resources of this type before creating a new one.
 As cotas são aplicadas por grupo de recursos, assinaturas, contas e outros escopos. Por exemplo, sua assinatura pode estar configurada para limitar o número de núcleos de uma região. Se tentar implantar uma máquina virtual com mais núcleos do que o valor permitido, você receberá um erro informando que a cota foi excedida.
 Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Na CLI do Azure, use o comando `az vm list-usage` para encontrar as cotas da máquina virtual.
 
@@ -52,7 +52,7 @@ az vm list-usage --location "South Central US"
 
 Que retorna:
 
-```azurecli
+```output
 [
   {
     "currentValue": 0,

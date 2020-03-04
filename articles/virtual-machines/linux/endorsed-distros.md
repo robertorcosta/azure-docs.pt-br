@@ -3,7 +3,7 @@ title: Distribuições do Linux endossadas no Azure
 description: Saiba mais sobre o Linux nas distribuições endossadas do Azure, incluindo diretrizes para Ubuntu, CentOS, Oracle e SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: mimckitt
-ms.openlocfilehash: 8f12224f6ea2b9b4cecce79809389419e0159217
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 7318095dce77856087ad7dd949e91e0eb7936294
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748047"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251640"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições do Linux endossadas no Azure
 Parceiros fornecem imagens do Linux no Azure Marketplace. Trabalhamos com várias comunidades do Linux para adicionar ainda mais opções à lista de Distribuição endossadas. Enquanto isso, para as distribuições que não estão disponíveis no Marketplace, você pode sempre colocar seu próprio Linux seguindo as orientações em [Criar e carregar um disco rígido virtual que contém o sistema operacional Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).

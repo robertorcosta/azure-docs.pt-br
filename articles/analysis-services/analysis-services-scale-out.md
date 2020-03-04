@@ -4,15 +4,15 @@ description: Replicar servidores Azure Analysis Services com escala horizontal. 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310179"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247985"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -30,7 +30,7 @@ Independentemente do número de réplicas de consulta que você tem em um pool d
 
 Ao escalar horizontalmente, pode levar até cinco minutos para que novas réplicas de consulta sejam adicionadas incrementalmente ao pool de consulta. Quando todas as novas réplicas de consulta estiverem em funcionamento, novas conexões de cliente serão balanceadas com carga entre os recursos no pool de consultas. As conexões de clientes existentes não são alteradas a partir do recurso ao qual elas estão conectadas atualmente. Ao dimensionar, quaisquer conexões de cliente existentes para um recurso de pool de consulta que está sendo removido do pool de consulta são finalizadas. Os clientes podem se reconectar a um recurso do pool de consultas restante.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Ao configurar a expansão na primeira vez, os bancos de dados de modelo em seu servidor primário são sincronizados *automaticamente* com novas réplicas em um novo pool de consulta. A sincronização automática ocorre apenas uma vez. Durante a sincronização automática, os arquivos de dados do servidor primário (criptografados em repouso no armazenamento de BLOB) são copiados para um segundo local, também criptografados em repouso no armazenamento de BLOBs. As réplicas no pool de consultas são então *alimentadas* com dados do segundo conjunto de arquivos. 
 
@@ -74,19 +74,23 @@ Para desempenho máximo para operações de processamento e consulta, você pode
 
 ## <a name="monitor-qpu-usage"></a>Monitorar o uso de QPU
 
-Para determinar se a escala horizontal para seu servidor é necessária, monitore o servidor no Portal do Azure usando Métricas. Se a QPU for maximizada regularmente, isso significa que o número de consultas em relação aos modelos está excedendo o limite de QPU do plano. A métrica de comprimento da fila do trabalho do pool de consulta também aumenta quando o número de consultas na fila do pool de thread de consulta excede a QPU disponível. 
+Para determinar se a escala horizontal para o servidor é necessária, [monitore o servidor](analysis-services-monitor.md) em portal do Azure usando métricas. Se a QPU for maximizada regularmente, isso significa que o número de consultas em relação aos modelos está excedendo o limite de QPU do plano. A métrica de comprimento da fila do trabalho do pool de consulta também aumenta quando o número de consultas na fila do pool de thread de consulta excede a QPU disponível. 
 
 Outra boa métrica a ser observada é a média de QPU por ServerResourceType. Essa métrica compara QPU média para o servidor primário com o pool de consulta. 
 
 ![Métricas de expansão de consulta](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>Para configurar o QPU by ServerResourceType
+**Para configurar o QPU by ServerResourceType**
+
 1. Em um gráfico de linhas de métricas, clique em **Adicionar métrica**. 
 2. Em **recurso**, selecione o servidor e, em seguida, em **namespace de métrica**, selecione **Analysis Services métricas padrão**e, em **métrica**, selecione **QPU**e, em **agregação**, selecione **Méd**. 
 3. Clique em **aplicar divisão**. 
 4. Em **valores**, selecione **ServerResourceType**.  
 
-Para obter mais informações, consulte [Monitorar métricas do servidor](analysis-services-monitor.md).
+### <a name="detailed-diagnostic-logging"></a>Log de diagnóstico detalhado
+
+Use os logs de Azure Monitor para obter diagnósticos mais detalhados dos recursos do servidor de escalabilidade horizontal. Com os logs, você pode usar Log Analytics consultas para dividir o QPU e a memória por servidor e réplica. Para saber mais, consulte exemplos de consultas no [log de diagnóstico Analysis Services](analysis-services-logging.md#example-queries).
+
 
 ## <a name="configure-scale-out"></a>Configurar a escala horizontal
 
@@ -127,13 +131,13 @@ Use a operação de **sincronização**.
 Códigos de status de retorno:
 
 
-|Codificar  |Description  |
+|Código  |DESCRIÇÃO  |
 |---------|---------|
 |-1     |  Inválido       |
 |0     | Replicating        |
 |1     |  Reidratar       |
 |2     |   Concluído       |
-|3     |   Com falha      |
+|3     |   Falhou      |
 |4     |    Finalizando     |
 |||
 
@@ -152,7 +156,7 @@ Para separar o servidor de processamento do pool de consulta, use [set-AzAnalysi
 
 Para saber mais, consulte [usando uma entidade de serviço com o módulo AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
-## <a name="connections"></a>Conexões
+## <a name="connections"></a>conexões
 
 Na página Visão Geral do servidor, há dois nomes de servidor. Se você ainda não tiver configurado a escala horizontal para um servidor, os dois nomes de servidor funcionam da mesma forma. Depois de configurar a expansão para um servidor, você precisará especificar o nome do servidor adequado dependendo do tipo de conexão. 
 

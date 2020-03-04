@@ -3,12 +3,12 @@ title: Implantar recursos com CLI do Azure e modelo
 description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 242b9f2a4bc39f8aa083d9c89d3dd7ed850b3489
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154288"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250654"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -63,7 +63,7 @@ az group deployment create \
 
 A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem que inclui o resultado:
 
-```azurecli
+```output
 "provisioningState": "Succeeded",
 ```
 
@@ -95,7 +95,7 @@ az group deployment create --resource-group examplegroup \
   --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Para passar valores de parâmetros, você pode usar parâmetros inline ou um arquivo de parâmetros.
 
@@ -183,7 +183,7 @@ az group deployment validate \
 
 Se nenhum erro for detectado, o comando retornará informações sobre a implantação de teste. Especificamente, observe que o valor de **erro** é null.
 
-```azurecli
+```output
 {
   "error": null,
   "properties": {
@@ -192,7 +192,7 @@ Se nenhum erro for detectado, o comando retornará informações sobre a implant
 
 Se um erro for detectado, o comando retornará uma mensagem de erro. Por exemplo, passando um valor incorreto para a SKU da conta de armazenamento, retorna o seguinte erro:
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",
@@ -208,7 +208,7 @@ Se um erro for detectado, o comando retornará uma mensagem de erro. Por exemplo
 
 Se seu modelo tem um erro de sintaxe, o comando retorna um erro indicando que ele não foi possível analisar o modelo. A mensagem indica o número da linha e a posição do erro de análise.
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",
@@ -221,7 +221,7 @@ Se seu modelo tem um erro de sintaxe, o comando retorna um erro indicando que el
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos existentes no grupo de recursos, mas que não estão definidos no modelo, confira [Modos de implantação do Azure Resource Manager](deployment-modes.md).

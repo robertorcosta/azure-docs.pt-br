@@ -5,18 +5,18 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: fe6fbb2c27dcc18cca114e6d10cd382d376a27e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75651300"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250190"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testar a interface do portal para aplicativos gerenciados do Azure
 
 Depois de [criar o arquivo createUiDefinition. JSON](create-uidefinition-overview.md) para seu aplicativo gerenciado, você precisará testar a experiência do usuário. Para simplificar o teste, use um ambiente de área restrita que carregue o arquivo no Portal. Não é necessário realmente implantar o aplicativo gerenciado. A área restrita apresenta a interface do usuário na experiência atual do portal de tela inteira. Ou você pode usar um script para testar a interface. As duas abordagens são mostradas neste artigo. A área restrita é a maneira recomendada para visualizar a interface.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um arquivo **createUiDefinition.json**. Se você não tiver esse arquivo, copie o [arquivo de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
@@ -36,7 +36,7 @@ Depois de [criar o arquivo createUiDefinition. JSON](create-uidefinition-overvie
 
    ![Mostrar formulário](./media/test-createuidefinition/show-ui-form.png)
 
-### <a name="troubleshooting"></a>Solução de problemas
+### <a name="troubleshooting"></a>solução de problemas
 
 Se o formulário não for exibido após a seleção da **Visualização**, você poderá ter um erro de sintaxe. Procure o indicador vermelho na barra de rolagem direita e navegue até ele.
 
@@ -68,7 +68,7 @@ Para o PowerShell, use:
 
 Para a CLI do Azure, use:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh \
   -l southcentralus \
   -a .\100-Marketplace-Sample
@@ -84,7 +84,7 @@ Para o PowerShell, use:
 
 Para a CLI do Azure, use:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh
 ```
 
@@ -102,6 +102,6 @@ Se o portal parar na tela de resumo, poderá haver um bug na seção de saída. 
 
 Agora que você verificou que a interface do portal está funcionando conforme o esperado, é hora de validar que o arquivo createUiDefinition está corretamente integrado ao arquivo mainTemplate.json. É possível executar um teste de script de validação para testar o conteúdo dos arquivos de solução, incluindo o arquivo createUiDefinition. O script valida a sintaxe JSON, verifica expressões regex em campos de texto e garante que os valores de saída da interface do portal correspondam aos parâmetros do modelo. Para obter mais informações sobre como executar esse script, consulte [Executar verificações de validação estática para modelos](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Após validar a interface do portal, saiba como tornar o[aplicativo gerenciado do Azure disponível no Marketplace](publish-marketplace-app.md).

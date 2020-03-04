@@ -3,12 +3,12 @@ title: Como parar de monitorar o cluster do Azure Red Hat OpenShift | Microsoft 
 description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 97ca333f724dc4914dabda2912c4512a40520253
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977779"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250726"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Como parar de monitorar o cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres
 
@@ -104,7 +104,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -122,10 +122,10 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).

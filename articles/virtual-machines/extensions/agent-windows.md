@@ -3,7 +3,7 @@ title: Visão Geral do Agente de Máquina Virtual do Azure
 description: Visão Geral do Agente de Máquina Virtual do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 24369ed547b811b212518193a2ae2f76ed197754
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3d9c178201ab0c22ed4eab9cf65f7d48e59e1359
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264620"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246117"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 O Agente de VM (Máquina Virtual) do Microsoft Azure é um processo seguro e leve que gerencia a interação da máquina virtual (VM) com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração de VM pós-implantação, como instalação e configuração de software. Extensões de VM também habilitam os recursos de recuperação como redefinir a senha administrativa de uma VM. Sem o Agente de VM do Azure, não é possível executar extensões da VM.
@@ -69,7 +69,7 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 - O agente de VM do Windows precisa de pelo menos o Windows Server 2008 R2 (64 bits) para ser executado com o .NET Framework 4,0. Consulte [suporte mínimo de versão para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 - Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
@@ -117,5 +117,5 @@ O Agente de VM do Azure para Windows é atualizado automaticamente. Conforme nov
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Coleção de logs automáticos do agente convidado do Windows
 O agente convidado do Windows tem um recurso para coletar automaticamente alguns logs. Esse recurso é Controller pelo processo CollectGuestLogs. exe. Ele existe para os serviços de nuvem PaaS e para máquinas virtuais IaaS e seu objetivo é & rapidamente coletar automaticamente alguns logs de diagnóstico de uma VM, para que eles possam ser usados para análise offline. Os logs coletados são logs de eventos, logs do sistema operacional, logs do Azure e algumas chaves do registro. Ele produz um arquivo ZIP que é transferido para o host da VM. Esse arquivo ZIP pode então ser examinado por equipes de engenharia e profissionais de suporte para investigar problemas na solicitação do cliente que possui a VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre extensões de VM, consulte [Visão geral de recursos e extensões de máquina virtual do Azure](overview.md).

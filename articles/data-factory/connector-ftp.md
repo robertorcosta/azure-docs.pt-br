@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: cf7e5c6ac124945ce3e6cd05585a7997dfe34149
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b215531fdc1a1bb07b33c427623d5cd4f5f8219a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892691"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252472"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar dados do servidor FTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -40,11 +40,13 @@ Especificamente, este conector de FTP dá suporte a:
 - Cópia de arquivos usando a autenticação **Básica** ou **Anônima**.
 - Cópia de arquivos no estado em que se encontram ou análise de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+O conector de FTP dá suporte ao servidor FTP em execução no modo passivo. Não há suporte para o modo ativo.
+
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -54,7 +56,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte para o serviço vinculado do FTP:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **FtpServer**. | Sim |
 | host | Especifique o nome ou endereço IP do servidor FTP. | Sim |
@@ -126,7 +128,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para FTP em configurações de `location` no conjunto de uma base de forma:
 
-| Propriedade   | Description                                                  | Obrigatório |
+| Propriedade   | DESCRIÇÃO                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade Type em `location` no conjunto de texto deve ser definida como **FtpServerLocation**. | Sim      |
 | folderPath | O caminho para a pasta. Se você quiser usar curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
@@ -168,7 +170,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para FTP em configurações de `storeSettings` na fonte de cópia baseada em formato:
 
-| Propriedade                 | Description                                                  | Obrigatório                                      |
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **FtpReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
@@ -248,7 +250,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome real da pasta tiver um curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
@@ -293,7 +295,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da fonte da atividade de cópia deve ser definida como: **FileSystemSource** |Sim |
 | recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não |
@@ -331,5 +333,5 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

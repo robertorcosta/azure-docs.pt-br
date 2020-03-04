@@ -3,8 +3,8 @@ title: 'Tutorial: migrar PostgreSQL para o banco de dados do Azure para PostgreS
 titleSuffix: Azure Database Migration Service
 description: Aprenda a executar uma migração online do PostgreSQL local para o banco de dados do Azure para PostgreSQL usando o serviço de migração de banco de dados do Azure por meio da CLI.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/17/2020
-ms.openlocfilehash: c9cea6041c7f4d91295072121c62ba028e5ad937
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: fc2852aaa77dec9537aa8fc42f7f08ca441a129a
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470931"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255634"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: migrar PostgreSQL para o BD do Azure para PostgreSQL online usando DMS por meio do CLI do Azure
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -361,7 +361,7 @@ Para concluir todos os objetos de banco de dados, como procedimentos armazenados
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   OR
+   OU
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
@@ -524,7 +524,7 @@ Se você precisar cancelar ou excluir uma tarefa, um projeto ou um serviço DMS,
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados do Azure para PostgreSQL, confira o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados do Azure para PostgreSQL](known-issues-azure-postgresql-online.md).
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185532"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248695"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurar domínios personalizados com o Azure Proxy de Aplicativo do AD
 
@@ -130,9 +130,9 @@ Não há restrição para os métodos de assinatura de certificado. O ECC (cript
 
 Você pode usar certificados curinga, desde que o curinga corresponda à URL externa. Você deve usar certificados curinga para [aplicativos curinga](application-proxy-wildcard.md). Se você quiser usar o certificado para também acessar subdomínios, deverá adicionar os curingas de subdomínio como nomes alternativos da entidade no mesmo certificado. Por exemplo, um certificado para *\*. Adventure-Works.com* não funcionará para *\*. Apps.Adventure-Works.com* , a menos que você adicione *\*. Apps.Adventure-Works.com* como um nome alternativo da entidade. 
 
-Você pode usar certificados emitidos por sua própria PKI (infraestrutura de chave pública) se a cadeia de certificados estiver instalada em seus dispositivos cliente. O Intune pode implantar esses certificados em dispositivos gerenciados. Para dispositivos não gerenciados, você deve instalar manualmente esses certificados.
+Você pode usar certificados emitidos por sua própria PKI (infraestrutura de chave pública) se a cadeia de certificados estiver instalada em seus dispositivos cliente. O Intune pode implantar esses certificados em dispositivos gerenciados. Para dispositivos não gerenciados, você deve instalar manualmente esses certificados. 
 
-Não é uma boa ideia usar uma autoridade de certificação raiz privada. A AC raiz privada também precisaria ser enviada por push para computadores cliente, o que apresenta muitos desafios. 
+Não recomendamos o uso de uma AC raiz privada, pois a CA raiz privada também precisaria ser enviada por push para computadores cliente, o que pode apresentar muitos desafios.
 
 ### <a name="certificate-management"></a>Gerenciamento de certificados
 

@@ -3,8 +3,8 @@ title: 'Tutorial: migrar SQL Server online para o banco de dados individual do S
 titleSuffix: Azure Database Migration Service
 description: Saiba como fazer a migração online do SQL Server local para um banco de dados individual ou em pool no Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 012e6eca13c2b1afe00343da98dd58ca1f683dd5
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4fb8fbc0a0880d2e73839c4de3e1993dc86bd815
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315092"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255282"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: migrar SQL Server para um banco de dados individual ou banco de dados em pool no banco de dados SQL do Azure online usando DMS
 
@@ -44,7 +44,7 @@ Neste tutorial, você aprenderá como:
 
 Este artigo descreve uma migração online do SQL Server para um banco de dados individual ou em pool no Banco de Dados SQL do Azure. Para uma migração offline, confira [Migrar o SQL Server para o Banco de Dados SQL do Azure offline usando DMS](tutorial-sql-server-to-azure-sql.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -341,7 +341,7 @@ Após a conclusão do carregamento completo inicial, os bancos de dados são mar
 
     ![Status da atividade: concluído](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados SQL do Azure, confira o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados SQL do Azure](known-issues-azure-sql-online.md).
 - Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).

@@ -4,25 +4,19 @@ description: Saiba como migrar um dispositivo StorSimple 8100 ou 8600 para Sincr
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/20/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: ec3f59c02f73f51ccb4fac21d6ba4cc746a1134e
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 78100a5dd38b211f6b0241d5a0bac10cf86b09f6
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209435"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250944"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
-A série StorSimple 8000 tem dois dispositivos físicos diferentes dentro dele. A única diferença entre eles é a quantidade de tamanho do cache local (espaço em disco). Esse dispositivo é executado em um data center local e atua como um cache para os dados armazenados no Azure.
-Com a vida útil do fim do serviço da linha de produtos StorSimple em dezembro de 31 2022, o serviço de nuvem ao qual este dispositivo está conectado irá parar de funcionar.
-
-É imperativo migrar de qualquer dispositivo StorSimple com bastante tempo para sobra.
-Sincronização de Arquivos do Azure é a tecnologia de sucessor natural, com mais recursos e mais flexibilidade do que o StorSimple oferece.
-
-Este artigo fornece as etapas de conhecimento e migrações em segundo plano necessárias para fazer com que sua migração Sincronização de Arquivos do Azure um sucesso.
+A série StorSimple 8000 representa duas SKUs separadas e é possível migrar os dados de qualquer uma dessas SKUs para um ambiente Sincronização de Arquivos do Azure. Este artigo aborda a migração de ambos os dispositivos para Sincronização de Arquivos do Azure e fornece as etapas de conhecimento e migrações em segundo plano necessárias para fazer com que a migração Sincronização de Arquivos do Azure um sucesso.
 
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 

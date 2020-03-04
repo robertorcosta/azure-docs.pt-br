@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o RDS PostgreSQL online para o banco de dados do Azure 
 titleSuffix: Azure Database Migration Service
 description: Saiba como realizar uma migração online do PostgreSQL de RDS para o Banco de Dados do Azure para PostgreSQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/17/2020
-ms.openlocfilehash: 1bc3f3d8c0f8992927acc3247e94a984e1653deb
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 33d39be071591071d88bb5a95c3cfcbb458d85a8
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471033"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255698"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: migrar o RDS PostgreSQL para o BD do Azure para PostgreSQL online usando DMS
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 
 Este artigo descreve como realizar uma migração online de uma instância local do PostgreSQL para o Banco de Dados do Azure para PostgreSQL.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -204,7 +204,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     > [!NOTE]
     > Como alternativa, você pode escolher **Criar somente o projeto** para criar o projeto de migração agora e executar a migração posteriormente.
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 6. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 
@@ -267,7 +267,7 @@ Após a conclusão do Carregamento completo inicial, os bancos de dados serão m
 
 A migração online de uma instância local do RDS PostgreSQL para o banco de dados do Azure para PostgreSQL agora está concluída.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Para obter informações sobre o Banco de Dados do Azure para PostgreSQL, consulte o artigo [O que é o Banco de Dados do Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).

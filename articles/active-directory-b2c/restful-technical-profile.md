@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b24a08ee0367cc3dbb1c845854a0fbc91e0f1d2c
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 4638b5bfc3ff31d0d2149e7ee227c46d3360a306
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227082"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254986"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -121,13 +121,13 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | A URL do ponto de extremidade da API REST. |
 | AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`, `Bearer` ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O valor `ClientCertificate` (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, por exemplo Azure AD B2C, podem acessar sua API. O valor `Bearer` indica que a API REST restringe o acesso usando o token de portador OAuth2 do cliente. |
 | AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido como `none` no ambiente de produção (`DeploymentMode` do [TrustFrameworkPolicy](trustframeworkpolicy.md) é definido como `Production`ou não especificado). Valores possíveis: true ou false (padrão). |
 | SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header` ou `QueryString`. O valor `Body` é a declaração de entrada enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de entrada enviada no cabeçalho da solicitação. O valor `QueryString` é a declaração de entrada enviada na cadeia de caracteres de consulta da solicitação. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: obter</li><li>`QueryString`: obter</li></ul> |
-| ClaimsFormat | Não | Especifica o formato para as declarações de saída. Valores possíveis: `Body` (padrão), `Form`, `Header` ou `QueryString`. O valor `Body` é a declaração de saída enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de saída enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de saída enviada no cabeçalho da solicitação. O valor `QueryString` é a declaração de saída enviada na cadeia de consulta de solicitação. |
+| ClaimsFormat | Não | Não usado no momento, pode ser ignorado. |
 | ClaimUsedForRequestPayload| Não | Nome de uma declaração de cadeia de caracteres que contém a carga a ser enviada para a API REST. |
 | DebugMode | Não | Executa o perfil técnico no modo de depuração. Valores possíveis: `true`ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-error-message) . |
 | IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina isso como `true`. |
@@ -151,7 +151,7 @@ Se o tipo de autenticação for definido como `None`, o elemento **Cryptographic
 
 Se o tipo de autenticação for definido como `Basic`, o elemento **CryptographicKeys** conterá os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sim | O nome de usuário usado para autenticar. |
 | BasicAuthenticationPassword | Sim | A senha usada para autenticar. |
@@ -176,7 +176,7 @@ O exemplo a seguir mostra um perfil técnico com a autenticação Básica:
 
 Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **CryptographicKeys** conterá o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. |
 
@@ -197,7 +197,7 @@ Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **
 
 Se o tipo de autenticação for definido como `Bearer`, o elemento **CryptographicKeys** conterá o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | Não | O token de portador OAuth 2,0. |
 
@@ -220,11 +220,11 @@ Se o tipo de autenticação for definido como `Bearer`, o elemento **Cryptograph
 
 A API REST talvez precise retornar uma mensagem de erro, como "O usuário não foi encontrado no sistema CRM". Se ocorrer um erro, a API REST deverá retornar uma mensagem de erro HTTP 409 (código de status de resposta de conflito) com os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | version | Sim | 1.0.0 |
 | status | Sim | 409 |
-| code | Não | Um código de erro do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
+| código | Não | Um código de erro do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
 | requestId | Não | Um identificador de solicitação do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
 | userMessage | Sim | Uma mensagem de erro que é mostrada ao usuário. |
 | developerMessage | Não | A descrição detalhada do problema e como corrigi-lo, o que é exibido quando `DebugMode` está habilitado. |
@@ -259,7 +259,7 @@ public class ResponseContent
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os seguintes artigos para obter exemplos de como usar um perfil técnico RESTful:
 

@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/08/2019
+ms.date: 03/03/2020
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 2dd1eddc841cc484957c2124de3419799c4e59b7
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 8f982dbb10a15a1e02a62a97431cdd1b7015472c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206769"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252244"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar um trabalho em seu aplicativo de IoT Central do Azure
 
@@ -27,51 +27,40 @@ Esta seção mostra como criar e executar um trabalho. Ele mostra como definir o
 
 2. Selecione **+ novo** para criar um novo trabalho:
 
-    > [!div class="mx-imgBorder"]
-    > ![criar novo trabalho](./media/howto-run-a-job/createnewjob.png)
+    ![Criar novo trabalho](./media/howto-run-a-job/createnewjob.png)
 
 3. Insira um nome e uma descrição para identificar o trabalho que você está criando.
 
 4. Selecione o grupo de dispositivos de destino ao qual você deseja que seu trabalho seja aplicado. Você pode ver quantos dispositivos sua configuração de trabalho aplica na seção de **Resumo** .
 
-5. Em seguida, escolha uma das **Propriedades** ou **comando** como o tipo de trabalho a ser configurado. Para definir uma configuração de trabalho de **Propriedade** , selecione uma propriedade e defina seu novo valor. Para configurar um **comando**ou escolha o comando a ser executado. Um trabalho de propriedade pode definir várias propriedades:
+5. Em seguida, escolha a **propriedade de nuvem**, a **Propriedade** ou o **comando** como o tipo de trabalho a ser configurado. Para definir uma configuração de trabalho de **Propriedade** , selecione uma propriedade e defina seu novo valor. Para configurar um **comando**, escolha o comando a ser executado. Um trabalho de propriedade pode definir várias propriedades:
 
-    > [!div class="mx-imgBorder"]
-    > ![configurar o trabalho](./media/howto-run-a-job/configurejob.png)
+    ![Configurar trabalho](./media/howto-run-a-job/configurejob.png)
 
-6. Depois de selecionar os dispositivos, escolha **executar** ou **salvar**. O trabalho agora aparece na página de **trabalhos** principais. Nessa página, você pode ver seu trabalho em execução no momento e o histórico de qualquer trabalho executado anteriormente ou salvo. Seu trabalho salvo pode ser aberto novamente a qualquer momento para continuar a editá-lo ou executá-lo:
+6. Depois de criar seu trabalho, escolha **executar** ou **salvar**. O trabalho agora aparece na página de **trabalhos** principais. Nessa página, você pode ver seu trabalho em execução no momento e o histórico de qualquer trabalho executado anteriormente ou salvo. Seu trabalho salvo pode ser aberto novamente a qualquer momento para continuar a editá-lo ou executá-lo:
 
-    > [!div class="mx-imgBorder"]
-    > ![Exibir trabalho](./media/howto-run-a-job/viewjob.png)
+    ![Exibir trabalho](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > Você pode exibir até 30 dias de histórico para os trabalhos executados anteriormente.
 
 7. Para obter uma visão geral do seu trabalho, selecione o trabalho a ser exibido na lista. Esta visão geral contém os detalhes do trabalho, dispositivos e valores de status do dispositivo. Nesta visão geral, você também pode selecionar **baixar detalhes do trabalho** para baixar um arquivo CSV dos detalhes do trabalho, incluindo os dispositivos e seus valores de status. Essas informações podem ser úteis para a solução de problemas:
 
-    > [!div class="mx-imgBorder"]
-    > ![exibir o status do dispositivo](./media/howto-run-a-job/downloaddetails.png)
+    ![Exibir status do dispositivo](./media/howto-run-a-job/downloaddetails.png)
 
-### <a name="stop-a-running-job"></a>Parar um trabalho em execução
+### <a name="manage-a-job"></a>Gerenciar um trabalho
 
-Para interromper um de seus trabalhos em execução, abra-o e selecione **parar**. O status do trabalho muda para refletir que o trabalho foi interrompido. A seção de **Resumo** mostra quais dispositivos foram concluídos, com falha ou ainda estão pendentes:
+Para interromper um de seus trabalhos em execução, abra-o e selecione **parar**. O status do trabalho muda para refletir que o trabalho foi interrompido. A seção de **Resumo** mostra quais dispositivos foram concluídos, com falha ou ainda estão pendentes.
 
-    > [!div class="mx-imgBorder"]
-    > ![Stop job](./media/howto-run-a-job/stopjob.png)
+Para executar um trabalho que está parado no momento, selecione-o e, em seguida, selecione **executar**. O status do trabalho muda para refletir que o trabalho agora está em execução novamente. A seção de **Resumo** continua a ser atualizada com o progresso mais recente.
 
-### <a name="run-a-stopped-job"></a>Executar um trabalho interrompido
-
-Para executar um trabalho que está parado no momento, selecione-o e, em seguida, selecione **executar**. O status do trabalho muda para refletir que o trabalho agora está em execução novamente. A seção de **Resumo** continua a ser atualizada com o progresso mais recente:
-
-    > [!div class="mx-imgBorder"]
-    > ![Resumed job](./media/howto-run-a-job/resumejob.png)
+![Gerenciar trabalho](./media/howto-run-a-job/managejob.png)
 
 ## <a name="copy-a-job"></a>Copiar um trabalho
 
-Para copiar um de seus trabalhos existentes, abra-o e selecione **copiar**. Uma cópia da configuração do trabalho é aberta para você editar e a **cópia** é anexada ao final do nome do trabalho. Você pode salvar ou executar o novo trabalho:
+Para copiar um de seus trabalhos existentes, selecione-o na página **trabalhos** e selecione **copiar**. Uma cópia da configuração do trabalho é aberta para você editar e a **cópia** é anexada ao nome do trabalho. Você pode salvar ou executar o novo trabalho:
 
-    > [!div class="mx-imgBorder"]
-    > ![Copy job](./media/howto-run-a-job/copyjob.png)
+![Trabalho de cópia](./media/howto-run-a-job/copyjob.png)
 
 ## <a name="view-the-job-status"></a>Exibir o status do trabalho
 
@@ -94,7 +83,7 @@ A mensagem de status é seguida por uma visão geral dos dispositivos no trabalh
 
 ### <a name="view-the-device-status"></a>Exibir o status do dispositivo
 
-Para exibir o status do trabalho e de todos os dispositivos afetados, selecione o trabalho. Para baixar um arquivo CSV que inclui os detalhes do trabalho, incluindo a lista de dispositivos e seus valores de status, selecione **baixar detalhes do trabalho**. Ao lado de cada nome de dispositivo, você verá uma das seguintes mensagens de status:
+Para exibir o status do trabalho e de todos os dispositivos afetados, abra o trabalho. Para baixar um arquivo CSV que inclui os detalhes do trabalho, incluindo a lista de dispositivos e seus valores de status, selecione **baixar detalhes do trabalho**. Ao lado de cada nome de dispositivo, você verá uma das seguintes mensagens de status:
 
 | Mensagem de status       | Significado do status                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

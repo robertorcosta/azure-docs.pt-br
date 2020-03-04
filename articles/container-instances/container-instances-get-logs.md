@@ -4,12 +4,12 @@ description: Saiba como recuperar logs de contêiner e eventos em instâncias de
 ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
-ms.openlocfilehash: fe30ab875aa6cd7f465ffe69672a771e18134e1c
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 0991b9cb1f99606910dbdf2c87b111f67da6da7b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664731"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249989"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperar logs e eventos de contêiner nas Instâncias de Contêiner do Azure
 
@@ -21,8 +21,11 @@ Para exibir logs do seu código de aplicativo em um contêiner, você pode usar 
 
 A seguir está a saída de log do contêiner de exemplo baseado em tarefa em [defina a linha de comando em uma instância de contêiner](container-instances-start-command.md#azure-cli-example), depois de ter fornecido uma URL inválida usando uma substituição de linha de comando:
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container logs --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Traceback (most recent call last):
   File "wordcount.py", line 11, in <module>
     urllib.request.urlretrieve (sys.argv[1], "foo.txt")
@@ -49,8 +52,11 @@ O comando [AZ container Attach][az-container-attach] fornece informações de di
 
 Por exemplo, aqui está a saída do contêiner baseado em tarefa em [definir a linha de comando em uma instância de contêiner](container-instances-start-command.md#azure-cli-example), depois de ter fornecido uma URL válida de um arquivo de texto grande para processar:
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container attach --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Container 'mycontainer' is in state 'Unknown'...
 Container 'mycontainer' is in state 'Waiting'...
 Container 'mycontainer' is in state 'Running'...
@@ -142,7 +148,7 @@ A saída inclui as propriedades principais do contêiner, juntamente com eventos
   ...
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba como [solucionar problemas de contêiner e implantação](container-instances-troubleshooting.md) nas Instâncias de Contêiner do Azure.
 
 Saiba como enviar dados de log e de evento para grupos de contêineres para [Azure monitor logs](container-instances-log-analytics.md).

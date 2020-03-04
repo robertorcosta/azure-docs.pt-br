@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c4a0e64e1f08bb3e80eaf67937da10906bfce0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591601"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255012"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -79,6 +79,8 @@ Como primeira etapa do planejamento, você deve revisar seu ambiente e determina
 - O ingresso no Azure AD híbrido não tem suporte no Windows Server que executa a função de controlador de domínio (DC).
 
 - O ingresso no Azure AD híbrido não tem suporte em dispositivos de nível inferior do Windows ao usar a mobilidade de credencial ou o perfil obrigatório ou de roaming de perfil do usuário.
+
+- O sistema operacional Server Core não dá suporte a nenhum tipo de registro de dispositivo.
 
 ### <a name="os-imaging-considerations"></a>Considerações sobre imagens de so
 - Se você estiver contando com a ferramenta de preparação do sistema (Sysprep) e se estiver usando uma imagem **anterior ao Windows 10 1809** para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure ad como uma junção híbrida do Azure AD.

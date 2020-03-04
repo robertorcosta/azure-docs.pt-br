@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e4a916b3765007a130c6ae84b317c2c7b700f2e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: d61e33568297e6f72aca0ab736f8a14f1758ffa1
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834873"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255120"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Crie modelos scikit-Aprenda em escala com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Os scripts de exemplo neste artigo são usados para classificar imagens de flor 
 
 Se você estiver treinando um modelo de aprendizado de máquina scikit-Learn do zero ou se estiver trazendo um modelo existente para a nuvem, poderá usar Azure Machine Learning para escalar trabalhos de treinamento de software livre usando recursos de computação em nuvem elásticos. Você pode criar, implantar, versão e monitorar modelos de nível de produção com Azure Machine Learning.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Execute este código em qualquer um destes ambientes:
  - Instância de computação de Azure Machine Learning-nenhum download ou instalação é necessário
@@ -74,7 +74,7 @@ Crie um objeto de espaço de trabalho a partir do `config.json` arquivo criado n
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-machine-learning-experiment"></a>Criar um experimento de aprendizado de máquina
+### <a name="create-a-machine-learning-experiment"></a>Criar um experimento do Machine Learning
 
 Crie um experimento e uma pasta para manter seus scripts de treinamento. Neste exemplo, crie um experimento chamado "sklearn-íris".
 
@@ -187,7 +187,7 @@ from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
 model = run.register_model(model_name='sklearn-iris', 
-                           model_path='model.joblib',
+                           model_path='outputs/model.joblib',
                            model_framework=Model.Framework.SCIKITLEARN,
                            model_framework_version='0.19.1',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
@@ -217,7 +217,7 @@ Observação: essas dependências são incluídas no contêiner de inferência s
 A implantação [completa abrange](how-to-deploy-and-where.md) em Azure Machine Learning mais detalhadamente.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você treinou e registrou um modelo scikit-Learn e aprendeu sobre as opções de implantação. Consulte estes outros artigos para saber mais sobre Azure Machine Learning.
 

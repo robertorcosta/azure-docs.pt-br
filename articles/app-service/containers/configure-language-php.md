@@ -4,12 +4,12 @@ description: Saiba como configurar um contêiner PHP pré-criado para seu aplica
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913864"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255844"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar um aplicativo do PHP do Linux para o serviço Azure App
 
@@ -193,7 +193,7 @@ Para que as alterações entrem em vigor, reinicie o aplicativo.
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Quando um aplicativo PHP em funcionamento se comporta de forma diferente no serviço de aplicativo ou tem erros, tente o seguinte:
 
@@ -204,17 +204,9 @@ Quando um aplicativo PHP em funcionamento se comporta de forma diferente no serv
     - Determinadas estruturas da Web podem usar scripts de inicialização personalizados ao serem executados no modo de produção.
 - Execute seu aplicativo no serviço de aplicativo no modo de depuração. Por exemplo, em [Laravel](https://meanjs.org/), você pode configurar seu aplicativo para gerar mensagens de depuração em produção [definindo a configuração de aplicativo `APP_DEBUG` como `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
-### <a name="robots933456"></a>robots933456
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-Você pode ver a seguinte mensagem nos logs de contêiner:
-
-```
-2019-04-08T14:07:56.641002476Z "-" - - [08/Apr/2019:14:07:56 +0000] "GET /robots933456.txt HTTP/1.1" 404 415 "-" "-"
-```
-
-Você pode ignorar essa mensagem com segurança. `/robots933456.txt` é um caminho de URL fictício que o serviço de aplicativo usa para verificar se o contêiner é capaz de atender solicitações. Uma resposta 404 indica simplesmente que o caminho não existe, mas permite que o serviço de aplicativo saiba que o contêiner está íntegro e pronto para responder às solicitações.
-
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Tutorial: aplicativo PHP com MySQL](tutorial-php-mysql-app.md)

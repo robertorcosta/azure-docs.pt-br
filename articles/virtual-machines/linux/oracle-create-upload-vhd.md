@@ -3,7 +3,7 @@ title: Criar e carregar um VHD de Oracle Linux
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Oracle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: e0250737f1f2934548a16ee42e9ff582f2403c48
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 240333e55f23f2536d3cf14d2bb817e5776c8139
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747735"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251590"
 ---
-# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Oracle Linux para Azure
+# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparar uma máquina virtual Oracle Linux para o Azure
 
 Este artigo pressupõe que você já instalou um sistema operacional Oracle Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -180,6 +180,6 @@ A preparação de uma máquina virtual Oracle Linux 7 para o Azure é muito pare
         # logout
 15. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora você está pronto para usar o .vhd Oracle Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd para o Azure, consulte [Criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 

@@ -1,14 +1,14 @@
 ---
 title: Respostas a perguntas comuns
-description: 'Respostas a perguntas comuns sobre: recursos do Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
+description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450087"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255031"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -123,7 +123,7 @@ Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Há um limite na quantidade de dados de backup em um cofre dos Serviços de Recuperação?
 
-Não há nenhum limite para a quantidade de dados das quais você pode fazer backup usando um cofre dos Serviços de Recuperação.
+Não há nenhum limite na quantidade total de dados que você pode fazer backup usando um cofre dos serviços de recuperação. As fontes de dados individuais (que não sejam as VMs do Azure) podem ter no máximo 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a [seção limites de cofre na matriz de suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados selecionados para backup?
 

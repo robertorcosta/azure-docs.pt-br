@@ -3,7 +3,7 @@ title: Criar e carregar um VHD do SUSE Linux no Azure
 description: Saiba como criar e carregar um disco rígido virtual (VHD) do Azure que contém o sistema operacional SUSE Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: mimckitt
-ms.openlocfilehash: 5ff28e25bf3da33fcf85a77f850b3b8f5ac8bb6b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d64fc55159ddc3ce88397879958a63bf30808ad9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745822"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251585"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual do SLES ou openSUSE para o Azure
 
@@ -164,5 +164,5 @@ Como alternativa à criação de seu próprio VHD, o SUSE também publica imagen
         # sudo systemctl enable waagent.service
 13. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora, você está pronto para usar o disco rígido virtual SUSE Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd para o Azure, consulte [Criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

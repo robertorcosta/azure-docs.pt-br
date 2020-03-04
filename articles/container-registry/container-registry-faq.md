@@ -5,14 +5,14 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708301"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252075"
 ---
-# <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
+# <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o registro de contêiner do Azure
 
 Este artigo aborda as perguntas frequentes e problemas conhecidos sobre o registro de contêiner do Azure.
 
@@ -114,13 +114,13 @@ O ACR dá suporte à API HTTP v2 do registro do Docker. As APIs podem ser acessa
 
 Se você estiver no bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 Para o PowerShell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -151,13 +151,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 Você deve ser capaz de ver que o uso do armazenamento aumentou na portal do Azure ou pode consultar o uso usando a CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Exclua a imagem usando o CLI do Azure ou o portal e verifique o uso atualizado em alguns minutos.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -186,9 +186,9 @@ az acr login -n MyRegistry
 Habilite o TLS 1,2 usando qualquer cliente do Docker recente (versão 18.03.0 e superior). 
 
 > [!IMPORTANT]
-> A partir de 13 de janeiro de 2020, o registro de contêiner do Azure exigirá todas as conexões seguras de servidores e aplicativos para usar o TLS 1,2. O suporte para TLS 1,0 e 1,1 será desativado.
+> A partir de 13 de janeiro de 2020, o Registro de Contêiner do Azure exigirá que todas as conexões seguras de servidores e aplicativos usem o TLS 1.2. O suporte para TLS 1.0 e 1.1 será desativado.
 
-### <a name="does-azure-container-registry-support-content-trust"></a>O Registro de Contêiner do Azure é compatível com a Confiança de Conteúdo?
+### <a name="does-azure-container-registry-support-content-trust"></a>O registro de contêiner do Azure dá suporte à confiança de conteúdo?
 
 Sim, você pode usar imagens confiáveis no registro de contêiner do Azure, pois o [Docker Notary](https://docs.docker.com/notary/getting_started/) foi integrado e pode ser habilitado. Para obter detalhes, consulte [confiança de conteúdo no registro de contêiner do Azure](container-registry-content-trust.md).
 
@@ -216,12 +216,12 @@ O ACR dá suporte a [funções personalizadas](container-registry-roles.md) que 
   Em seguida, você pode atribuir a função `AcrPull` ou `AcrPush` a um usuário (o exemplo a seguir usa `AcrPull`):
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   Ou, atribua a função a um princípio de serviço identificado por sua ID de aplicativo:
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -239,9 +239,9 @@ O destinatário é então capaz de autenticar e acessar imagens no registro.
   az acr repository list -n myRegistry
   ```
 
- Para efetuar pull de uma imagem:
-    
-  ```azurecli
+* Para efetuar pull de uma imagem:
+
+  ```console
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -275,9 +275,10 @@ Para solucionar problemas comuns de ambiente e do registro, consulte [verificar 
  - Se `docker pull` falhar continuamente, pode haver um problema com o daemon do Docker. O problema geralmente pode ser mitigado reiniciando o daemon do Docker. 
  - Se você continuar a ver esse problema após a reinicialização do daemon do Docker, o problema poderá ser de alguns problemas de conectividade de rede com o computador. Para verificar se a rede geral no computador está íntegra, execute o seguinte comando para testar a conectividade do ponto de extremidade. A versão mínima do `az acr` que contém esse comando de verificação de conectividade é 2.2.9. Atualize seu CLI do Azure se você estiver usando uma versão mais antiga.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - Você sempre deve ter um mecanismo de repetição em todas as operações de cliente do Docker.
 
 ### <a name="docker-pull-is-slow"></a>O Pull do Docker está lento
@@ -437,7 +438,7 @@ Aqui estão alguns cenários em que as operações talvez não sejam permitidas:
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Como fazer coletar rastreamentos http no Windows?
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>Prerequisites
 
 - Habilitar a descriptografia de HTTPS no Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Habilitar o Docker para usar um proxy por meio da interface do usuário do Docker: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -498,7 +499,7 @@ Atualmente, não há suporte para GitLab para gatilhos de origem.
 
 ## <a name="run-error-message-troubleshooting"></a>Executar solução de problemas de mensagem de erro
 
-| Mensagem de erro | Guia de solução de problemas |
+| Mensagem de erro | Guia de Solução de Problemas |
 |---|---|
 |Nenhum acesso foi configurado para a VM, portanto, nenhuma assinatura foi encontrada|Isso pode acontecer se você estiver usando `az login --identity` em sua tarefa ACR. Esse é um erro transitório e ocorre quando a atribuição de função da sua identidade gerenciada não foi propagada. Aguardando alguns segundos antes de tentar novamente o Works.|
 
@@ -507,6 +508,6 @@ Atualmente, não há suporte para GitLab para gatilhos de origem.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [Ações do GitHub](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais](container-registry-intro.md) sobre o registro de contêiner do Azure.

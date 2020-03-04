@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f4e255309d32026b7f2bb4de67fce7ec37c753f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8dead08017f15a7429655b4bf17b6e8c8e481114
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529568"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251019"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalar e usar a extensão do Azure IoT para o CLI do Azure
 
@@ -40,11 +40,11 @@ Siga as [instruções de instalação](https://docs.microsoft.com/cli/azure/inst
 
 ### <a name="step-2---install-iot-extension"></a>Etapa 2 – instalar a extensão de IoT
 
-[O Leiame da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension) descreve várias maneiras de instalar a extensão. A maneira mais simples é executar `az extension add --name azure-cli-iot-ext`. Após a instalação, você pode usar `az extension list` para validar as extensões instaladas no momento ou `az extension show --name azure-cli-iot-ext` para ver os detalhes sobre a extensão de IoT. Para remover a extensão, você pode usar `az extension remove --name azure-cli-iot-ext`.
+[O Leiame da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension) descreve várias maneiras de instalar a extensão. A maneira mais simples é executar `az extension add --name azure-iot`. Após a instalação, você pode usar `az extension list` para validar as extensões instaladas no momento ou `az extension show --name azure-iot` para ver os detalhes sobre a extensão de IoT. Para remover a extensão, você pode usar `az extension remove --name azure-iot`.
 
 ## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Usar a extensão do Azure IoT para o CLI do Azure
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Para entrar em sua assinatura do Azure, execute o seguinte comando:
 
@@ -60,7 +60,7 @@ Para usar a extensão de IoT do Azure para o CLI do Azure, você precisa de:
 - Um Hub IoT do Azure. Há várias maneiras de adicionar um hub IoT à sua assinatura do Azure, como [criar um hub IOT usando o CLI do Azure](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de conexão do Hub IoT para executar os comandos de extensão do Azure IoT. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
     > [!NOTE]
-    > Durante a versão prévia pública, os recursos de IoT Plug and Play estão disponíveis apenas em hubs IoT criados nas regiões **Centro dos EUA**, **Europa Setentrional** e **Leste do Japão**.
+    > Durante a versão prévia pública, os recursos de IoT Plug and Play estão disponíveis apenas em hubs IoT criados nas regiões **EUA Central**, **Norte da Europa** e **Leste do Japão**.
 
 - Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo, não se esqueça de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos seus valores:
 
@@ -228,6 +228,6 @@ az iot pnp capability-model publish --model {YourModelID} --login {YourCompanyMo
 
 Somente os parceiros da Microsoft podem publicar modelos no repositório de modelos públicos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo de instruções, você aprendeu como instalar e usar a extensão do Azure IoT para o CLI do Azure interagir com seus dispositivos Plug and Play. Uma próxima etapa sugerida é aprender a [gerenciar modelos](./howto-manage-models.md).

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 63174e1d4950b9f18fd3693511c507ed2dd018b3
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.date: 02/28/2020
+ms.openlocfilehash: 8c9732aec73f6387c9d32bb2333a3e7f834c2165
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500364"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249891"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 

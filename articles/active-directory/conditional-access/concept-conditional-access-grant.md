@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 10d3f18fb11dc54f560d867e2b5ff87251e2c836
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656306"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249098"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -67,35 +67,7 @@ As organizações podem optar por usar a identidade do dispositivo como parte de
 
 As organizações podem exigir que uma tentativa de acesso aos aplicativos de nuvem selecionados precise ser feita de um aplicativo cliente aprovado. Esses aplicativos cliente aprovados dão suporte a [políticas de proteção de aplicativo do Intune](/intune/app-protection-policy) independentemente de qualquer solução de MDM (gerenciamento de dispositivo móvel).
 
-Essa configuração se aplica aos seguintes aplicativos cliente:
-
-- Proteção de Informações do Microsoft Azure
-- Livros da Microsoft
-- Microsoft Cortana
-- Microsoft Dynamics 365
-- Microsoft Edge
-- Microsoft Excel
-- Microsoft Flow
-- Microsoft Intune Managed Browser
-- Microsoft Invoicing
-- Microsoft Kaizala
-- Microsoft Launcher
-- Microsoft OneDrive
-- Microsoft OneNote
-- Microsoft Outlook
-- Microsoft Planner
-- Microsoft PowerApps
-- Microsoft Power BI
-- Microsoft PowerPoint
-- Microsoft SharePoint
-- Microsoft Skype for Business
-- Microsoft StaffHub
-- Microsoft Stream
-- Equipes da Microsoft
-- Microsoft To-Do
-- Microsoft Visio
-- Microsoft Word
-- Microsoft Yammer
+Os aplicativos com suporte podem ser encontrados no artigo [Microsoft Intune aplicativos protegidos](/intune/apps/apps-supported-intune-apps).
 
 **Comentários**
 
@@ -108,12 +80,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 Em sua política de acesso condicional, você pode exigir que uma [política de proteção de aplicativo do Intune](/intune/app-protection-policy) esteja presente no aplicativo cliente antes que o acesso esteja disponível para os aplicativos de nuvem selecionados. 
 
-Essa configuração se aplica aos seguintes aplicativos cliente:
-
-- Microsoft Cortana
-- Microsoft OneDrive
-- Microsoft Outlook
-- Microsoft Planner
+Os aplicativos com suporte podem ser encontrados no artigo [Microsoft Intune aplicativos protegidos](/intune/apps/apps-supported-intune-apps).
 
 **Comentários**
 
@@ -125,7 +92,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 Se sua organização tiver criado termos de uso, opções adicionais poderão estar visíveis em conceder controles. Essas opções permitem que os administradores exijam a confirmação dos termos de uso como uma condição de acessar os recursos protegidos pela política. Mais informações sobre os termos de uso podem ser encontradas no artigo [Azure Active Directory termos de uso](terms-of-use.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Acesso condicional: controles de sessão](concept-conditional-access-session.md)
 

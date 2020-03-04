@@ -3,12 +3,12 @@ title: Habilitar a criptografia de disco para clusters do Linux
 description: Este artigo descreve como habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure no Linux usando Azure Resource Manager e Azure Key Vault.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609886"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252827"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure no Linux 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ O guia aborda os seguintes tópicos:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
  **Registro automático**
 
@@ -55,7 +55,7 @@ A visualização de criptografia de disco para o conjunto de dimensionamento de 
 3. Instale a versão mais recente do [SDK do Azure da versão Azure PowerShell](https://github.com/Azure/azure-powershell/releases) . Veja a seguir o conjunto de dimensionamento de máquinas virtuais Azure Disk Encryption cmdlets para habilitar ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) a criptografia, recuperar ([Get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) o status de criptografia e remover ([desabilitar](/powershell/module/az.compute/disable-azvmssdiskencryption)) a criptografia na instância do conjunto de dimensionamento.
 
 
-| Comando | Versão |  Origem  |
+| Comando | Versão |  Fonte  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 ou posterior | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 ou posterior | Az.Compute |
@@ -86,7 +86,7 @@ Set-AzContext -SubscriptionId <guid>
 
 ```
 
-```CLI
+```azurecli
 
 azure login
 az account set --subscription $subscriptionId
@@ -236,5 +236,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste ponto, você deve ter um cluster seguro e saber como habilitar e desabilitar a criptografia de disco para Service Fabric nós de cluster e conjuntos de dimensionamento de máquinas virtuais. Para obter diretrizes semelhantes sobre Service Fabric nós de cluster no Linux, consulte [criptografia de disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md). 

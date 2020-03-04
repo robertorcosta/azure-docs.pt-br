@@ -3,14 +3,14 @@ title: Como atualizar as ferramentas do Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/03/2018
 ms.topic: conceptual
-description: Saiba como atualizar as ferramentas de linha de comando Azure Dev Spaces, a extensão de código do pino visual e a extensão do Visual Studio
+description: Saiba como atualizar as ferramentas de linha de comando Azure Dev Spaces, extensão de Visual Studio Code e extensão do Visual Studio
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: 07d55689ac94a865527f4b595765d67b28ddb97a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 748ed4699591a21a5a09da924e093011b0813b46
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438416"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252360"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Como atualizar as ferramentas do Azure Dev Spaces
 
@@ -27,7 +27,7 @@ Não é necessário desinstalar a versão anterior, apenas localize o download a
 
 Execute o comando a seguir:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update
 ```
 
@@ -41,6 +41,6 @@ Assim como ocorre com outras extensões e atualizações, o Visual Studio notifi
 
 Para atualizar as ferramentas no Visual Studio, escolha o item de menu **Ferramentas > Extensões e Atualizações** e, no lado esquerdo, escolha **Atualizações**. Encontre as **Ferramentas do Visual Studio para Kubernetes** e escolha o botão **Atualizar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Teste as novas ferramentas criando um novo cluster. Experimente as guias de início rápido e tutoriais no [Azure Dev Spaces](/azure/dev-spaces).

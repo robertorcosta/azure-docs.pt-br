@@ -10,18 +10,56 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462166"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249739"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
+
+## <a name="2020-03-02"></a>2020-03-02
+
+### <a name="azure-machine-learning-sdk-for-python-v112rc0"></a>SDK do Azure Machine Learning para Python v 1.1.2 RC0
+
++ **Correções de bugs e melhorias**
+  + **azureml-automl-Core**
+    + Habilitada a inferência de modo de lote (levando várias linhas uma vez) para modelos automl ONNX
+    + Melhoria da detecção de frequência nos conjuntos de dados, falta de dados ou contém pontos de dados irregulares
+    + Foi adicionada a capacidade de remover pontos de dados que não estão em conformidade com o frequrncy dominante.
+  + **azureml-automl-tempo de execução**
+    + Corrigido o problema com o erro gerado se o detalhamento que não estava presente no conjunto de treinamento apareceu no conjunto de testes
+    + Removida a y_query requisito durante a pontuação no serviço de previsão
+  + **azureml-contrib-Mir**
+    + Adiciona a funcionalidade na classe MirWebservice para recuperar o token de acesso
+  + **azureml-núcleo**
+    + Os WebServices do AzureML implantados agora serão padronizados para `INFO` log. Isso pode ser controlado definindo a variável de ambiente `AZUREML_LOG_LEVEL` no serviço implantado.
+    + Corrija a iteração em `Dataset.get_all` para retornar todos os conjuntos de valores registrados com o espaço de trabalho.
+    + Melhore a mensagem de erro quando o tipo inválido é passado para `path` argumento de APIs de criação de conjunto de texto.
+    + O SDK do Python usa o serviço de descoberta para usar o ponto de extremidade ' API ' em vez de ' pipelines '.
+    + Alternar para as novas rotas em todas as chamadas do SDK
+    + Altera o roteamento de chamadas para o ModelManagementService para uma nova estrutura unificada
+      + Método de atualização do espaço de trabalho disponibilizado publicamente.
+      + Parâmetro image_build_compute adicionado no método de atualização do espaço de trabalho para permitir que o usuário atualize a computação para a compilação da imagem
+    +  Foram adicionadas mensagens de substituição ao antigo fluxo de trabalho de criação de perfil. Correção de limites de CPU e memória de criação de perfil
+  + **azureml-interpretar**
+    + atualizar o azureml-interpretar para interpretação-comunidade 0,6. *
+  + **azureml-mlflow**
+    + Adicionar suporte para nuvens soberanas a azureml. mlflow
+  + **azureml-pipeline-etapas**
+    + Moveu o `AutoMLStep` para o `azureml-pipeline-steps package`. Preterido o `AutoMLStep` no `azureml-train-automl-runtime`.
+  + **azureml-Train-automl-Client**
+    + Corrigido um problema em que determinados pacotes podem ser instalados em versões incorretas em execuções remotas.
+  + **azureml-Train-automl-Runtime**
+    + Correção do problema com a detecção de frequência nas execuções remotas
+    + Moveu o `AutoMLStep` para o `azureml-pipeline-steps package`. Preterido o `AutoMLStep` no `azureml-train-automl-runtime`.
+  + **azureml-Train-Core**
+    + Moveu o `AutoMLStep` para o `azureml-pipeline-steps package`. Preterido o `AutoMLStep` no `azureml-train-automl-runtime`.
 
 ## <a name="2020-02-18"></a>2020-02-18
 

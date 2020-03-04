@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34446f98bc593c8b78cfb4a9ceae2c5e6dc6aef3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191156"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246543"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filhos na Automação do Azure
 
@@ -39,7 +39,7 @@ Quais tipos de runbook podem chamar uns aos outros?
 
 Quando a ordem de publicação é importante?
 
-a ordem de publicação de runbooks é importante apenas para runbooks do Fluxo de Trabalho do PowerShell e runbooks gráficos do Fluxo de Trabalho do PowerShell.
+A ordem de publicação de runbooks só é importante para o fluxo de trabalho do PowerShell e runbooks gráficos de fluxo de trabalho do PowerShell.
 
 Quando o runbook chama um runbook filho de fluxo de trabalho gráfico ou do PowerShell usando a execução embutida, ele usa o nome do runbook. O nome deve começar com **.\\** para especificar que o script está localizado no diretório local.
 

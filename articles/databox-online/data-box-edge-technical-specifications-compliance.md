@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b646ee9b727d5adf4ec1c8b5c769b3d8f5c0fc1c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863590"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252042"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas de Azure Data Box Edge
 
@@ -52,6 +52,14 @@ O dispositivo Data Box Edge tem duas PSUs (unidades de alimentação de energia)
 <!--## Power consumption statistics
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
+
+## <a name="network-interface-specifications"></a>Especificações da interface de rede
+
+Você Data Box Edge dispositivo tem seis interfaces de rede, PORT1-PORT6.
+
+| Especificação           | DESCRIÇÃO                 |
+|-------------------------|----------------------------|
+|  Interfaces de rede    | 2 interfaces de 1 GbE – 1 gerenciamento, não configurável pelo usuário, usado para configuração inicial. A outra interface é configurável pelo usuário e pode ser usada para transferência de dados e é DHCP por padrão. <br>2 interfaces de 25 GbE – Elas também podem ser operadas como interfaces de 10 GbE. Essas interfaces de dados podem ser configuradas pelo usuário como DHCP (padrão) ou estáticas. <br> 2 interfaces de 25 GbE – Essas interfaces de dados podem ser configuradas pelo usuário como DHCP (padrão) ou estáticas.                  |
 
 ## <a name="storage-specifications"></a>Especificações do armazenamento
 
@@ -135,6 +143,6 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 |    40 ° c a 45 ° c (104 ° f a 113 ° f)           |    A temperatura máxima é reduzida em 1 ° c/125 m (1 ° f/228 ft) acima de 950 m (3.117 pés).    |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Implante seu Azure Data Box Edge](data-box-edge-deploy-prep.md)

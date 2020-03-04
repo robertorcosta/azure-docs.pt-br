@@ -3,12 +3,12 @@ title: Como interromper o monitoramento do cluster do Serviço de Kubernetes do 
 description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure AKS com o Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: fb75379ba6c8109316f78288222039627bcb5902
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715970"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250740"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como interromper o monitoramento do Azure Monitor do Serviço de Kubernetes do Azure (AKS) para contêineres
 
@@ -139,7 +139,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -157,11 +157,11 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 A alteração da configuração pode levar alguns minutos para ser concluída. Quando estiver concluído, uma mensagem semelhante à seguinte, incluindo o resultado, será retornada:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não souber como excluir um espaço de trabalho, confira [Excluir um espaço de trabalho do Azure Log Analytics com o portal do Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não se esqueça de que a **ID de recurso do espaço de trabalho** foi copiada anteriormente na etapa 4, você precisará dela.

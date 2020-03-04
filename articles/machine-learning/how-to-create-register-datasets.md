@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 6b6d63d956f46587d89edf1b080f1bb9bd3ca67e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 003924c42a1a7e428a3a11f21a4cfe782c12e859
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649083"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255787"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de Azure Machine Learning de os
 
@@ -57,7 +57,7 @@ Para saber mais sobre as próximas alterações de API, consulte [aviso de alter
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dado, juntamente com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre em nenhum custo de armazenamento extra. Você pode criar `TabularDataset` e `FileDataset` conjuntos de dados usando o SDK do Python ou a página de aterrissagem do espaço de trabalho (versão prévia).
+Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dado, juntamente com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre em nenhum custo de armazenamento extra. Você pode criar `TabularDataset` e `FileDataset` conjuntos de dados usando o SDK do Python ou o https://ml.azure.com.
 
 Para que os dados sejam acessíveis por Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em [repositórios de dados do Azure](how-to-access-data.md) ou URLs da Web públicas.
 
@@ -73,8 +73,6 @@ Para criar conjuntos de itens de um [repositório de armazenamento do Azure](how
 
 
 #### <a name="create-a-tabulardataset"></a>Criar um TabularDataset
-
-Você pode criar TabularDatasets por meio do SDK ou usando o Azure Machine Learning Studio. 
 
 Use o método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) na classe `TabularDatasetFactory` para ler arquivos no formato. csv ou. tsv e para criar um TabularDataset não registrado. Se você estiver lendo de vários arquivos, os resultados serão agregados em uma representação tabular. 
 
@@ -96,10 +94,10 @@ datastore_paths = [(datastore, 'ather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-Por padrão, quando você cria um TabularDataset, os tipos de dados de coluna são inferidos automaticamente. Se os tipos deduzidos não corresponderem às suas expectativas, você poderá especificar tipos de coluna usando o código a seguir. Se o armazenamento estiver protegido por uma rede virtual ou firewall, inclua os parâmetros `validate=False` e `infer_column_types=False` no método de `from_delimited_files()`. Isso ignora a verificação de validação inicial e garante que você possa criar seu conjunto de seus arquivos seguros. Você também pode [saber mais sobre os tipos de dados com suporte](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+Por padrão, quando você cria um TabularDataset, os tipos de dados de coluna são inferidos automaticamente. Se os tipos deduzidos não corresponderem às suas expectativas, você poderá especificar tipos de coluna usando o código a seguir. O parâmetro `infer_column_type` é aplicável somente a conjuntos de valores criados a partir de arquivos delimitados. Você também pode [saber mais sobre os tipos de dados com suporte](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
 
-> [!NOTE] 
->O parâmetro `infer_column_type` é aplicável somente a conjuntos de valores criados a partir de arquivos delimitados. 
+> [!IMPORTANT] 
+> Se o armazenamento estiver protegido por uma rede virtual ou firewall, haverá suporte para a criação apenas de um conjunto de uma por meio do SDK. Para criar seu conjunto de seus conjuntos de seus, certifique-se de incluir os parâmetros `validate=False` e `infer_column_types=False` no método `from_delimited_files()`. Isso ignora a verificação de validação inicial e garante que você possa criar seu conjunto de seus arquivos seguros. 
 
 ```Python
 from azureml.data.dataset_factory import DataType
@@ -117,6 +115,32 @@ titanic_ds.take(3).to_pandas_dataframe()
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+
+
+Para criar um conjunto de dados a partir de um dataframe do pandas na memória, grave-os em um arquivo local, como um CSV, e crie seu conjunto de dado a partir desse arquivo. O código a seguir demonstra esse fluxo de trabalho.
+
+```python
+local_path = 'data/prepared.csv'
+dataframe.to_csv(local_path)
+upload the local file to a datastore on the cloud
+# azureml-core of version 1.0.72 or higher is required
+# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+from azureml.core import Workspace, Dataset
+
+subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
+resource_group = 'xxxxxx'
+workspace_name = 'xxxxxxxxxxxxxxxx'
+
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+# get the datastore to upload prepared data
+datastore = workspace.get_default_datastore()
+
+# upload the local file from src_dir to the target_path in datastore
+datastore.upload(src_dir='data', target_path='data')
+create a dataset referencing the cloud location
+dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
+```
 
 Use o método [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) na classe `TabularDatasetFactory` para ler do banco de dados SQL do Azure:
 

@@ -4,12 +4,12 @@ description: Descreve como usar a limitação com solicitações Azure Resource 
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 129ca3ba32d48345bde931c6bd2084c3da79be39
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659365"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251338"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 
@@ -25,7 +25,7 @@ Todas as operações de nível de assinatura e de locatário estão sujeitas a l
 
 Os limites de limitação padrão por hora são mostrados na tabela a seguir.
 
-| Escopo | Operations | Limite |
+| Escopo | Operações | Limite |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -84,7 +84,7 @@ Alguns provedores de recursos retornam 429 para relatar um problema temporário.
 
 Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. As solicitações de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. As solicitações de gravação incluem um valor para o número de solicitações de gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
 
-| Cabeçalho de resposta | Description |
+| Cabeçalho de resposta | DESCRIÇÃO |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Leituras no escopo da assinatura restantes. Esse valor é retornado em operações de leitura. |
 | x-ms-ratelimit-remaining-subscription-writes |Gravações no escopo da assinatura restantes. Esse valor é retornado em operações de gravação. |
@@ -162,7 +162,7 @@ az group list --verbose --debug
 
 Que retorna muitos valores, incluindo os valores a seguir:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -182,7 +182,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Que retorna muitos valores, incluindo os valores a seguir:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -193,7 +193,7 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para um exemplo completo do PowerShell, consulte [Verificar os limites do gerenciador de recursos para uma assinatura](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para obter mais informações sobre limites e cotas, confira [Assinatura do Azure e limite de serviços, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).

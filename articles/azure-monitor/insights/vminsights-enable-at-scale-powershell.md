@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 236d5a28b167e16c9614119a59fd8a99e012e9dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e28a5dce4dda677ef4e5eb0ed08c42ec1f03c308
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656527"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251450"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Habilitar Azure Monitor para VMs (versão prévia) usando modelos de Azure PowerShell ou do Resource Manager
 
@@ -99,7 +99,7 @@ Para usar o CLI do Azure, primeiro você precisa instalar e usar a CLI localment
 
         A alteração de configuração pode levar alguns minutos para ser concluída. Quando ele for concluído, uma mensagem será exibida semelhante à seguinte e inclui o resultado:
 
-        ```powershell
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -113,7 +113,7 @@ Para usar o CLI do Azure, primeiro você precisa instalar e usar a CLI localment
 
         A alteração de configuração pode levar alguns minutos para ser concluída. Quando for concluído, será exibida uma mensagem semelhante à seguinte e inclui o resultado:
 
-        ```azurecli
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```
 A alteração de configuração pode levar alguns minutos para ser concluída. Quando ele for concluído, uma mensagem será exibida semelhante à seguinte e inclui o resultado:
 
-```powershell
+```output
 provisioningState       : Succeeded
 ```
 
@@ -170,7 +170,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 A saída é semelhante ao seguinte:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 
@@ -337,7 +337,7 @@ Not running - start VM to configure: (0)
 Failed: (0)
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que o monitoramento está habilitado para suas máquinas virtuais, essas informações estão disponíveis para análise com Azure Monitor para VMs.
 

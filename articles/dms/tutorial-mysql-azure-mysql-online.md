@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o MySQL online para o banco de dados do Azure para MySQ
 titleSuffix: Azure Database Migration Service
 description: Saiba como realizar uma migração online do MySQL local para o Banco de Dados do Azure para MySQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 77887f440da73436a995e0916c529f9df76e7d6f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e0a2c9f4dd229353ef3d4dc06f7bb965d15814d9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746959"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255547"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -261,7 +261,7 @@ Após a conclusão do carregamento completo inicial, os bancos de dados são mar
 3. Selecione **Confirmar**e selecione **Aplicar**.
 4. Quando o status de migração de banco de dados mostrar **Concluído**, conecte seus aplicativos ao novo Banco de Dados SQL do Azure de destino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados do Azure para MySQL, consulte o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados do Azure para MySQL](known-issues-azure-mysql-online.md).
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, confira o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).

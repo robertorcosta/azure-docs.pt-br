@@ -5,14 +5,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 153df77c030180402b1e30bc456d681c232c390b
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 4f975af233973ce5fac75ca46e334af5d91e8edc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226531"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246271"
 ---
-# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos de automação do Azure
+# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos na Automação do Azure
 
 Um princípio de design importante a ser considerado para o runbook gráfico de automação do Azure é a identificação dos problemas que o runbook pode experimentar durante a execução. Esses problemas podem incluir sucesso, estados de erro esperado e as condições de erro inesperado.
 
@@ -20,7 +20,7 @@ Geralmente, se houver um erro de não finalização que ocorre com uma atividade
 
 Seu runbook gráfico deve incluir código de tratamento de erros para lidar com problemas de execução. Para validar a saída de uma atividade ou manipular um erro, você pode usar uma atividade de código do PowerShell, definir a lógica condicional no link de saída da atividade ou aplicar outro método.
 
-Os runbooks gráficos de automação do Azure foram aprimorados com a capacidade de incluir o tratamento de erros. Agora você pode ativar exceções em erros de não finalização e criar links de erro entre atividades. O processo aprimorado permite que seu runbook Capture erros e gerencie condições realizadas ou inesperadas. 
+Runbooks gráficos de automação do Azure foram aprimorados com a capacidade de incluir o tratamento de erro. Agora você pode ativar exceções em erros de não finalização e criar links de erro entre atividades. O processo aprimorado permite que seu runbook Capture erros e gerencie condições realizadas ou inesperadas. 
 
 >[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
@@ -64,8 +64,8 @@ A atividade **Get-AutomationVariable** e o cmdlet [Start-AzVM](https://docs.micr
 
 Links de erro fluem dessas atividades para uma única atividade de código de **Gerenciamento de erro** . Essa atividade é configurada com uma expressão simples do PowerShell que usa a palavra-chave **throw** para interromper o processamento, juntamente com `$Error.Exception.Message` para obter a mensagem que descreve a exceção atual.<br><br> exemplo de código de tratamento de erro do runbook de automação ![](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre links e tipos de link em runbooks gráficos, confira [criação gráfica na automação do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
+* Para saber mais sobre links e tipos de link em runbooks gráficos, confira [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Para saber mais sobre a execução de runbook, o monitoramento de trabalhos de runbook e outros detalhes técnicos, consulte [execução de runbook na automação do Azure](automation-runbook-execution.md).

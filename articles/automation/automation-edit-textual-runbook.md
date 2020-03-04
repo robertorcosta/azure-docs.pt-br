@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42ff98c8dc77ee421791c3e9f22b57a4518ae80b
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: c00ab8a5e0d307d89ae483db55bdb0b1258ae6a4
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500182"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246418"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Editando runbooks de texto na Automação do Azure
 
@@ -24,7 +24,7 @@ O editor textual inclui um recurso para inserir código para cmdlets, ativos e r
 
 Cada runbook da Automação do Azure tem duas versões, Rascunho e Publicado. Edite a versão de Rascunho do runbook e publique-a para que ela possa ser executada. A versão Publicado não pode ser editada. Para saber mais, confira [Publicar um runbook](manage-runbooks.md#publish-a-runbook).
 
-Este artigo oferece as etapas detalhadas para a execução de funções diferentes com este editor. Eles não são aplicáveis a [Runbooks gráficos](automation-runbook-types.md#graphical-runbooks). Para trabalhar com esses runbooks, consulte [criação gráfica na automação do Azure](automation-graphical-authoring-intro.md).
+Este artigo oferece as etapas detalhadas para a execução de funções diferentes com este editor. Eles não são aplicáveis a [runbooks gráficos](automation-runbook-types.md#graphical-runbooks). Para trabalhar com esses runbooks, consulte [criação gráfica na automação do Azure](automation-graphical-authoring-intro.md).
 
 >[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).

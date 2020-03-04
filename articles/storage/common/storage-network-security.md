@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 2c3b329aa767fbe9795c90ca236008210576fe12
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 7d3b580a939d207bbcc410e13555cdaa28067f87
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514724"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250991"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -372,28 +372,30 @@ Quando você habilita a configuração **permitir serviços confiáveis da Micro
 
 | Serviço                  | Nome do provedor de recursos     | Operações permitidas                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Backup do Azure             | Microsoft.RecoveryServices | Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup). |
+| Serviço de Backup do Azure             | Microsoft.RecoveryServices | Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para o Azure usando Data Box. [Saiba mais](/azure/databox/data-box-overview). |
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefato. [Saiba mais](/azure/devtest-lab/devtest-lab-overview). |
 | Grade de Eventos do Azure         | Microsoft.EventGrid        | Habilite a publicação de eventos do Armazenamento de Blobs e permita que a Grade de Eventos publique em filas de armazenamento. Saiba mais sobre [eventos de Armazenamento de Blobs](/azure/event-grid/event-sources) e [publicação em filas](/azure/event-grid/event-handlers). |
-| Hubs de Eventos do Azure         | Microsoft.EventHub         | Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview). |
-| Sincronização de arquivos do Azure          | Microsoft.StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de arquivos do Azure. Permitir a sincronização de vários sites, recuperação rápida de desastres e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
+| Hubs de eventos do Azure         | Microsoft.EventHub         | Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview). |
+| Sincronização de Arquivos do Azure          | Microsoft.StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de arquivos do Azure. Permitir a sincronização de vários sites, recuperação rápida de desastres e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Exportação de importação do Azure      | Microsoft.ImportExport     | Permite a importação de dados para o Azure e a exportação de dados do Azure usando o serviço de importação/exportação. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
 | Azure Monitor            | Microsoft.insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de diagnóstico de recursos, Azure Active Directory de entrada e logs de auditoria e logs de Microsoft Intune. [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Redes do Azure         | Microsoft.Network          | Armazenar e analisar os logs de tráfego de rede. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
-| Recuperação de Site do Azure      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Rede do Azure         | Microsoft.Network          | Armazenar e analisar os logs de tráfego de rede. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 A configuração **permitir serviços confiáveis da Microsoft...** também permite que uma instância específica dos serviços a seguir acesse a conta de armazenamento, se você [atribuir explicitamente uma função RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recurso. Nesse caso, o escopo de acesso para a instância corresponde à função RBAC atribuída à identidade gerenciada.
 
-| Serviço                        | Nome do provedor de recursos          | Finalidade            |
-| :----------------------------- | :------------------------------------- | :---------- |
+| Serviço                        | Nome do provedor de recursos                 | Finalidade            |
+| :----------------------------- | :------------------------------------- | :----------------- |
+| Pesquisa Cognitiva do Azure         | Microsoft.Search/searchServices        | Permite que os serviços de Pesquisa Cognitiva acessem contas de armazenamento para indexação, processamento e consulta. |
 | Tarefas do Registro de Contêiner do Azure | Microsoft.ContainerRegistry/registries | As tarefas de ACR podem acessar contas de armazenamento ao criar imagens de contêiner. |
-| Azure Data Factory             | Microsoft.DataFactory/factories        | Permite o acesso a contas de armazenamento por meio do tempo de execução do ADF. |
-| Aplicativos Lógicos do Azure               | Microsoft.Logic/workflows              | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída, os modelos e os logs do experimento no armazenamento de BLOBs. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). |
-| Azure SQL Data Warehouse       | Microsoft.Sql                          | Permite a importação e a exportação de dados de instâncias específicas do banco do dados SQL usando o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no armazenamento de BLOBs. Esse recurso está atualmente na visualização. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
+| Fábrica de dados do Azure             | Microsoft.DataFactory/factories        | Permite o acesso a contas de armazenamento por meio do tempo de execução do ADF. |
+| Azure Data Share               | Microsoft. DataShare/accounts           | Permite o acesso a contas de armazenamento por meio do compartilhamento de dados. |
+| Aplicativos Lógicos do Azure               | Microsoft.Logic/workflows              | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
+| Serviço do Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída, os modelos e os logs do experimento no armazenamento de BLOBs. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| SQL Data Warehouse do Azure       | Microsoft.Sql                          | Permite a importação e a exportação de dados de instâncias específicas do banco do dados SQL usando o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Stream Analytics do Azure         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no armazenamento de BLOBs. Esse recurso está atualmente na visualização. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft. Synapse/Workspaces          | Habilita o acesso a dados no armazenamento do Azure do Synapse Analytics. |
 
 
@@ -467,7 +469,7 @@ Você pode gerenciar as exceções de regra da rede através do portal do Azure,
 > [!IMPORTANT]
 > Não se esqueça de [definir a regra padrão](#change-the-default-network-access-rule) para **negar** ou a remoção das exceções não terá efeito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os Pontos de Extremidade do Serviço de Rede do Azure em [Pontos de Extremidade de Serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
 

@@ -3,12 +3,12 @@ title: Monitorar um cluster do AKS (serviço kubernetes do Azure) implantado | M
 description: Saiba como habilitar o monitoramento de um cluster AKS (serviço kubernetes do Azure) com Azure Monitor para contêineres já implantados em sua assinatura.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 57d492778828254da7a6899641ab9dbd19a40154
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977786"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250634"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar o monitoramento do cluster AKS (serviço kubernetes do Azure) já implantado
 
@@ -16,7 +16,7 @@ Este artigo descreve como configurar Azure Monitor para contêineres para monito
 
 Você pode habilitar o monitoramento de um cluster AKS que já está implantado usando um dos métodos com suporte:
 
-* Azure CLI
+* CLI do Azure
 * Terraform
 * [De Azure monitor](#enable-from-azure-monitor-in-the-portal) ou [diretamente do cluster AKs](#enable-directly-from-aks-cluster-in-the-portal) no portal do Azure
 * Com o [modelo de Azure Resource Manager fornecido](#enable-using-an-azure-resource-manager-template) usando o cmdlet Azure PowerShell `New-AzResourceGroupDeployment` ou com CLI do Azure.
@@ -35,7 +35,7 @@ az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMana
 
 A saída será semelhante à seguinte:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 
@@ -51,7 +51,7 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
 
     A saída será semelhante à seguinte:
 
-    ```azurecli
+    ```output
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
@@ -67,7 +67,7 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
 
 3. O exemplo a seguir exibe a lista de espaços de trabalho em suas assinaturas no formato JSON padrão.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -81,7 +81,7 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
 
     A saída será semelhante à seguinte:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -272,7 +272,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
        A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
 
-       ```powershell
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -286,7 +286,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
        A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:
 
-       ```azurecli
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -306,7 +306,7 @@ kubectl get ds omsagent --namespace=kube-system
 
 A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
@@ -320,7 +320,7 @@ kubectl get deployment omsagent-rs -n=kube-system
 
 A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:
 
-```
+```output
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 omsagent   1         1         1            1            3h
@@ -336,7 +336,7 @@ kubectl get ds omsagent --namespace=kube-system
 
 A saída deve ser semelhante à seguinte, que indica que ela foi implantada corretamente:  
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
@@ -352,7 +352,7 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 Após alguns minutos, o comando concluirá e retornará informações no formato JSON sobre a solução.  Os resultados do comando deverão mostrar o perfil do complemento de monitoramento e serem semelhantes à seguinte saída de exemplo:
 
-```
+```output
 "addonProfiles": {
     "omsagent": {
       "config": {
@@ -363,7 +363,7 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
   }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
 

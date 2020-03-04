@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585978"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248855"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -69,7 +69,7 @@ Um método comum para melhorar a proteção para todos os usuários é exigir um
 
 Para dar aos usuários acesso fácil aos seus aplicativos de nuvem, o Azure AD dá suporte a uma variedade de protocolos de autenticação, incluindo a autenticação herdada. A *autenticação herdada* é um termo que se refere a uma solicitação de autenticação feita por:
 
-- Clientes do Office mais antigos que não usam autenticação moderna (por exemplo, um cliente do Office 2010).
+- Clientes que não usam autenticação moderna (por exemplo, um cliente do Office 2010).
 - Qualquer cliente que usa protocolos de email mais antigos, como IMAP, SMTP ou POP3.
 
 Hoje, a maior parte do comprometimento de tentativas de entrada é proveniente da autenticação herdada. A autenticação herdada não dá suporte à autenticação multifator. Mesmo que você tenha uma política de autenticação multifator habilitada em seu diretório, um invasor pode se autenticar usando um protocolo mais antigo e ignorar a autenticação multifator. 

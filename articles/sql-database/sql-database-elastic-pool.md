@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0cda55d42f0d89d61919b751335ec95ef8143274
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901168"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252697"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -117,10 +117,10 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
 
    Para o modelo de compra baseado em DTU: MAX(<*Número total de BDs* X *utilização média de DTU por BD* >,<br>  
-   < *Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados* )
+   <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
 
    Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD* >,<br>  
-   < *Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD* )
+   <*Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD*)
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.
@@ -206,7 +206,7 @@ Você também pode selecionar mais métricas para exibir lado a lado nessa tabel
 
 Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no portal do Azure](sql-database-insights-alerts-portal.md).
 
-## <a name="customer-case-studies"></a>Estudos de caso de clientes
+## <a name="customer-case-studies"></a>Estudos de caso de cliente
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
@@ -220,8 +220,9 @@ Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no 
 
    O Daxko/CSI usa pools elásticos com o banco de dados SQL do Azure para acelerar seu ciclo de desenvolvimento e aprimorar seus serviços e desempenho do cliente.   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
+- Para obter informações sobre preços, consulte [preços do pool elástico](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Para dimensionar pools elásticos, confira [Dimensionar pools elásticos](sql-database-elastic-pool-scale.md) e [Dimensionar um pool elástico - exemplo de código](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Para saber mais sobre padrões de design para aplicativos SaaS usando pools elásticos, confira [Padrões de design para aplicativos de SaaS multilocatários com o banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).

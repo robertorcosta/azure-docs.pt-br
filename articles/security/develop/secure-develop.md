@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 76219ec454fd105ed4bbf1a2fa0e922475d8dd1f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834970"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255655"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. As perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do [SDL (Microsoft Security Development Lifecycle)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para desenvolver um aplicativo mais seguro.
@@ -99,7 +99,7 @@ Se o aplicativo precisar gerar senhas automaticamente, verifique se as senhas ge
 
 Se seu aplicativo permitir [uploads de arquivos](https://www.owasp.org/index.php/Unrestricted_File_Upload), considere as precauções que você pode tomar para essa atividade arriscada. A primeira etapa em muitos ataques é obter um código mal-intencionado em um sistema que está sob ataque. O uso de um upload de arquivo ajuda o invasor a fazer isso. O OWASP oferece soluções para validar um arquivo para garantir que o arquivo que você está carregando seja seguro.
 
-A proteção Antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [Microsoft Antimalware](../fundamentals/antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+A proteção Antimalware ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [Microsoft Antimalware](../fundamentals/antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 
 [O Microsoft Antimalware](../fundamentals/antimalware.md) inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de amostras e coleta de eventos de exclusão. Você pode integrar o Antimalware da Microsoft e as soluções de parceiros com a [Central de Segurança do Azure](../../security-center/security-center-partner-integration.md) para facilidade de implantação e detecções internas (alertas e incidentes).
 
@@ -150,7 +150,7 @@ Garantir que seu aplicativo seja seguro é tão importante quanto testar qualque
 
 O [Secure DevOps Kit para Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contém SVTs para vários serviços da plataforma Azure. Você executa esses SVTs periodicamente para garantir que sua assinatura do Azure e os diferentes recursos que compõem seu aplicativo estejam em um estado seguro. Você também pode automatizar esses testes usando o recurso de extensões CI/CD (integração contínua/implantação contínua) do AzSK, que torna o SVTs disponível como uma extensão do Visual Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Nos artigos a seguir, recomendamos os controles de segurança e as atividades que podem ajudá-lo a projetar e implantar aplicativos seguros.
 
 - [Criar aplicativos seguros](secure-design.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982138"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250221"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
 
@@ -32,7 +32,7 @@ As etapas deste guia de instruções mostram como:
 1. Gerar classes de Protobuf
 1. Testar localmente
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar as etapas neste guia de instruções, você precisará de:
 
@@ -231,7 +231,7 @@ O script a seguir pressupõe que o nome do hub IoT é **device-simulation-test**
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test
@@ -275,6 +275,6 @@ Se você não precisar mais instâncias do Hub IoT e do Cosmos DB, exclua-as de 
 
 Muitos recursos do Hub IoT não dão suporte nativo a Protobuf ou a outros formatos binários. Por exemplo, você não pode rotear com base na carga de mensagem, pois o Hub IoT não será capaz de processar a carga da mensagem. No entanto, você pode rotear com base nos cabeçalhos de mensagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu a personalizar a Simulação de Dispositivo para usar Protobuf a fim de enviar telemetria. A próxima etapa é saber como [Implantar uma imagem personalizada na nuvem](iot-accelerators-device-simulation-deploy-image.md).

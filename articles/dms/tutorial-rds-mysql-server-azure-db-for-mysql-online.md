@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o RDS MySQL online para o banco de dados do Azure para 
 titleSuffix: Azure Database Migration Service
 description: Saiba como realizar uma migração online do RDS MySQL para o Banco de Dados do Azure para MySQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 27002d1fc861d49e083fc294bcfbc7f51f7c1a12
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751295"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255157"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: migrar o RDS MySQL para o banco de dados do Azure para MySQL online usando DMS
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 Este artigo descreve como executar uma migração online de uma instância do RDS MySQL para o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -260,7 +260,7 @@ Após a conclusão do Carregamento completo inicial, os bancos de dados serão m
 
 A migração online de uma instância local do MySQL para o Banco de Dados do Azure para MySQL agora foi concluída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Para obter informações sobre o Banco de Dados do Azure para MySQL, confira o artigo [O que é o Banco de Dados do Azure para MySQL?](https://docs.microsoft.com/azure/mysql/overview).

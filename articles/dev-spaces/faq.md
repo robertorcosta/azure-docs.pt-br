@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas para algumas das perguntas mais comuns sobre Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 964fa9ec4948bf178c310af8e35913fda5f70c0f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 285fdb7892d2da40dd50e025cb1dd7644ec17ae0
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934176"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255723"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre Azure Dev Spaces
 
@@ -64,6 +64,14 @@ Sim, você pode usar Azure Dev Spaces em clusters AKS com [intervalos de endere�
 ## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Posso usar Azure Dev Spaces em clusters AKS com tráfego de saída restrito para nós de cluster?
 
 Sim, você pode usar Azure Dev Spaces em clusters AKS com [tráfego de saída restrito para nós de cluster][aks-restrict-egress-traffic] habilitados assim que os FQDNs corretos tiverem sido permitidos. Mais informações sobre como usar clusters AKS com tráfego de saída restrito para nós de cluster habilitados com o Azure Dev Spaces estão disponíveis [aqui](configure-networking.md#ingress-and-egress-network-traffic-requirements).
+
+## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Posso usar Azure Dev Spaces em clusters AKS habilitados para RBAC?
+
+Sim, você pode usar Azure Dev Spaces em clusters AKS com ou sem o RBAC habilitado.
+
+## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>O que acontece quando eu habilito a entrada para o projeto no Visual Studio?
+
+Ao usar o Visual Studio para preparar seu projeto, você tem a opção de habilitar a entrada para seu serviço. Habilitar a entrada cria um ponto de extremidade público para acessar seu serviço quando executado no cluster do AKS, que é opcional. Se você não habilitar a entrada, seu serviço só poderá ser acessado de dentro do cluster AKS.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled

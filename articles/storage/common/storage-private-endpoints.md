@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158903"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252657"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Usando pontos de extremidade privados para o armazenamento do Azure (visualização)
 
@@ -106,8 +106,8 @@ Os nomes de zona DNS recomendados para pontos de extremidade privados para servi
 | :--------------------- | :----------------------------------- |
 | Serviço Blob           | `privatelink.blob.core.windows.net`  |
 | Armazenamento do Data Lake Gen2 | `privatelink.dfs.core.windows.net`   |
-| Serviço de arquivo           | `privatelink.file.core.windows.net`  |
-| serviço Fila          | `privatelink.queue.core.windows.net` |
+| Serviço de arquivos           | `privatelink.file.core.windows.net`  |
+| Serviço Fila          | `privatelink.queue.core.windows.net` |
 | Serviço tabela          | `privatelink.table.core.windows.net` |
 | Sites estáticos        | `privatelink.web.core.windows.net`   |
 
@@ -136,4 +136,4 @@ Essa restrição é um resultado das alterações de DNS feitas quando a conta a
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede para sub-redes com pontos de extremidade privados
 
-No momento, não é possível configurar regras de NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) para sub-redes com pontos de extremidade privados. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
+No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas ao ponto de extremidade privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.

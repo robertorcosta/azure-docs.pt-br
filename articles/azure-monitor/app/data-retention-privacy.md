@@ -3,12 +3,12 @@ title: Retenção de dados e armazenamento no Azure Application Insights | Micro
 description: Declaração de política de privacidade e retenção
 ms.topic: conceptual
 ms.date: 09/29/2019
-ms.openlocfilehash: 0b266eb0674f6de7dfb20311bba95bc7f4697f61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669651"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254869"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta de dados, retenção e armazenamento no Application Insights
 
@@ -171,6 +171,12 @@ Por padrão, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` é usado para persis
 
 O prefixo de pasta `appInsights-node` pode ser substituído, alterando o valor de runtime da variável estática `Sender.TEMPDIR_PREFIX` localizada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
+### <a name="javascript-browser"></a>JavaScript (navegador)
+
+O [armazenamento de sessão HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) é usado para manter os dados. Dois buffers separados são usados: `AI_buffer` e `AI_sent_buffer`. A telemetria que está em lote e aguardando para ser enviada é armazenada em `AI_buffer`. A telemetria que acabou de ser enviada é colocada em `AI_sent_buffer` até que o servidor de ingestão responda que foi recebido com êxito. Quando a telemetria é recebida com êxito, ela é removida de todos os buffers. Em falhas transitórias (por exemplo, um usuário perde a conectividade de rede), a telemetria permanece em `AI_buffer` até que seja recebida com êxito ou o servidor de ingestão responda que a telemetria é inválida (esquema incorreto ou muito antigo, por exemplo).
+
+Os buffers de telemetria podem ser desabilitados definindo [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) como `false`. Quando o armazenamento de sessão é desativado, uma matriz local é usada como armazenamento persistente. Como o SDK do JavaScript é executado em um dispositivo cliente, o usuário tem acesso a esse local de armazenamento por meio das ferramentas de desenvolvedor do navegador.
+
 ### <a name="opencensus-python"></a>OpenCensus Python
 
 Por padrão, o SDK do Python OpenCensus usa a pasta do usuário atual `%username%/.opencensus/.azure/`. As permissões para acessar essa pasta são restritas ao usuário atual e aos Administradores. (Consulte a [implementação](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) aqui.) A pasta com os dados persistentes será nomeada após o arquivo Python que gerou a telemetria.
@@ -207,7 +213,7 @@ Não recomendamos definir explicitamente seu aplicativo para usar apenas o TLS 1
 | Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
 | Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
-|Windows Vista | Sem suporte. | {1&gt;N/A&lt;1}
+|Windows Vista | Sem suporte. | N/D
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Verifique qual versão do OpenSSL sua distribuição do Linux está em execução
 
@@ -241,10 +247,10 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 
 | Sua ação | Classes de dados coletados (consulte a tabela a seguir) |
 | --- | --- |
-| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Session<br/>usuários |
+| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Session<br/>users |
 | [Instalar o Status Monitor no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>usuários |
-| [Adicionar SDK do JavaScript à página da Web][client] |ClientContext <br/>Inferido<br/>{1&gt;Página&lt;1}<br/>ClientPerf<br/>Ajax |
+| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Session<br/>users |
+| [Adicionar SDK do JavaScript à página da Web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
 | [Controle de chamada *][api] |Nome do evento<br/>**Propriedades** |
@@ -268,13 +274,13 @@ Para [SDKs para outras plataformas][platforms], consulte seus documentos.
 | PageViews |URL e nome da página ou o nome de tela |
 | Desempenho do cliente |URL/nome de página, tempo de carregamento do navegador |
 | Ajax |Chamadas HTTP da página da Web para o servidor |
-| Solicitações |URL, duração, código de resposta |
+| Requests |URL, duração, código de resposta |
 | Dependências |Tipo (SQL, HTTP,...), Cadeia de conexão, URI, sincronização/Async, duração, êxito, instrução SQL (com Status Monitor) |
 | **Exceções** |Tipo, **mensagem**, pilhas de chamadas, arquivo de origem, número de linha `thread id` |
 | Falhas |`Process id`, `parent process id`, `crash thread id`; patch do aplicativo, `id`, Build;  tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços de início e término binários, nome e caminho binários, tipo de CPU |
-| Rastreamento |**Mensagem** e nível de severidade |
+| Trace |**Mensagem** e nível de severidade |
 | Contadores de desempenho |Tempo do processador, memória disponível, taxa de solicitação, taxa de exceções, bytes particulares do processo, taxa de E/S, duração da solicitação, comprimento da fila de solicitações |
-| Availability |Código de resposta de teste da Web, duração de cada etapa de teste, nome do teste, carimbo de data/hora, sucesso, tempo de resposta, local de teste |
+| Disponibilidade |Código de resposta de teste da Web, duração de cada etapa de teste, nome do teste, carimbo de data/hora, sucesso, tempo de resposta, local de teste |
 | Diagnóstico do SDK |Mensagem de rastreamento ou exceção |
 
 Você pode [desativar alguns dos dados editando ApplicationInsights. config][config]

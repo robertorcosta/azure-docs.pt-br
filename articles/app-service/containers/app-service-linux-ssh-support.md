@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ddf011724f72a8a5eaf4e6398c28b28fffa5bfac
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898757"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247001"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte de SSH para o Serviço de Aplicativo do Azure no Linux
 
@@ -52,7 +52,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 A saída do comando fornece as informações que você precisa para abrir uma sessão SSH.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -60,20 +60,20 @@ Start your favorite client and connect to port 21382
 
 Abra uma sessão SSH com o contêiner com o cliente de sua escolha, usando a porta local. O exemplo a seguir usa o comando padrão [ssh](https://ss64.com/bash/ssh.html):
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 Ao ser solicitado, digite `yes` para continuar a se conectar. Você receberá uma solicitação de senha. Use `Docker!`, que foi mostrado anteriormente.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 Ao autenticar, você deverá ver a tela de boas-vindas da sessão.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -89,7 +89,7 @@ Agora você está conectado a seu conector.
 
 Tente executar o comando novamente [top](https://ss64.com/bash/top.html). Você deve ser capaz de ver o processo do aplicativo na lista de processos. No exemplo abaixo, é aquele com `PID 263`.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738
@@ -111,7 +111,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 45738     1 root     Z        0   0%   0   0% [init]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode postar perguntas e problemas no [fórum do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

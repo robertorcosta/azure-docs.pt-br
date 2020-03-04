@@ -3,7 +3,7 @@ title: Criar e carregar um VHD Linux baseado em CentOS no Azure
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux baseado em CentOS.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/25/2019
 ms.author: mimckitt
-ms.openlocfilehash: a5a6dd7e451d3204c8ab2bd2eae95db93c2f0837
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dff90df255d6b7e050fad9a278666f81fade500c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750233"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246135"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
 
@@ -26,7 +26,7 @@ Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha
 * [Preparar uma máquina virtual CentOS 7.0 ou posterior para o Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este artigo pressupõe que você já instalou um sistema operacional Linux CentOS (ou derivado similar) em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -390,6 +390,6 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
 14. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora, você está pronto para usar o disco rígido virtual CentOS Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd para o Azure, consulte [Criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

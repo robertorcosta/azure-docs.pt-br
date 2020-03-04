@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 743061c1e32d9ca86e90733dbfd66575d2085dbc
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572298"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247833"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras do Azure Analysis Services
 
@@ -26,6 +26,9 @@ O repositório do [Analysis Services](https://github.com/Microsoft/Analysis-Serv
 
 [Adventure Works para o Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) no GitHub é o projeto de modelo tabular de exemplo mais comumente usado. Você pode baixar um projeto do VS ou um modelo de banco de dados tabular de exemplo concluído.
 
+## <a name="sample-database-on-azure"></a>Banco de dados de exemplo no Azure
+
+O Azure Synapse Analytics (SQL Data Warehouse) fornece um exemplo de banco de dados AdventureWorksDW que pode ser incluído em um recurso provisionado. Para saber mais, consulte [início rápido: criar e consultar um pool de SQL do Azure Synapse Analytics](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
 ## <a name="sample-databases-on-github"></a>Bancos de dados de exemplo no GitHub
 

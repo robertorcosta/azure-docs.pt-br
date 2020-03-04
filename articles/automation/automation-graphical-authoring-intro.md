@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7a0d94522e478a69f70167183e4c0d60d0d85060
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226538"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255989"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 
@@ -25,7 +25,7 @@ Todos os runbooks na automação do Azure são fluxos de trabalho do Windows Pow
 
 ## <a name="overview-of-graphical-editor"></a>Visão geral do editor gráfico
 
-Você pode abrir o editor gráfico no portal do Azure criando ou editando um runbook gráfico.
+Você pode abrir o editor gráfico no Portal do Azure criando ou editando um runbook gráfico.
 
 ![Workspace gráfico](media/automation-graphical-authoring-intro/runbook-graphical-editor.png)
 
@@ -39,7 +39,7 @@ O controle Canvas permite que você projete seu runbook. Você pode adicionar at
 
 O controle biblioteca permite que você selecione [atividades](#activities) a serem adicionadas ao seu runbook. Você os adiciona à tela, onde você pode conectá-las a outras atividades. O controle biblioteca inclui as seções definidas na tabela a seguir.
 
-| `Section` | Descrição |
+| Seção | DESCRIÇÃO |
 |:--- |:--- |
 | Cmdlets |Todos os cmdlets que podem ser usados em seu runbook. Os cmdlets são organizados por módulo. Todos os módulos que você instalou em sua conta de automação estão disponíveis. |
 | Runbooks |Os runbooks em sua conta de automação. Você pode adicionar esses runbooks à tela para serem usados como runbooks filho. São mostrados apenas runbooks do mesmo tipo de núcleo do runbook que está sendo editado. Para runbooks gráficos, somente runbooks baseados no PowerShell são mostrados. Para runbooks gráficos de fluxo de trabalho do PowerShell, somente runbooks baseados em fluxo de trabalho do PowerShell são mostrados. |
@@ -70,11 +70,11 @@ No exemplo a seguir, o cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/m
 
 ![Conjunto de Parâmetros](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
 
-#### <a name="parameter-values"></a>Valor de parâmetro
+#### <a name="parameter-values"></a>Valores de parâmetro
 
 Ao especificar um valor para um parâmetro, você seleciona uma fonte de dados para determinar como o valor é especificado. As fontes de dados que estão disponíveis para um determinado parâmetro dependem dos valores válidos para esse parâmetro. Por exemplo, **NULL** não é uma opção disponível para um parâmetro que não permite valores nulos.
 
-| Fonte de Dados | Descrição |
+| fonte de dados | DESCRIÇÃO |
 |:--- |:--- |
 | Valor Constante |Digite um valor válido para o parâmetro. Esta fonte de dados só está disponível para os seguintes tipos de dados: Int32, Int64, String, Boolean, DateTime, switch. |
 | Saída de Atividade |Use a saída de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas estão listadas. Para o valor do parâmetro, use apenas a atividade que produz a saída. Se a atividade produzir um objeto com várias propriedades, você poderá digitar o nome de uma propriedade específica depois de selecionar a atividade. |
@@ -104,7 +104,7 @@ A condição de repetição é uma expressão do PowerShell que é avaliada apó
 
 A condição de repetição pode usar uma variável chamada *RetryData* que fornece acesso a informações sobre as tentativas de atividade. Essa variável tem as propriedades na tabela a seguir:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | NumberOfAttempts |Número de vezes que a atividade foi executada. |
 | Saída |Saída da última execução da atividade. |
@@ -156,14 +156,14 @@ Você pode criar um link entre duas atividades selecionando a atividade de orige
 
 Selecione o link para configurar suas propriedades na folha Configuração. As propriedades incluem o tipo de link, que é descrito na tabela a seguir.
 
-| Tipo de link | Descrição |
+| Tipo de link | DESCRIÇÃO |
 |:--- |:--- |
 | Pipeline |A atividade de destino é executada uma vez para cada saída de objeto da atividade de origem. A atividade de destino não será executada se a atividade de origem não resultar em saída. A saída da atividade de origem está disponível como um objeto. |
-| Sequence |A atividade de destino é executada apenas uma vez quando recebe a saída da atividade de origem. A saída da atividade de origem está disponível como uma matriz de objetos. |
+| Sequência |A atividade de destino é executada apenas uma vez quando recebe a saída da atividade de origem. A saída da atividade de origem está disponível como uma matriz de objetos. |
 
 ### <a name="start-of-activity"></a>Início da atividade
 
-Um runbook gráfico começa com qualquer atividade que não tenha um link de entrada. Geralmente, há apenas uma atividade que atua como a atividade inicial do runbook. Se várias atividades não tiverem um link de entrada, o runbook começará executando-as em paralelo. Ele segue então os links para executar outras atividades, à medida que cada uma for concluída.
+Um runbook gráfico é iniciado com todas as atividades que não têm um link de entrada. Geralmente, há apenas uma atividade que atua como a atividade inicial do runbook. Se várias atividades não tiverem um link de entrada, o runbook começará executando-as em paralelo. Ele segue então os links para executar outras atividades, à medida que cada uma for concluída.
 
 ### <a name="link-conditions"></a>Condições de link
 
@@ -241,7 +241,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ### <a name="checkpoints"></a>Pontos de verificação
 
-Você pode definir [pontos de verificação](automation-powershell-workflow.md#checkpoints) em um runbook do Fluxo de Trabalho do PowerShell Gráfico selecionando **Runbook do ponto de verificação** em qualquer atividade. Isso causa a definição de um ponto de verificação após a execução da atividade.
+Você pode definir [pontos de verificação](automation-powershell-workflow.md#checkpoints) em um runbook de fluxo de trabalho gráfico do PowerShell selecionando **runbook de ponto de verificação** em qualquer atividade. Isso causa a definição de um ponto de verificação após a execução da atividade.
 
 ![Ponto de verificação](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
@@ -249,7 +249,7 @@ Os pontos de verificação são habilitados apenas em runbooks gráficos de flux
 
 ## <a name="runbook-input-and-output"></a>Entrada e saída de runbook
 
-### < um nome "runbook-Input" ></a>entrada de runbook
+### Entrada de runbook<a name="runbook-input"></a>
 
 Um runbook requer entrada de um usuário que inicia o runbook por meio do portal do Azure ou de outro runbook, se o atual for usado como um filho. Por exemplo, para um runbook que cria uma máquina virtual, o usuário pode precisar fornecer informações como o nome da máquina virtual e outras propriedades sempre que o runbook for iniciado.
 
@@ -261,13 +261,13 @@ Ao criar seu runbook, você pode acessar seus parâmetros de entrada clicando no
 
 Cada parâmetro de entrada é definido pelas propriedades na tabela a seguir:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| {1&gt;Nome&lt;1} | Obrigatório. O nome do parâmetro. O nome deve ser exclusivo dentro do runbook. Ele deve começar com uma letra e pode conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
-| Descrição |Opcional. Descrição da finalidade do parâmetro de entrada. |
-| Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O Portal do Azure fornece um controle apropriado para o tipo de dados para cada parâmetro quando a entrada for solicitada. Os tipos de parâmetro com suporte são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dados não for selecionado, o padrão será String.|
-| Mandatory | Opcional. Configuração que especifica se um valor deve ser fornecido para o parâmetro. Se você escolher **Sim**, um valor deverá ser fornecido quando o runbook for iniciado. Se você escolher **não**, um valor não será necessário quando o runbook for iniciado e um valor padrão poderá ser usado. O runbook não poderá ser iniciado se você não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
-| Valor padrão | Opcional. O valor usado para um parâmetro se um não for passado quando o runbook for iniciado. Para definir um valor padrão, escolha **personalizado**. Selecione **nenhum** se você não quiser fornecer nenhum valor padrão. |
+| Nome | Obrigatórios. O nome do parâmetro. O nome deve ser exclusivo dentro do runbook. Ele deve começar com uma letra e pode conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
+| DESCRIÇÃO |Opcional. Descrição da finalidade do parâmetro de entrada. |
+| Type | Opcional. Tipo de dados esperado para o valor do parâmetro. O Portal do Azure fornece um controle apropriado para o tipo de dados para cada parâmetro quando a entrada for solicitada. Os tipos de parâmetro com suporte são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dados não for selecionado, o padrão será String.|
+| Obrigatório | Opcional. Configuração que especifica se um valor deve ser fornecido para o parâmetro. Se você escolher **Sim**, um valor deverá ser fornecido quando o runbook for iniciado. Se você escolher **não**, um valor não será necessário quando o runbook for iniciado e um valor padrão poderá ser usado. O runbook não poderá ser iniciado se você não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
+| Valor Padrão | Opcional. O valor usado para um parâmetro se um não for passado quando o runbook for iniciado. Para definir um valor padrão, escolha **personalizado**. Selecione **nenhum** se você não quiser fornecer nenhum valor padrão. |
 
 ### <a name="runbook-output"></a>Saída de runbook
 
@@ -407,11 +407,11 @@ O runbook deve autenticar em seu início e depois de cada ponto de verificação
 
 ![Saída de Atividade](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
-## <a name="exporting-and-importing-a-graphical-runbook"></a>Exportando e importando um runbook gráfico
+## <a name="exporting-and-importing-a-graphical-runbook"></a>Exportar e importar um runbook gráfico
 
-Você só pode exportar a versão publicada de um runbook gráfico. Se o runbook ainda não tiver sido publicado, o botão **Exportar** será desabilitado. Quando você clica no botão **Exportar** , o runbook é baixado para o computador local. O nome do arquivo corresponde ao nome do runbook com uma extensão **. graphrunbook** .
+Você pode exportar apenas a versão publicada de um runbook gráfico. Se o runbook ainda não tiver sido publicado, o botão **Exportar** será desabilitado. Quando você clica no botão **Exportar** , o runbook é baixado para o computador local. O nome do arquivo corresponde ao nome do runbook com uma extensão **. graphrunbook** .
 
-Você pode importar um arquivo de runbook Gráfico ou do Fluxo de Trabalho do PowerShell Gráfico selecionando a opção **Importar** ao adicionar um runbook. Ao selecionar o arquivo a ser importado, você pode manter o mesmo nome ou fornecer um novo. O campo **tipo de runbook** exibe o tipo de runbook depois de avaliar o arquivo selecionado. Se você tentar selecionar um tipo diferente que não esteja correto, o editor gráfico apresentará uma mensagem indicando que há conflitos em potencial e pode haver erros de sintaxe durante a conversão.
+Você pode importar um arquivo de runbook de fluxo de trabalho gráfico ou gráfico do PowerShell selecionando a opção **importar** ao adicionar um runbook. Ao selecionar o arquivo a ser importado, você pode manter o mesmo nome ou fornecer um novo. O campo **tipo de runbook** exibe o tipo de runbook depois de avaliar o arquivo selecionado. Se você tentar selecionar um tipo diferente que não esteja correto, o editor gráfico apresentará uma mensagem indicando que há conflitos em potencial e pode haver erros de sintaxe durante a conversão.
 
 ![Importar runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
@@ -435,7 +435,7 @@ Publique um runbook gráfico abrindo o runbook para edição e, em seguida, clic
 
 Você tem a opção de reverter para a versão publicada de um runbook. Esta operação gera as alterações feitas desde a última publicação do runbook. Ele substitui a versão de rascunho do runbook pela versão publicada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
 * Para começar a usar runbooks gráficos, consulte [meu primeiro runbook gráfico](automation-first-runbook-graphical.md).

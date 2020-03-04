@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 3f18537b4b038844c9aa824593e354c23c792370
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6af6f01449f2f43e6799ef6d7821b9d71b24e603
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026777"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252344"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorar a conectividade do dispositivo usando a CLI do Azure
 
@@ -23,7 +23,7 @@ Use a extensão CLI do Azure IoT para ver as mensagens que seus dispositivos est
 
 [Visite a referência de extensões de CLI do Azure para obter mais detalhes](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + CLI do Azure instalado e é a versão 2.0.7 ou superior. Verifique a versão do CLI do Azure executando `az --version`. Saiba como instalar e atualizar a partir do [CLI do Azure docs](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Uma conta corporativa ou de estudante no Azure, adicionada como um usuário em um aplicativo IoT Central.
@@ -33,16 +33,19 @@ Use a extensão CLI do Azure IoT para ver as mensagens que seus dispositivos est
 Para instalar, execute o comando a seguir na linha de comando:
 
 ```cmd/sh
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-Verifique a versão da extensão executando 
+Verifique a versão da extensão executando:
+
 ```cmd/sh
 az --version
 ```
-Você deve ver a extensão Azure-CLI-IOT-ext é 0.8.1 ou superior. Se não estiver, execute
+
+Você deve ver que a extensão Azure-IOT é 0.8.1 ou superior. Se não estiver, execute:
+
 ```cmd/sh
-az extension update --name azure-cli-iot-ext
+az extension update --name azure-iot
 ```
 
 ## <a name="using-the-extension"></a>Usando a extensão
@@ -74,6 +77,6 @@ Exibir as propriedades do dispositivo atual de leitura e leitura/gravação para
 az iot central device-twin show --app-id <app-id> --device-id <device-id>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a usar o IoT Central Explorer, a próxima etapa sugerida é explorar o [Gerenciamento de dispositivos IOT central](howto-manage-devices.md).

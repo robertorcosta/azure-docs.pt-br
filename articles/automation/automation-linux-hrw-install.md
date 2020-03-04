@@ -3,14 +3,14 @@ title: Hybrid Runbook Worker do Linux de Automação do Azure
 description: Este artigo fornece informações sobre como instalar um Hybrid Runbook Worker da Automação do Azure para que você possa executar runbooks em computadores Linux no seu datacenter local ou ambiente de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/28/2018
+ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 838c7450de1364588fb287c9d9804666a325cdf3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421928"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246286"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -27,7 +27,7 @@ O recurso Hybrid Runbook Worker dá suporte para as distribuições a seguir:
 * Oracle Linux 5, 6 e 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
 * Debian GNU/Linux 6, 7 e 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS e 16.04 LTS (x86/x64)
+* Ubuntu 12, 4 LTS, 14, 4 LTS, 16, 4 LTS e 18, 4 (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>Instalar um Hybrid Runbook Worker do Linux
@@ -110,7 +110,7 @@ Os seguintes tipos de runbook não funcionam em um Linux Hybrid Worker:
 * Gráfico
 * Fluxo de Trabalho Gráfico do PowerShell
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Para obter instruções sobre como remover os Hybrid Runbook Workers, consulte [Remover Hybrid Runbook Workers da Automação do Azure](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).

@@ -3,12 +3,12 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: dd4ec646c786ee686567aa137845e583a4cf47e3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206649"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254899"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -32,7 +32,7 @@ A tabela a seguir descreve os recursos dos cofres dos serviços de recuperação
 --- | ---
 **Cofres na assinatura** | Até 500 cofres dos Serviços de Recuperação em uma assinatura única.
 **Computadores em um cofre** | Até 1.000 VMs do Azure em um único cofre.<br/><br/> Até 50 servidores MABS podem ser registrados em um único cofre.
-**Fontes de dados no armazenamento do cofre** | Máximo de 54.400 GB. Não há nenhum limite para backups de VM do Azure.
+**Fontes de dados** | O tamanho máximo de uma [fonte de dados](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) individual é de 54.400 GB. Esse limite não se aplica aos backups de VM do Azure. Nenhum limite se aplica à quantidade total de dados que você pode fazer backup para o cofre.
 **Backups no cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Computadores protegidos pelo DPM/mAbs:** Duas vezes por dia.<br/><br/> Backup de **máquinas diretamente usando o agente Mars:** Três vezes por dia.
 **Backups entre cofres** | O backup é dentro de uma região.<br/><br/> Você precisa de um cofre em cada região do Azure que contenha VMs que você deseja fazer backup. Você não pode fazer backup em uma região diferente.
 **Mover cofres** | Você pode [mover cofres](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
@@ -155,8 +155,6 @@ O backup do Azure adicionou o recurso de restauração entre regiões para refor
 | Agente MARS/local | Não                                                           | N/D               |
 | SQL/SCS HANA          | Não                                                           | N/D               |
 | AFS                    | Não                                                           | N/D               |
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

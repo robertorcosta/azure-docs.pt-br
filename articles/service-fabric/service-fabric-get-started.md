@@ -3,14 +3,14 @@ title: Configurar um ambiente de desenvolvimento do Windows
 description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos no Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/02/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6768f45e61880370295ce7725e553828e66f3d39
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062108"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252764"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar seu ambiente de desenvolvimento no Windows
 
@@ -68,8 +68,8 @@ Se só precisar do SDK, você poderá instalar este pacote:
 
 As versões atuais são:
 
-* Service Fabric SDK e ferramentas 4.0.466
-* 7\.0.466 tempo de execução de Service Fabric
+* Service Fabric SDK e ferramentas 4.0.470
+* 7\.0.470 tempo de execução de Service Fabric
 
 Para obter uma lista das versões com suporte, consulte [versões do Service Fabric](service-fabric-versions.md)
 

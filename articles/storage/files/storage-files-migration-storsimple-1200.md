@@ -4,25 +4,19 @@ description: Saiba como migrar um dispositivo virtual da série StorSimple 1200 
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/14/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 815fda861748f1011eab22ef75fa7e933ca64c55
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209474"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252672"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para o Sincronização de Arquivos do Azure
 
-O StorSimple 1200 Series é uma solução de virtualização que é executada em um data center local.
-Com a vida útil do fim do serviço da linha de produtos StorSimple em dezembro de 31 2022, o serviço de nuvem ao qual este dispositivo virtual está conectado deixará de funcionar.
-
-É imperativo migrar de qualquer dispositivo StorSimple com bastante tempo para sobra.
-Sincronização de Arquivos do Azure é a tecnologia de sucessor natural, com mais recursos e mais flexibilidade do que o StorSimple oferece.
-
-Este artigo fornece as etapas de conhecimento e migrações em segundo plano necessárias para uma migração bem-sucedida para o Sincronização de Arquivos do Azure.
+O StorSimple 1200 Series é uma solução de virtualização que é executada em um data center local. É possível migrar os dados desse dispositivo para um ambiente Sincronização de Arquivos do Azure. Este artigo fornece as etapas de conhecimento e migrações em segundo plano necessárias para uma migração bem-sucedida para o Sincronização de Arquivos do Azure.
 
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 

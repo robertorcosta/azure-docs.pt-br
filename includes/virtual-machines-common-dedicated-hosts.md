@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 870d6f8441bf395ba0c02dccf8f3d1c6434410c6
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78208181"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246227"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -99,7 +99,7 @@ O licenciamento de software, o armazenamento e o uso de rede são cobrados separ
 
 Para obter mais informações, consulte [preços do host dedicado do Azure](https://aka.ms/ADHPricing).
 
-Você também pode economizar em custos com uma [instância reservada de hosts dedicados do Azure] (.. /articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
+Você também pode economizar em custos com uma [instância reservada de hosts dedicados do Azure](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
 ## <a name="vm-families-and-hardware-generations"></a>Famílias de VMs e gerações de hardware
 
@@ -117,7 +117,7 @@ Hosts dedicados dão suporte ao seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
 
 O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes Estados serão retornados quando você consultar o host:
 
-| Estado de Integridade   | Descrição       |
+| Estado de Integridade   | DESCRIÇÃO       |
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |

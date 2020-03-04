@@ -8,20 +8,20 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker para Azure
-ms.openlocfilehash: 3d0ab0b27d77e45d779227d30c5a8e4f824ba62a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: ddaa3b9aa198bc142e1bcbcab6b7b1e028eff2aa
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277696"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247931"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrar aplicativo MongoDB existente com a API do Azure Cosmos DB para MongoDB e OSBA (Open Service Broker para Azure)
 
-O Azure Cosmos DB é um serviço de banco de dados multimodelo distribuído globalmente. Adicionalmente, fornece compatibilidade com protocolo de fios com várias APIs de NoSQL, incluindo para MongoDB. A API do Cosmos DB para MongoDB permite que você use o Cosmos DB com o aplicativo MongoDB existente, sem a necessidade de alterar os drivers ou a implementação do banco de dados do aplicativo. Também é possível provisionar um serviço do Cosmos DB usando Open Service Broker para Azure.
+O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente. Adicionalmente, fornece compatibilidade com protocolo de fios com várias APIs de NoSQL, incluindo para MongoDB. A API do Cosmos DB para MongoDB permite que você use o Cosmos DB com o aplicativo MongoDB existente, sem a necessidade de alterar os drivers ou a implementação do banco de dados do aplicativo. Também é possível provisionar um serviço do Cosmos DB usando Open Service Broker para Azure.
 
 Neste artigo, você seleciona um aplicativo Java existente que usa um banco de dados MongoDB e atualiza-o para usar um banco de dados do Cosmos DB usando Open Service Broker para Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de continuar, você precisará:
     
@@ -191,7 +191,7 @@ Você pode usar o [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) para imp
 
 Para habilitar o Azure Dev Spaces no cluster do AKS:
 
-```cmd
+```azurecli
 az aks enable-addons --addons http_application_routing -g MyResourceGroup -n MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
@@ -206,7 +206,7 @@ Esse comando gera vários artefatos, incluindo uma pasta *charts/* , que é o gr
 
 Crie um arquivo na raiz do projeto nomeado *Dockerfile* com este conteúdo:
 
-```Dockerfile
+```dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app
@@ -269,7 +269,7 @@ Navegue até a URL exibida nos logs. No exemplo anterior, você usaria *http://s
 
 Verifique se você vê o aplicativo junto com suas alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo descreveu como atualizar um aplicativo existente usando o MongoDB para usar a API do Cosmos DB API para MongoDB. Este artigo também abordou como provisionar um serviço do Cosmos DB usando Open Service Broker para Azure e implantar esse aplicativo no AKS com o Azure Dev Spaces.
 

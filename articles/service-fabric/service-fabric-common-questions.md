@@ -4,12 +4,12 @@ description: Perguntas frequentes sobre Service Fabric, incluindo recursos, caso
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293514"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254895"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
@@ -22,7 +22,7 @@ Há muitas perguntas frequentes sobre o que o Service Fabric pode fazer e como e
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Como faço para reverter meu certificado de cluster do Service Fabric?
 
-Reverter qualquer atualização para o seu aplicativo requer detecção de falha de integridade antes da confirmação de alteração do quórum do cluster do Service Fabric; as alterações confirmadas somente podem passar por roll forward. Engenheiros de escalação nos Serviços de Atendimento ao Cliente podem ser solicitados a recuperar seu cluster, se uma alteração de certificado interrompido não monitorado tiver sido introduzido.  A [Atualização do aplicativo do Service Fabric](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parâmetros de atualização de aplicativo](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e não oferece promessa de atualização de tempo de inatividade.  Seguindo o nosso modo monitorado de atualização de aplicativo recomendado, o andamento automática através de domínios de atualização se baseia nas verificações de integridade sem interrupção, revertendo automaticamente se a atualização de um serviço padrão falhar.
+Reverter qualquer atualização para o seu aplicativo requer detecção de falha de integridade antes da confirmação de alteração do quórum do cluster do Service Fabric; as alterações confirmadas somente podem passar por roll forward. Engenheiros de escalação nos Serviços de Atendimento ao Cliente podem ser solicitados a recuperar seu cluster, se uma alteração de certificado interrompido não monitorado tiver sido introduzido.  A [Atualização do aplicativo do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parâmetros de atualização de aplicativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e não oferece promessa de atualização de tempo de inatividade.  Seguindo o nosso modo monitorado de atualização de aplicativo recomendado, o andamento automática através de domínios de atualização se baseia nas verificações de integridade sem interrupção, revertendo automaticamente se a atualização de um serviço padrão falhar.
  
 Se o seu cluster ainda estiver aproveitando a clássica propriedade Thumbprint do Certificado em seu modelo do Resource Manager, é recomendável [Alterar o cluster da impressão digital do certificado para o nome comum](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para aproveitar recursos modernos de gerenciamento de segredos.
 
@@ -181,6 +181,6 @@ Nós [anunciamos recentemente](https://blogs.msdn.microsoft.com/azureservicefabr
 
 Siga o [Blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes à medida que eles forem anunciados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os [principais conceitos do Service Fabric](service-fabric-technical-overview.md) e [práticas recomendadas](service-fabric-best-practices-overview.md)

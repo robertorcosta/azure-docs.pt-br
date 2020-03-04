@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e3937241724aab63f770ad56cbf96d2e1b45f00e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546037"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251352"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos serviços de mídia
 
@@ -28,13 +28,13 @@ Os serviços de mídia do Azure permitem que você forneça eventos ao vivo para
 > [!TIP]
 > Para clientes que estão migrando das APIs do Media Services v2, a entidade de **evento ao vivo** substitui o **canal** em v2 e a **saída ao vivo** substitui o **programa**.
 
-## <a name="live-events"></a>Eventos ao vivo
+## <a name="live-events"></a>Eventos ao Vivo
 
 [Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Quando você cria um evento ao vivo, é criado um ponto de extremidade de entrada primário e secundário que você pode usar para enviar um sinal ao vivo de um codificador remoto. O codificador remoto dinâmico envia o feed de contribuição para esse ponto de extremidade de entrada usando o protocolo de entrada [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmentado-MP4). Para o protocolo de ingestão RTMP, o conteúdo pode ser enviado em claro (`rtmp://`) ou criptografado com segurança na conexão (`rtmps://`). Para o protocolo de ingestão Smooth Streaming, os esquemas de URL compatíveis são `http://` ou `https://`.  
 
 ## <a name="live-event-types"></a>Tipos de eventos ao vivo
 
-Um [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação de passagem ou ativa. Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+Um [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de várias taxas de bits) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType. None**: um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. O fluxo ingerido passa pelo evento ao vivo sem nenhum processamento adicional. Também chamado de modo de passagem.
 * **LiveEventEncodingType. Standard**: um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior, a predefinição de **default720p** codificará um conjunto de 6 pares de resolução/taxa de bits.
@@ -119,11 +119,11 @@ Você pode usar URLs intuitivas ou não intuitivas.
 
     Use as APIs a seguir para habilitar a URL intuitivo e definir o token de acesso para um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
 
-    |Idioma|Habilitar URL intuitivo|Definir token de acesso|
+    |Linguagem|Habilitar URL intuitivo|Definir token de acesso|
     |---|---|---|
-    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[Properties. vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--intuitivo-URL](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--Access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent. VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura de URL de ingestão dinâmica
 
@@ -180,6 +180,6 @@ Para obter informações detalhadas sobre as saídas ao vivo, consulte [usando u
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Tutorial de live streaming](stream-live-tutorial-with-api.md)

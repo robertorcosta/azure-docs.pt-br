@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4d7c094904529323b0665d14255d1eb76cb78bd3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891916"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250280"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copiar dados de e para o servidor SFTP usando Azure Data Factory
 
@@ -41,11 +41,11 @@ Especificamente, este conector de SFTP dá suporte a:
 - Copiar arquivos de/para SFTP usando a autenticação **básica** ou **SshPublicKey** .
 - Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,7 +55,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte para o serviço vinculado do SFTP:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Sftp**. |Sim |
 | host | Nome ou endereço IP do servidor SFTP. |Sim |
@@ -69,7 +69,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do SFTP:
 
 Para usar a autenticação Básica, defina a propriedade "authenticationType" como **Básica** e especifique as propriedades a seguir, além das que são genéricas do conector SFTP apresentadas na última seção:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | userName | Usuário que tem acesso ao servidor SFTP. |Sim |
 | password | Senha do usuário (userName). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -106,7 +106,7 @@ Para usar a autenticação Básica, defina a propriedade "authenticationType" co
 
 Para usar a chave pública SSH, defina a propriedade "authenticationType" como **SshPublicKey** e especifique as propriedades a seguir, além das que são genéricas do conector SFTP apresentadas na última seção:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | userName | Usuário que tem acesso ao servidor SFTP |Sim |
 | privateKeyPath | Especifica o caminho absoluto para o arquivo de chave privada que pode ser acessado pelo Integration Runtime. Aplica-se apenas quando o tipo auto-hospedado do Integration Runtime é especificado em "connectVia". | Especifique `privateKeyPath` ou `privateKeyContent`.  |
@@ -183,7 +183,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para SFTP em configurações de `location` no conjunto de conjuntos de base de formato:
 
-| Propriedade   | Description                                                  | Obrigatório |
+| Propriedade   | DESCRIÇÃO                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade Type em `location` no conjunto de texto deve ser definida como **SftpLocation**. | Sim      |
 | folderPath | O caminho para a pasta. Se você quiser usar curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
@@ -225,7 +225,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para SFTP em configurações de `storeSettings` na fonte de cópia baseada em formato:
 
-| Propriedade                 | Description                                                  | Obrigatório                                      |
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **SftpReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
@@ -282,12 +282,16 @@ As propriedades a seguir têm suporte para SFTP em configurações de `storeSett
 
 As propriedades a seguir têm suporte para SFTP em configurações de `storeSettings` no coletor de cópia com base em formato:
 
-| Propriedade                 | Description                                                  | Obrigatório |
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **SftpWriteSettings**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>- MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
 | maxConcurrentConnections | O número de conexões para se conectar ao repositório de dados simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
+| useTempFileRename | Indique se deseja carregar arquivos temporários e renomear ou gravar diretamente no local de arquivo/pasta de destino. Por padrão, o ADF primeiro grava em arquivos temporários e, em seguida, realiza a renomeação do arquivo após a conclusão do carregamento, a fim de 1) evitar a gravação de conflitos resultando em um arquivo corrompido se você tiver outro processo de gravação no mesmo arquivo e 2) garantir que a versão original do arquivo exista durante transferência completa. Se o servidor SFTP não oferecer suporte à operação de renomeação, desabilite essa opção e verifique se você não tem a gravação simultânea no arquivo de destino. Consulte a dica de solução de problemas abaixo desta tabela. | Não. O valor padrão é true. |
 | operationTimeout | O tempo de espera antes que cada solicitação de gravação para o servidor SFTP expire. O valor padrão é 60 min (01:00:00).|Não |
+
+>[!TIP]
+>Se você encontrar o erro de "UserErrorSftpPathNotFound", "UserErrorSftpPermissionDenied" ou "SftpOperationFail" ao gravar dados no SFTP, e o usuário SFTP que você usa tiver a permissão adequada, verifique se o seu servidor SFTP oferece suporte à operação de renomeação de arquivo-se não estiver, desabilite a opção "carregar com arquivo temporário" (`useTempFileRename`) e tente novamente. Saiba mais sobre essa propriedade da tabela acima. Se você usar o Integration Runtime auto-hospedado para cópia, use a versão 4,6 ou superior.
 
 **Exemplo:**
 
@@ -354,7 +358,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de arquivo real tiver curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim |
@@ -403,7 +407,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da fonte da atividade de cópia deve ser definida como: **FileSystemSource** |Sim |
 | recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não |
@@ -441,5 +445,5 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

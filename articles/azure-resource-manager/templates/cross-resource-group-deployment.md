@@ -3,12 +3,12 @@ title: Grupo de recursos implantar recursos & de assinatura cruzada
 description: Mostra como usar mais de um destino de assinatura e de grupo de recursos do Azure durante a implantação.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154203"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250617"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos
 
@@ -119,7 +119,7 @@ Se você definir `resourceGroup` como o nome de um grupo de recursos que não ex
 
 Para testar o modelo anterior e ver os resultados, use o PowerShell ou CLI do Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura**, use:
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura**, use:
 
@@ -211,8 +211,8 @@ A tabela a seguir mostra se as funções são resolvidas para o grupo de recurso
 
 | Tipo do modelo | Escopo | Resolução |
 | ------------- | ----- | ---------- |
-| aninhada        | externo (padrão) | Grupo de recursos pai |
-| aninhada        | interna | Sub-grupo de recursos |
+| aninhados        | externo (padrão) | Grupo de recursos pai |
+| aninhados        | interna | Sub-grupo de recursos |
 | vinculado        | N/D   | Sub-grupo de recursos |
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) a seguir mostra:
@@ -317,7 +317,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 Para testar o modelo anterior e ver os resultados, use o PowerShell ou CLI do Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -340,7 +340,7 @@ O resultado do exemplo anterior é:
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -355,7 +355,7 @@ az group deployment create \
 
 O resultado do exemplo anterior é:
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",
@@ -378,7 +378,7 @@ O resultado do exemplo anterior é:
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).

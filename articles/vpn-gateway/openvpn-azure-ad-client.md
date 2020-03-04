@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: 4b9678f72dd69db24b105d4b1d708928e29a09ba
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134510"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251607"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: autenticação do Azure AD
 
@@ -28,7 +28,7 @@ Para se conectar, você precisa baixar o cliente VPN do Azure e configurar um pe
 
 ### <a name="to-download-the-azure-vpn-client"></a>Para baixar o Cliente VPN do Azure
 
-Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o cliente VPN do Azure.
+Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o Cliente VPN do Azure.
 
 ### <a name="cert"></a>Para criar um perfil de cliente baseado em certificado
 
@@ -50,11 +50,11 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Realce o perfil do cliente VPN que você deseja exportar, selecione **...** e, em seguida, selecione **Exportar**.
 
-    ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![exportar](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Selecione o local no qual você deseja salvar esse perfil, deixe o nome do arquivo como está e, em seguida, selecione **salvar** para salvar o arquivo XML.
 
-    ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![exportar](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>Para importar um perfil de cliente
 
@@ -82,11 +82,11 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Selecione as reticências ao lado do perfil do cliente que você deseja excluir. Em seguida, selecione **Remover**.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![excluir](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Selecione **Remover** para excluir.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![excluir](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="connection"></a>Criar uma conexão
 
@@ -168,9 +168,26 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar as marcas de **
 </azvpnprofile>
 ```
 
+### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Como fazer adicionar servidores DNS personalizados ao cliente VPN?
+
+Você pode modificar o arquivo XML do perfil baixado e adicionar as marcas de **\<dnsservers >\<dnsserver > \</dnsserver >\</dnsservers >**
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como fazer adicionar rotas personalizadas ao cliente VPN?
 
-Você pode modificar o arquivo XML do perfil baixado e adicionar o **\<route >\<includeroutes >\<destino >\<mask > \</route >\</includeroutes >\</destination >\</mask >** Tags
+Você pode modificar o arquivo XML do perfil baixado e adicionar o **\<includeroutes >\<rota >\<destino >\<máscara > \</destination >\</mask >\</route >\</includeroutes >** marcas
 
 ```
 <azvpnprofile>
@@ -186,6 +203,24 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar o **\<route >\<
 </azvpnprofile>
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Como fazer bloquear (excluir) as rotas do cliente VPN?
+
+Você pode modificar o arquivo XML do perfil baixado e adicionar o **\<excluderoutes >\<rota >\<destino >\<máscara > \</destination >\</mask >\</route >\</excluderoutes >** marcas
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <excluderoutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+    </excluderoutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte [criar um locatário de Azure Active Directory para conexões VPN abertas do P2S que usam a autenticação do Azure ad](openvpn-azure-ad-tenant.md).

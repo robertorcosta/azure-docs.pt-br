@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928557"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250269"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
@@ -31,9 +31,9 @@ A seguinte funcionalidade está disponível no fluxo de controle:
 - Você pode usar a saída da atividade obter metadados em expressões condicionais para executar a validação.
 - Você pode disparar um pipeline quando uma condição é satisfeita por meio do until loop.
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funcionalidades
 
-A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é 1 MB.
+A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é 2 MB.
 
 >[!NOTE]
 >Se você executar a atividade obter metadados em um tempo de execução de integração auto-hospedado, os recursos mais recentes terão suporte na versão 3,6 ou posterior.
@@ -65,14 +65,14 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 |:--- |:--- |:--- |:--- |
 | [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
 | [Instância Gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
-| [SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### <a name="metadata-options"></a>Opções de metadados
 
 Você pode especificar os seguintes tipos de metadados na lista de campos de atividade obter metadados para recuperar as informações correspondentes:
 
-| Tipo de Metadados | Descrição |
+| Tipo de Metadados | DESCRIÇÃO |
 |:--- |:--- |
 | itemName | Nome do arquivo ou pasta. |
 | itemType | Tipo do arquivo ou pasta. O valor retornado é `File` ou `Folder`. |
@@ -135,10 +135,10 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 
 Atualmente, a atividade obter metadados pode retornar os seguintes tipos de informações de metadados:
 
-Propriedade | Descrição | obrigatórios
+Propriedade | DESCRIÇÃO | Obrigatório
 -------- | ----------- | --------
-fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | SIM 
-dataset | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | SIM
+fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | Sim 
+dataset | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | Sim
 formatSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 storeSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
 
@@ -193,7 +193,7 @@ Os resultados de obter metadados são mostrados na saída da atividade. A seguir
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)

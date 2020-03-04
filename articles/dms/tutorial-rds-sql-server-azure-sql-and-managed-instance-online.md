@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o RDS SQL Server online para o banco de dados SQL'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a executar uma migração online do RDS SQL Server para o banco de dados SQL do Azure ou instância gerenciada usando o serviço de migração de banco de dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 52a6ee282e12f0ece5f16c1fa67c38f07f9d86e7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751277"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255515"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: migrar RDS SQL Server para o banco de dados SQL do Azure ou uma instância gerenciada do banco de dados SQL do Azure online usando DMS
 É possível usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server do RDS para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) ou uma [instância gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com tempo de inatividade mínimo. Neste tutorial, você migra o banco de dados **Adventureworks2012** restaurado para uma instância do SQL Server do RDS do SQL Server 2012 (ou posterior) para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure, usando o Serviço de Migração de Banco de Dados do Azure.
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 Este artigo descreve uma migração online do SQL Server do RDS para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este tutorial, você precisará:
 
 * Criar um [banco de dados do SQL Server do RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
@@ -247,7 +247,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 4. Selecione **Salvar** após definir as seguintes **Configurações avançadas de migração online**.
 
-    | Configuração | Description |
+    | Configuração | DESCRIÇÃO |
     | ------------- | ------------- |
     | **Número máximo de tabelas a serem carregadas em paralelo** | Especifica o número de tabelas que o DMS executa em paralelo durante a migração. O valor padrão é 5, mas pode ser definido como um valor ideal para atender às necessidades de migração específicas com base em quaisquer migrações de POC. |
     | **Quando a tabela de origem é truncada** | Especifica se o DMS trunca a tabela de destino durante a migração. Essa configuração poderá ser útil se uma ou mais tabelas forem truncadas como parte do processo de migração. |
@@ -289,7 +289,7 @@ Após a conclusão do carregamento completo inicial, os bancos de dados são mar
 
     ![Status da atividade: concluído](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-completed.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados SQL do Azure, confira o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados SQL do Azure](known-issues-azure-sql-online.md).
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, consulte o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).

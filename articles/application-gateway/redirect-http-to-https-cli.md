@@ -8,21 +8,21 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: ff615507723b949105fc2b604d6bff869bdb33dc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108759"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246867"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando a CLI do Azure
 
 Você pode usar a CLI do Azure para criar um [gateway de aplicativo](overview.md) com um certificado para terminação SSL. Uma regra de roteamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no gateway do seu aplicativo. Neste exemplo, você também pode criar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para pool de back-end do gateway do aplicativo que contém duas instâncias de máquina virtual.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar um certificado autoassinado
+> * Crie um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicativo com o certificado
 > * Adicionar um ouvinte e uma regra de direcionamento
@@ -32,19 +32,19 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este tutorial, você pode criar um certificado autoassinado e o arquivo pfx usando o comando openssl.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 Insira os valores que fazem sentido para o seu certificado. Você pode aceitar os valores padrão.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
@@ -52,9 +52,9 @@ Insira a senha para o certificado. Neste exemplo, *Azure123456!* está sendo usa
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos usando [az group create](/cli/azure/group).
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Criar um grupo de recursos usando [az group create](/cli/azure/group).
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupAG* no local *eastus*.
+O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no local *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -107,17 +107,17 @@ az network application-gateway create \
 
 ```
 
- Pode levar vários minutos para o gateway de aplicativo ser criado. Depois de criar o gateway de aplicativo, você pode ver esses novos recursos:
+ O gateway de aplicativo pode demorar vários minutos para ser criado. Depois de criar o gateway de aplicativo, você pode ver esses novos recursos:
 
 - *appGatewayBackendPool* - Um gateway de aplicativo deve ter pelo menos um pool de endereços de back-end.
 - *appGatewayBackendHttpSettings* - Especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
 - *appGatewayHttpListener* - O ouvinte padrão associado ao *appGatewayBackendPool*.
 - *appGatewayFrontendIP* - Atribui *myAGPublicIPAddress* ao *appGatewayHttpListener*.
-- *rule1* - A regra de roteamento padrão que está associada com *appGatewayHttpListener*.
+- *rule1* - A regra padrão de roteamento que está associada ao *appGatewayHttpListener*.
 
 ## <a name="add-a-listener-and-redirection-rule"></a>Adicionar um ouvinte e uma regra de direcionamento
 
-### <a name="add-the-http-port"></a>Adicione a porta HTTP
+### <a name="add-the-http-port"></a>Adicionar a porta HTTP
 
 Você pode usar [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) para adicionar a porta HTTP ao gateway de aplicativo.
 
@@ -157,7 +157,7 @@ az network application-gateway redirect-config create \
   --include-query-string true
 ```
 
-### <a name="add-the-routing-rule"></a>Adicionar regra de roteamento
+### <a name="add-the-routing-rule"></a>Adicionar a regra de roteamento
 
 Adicione a regra de roteamento chamada *rule2* com a configuração de redirecionamento ao gateway de aplicativo usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
@@ -206,9 +206,9 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Para obter o endereço IP público do gateway de aplicativo, você pode usar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e, em seguida, cole-o na barra de endereços do seu navegador.
+Para obter o endereço IP público do gateway de aplicativo, você pode usar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e cole-o na barra de endereços do seu navegador.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -220,14 +220,14 @@ az network public-ip show \
 
 Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de NGINX protegido é exibido, como no exemplo a seguir:
 
-![Testar a URL de base no gateway do aplicativo](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
+![Testar a URL de base no gateway de aplicativo](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-> * Criar um certificado autoassinado
+> * Crie um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicativo com o certificado
 > * Adicionar um ouvinte e uma regra de direcionamento

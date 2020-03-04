@@ -10,14 +10,15 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 9f1a18155a0be4bc19e723ca04cf6770166a25af
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9a488fb2c4f7f3390fc0ac0e11cdf57bbf030bf6
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913367"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255956"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script do PowerShell – Carregar dados incrementalmente usando o Azure Data Factory
+
 Este script do PowerShell de exemplo carrega somente os registros novos ou atualizados de um armazenamento de dados de origem para um armazenamento de dados do coletor após a cópia completa inicial dos dados da origem para o coletor.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -26,12 +27,12 @@ Este script do PowerShell de exemplo carrega somente os registros novos ou atual
 
 Consulte [tutorial: cópia incremental](../tutorial-incremental-copy-powershell.md#prerequisites) para conhecer os pré-requisitos para executar esse exemplo. 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 > [!IMPORTANT]
 > Esse script cria arquivos JSON que definem as entidades do Data Factory (serviço vinculado, conjunto de dados e pipeline) no disco rígido na pasta c:\.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Incremental copy from Azure SQL Database to Azure Blob Storage")]
+:::code language="powershell" source="~/powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1":::
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -50,7 +51,7 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 Este script usa os seguintes comandos: 
 
-| Command | Notas |
+| Comando | Observações |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar um data factory. |
@@ -62,8 +63,8 @@ Este script usa os seguintes comandos:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
 Exemplos adicionais de scripts do Azure Data Factory PowerShell podem ser encontrados nos [Scripts do Azure Data Factory PowerShell](../samples-powershell.md).

@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 70c53ea9a8fc64615a9a493efc42405631a3f06d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025156"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254854"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
@@ -49,7 +49,12 @@ Para exibir todas as métricas da conta do lote:
 3. Selecione uma ou mais métricas. Se preferir, selecione as métricas de recursos adicionais usando as listas suspensas **Assinaturas**, **Grupo de recursos**, **Tipo de recurso** e **Recurso**.
     * Para métricas baseadas em contagem (como "contagem de núcleos dedicados" ou "contagem de nós de baixa prioridade"), use a agregação "média". Para métricas baseadas em evento (como "eventos de redimensionamento de pool concluídos"), use a agregação "contagem".
 
-    ![Métricas do Lote](media/batch-diagnostics/metrics-portal.png)
+> [!WARNING]
+> Não use a agregação "Sum", que soma os valores de todos os pontos de dados recebidos no período do gráfico
+> 
+> 
+
+    ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 
 Para recuperar métricas programaticamente, use as APIs do Azure Monitor. Por exemplo, consulte [Recuperar métricas do Azure Monitor com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
@@ -71,7 +76,7 @@ Para configurar um alerta de métrica no portal:
 2. Em **Monitoramento**, clique em **Regras de alerta** > **Adicionar métrica de alerta**.
 3. Selecione uma métrica, uma condição de alerta (por exemplo, quando uma métrica exceder um valor específico durante um período) e uma ou mais notificações.
 
-Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, confira [Visão geral de alertas](../azure-monitor/platform/alerts-overview.md)
+Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, consulte [visão geral de alertas](../azure-monitor/platform/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou pool em seus alertas, consulte as informações em consultas de pesquisa em [responder a eventos com Azure monitor alertas](../azure-monitor/learn/tutorial-response.md)
 
 ## <a name="batch-diagnostics"></a>Diagnóstico do Lote
 
@@ -180,7 +185,7 @@ O serviço do Lote emite atualmente os seguintes eventos do Log de Serviço. Ess
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Saiba mais sobre [Monitorar soluções do Lote](monitoring-overview.md).

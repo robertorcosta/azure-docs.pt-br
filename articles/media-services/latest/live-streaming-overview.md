@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b366262ce7849658eb84444d873956c25ab38804
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977736"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244656"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -33,7 +33,7 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 Este artigo fornece uma visão geral e diretrizes de transmissão ao vivo com os serviços de mídia e links para outros artigos relevantes.
  
 > [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 ## <a name="dynamic-packaging"></a>Empacotamento Dinâmico
 
@@ -44,7 +44,7 @@ Com os serviços de mídia, você pode aproveitar o [empacotamento dinâmico](dy
 A criptografia dinâmica permite que você criptografe dinamicamente seu conteúdo ao vivo ou sob demanda com o AES-128 ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. Para obter mais informações, consulte [criptografia dinâmica](content-protection-overview.md).
 
 > [!NOTE]
-> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+> O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="dynamic-manifest"></a>Manifesto dinâmico
 
@@ -52,7 +52,7 @@ A filtragem dinâmica é usada para controlar o número de faixas, formatos, tax
 
 ## <a name="live-event-types"></a>Tipos de eventos ao vivo
 
-[Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Um evento ao vivo pode ser um dos dois tipos: codificação ativa e de passagem. Para obter detalhes sobre a transmissão ao vivo nos serviços de mídia v3, consulte [eventos ao vivo e saídas dinâmicas](live-events-outputs-concept.md).
+[Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Um evento ao vivo pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de várias taxas de bits) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). Para obter detalhes sobre a transmissão ao vivo nos serviços de mídia v3, consulte [eventos ao vivo e saídas dinâmicas](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Passagem
 
@@ -78,7 +78,7 @@ A transcrição ao vivo é um recurso que você pode usar com eventos ao vivo qu
 Para entender o fluxo de trabalho de transmissão ao vivo nos serviços de mídia v3, você precisa primeiro examinar e entender os seguintes conceitos: 
 
 - [Pontos de Extremidade de Streaming](streaming-endpoint-concept.md)
-- [Eventos ao Vivo e Saídas Dinâmicas ](live-events-outputs-concept.md)
+- [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
 - [Localizadores de Streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Etapas gerais
@@ -92,7 +92,7 @@ Para entender o fluxo de trabalho de transmissão ao vivo nos serviços de mídi
     Cada saída ao vivo é associada a um ativo, que ele usa para gravar o vídeo no contêiner de armazenamento de BLOBs do Azure associado. 
 6. Crie uma **saída ao vivo** e use o nome do ativo que você criou para que o fluxo possa ser arquivado no ativo.
 
-    As Saídas ao Vivo iniciam na criação e terminam quando são excluídas. Ao excluir a saída ao vivo, você não está excluindo o ativo subjacente e o conteúdo no ativo.
+    As Saídas ao Vivo começam na criação e terminam quando são excluídas. Ao excluir a saída ao vivo, você não está excluindo o ativo subjacente e o conteúdo no ativo.
 7. Crie um **localizador de streaming** com os [tipos de política de streaming internos](streaming-policy-concept.md).
 
     Para publicar a saída ao vivo, você deve criar um localizador de streaming para o ativo associado. 
@@ -123,7 +123,7 @@ O ativo no qual a saída ao vivo está sendo arquivada torna-se automaticamente 
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial de live streaming](stream-live-tutorial-with-api.md)
 * [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)

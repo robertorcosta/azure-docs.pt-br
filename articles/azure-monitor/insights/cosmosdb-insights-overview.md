@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: d28db9907094a651835078f4459a985b9d15e589
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657377"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250669"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Explorar Azure Monitor para Azure Cosmos DB (versão prévia)
 
@@ -33,34 +33,6 @@ Esse recurso não exige que você habilite ou configure nada, essas métricas de
 
 >[!NOTE]
 >Não há nenhum encargo para acessar esse recurso e você só será cobrado pelos recursos essenciais Azure Monitor que você configurar ou habilitar, conforme descrito na página de [detalhes de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
-
-## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Exibir métricas de nível de operação para Azure Cosmos DB
-
-1. Entre no [portal do Azure](https://portal.azure.com/).
-
-1. Selecione **Monitor** na barra de navegação à esquerda e selecione **métricas**.
-
-   ![Painel de métricas no Azure Monitor](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
-
-1. No painel de **métricas** > **selecione um recurso** > escolha a **assinatura**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione **contas de Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **aplicar**.
-
-   ![Escolha uma conta de Cosmos DB para exibir as métricas](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
-
-1. Em seguida, você pode selecionar uma métrica na lista de métricas disponíveis. Você pode selecionar métricas específicas para unidades de solicitação, armazenamento, latência, disponibilidade, Cassandra e outros. Para saber mais detalhadamente sobre todas as métricas disponíveis nesta lista, consulte o artigo [métricas por categoria](../../cosmos-db/monitor-cosmos-db-reference.md) . Neste exemplo, vamos selecionar unidades de **solicitação** e **Méd** como o valor de agregação.
-
-   Além desses detalhes, você também pode selecionar o intervalo de **tempo** e a **granularidade de tempo** das métricas. No máximo, você pode exibir as métricas dos últimos 30 dias.  Depois de aplicar o filtro, um gráfico é exibido com base no seu filtro. Você pode ver o número médio de unidades de solicitação consumidas por minuto para o período selecionado.  
-
-   ![Escolha uma métrica no portal do Azure](./media/cosmosdb-insights-overview/metric-types.png)
-
-### <a name="add-filters-to-metrics"></a>Adicionar filtros a métricas
-
-Você também pode filtrar as métricas e o gráfico exibidos por um **CollectionName**, **DatabaseName**, **OperationType**, **região**e **StatusCode**específicos. Para filtrar as métricas, selecione **Adicionar filtro** e escolha a propriedade necessária, como **OperationType** , e selecione um valor como **consulta**. Em seguida, o grafo exibe as unidades de solicitação consumidas para a operação de consulta para o período selecionado. As operações executadas por meio do procedimento armazenado não são registradas para que não estejam disponíveis na métrica OperationType.
-
-![Adicionar um filtro para selecionar a granularidade da métrica](./media/cosmosdb-insights-overview/add-metrics-filter.png)
-
-Você pode agrupar as métricas usando a opção **aplicar divisão** . Por exemplo, você pode agrupar as unidades de solicitação por tipo de operação e exibir o grafo para todas as operações de uma só vez, conforme mostrado na imagem a seguir:
-
-![Adicionar filtro de divisão de aplicação](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
 
 ## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Exibir métricas de desempenho e utilização para Azure Cosmos DB
 
@@ -100,7 +72,7 @@ Selecione **falhas** na parte superior da página e a parte de **falhas** do mod
 
 ![Captura de tela de falhas com divisão por tipo de solicitação HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Código      |  Descrição       | 
+| Código      |  DESCRIÇÃO       | 
 |-----------|:--------------------|
 | `200 OK`  | Uma das seguintes operações REST foram bem-sucedidas: </br>-OBTER em um recurso. </br> -PUT em um recurso. </br> -POST em um recurso. </br> -POST em um recurso de procedimento armazenado para executar o procedimento armazenado.|
 | `201 Created` | Uma operação POST para criar um recurso foi bem-sucedida. |
@@ -148,7 +120,7 @@ As pastas de trabalho são salvas em um grupo de recursos, na seção **meus rel
 
 ![Iniciar Galeria de pastas de trabalho na barra de comandos](./media/cosmosdb-insights-overview/gallery.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
 

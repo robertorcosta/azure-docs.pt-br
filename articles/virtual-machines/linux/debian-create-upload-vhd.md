@@ -3,7 +3,7 @@ title: Preparar um VHD do Debian Linux no Azure
 description: Aprenda a criar arquivos imagens VHD Debian para implantação no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: mimckitt
-ms.openlocfilehash: 3cf6a4a98451a36826cadf84b9be8e3ea63efea7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 579704ad663e20fdbb59b94d1d4c5ea831d3a68a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750151"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251695"
 ---
-# <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD do Debian para Azure
-## <a name="prerequisites"></a>Pré-requisitos
+# <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD do Debian para o Azure
+## <a name="prerequisites"></a>Prerequisites
 Esta seção pressupõe que você já instalou um sistema operacional Linux Debian a partir de um arquivo .iso baixado do [site do Debian](https://www.debian.org/distrib/) para um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd; Hyper-V é apenas um exemplo. Para obter instruções sobre como usar a Hyper-V, consulte [Instalar a função Hyper-V e configurar uma máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 ## <a name="installation-notes"></a>Notas de instalação
@@ -106,6 +106,6 @@ Existem ferramentas disponíveis para gerar VHDs Debian para o Azure, como os sc
 
 10. Clique em **Ação** -> Desligar no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora, você está pronto para usar o disco rígido virtual Debian para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd para o Azure, consulte [Criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 

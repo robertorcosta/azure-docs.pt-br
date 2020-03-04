@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: rochakm
-ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 32d826f3c27cea3d0993c47e8562360315b7bd2e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902547"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256040"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
 
@@ -46,7 +46,7 @@ Se o trabalho de "Habilitar replicação" falhar, a seguinte mensagem será exib
 
 > "Falha na configuração de Site Recovery."
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
 Os certificados raiz confiáveis necessários para autorização e autenticação não estão presentes na máquina virtual.
 
@@ -80,7 +80,7 @@ Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 1. Se o certificado de autoridade de certificação raiz da Symantec não for encontrado, execute o comando a seguir para baixar o arquivo. Verifique se há erros e siga as ações recomendadas para falhas de rede.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://docs.broadcom.com/docs-and-downloads/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Verifique se o certificado de autoridade de certificação raiz do Baltimore está presente:
 
@@ -88,7 +88,7 @@ Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 1. Se o certificado de autoridade de certificação raiz do Baltimore não for encontrado, execute este comando para baixar o certificado:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
 
 1. Verifique se o certificado de DigiCert_Global_Root_CA está presente:
 
@@ -168,7 +168,7 @@ Para que a replicação de Site Recovery funcione, a conectividade de saída é 
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com Site Recovery (código de erro 151195)
 
-#### <a name="possible-cause"></a>Causa possível 
+#### <a name="possible-cause"></a>Possível causa 
 
 A conexão com Site Recovery pontos de extremidade não pode ser estabelecida devido a uma falha de resolução de DNS.
 
@@ -184,7 +184,7 @@ Tente acessar o servidor DNS da máquina virtual. Se o servidor não estiver ace
 
 ### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problema 2: falha na configuração do Site Recovery (código de erro 151196)
 
-#### <a name="possible-cause"></a>Causa possível
+#### <a name="possible-cause"></a>Possível causa
 
 Não é possível estabelecer a conexão com os pontos de extremidade IP4 de autenticação e identidade do Office 365.
 
@@ -198,7 +198,7 @@ Se você estiver usando regras de NSG do Azure ou proxy de firewall para control
 
 ### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problema 3: falha na configuração do Site Recovery (código de erro 151197)
 
-#### <a name="possible-cause"></a>Causa possível
+#### <a name="possible-cause"></a>Possível causa
 
 A conexão não pode ser estabelecida com Site Recovery pontos de extremidade de serviço.
 
@@ -208,7 +208,7 @@ Site Recovery requer acesso a [intervalos de IP site Recovery](https://docs.micr
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problema 4: a replicação do Azure para o Azure falhou quando o tráfego de rede passa por um servidor proxy local (código de erro 151072)
 
-#### <a name="possible-cause"></a>Causa possível
+#### <a name="possible-cause"></a>Possível causa
 
 As configurações de proxy personalizadas são inválidas e o agente do serviço de mobilidade Site Recovery não detectou automaticamente as configurações de proxy do Internet Explorer.
 
@@ -271,7 +271,7 @@ Para tornar o status de replicação da VM íntegro novamente, você pode optar 
 
 #### <a name="to-protect-the-disks"></a>Para proteger os discos
 
-1. Vá para **itens replicados** > *nome* > da VM**discos**.
+1. Vá para **itens replicados** > *nome da VM* > **discos**.
 1. Selecione o disco desprotegido e, em seguida, selecione **habilitar replicação**:
 
     ![Habilitar a replicação em discos de VM](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
@@ -310,7 +310,7 @@ Você pode ignorar esse aviso se você nunca pretender proteger essa máquina vi
 
 ## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>A replicação não pode ser habilitada devido a links de recursos obsoletos na VM (código de erro 150226)
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
 A máquina virtual tem uma configuração obsoleta da proteção de Site Recovery anterior.
 
@@ -401,7 +401,7 @@ Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtu
 
 ### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Causa 2: você protegeu anteriormente a VM usando Site Recovery e, em seguida, desabilitou a replicação
 
-Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Vá para *cofre dos serviços de recuperação* > **site Recovery** > **mapeamento de rede**de infraestrutura.
+Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Vá para *cofre dos serviços de recuperação* > **site Recovery infraestrutura** > **mapeamento de rede**.
 
 ![Excluir mapeamento de rede](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 
@@ -437,7 +437,7 @@ Quando esse erro ocorre, a seguinte mensagem é exibida:
 
 > "Não foi possível habilitar a proteção para a máquina virtual, pois ela tem *diskname* com tamanho de *discosize*) *, que é inferior ao tamanho mínimo com suporte de 1024 MB."
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
 O disco é menor do que o tamanho com suporte de 1024 MB.
 
@@ -447,7 +447,7 @@ Verifique se o tamanho do disco está dentro do intervalo de tamanho com suporte
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>A proteção não foi habilitada porque a configuração de GRUB inclui o nome do dispositivo em vez do UUID (código de erro 151126)
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
 Os arquivos de configuração GRUB do Linux (/boot/grub/menu.lst ",/boot/grub/grub.cfg,/boot/Grub2/grub.cfg ou/etc/default/grub) podem especificar os nomes de dispositivo reais em vez de valores UUID para os parâmetros *root* e *resume* . Site Recovery requer UUIDs porque os nomes de dispositivo podem ser alterados. Após a reinicialização, uma VM pode não vir com o mesmo nome no failover, resultando em problemas.
 
@@ -455,7 +455,7 @@ Os exemplos a seguir são linhas de arquivos GRUB em que os nomes de dispositivo
 
 - /Boot/Grub2/grub.cfg de arquivo
 
-  > linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts
+  > Linux/boot/vmlinuz-3.12.49-11-default **raiz =/dev/sda2** $ {extra_cmdline} **retomar =/dev/sda1** Splash = silenciosa Quiet showopts
 
 - Arquivo:/boot/grub/menu.lst
 
@@ -483,7 +483,7 @@ Substitua cada nome de dispositivo pelo UUID correspondente:
 
 ## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>Falha ao habilitar a proteção porque o dispositivo mencionado na configuração do GRUB não existe (código de erro 151124)
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
 Os arquivos de configuração do GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/boot/Grub2/grub.cfg ou/etc/default/grub) podem conter os parâmetros *Rd.LVM.lv* ou *rd_LVM_LV*. Esses parâmetros identificam os dispositivos LVM (Gerenciador de volumes lógicos) que serão descobertos no momento da inicialização. Se esses dispositivos LVM não existirem, o próprio sistema protegido não será inicializado e ficará preso no processo de inicialização. O mesmo problema também será visto com a VM de failover. Veja alguns exemplos:
 
@@ -516,7 +516,7 @@ O serviço de mobilidade Site Recovery tem muitos componentes, um dos quais é c
 
 ## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>Não foi possível habilitar a proteção porque o disco gerenciado de réplica já existe, sem as marcas esperadas, no grupo de recursos de destino (código de erro 150161)
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
 Esse problema pode ocorrer se a máquina virtual já tiver sido protegida anteriormente e quando a replicação tiver sido desabilitada, o disco de réplica não foi limpo.
 
@@ -524,6 +524,6 @@ Esse problema pode ocorrer se a máquina virtual já tiver sido protegida anteri
 
 Exclua o disco de réplica identificado na mensagem de erro e repita o trabalho de proteção com falha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Replicar as máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

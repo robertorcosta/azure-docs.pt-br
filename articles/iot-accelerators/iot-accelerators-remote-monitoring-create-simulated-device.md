@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832591"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250245"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
@@ -30,9 +30,9 @@ No segundo cenário, a Contoso deseja testar um novo dispositivo de lâmpada int
 
 *Propriedades*
 
-| NOME                     | Valores                      |
+| Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
-| Cor                    | White, Red, Blue            |
+| Color                    | White, Red, Blue            |
 | Brilho               | 0 a 100                    |
 | Vida útil restante estimada | Contagem regressiva de 10.000 horas |
 
@@ -40,7 +40,7 @@ No segundo cenário, a Contoso deseja testar um novo dispositivo de lâmpada int
 
 A tabela a seguir mostra os dados que a lâmpada relata para a nuvem como um fluxo de dados:
 
-| NOME   | Valores      |
+| Nome   | Valores      |
 | ------ | ----------- |
 | Status | "on", "off" |
 | Temperatura | Graus F |
@@ -53,7 +53,7 @@ A tabela a seguir mostra os dados que a lâmpada relata para a nuvem como um flu
 
 A tabela a seguir mostra as ações com suporte no novo dispositivo:
 
-| NOME        |
+| Nome        |
 | ----------- |
 | Ligar   |
 | Desligar  |
@@ -62,7 +62,7 @@ A tabela a seguir mostra as ações com suporte no novo dispositivo:
 
 A tabela a seguir mostra o status inicial do dispositivo:
 
-| NOME                     | Valores |
+| Nome                     | Valores |
 | ------------------------ | -------|
 | Cor inicial            | Branco  |
 | Brilho inicial       | 75     |
@@ -76,7 +76,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este guia de instruções, é necessário ter:
 
@@ -107,11 +107,11 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 Abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter** no Visual Studio Code. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o **storage-adapter/WebService/appsettings.ini** do arquivo e atribuir a cadeia de conexão do Cosmos DB para o **documentDBConnectionString** variável.
+Abra o arquivo **Storage-Adapter/WebService/appSettings. ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentDBConnectionString** .
 
 Para executar o microsserviço localmente, clique em **Depurar > Iniciar Depuração**.
 
-A janela **Terminal** no Visual Studio Code mostra a saída do microsserviço em execução, incluindo uma URL para a verificação de integridade do serviço Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quando você navegar até esse endereço, o status deve ser "Okey: Ativo e em funcionamento".
+A janela **Terminal** no Visual Studio Code mostra a saída do microsserviço em execução, incluindo uma URL para a verificação de integridade do serviço Web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quando você navegar até esse endereço, o status deverá ser "OK: ativo e em funcionamento".
 
 Deixe o microsserviço de adaptador de armazenamento em execução nesta instância do Visual Studio Code enquanto você conclui as próximas etapas.
 
@@ -123,7 +123,7 @@ Nesta seção, você adiciona um novo tipo de telemetria de **Temperatura Intern
 
 1. Copie os seguintes arquivos para a nova pasta a partir da cópia baixada do microsserviço de simulação de dispositivo:
 
-    | source | Destino |
+    | Fonte | Destino |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
@@ -424,7 +424,7 @@ Nesta seção, você testa os tipos de dispositivo que criou nas seções anteri
 
 Abra a pasta **device-simulation-dotnet-master** que você baixou do GitHub em uma nova instância do Visual Studio Code. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o **WebService/appsettings.ini** do arquivo e atribuir a cadeia de conexão do Cosmos DB para o **documentdb_connstring** variável e também modificar as configurações como segue:
+Abra o arquivo **WebService/appSettings. ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentdb_connstring** e modifique também as configurações da seguinte maneira:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -446,7 +446,7 @@ O script a seguir pressupõe que o nome do hub IoT é **device-simulation-test**
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test
@@ -492,7 +492,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode parar de dois microsserviços em execução localmente em suas instâncias do Visual Studio Code (**Depurar > Parar Depuração**).
 

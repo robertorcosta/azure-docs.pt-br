@@ -3,8 +3,8 @@ title: 'Tutorial: migrar o Oracle online para o banco de dados do Azure para Pos
 titleSuffix: Azure Database Migration Service
 description: Saiba como fazer a migração online do Oracle local ou em máquinas virtuais para um Banco de Dados do Azure para PostgreSQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 14db95adccf5118321bc763cbe599e19febc7eac
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759902"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255577"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: migrar o Oracle para o banco de dados do Azure para PostgreSQL online usando DMS (versão prévia)
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 
 Este artigo descreve como executar uma migração online do Oracle para o Banco de Dados do Azure para PostgreSQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -231,7 +231,7 @@ Para que o Serviço de Migração de Banco de Dados do Azure crie o esquema para
 > [!IMPORTANT]
 > O Serviço de Migração de Banco de Dados do Azure exige que todas as tabelas sejam criadas da mesma maneira, usando o Serviço de Migração de Banco de Dados do Azure ou uma ferramenta como o ora2pg, mas não ambos.
 
-Para começar:
+Introdução:
 
 1. Criar um esquema no banco de dados de destino com base nos requisitos do aplicativo. Por padrão, o esquema de tabela do PostgreSQL e os nomes das colunas ficam menos em minúsculas. As colunas e o esquema de tabela do Oracle, por outro lado, ficam em maiúsculas.
 2. Na etapa Selecionar esquemas, especifique o banco de dados de destino e o esquema de destino.
@@ -243,11 +243,11 @@ Para começar:
 
     | Esquema de origem do Oracle | Esquema do Banco de Dados PostgreSQL de destino | schema.table.column criado pelo DMS |
     | ------------- | ------------- | ------------- |
-    | RH | targetHR.public | public.countries.country_id |
-    | RH | targetHR.trgthr | trgthr.countries.country_id |
-    | RH | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
-    | RH | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
-    | RH | targetHR.Hr | *Não é possível mapear usos mistos de maiúsculas e minúsculas |
+    | HR | targetHR.public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.Hr | *Não é possível mapear usos mistos de maiúsculas e minúsculas |
 
     *Para criar um esquema misto de tabelas com uso de maiúsculas e minúsculas no PostgreSQL de destino, contate [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Podemos fornecer um script para configurar um esquema misto de tabelas com uso de maiúsculas e minúsculas no Banco de dados PostgreSQL de destino.
 
@@ -383,7 +383,7 @@ Após a conclusão do carregamento completo inicial, os bancos de dados são mar
  > [!NOTE]
  > Por padrão, o PostgreSQL tem o schema.table.column em letras minúsculas, você poderá reverter de letras maiúsculas em minúsculas usando o script na seção **Configurar o esquema no Banco de Dados do Azure para PostgreSQL** anteriormente neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados do Azure para PostgreSQL, confira o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados do Azure para PostgreSQL](known-issues-azure-postgresql-online.md).
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, confira o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).

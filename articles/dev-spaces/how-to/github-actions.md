@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Revisar e testar alterações de uma solicitação pull diretamente no serviço kubernetes do Azure usando ações do GitHub e Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ações do GitHub, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: e2b6f47483d2c7b6c4970dac531bada1cecd279e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196545"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252370"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
 
@@ -39,7 +39,7 @@ Neste guia, você aprenderá a:
 
 Criar um ACR (registro de contêiner do Azure):
 
-```cmd
+```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
@@ -52,7 +52,7 @@ Salve o valor de *loginServer* da saída porque ele é usado em uma etapa poster
 
 Use [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] para criar uma entidade de serviço. Por exemplo:
 
-```cmd
+```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
@@ -60,19 +60,19 @@ Salve a saída JSON porque ela é usada em uma etapa posterior.
 
 Use [AZ AKs show][az-aks-show] para exibir a *ID* do seu cluster AKs:
 
-```cmd
+```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
 Use [AZ ACR show][az-acr-show] para exibir a *ID* do ACR:
 
-```cmd
+```azurecli
 az acr show --name <acrName> --query id
 ```
 
 Use [AZ role Assignment Create][az-role-assignment-create] para fornecer acesso de *colaborador* ao seu cluster AKs e acesso *AcrPush* ao seu ACR.
 
-```cmd
+```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
 az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
@@ -158,7 +158,7 @@ Se você mesclar suas alterações no Branch *mestre* na bifurcação, outra aç
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

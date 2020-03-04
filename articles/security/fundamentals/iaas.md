@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 6a775da59680004dadf0cec872057adfd5a16f49
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0a4daf61d6b791a01f5bfb18e6cfca8118b2f421
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749863"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255952"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 Este artigo descreve as melhores práticas de segurança para VMs e sistemas operacionais.
@@ -67,8 +67,8 @@ Se a VM executar aplicativos críticos que precisam ter alta disponibilidade, se
 
 Um conjunto de disponibilidade é um agrupamento lógico que você pode usar no Azure para garantir que os recursos de VM inseridos nele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou de software do Azure, somente um subconjunto das VMs será afetado e o aplicativo geral continuará disponível aos clientes. Os conjuntos de disponibilidade são uma funcionalidade essencial quando você quer compilar soluções de nuvem confiáveis.
 
-## <a name="protect-against-malware"></a>Proteja-se contra malware
-Você deve instalar a proteção antimalware para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [Antimalware da Microsoft](antimalware.md) ou uma solução de proteção de pontos de extremidade do parceiro da Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) e [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+## <a name="protect-against-malware"></a>Proteção contra malware
+Você deve instalar a proteção antimalware para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. Você pode instalar o [Microsoft Antimalware](antimalware.md) ou uma solução de proteção de ponto de extremidade do parceiro da Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)e [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 O Antimalware da Microsoft inclui recursos como proteção em tempo real, verificação agendada, correção de malware, atualizações de assinatura, atualizações de mecanismo, relatórios de exemplos e coleção de eventos de exclusão. Para ambientes que são hospedados separadamente do ambiente de produção, é possível usar uma extensão antimalware para ajudar a proteger as VMs e os serviços de nuvem.
 
@@ -180,7 +180,7 @@ Monitore e restrinja a conectividade direta com a Internet da VM. Os invasores e
 **Prática recomendada**: restringir as portas de gerenciamento (RDP, SSH).   
 **Detalhe**: o [acesso à VM just-in-time (JIT)](../../security-center/security-center-just-in-time.md) pode ser usado para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. Quando o JIT está habilitado, a central de segurança bloqueia o tráfego de entrada para suas VMs do Azure criando uma regra de grupo de segurança de rede. Você seleciona as portas na VM para as quais o tráfego de entrada será bloqueado. Essas portas são controladas pela solução JIT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:

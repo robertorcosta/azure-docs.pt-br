@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612724"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249204"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e etapas de solução de problemas para Azure Active Directory Domain Services
 
@@ -138,7 +138,7 @@ Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no
       * Você implantou ou atualizou para o, a [versão mais recente recomendada do Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * Você configurou Azure AD Connect para [executar uma sincronização completa][hybrid-phs].
       * Dependendo do tamanho do seu diretório, pode levar algum tempo para que as contas de usuário e os hashes de credenciais estejam disponíveis no Azure AD DS. Certifique-se de Aguardar tempo suficiente antes de tentar autenticar no domínio gerenciado.
-      * Se o problema persistir depois de verificar as etapas anteriores, tente reiniciar o serviço de *sincronização de Microsoft Azure ad*. Em sua [VM de gerenciamento][management-vm], abra um prompt de comando e execute os seguintes comandos:
+      * Se o problema persistir depois de verificar as etapas anteriores, tente reiniciar o serviço de *sincronização de Microsoft Azure ad*. Em seu servidor de Azure AD Connect, abra um prompt de comando e execute os seguintes comandos:
     
         ```console
         net stop 'Microsoft Azure AD Sync'

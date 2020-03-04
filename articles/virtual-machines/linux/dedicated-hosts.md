@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 940f27612b26c5baace7a19d2212fa6d8899e6e5
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ddd08f87fb7847a81b28b18c1dedc1c4f0a7a169
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834905"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246209"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
@@ -25,10 +25,12 @@ O host dedicado do Azure é um serviço que fornece servidores físicos capazes 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Você pode implantar um host dedicado usando o [CLI do Azure](dedicated-hosts-cli.md), o [portal](dedicated-hosts-portal.md)e o [PowerShell](../windows/dedicated-hosts-powershell.md).
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
 
 - Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
+
+- Você também pode economizar em custos com uma [instância reservada de hosts dedicados do Azure](../prepay-dedicated-hosts-reserved-instances.md).

@@ -11,12 +11,12 @@ author: likebupt
 ms.reviewer: nibaccam
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1db3679053edbbc2874c456b1c8db4a4f8e0dabd
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 5527d58f140074279d6b9feac13803f29eb0bda5
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164858"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255767"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Neste artigo, saiba como acessar facilmente seus dados nos serviços de armazena
 
 Você pode criar repositórios de armazenamento a partir [dessas soluções de armazenamento do Azure](#matrix). Para soluções de armazenamento sem suporte e para salvar o custo de egresso de dados durante experimentos de Machine Learning, recomendamos que você [mova seus dados](#move) para soluções de armazenamento do Azure com suporte. 
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 Você precisará de:
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -35,7 +35,7 @@ Você precisará de:
 
 - Um Workspace do Azure Machine Learning.
   
-  [Crie um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md) ou use um existente por meio do SDK do Python:
+  [Crie um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md) ou use um existente por meio do SDK do Python. Importe a classe `Workspace` e `Datastore` e carregue as informações de assinatura do arquivo `config.json` usando a função `from_config()`. Isso procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`.
 
    ```Python
    import azureml.core
@@ -239,7 +239,7 @@ O parâmetro `target_path` especifica o local no compartilhamento de arquivos (o
 
 Você também pode carregar uma lista de arquivos individuais no repositório de armazenamento por meio do método `upload_files()`.
 
-### <a name="download"></a>{1&gt;{2&gt;Baixar&lt;2}&lt;1}
+### <a name="download"></a>Baixar
 
 Baixar dados de um repositório de armazenamento para o sistema de arquivos local:
 
@@ -272,7 +272,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning fornece várias maneiras de usar seus modelos para pontuação. Alguns desses métodos não fornecem acesso a repositórios de armazenamento. Use a tabela a seguir para entender quais métodos permitem que você acesse os repositórios de armazenamento durante a Pontuação:
 
-| Método | Acesso ao repositório de armazenamento | Descrição |
+| Método | Acesso ao repositório de armazenamento | DESCRIÇÃO |
 | ----- | :-----: | ----- |
 | [Previsão de lote](how-to-use-parallel-run-step.md) | ✔ | Faça previsões em grandes quantidades de dados de forma assíncrona. |
 | [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implantar modelos como um serviço Web. |
@@ -288,7 +288,7 @@ Azure Machine Learning dá suporte ao acesso a dados do armazenamento de BLOBs d
 
 Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores predefinidos sem custo adicional. Esses conectores incluem serviços de dados do Azure, fontes de dados locais, Amazon S3 e redshift e Google BigQuery.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um conjunto de informações do Azure Machine Learning](how-to-create-register-datasets.md)
 * [Treinar um modelo](how-to-train-ml-models.md)

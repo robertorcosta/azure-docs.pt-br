@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 6cdca78d09c9ca128119a58cb4feaf66bad111bd
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78165030"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256026"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Problemas conhecidos/limitações de migração com migrações do MongoDB para a API do Azure Cosmos DB para MongoDB
 
@@ -41,11 +41,13 @@ Os problemas conhecidos e as limitações associadas a migrações do MongoDB pa
 
 ## <a name="using-an-unsupported-version-of-the-database"></a>Usando uma versão sem suporte do banco de dados
 
+* **Sintoma**: falha na migração.
+
 | Causa         | Resolução |
 | ------------- | ------------- |
 | Você tenta migrar para Azure Cosmos DB de uma versão sem suporte do MongoDB. | À medida que novas versões do MongoDB são lançadas, elas são testadas para garantir a compatibilidade com o serviço de migração de banco de dados do Azure e o serviço está sendo atualizado periodicamente para aceitar as versões mais recentes. Se houver uma necessidade imediata de migrar, como uma solução alternativa, você poderá exportar os bancos de dados/coleções para o armazenamento do Azure e o ponto de origem para o despejo resultante. Crie a SAS no contêiner de BLOB em Gerenciador de Armazenamento e, em seguida, use a URL com informações de SAS do contêiner como a cadeia de conexão de detalhes de origem.<br><br> |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Veja o tutorial [migrar o MongoDB para a API do Azure Cosmos DB para o MongoDB online usando o DMS](tutorial-mongodb-cosmos-db-online.md).
 * Veja o tutorial [migrar o MongoDB para a API do Azure Cosmos DB para MongoDB offline usando DMS](tutorial-mongodb-cosmos-db.md).
