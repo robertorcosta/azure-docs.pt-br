@@ -540,7 +540,10 @@
         - name: Firewall de IP
           href: firewall-support.md
         - name: Acessar a partir das redes virtuais
+          displayName: service endpoint
           href: vnet-service-endpoint.md
+        - name: Marcas de serviço
+          href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Controle de acesso baseado em função
           displayName: rbac
           href: role-based-access-control.md
@@ -983,6 +986,7 @@
         - name: Configurar firewall do IP
           href: how-to-configure-firewall.md
         - name: Configurar acesso a partir das redes virtuais
+          displayName: service endpoints
           href: how-to-configure-vnet-service-endpoint.md
         - name: Configurar o acesso de pontos de extremidade privados
           href: how-to-configure-private-endpoints.md
