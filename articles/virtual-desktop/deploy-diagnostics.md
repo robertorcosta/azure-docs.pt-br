@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/03/2020
 ms.author: helohr
-ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 9e42ff0ec5b44dca743d2ec1470c2eef655b9436
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368853"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273100"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico
 
@@ -25,7 +25,7 @@ Veja o que a ferramenta de diagnóstico para a área de trabalho virtual do Wind
 - Enviar mensagem para usuários ativos em um host de sessão específico.
 - Desconectar usuários de um host de sessão.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Você precisa criar um registro de aplicativo Azure Active Directory e um espaço de trabalho Log Analytics antes de poder implantar o modelo de Azure Resource Manager para a ferramenta. Você ou o administrador precisa dessas permissões para fazer isso:
 
@@ -128,10 +128,9 @@ Antes de continuar a implantação da ferramenta de diagnóstico, recomendamos q
 Para certificar-se de que seu registro de aplicativo tenha permissões de API:
 
 1. Abra um navegador e conecte-se ao [portal do Azure](https://portal.azure.com/) com sua conta administrativa.
-2. Vá para **registros de aplicativo** e procure seu registro de aplicativo Azure AD.
-
-      ![A página permissões de API.](media/api-permissions-page.png)
-
+2. Vá para **Azure Active Directory**.
+3. Vá para **registros de aplicativo** e selecione **todos os aplicativos**.
+4. Procure seu registro de aplicativo do Azure AD com o mesmo nome de aplicativo que você inseriu na etapa 5 de [criar um registro de aplicativo Azure Active Directory](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
 
 ### <a name="review-your-log-analytics-workspace"></a>Examine seu espaço de trabalho do Log Analytics
 
@@ -257,7 +256,7 @@ Você também pode interagir com os usuários no host da sessão:
 
     - Limite: maior que 2000 MS é marcado como não íntegro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba como monitorar logs de atividades em [usar diagnósticos com log Analytics](diagnostics-log-analytics.md).
 - Leia sobre cenários de erro comuns e como corrigi-los em [identificar e diagnosticar problemas](diagnostics-role-service.md).

@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 3aba570bd7f80eab205fe52a731a1be933067012
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493196"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273561"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho do barramento de serviço do Azure para Azure Functions
 
@@ -19,7 +19,7 @@ Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila
 
 Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
 
-## <a name="example"></a>Exemplo
+## <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -288,7 +288,7 @@ Consulte o [exemplo](#example) de gatilho para obter mais detalhes.
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `ServiceBusTrigger`.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/d | Deve ser definido como "serviceBusTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction** | n/d | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
@@ -356,7 +356,7 @@ O `maxAutoRenewDuration` pode ser configurado no *host.json*, que mapeia para [O
 
 O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas propriedades são membros da classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) .
 
-|Propriedade|Type|DESCRIÇÃO|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Número total de entregas.|
 |`DeadLetterSource`|`string`|A origem de mensagens mortas.|
@@ -370,11 +370,8 @@ O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./f
 |`Label`|`string`|O rótulo específico do aplicativo.|
 |`CorrelationId`|`string`|ID de correlação.|
 
-> [!NOTE]
-> Atualmente, o gatilho do barramento de serviço que funciona com filas e assinaturas habilitadas para sessão está em versão prévia. Acompanhe [este item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para obter atualizações adicionais sobre isso. 
-
 Consulte [exemplos de código](#example) que usam essas propriedades neste artigo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Enviar mensagens do barramento de serviço do Azure de Azure Functions (Associação de saída)](./functions-bindings-service-bus-output.md)

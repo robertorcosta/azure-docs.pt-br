@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f8ae85ffc16bd953f04f1c3d7790231939c1f2cf
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588900"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273314"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
 
@@ -41,13 +41,14 @@ Para compreender melhor como esses quatro elementos do processador de feed de al
 
 O ponto de entrada é sempre o contêiner monitorado, de uma instância `Container` chamada `GetChangeFeedProcessorBuilder`:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="DefineProcessor":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
 Onde o primeiro parâmetro é um nome distinto que descreve a meta desse processador e o segundo nome é a implementação de delegado que manipulará as alterações. 
 
 Um exemplo de um delegado seria:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="Delegate":::
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
 Finalmente, você define um nome para essa instância de processador com `WithInstanceName` e qual é o contêiner para manter o estado de concessão com `WithLeaseContainer`.
 
@@ -62,7 +63,7 @@ O ciclo de vida normal de uma instância de host é:
 1. Se houver alterações, envie-as para o **delegado**.
 1. Quando o delegado concluir o processamento das alterações **com êxito**, atualize o repositório de concessão com o último ponto processado no tempo e vá para #1.
 
-## <a name="error-handling"></a>Tratamento de erros
+## <a name="error-handling"></a>Manipulação de erros
 
 O processador do feed de alterações é resiliente aos erros de código do usuário. Isso significa que, se sua implementação de representante tiver uma exceção sem tratamento (etapa #4), o processamento de threads que o lote específico de alterações será interrompido e um novo thread será criado. O novo thread verificará qual foi o último ponto no tempo em que o repositório de concessão tem para esse intervalo de valores de chave de partição e reiniciará de lá, enviando efetivamente o mesmo lote de alterações para o delegado. Esse comportamento continuará até que seu delegado processe as alterações corretamente e seja o motivo pelo qual o processador do feed de alterações tem uma garantia "pelo menos uma vez", porque se o código delegado for acionado, ele tentará novamente esse lote.
 
@@ -90,7 +91,7 @@ Você é cobrado pelas RUs consumidas, pois a movimentação de dados para dentr
 * [Exemplos de código no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Exemplos adicionais sobre o GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora continue para saber mais sobre o processador do feed de alterações nos seguintes artigos:
 

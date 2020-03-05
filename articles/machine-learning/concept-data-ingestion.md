@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 3370fc72b45720e2aae5731623843a1bc498911c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652068"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268556"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados no Azure Machine Learning
 
@@ -55,7 +55,7 @@ Essas etapas e o diagrama a seguir ilustram o fluxo de trabalho de ingestão de 
 
 ## <a name="use-the-python-sdk"></a>Usar o SDK do Python 
 
-Com o [SDK do Python](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py), você pode incorporar tarefas de ingestão de dados em uma etapa [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) .
+Com o [SDK do Python](https://docs.microsoft.com/python/api/overview/azure/ml), você pode incorporar tarefas de ingestão de dados em uma etapa [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) .
 
 A tabela a seguir resume os prós e con para usar o SDK e uma etapa de pipelines do ML para tarefas de ingestão de dados.
 
@@ -69,6 +69,6 @@ No diagrama a seguir, o pipeline de Azure Machine Learning consiste em duas etap
 
 ![Pipeline do Azure + ingestão de dados do SDK](media/concept-data-ingestion/data-ingest-option-two.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba como automatizar e gerenciar os ciclos de vida de desenvolvimento de seus pipelines de ingestão de dados com o [Azure pipelines](how-to-cicd-data-ingestion.md).

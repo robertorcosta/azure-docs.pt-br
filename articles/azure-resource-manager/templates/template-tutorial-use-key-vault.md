@@ -6,12 +6,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 527002bee1bec4097cf62155efebae06880bad97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470861"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250066"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault à implantação do modelo do Resource Manager
 
@@ -35,14 +35,14 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
 * Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
 * Para aumentar a segurança, use uma senha gerada para a conta Administrador da VM. Veja um exemplo de geração de senha:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
     Verifique se a senha gerada atende aos requisitos de senha da VM. Cada serviço do Azure tem requisitos de senha específicos. Para os requisitos de senha da VM, confira [Quais são os requisitos de senha ao criar uma VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/07/2020
 ms.author: diberry
-ms.openlocfilehash: 8c29ebd675bb6af66203c13824dacbe9ea2421a2
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732788"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270729"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade DatetimeV2 predefinida para um aplicativo LUIS
 
@@ -31,7 +31,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 `8am on may 2nd 2019`
 
-#### <a name="v3-responsetab1-1"></a>[Resposta v3](#tab/1-1)
+#### <a name="v3-response"></a>[Resposta v3](#tab/1-1)
 
 ```json
 "entities": {
@@ -53,7 +53,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v3-verbose-responsetab1-2"></a>[V3, resposta detalhada](#tab/1-2)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/1-2)
 
 ```json
 
@@ -91,7 +91,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab1-3"></a>[Resposta v2](#tab/1-3)
+#### <a name="v2-response"></a>[Resposta v2](#tab/1-3)
 
 ```json
 "entities": [
@@ -148,13 +148,13 @@ Cada elemento da matriz `values` pode ter os seguintes campos:
 |timex|hora, data ou intervalo de datas expressado no formato TIMEX que segue o [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos TIMEX3 para anotação usando a linguagem TimeML. Essa anotação é descrita nas [diretrizes TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
 |mod|termo usado para descrever como usar o valor, como `before`, `after`.|
 |type|O subtipo, que pode ser um dos seguintes itens: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
-|value|**Opcional.** Um objeto DateTime no formato AAAA-MM-DD (Date), HH: mm: SS (time) aaaa-MM-DD HH: mm: SS (DateTime). Se `type` for `duration`, o valor será o número de segundos (duration) <br/> Usado somente se `type` for `datetime` ou `date`, `time` ou `duration.|
+|{1&gt;Valor&lt;1}|**Opcional.** Um objeto DateTime no formato AAAA-MM-DD (Date), HH: mm: SS (time) aaaa-MM-DD HH: mm: SS (DateTime). Se `type` for `duration`, o valor será o número de segundos (duration) <br/> Usado somente se `type` for `datetime` ou `date`, `time` ou `duration.|
 
 ## <a name="valid-date-values"></a>Valores de data válidos
 
 O **datetimeV2** é compatível com datas entre os seguintes intervalos:
 
-| Mín | Máx. |
+| Min | Max |
 |----------|-------------|
 | 1º de janeiro de 1900   | 31 de dezembro de 2099 |
 
@@ -179,7 +179,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 `May 2nd`
 
-#### <a name="v3-responsetab2-1"></a>[Resposta v3](#tab/2-1)
+#### <a name="v3-response"></a>[Resposta v3](#tab/2-1)
 
 ```json
 "entities": {
@@ -204,7 +204,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v3-verbose-responsetab2-2"></a>[V3, resposta detalhada](#tab/2-2)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/2-2)
 
 ```json
 "entities": {
@@ -244,7 +244,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab2-3"></a>[Resposta v2](#tab/2-3)
+#### <a name="v2-response"></a>[Resposta v2](#tab/2-3)
 
 ```json
   "entities": [
@@ -280,7 +280,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 `May 2nd to May 5th`
 
-#### <a name="v3-responsetab3-1"></a>[Resposta v3](#tab/3-1)
+#### <a name="v3-response"></a>[Resposta v3](#tab/3-1)
 
 ```json
 
@@ -309,7 +309,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 ```
 
 
-#### <a name="v3-verbose-responsetab3-2"></a>[V3, resposta detalhada](#tab/3-2)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/3-2)
 
 ```json
 
@@ -352,7 +352,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab3-3"></a>[Resposta v2](#tab/3-3)
+#### <a name="v2-response"></a>[Resposta v2](#tab/3-3)
 
 ```json
 "entities": [
@@ -384,7 +384,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 `Tuesday to Thursday`
 
-#### <a name="v3-responsetab4-1"></a>[Resposta v3](#tab/4-1)
+#### <a name="v3-response"></a>[Resposta v3](#tab/4-1)
 
 ```json
 "entities": {
@@ -411,7 +411,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v3-verbose-responsetab4-2"></a>[V3, resposta detalhada](#tab/4-2)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/4-2)
 
 ```json
 "entities": {
@@ -453,7 +453,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab4-3"></a>[Resposta v2](#tab/4-3)
+#### <a name="v2-response"></a>[Resposta v2](#tab/4-3)
 
 ```json
   "entities": [
@@ -492,7 +492,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 `from 6pm to 7pm`
 
-#### <a name="v3-responsetab5-1"></a>[Resposta v3](#tab/5-1)
+#### <a name="v3-response"></a>[Resposta v3](#tab/5-1)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
@@ -517,7 +517,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab5-2"></a>[V3, resposta detalhada](#tab/5-2)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/5-2)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
@@ -557,7 +557,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetab5-3"></a>[Resposta v2](#tab/5-3)
+#### <a name="v2-response"></a>[Resposta v2](#tab/5-3)
 
 ```json
   "entities": [
@@ -588,7 +588,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 `8am`
 
-#### <a name="v3-responsetab6-1"></a>[Resposta v3](#tab/6-1)
+#### <a name="v3-response"></a>[Resposta v3](#tab/6-1)
 
 ```json
 "entities": {
@@ -609,7 +609,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab6-2"></a>[V3, resposta detalhada](#tab/6-2)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/6-2)
 
 ```json
 "entities": {
@@ -645,7 +645,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
     }
 }
 ```
-#### <a name="v2-responsetab6-3"></a>[Resposta v2](#tab/6-3)
+#### <a name="v2-response"></a>[Resposta v2](#tab/6-3)
 
 ```json
 "entities": [
@@ -680,7 +680,7 @@ Para substituir `datetime` por `datetimeV2` em seu aplicativo LUIS, conclua as s
 3. Clique em **Adicionar entidade predefinida**
 4. Selecione **datetimeV2** e clique em **Salvar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 

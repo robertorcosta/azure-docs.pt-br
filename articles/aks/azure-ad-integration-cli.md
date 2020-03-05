@@ -4,12 +4,12 @@ description: Saiba como usar o CLI do Azure para criar e o cluster AKS (serviço
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: fef22b1b2d81f76e95a15c0e3a746440b95df8ca
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596599"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273767"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar Azure Active Directory com o serviço kubernetes do Azure usando o CLI do Azure
 
@@ -27,9 +27,11 @@ As seguintes limitações se aplicam:
 
 Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
+Vá para [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell em seu navegador.
+
 Para fins de consistência e para ajudar a executar os comandos neste artigo, crie uma variável para o nome do cluster AKS desejado. O exemplo a seguir usa o nome *myakscluster*:
 
-```azurecli-interactive
+```console
 aksname="myakscluster"
 ```
 
@@ -209,8 +211,10 @@ kubectl get pods --all-namespaces
 Você recebe uma solicitação de entrada para autenticar usando as credenciais do Azure AD usando um navegador da Web. Depois de autenticado com êxito, o comando `kubectl` exibe o pods no cluster AKS, conforme mostrado na seguinte saída de exemplo:
 
 ```console
-$ kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces
+```
 
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -229,7 +233,7 @@ O token de autenticação recebido para `kubectl` é armazenado em cache. Você 
 
 Se você vir uma mensagem de erro de autorização depois de entrar com êxito usando um navegador da Web como na saída de exemplo a seguir, verifique os seguintes problemas possíveis:
 
-```console
+```output
 error: You must be logged in to the server (Unauthorized)
 ```
 
@@ -237,7 +241,7 @@ error: You must be logged in to the server (Unauthorized)
 * O usuário não é um membro de mais de 200 grupos.
 * O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado usando `--aad-server-app-secret`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter o script completo que contém os comandos mostrados neste artigo, consulte o [script de integração do Azure AD no repositório de exemplos do AKS][complete-script].
 

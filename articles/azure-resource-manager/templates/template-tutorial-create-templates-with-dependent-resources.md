@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f73a35b9c04b8b520be4f0adeb8ddb4142499075
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f60f248ec3fbbe5adfb61bf361546d1d5e238f54
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834375"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250193"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -29,14 +29,14 @@ Este tutorial cobre as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
 * Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
     O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.

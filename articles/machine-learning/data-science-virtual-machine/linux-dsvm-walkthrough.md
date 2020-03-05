@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428384"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268647"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Ciência de Dados do Linux no Azure
 
@@ -24,7 +24,7 @@ As tarefas de ciência de dados demonstradas neste passo a passos seguem as etap
 
 Neste tutorial, analisamos o conjunto de [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) . Baseado em spam é um conjunto de emails que são marcados como spam ou Ham (não spam). O baseado em spam também contém algumas estatísticas sobre o conteúdo dos emails. Falaremos sobre as estatísticas posteriormente no passo a passo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para poder usar um DSVM do Linux, você deve ter os seguintes pré-requisitos:
 
@@ -187,6 +187,8 @@ Para implantar o código da árvore de decisão da seção anterior, entre no Az
    ![O token de autorização primário Azure Machine Learning Studio (clássico)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Carregue o pacote do **AzureML** e defina os valores das variáveis com o token e a ID do espaço de trabalho em sua sessão do R no DSVM:
 
+        if(!require("devtools")) install.packages("devtools")
+        devtools::install_github("RevolutionAnalytics/AzureML")
         if(!require("AzureML")) install.packages("AzureML")
         require(AzureML)
         wsAuth = "<authorization-token>"
@@ -206,9 +208,23 @@ Para implantar o código da árvore de decisão da seção anterior, entre no Az
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
+1. Crie um arquivo Settings. JSON para este espaço de trabalho:
+
+        vim ~/.azureml/settings.json
+
+1. Certifique-se de que o conteúdo a seguir seja colocado dentro de Settings. JSON:
+
+         {"workspace":{
+           "id": "<workspace-id>",
+           "authorization_token": "<authorization-token>",
+           "api_endpoint": "https://studioapi.azureml.net",
+           "management_endpoint": "https://management.azureml.net"
+         }
+
 
 1. Publique a função **predictSpam** em AzureML usando a função **publishWebService** :
 
+        ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 1. Essa função usa a função **predictSpam** , cria um serviço Web chamado **spamWebService** que tem entradas e saídas definidas e, em seguida, retorna informações sobre o novo ponto de extremidade.
@@ -546,7 +562,7 @@ Em seguida, consulte usando sqlcmd:
 
 Você também pode consultar usando SQuirreL SQL. Siga as etapas semelhantes ao PostgreSQL usando o driver JDBC SQL Server. O driver JDBC está na pasta/usr/share/java/jdbcdrivers/sqljdbc42.jar
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter uma visão geral dos artigos que orientam você pelas tarefas que compõem o processo de ciência de dados no Azure, consulte [processo de ciência de dados de equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 

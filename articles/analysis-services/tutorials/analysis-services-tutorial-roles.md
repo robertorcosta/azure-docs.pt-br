@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572367"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273689"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de administrador do servidor e usuário
 
@@ -27,7 +27,7 @@ ms.locfileid: "73572367"
 
 Para saber mais sobre segurança do usuário no Azure Analysis Services, consulte [Autenticação e permissões de usuário](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um Azure Active Directory em sua assinatura.
 - Um [servidor do Azure Analysis Services](../analysis-services-create-server.md) criado em sua assinatura.
@@ -52,7 +52,7 @@ Para as tarefas restantes, será utilizado o SSMS para conectar e gerenciar o se
 
 1. No SSMS > **Pesquisador de Objetos**, clique em **Conectar** > **Analysis Services**.
 
-    ![Connect](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Conectar](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. Na caixa de diálogo **Conectar o Servidor** em **Nome do servidor**, cole o nome do servidor que você copiou do portal. Em **Autenticação**, escolha **Universal do Active Directory com suporte MFA** e, em seguida, insira a conta de usuário e pressione **Conectar**.
    
@@ -82,7 +82,7 @@ Nesta tarefa, você adiciona uma conta de usuário ou grupo do Azure AD à funç
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Adicionar um usuário à função de administrador do modelo de banco de dados
 
-Nesta tarefa, você adicionará uma conta de usuário ou grupo à função Administrador de Vendas pela Internet que já existe no modelo. Essa função tem permissões de Controle total (Administrador) para o modelo de banco de dados de exemplo adventureworks. Essa tarefa usa o comando de TMSL [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) em um script criado para você.
+Nesta tarefa, você adicionará uma conta de usuário ou grupo à função Administrador de Vendas pela Internet que já existe no modelo. Essa função tem permissões de Controle total (Administrador) para o modelo de banco de dados de exemplo adventureworks. Essa tarefa usa o comando de TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) em um script criado para você.
 
 1. No **Pesquisador de Objetos**, expanda **Bancos de Dados** > **adventureworks** > **Funções**. 
 2. Clique com o botão direito do mouse em **Administrador de Vendas pela Internet** e, em seguida, clique em **Função de Script como** > **CREATE OR REPLACE To** > **Janela do Editor de Nova Consulta**.
@@ -98,7 +98,7 @@ Nesta tarefa, você adicionará uma conta de usuário ou grupo à função Admin
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Adicionar uma nova função de modelo de banco de dados e adicionar um usuário ou grupo
 
-Nesta tarefa, você usa o comando [Criar](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) em um script TMSL para criar uma nova função Global de Vendas pela Internet, especifica permissões de *leitura* para a função e adiciona uma conta de grupo ou usuário do Azure AD.
+Nesta tarefa, você usa o comando [Criar](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) em um script TMSL para criar uma nova função Global de Vendas pela Internet, especifica permissões de *leitura* para a função e adiciona uma conta de grupo ou usuário do Azure AD.
 
 1. Em **Pesquisador de Objetos**, clique com o botão direito do mouse em **adventureworks**, e, em seguida, clique em **Nova Consulta** > **XMLA**. 
 2. Copie e cole o seguinte script TMSL no editor de consultas:
@@ -134,7 +134,7 @@ Nesta tarefa, você usa o comando [Criar](https://docs.microsoft.com/bi-referenc
 
     ![Verificar no Pesquisador de Objetos](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessárias, exclua as funções e as contas de grupo e usuário. Para fazer isso, use **Propriedades de Função** > **Associação** para remover as contas de usuário, ou clique com o botão direito do mouse em uma função e, em seguida, clique em **Excluir**.
 

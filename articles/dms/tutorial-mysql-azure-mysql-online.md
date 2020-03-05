@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e0a2c9f4dd229353ef3d4dc06f7bb965d15814d9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255547"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273233"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir este tutorial, você precisará:
 
@@ -224,6 +224,8 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     Se o banco de dados de destino contiver o mesmo nome de banco de dados do banco de dados de origem, o Serviço de Migração de Banco de Dados do Azure selecionará o banco de dados de destino por padrão.
 
     ![Mapear para bancos de dados de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > Embora você possa selecionar vários bancos de dados nesta etapa, cada instância do serviço de migração de banco de dados do Azure dá suporte a até quatro bancos de dados para migração simultânea. Além disso, há um limite de duas instâncias do serviço de migração de banco de dados do Azure por região em uma assinatura. Por exemplo, se você tiver 40 bancos de dados para migrar, só poderá migrar oito deles simultaneamente, e somente se tiver criado duas instâncias do serviço de migração de banco de dados do Azure.
 
 3. Selecione **Salvar** na tela **Resumo de migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e reveja o resumo para ter certeza de que os detalhes de origem e destino correspondem ao que foi especificado anteriormente.
 
@@ -261,7 +263,7 @@ Após a conclusão do carregamento completo inicial, os bancos de dados são mar
 3. Selecione **Confirmar**e selecione **Aplicar**.
 4. Quando o status de migração de banco de dados mostrar **Concluído**, conecte seus aplicativos ao novo Banco de Dados SQL do Azure de destino.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter informações sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados do Azure para MySQL, consulte o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados do Azure para MySQL](known-issues-azure-mysql-online.md).
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, confira o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).

@@ -1,5 +1,6 @@
 ---
-title: Versão Microsoft Threat Modeling Tool 9/12/2018 – Azure
+title: Versão de Microsoft Threat Modeling Tool 9/12/2018
+titleSuffix: Azure
 description: Documentando as notas sobre a versão da Threat Modeling Tool
 author: jegeib
 ms.author: jegeib
@@ -7,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: ad489d6de222380e85a962c7b50c63a5c2122c72
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548795"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269909"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Versão 7.1.50911.2 da Threat Modeling Tool de disponibilidade geral – 12/09/2018
 
@@ -91,6 +92,6 @@ Sim, você pode. O [conjunto de estênceis do Azure está disponível no GitHub]
 
 - A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Baixe a versão mais recente da [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

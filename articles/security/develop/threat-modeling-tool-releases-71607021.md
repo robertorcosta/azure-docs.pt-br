@@ -1,5 +1,6 @@
 ---
-title: Versão Microsoft Threat Modeling Tool 7/2/2019 – Azure
+title: Versão de Microsoft Threat Modeling Tool 7/2/2019
+titleSuffix: Azure
 description: Documentando as notas sobre a versão da Threat Modeling Tool
 author: jegeib
 ms.author: jegeib
@@ -7,18 +8,18 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: d26ff015156f5d050a74733ff82c811ff5f1700a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: d4a97a10b8055af4401dbe163723b1fb38a5d12f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548763"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269668"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Versão de atualização do Threat Modeling Tool 7.1.60702.1-7/2/2019
 
 A versão 7.1.60702.1 do Microsoft Threat Modeling Tool (TMT) foi lançada em julho de 2 2019 e contém as seguintes alterações:
 
-- Aprimoramentos na acessibilidade
+- Aprimoramentos de acessibilidade
 - Correções de bug
 - Inclusão de um conjunto de estênceis fornecido pela comunidade de código aberto
 
@@ -43,6 +44,6 @@ Um conjunto de estênceis para modelagem de dispositivos médicos foi contribuí
 
 - A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Baixe a versão mais recente da [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

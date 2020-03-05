@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c81d4db5798c15327e06471f1cb0da4841bd61b2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485362"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268523"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline
 
 A tabela a seguir fornece informações para opções de depuração diferentes para pipelines. Não é uma lista completa, já que existem outras opções, além das Azure Machine Learning, Python e OpenCensus mostradas aqui.
 
-| Biblioteca                    | Type   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
+| Biblioteca                    | Tipo   | {1&gt;Exemplo&lt;1}                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SDK do Azure Machine Learning | Métrica | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br>[classe azureml. Core. Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Impressão/log do Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Logs de driver, designer de Azure Machine Learning | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro em log do Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
@@ -158,7 +158,7 @@ Para obter mais informações sobre como usar a biblioteca do OpenCensus Python 
 
 Em alguns casos, talvez seja necessário depurar interativamente o código Python usado em seu pipeline de ML. Usando Visual Studio Code (VS Code) e o Ferramentas Python para Visual Studio (PTVSD), você pode anexar ao código conforme ele é executado no ambiente de treinamento.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Um __espaço de trabalho Azure Machine Learning__ configurado para usar uma __rede virtual do Azure__.
 * Um __pipeline Azure Machine Learning__ que usa scripts Python como parte das etapas do pipeline. Por exemplo, um PythonScriptStep.
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Configurar pipeline ML
 
-Para fornecer os pacotes do python necessários para iniciar o PTVSD e obter o contexto de execução, crie um [ambiente]() e defina `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Altere a versão do SDK para corresponder à que você está usando. O trecho de código a seguir demonstra como criar um ambiente:
+Para fornecer os pacotes do python necessários para iniciar o PTVSD e obter o contexto de execução, crie um ambiente e defina `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Altere a versão do SDK para corresponder à que você está usando. O trecho de código a seguir demonstra como criar um ambiente:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -387,7 +387,7 @@ Salve o valor `ip_address`. Ele é usado na próxima seção.
     > [!NOTE]
     > Se o log exibir uma entrada informando `Debugger attached = False`, o tempo limite expirou e o script continuou sem o depurador. Envie o pipeline novamente e conecte o depurador após a `Timeout for debug connection` mensagem e antes do tempo limite expirar.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [azureml-pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) .
 

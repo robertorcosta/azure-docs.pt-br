@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 189b36c8d9a7c1d1e247bb2cb34795dc4e3595ce
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a80a1567c84ff3c2eda8ad22391aa862bb7d9d82
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963335"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915819"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Treinar e comparar vários modelos de regressão para prever os preços de automóveis com o designer do Azure Machine Learning
 
@@ -27,11 +27,11 @@ Saiba como criar um pipeline de aprendizado de máquina sem escrever uma só lin
 
 Se estiver começando a usar o aprendizado de máquina, confira a [versão básica](how-to-designer-sample-regression-automobile-price-basic.md) desse pipeline.
 
-Este é o grafo completo deste pipeline:
+Este é o grafo concluído deste pipeline:
 
 [![Grafo do pipeline](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png)](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -62,7 +62,7 @@ Use o módulo **Selecionar Colunas no Conjunto de Dados** para excluir as perdas
 
 Os problemas de aprendizado de máquina variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisará ajustar os parâmetros para treinar um modelo mais preciso. Em seguida, precisará avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
 
-Como o objetivo deste pipeline é prever os preços de automóveis e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
+Como o objetivo deste pipeline é prever os preços de automóveis e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção.
 
 Para comparar o desempenho de diferentes algoritmos, usamos dois algoritmos não lineares, **Regressão de Árvore de Decisão Aumentada** e **Regressão de Floresta de Decisão** para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas esta amostra usa os valores padrão para este pipeline.
 
@@ -92,9 +92,9 @@ Esses resultados mostram que o modelo criado com a **Regressão de Árvore de De
 
 Explore as outras amostras disponíveis para o designer:
 
-- [Amostra 1 – Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Amostra 3 – Classificação com seleção de recursos: Previsão de receita](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 1: regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 3: classificação com seleção de recursos: previsão de receita](how-to-designer-sample-classification-predict-income.md)
 - [Amostra 4: classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Amostra 5 – Classificação: Prever a rotatividade](how-to-designer-sample-classification-churn.md)
-- [Amostra 6 – Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
-- [Amostra 7 – Classificação de textos: Conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)
+- [Amostra 5: classificação: prever a rotatividade](how-to-designer-sample-classification-churn.md)
+- [Amostra 6: classificação: prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7: classificação de textos: conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)

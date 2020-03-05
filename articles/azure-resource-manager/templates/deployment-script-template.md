@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: jgao
-ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616307"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272638"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (visualização)
 
@@ -40,7 +40,7 @@ Os benefícios do script de implantação:
 > [!IMPORTANT]
 > Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contêiner são criados no mesmo grupo de recursos para execução de script e solução de problemas. Esses recursos geralmente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para saber mais, consulte [limpar recursos de script de implantação](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - **Uma identidade gerenciada atribuída pelo usuário com a função do colaborador para o grupo de recursos de destino**. Essa identidade é usada para executar scripts de implantação. Para executar operações fora do grupo de recursos, você precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de assinatura se você quiser criar um novo grupo de recursos.
 
@@ -222,10 +222,16 @@ As saídas de script de implantação devem ser salvas no local de AZ_SCRIPTS_OU
 
 [JQ](https://stedolan.github.io/jq/) é usado no exemplo anterior. Ele vem com as imagens de contêiner. Consulte [Configurar ambiente de desenvolvimento](#configure-development-environment).
 
-## <a name="handle-non-terminating-errors"></a>Tratar erros de não encerramento
+## <a name="develop-deployment-scripts"></a>Desenvolver scripts de implantação
+
+### <a name="handle-non-terminating-errors"></a>Tratar erros de não encerramento
 
 Você pode controlar como o PowerShell responde a erros de não encerramento usando a variável [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) em seu script de implantação. O mecanismo de script de implantação não define/altera o valor.  Apesar do valor definido para $ErrorActionPreference, o script de implantação define o estado de provisionamento de recursos como *falha* quando o script encontra um erro.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Passar cadeias de caracteres seguras para o script de implantação
+
+A definição de variáveis de ambiente nas suas instâncias de contêiner permitem fornecer a configuração dinâmica do aplicativo ou script executado pelo contêiner. O script de implantação manipula variáveis de ambiente não seguras e protegidas da mesma maneira que a instância de contêiner do Azure. Para obter mais informações, consulte [definir variáveis de ambiente em instâncias de contêiner](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Depurar scripts de implantação
 
@@ -359,7 +365,7 @@ Você pode usar uma imagem de contêiner pré-configurada do Docker como seu amb
 
 Depois que o script for testado com êxito, você poderá usá-lo como um script de implantação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a usar os scripts de implantação. Para percorrer um tutorial de script de implantação:
 

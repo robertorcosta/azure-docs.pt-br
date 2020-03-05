@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5cb21bff2834751843061910184499f37bde834e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: b8821f3bb3d48786697cbc4137baf530856774fd
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275449"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274001"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(PRETERIDO) Implantar um cluster Kubernetes no Serviço de Contêiner do Azure
 
@@ -40,7 +40,7 @@ Crie um cluster Kubernetes no Serviço de Contêiner do Azure com o comando [az 
 
 O exemplo a seguir cria um cluster denominado `myK8sCluster` em um Grupo de recursos denominado `myResourceGroup`. Este Grupo de recursos foi criado no [tutorial anterior](./container-service-tutorial-kubernetes-prepare-acr.md).
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
@@ -52,11 +52,11 @@ Após alguns minutos, a implantação é concluída e retorna as informações f
 
 Para se conectar ao cluster Kubernetes do computador cliente, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comando do Kubernetes. 
 
-Se você estiver usando o Azure CloudShell, o kubectl já estará instalado. Se você deseja instalá-lo localmente, você pode usar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
+Se você estiver usando o Azure Cloud Shell, o kubectl já estará instalado. Se você deseja instalá-lo localmente, você pode usar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
 Se estiver executando em Linux ou macOS, você precisará executar com sudo. No Windows, certifique-se de que shell foi executado como administrador.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes install-cli 
 ```
 
@@ -66,19 +66,19 @@ No Windows, a instalação padrão é *c:\program files (x86)\kubectl.exe*. Talv
 
 Para configurar o kubectl e se conectar ao cluster Kubernetes, execute o comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes).
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
 Para verificar a conexão ao seu cluster, execute o comando [kubectl get nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 Saída:
 
-```bash
+```output
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.6.2
 k8s-agent-98dc3136-1    Ready                      5m        v1.6.2

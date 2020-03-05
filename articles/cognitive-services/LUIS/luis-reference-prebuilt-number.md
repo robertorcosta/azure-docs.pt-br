@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 6a59cf83b3912e31b8aae67319902ce516519af8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491291"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273457"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entidade numérica predefinida para um aplicativo LUIS
-Há muitas maneiras de usar os valores numéricos para quantificar, expressar e descrever informações. Este artigo aborda apenas alguns dos exemplos possíveis. O LUIS interpreta as variações em enunciados do usuário e retorna valores numéricos consistentes. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo número às intenções do aplicativo. 
+Há muitas maneiras de usar os valores numéricos para quantificar, expressar e descrever informações. Este artigo aborda apenas alguns dos exemplos possíveis. O LUIS interpreta as variações em enunciados do usuário e retorna valores numéricos consistentes. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo número às intenções do aplicativo.
 
 ## <a name="types-of-number"></a>Tipos de número
 O número é gerenciado por meio do repositório do GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
@@ -28,7 +28,7 @@ O número é gerenciado por meio do repositório do GitHub [Recognizers-text](ht
 
 | Enunciado        | Entidade   | Resolução |
 | ------------- |:----------------:| --------------:|
-| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
+| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      |
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
 | ```1/2 cup```         | ```"1 / 2"```    |    ```"0.5"```      |
 |  ```one half the amount```     | ```"one half"```     |    ```"0.5"```      |
@@ -46,7 +46,7 @@ Os seguintes objetos de entidade são retornados para a consulta:
 
 `order two dozen eggs`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
@@ -57,7 +57,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
@@ -83,7 +83,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
 
 O exemplo a seguir mostra uma resposta JSON de LUIS, que inclui a resolução do valor de 24, para o enunciado "duas dúzias".
 
@@ -101,10 +101,10 @@ O exemplo a seguir mostra uma resposta JSON de LUIS, que inclui a resolução do
   }
 ]
 ```
-* * * 
+* * *
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre [moeda](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md) e [percentual](luis-reference-prebuilt-percentage.md). 
+Saiba mais sobre [moeda](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md) e [percentual](luis-reference-prebuilt-percentage.md).

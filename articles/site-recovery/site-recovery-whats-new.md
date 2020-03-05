@@ -2,13 +2,13 @@
 title: O que há de novo no Azure Site Recovery
 description: Fornece um resumo dos novos recursos e das atualizações mais recentes no serviço de Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 01/31/2020
-ms.openlocfilehash: cae653c9e51e2a497d6fa3781415a1f836053593
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 03/03/2020
+ms.openlocfilehash: abb1592bcacf025e9a052d7a9222f6fb3d2b72d6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064522"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267498"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades do Site Recovery
 
@@ -22,13 +22,27 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 **Atualização** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
+[ROLLUP 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [ROLLUP 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [ROLLUP 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [ROLLUP 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [ROLLUP 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
-[ROLLUP 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
+
+> [!NOTE]
+> O pacote cumulativo de atualizações 44 não é mostrado na tabela porque não inclui atualizações para os provedores e agentes de Site Recovery.
+
+## <a name="updates-march-2020"></a>Atualizações (março de 2020)
+
+### <a name="update-rollup-45"></a>Pacote cumulativo de atualizações 45
+
+O [pacote cumulativo](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) de atualizações 45 fornece as seguintes atualizações:
+
+**Atualização** | **Detalhes**
+--- | ---
+**Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
 
 ## <a name="updates-january-2020"></a>Atualizações (janeiro de 2020)
 
@@ -514,6 +528,6 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Mantenha-se atualizado com nossas atualizações na página [Atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery).

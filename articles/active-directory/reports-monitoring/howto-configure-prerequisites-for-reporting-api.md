@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/30/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014429"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273809"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -91,7 +91,7 @@ Dependendo da API que deseja acessar, você precisa garantir ao seu aplicativo a
 
 | API | Permissão |
 | --- | --- |
-| Windows Azure Active Directory | Ler dados do diretório |
+| Windows Azure do Active Directory | Ler dados do diretório |
 | Microsoft Graph | Ler todos os dados de log de auditoria |
 
 
@@ -127,7 +127,7 @@ A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar um
 Esta seção mostra como obter as seguintes configurações de seu diretório:
 
 - Nome de domínio
-- Id do Cliente
+- ID do Cliente
 - Segredo do cliente
 
 Você precisa desses valores ao configurar chamadas para a API de relatórios. 
@@ -189,19 +189,16 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>Solucionar problemas de erros na API de relatório
 
-Esta seção lista as mensagens de erro comuns que você pode encontrar ao acessar relatórios de atividades usando a API do MS Graph e as etapas para a resolução.
+Esta seção lista as mensagens de erro comuns que você pode encontrar ao acessar relatórios de atividade usando a API do Microsoft Graph e as etapas para sua resolução.
 
-### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>500 Erro interno do servidor HTTP ao acessar o ponto de extremidade do Microsoft Graph V2
 
-No momento, não há suporte para o ponto de extremidade do Microsoft Graph v2 – acesse os logs de atividades usando o ponto de extremidade do Microsoft Graph v1.
-
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Erro: Falha ao obter as funções de usuário do AD Graph
+### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Erro: falha ao obter funções de usuário de Microsoft Graph
 
  Entre em sua conta usando os botões de entrada na interface do usuário do Graph Explorer para evitar obter um erro ao tentar entrar usando o explorador do Graph. 
 
-![Explorador do Graph](./media/troubleshoot-graph-api/graph-explorer.png)
+![Gerenciador de gráficos](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Erro: Falha ao fazer a verificação da licença Premium do AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Erro: falha ao fazer a verificação de licença Premium de Microsoft Graph 
 
 Se você encontrar essa mensagem de erro ao tentar acessar entradas usando o Explorador do Graph, escolha **Modificar permissões** em sua conta na barra de navegação à esquerda e selecione **Tasks.ReadWrite** e **Directory.Read.All**. 
 
@@ -218,11 +215,11 @@ O acesso a relatórios de entrada requer uma licença do Azure Active Directory 
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Erro: O aplicativo não tem a permissão 'Ler dados do diretório' do AAD 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Erro: O aplicativo não tem a permissão 'Ler todos os dados do log de auditoria' da API do MSGraph
+### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Erro: o aplicativo não tem a permissão ' ler todos os dados de log de auditoria ' da API Microsoft
 
 Siga as etapas em [pré-requisitos para acessar a API de relatório de Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja sendo executado com o conjunto certo de permissões. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Obter dados usando a API de Relatório do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
 * [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 

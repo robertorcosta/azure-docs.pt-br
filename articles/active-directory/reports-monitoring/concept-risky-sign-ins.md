@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f19744e6c860ae315b681f5eb090cba23b153af
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008353"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273831"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
 
@@ -52,15 +52,15 @@ Para saber como atribuir funções administrativas a um usuário no Azure Active
 
 Todas as edições do Azure AD fornecem relatórios de entradas de risco. No entanto, o nível de granularidade do relatório varia entre as edições: 
 
-- Nas **edições Gratuita e Básica do Azure Active**, você recebe uma lista de entradas de risco. 
+- Na **edição do Azure Active Directory gratuito**, você obtém uma lista de entradas arriscadas. 
 
 - Além disso, a edição **Azure Active Directory Premium 1** permite que você examine algumas das detecções de risco subjacentes que foram detectadas para cada relatório. 
 
 - A edição **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre todas as detecções de riscos subjacentes e também permite que você configure políticas de segurança que respondem automaticamente aos níveis de risco configurados.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Relatório de entradas arriscadas da edição gratuita e básica do Azure AD
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Relatório de entradas arriscadas para a edição gratuita do Azure AD
 
-As edições gratuitas e básicas do Azure AD fornecem uma lista de entradas arriscadas que foram detectadas para os usuários. Cada registro contém os seguintes atributos:
+A edição gratuita do AD do Azure fornece uma lista de entradas arriscadas que foram detectadas para seus usuários. Cada registro contém os seguintes atributos:
 
 - **Usuário**: o nome de usuário usado durante a operação de entrada.
 - **IP**: o endereço IP do dispositivo usado para se conectar ao Azure Active Directory.
@@ -74,14 +74,14 @@ Com base na investigação de entrada arriscada, você poderá fornecer feedback
 
 - Resolver
 - Marcar como falso positivo
-- Ignorar
+- {1&gt;Ignorar&lt;1}
 - Reativar
 
 ![Entradas de risco](./media/concept-risky-sign-ins/21.png)
 
 Este relatório também fornece uma opção para:
 
-- Recursos do Search
+- Pesquisar recursos
 - Baixar os dados do relatório
 
 ![Entradas de risco](./media/concept-risky-sign-ins/93.png)
@@ -128,7 +128,7 @@ Isso abre a folha de **detalhes** para essa detecção de risco. Na folha **deta
 
 ![Entradas de risco](./media/concept-risky-sign-ins/325.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md)
 - [Como configurar a política de correção de risco](../identity-protection/howto-user-risk-policy.md)

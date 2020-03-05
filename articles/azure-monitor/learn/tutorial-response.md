@@ -1,19 +1,18 @@
 ---
 title: Responder a eventos com alertas do Azure Log Analytics | Microsoft Docs
 description: Este tutorial ajuda-o a reconhecer alertas com Log Analytics para identificar informações importantes no workspace e notificá-lo proativamente sobre problemas ou invocar ações para tentar corrigi-los.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 11ce572cdb8a04dac07689b37eef76f354475df3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365601"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670365"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com alertas do Azure Monitor
 Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Eles são criados por regras de alerta que executam pesquisas de logs automaticamente em intervalos regulares e, se os resultados da pesquisa de logs corresponderem a determinados critérios, um registro de alerta será criado e poderá ser configurado para executar uma resposta automatizada.  Este tutorial é uma continuação do tutorial [Criar e compartilhar painéis de dados do Log Analytics](tutorial-logs-dashboards.md).   

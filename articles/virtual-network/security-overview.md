@@ -1,31 +1,31 @@
 ---
-title: Visão geral dos grupos de segurança do Azure
+title: Visão geral dos grupos de segurança de rede do Azure
 titlesuffix: Azure Virtual Network
-description: Saiba mais sobre grupos de segurança de rede e aplicativo. Os grupos de segurança ajudam você a filtrar o tráfego de rede entre recursos do Azure.
+description: Saiba mais sobre grupos de segurança de rede. Os grupos de segurança de rede ajudam a filtrar o tráfego de rede entre os recursos do Azure.
 services: virtual-network
 documentationcenter: na
-author: malopMSFT
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2020
-ms.author: malop
+ms.date: 02/27/2020
+ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: c465d86c3a284a45063b9da183e4866fde7e28e9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3837b2af31ddab3c35abf877a74f980bd34e933d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544507"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267478"
 ---
-# <a name="security-groups"></a>Grupos de segurança
+# <a name="network-security-groups"></a>Regras de segurança de rede
 <a name="network-security-groups"></a>
 
-Você pode filtrar o tráfego de rede de e para recursos do Azure em uma [rede virtual](virtual-networks-overview.md) do Azure com um grupo de segurança de rede. Um grupo de segurança de rede contém [regras de segurança](#security-rules) que permitem ou negam o tráfego de rede de entrada ou de saída em relação a vários tipos de recursos do Azure. Para saber mais sobre quais recursos do Azure podem ser implantados em uma rede virtual e ter grupos de segurança de rede associados a eles, consulte [Integração de rede virtual para serviços do Azure](virtual-network-for-azure-services.md). Para cada regra, você pode especificar origem e destino, porta e protocolo.
+Você pode filtrar o tráfego de rede de e para recursos do Azure em uma rede virtual do Azure com um grupo de segurança de rede. Um grupo de segurança de rede contém regras de segurança que permitem ou negam o tráfego de rede de entrada ou de saída em relação a vários tipos de recursos do Azure. Para saber mais sobre quais recursos do Azure podem ser implantados em uma rede virtual e ter grupos de segurança de rede associados a eles, consulte [Integração de rede virtual para serviços do Azure](virtual-network-for-azure-services.md). Para cada regra, você pode especificar origem e destino, porta e protocolo.
 
-Este artigo explica conceitos de grupo de segurança de rede para ajudá-lo a usá-los com eficiência. Se você nunca criou um grupo de segurança de rede, pode concluir um [tutorial](tutorial-filter-network-traffic.md) rápido para obter alguma experiência. Se você estiver familiarizado com os grupos de segurança de rede e a necessidade de gerenciá-los, consulte [Gerenciar um grupo de segurança de rede](manage-network-security-group.md). Se você estiver tendo problemas de comunicação e precisa solucionar problemas de grupos de segurança de rede, consulte [Diagnosticar um problema de filtro de tráfego de rede em máquina virtual](diagnose-network-traffic-filter-problem.md). Você pode habilitar [logs de fluxo do grupo de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para [analisar tráfego de rede](../network-watcher/traffic-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entrando e saindo de recursos que tenham um grupo de segurança de rede associado.
+Este artigo explica conceitos de grupo de segurança de rede para ajudá-lo a usá-los com eficiência. Se você nunca criou um grupo de segurança de rede, pode concluir um [tutorial](tutorial-filter-network-traffic.md) rápido para obter alguma experiência. Se você estiver familiarizado com os grupos de segurança de rede e a necessidade de gerenciá-los, consulte [Gerenciar um grupo de segurança de rede](manage-network-security-group.md). Se você estiver tendo problemas de comunicação e precisa solucionar problemas de grupos de segurança de rede, consulte [Diagnosticar um problema de filtro de tráfego de rede em máquina virtual](diagnose-network-traffic-filter-problem.md). Você pode habilitar [os logs de fluxo do grupo de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para analisar o tráfego de rede de e para recursos que têm um grupo de segurança de rede associado.
 
 ## <a name="security-rules"></a>Regras de segurança
 
@@ -33,7 +33,7 @@ Um grupo de segurança de rede pode conter nenhuma ou quantas regras você desej
 
 |Propriedade  |Explicação  |
 |---------|---------|
-|Nome|Um nome exclusivo dentro do grupo de segurança de rede.|
+|{1&gt;Nome&lt;1}|Um nome exclusivo dentro do grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas na ordem de prioridade, com números mais baixos processados antes de números mais altos, pois os números mais baixos têm prioridade mais alta. Depois que o tráfego corresponde a uma regra, o processamento é interrompido. Assim, as regras existentes com baixa prioridade (números mais altos) que têm os mesmos atributos das regras com prioridades mais altas não são processadas.|
 |Origem ou destino| Qualquer endereço IP ou um endereço IP individual, bloco de CIDR (encaminhamento entre domínios) (10.0.0.0/24, por exemplo), [marca de serviço](service-tags-overview.md) ou [grupo de segurança de aplicativo](#application-security-groups). Se você especificar um endereço para um recurso do Azure, especifique o endereço IP privado atribuído ao recurso. Os grupos de segurança de rede são processados depois que o Azure traduz um endereço IP público em um endereço IP privado para tráfego de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para tráfego de saída. Saiba mais sobre os [endereços IP](virtual-network-ip-addresses-overview-arm.md) do Azure. A especificação de um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicativos permite que você crie menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos (você não pode especificar várias marcas de serviço ou grupos de aplicativos) em uma regra é conhecida como [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar vários endereços IP e intervalos de endereços IP em grupos de segurança de rede criados pelo modelo de implantação clássica. Saiba mais sobre os [modelos de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protocolo     | TCP, UDP, ICMP ou any.|
@@ -46,55 +46,45 @@ As conexões existentes podem não ser interrompidas quando você remove uma reg
 
 Há limites ao número de regras de segurança que você pode criar em um grupo de segurança de rede. Para obter detalhes, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-## <a name="augmented-security-rules"></a>Regras de segurança aumentadas
-
-As regras de segurança aumentada simplificam a definição de segurança para redes virtuais, permitindo que você defina políticas de segurança de rede maiores e mais complexas com menos regras. Você pode combinar várias portas e vários intervalos e endereços IP explícitos em uma única regra de segurança fácil de entender. Use regras aumentadas nos campos de origem, destino e porta de uma regra. Para simplificar a manutenção da sua definição de regra de segurança, combine as regras de segurança aumentadas com [marcas de serviço](service-tags-overview.md) ou [grupos de segurança de aplicativo](#application-security-groups). Há limites para a quantidade de endereços, intervalos e portas que você pode especificar em uma regra. Para obter detalhes, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-
-## <a name="service-tags"></a>Marcas de serviço
-
-Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. Ele ajuda a minimizar a complexidade de atualizações frequentes em regras de segurança de rede.
-
-Para obter mais informações, consulte [marcas de serviço do Azure](service-tags-overview.md). 
-
-## <a name="default-security-rules"></a>Regras de segurança padrão
+### <a name="default-security-rules"></a>Regras de segurança padrão
 
 O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que você criar:
 
-### <a name="inbound"></a>Entrada
+#### <a name="inbound"></a>Entrada
 
-#### <a name="allowvnetinbound"></a>AllowVNetInBound
+##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
 |Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualquer|Permitir|
 
-#### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
+##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
 |Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualquer|Permitir|
 
-#### <a name="denyallinbound"></a>DenyAllInBound
+##### <a name="denyallinbound"></a>DenyAllInBound
 
 |Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Qualquer|Negar|
 
-### <a name="outbound"></a>Saída
+#### <a name="outbound"></a>Saída
 
-#### <a name="allowvnetoutbound"></a>AllowVnetOutBound
+##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
 |Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualquer | Permitir |
 
-#### <a name="allowinternetoutbound"></a>AllowInternetOutBound
+##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
 |Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualquer | Permitir |
 
-#### <a name="denyalloutbound"></a>DenyAllOutBound
+##### <a name="denyalloutbound"></a>DenyAllOutBound
 
 |Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
@@ -104,49 +94,19 @@ Nas colunas **Origem** e **Destino**, *VirtualNetwork*, *AzureLoadBalancer* e *I
  
 Não é possível remover as regras padrão, mas você pode substituí-las criando regras com prioridades mais altas.
 
-## <a name="application-security-groups"></a>Grupos de segurança do aplicativo
+### <a name="augmented-security-rules"></a>Regras de segurança aumentadas
 
-Os grupos de segurança de aplicativo permitem a você configurar a segurança de rede como uma extensão natural da estrutura de um aplicativo, permitindo o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos. Você pode reutilizar sua política de segurança em escala sem precisar manter endereços IP explícitos manualmente. A plataforma lida com a complexidade de endereços IP explícitos e vários conjuntos de regras, permitindo que você se concentre na sua lógica de negócios. Para entender melhor os grupos de segurança de aplicativo, considere o exemplo abaixo:
+As regras de segurança aumentada simplificam a definição de segurança para redes virtuais, permitindo que você defina políticas de segurança de rede maiores e mais complexas com menos regras. Você pode combinar várias portas e vários intervalos e endereços IP explícitos em uma única regra de segurança fácil de entender. Use regras aumentadas nos campos de origem, destino e porta de uma regra. Para simplificar a manutenção da sua definição de regra de segurança, combine as regras de segurança aumentadas com [marcas de serviço](service-tags-overview.md) ou [grupos de segurança de aplicativo](#application-security-groups). Há limites para a quantidade de endereços, intervalos e portas que você pode especificar em uma regra. Para obter detalhes, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-![Grupos de segurança do aplicativo](./media/security-groups/application-security-groups.png)
+#### <a name="service-tags"></a>Marcas de serviço
 
-Na figura anterior, *NIC1* e *NIC2* são membros do grupo de segurança de aplicativo *AsgWeb*. *NIC3* é um membro do grupo de segurança de aplicativo *AsgLogic*. *NIC4* é um membro do grupo de segurança de aplicativo *AsgDb*. Embora cada adaptador de rede neste exemplo seja membro de apenas um grupo de segurança de aplicativo, um adaptador de rede pode ser membro de vários grupos de segurança de aplicativo, dentro dos [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Nenhum dos adaptadores de rede tem um grupo de segurança de rede associado. *NSG1* está associado a ambas as sub-redes e contém as seguintes regras:
+Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. Ele ajuda a minimizar a complexidade de atualizações frequentes em regras de segurança de rede.
 
-### <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
+Para obter mais informações, consulte [marcas de serviço do Azure](service-tags-overview.md). Para obter um exemplo de como usar a marca de serviço de armazenamento para restringir o acesso à rede, consulte [restringir o acesso à rede para recursos de PaaS](tutorial-restrict-network-access-to-resources.md).
 
-Essa regra é necessária para permitir o tráfego da Internet para os servidores Web. Como o tráfego de entrada da Internet é negado pela regra de segurança padrão [DenyAllInbound](#denyallinbound), nenhuma regra adicional é necessária para os grupos de segurança do aplicativo *AsgLogic* ou *AsgDb*.
+#### <a name="application-security-groups"></a>Grupos de segurança do aplicativo
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
-|---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | Permitir |
-
-### <a name="deny-database-all"></a>Deny-Database-All
-
-Já que a regra de segurança padrão [AllowVNetInBound](#allowvnetinbound) permite toda a comunicação entre recursos na mesma rede virtual, essa regra é necessária para negar o tráfego de todos os recursos.
-
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
-|---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | Qualquer | Negar |
-
-### <a name="allow-database-businesslogic"></a>Allow-Database-BusinessLogic
-
-Essa regra permite o tráfego do grupo de segurança de aplicativo *AsgLogic* para o grupo de segurança de aplicativo *AsgDb*. A prioridade para essa regra é mais alta do que a prioridade para a regra *Deny-Database-All*. Como resultado, essa regra é processada antes da regra *Deny-Database-All* e, portanto, o tráfego do grupo de segurança de aplicativo *AsgLogic* é permitido enquanto todos os outros tráfegos são bloqueados.
-
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
-|---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Permitir |
-
-As regras que especificam um grupo de segurança de aplicativo como origem ou destino são aplicadas apenas aos adaptadores de rede que são membros do grupo de segurança de aplicativo. Se o adaptador de rede não for membro de um grupo de segurança de aplicativo, a regra não será aplicada ao adaptador de rede, mesmo que o grupo de segurança de rede esteja associado à sub-rede.
-
-Os grupos de segurança do aplicativo têm as seguintes restrições:
-
--   Há limites ao número de grupos de segurança de aplicativo que você pode ter em uma assinatura, bem como outros limites relacionados aos grupos de segurança de aplicativo. Para obter detalhes, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Você pode especificar um grupo de segurança do aplicativo como a origem e o destino em uma regra de segurança. Você não pode especificar vários grupos de segurança de aplicativos na origem ou no destino.
-- Todas as interfaces de rede atribuídas a um grupo de segurança do aplicativo precisam existir na mesma rede virtual que a primeira interface de rede atribuída ao grupo de segurança que o aplicativo está. Por exemplo, se o primeiro adaptador de rede atribuído a um grupo de segurança de aplicativo chamado *AsgWeb* estiver na rede virtual denominada *VNet1*, todos os adaptadores de rede subsequentes atribuídos a *ASGWeb* deverão existir na *VNet1*. Você não pode adicionar interfaces de rede de redes virtuais diferentes ao mesmo grupo de segurança do aplicativo.
-- Se você especificar um grupo de segurança do aplicativo como a origem e o destino em uma regra de segurança, as interfaces de rede em ambos os grupos de segurança do aplicativo deverão existir na mesma rede virtual. Por exemplo, se *AsgLogic* contiver adaptadores de rede da *VNet1* e *AsgDb* contiver adaptadores de rede da *VNet2*, você não poderá atribuir *AsgLogic* como a origem e o *AsgDb* como o destino em uma regra. Todos os adaptadores de rede dos grupos de segurança de aplicativo de origem e de destino precisam existir na mesma rede virtual.
-
-> [!TIP]
-> Para minimizar o número de regras de segurança necessárias e a necessidade de alterar as regras, planeje os grupos de segurança do aplicativo que serão necessários e crie regras usando marcas de serviço ou grupos de segurança de aplicativo em vez de endereços IP individuais ou intervalos de endereços IP, sempre que possível.
+Os grupos de segurança de aplicativo permitem a você configurar a segurança de rede como uma extensão natural da estrutura de um aplicativo, permitindo o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos. Você pode reutilizar sua política de segurança em escala sem precisar manter endereços IP explícitos manualmente. Para saber mais, confira [grupos de segurança de aplicativo](application-security-groups.md).
 
 ## <a name="how-traffic-is-evaluated"></a>Como o tráfego é avaliado
 
@@ -208,6 +168,6 @@ Em relação ao tráfego de saída, o Azure processa as regras em um grupo de se
 
   Se o Azure permitir que você envie emails pela porta 25, a Microsoft não garante que os provedores de email aceitarão emails de entrada provenientes de sua máquina virtual. Se um provedor específico rejeitar um email de sua máquina virtual, trabalhe diretamente com o provedor para resolver entregas de mensagens ou problemas de filtragem de spam, ou use um serviço de retransmissão de SMTP autenticado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Aprenda a [Criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

@@ -3,12 +3,12 @@ title: Aplicativo Azure insights para aplicativos ASP.NET Core | Microsoft Docs
 description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempenho e uso.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 7aa8ae7fd2742e51ab1ccfed26524241f4c11256
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 5028d95ef784b0d309880d0d05371cd42f627d7d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666251"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269210"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -158,6 +158,14 @@ As etapas anteriores são suficientes para ajudá-lo a começar a coletar a tele
     ```cshtml
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
+    ```
+    
+Como alternativa ao uso do `FullScript` o `ScriptBody` está disponível a partir do SDK v 2.14. Use isso se você precisar controlar a marca de `<script>` para definir uma política de segurança de conteúdo:
+
+    ```cshtml
+        <script> // apply custom changes to this script tag.
+            @Html.Raw(JavaScriptSnippet.ScriptBody)
+        </script>
     ```
 
 Os nomes de arquivo de `.cshtml` referenciados anteriormente são de um modelo de aplicativo MVC padrão. Por fim, se você quiser habilitar corretamente o monitoramento do lado do cliente para seu aplicativo, o trecho de código JavaScript deverá aparecer na seção `<head>` de cada página do aplicativo que você deseja monitorar. Você pode realizar essa meta para esse modelo de aplicativo adicionando o trecho de JavaScript a `_Layout.cshtml`. 

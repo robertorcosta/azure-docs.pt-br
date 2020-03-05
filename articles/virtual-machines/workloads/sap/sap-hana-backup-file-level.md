@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2018
-ms.author: hermannd
-ms.openlocfilehash: 9696ca8f2063f7e294628505eeebde363f3521ae
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/01/2020
+ms.author: juergent
+ms.openlocfilehash: 93b67936166eb73db5e9a15db42c2c6135794108
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255398"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271395"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup do Azure do SAP HANA no nível do arquivo
 
@@ -117,6 +117,6 @@ Em um teste realizado nos arquivos do Azure, não nos arquivos premium do Azure,
 
 Armazenar SAP HANA arquivos de backup em arquivos do Azure pode ser uma opção interessante. Especialmente com latência e taxa de transferência aprimoradas dos arquivos premium do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Guia de backup do SAP HANA nas Máquinas Virtuais do Azure](sap-hana-backup-guide.md) fornece uma visão geral e informações sobre como começar.
 * Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).

@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 89b8d9fb1d929e0598469ba582049c61216e923a
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: cdac051e8f80186f7089996d931f02453128fdda
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523973"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913065"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Criar um aplicativo em PHP e MySQL no Serviço de Aplicativo do Azure no Linux
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -403,15 +403,15 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-> [!NOTE]
-> Você observará que o processo de implantação instala pacotes do [Composer](https://getcomposer.org/) no final. O Serviço de Aplicativo não executa essas automações durante a implantação padrão, de modo que esse repositório de exemplo tem três arquivos adicionais em seu diretório raiz para habilitá-las:
+<!-- > [!NOTE]
+> You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
 >
-> - `.deployment` - Esse arquivo informa o Serviços de Aplicativo para executar `bash deploy.sh` como o script de implantação personalizada.
-> - `deploy.sh` - O script de implantação personalizada. Se examinar o arquivo, você verá que ele executa `php composer.phar install` após `npm install`.
-> - `composer.phar` – O gerenciador de pacotes do Composer.
+> - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
+> - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
+> - `composer.phar` - The Composer package manager.
 >
-> É possível usar essa abordagem para adicionar qualquer etapa à implantação base em Git no Serviço de Aplicativo. Para obter mais informações, confira [Executar o Criador](configure-language-php.md#run-composer).
->
+> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer). -->
+> 
 
 ### <a name="browse-to-the-azure-app"></a>Navegar até o aplicativo do Azure
 

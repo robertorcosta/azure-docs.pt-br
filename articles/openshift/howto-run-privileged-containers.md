@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: toa, openshift, aquasec, Twistlock, Red Hat
-ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228245"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271370"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contêineres privilegiados em um cluster do Red Hat OpenShift no Azure
 
@@ -137,6 +137,8 @@ Comece com a seção "instalar console".
 
 Durante `oc create -f twistlock_console.yaml` na etapa 2, você receberá um erro ao criar o namespace.
 Você pode ignorá-lo com segurança, o namespace foi criado anteriormente com o comando `oc new-project`.
+
+Use `azure-disk` para o tipo de armazenamento.
 
 ### <a name="create-an-external-route-to-console"></a>Criar uma rota externa para o console
 

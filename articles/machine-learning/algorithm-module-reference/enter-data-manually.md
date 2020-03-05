@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917468"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268770"
 ---
 # <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
@@ -89,11 +89,9 @@ Esse módulo pode ser útil em cenários como estes:
         |0, 16|0, 4|0,999961|0, 784|1|  
         |0|0, 4|0,999955|0, 8615|1|  
   
-4.  Pressione ENTER após cada linha para iniciar uma nova linha.  
-  
-     **Certifique-se de pressionar ENTER após a linha final.** 
+4.  Pressione ENTER após cada linha para iniciar uma nova linha.      
      
-     Se você pressionar ENTER várias vezes para adicionar várias linhas à direita vazias, a linha final vazia será removida, mas outras linhas vazias serão tratadas como valores ausentes.  
+     Se você pressionar ENTER várias vezes para adicionar várias linhas à direita vazias, as linhas vazias serão removidas.  
   
      Se você criar linhas com valores ausentes, você sempre poderá filtrá-los mais tarde.  
   

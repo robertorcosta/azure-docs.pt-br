@@ -1,15 +1,15 @@
 ---
 title: Solução de problemas-QnA Maker
 description: A lista organizada das perguntas mais frequentes sobre o serviço de QnA Maker ajudará você a adotar o serviço mais rapidamente e com melhores resultados.
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 9032f2cdc134289fef6c0cbc2e874198aefa90ee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.openlocfilehash: 37aae8e67ccc84a6e22be8ce8a304fc4884ead52
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650377"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273393"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para QnA Maker
 

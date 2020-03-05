@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 737f373fb71494492f633d3297463cbef797f3d6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2d279a2a368e606e036b24172eb94b667b3255db
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189541"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267962"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78189541"
 
 Neste artigo, você adiciona uma nova entrada fornecida pelo usuário (uma declaração) à sua jornada do usuário de inscrição em Azure Active Directory B2C (Azure AD B2C).  Você configura a entrada como uma lista suspensa e define se ela é necessária.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Conclua as etapas no artigo [Introdução às políticas personalizadas](custom-policy-get-started.md). Teste o percurso do usuário de entrada ou de inscrição para inscrever uma nova conta local antes de continuar.
 
@@ -264,7 +264,7 @@ Os elementos a seguir são usados para definir a declaração:
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
-4. Selecione **Identity Experience Framework (versão prévia)** .
+4. Selecione **Estrutura de Experiência de Identidade**.
 5. Selecione **Carregar política personalizada** e carregue os dois arquivos de política alterados.
 2. Selecione a política de inscrição ou de entrada carregada e clique no botão **Executar agora**.
 3. Você deverá conseguir se inscrever usando um endereço de email.
@@ -305,6 +305,6 @@ Verifique se o email está habilitado por padrão no `<TechnicalProfile Id="Loca
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como [Usar atributos personalizados em uma política de edição de perfil personalizada](custom-policy-custom-attributes.md).

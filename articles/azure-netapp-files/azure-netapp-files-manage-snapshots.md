@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086783"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267896"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
-Você pode usar o Azure NetApp Files para criar um instantâneo sob demanda para um volume ou restaurar de um instantâneo para um novo volume.
+Você pode usar Azure NetApp Files para criar manualmente um instantâneo sob demanda para um volume ou restaurar de um instantâneo para um novo volume. O serviço de Azure NetApp Files não cria instantâneos de volume automaticamente.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Criar um instantâneo sob demanda para um volume
 
@@ -72,7 +72,7 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
 
     *   **Rede virtual**  
         Especifique a rede virtual (VNet) do Azure da qual você deseja acessar o volume.  
-        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. Você pode acessar o Azure NetApp Files somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Você pode acessar o volume da sua rede local através da rota expressa. 
+        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. Você pode acessar o Azure NetApp Files somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Você pode acessar o volume de sua rede local por meio da rota expressa. 
 
     * **Sub-rede**  
         Especifique a sub-rede que você deseja usar para o volume.  
@@ -84,6 +84,6 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
 5. Clique em **OK**.   
     O novo volume para o qual o instantâneo é restaurado é exibido na folha Volumes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

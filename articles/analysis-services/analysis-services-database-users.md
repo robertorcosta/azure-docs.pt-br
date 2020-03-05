@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901500"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273694"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -25,9 +25,9 @@ As permissões de função incluem:
 *  **Processar** – os usuários podem se conectar e executar operações de processo no banco de dados e analisar os dados do modelo de banco de dados.
 *  **Leitura** – os usuários podem usar um aplicativo cliente para se conectar e analisar os dados do modelo de banco de dados.
 
-Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no Visual Studio com projetos Analysis Services. Quando implantado em um servidor, você usa SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL ( [linguagem de script de modelo de tabela](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) para adicionar ou remover funções e membros do usuário.
+Ao criar um projeto de modelo de tabela, você cria funções e adiciona usuários ou grupos a essas funções usando o Gerenciador de funções no Visual Studio com projetos Analysis Services. Quando implantado em um servidor, você usa SQL Server Management Studio (SSMS), [Analysis Services cmdlets do PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou TMSL ( [linguagem de script de modelo de tabela](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ) para adicionar ou remover funções e membros do usuário.
 
-Os**grupos de segurança** devem ser [habilitados para email](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade `MailEnabled` definida como `True`. Ao especificar um grupo por endereço de email, use `obj:groupid@tenantid`.
+Os **grupos de segurança** devem ser [habilitados para email](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade `MailEnabled` definida como `True`. Ao especificar um grupo por endereço de email, use `obj:groupid@tenantid`.
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerenciar funções e usuários no Visual Studio  
@@ -42,7 +42,7 @@ Os**grupos de segurança** devem ser [habilitados para email](https://docs.micro
   
 4.  Selecione uma das seguintes permissões:  
   
-    |Permissão|Description|  
+    |Permissão|Descrição|  
     |----------------|-----------------|  
     |**Nenhuma**|Os membros não podem ler ou modificar o esquema de modelo e não podem consultar dados.|  
     |**Leitura**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
@@ -71,7 +71,7 @@ Para adicionar funções e usuários a um modelo de banco de dados implantado, v
 
 3. Selecione uma permissão.
 
-   |Permissão|Description|  
+   |Permissão|Descrição|  
    |----------------|-----------------|  
    |**Controle total (Administrador)**|Os membros podem modificar o esquema de modelo, processar e consultar todos os dados.| 
    |**Processar banco de dados**|Membros podem executar operações de Processar e Processar Tudo. Não é possível modificar o esquema modelo e não é possível consultar dados.|  
@@ -85,7 +85,7 @@ Para adicionar funções e usuários a um modelo de banco de dados implantado, v
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para adicionar funções e usuários usando um script TMSL
 
-Você pode executar um script TMSL na janela XMLA no SSMS ou usando o PowerShell. Use o comando [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) e o objeto [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl).
+Você pode executar um script TMSL na janela XMLA no SSMS ou usando o PowerShell. Use o comando [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) e o objeto [Roles](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl).
 
 **Exemplo de script TMSL**
 
@@ -121,7 +121,7 @@ Neste exemplo, um usuário externo B2B e um grupo são adicionados à função A
 
 O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gerenciamento de banco de dados de tarefas específicas e o cmdlet Invoke-ASCmd de uso geral, que aceita um script ou consulta de TMSL (Linguagem de Script de Modelo Tabular). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
   
-|Cmdlet|Description|
+|Cmdlet|Descrição|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicionar um membro a uma função de banco de dados.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remover um membro de uma função de banco de dados.|   
@@ -137,7 +137,7 @@ Os filtros de linha podem ser definidos somente para funções com as permissõe
   
 Os filtros de linha são aplicados às linhas especificadas e às linhas relacionadas. Quando uma tabela tiver várias relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filtros de linha definidos para tabelas relacionadas, por exemplo:  
   
-|Tabela|Expressão DAX|  
+|Table|Expressão DAX|  
 |-----------|--------------------|  
 |Região|= Região [País] = "USA"|  
 |ProductCategory|= ProductCategory [Name] = "Bicicletas"|  
@@ -147,9 +147,9 @@ Os filtros de linha são aplicados às linhas especificadas e às linhas relacio
   
  Você pode usar o filtro, *=FALSE()* , para negar o acesso a todas as linhas de uma tabela inteira.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
   [Gerenciar administradores de servidor](analysis-services-server-admins.md)   
   [Gerenciar o Azure Analysis Services com PowerShell](analysis-services-powershell.md)  
-  [Referência de TMSL (Linguagem de Scripts do Modelo Tabular)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
+  [Referência de TMSL (Linguagem de Scripts do Modelo Tabular)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
 

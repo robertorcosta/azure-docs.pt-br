@@ -3,12 +3,12 @@ title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c6a5dced0f8607e760422bebd114a08ca0a238e3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207597"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272587"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -162,7 +162,7 @@ O valor da variável é alterado com base no escopo. A tabela a seguir mostra os
 
 | Escopo | Saída |
 | ----- | ------ |
-| interna | do modelo aninhado |
+| internas | do modelo aninhado |
 | externo (ou padrão) | do modelo pai |
 
 O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a ser usado para a senha. O escopo é definido como `inner` porque cria dinamicamente a ID do cofre de chaves e o passa como um parâmetro para o modelo aninhado.
@@ -707,7 +707,7 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "string" }
+  "containerSasToken": { "type": "securestring" }
   },
   "resources": [
   {
@@ -766,13 +766,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 Os exemplos a seguir mostram os usos comuns dos modelos vinculados.
 
-|Modelo principal  |Modelo vinculado |DESCRIÇÃO  |
+|Modelo principal  |Modelo vinculado |Descrição  |
 |---------|---------| ---------|
 |[Olá mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a cadeia de caracteres do modelo vinculado. |
 |[Azure Load Balancer com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Retorna o endereço IP público do modelo vinculado e define esse valor no balanceador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo vinculado.  |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para percorrer um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](template-tutorial-create-linked-templates.md).
 * Para saber mais sobre como definir a ordem de implantação para seus recursos, consulte [Definição de dependências nos modelos do Azure Resource Manager](define-resource-dependency.md).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255989"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272962"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 
@@ -39,7 +39,7 @@ O controle Canvas permite que você projete seu runbook. Você pode adicionar at
 
 O controle biblioteca permite que você selecione [atividades](#activities) a serem adicionadas ao seu runbook. Você os adiciona à tela, onde você pode conectá-las a outras atividades. O controle biblioteca inclui as seções definidas na tabela a seguir.
 
-| Seção | DESCRIÇÃO |
+| Seção | Descrição |
 |:--- |:--- |
 | Cmdlets |Todos os cmdlets que podem ser usados em seu runbook. Os cmdlets são organizados por módulo. Todos os módulos que você instalou em sua conta de automação estão disponíveis. |
 | Runbooks |Os runbooks em sua conta de automação. Você pode adicionar esses runbooks à tela para serem usados como runbooks filho. São mostrados apenas runbooks do mesmo tipo de núcleo do runbook que está sendo editado. Para runbooks gráficos, somente runbooks baseados no PowerShell são mostrados. Para runbooks gráficos de fluxo de trabalho do PowerShell, somente runbooks baseados em fluxo de trabalho do PowerShell são mostrados. |
@@ -70,11 +70,11 @@ No exemplo a seguir, o cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/m
 
 ![Conjunto de Parâmetros](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
 
-#### <a name="parameter-values"></a>Valores de parâmetro
+#### <a name="parameter-values"></a>Valor de parâmetro
 
 Ao especificar um valor para um parâmetro, você seleciona uma fonte de dados para determinar como o valor é especificado. As fontes de dados que estão disponíveis para um determinado parâmetro dependem dos valores válidos para esse parâmetro. Por exemplo, **NULL** não é uma opção disponível para um parâmetro que não permite valores nulos.
 
-| fonte de dados | DESCRIÇÃO |
+| Fonte de Dados | Descrição |
 |:--- |:--- |
 | Valor Constante |Digite um valor válido para o parâmetro. Esta fonte de dados só está disponível para os seguintes tipos de dados: Int32, Int64, String, Boolean, DateTime, switch. |
 | Saída de Atividade |Use a saída de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas estão listadas. Para o valor do parâmetro, use apenas a atividade que produz a saída. Se a atividade produzir um objeto com várias propriedades, você poderá digitar o nome de uma propriedade específica depois de selecionar a atividade. |
@@ -104,7 +104,7 @@ A condição de repetição é uma expressão do PowerShell que é avaliada apó
 
 A condição de repetição pode usar uma variável chamada *RetryData* que fornece acesso a informações sobre as tentativas de atividade. Essa variável tem as propriedades na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | NumberOfAttempts |Número de vezes que a atividade foi executada. |
 | Saída |Saída da última execução da atividade. |
@@ -156,10 +156,10 @@ Você pode criar um link entre duas atividades selecionando a atividade de orige
 
 Selecione o link para configurar suas propriedades na folha Configuração. As propriedades incluem o tipo de link, que é descrito na tabela a seguir.
 
-| Tipo de link | DESCRIÇÃO |
+| Tipo de link | Descrição |
 |:--- |:--- |
 | Pipeline |A atividade de destino é executada uma vez para cada saída de objeto da atividade de origem. A atividade de destino não será executada se a atividade de origem não resultar em saída. A saída da atividade de origem está disponível como um objeto. |
-| Sequência |A atividade de destino é executada apenas uma vez quando recebe a saída da atividade de origem. A saída da atividade de origem está disponível como uma matriz de objetos. |
+| Sequence |A atividade de destino é executada apenas uma vez quando recebe a saída da atividade de origem. A saída da atividade de origem está disponível como uma matriz de objetos. |
 
 ### <a name="start-of-activity"></a>Início da atividade
 
@@ -261,11 +261,11 @@ Ao criar seu runbook, você pode acessar seus parâmetros de entrada clicando no
 
 Cada parâmetro de entrada é definido pelas propriedades na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
-| Nome | Obrigatórios. O nome do parâmetro. O nome deve ser exclusivo dentro do runbook. Ele deve começar com uma letra e pode conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
-| DESCRIÇÃO |Opcional. Descrição da finalidade do parâmetro de entrada. |
-| Type | Opcional. Tipo de dados esperado para o valor do parâmetro. O Portal do Azure fornece um controle apropriado para o tipo de dados para cada parâmetro quando a entrada for solicitada. Os tipos de parâmetro com suporte são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dados não for selecionado, o padrão será String.|
+| {1&gt;Nome&lt;1} | Obrigatório. O nome do parâmetro. O nome deve ser exclusivo dentro do runbook. Ele deve começar com uma letra e pode conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
+| Descrição |Opcional. Descrição da finalidade do parâmetro de entrada. |
+| Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O Portal do Azure fornece um controle apropriado para o tipo de dados para cada parâmetro quando a entrada for solicitada. Os tipos de parâmetro com suporte são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dados não for selecionado, o padrão será String.|
 | Obrigatório | Opcional. Configuração que especifica se um valor deve ser fornecido para o parâmetro. Se você escolher **Sim**, um valor deverá ser fornecido quando o runbook for iniciado. Se você escolher **não**, um valor não será necessário quando o runbook for iniciado e um valor padrão poderá ser usado. O runbook não poderá ser iniciado se você não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
 | Valor Padrão | Opcional. O valor usado para um parâmetro se um não for passado quando o runbook for iniciado. Para definir um valor padrão, escolha **personalizado**. Selecione **nenhum** se você não quiser fornecer nenhum valor padrão. |
 
@@ -380,7 +380,7 @@ O exemplo a seguir usam a saída de uma atividade chamada **Obter conexão do Tw
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticação para recursos do Azure
 
-Os runbooks na Automação do Azure que gerenciam os recursos do Azure requerem a autenticação do Azure. A [conta Executar como](automation-create-runas-account.md), também conhecida como entidade de serviço, é o mecanismo padrão que um runbook de automação usa para acessar Azure Resource Manager recursos em sua assinatura. Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de conexão **AzureRunAsConnection** , que usa o cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) do PowerShell, à tela. Você também pode adicionar o cmdlet [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) . Esse cenário é ilustrado no exemplo a seguir.
+Os runbooks na Automação do Azure que gerenciam os recursos do Azure requerem a autenticação do Azure. A [conta Executar como](automation-create-runas-account.md), também conhecida como entidade de serviço, é o mecanismo padrão que um runbook de automação usa para acessar Azure Resource Manager recursos em sua assinatura. Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de conexão **AzureRunAsConnection** , que usa o cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) do PowerShell, à tela. Você também pode adicionar o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Esse cenário é ilustrado no exemplo a seguir.
 
 ![Executa Como Atividades de Autenticação](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -435,7 +435,7 @@ Publique um runbook gráfico abrindo o runbook para edição e, em seguida, clic
 
 Você tem a opção de reverter para a versão publicada de um runbook. Esta operação gera as alterações feitas desde a última publicação do runbook. Ele substitui a versão de rascunho do runbook pela versão publicada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
 * Para começar a usar runbooks gráficos, consulte [meu primeiro runbook gráfico](automation-first-runbook-graphical.md).

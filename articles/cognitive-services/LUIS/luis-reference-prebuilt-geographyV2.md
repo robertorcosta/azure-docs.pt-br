@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 7a269f93820a6029370490448f02038f5aa3eb3e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464894"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273504"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade GeographyV2 predefinida para um aplicativo LUIS
 A entidade geographyV2 predefinida detecta locais. Como essa entidade já está treinada, não é necessário adicionar enunciados contendo GeographyV2 às intenções do aplicativo. Há suporte para a entidade GeographyV2 na [cultura](luis-reference-prebuilt-entities.md) de inglês.
@@ -39,7 +39,7 @@ Os seguintes objetos de entidade são retornados para a consulta:
 
 `Carol is visiting the sphinx in gizah egypt in africa before heading to texas.`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
@@ -72,7 +72,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
 No JSON anterior, `poi` é uma abreviação de **ponto de interesse**.
 
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
@@ -161,7 +161,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
 
 O exemplo a seguir mostra a resolução da entidade **builtin.geographyV2**.
 
@@ -205,10 +205,10 @@ O exemplo a seguir mostra a resolução da entidade **builtin.geographyV2**.
     }
 ]
 ```
-* * * 
+* * *
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre as entidades [email](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md) e [ordinal](luis-reference-prebuilt-ordinal.md). 
+Saiba mais sobre as entidades [email](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md) e [ordinal](luis-reference-prebuilt-ordinal.md).

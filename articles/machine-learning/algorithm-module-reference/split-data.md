@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3e831e58b47d53e2924956cab13568c69bc1432e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d889cd3325784f564d03e5d75dde1ec760c66804
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153733"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268534"
 ---
 # <a name="split-data-module"></a>Módulo dividir dados
 
@@ -84,35 +84,75 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
     Com base na expressão regular que você fornece, o conjunto de registros é dividido em dois conjuntos de linhas: linhas com valores que correspondem à expressão e todas as linhas restantes. 
 
+Os exemplos a seguir demonstram como dividir um conjunto de um DataSet usando a opção de **expressão regular** . 
+
+### <a name="single-whole-word"></a>Única palavra inteira 
+
+Este exemplo coloca no primeiro conjunto de dados todas as linhas que contêm o `Gryphon` de texto na coluna `Text`e coloca outras linhas na segunda saída de **Split data**:
+
+```text
+    \"Text" Gryphon  
+```
+
+### <a name="substring"></a>Subcadeia de caracteres
+
+Este exemplo procura a cadeia de caracteres especificada em qualquer posição dentro da segunda coluna do conjunto de valores, indicado aqui pelo valor de índice de 1. A correspondência diferencia maiúsculas de minúsculas.
+
+```text
+(\1) ^[a-f]
+```
+
+O primeiro conjunto de resultados contém todas as linhas em que a coluna de índice começa com um destes caracteres: `a`, `b`, `c`, `d`, `e`, `f`. Todas as outras linhas são direcionadas para a segunda saída.
+
 ## <a name="relative-expression-split"></a>Divisão de expressão relativa.
 
 1. Adicione o módulo [dividir dados](./split-data.md) ao seu pipeline e conecte-o como entrada para o DataSet que você deseja dividir.
   
 2. Para o **modo de divisão**, selecione a divisão de **expressão relativa**.
   
-3. Na caixa de texto **expressão relacional** , digite uma expressão que executa uma operação de comparação, em uma única coluna:
+3. Na caixa de texto **expressão relacional** , digite uma expressão que executa uma operação de comparação em uma única coluna:
 
-
- - Coluna numérica:
-    - A coluna contém números de qualquer tipo de dados numéricos, incluindo tipos de dados de data/hora.
-
-    - A expressão pode fazer referência a um máximo de um nome de coluna.
-
-    - Use o caractere de e comercial (&) para a operação e e use o caractere de barra vertical (|) para a operação ou.
-
-    - Há suporte para os seguintes operadores: `<`, `>`, `<=`, `>=`, `==`, `!=`
-
-    - Não é possível agrupar operações usando `(` e `)`.
-
- - Coluna de cadeia de caracteres: 
-    - Há suporte para os seguintes operadores: `==`, `!=`
-
-
+   Para a **coluna numérica**:
+   - A coluna contém números de qualquer tipo de dados numéricos, incluindo tipos de dados de data e hora.
+   - A expressão pode fazer referência a um máximo de um nome de coluna.
+   - Use o caractere de e comercial `&` para a operação AND. Use o `|` de caractere de pipe para a operação ou.
+   - Há suporte para os seguintes operadores: `<`, `>`, `<=`, `>=`, `==`, `!=`.
+   - Não é possível agrupar operações usando `(` e `)`.
+   
+   Para a **coluna de cadeia de caracteres**:
+   - Há suporte para os seguintes operadores: `==`, `!=`.
 
 4. Execute o pipeline.
 
     A expressão divide o conjunto de um em dois conjuntos de linhas: linhas com valores que atendem à condição e todas as linhas restantes.
 
-## <a name="next-steps"></a>Próximas etapas
+Os exemplos a seguir demonstram como dividir um DataSet usando a opção de **expressão relativa** no módulo **dividir dados** :  
+
+### <a name="using-calendar-year"></a>Usando o ano civil
+
+Um cenário comum é dividir um conjunto de dados por anos. A expressão a seguir seleciona todas as linhas nas quais os valores na coluna `Year` são maiores que `2010`.
+
+```text
+\"Year" > 2010
+```
+
+A expressão de data deve considerar todas as partes de data incluídas na coluna de dados e o formato das datas na coluna de dados deve ser consistente. 
+
+Por exemplo, em uma coluna de data usando o formato `mmddyyyy`, a expressão deve ser algo assim:
+
+```text
+\"Date" > 1/1/2010
+```
+
+### <a name="using-column-indices"></a>Usando índices de coluna
+
+A expressão a seguir demonstra como você pode usar o índice da coluna para selecionar todas as linhas na primeira coluna do conjunto de dados que contém valores menores ou iguais a 30, mas não iguais a 20.
+
+```text
+(\0)<=30 & !=20
+```
+
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

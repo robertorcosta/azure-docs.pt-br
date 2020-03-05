@@ -8,22 +8,22 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933621"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270669"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades predefinidas preteridas em um aplicativo LUIS
 As entidades predefinidas a seguir foram preteridas e não podem ser adicionadas a novos aplicativos de LUIS.
 
 * **Datetime**: os aplicativos de LUIS existentes que usam **datetime** devem ser migrados para **datetimeV2**, embora a entidade de datetime continue a funcionar em aplicativos preexistentes que a utilizam.
-* **Geography**: haverá suporte para aplicativos de LUIS existentes que usam **geography** até dezembro de 2018.
-* **Encyclopedia**: haverá suporte para aplicativos de LUIS existentes que usam **encyclopedia** até dezembro de 2018.
+* **Geografia**: haverá suporte para aplicativos de LUIS existentes que usam **geografia** até dezembro de 2018.
+* **Enciclopédia**: haverá suporte para aplicativos de LUIS existentes que usam **enciclopédia** até dezembro de 2018.
 
 ## <a name="geography-culture"></a>Cultura de geografia
 **Geografia** está disponível apenas na localidade `en-us`.
@@ -43,7 +43,7 @@ Entidade predefinida   |   Exemplo de enunciado   |   JSON
 **Enciclopédia** está disponível apenas na localidade `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos de enciclopédia
-A entidade interna encyclopedia inclui mais de 100 subtipos na tabela a seguir: Além disso, as entidades encyclopedia geralmente são mapeadas para vários tipos. Por exemplo, a consulta Ronald Reagan gera: 
+A entidade interna de enciclopédia inclui mais de 100 subtipos na tabela a seguir. Além disso, as entidades de enciclopédia geralmente são mapeadas para vários tipos. Por exemplo, a consulta Ronald Reagan gera:
 
 ```json
 {
@@ -161,7 +161,7 @@ Entidade predefinida   |   Entidade predefinida (subtipos)   |   Exemplo de enun
 `builtin.encyclopedia.finance.stock_exchange`| `builtin.encyclopedia.finance.stock_exchange`| `tokyo stock exchange`|
 `builtin.encyclopedia.film.festival`| `builtin.encyclopedia.film.festival`| `berlin international film festival`|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Saiba mais sobre as entidades [dimensão](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) e [número](luis-reference-prebuilt-number.md). 
+Saiba mais sobre as entidades [dimensão](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) e [número](luis-reference-prebuilt-number.md).
 

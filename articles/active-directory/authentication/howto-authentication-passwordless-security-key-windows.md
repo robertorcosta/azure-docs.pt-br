@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522026"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269346"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 com Azure Active Directory (versão prévia)
 
@@ -27,7 +27,7 @@ Este documento se concentra em habilitar a autenticação sem senha baseada em c
 | As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>{1&gt;{2&gt;Requisitos&lt;2}&lt;1}
 
 | Tipo de dispositivo | Adicionado ao Azure AD | Adicionado ao Azure AD híbrido |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ Este documento se concentra em habilitar a autenticação sem senha baseada em c
 | [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | Webauthn requer o Windows 10 versão 1809 ou superior | X | X |
-| [Dispositivos ingressados no Azure ad](../devices/concept-azure-ad-join.md) requerem o Windows 10 versão 1809 ou superior | X |   |
+| [Dispositivos ingressados no Azure ad](../devices/concept-azure-ad-join.md) requerem o Windows 10 versão 1903 ou superior | X |   |
 | [Dispositivos ingressados no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md) exigem o Windows 10 Insider Build 18945 ou superior |   | X |
 | Controladores de domínio do Windows Server 2016/2019 totalmente corrigidos. |   | X |
 | [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versão 1.4.32.0 ou posterior |   | X |
@@ -54,6 +54,7 @@ Os cenários a seguir não têm suporte:
 - Faça logon em um servidor usando uma chave de segurança.
 - Se você não tiver usado sua chave de segurança para entrar em seu dispositivo enquanto estiver online, você não poderá usá-lo para entrar ou desbloquear offline.
 - Entrar ou desbloquear um dispositivo Windows 10 com uma chave de segurança que contém várias contas do Azure AD. Esse cenário utiliza a última conta adicionada à chave de segurança. Webauthn permite que os usuários escolham a conta que desejam usar.
+- Desbloqueie um dispositivo que executa o Windows 10 versão 1809. Para obter a melhor experiência, use o Windows 10 versão 1903 ou superior.
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para visualização
 
@@ -159,7 +160,7 @@ Se você quiser compartilhar comentários ou encontrar problemas ao visualizar e
    - Subcategoria: FIDO
 1. Para capturar logs, use a opção para **recriar meu problema**
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Habilitar o acesso a recursos locais para o Azure AD e dispositivos ingressados no Azure AD híbrido](howto-authentication-passwordless-security-key-on-premises.md)
 

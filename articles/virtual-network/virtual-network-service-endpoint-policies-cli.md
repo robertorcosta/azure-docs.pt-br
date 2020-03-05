@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e04c23f6f27561c2108c97d4def77361a9c50834
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252994"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271178"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerenciar vazamento de dados para contas de armazenamento do Azure com políticas de ponto de extremidade de serviço de rede virtual usando o CLI do Azure
 
@@ -204,12 +204,12 @@ Crie um compartilhamento de arquivos na conta de armazenamento com [az storage s
 
 ```azurecli-interactive
 az storage share create \
-  --name my-file-share1 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString1 > /dev/null
 
 az storage share create \
-  --name my-file-share2 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString2 > /dev/null
 ```
@@ -293,7 +293,7 @@ az network vnet subnet update \
 
 ## <a name="validate-access-restriction-to-azure-storage-accounts"></a>Validar a restrição de acesso às contas de armazenamento do Azure
 
-### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
+### <a name="create-the-virtual-machine"></a>Crie uma máquina virtual
 
 Para testar o acesso à rede para uma conta de armazenamento, implante uma VM na sub-rede.
 
@@ -361,6 +361,6 @@ Quando não for mais necessário, use [az group delete](/cli/azure) para remover
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aplicou uma política de ponto de extremidade de serviço em um ponto de extremidade de serviço de rede virtual do Azure para o armazenamento do Azure. Você criou contas de armazenamento do Azure e acesso limitado à rede a apenas determinadas contas de armazenamento (e, assim, negadas a outras) de uma sub-rede de rede virtual. Para saber mais sobre as políticas de ponto de extremidade de serviço, consulte [visão geral das políticas de pontos de extremidades de serviço](virtual-network-service-endpoint-policies-overview.md).

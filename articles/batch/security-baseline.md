@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4094ace5772b99c646a31d6a4722bbb080fbfff7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589877"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273554"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança do Azure para lote
 
@@ -59,7 +59,7 @@ Entenda a segurança de rede fornecida pela central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -271,7 +271,7 @@ Como se conectar remotamente aos nós do pool do lote do Azure:
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -323,7 +323,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Orientação**: Use o Windows Defender em seus nós de lote individuais no caso de sistemas operacionais Windows ou forneça sua própria solução antimalware se você estiver usando o Linux.
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -343,7 +343,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Responsabilidade**: cliente
 
-## <a name="identity-and-access-control"></a>Identidade e controle de acesso
+## <a name="identity-and-access-control"></a>Controle de identidade e acesso
 
 *Para obter mais informações, consulte [controle de segurança: identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
@@ -466,7 +466,7 @@ Como monitorar a atividade de identidade e acesso dos usuários na central de se
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -511,7 +511,7 @@ Como usar as revisões de acesso de identidade do Azure:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -524,7 +524,7 @@ Como integrar os logs de atividades do Azure ao Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -551,7 +551,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Responsabilidade**: cliente
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: fornecer à Microsoft acesso a dados relevantes do cliente durante cenários de suporte
+### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3,13: <div>Fornecer à Microsoft acesso a dados relevantes do cliente durante cenários de suporte<br></div>
 
 **Orientação**: não disponível; Sistema de Proteção de Dados do Cliente ainda não tem suporte para o lote do Azure. Lista de serviços Sistema de Proteção de Dados do Cliente com suporte: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -614,9 +614,9 @@ Como proteger as contas de armazenamento do Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Monitoramento da central de segurança do Azure**: Sim
+**Monitoramento da central de segurança do Azure**: não disponível no momento
 
-**Responsabilidade**: cliente
+**Responsabilidade**: compartilhado
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: criptografar todas as informações confidenciais em trânsito
 
@@ -654,7 +654,7 @@ Como proteger as contas de armazenamento do Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Monitoramento da central de segurança do Azure**: Sim
+**Monitoramento da central de segurança do Azure**: não disponível no momento
 
 **Responsabilidade**: compartilhado
 
@@ -690,7 +690,7 @@ Entender a proteção de dados do cliente no Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Monitoramento da central de segurança do Azure**: Sim
+**Monitoramento da central de segurança do Azure**: não disponível no momento
 
 **Responsabilidade**: compartilhado
 
@@ -704,7 +704,7 @@ Como gerenciar chaves de criptografia para contas de armazenamento do Azure:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -728,7 +728,7 @@ Como habilitar o registro em log/auditoria adicional para uma conta de armazenam
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -751,7 +751,7 @@ Opcionalmente, se você tiver um Rapid7, Qualys ou qualquer outra assinatura da 
 
 **Diretrizes**: Microsoft para manter e atualizar as imagens de nó do pool do lote do Azure base. Verifique se o sistema operacional dos nós do pool do lote do Azure permanece corrigido durante o tempo de vida do cluster, o que pode exigir a habilitação de atualizações automáticas, o monitoramento dos nós ou a realização de reinicializações periódicas.
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: compartilhado
 
@@ -788,7 +788,7 @@ Opcionalmente, se você tiver um Rapid7, Qualys ou qualquer outra assinatura da 
 **Orientação**: Use o grafo de recursos do Azure para consultar/descobrir todos os recursos (como computação, armazenamento, rede, etc.) em suas assinaturas. Verifique se você tem permissões apropriadas (leitura) em seu locatário e se é capaz de enumerar todas as assinaturas do Azure, bem como recursos em suas assinaturas.
 
 
-Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo de recursos, é altamente recomendável criar e usar Azure Resource Manager recursos no futuro.
+Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo de recursos, é altamente recomendável criar e usar recursos de Azure Resource Manager (ARM) no futuro.
 
 
 Como criar consultas com o grafo do Azure:
@@ -863,9 +863,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
+
 Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assinaturas. Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
+
 Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Como criar consultas com o grafo do Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -901,16 +904,15 @@ Como criar consultas com o grafo do Azure: https://docs.microsoft.com/azure/gove
 
 **Orientação**: Use a política do Azure para colocar restrições no tipo de recursos que podem ser criados em assinaturas do cliente usando as seguintes definições de política interna:
 
+
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-Como configurar e gerenciar Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como negar um tipo de recurso específico com Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Como negar um tipo de recurso específico com Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -924,14 +926,12 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Responsabilidade**: cliente
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager-via-scripts"></a>6,11: limitar a capacidade dos usuários de interagir com Azure Resource Manager por meio de scripts
+### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6,11: <div>Limitar a capacidade dos usuários de interagir com Azure Resource Manager por meio de scripts</div>
 
 **Orientação**: Use o acesso condicional do Azure para limitar a capacidade dos usuários de interagir com Azure Resource Manager Configurando "bloquear acesso" para o aplicativo de "gerenciamento de Microsoft Azure".
 
 
-Como configurar o acesso condicional para bloquear o acesso a Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o acesso condicional para bloquear o acesso a Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -949,9 +949,7 @@ Isso não é aplicável ao lote do Azure, pois os usuários (não administradore
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: separar fisicamente ou logicamente os aplicativos de alto risco
 
-**Orientação**: não disponível,
-
-O parâmetro de comparação destina-se a aplicativos Web em execução em instâncias de serviço Azure App ou IaaS.
+**Orientação**: não aplicável, o parâmetro de comparação destina-se a aplicativos Web em execução no serviço Azure app ou em instâncias de IaaS.
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -966,10 +964,14 @@ O parâmetro de comparação destina-se a aplicativos Web em execução em inst�
 **Orientação**: use aliases de Azure Policy no namespace "Microsoft. batch" para criar políticas personalizadas para auditar ou impor a configuração de suas contas e pools do lote do Azure.
 
 
-Como exibir os aliases de Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como exibir os aliases de Azure Policy disponíveis:
+
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como configurar e gerenciar Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -991,7 +993,9 @@ Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/gover
 - Microsoft.Storage
 - Microsoft.Network
 
+
 Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Entender Azure Policy efeitos: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -1009,11 +1013,17 @@ Entender Azure Policy efeitos: https://docs.microsoft.com/azure/governance/polic
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: armazenar a configuração de recursos do Azure com segurança
 
-**Orientação**: se você estiver usando definições personalizadas de política do Azure para suas contas do lote do Azure, pools ou recursos relacionados, use o Azure DevOps/repositórios para armazenar e gerenciar seu código com segurança.
+**Diretrizes**: se você estiver usando definições personalizadas de política do Azure para suas contas do lote do Azure, pools ou recursos relacionados, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Como armazenar código no Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Como armazenar código no Azure DevOps:
+
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+
+Documentação do Azure Repos:
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -1024,9 +1034,14 @@ Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 **Diretrizes**: se você estiver usando imagens personalizadas para seus pools do lote do Azure, use o RBAC (controle de acesso baseado em função) para garantir que somente usuários autorizados possam acessar as imagens.
 
 
-Entender o RBAC no Azure: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Entender o RBAC no Azure:
 
-Como configurar o RBAC no Azure: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+
+
+Como configurar o RBAC no Azure:
+
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -1058,8 +1073,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: use aliases de Azure Policy no namespace "Microsoft. batch" para criar políticas personalizadas para auditar ou impor a configuração da instância do lote do Azure. Você também pode usar quaisquer políticas internas criadas especificamente para o lote do Azure ou os recursos usados pelo lote do Azure, como:
 
-- As sub-redes devem ser associadas a um Grupo de Segurança de Rede
-- As contas de armazenamento devem usar um ponto de extremidade de serviço de rede virtual
+- As sub-redes devem ser associadas a um grupo de segurança de rede-as contas de armazenamento devem usar um ponto de extremidade de serviço de rede virtual
 - Os logs de diagnóstico em contas do Lote devem ser habilitados
 
 Como exibir os aliases de Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
@@ -1098,7 +1112,7 @@ Como fornecer Key Vault autenticação com uma identidade gerenciada:
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -1187,7 +1201,7 @@ Como fazer backup de chaves do Key Vault no Azure:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -1205,7 +1219,7 @@ Como restaurar uma chave gerenciada pelo cliente com o PowerShell:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: não aplicável
 
 **Responsabilidade**: cliente
 
@@ -1218,7 +1232,7 @@ Como habilitar a exclusão reversível no Azure Key Vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -1324,3 +1338,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidade**: compartilhado
 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+
+- Consulte o [benchmark de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Saiba mais sobre as [linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

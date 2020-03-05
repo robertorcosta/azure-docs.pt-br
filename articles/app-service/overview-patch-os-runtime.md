@@ -4,12 +4,12 @@ description: Saiba como Azure App serviço atualiza o sistema operacional e os t
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846249"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273630"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do runtime no Serviço de Aplicativo do Azure
 
@@ -51,7 +51,7 @@ As substituições e atualizações de runtime são anunciadas aqui:
 
 ### <a name="new-patch-updates"></a>Novas atualizações de patch
 
-As atualizações de patch para .NET, PHP, SDK do Java ou para a versão Tomcat/Jetty são aplicadas automaticamente, substituindo a instalação existente pela nova versão. As atualizações de patch do Node.js são instaladas lado a lado com as versões existentes (de modo semelhante às versões principais e secundárias na próxima seção). As novas versões de patch do Python podem ser instaladas manualmente por meio de [extensões de site](https://www.siteextensions.net/packages?q=Tags%3A%22python%22), lado a lado com instalações internas do Python.
+As atualizações de patch para .NET, PHP, SDK do Java ou para a versão Tomcat/Jetty são aplicadas automaticamente, substituindo a instalação existente pela nova versão. As atualizações de patch do Node.js são instaladas lado a lado com as versões existentes (de modo semelhante às versões principais e secundárias na próxima seção). As novas versões de patch do Python podem ser instaladas manualmente por meio de [extensões do site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), lado a lado com as instalações internas do Python.
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e secundárias
 
@@ -75,7 +75,7 @@ Embora as informações críticas do sistema operacional tenham acesso bloqueado
 
 A tabela a seguir mostra como encontrar informações sobre as versões do Windows e do runtime da linguagem que está executando seus aplicativos:
 
-| Informações | Onde encontrá-las | 
+| {1&gt;Informações&lt;1} | Onde encontrá-las | 
 |-|-|
 | Versão do Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (em Informações do Sistema) |
 | Versão do .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |

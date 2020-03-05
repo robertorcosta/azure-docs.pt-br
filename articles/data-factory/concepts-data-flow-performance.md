@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 02/24/2020
-ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587576"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273226"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -59,6 +59,9 @@ Por padrão, a ativação da depuração usará o tempo de execução de integra
 
 ![Parte de origem](media/data-flow/sourcepart3.png "Parte de origem")
 
+> [!NOTE]
+> Um bom guia para ajudá-lo a escolher o número de partições para sua fonte é baseado no número de núcleos que você definiu para o Azure Integration Runtime e multiplicar esse número por cinco. Portanto, por exemplo, se você estiver transformando uma série de arquivos em suas pastas ADLS e for utilizar um Azure IR-Core de 32, o número de partições que você visará é 32 x 5 = 160 partições.
+
 ### <a name="source-batch-size-input-and-isolation-level"></a>Tamanho do lote de origem, entrada e nível de isolamento
 
 Em **Opções de origem** na transformação origem, as configurações a seguir podem afetar o desempenho:
@@ -67,7 +70,7 @@ Em **Opções de origem** na transformação origem, as configurações a seguir
 * A definição de uma consulta pode permitir que você filtre linhas na origem antes que elas cheguem ao fluxo de dados para processamento. Isso pode tornar a aquisição de dados inicial mais rápida. Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu banco de BD SQL do Azure, como leitura não confirmada.
 * A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
 
-![Origem](media/data-flow/source4.png "Fonte")
+![Origem](media/data-flow/source4.png "Origem")
 
 ### <a name="sink-batch-size"></a>Tamanho do lote do coletor
 
@@ -100,7 +103,7 @@ Para evitar inserções de linha por linha em seu DW, marque **habilitar o prepa
 
 Em cada transformação, você pode definir o esquema de particionamento que deseja que data factory use na guia otimizar. É uma prática recomendada testar primeiro os coletores baseados em arquivo, mantendo o particionamento e as otimizações padrão.
 
-* Para arquivos menores, você pode achar que selecionar *uma única partição* pode, às vezes, funcionar melhor e mais rápido do que pedir ao Spark para particionar seus arquivos pequenos.
+* Para arquivos menores, você pode achar que escolher menos partições pode, às vezes, funcionar melhor e mais rápido do que pedir ao Spark para particionar seus arquivos pequenos.
 * Se você não tiver informações suficientes sobre seus dados de origem, escolha particionamento *Round Robin* e defina o número de partições.
 * Se seus dados tiverem colunas que podem ser boas chaves de hash, escolha *particionamento de hash*.
 
@@ -143,7 +146,7 @@ O gerenciamento do desempenho de junções em seu fluxo de dados é uma operaç�
 
 Outra otimização de junção é criar suas junções de forma que evite a tendência do Spark de implementar Junções cruzadas. Por exemplo, quando você inclui valores literais em suas condições de junção, o Spark pode ver que, como um requisito para executar um produto cartesiano completo primeiro, filtre os valores associados. Mas se você tiver certeza de que tem valores de coluna em ambos os lados da sua condição de junção, poderá evitar esse produto cartesiano induzido ao Spark e melhorar o desempenho de suas junções e fluxos de dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte outros artigos de fluxo de dados relacionados ao desempenho:
 

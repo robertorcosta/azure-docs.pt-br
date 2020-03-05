@@ -1,14 +1,14 @@
 ---
 title: Limites – QnA Maker
 description: O QnA Maker tem limites de meta para partes do serviço e da base de dados de conhecimento. É importante manter sua base de dados de conhecimento dentro desses limites para testar e publicar.
-ms.topic: article
+ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 6375a6c6efc0c7016d9947e04e9479385aa80af5
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650360"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273346"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -37,7 +37,7 @@ Os nomes de arquivo não podem incluir os seguintes caracteres:
 
 ### <a name="maximum-file-size"></a>Tamanho máximo do arquivo
 
-|Formatar|Tamanho máximo do arquivo (MB)|
+|Formato|Tamanho máximo do arquivo (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -63,7 +63,7 @@ O número máximo de campos de metadados por base de dados de conhecimento basei
 
 |**Camada de Pesquisa Cognitiva do Azure** | **Gratuito** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Máximo de campos de metadados por serviço QnA Maker (entre todas as bases de dados de conhecimento)|1,000|100*|1,000|1,000|1,000|1,000|
+|Máximo de campos de metadados por serviço QnA Maker (entre todas as bases de dados de conhecimento)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
 ### <a name="by-name-and-value"></a>Por nome e valor
 
@@ -72,7 +72,7 @@ O comprimento e os caracteres aceitáveis para o nome e o valor dos metadados s�
 |Item|Caracteres permitidos|Correspondência de padrão de Regex|Máximo de caracteres|
 |--|--|--|--|
 |Nome (chave)|Permitem<br>alfanumérico (letras e dígitos)<br>`_` (sublinhado)<br> Não deve conter espaços.|`^[a-zA-Z0-9_]+$`|100|
-|Valor|Permite tudo, exceto<br>`:` (dois-pontos)<br>`|` (barra vertical)<br>Apenas um valor é permitido.|`^[^:|]+$`|500|
+|{1&gt;Valor&lt;1}|Permite tudo, exceto<br>`:` (dois-pontos)<br>`|` (barra vertical)<br>Apenas um valor é permitido.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Dados de Conhecimento
@@ -101,6 +101,6 @@ Eles representam os limites de cada ação de atualização; ou seja, clique em 
 * Número máximo de campos de metadados adicionados ou excluídos: 10
 * Número máximo de URLs que podem ser atualizadas: 5
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba quando e como alterar os [tipos de preço de serviço](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

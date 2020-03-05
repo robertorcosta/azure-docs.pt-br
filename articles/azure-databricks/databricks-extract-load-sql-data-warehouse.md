@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: a505145eeba47eda9950c5a4c8221e4c9ae4b3a4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9cab78e85b8644f29bfcd067b104b1b5c10c2266
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024068"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249847"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
 > Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
      
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua estas tarefas antes de iniciar este tutorial:
 
@@ -227,7 +227,7 @@ Na célula, pressione **SHIFT + ENTER** para executar o código.
     ```
    Você verá um resultado semelhante ao seguinte snippet:
 
-   ```bash
+   ```output
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
@@ -253,7 +253,7 @@ Os dados brutos de exemplo **small_radio_json.json** capturam o público-alvo de
 
    Você receberá uma saída como a mostrada no snippet a seguir:
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----+
    |firstname|  lastname|gender|            location|level|
    +---------+----------+------+--------------------+-----+
@@ -289,7 +289,7 @@ Os dados brutos de exemplo **small_radio_json.json** capturam o público-alvo de
 
    Você receberá uma saída como a mostrada no snippet a seguir.
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----------------+
    |firstname|  lastname|gender|            location|subscription_type|
    +---------+----------+------+--------------------+-----------------+

@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d6b4f8a7965a7cbcab2616650b40ed93087072b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 1ace4ce5b9b0fd59a69e908c1f31d1ad4853889b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589968"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271864"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança do Azure para HDInsight
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="13-protect-critical-web-applications"></a>1,3: proteger aplicativos Web críticos
 
-**Orientação**: não disponível; o parâmetro de comparação é destinado ao serviço de aplicativos do Azure ou aos recursos de computação que hospedam aplicativos Web.
+**Orientação**: não aplicável; o parâmetro de comparação é destinado ao serviço de aplicativos do Azure ou aos recursos de computação que hospedam aplicativos Web.
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -125,7 +125,7 @@ Endereços IP de gerenciamento do HDInsight: https://docs.microsoft.com/azure/hd
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1,7: gerenciar o tráfego para aplicativos Web
 
-**Orientação**: não disponível; o parâmetro de comparação é destinado ao serviço de aplicativos do Azure ou aos recursos de computação que hospedam aplicativos Web.
+**Orientação**: não aplicável; o parâmetro de comparação é destinado ao serviço de aplicativos do Azure ou aos recursos de computação que hospedam aplicativos Web.
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -331,7 +331,7 @@ Como alertar sobre os dados de log do log Analytics:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -364,7 +364,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Responsabilidade**: cliente
 
-## <a name="identity-and-access-control"></a>Identidade e controle de acesso
+## <a name="identity-and-access-control"></a>Controle de identidade e acesso
 
 *Para obter mais informações, consulte [controle de segurança: identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
@@ -491,7 +491,7 @@ Como monitorar a atividade de identidade e acesso dos usuários na central de se
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -713,7 +713,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
-**Responsabilidade**: cliente
+**Responsabilidade**: compartilhado
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: criptografar informações confidenciais em repouso
 
@@ -779,7 +779,7 @@ Opcionalmente, se você tiver um Rapid7, Qualys ou qualquer outra assinatura da 
 
 Como instalar o agente do Rapid7 manualmente:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 Como instalar o agente do Qualys manualmente:
@@ -926,11 +926,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assinaturas.  Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
+Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assinaturas. Verifique se todos os recursos do Azure presentes no ambiente foram aprovados.
 
 Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Como criar consultas com o grafo do Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -972,7 +973,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
+
 Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Como negar um tipo de recurso específico com Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -993,9 +996,7 @@ Como negar um tipo de recurso específico com Azure Policy: https://docs.microso
 **Orientação**: Use o acesso condicional do Azure para limitar a capacidade dos usuários de interagir com Azure Resource Manager Configurando "bloquear acesso" para o aplicativo de "gerenciamento de Microsoft Azure".
 
 
-Como configurar o acesso condicional para bloquear o acesso a Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o acesso condicional para bloquear o acesso a Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -1003,7 +1004,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6,12: limitar a capacidade dos usuários de executar scripts em recursos de computação
 
-**Orientação**: não disponível; Isso não é aplicável ao Azure HDInsight, pois os usuários (não administradores) do cluster não precisam acessar os nós individuais para executar trabalhos. O administrador de cluster tem acesso de raiz a todos os nós de cluster.
+**Orientação**: não aplicável; Isso não é aplicável ao Azure HDInsight, pois os usuários (não administradores) do cluster não precisam acessar os nós individuais para executar trabalhos. O administrador de cluster tem acesso de raiz a todos os nós de cluster.
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -1011,7 +1012,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: separar fisicamente ou logicamente os aplicativos de alto risco
 
-**Orientação**: não disponível; o parâmetro de comparação é destinado ao serviço de aplicativos do Azure ou aos recursos de computação que hospedam aplicativos Web.
+**Orientação**: não aplicável; o parâmetro de comparação é destinado ao serviço de aplicativos do Azure ou aos recursos de computação que hospedam aplicativos Web.
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -1095,7 +1096,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: armazenar com segurança imagens personalizadas do sistema operacional
 
-**Orientação**: não disponível; imagens personalizadas não aplicáveis ao Azure HDInsight.
+**Orientação**: não aplicável; imagens personalizadas não aplicáveis ao Azure HDInsight.
 
 **Monitoramento da central de segurança do Azure**: não disponível no momento
 
@@ -1343,7 +1344,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Diretrizes**: a central de segurança atribui uma severidade aos alertas, para ajudá-lo a priorizar a ordem em que você participa de cada alerta, para que, quando um recurso for comprometido, você possa acessá-lo imediatamente. A gravidade se baseia em quão confiante a central de segurança está na localização ou análise usada para emitir o alerta, bem como o nível de confiança de que houve uma intenção mal-intencionada por trás da atividade que levou ao alerta.
 
-**Monitoramento da central de segurança do Azure**: não disponível no momento
+**Monitoramento da central de segurança do Azure**: Sim
 
 **Responsabilidade**: cliente
 
@@ -1421,3 +1422,7 @@ Você pode encontrar mais informações sobre a estratégia da Microsoft e a exe
 
 **Responsabilidade**: compartilhado
 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+
+- Consulte o [benchmark de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Saiba mais sobre as [linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

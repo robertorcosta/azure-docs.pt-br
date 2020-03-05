@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 8e7874ec2a0ea160d29f8755ca8680c4dfbeec1d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921582"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268495"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Treinar novamente modelos com o designer de Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -119,7 +119,7 @@ Use as etapas a seguir para enviar uma execução de ponto de extremidade de pip
 
 1. Selecione o pipeline que você deseja executar.
 
-1. Selecione **Executar**.
+1. Selecione **Enviar**.
 
 1. Na caixa de diálogo de instalação, você pode especificar um novo valor de caminho de dados de entrada, que aponta para o novo conjunto.
 
@@ -127,7 +127,9 @@ Use as etapas a seguir para enviar uma execução de ponto de extremidade de pip
 
 ### <a name="submit-runs-with-code"></a>Enviar execuções com código
 
-Há várias maneiras de acessar seu ponto de extremidade REST de forma programática, dependendo do ambiente de desenvolvimento. Você pode encontrar exemplos de código que mostram como enviar execuções de pipeline com parâmetros na guia **consumir** do pipeline.
+Você pode encontrar o ponto de extremidade REST de um pipeline publicado no painel Visão geral. Ao chamar o ponto de extremidade, você pode treinar novamente o pipeline publicado.
+
+Para fazer uma chamada REST, você precisará de um cabeçalho de autenticação do tipo portador OAuth 2,0. Confira a [seção do tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) a seguir para obter mais detalhes sobre como configurar a autenticação para seu workspace e realizar uma chamada REST.
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 

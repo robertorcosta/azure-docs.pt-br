@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 03/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65f5b9bc09bb74ccbc63a457ba8e5681de8eefab
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e470ea65085bf71f0052567d5bf367661852d1cb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189934"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268017"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de declarações boolianas
 
@@ -28,7 +28,7 @@ Este artigo fornece exemplos de como usar as transformações de declarações b
 
 Executa uma operação And de dois inputClaims boolianos e define o outputClaim com o resultado da operação.
 
-| Item  | TransformationClaimType  | Tipo de Dados  | Observações |
+| Item  | TransformationClaimType  | Tipo de Dados  | {1&gt;Observações&lt;1} |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | booleano | O primeiro ClaimType a ser avaliado. |
 | InputClaim | inputClaim2  | booleano | O segundo ClaimType a ser avaliado. |
@@ -48,7 +48,7 @@ A transformação de declarações a seguir demonstra como executar And em dois 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 - Declarações de entrada:
     - **inputClaim1**: true
@@ -61,7 +61,7 @@ A transformação de declarações a seguir demonstra como executar And em dois 
 
 Verifica se os valores boolianos de duas declarações são iguais e gera uma exceção se eles não são.
 
-| Item | TransformationClaimType  | Tipo de Dados  | Observações |
+| Item | TransformationClaimType  | Tipo de Dados  | {1&gt;Observações&lt;1} |
 | ---- | ------------------------ | ---------- | ----- |
 | InputClaim | InputClaim | booleano | O ClaimType a ser declarado. |
 | InputParameter |valueToCompareTo | booleano | O valor a ser comparado (true ou false). |
@@ -107,7 +107,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 - Declarações de entrada:
     - **inputClaim**: false
@@ -118,7 +118,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 
 Verifica se o valor booliano de uma declaração é igual a `true` ou `false`e retorna o resultado da compactação.
 
-| Item | TransformationClaimType  | Tipo de Dados  | Observações |
+| Item | TransformationClaimType  | Tipo de Dados  | {1&gt;Observações&lt;1} |
 | ---- | ------------------------ | ---------- | ----- |
 | InputClaim | InputClaim | booleano | O ClaimType a ser declarado. |
 | InputParameter |valueToCompareTo | booleano | O valor a ser comparado (true ou false). |
@@ -141,7 +141,7 @@ A transformação de declarações a seguir demonstra como verificar o valor de 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 - Declarações de entrada:
     - **inputClaim**: false
@@ -156,7 +156,7 @@ A transformação de declarações a seguir demonstra como verificar o valor de 
 
 Executa uma operação Not do inputClaim booliano e define o outputClaim com o resultado da operação.
 
-| Item | TransformationClaimType | Tipo de Dados | Observações |
+| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | booleano | A declaração a ser operada. |
 | OutputClaim | outputClaim | booleano | Os ClaimTypes que são produzidos após a invocação desse ClaimsTransformation (true ou false). |
@@ -173,7 +173,7 @@ Use essa transformação de declaração para realizar a negação lógica em um
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 - Declarações de entrada:
     - **inputClaim**: false
@@ -184,7 +184,7 @@ Use essa transformação de declaração para realizar a negação lógica em um
 
 Calcula um Or entre dois inputClaims boolianos e define o outputClaim com o resultado da operação.
 
-| Item | TransformationClaimType | Tipo de Dados | Observações |
+| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | booleano | O primeiro ClaimType a ser avaliado. |
 | InputClaim | inputClaim2 | booleano | O segundo ClaimType a ser avaliado. |
@@ -205,7 +205,7 @@ A transformação de declarações a seguir demonstra como executar `Or` em dois
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 - Declarações de entrada:
     - **inputClaim1**: true

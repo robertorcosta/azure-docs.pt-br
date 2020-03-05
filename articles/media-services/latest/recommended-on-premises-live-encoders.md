@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 43d2a56757948f6005420d2b44f9bea963613d17
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252165"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268189"
 ---
-# <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
+# <a name="recommended-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo locais recomendados
 
 Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para processamento de conteúdo de streaming dinâmico. O Evento ao vivo recebe fluxos de entrada dinâmicos em uma de duas maneiras.
 
@@ -97,10 +97,10 @@ Para reproduzir conteúdo, os fluxos de áudio e de vídeo devem estar presentes
 - A alteração da configuração do codificador após ela ter começado a efetuar push tem efeitos negativos sobre o evento. As alterações na configuração podem fazer o evento ficar instável. 
 - Reserve bastante tempo para configurar seu evento. Para eventos em alta escala, recomendamos que você comece a configuração uma hora antes do evento.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Torne-se um parceiro de codificador local](become-on-premises-encoder-partner.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Transmissão ao vivo com os Serviços de Mídia v3](live-streaming-overview.md)

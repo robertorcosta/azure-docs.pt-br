@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 42f11ecb8e7c7ae47b5a5ab5ff4f946833945aa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471181"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250121"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Proteger os artefatos em implantações de modelo do Azure Resource Manager
 
@@ -31,7 +31,7 @@ Este tutorial cobre as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
@@ -39,7 +39,7 @@ Para concluir este artigo, você precisa do seguinte:
 * Examine [Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). O modelo usado neste tutorial é o desenvolvido naquele tutorial. Um link de download do modelo concluído é fornecido neste artigo.
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador do SQL Server. Aqui está um exemplo que você pode usar para gerar uma senha:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 

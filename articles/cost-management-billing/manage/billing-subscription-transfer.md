@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188402"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245397"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -45,7 +45,7 @@ Se você for um cliente do EA (Contrato Enterprise), seus administradores corpor
 
     > [!IMPORTANT]
     >
-    > Se você optar por migrar a assinatura para o locatário do Azure AD da nova conta, todas as atribuições de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos na assinatura serão permanentemente removidas. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos da assinatura. Para obter mais informações, confira [Como transferir uma assinatura a um usuário em outro locatário do Azure AD](../../cognitive-services/acoustics/known-issues.md). Como alternativa, você pode desmarcar a caixa do locatário do Azure AD da assinatura para transferir a propriedade de cobrança sem mover a assinatura para o locatário da nova conta. Se você fizer isso, as permissões RBAC existentes para gerenciar os recursos do Azure serão mantidas.
+    > Se você optar por migrar a assinatura para o locatário do Azure AD da nova conta, todas as atribuições de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos na assinatura serão permanentemente removidas. Somente o usuário da nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos da assinatura. Para obter mais informações, confira [Como transferir uma assinatura a um usuário em outro locatário do Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Como alternativa, você pode desmarcar a caixa do locatário do Azure AD da assinatura para transferir a propriedade de cobrança sem mover a assinatura para o locatário da nova conta. Se você fizer isso, as permissões RBAC existentes para gerenciar os recursos do Azure serão mantidas.
 
     ![Enviar página de transferência](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 

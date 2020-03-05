@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f2ea08694419caaaf54e4fed45c7c1589be2473d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e2b48c6353f56ab2269a8718146cb765797adba
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499513"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270363"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entidade de temperatura predefinida para um aplicativo LUIS
-Temperatura extrai uma variedade de tipos de temperatura. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo temperatura ao aplicativo. A entidade de temperatura é compatível com [muitas culturas](luis-reference-prebuilt-entities.md). 
+Temperatura extrai uma variedade de tipos de temperatura. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo temperatura ao aplicativo. A entidade de temperatura é compatível com [muitas culturas](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-temperature"></a>Tipos de temperatura
 A temperatura é gerenciada por meio do repositório do GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819)
@@ -31,7 +31,7 @@ Os seguintes objetos de entidade são retornados para a consulta:
 `set the temperature to 30 degrees`
 
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
@@ -45,7 +45,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
 O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
@@ -73,7 +73,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
 
 O exemplo a seguir mostra a resolução da entidade **builtin.temperature**.
 
@@ -91,10 +91,10 @@ O exemplo a seguir mostra a resolução da entidade **builtin.temperature**.
     }
 ]
 ```
-* * * 
+* * *
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre as entidades [percentual](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md) e [idade](luis-reference-prebuilt-age.md). 
+Saiba mais sobre as entidades [percentual](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md) e [idade](luis-reference-prebuilt-age.md).

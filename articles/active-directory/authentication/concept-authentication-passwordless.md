@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: ffe3d359dffea3278337de00bea42e0b959e10f6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505759"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269510"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -28,13 +28,13 @@ A autenticação multifator (MFA) é uma ótima maneira de proteger sua organiza
 
 Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece as três seguintes opções de autenticação com senha:
 
-- Windows Hello for Business
+- Windows Hello para Empresas
 - Aplicativo Microsoft Authenticator
 - Chaves de segurança do FIDO2
 
 ![Autenticação: segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello for Business
+## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
 O Windows Hello para empresas é ideal para os operadores de informações que têm seu próprio computador Windows designado. A biométrica e o PIN estão diretamente ligados ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de PKI (infraestrutura de chave pública) e suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
 
@@ -90,9 +90,9 @@ Se você for um fornecedor e quiser obter seu dispositivo na lista de dispositiv
 - Os usuários finais podem registrar e gerenciar esses métodos de autenticação com senha em seu portal de conta
 - Os usuários finais podem entrar com esses métodos de autenticação sem senha
    - Microsoft Authenticator aplicativo: funciona em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (Windows 10) e com aplicativos móveis integrados em qualquer sistema operacional.
-   - Chaves de segurança: trabalhe na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge.
+   - Chaves de segurança: trabalhe na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge (a borda herdada e nova).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Habilitar as opções de passwordlesss de chave de segurança do FIDO2 em sua organização](howto-authentication-passwordless-security-key.md)
 

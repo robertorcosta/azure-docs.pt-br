@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152118"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268690"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e exemplo
 
@@ -154,9 +154,9 @@ Essa opção é usada quando você divide um conjunto de um DataSet em várias p
 
 5. Se você estiver trabalhando com várias partições, deverá adicionar mais instâncias do módulo **partição e exemplo** para lidar com cada partição.
 
-    Por exemplo, digamos que os pacientes particionados anteriormente em quatro dobras usando a idade. Para trabalhar com cada dobra individual, você precisa de quatro cópias da **partição e** do módulo de exemplo e, em cada uma delas, selecione uma dobra diferente, conforme mostrado abaixo. Não está correto usar a saída **atribuir para partições** diretamente.  
+    Por exemplo, a **partição e** o módulo de exemplo na segunda linha são definidos para **atribuir a dobras**e os módulos na terceira linha são definidos para **selecionar dobra**.   
 
-    [![partição e exemplo](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![Partição e exemplo](./media/module/partition-and-sample.png)
 
 5. Execute o pipeline.
 
@@ -165,6 +165,6 @@ Essa opção é usada quando você divide um conjunto de um DataSet em várias p
 > [!NOTE]
 >  Você não pode exibir as designações de dobra diretamente; Eles estão presentes apenas nos metadados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

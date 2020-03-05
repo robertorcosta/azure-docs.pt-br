@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 895d82eb79e4674ca95b9052d2384a257b296bf5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980672"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250041"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de uso em modelos do Azure Resource Manager
 
@@ -37,14 +37,14 @@ Este tutorial aborda apenas um cenário básico de como usar as condições. Par
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
 * Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 

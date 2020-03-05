@@ -8,33 +8,33 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961787"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270818"
 ---
 # <a name="application-settings"></a>Configurações do aplicativo
 
 Essas configurações de aplicativo são armazenadas no aplicativo [exportado](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e [atualizadas](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com as APIs REST. Alterar as configurações de versão do aplicativo redefine o status de treinamento do aplicativo como não treinado.
 
-|Configuração|Valor padrão|Observações|
+|Configuração|Valor padrão|{1&gt;Observações&lt;1}|
 |--|--|--|
-|NormalizePunctuation|verdadeiro|Remove a pontuação.|
-|NormalizeDiacritics|verdadeiro|Remove diacríticos.|
+|NormalizePunctuation|True|Remove a pontuação.|
+|NormalizeDiacritics|True|Remove diacríticos.|
 
-## <a name="diacritics-normalization"></a>Normalização de diacríticos 
+## <a name="diacritics-normalization"></a>Normalização de diacríticos
 
 Ative a normalização de expressão para diacríticos para o arquivo de aplicativo JSON LUIS no parâmetro `settings`.
 
 ```JSON
 "settings": [
     {"name": "NormalizeDiacritics", "value": "true"}
-] 
+]
 ```
 
 O declarações a seguir mostra como a normalização de diacríticos afeta o declarações:
@@ -61,7 +61,7 @@ O declarações a seguir mostra como a normalização de diacríticos afeta o de
 |`ó`|`o`|
 |`ô`|`o`|
 |`õ`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |||
 
 #### <a name="dutch-nl-nl-diacritics"></a>`nl-nl` diacríticos em Holandês
@@ -77,7 +77,7 @@ O declarações a seguir mostra como a normalização de diacríticos afeta o de
 |`í`|`i`|
 |`ó`|`o`|
 |`ö`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |`ü`|`u`|
 |||
 
@@ -91,24 +91,24 @@ Isso inclui as subculturas francesa e canadense.
 |`à`|`a`|
 |`è`|`e`|
 |`ù`|`u`|
-|`â`|`a`| 
-|`ê`|`e`| 
-|`î`|`i`| 
-|`ô`|`o`| 
-|`û`|`u`| 
-|`ç`|`c`| 
-|`ë`|`e`| 
-|`ï`|`i`| 
-|`ü`|`u`| 
-|`ÿ`|`y`| 
+|`â`|`a`|
+|`ê`|`e`|
+|`î`|`i`|
+|`ô`|`o`|
+|`û`|`u`|
+|`ç`|`c`|
+|`ë`|`e`|
+|`ï`|`i`|
+|`ü`|`u`|
+|`ÿ`|`y`|
 
 #### <a name="german-de-de-diacritics"></a>`de-de` diacríticos em alemão
 
 |Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |--|--|
 |`ä`|`a`|
-|`ö`|`o`| 
-|`ü`|`u`| 
+|`ö`|`o`|
+|`ü`|`u`|
 
 #### <a name="italian-it-it-diacritics"></a>`it-it` diacríticos em Italiano
 
@@ -117,11 +117,11 @@ Isso inclui as subculturas francesa e canadense.
 |`à`|`a`|
 |`è`|`e`|
 |`é`|`e`|
-|`ì`|`i`| 
-|`í`|`i`| 
-|`î`|`i`| 
-|`ò`|`o`| 
-|`ó`|`o`| 
+|`ì`|`i`|
+|`í`|`i`|
+|`î`|`i`|
+|`ò`|`o`|
+|`ó`|`o`|
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -133,8 +133,8 @@ Isso inclui espanhol e Canadá mexicano.
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
-|`í`|`i`| 
-|`ó`|`o`| 
+|`í`|`i`|
+|`ó`|`o`|
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
@@ -147,7 +147,7 @@ Ative a normalização de expressão para pontuação em seu arquivo de aplicati
 ```JSON
 "settings": [
     {"name": "NormalizePunctuation", "value": "true"}
-] 
+]
 ```
 
 O declarações a seguir mostra como a pontuação afeta declarações:
@@ -163,8 +163,8 @@ A pontuação a seguir é removida com `NormalizePunctuation` está definida com
 
 |Pontuação|
 |--|
-|`-`| 
-|`.`| 
+|`-`|
+|`.`|
 |`'`|
 |`"`|
 |`\`|

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
-ms.openlocfilehash: a91246e4a4b3dc98bf11d2b014478fd40252f14b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508018"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270414"
 ---
 # <a name="sentiment-analysis"></a>Análise de sentimento
 Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluirá a análise de sentimento. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
@@ -26,7 +26,7 @@ Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluir
 
 Dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados.
 
-#### <a name="english-languagetabenglish"></a>[Idioma inglês](#tab/english)
+#### <a name="english-language"></a>[Idioma inglês](#tab/english)
 
 Quando a cultura for `en-us`, a resposta será:
 
@@ -37,7 +37,7 @@ Quando a cultura for `en-us`, a resposta será:
 }
 ```
 
-#### <a name="other-languagestabother-languages"></a>[Outras linguagens](#tab/other-languages)
+#### <a name="other-languages"></a>[Outras linguagens](#tab/other-languages)
 
 Para todas as outras culturas, a resposta é:
 
@@ -46,9 +46,9 @@ Para todas as outras culturas, a resposta é:
   "score": 0.9163064
 }
 ```
-* * * 
+* * *
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 

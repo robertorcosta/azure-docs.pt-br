@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 9e9aa3fc7c0ff76f6b93a8acc67681d1ed7cf4ad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491232"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270506"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entidade de percentual predefinida para um aplicativo LUIS
-Números de percentual podem aparecer como frações, `3 1/2` ou como percentual, `2%`. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo percentual às intenções do aplicativo. A entidade de percentual é compatível com [muitas culturas](luis-reference-prebuilt-entities.md). 
+Números de percentual podem aparecer como frações, `3 1/2` ou como percentual, `2%`. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo percentual às intenções do aplicativo. A entidade de percentual é compatível com [muitas culturas](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-percentage"></a>Tipos de percentual
 O percentual é gerenciado usando o repositório do GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
@@ -30,7 +30,7 @@ Os seguintes objetos de entidade são retornados para a consulta:
 
 `set a trigger when my stock goes up 2%`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
 O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 
@@ -41,7 +41,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
 O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ```json
@@ -66,7 +66,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
 
 O exemplo a seguir mostra a resolução da entidade **builtin.percentage**.
 
@@ -83,10 +83,10 @@ O exemplo a seguir mostra a resolução da entidade **builtin.percentage**.
     }
 ]
 ```
-* * * 
+* * *
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre as entidades [ordinal](luis-reference-prebuilt-ordinal.md), [número](luis-reference-prebuilt-number.md) e [temperatura](luis-reference-prebuilt-temperature.md). 
+Saiba mais sobre as entidades [ordinal](luis-reference-prebuilt-ordinal.md), [número](luis-reference-prebuilt-number.md) e [temperatura](luis-reference-prebuilt-temperature.md).

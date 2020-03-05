@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99859fb695281324148683fac24c9e7b8463ef5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977890"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248230"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 > * Obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM do Windows para chamar o Azure Resource Manager
 > * Obter chaves de acesso do Azure Resource Manager para realizar chamadas do Cosmos DB
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -128,13 +128,13 @@ A resposta fornece a lista de chaves.  Por exemplo, se você receber as chaves s
 ```
 Agora que você tem a chave de acesso para a conta do Cosmos DB, pode passá-la para um SDK do Cosmos DB e fazer chamadas para acessar a conta.  Como exemplo rápido, você pode passar a chave de acesso para a CLI do Azure.  Você pode obter o `<COSMOS DB CONNECTION URL>` na guia **Visão geral** da folha da conta do Cosmos DB no portal do Azure.  Substitua o `<ACCESS KEY>` pelo valor obtido acima:
 
-```bash
+```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
 Esse comando de CLI retorna detalhes sobre a coleção:
 
-```bash
+```output
 {
   "collection": {
     "_conflicts": "conflicts/",

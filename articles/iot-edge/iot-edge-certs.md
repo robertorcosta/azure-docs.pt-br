@@ -8,12 +8,12 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a222f72e705184c5a7ba6701cfda41073c7eba57
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548740"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269044"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entender como Azure IoT Edge usa certificados
 
@@ -69,7 +69,7 @@ Como os processos de fabricação e operação são separados, considere as segu
 
 * Com qualquer processo baseado em certificado, o certificado de CA raiz e todos os certificados de CA intermediários devem ser protegidos e monitorados durante todo o processo de implantação de um dispositivo IoT Edge. O fabricante do dispositivo IoT Edge deve ter processos robustos para armazenamento e uso adequados de seus certificados intermediários. Além disso, o certificado de CA do dispositivo deve ser mantido o mais seguro possível no próprio dispositivo, de preferência um módulo de segurança de hardware.
 
-* O certificado do servidor de hub do IoT Edge é apresentado pelo hub do IoT Edge aos dispositivos e módulos do cliente que está se conectando. O CN (nome comum) do Certificado de Autoridade de Certificação **não deve ser** igual ao "nome do host" que será usado em config.yaml no dispositivo IoT Edge. O nome usado pelos clientes para se conectar ao IoT Edge (por exemplo, por meio do parâmetro GatewayHostName da cadeia de conexão ou do comando CONECTAR no MQTT) **não pode ser** o mesmo nome comum usado no Certificado de Autoridade de Certificação do dispositivo. Essa restrição acontece porque o hub do IoT Edge apresenta toda a sua cadeia de certificados para verificação pelos clientes. Se o certificado do servidor de hub do IoT Edge e o Certificado de Autoridade de Certificação do dispositivo tiverem o mesmo CN, você entrará em um loop de verificação e o certificado será invalidado.
+* O certificado do servidor de hub do IoT Edge é apresentado pelo hub do IoT Edge aos dispositivos e módulos do cliente que está se conectando. O CN (nome comum) do Certificado de Autoridade de Certificação **não deve ser** igual ao "nome do host" que será usado em config.yaml no dispositivo IoT Edge. O nome usado pelos clientes para se conectar ao IoT Edge (por exemplo, por meio do parâmetro GatewayHostName da cadeia de conexão ou do comando CONNECT em MQTT) **não pode ser** igual ao nome comum usado no certificado de autoridade de certificação do dispositivo. Essa restrição acontece porque o hub do IoT Edge apresenta toda a sua cadeia de certificados para verificação pelos clientes. Se o certificado do servidor de hub do IoT Edge e o Certificado de Autoridade de Certificação do dispositivo tiverem o mesmo CN, você entrará em um loop de verificação e o certificado será invalidado.
 
 * Como o Certificado de Autoridade de Certificação do dispositivo é usado pelo daemon de IoT Edge Security para gerar os certificados finais da IoT Edge, ele deve ser um certificado de assinatura, o que significa que ele tem recursos de assinatura de certificado. A aplicação de "V3 Basic constraints CA:True" ao Certificado de Autoridade de Certificação do dispositivo configura automaticamente as propriedades de uso de chave necessárias.
 
@@ -98,7 +98,7 @@ Você pode ver a hierarquia da profundidade do certificado representada na captu
 | Certificado de CA da carga de trabalho     | carga de trabalho iotedge ca                                                                                       |
 | Certificado do servidor de hub do IoT Edge | iotedgegw.local (corresponde a 'hostname' do config. YAML)                                            |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Entenda os módulos do Azure IoT Edge](iot-edge-modules.md)
 

@@ -7,24 +7,24 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818926"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273513"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para seu modelo e suas chaves do LUIS
-O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
+O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS.
 
 
 ## <a name="model-boundaries"></a>Limites de modelo
 
-Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere usar um aplicativo de [expedição LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou um [contêiner LUIS](luis-container-howto.md). 
+Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere usar um aplicativo de [expedição LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou um [contêiner LUIS](luis-container-howto.md).
 
 |Área|Limite|
 |--|:--|
@@ -49,7 +49,7 @@ Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere 
 | [Versões](luis-concept-version.md)| 100 versões por aplicativo |
 | [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos a alfanuméricos e ponto (.) |
 
-*O máximo de caracteres padrão é 50 caracteres. 
+*O máximo de caracteres padrão é 50 caracteres.
 
 <a name="intent-and-entity-naming"></a>
 
@@ -60,19 +60,19 @@ Use as regras de exclusividade de nomenclatura a seguir.
 O seguinte deve ser exclusivo em um aplicativo LUIS:
 
 * Nome da versão
-* tentativa
+* intenção
 * entidade
 * funções
 
 O seguinte deve ser exclusivo dentro do escopo aplicado:
 
-* lista de frases 
+* lista de frases
 
 ## <a name="object-naming"></a>Nomenclatura de objeto
 
 Não use os seguintes caracteres nos nomes a seguir.
 
-|Objeto|Excluir caracteres|
+|Object|Excluir caracteres|
 |--|--|
 |Nomes de intenção, entidade e função|`:`<br>`$` <br> `&`|
 |Nome da versão|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
@@ -85,13 +85,13 @@ O Reconhecimento Vocal tem chaves separadas: um tipo para criação e outro para
 
 ## <a name="resource-key-limits"></a>Limites de chave de recurso
 
-As chaves de recurso têm limites diferentes para criação e ponto de extremidade. A chave do ponto de extremidade de consulta de previsão LUIS só é válida para consultas de ponto de extremidade. 
+As chaves de recurso têm limites diferentes para criação e ponto de extremidade. A chave do ponto de extremidade de consulta de previsão LUIS só é válida para consultas de ponto de extremidade.
 
-* 500 aplicativos por recurso de criação do Azure 
+* 500 aplicativos por recurso de criação do Azure
 
 |Chave|Criação|Ponto de extremidade|Finalidade|
 |--|--|--|--|
-|Starter|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criando seu aplicativo LUIS|
+|Inicial|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criando seu aplicativo LUIS|
 |F0-camada gratuita |1 milhão/mês, 5/segundo|10 mil/mês, 5/segundo|Consultando seu ponto de extremidade LUIS|
 |S0 – camada básica|-|50/segundo|Consultando seu ponto de extremidade LUIS|
 |S0 – camada padrão|-|50/segundo|Consultando seu ponto de extremidade LUIS|
@@ -102,7 +102,7 @@ As chaves de recurso têm limites diferentes para criação e ponto de extremida
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 
-|Entrada de teclado | DESCRIÇÃO | 
+|Entrada de teclado | Descrição |
 |--|--|
 |Control+E|alterna entre tokens e entidades na lista de declarações|
 

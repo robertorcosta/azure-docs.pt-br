@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
-ms.openlocfilehash: b5382a6a1ea381d57a026e9d42190152e38f7696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7812b62e2de3181ae1a901241a977e37f855704b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209533"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268034"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como usar o armazenamento de filas do Azure v 2.1 do Python
 
@@ -41,7 +41,7 @@ O [SDK do armazenamento do Azure para Python](https://github.com/azure/azure-sto
 Para instalar por meio do Índice de Pacote do Python (PyPI), digite:
 
 ```bash
-pip install azure-storage-blob==2.1.0
+pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Para métodos de instalação alternativos, confira o [SDK do Armazenamento do A
 
 Para exibir e executar um aplicativo de exemplo que mostra como usar o Python com filas do Azure, consulte [armazenamento do Azure: introdução com filas do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
 
-Para executar o aplicativo de exemplo, verifique se você instalou ambos os pacotes `azure-storage-queue` e `azure-storage-common`.
+Para executar o aplicativo de exemplo, verifique se você instalou os pacotes `azure-storage-queue` e `azure-storage-common`.
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
@@ -146,7 +146,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método [delet
 queue_service.delete_queue('taskqueue')
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais.
 

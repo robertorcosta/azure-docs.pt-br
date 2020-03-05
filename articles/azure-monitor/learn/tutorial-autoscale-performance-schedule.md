@@ -3,18 +3,17 @@ title: Dimensionar automaticamente os recursos do Azure com base em dados de des
 description: Criar uma configuração de dimensionamento automático para um plano do serviço de aplicativo usando dados de métrica e um agendamento
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088342"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661645"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
@@ -160,7 +159,7 @@ A condição de redução horizontal na configuração de dimensionamento autom�
 
     ![Exibir as ações de redução horizontal](./media/tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. No menu à esquerda do portal do Azure, clique em **Todos os recursos** e, em seguida, selecione o Aplicativo Web criado neste tutorial.
 

@@ -4,18 +4,18 @@ description: Aprenda a implantar no Azure Functions usando o plug-in Jenkins do 
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470659"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250917"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Implantar no Azure Functions usando o plug-in Jenkins do Azure Functions
 
 O [Azure Functions](/azure/azure-functions/) é um serviço de computação sem servidor. Usando o Azure Functions, você pode executar código sob demanda sem provisionamento nem gerenciamento de infraestrutura. Este tutorial mostra como implantar uma função Java no Azure Functions usando o plug-in do Azure Functions.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - **Servidor Jenkins**: se você não tiver um servidor Jenkins instalado, leia o artigo [Criar um servidor Jenkins no Azure](./install-jenkins-solution-template.md).
@@ -31,19 +31,19 @@ As etapas a seguir mostram como criar uma função Java usando a CLI do Azure:
 
 1. Crie um grupo de recursos substituindo o espaço reservado **&lt;resource_group>** pelo nome do seu grupo de recursos.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. Crie uma conta de armazenamento do Azure substituindo os espaços reservados pelos valores apropriados.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Crie o aplicativo de funções de teste substituindo os espaços reservados pelos valores apropriados.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -148,7 +148,7 @@ Agora é hora de executar o trabalho do Jenkins.
 
 Se você não quiser continuar usando este aplicativo, exclua os recursos associados que você criou com a seguinte etapa:
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

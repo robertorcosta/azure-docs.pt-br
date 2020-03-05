@@ -6,27 +6,27 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075119"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272937"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento interno usando o Azure PowerShell
 
-Você pode usar o Azure PowerShell para configurar o [redirecionamento do tráfego da Web](multiple-site-overview.md) ao criar um [gateway de aplicativo](overview.md). Neste tutorial, você define pools de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, configura ouvintes e regras com base em domínios que você tem, para garantir que o tráfego da Web chegue ao pool apropriado. Este tutorial pressupõe que você possui vários domínios e usa exemplos de *www.contoso.com* e *www\.contoso.org*.
+Você pode usar o Azure PowerShell para configurar o [redirecionamento do tráfego da Web](multiple-site-overview.md) ao criar um [gateway de aplicativo](overview.md). Neste tutorial, você define pools de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, configura ouvintes e regras com base em domínios que você tem, para garantir que o tráfego da Web chegue ao pool apropriado. Este tutorial pressupõe que você possui vários domínios e usa exemplos de *www\.contoso.com* e *www\.contoso.org*.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicativo
+> * Criar um Gateway de Aplicativo
 > * Adicionar ouvintes e regras de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
-> * Criar um registro CNAME em seu domínio
+> * Criar um registro CNAME no seu domínio
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-Crie as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações e sub-rede. Por fim, crie o endereço IP público nomeado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway do aplicativo e seus recursos associados.
+Crie as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações e sub-rede. Por fim, crie o endereço IP público nomeado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway de aplicativo e seus recursos associados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -68,7 +68,7 @@ $pip = New-AzPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e porta de front-end
 
@@ -107,9 +107,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Criar o primeiro ouvinte e a regra
 
-Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *www.contoso.com* e *www\.contoso.org*.
+Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para o pool de back-end. Neste tutorial, você cria dois ouvintes para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *www\.contoso.com* e *www\.contoso.org*.
 
-Crie o primeiro ouvinte chamado *contosoComListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração de front-end e a porta de front-end que você criou anteriormente. Uma regra é necessária para o ouvinte saber qual pool de back-end a ser usado para o tráfego de entrada. Crie uma regra básica chamada *contosoComRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Crie o primeiro ouvinte chamado *contosoComListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração de front-end e a porta de front-end que você criou anteriormente. Uma regra é necessária para o ouvinte saber qual pool de back-end deve ser usado para tráfego de entrada. Crie uma regra básica chamada *contosoComRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosoComlistener = New-AzApplicationGatewayHttpListener `
@@ -222,7 +222,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais que oferece suporte ao pool de back-end criado. O conjunto de dimensionamento criado é chamado *myvmss* e contém duas instâncias de máquina virtual em que você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando você define as configurações de IP.
+Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais que oferece suporte ao pool de back-end criado. O conjunto de dimensionamento criado é chamado *myvmss* e contém duas instâncias de máquina virtual em que você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -247,7 +247,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -284,7 +284,7 @@ Update-AzVmss `
 
 ## <a name="create-cname-record-in-your-domain"></a>Criar um registro CNAME em seu domínio
 
-Depois de criar o gateway de aplicativo com seu endereço IP público, você pode obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Você pode usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendável, pois o VIP pode mudar quando o gateway de aplicativo for reinicializado.
+Depois de criar o gateway de aplicativo com seu endereço IP público, é possível obter o endereço DNS e usá-lo para criar um registro CNAME em seu domínio. Você pode usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway de aplicativo. Copie o valor de *fqdn* em DNSSettings e use-o como o valor do registro CNAME a ser criado. O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway de aplicativo for reiniciado.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -296,15 +296,15 @@ Digite seu nome de domínio na barra de endereços do navegador. Como, [https://
 
 ![Testar o site contoso no gateway do aplicativo](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Altere o endereço para seu outro domínio, por exemplo https://www.contoso.org e você verá que o tráfego foi Redirecionado de volta para o ouvinte para `www.contoso.com`.
+Altere o endereço para seu outro domínio, por exemplo https://www.contoso.org e você verá que o tráfego foi Redirecionado de volta para o ouvinte para www\.contoso.com.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicativo
+> * Criar um Gateway de Aplicativo
 > * Adicionar ouvintes e regras de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com os pools de back-end
-> * Criar um registro CNAME em seu domínio
+> * Criar um registro CNAME no seu domínio

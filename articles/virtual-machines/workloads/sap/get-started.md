@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/27/2020
+ms.date: 03/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 64aa6dcd9d21d2102c5d61dbc050fc9aa07aa534
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0219b3e35ed82795e9c799754cabdeb5d17096d6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163855"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267403"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -56,27 +56,19 @@ Esta seção da documentação aborda diferentes aspectos do SAP HANA. Como pré
 
 Para obter informações sobre o HANA no Azure, consulte os seguintes artigos e seus subartigos:
 
-- [Início Rápido: instalação manual do SAP HANA de instância única em VMs do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)re
-- [Implantar o SAP S/4HANA ou o BW/4HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
 - [Configurações de infraestrutura do SAP HANA e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 - [Alta disponibilidade do SAP HANA para máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
-- [Disponibilidade do SAP HANA em uma região do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
-- [Disponibilidade do SAP HANA entre regiões do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
 - [Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
 - [Guia de backup para SAP HANA em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-- [Backup do Azure do SAP HANA no nível do arquivo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Backup do SAP HANA com base em instantâneos de armazenamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+
 
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP NetWeaver implantado em máquinas virtuais do Azure
 Esta seção lista a documentação de planejamento e implantação para o SAP NetWeaver e Business One no Azure. A documentação se concentra nas noções básicas e no uso de bancos de dados não HANA com uma carga de trabalho do SAP no Azure. Os documentos e artigos para alta disponibilidade também são a base para a alta disponibilidade do HANA no Azure, como:
 
+- [Guia de planejamento do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
 - [SAP Business One em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
-- [Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)
-- [Executar o SAP NetWeaver em VMs Microsoft Azure SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
-- [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-- [Implantação de Máquinas Virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
 - [Proteger uma implantação de aplicativo do SAP NetWeaver de várias camadas usando Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
 - [Conector SAP LaMa para o Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/lama-installation)
 
@@ -117,6 +109,8 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 
 ## <a name="change-log"></a>Log de Alterações
+- 03/03/2020: alteração na [alta disponibilidade para o SAP NW em VMs do Azure no SLES com seja para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) para alterar para um layout de volume seja mais eficiente
+- 03/01/2020: [Guia de backup retrabalhado para SAP Hana em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) para incluir o serviço de backup do Azure. Conteúdo reduzido e condensado em [SAP Hana backup do Azure em nível de arquivo](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) e excluiu um terceiro documento lidando com o backup por meio de instantâneo de disco. O conteúdo é tratado no guia de backup para SAP HANA em máquinas virtuais do Azure 
 - 02/27/2020: alteração na [alta disponibilidade para o SAP NW em VMs do Azure no SLES para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [alta disponibilidade para SAP NW em VMs do Azure no SLES com seja para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e [alta disponibilidade para SAP NetWeaver em VMs do Azure em um guia de vários SID do SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) para ajustar o parâmetro de cluster "on Fail"
 - 02/26/2020: alterar em [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para esclarecer a opção do sistema de arquivos para o Hana no Azure
 - 02/26/2020: alteração na [arquitetura e nos cenários de alta disponibilidade para o SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) incluir o link para a ha para SAP NetWeaver em VMs do Azure no guia de vários SID do RHEL

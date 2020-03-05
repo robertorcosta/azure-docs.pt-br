@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 6dc8c54b9d138ab62e086cca59cd5b4801fa6130
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228343"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269433"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar drivers do AMD GPU em VMs da série N que executam o Windows
 
@@ -29,7 +29,7 @@ Para especificações básicas, capacidades de armazenamento e detalhes de disco
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
-| OS | Driver |
+| Sistema operacional | Driver |
 | -------- |------------- |
 | Windows 10 EVD-Build 1903 <br/><br/>Windows 10-Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (. exe) |
 
@@ -43,6 +43,8 @@ Para especificações básicas, capacidades de armazenamento e detalhes de disco
 3. Inicie a VM e desinstale o driver de visualização executando "amdcleanuputility-x64. exe" localizado na pasta ". ..\AMDCleanUninstallUtility". O caminho exato variará com base em onde estão os arquivos de instalação do driver anteriores.  
 
 4. Baixe e instale o driver mais recente.
+
+5. Reinicialize a VM.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 

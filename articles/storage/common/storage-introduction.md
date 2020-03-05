@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ddd4f45e88c0bcc63fb62cc816fae4dbad255841
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 602f5a794f90e52ac80ea71ea2ed3656a7e0e5e7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157577"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269470"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -141,7 +141,7 @@ Os recursos do Armazenamento do Azure podem ser acessados por qualquer linguagem
 - [API REST de Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/)
 - [Biblioteca de cliente de armazenamento do Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Biblioteca de cliente de armazenamento do Azure para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteca de cliente de armazenamento do Azure para node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage)
+- [Biblioteca de cliente de armazenamento do Azure para node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Biblioteca de cliente de armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteca de cliente de armazenamento do Azure para PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteca de cliente de armazenamento do Azure para Ruby](https://github.com/Azure/azure-storage-ruby)
@@ -167,6 +167,6 @@ Os recursos do Armazenamento do Azure podem ser acessados por qualquer linguagem
 - [Ferramentas de Cliente do Armazenamento do Azure](../storage-explorers.md)
 - [Ferramentas para desenvolvedores do Azure](https://azure.microsoft.com/tools/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para colocar o Armazenamento do Azure em funcionamento, confira [Criar uma conta de armazenamento](storage-account-create.md).

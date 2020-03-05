@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423772"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267782"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro no Azure Data Factory
 
@@ -26,7 +26,7 @@ O formato Avro tem suporte para os seguintes conectores: [Amazon S3](connector-a
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de conjuntos Avro.
 
-| Propriedade         | DESCRIÇÃO                                                  | Obrigatório |
+| Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Avro**. | Sim      |
 | local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
@@ -67,7 +67,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
 
-| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **AvroSource**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
@@ -76,16 +76,20 @@ As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade 
 
 As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
 
-| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **AvroSink**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
 ## <a name="data-type-support"></a>Suporte do tipo de dados
 
-Não há suporte para [tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) do Avro (registros, enumerações, matrizes, mapas, uniões e fixos).
+### <a name="copy-activity"></a>Atividade de cópia
+[Os tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) do Avro não têm suporte (registros, enumerações, matrizes, mapas, uniões e fixos) na atividade de cópia.
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="data-flows"></a>Fluxos de dados
+Ao trabalhar com arquivos Avro em fluxos de dados, você pode ler e gravar tipos de dados complexos, mas certifique-se de limpar primeiro o esquema físico do DataSet. Em fluxos de dados, você pode definir sua projeção lógica e derivar colunas que são estruturas complexas e, em seguida, mapear automaticamente esses campos para um arquivo Avro.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
