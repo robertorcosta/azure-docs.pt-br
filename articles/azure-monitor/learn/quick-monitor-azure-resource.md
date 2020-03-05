@@ -1,18 +1,17 @@
 ---
 title: Monitorar um recurso do Azure com o Azure Monitor
 description: Saiba como coletar e analisar dados para um recurso do Azure no Azure Monitor.
-ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 3081c0f8fa8450643a992c8e82840a44db263f76
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c4b80e62d3800392b847a411dfc66c3278e72bba
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863971"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661857"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Início Rápido: Monitorar um recurso do Azure com o Azure Monitor
 O [Azure Monitor](../overview.md) inicia a coleta de dados dos recursos do Azure no momento em que eles são criados. Este guia de início rápido apresenta uma breve explicação dos dados coletados automaticamente para um recurso e como exibi-los no portal do Azure para um recurso específico. Posteriormente, você pode adicionar a configuração para coletar dados adicionais e acessar o menu de Azure Monitor para usar as mesmas ferramentas para acessar os dados coletados para todos os recursos em sua assinatura.

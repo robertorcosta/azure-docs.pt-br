@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 9cab78e85b8644f29bfcd067b104b1b5c10c2266
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8c7c9c2e3a1195422db30ba913b1cea3a1a360e4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249847"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301685"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -59,7 +59,7 @@ Conclua estas tarefas antes de iniciar este tutorial:
 
    Há algumas tarefas específicas que você precisará realizar conforme executar as etapas deste artigo.
 
-   * Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço no escopo da conta do Data Lake Storage Gen2. Se você atribuir uma função ao grupo de recursos pai ou à assinatura, receberá erros relacionados a permissões até que essas atribuições de função sejam propagadas para a conta de armazenamento.
+   * Ao executar as etapas da seção [Atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) do artigo, atribua a função **Colaborador dos Dados do Storage Blob** à entidade de serviço no escopo da conta do Data Lake Storage Gen2. Se você atribuir uma função ao grupo de recursos pai ou à assinatura, receberá erros relacionados a permissões até que essas atribuições de função sejam propagadas para a conta de armazenamento.
 
       Se você preferir usar uma ACL (lista de controle de acesso) para associar a entidade de serviço a um arquivo ou diretório específico, confira [Controle de acesso no Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 

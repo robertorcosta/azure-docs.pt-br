@@ -3,16 +3,16 @@ title: Solucionar problemas de acesso ao Portal do EA do Azure
 description: Este artigo descreve alguns problemas comuns que podem ocorrer com um EA (Contrato Enterprise do Azure) no Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 486244e5d2ae3942005be3b5e2891f6316e945d6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3e488cab2705458cfce8517fcbe7c72ce8843596
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200754"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272280"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solucionar problemas de acesso ao Portal do EA do Azure
 

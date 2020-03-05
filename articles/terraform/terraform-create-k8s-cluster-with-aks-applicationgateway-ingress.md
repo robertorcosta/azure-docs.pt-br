@@ -3,12 +3,12 @@ title: Tutorial – Criar um controlador de entrada do Gateway de Aplicativo no 
 description: Tutorial que ilustra como criar um cluster Kubernetes com o Serviço de Kubernetes do Azure usando o Gateway de Aplicativo como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 14b8f6ba74a06c126da239671cbb2053df19af7d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472257"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251769"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Criar um controlador de entrada do Gateway de Aplicativo no Serviço de Kubernetes do Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Usar o Terraform e o AKS para criar um cluster do Kubernetes.
 > * Usar a ferramenta kubectl para testar a disponibilidade de um cluster do Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
@@ -765,7 +765,7 @@ Quando não forem mais necessários, exclua os recursos criados neste artigo.
 
 Substitua o espaço reservado pelo valor adequado. Todos os recursos dentro dos grupos de recursos especificados serão excluídos.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 

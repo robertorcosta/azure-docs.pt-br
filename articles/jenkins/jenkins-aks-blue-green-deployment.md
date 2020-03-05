@@ -4,12 +4,12 @@ description: Saiba como implantar no Azure Kubernetes Service (AKS) usando o Jen
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, implantação azul verde, entrega contínua, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: ae9c496cd820bf1263cac50fb676990ed65ed0ba
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158544"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251470"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul / verde
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 > * Configurar manualmente um cluster de Kubernetes
 > * Criar e executar um trabalho do Jenkins
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 - [Conta do GitHub](https://github.com): é necessário ter uma conta do GitHub para clonar o repositório de exemplo.
 - [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): a CLI do Azure 2.0 é usada para criar o cluster do Kubernetes.
 - [Chocolatey](https://chocolatey.org): um gerenciador de pacotes que você usa para instalar o kubectl.
@@ -82,21 +82,21 @@ Nesta seção, você executa as seguintes etapas:
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Usar a CLI 2.0 do Azure para criar um cluster de Kubernetes gerenciado
 Para criar um cluster do Kubernetes gerenciado com o [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), verifique se você está usando a CLI do Azure versão 2.0.25 ou posterior.
 
-1. Entre na sua conta do Azure. Depois de digitar o seguinte comando, você receberá instruções que explicam como concluir a entrada. 
+1. Entre em sua conta do Azure. Depois de digitar o seguinte comando, você receberá instruções que explicam como concluir a entrada. 
     
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Quando você executa o `az login` de comando na etapa anterior, será exibida uma lista de todas as suas assinaturas do Azure (juntamente com suas IDs de assinatura). Nesta etapa, você deve definir a assinatura do Azure padrão. Substitua o espaço reservado &lt;your-subscription-id > pela ID de assinatura do Azure desejada. 
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 1. Crie um grupos de recursos. Substitua o espaço reservado &lt;your-resource-group-name > pelo nome do novo grupo de recursos e substitua o espaço reservado &lt;your-location> pelo local. O comando `az account list-locations` exibe todos os locais do Azure. Durante a visualização do AKS, nem todos os locais estão disponíveis. Se você inserir um local que não é válido no momento, a mensagem de erro listará os locais disponíveis.
 
-    ```bash
+    ```azurecli
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
@@ -129,7 +129,7 @@ Você pode configurar uma implantação azul / verde no AKS manualmente ou com u
 #### <a name="set-up-a-kubernetes-cluster-manually"></a>Configurar um cluster de Kubernetes manualmente 
 1. Baixe a configuração do Kubernetes na sua pasta de perfil.
 
-    ```bash
+    ```azurecli
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
@@ -157,13 +157,13 @@ Você pode configurar uma implantação azul / verde no AKS manualmente ou com u
     
     Atualize o nome DNS do endereço IP correspondente com o seguinte comando:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
     Repita a chamada para `todoapp-test-blue` e `todoapp-test-green`:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
@@ -175,13 +175,13 @@ Você pode configurar uma implantação azul / verde no AKS manualmente ou com u
 
 1. Execute o comando `az acr create` para criar uma instância do Container Registry. Na próxima seção, você pode usar `login server` como a URL de registro do Docker.
 
-    ```bash
+    ```azurecli
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
 1. Execute o `az acr credential` comando para mostrar suas credenciais de registro de contêiner. Observe o nome de usuário de registro de Docker e a senha, conforme necessário na próxima seção.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <your-registry-name>
     ```
 
@@ -224,7 +224,7 @@ Nesta seção, você verá como preparar o servidor Jenkins para executar uma co
 
 1. Em seu próprio repo, vá para `/deploy/aks/` e abra `Jenkinsfile`.
 
-2. Atualize o arquivo conforme descrito a seguir:
+2. Atualize o arquivo desta maneira:
 
     ```groovy
     def servicePrincipalId = '<your-service-principal>'
@@ -255,7 +255,7 @@ Nesta seção, você verá como preparar o servidor Jenkins para executar uma co
 
 ## <a name="run-the-job"></a>Executar o trabalho
 
-1. Verifique se é possível executar o projeto com êxito no ambiente local. Faça assim: [Executar o projeto no computador local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Verifique se é possível executar o projeto com êxito no ambiente local. Veja como: [Executar o projeto no computador local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Execute o trabalho do Jenkins. Na primeira vez que você executar o trabalho, o Jenkins implanta o aplicativo todo no ambiente azul, que é o ambiente inativos do padrão. 
 
@@ -272,15 +272,15 @@ Se você executar a compilação mais de uma vez, ele percorre as implantações
 
 Para obter mais informações sobre a implantação de tempo de inatividade zero, consulte este [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você não precisa mais os recursos criados neste tutorial, você pode excluí-los.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 

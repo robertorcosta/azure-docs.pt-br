@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: daba49e6861eb67fd07c6fcf618b2b2d6cdd8c89
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 424ef37885d685829a11d1864a72b043a562231c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133814"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920545"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabalho do Red Hat no Azure
 As cargas de trabalho do Red Hat são compatíveis por meio de uma variedade de ofertas no Azure. As imagens do Red Hat Enterprise Linux (RHEL) estão no núcleo das cargas de trabalho do RHEL, assim como a RHUI (Infraestrutura de atualização do Red Hat).
@@ -39,7 +39,7 @@ O Azure também oferece imagens do Red Hat Gold. Essas imagens podem ser úteis 
 > Observação sobre a cobrança dupla: A cobrança dupla incorre quando um usuário paga duas vezes por assinaturas do RHEL. Isso geralmente acontece quando um cliente usa o gerenciador de assinaturas para anexar um direito em uma VM RHEL PAYG. Por exemplo, um cliente que usa o gerenciador de assinaturas para anexar um direito para pacotes do SAP em uma imagem RHEL PAYG será indiretamente cobrado duas vezes, pois pagará duas vezes pelo RHEL: uma por meio do valor do PAYG Premium e uma vez por meio de sua assinatura do SAP. Isso não ocorrerá para usuários da imagem BYOS.
 
 ### <a name="generation-2-images"></a>Imagens da Geração 2
-As VMs da Geração 2 fornecem alguns recursos mais recentes em comparação às VMs da geração 1. Os dados são apresentados na [Documentação da Geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS e usam uma GPT (Tabela de partição GUID) em vez de um MBR (Registro mestre de inicialização) no momento da inicialização. Isso permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series) são executadas apenas nas imagens da Geração 2.
+As VMs da Geração 2 fornecem alguns recursos mais recentes em comparação às VMs da geração 1. Os dados são apresentados na [Documentação da Geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS e usam uma GPT (Tabela de partição GUID) em vez de um MBR (Registro mestre de inicialização) no momento da inicialização. Isso permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](../../mv2-series.md) são executadas apenas nas imagens da Geração 2.
 
 As imagens do RHEL de Geração 2 estão disponíveis no mercado. Procure por "gen2" na SKU da imagem ao listar todas as imagens usando a CLI do Azure e vá para a guia "Avançado" no processo de implantação da VM para implantar uma VM da Geração 2.
 

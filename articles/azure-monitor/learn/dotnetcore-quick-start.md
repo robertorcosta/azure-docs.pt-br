@@ -1,19 +1,18 @@
 ---
 title: Início Rápido do ASP.NET Core – Application Insights do Azure Monitor
 description: Fornece instruções para configurar rapidamente um Aplicativo Web ASP.NET Core para monitoramento com o Application Insights do Azure Monitor
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: e05926d7a76f47cc3c95088fa2d8f1a6e385bbbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa1651e88226080cca970cc756f2c0522b39f1be
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399026"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670620"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -21,7 +20,7 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo W
 
 Este guia de início rápido lhe ajuda a adicionar o SDK do Application Insights para um aplicativo Web ASP.NET Core existente. Para saber mais sobre como configurar o Application Insights sem o Visual Studio, confira esse [artigo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
@@ -50,7 +49,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
     Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-   | Configurações        |  Valor           | DESCRIÇÃO  |
+   | Configurações        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights. é possível criar um grupo de recursos ou usar um grupo existente. |

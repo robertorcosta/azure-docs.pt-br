@@ -6,18 +6,18 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Node.js no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: edece2d2100ce24d244cfd70936d850e1cf2f66e
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 74063e03e8298e388efd6888fc05bcbbc9aefa4b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602675"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245073"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes com o Visual Studio Code e o Node.js no Kubernetes – Azure Dev Spaces
 
 Neste início rápido, você configurará o Azure Dev Spaces com um cluster do Kubernetes gerenciado e usará um aplicativo Node.js no Visual Studio Code para desenvolver e depurar o código em contêineres de maneira iterativa. O Azure Dev Spaces permite depurar e testar todos os componentes do aplicativo no AKS (Serviço de Kubernetes do Azure) com a configuração mínima do computador de desenvolvimento. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Última versão do Node.js](https://nodejs.org/download/).
@@ -30,7 +30,7 @@ Neste início rápido, você configurará o Azure Dev Spaces com um cluster do K
 
 Você precisa criar um cluster do AKS em uma [região com suporte][supported-regions]. Os comandos a seguir criam um grupo de recursos chamado *MyResourceGroup* e um cluster do AKS chamado *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -42,9 +42,11 @@ Use o comando `use-dev-spaces` para habilitar o Dev Spaces no cluster do AKS e s
 > [!NOTE]
 > O comando `use-dev-spaces` também instalará a CLI do Azure Dev Spaces se ela ainda não estiver instalada. Não é possível instalar a CLI do Azure Dev Spaces no Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -155,7 +157,7 @@ Durante a execução do *nodemon*, o processo do Node é reiniciado automaticame
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

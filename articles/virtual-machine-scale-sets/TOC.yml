@@ -247,6 +247,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Atualizações automáticas do SO
           href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Reparos automáticos da instância (versão prévia)
+          href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Proteção de instância
           href: virtual-machine-scale-sets-instance-protection.md
         - name: Política de redução horizontal

@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976304"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197310"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como usar a exclusão reversível do Key Vault com a CLI
 
@@ -22,7 +23,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 - Suporte à exclusão reversível de cofres de chaves
 - Suporte à exclusão reversível de objetos do cofre de chaves, chaves, segredos e certificados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - CLI do Azure – se essa configuração não existir para o seu ambiente, veja [Gerenciar Key Vault usando a CLI do Azure](key-vault-manage-with-cli2.md).
 
@@ -32,9 +33,9 @@ Para obter informações de referência específicas do Key Vault para CLI, conf
 
 As operações de Key Vault são gerenciadas separadamente por meio de permissões de RBAC (controle de acesso baseado em função) da seguinte maneira:
 
-| Operação | DESCRIÇÃO | Permissão de usuário |
+| Operação | Descrição | Permissão de usuário |
 |:--|:--|:--|
-|Listar|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
+|Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -150,7 +151,7 @@ Para excluir permanentemente (também conhecido como limpeza) uma chave excluíd
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-As ações de **recuperação** e **limpeza** têm suas próprias permissões associadas em uma política de acesso de cofre de chaves. Para que um usuário ou diretor de serviço possa executar uma ação **recover** ou **purge**, eles devem ter a respectiva permissão para essa chave ou segredo. Por padrão, **purge** não é adicionada à política de acesso de um cofre de chaves, quando o atalho 'all' é usado para conceder todas as permissões. Você deve conceder especificamente **limpar** permissão. 
+As ações de **recuperação** e **limpeza** têm suas próprias permissões associadas em uma política de acesso do cofre de chaves. Para que um usuário ou diretor de serviço possa executar uma ação **recover** ou **purge**, eles devem ter a respectiva permissão para essa chave ou segredo. Por padrão, **purge** não é adicionada à política de acesso de um cofre de chaves, quando o atalho 'all' é usado para conceder todas as permissões. Você deve conceder especificamente **limpar** permissão. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Definir uma política de acesso de cofre de chaves
 

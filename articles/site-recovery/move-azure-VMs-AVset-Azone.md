@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5728ce7125695b191de4f91d5bd9003384f428a7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693191"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298289"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover as VMs do Azure para Zonas de Disponibilidade
 As Zonas de Disponibilidade do Azure ajudam a proteger seus aplicativos e seus dados contra falhas do datacenter. Cada Zona de disponibilidade é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região ajuda a proteger os aplicativos e os dados contra falhas do datacenter. Com as Zonas de Disponibilidade, o Azure oferece um SLA (contrato de nível de serviço) de 99,99% de tempo de atividade de VMs (máquinas virtuais). As Zonas de Disponibilidade são compatíveis com regiões selecionadas, conforme mencionado em [O que são Zonas de Disponibilidade no Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
@@ -46,7 +46,7 @@ Em um cenário em que você implantou as VMs como *instância única* em uma reg
 
 3. Para VMs Windows, instale todas as atualizações do Windows mais recentes na VM para que todos os certificados raiz confiáveis estejam no computador. Em um ambiente desconectado, siga os processos padrão de atualização e de atualização de certificado do Windows para sua organização.
 
-4. Para VMs Linux, siga as diretrizes fornecidas pelo seu distribuidor Linux para obter os certificados raiz confiáveis mais recentes e a lista de certificados revogados na VM.
+4. Para VMs do Linux, siga as diretrizes fornecidas pelo distribuidor Linux para obter os certificados raiz confiáveis mais recentes e a lista de certificados revogados na VM.
 5. Verifique se você não está usando um proxy de autenticação para controlar a conectividade de rede das VMs que deseja mover.
 
 6. Se a VM que você está tentando mover não tiver acesso à Internet e estiver usando um proxy de firewall para controlar o acesso de saída, verifique os requisitos em [Configurar a conectividade de rede de saída](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
@@ -70,7 +70,7 @@ Em um cenário em que você implantou as VMs como *instância única* em uma reg
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
     - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
-   Para outros componentes de rede, veja a [documentação](https://docs.microsoft.com/azure/#pivot=products&panel=network) da rede.
+   Para outros componentes de rede, veja a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network) da rede.
 
     > [!IMPORTANT]
     > Use um balanceador de carga com redundância de zona no destino. Você pode ler mais sobre isso em [Standard Load Balancer e Zonas de Disponibilidade](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
@@ -85,7 +85,7 @@ As etapas a seguir orientarão você pelo uso do Azure Site Recovery para habili
 
 1. No portal do Azure, selecione **Máquinas virtuais** e selecione a VM que deseja mover para as Zonas de Disponibilidade.
 2. Em **Operações**, clique em **Recuperação de desastre**.
-3. Em **Configurar a recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual você replicará. Garanta que essa região [dê suporte](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) às Zonas de Disponibilidade.
+3. Em **Configurar recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual será replicada. Garanta que essa região [dê suporte](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) às Zonas de Disponibilidade.
 
     ![Seleção de região de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -112,7 +112,7 @@ Após o trabalho de replicação, você poderá verificar o status de replicaç�
 
 1. No menu da máquina virtual, clique em **Recuperação de Desastre**.
 2. Selecione o ícone **Failover de Teste**.
-3. Em **Failover de Teste**, selecione um ponto de recuperação para usar no failover:
+3. Em **Failover de Teste**, selecione um ponto de uso para o failover:
 
    - **Mais recente processado**: Faz failover da VM para o ponto de recuperação único que foi processado pelo serviço do Site Recovery. A carimbo de data/hora é mostrado. Com essa opção, nenhum tempo é gasto no processamento de dados, portanto, ele fornece um RTO (Objetivo do Tempo de Recuperação) baixo.
    - **Consistente com o aplicativo mais recente**: Essa opção falha em todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente. A carimbo de data/hora é mostrado.
@@ -133,12 +133,12 @@ Após o trabalho de replicação, você poderá verificar o status de replicaç�
 2. Selecione o ícone **Failover**.
 3. Em **Failover**, selecione **Mais recente**. 
 4. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tenta desligar a VM de origem antes de acionar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** . 
-5. Depois que o trabalho for concluído, verifique se a VM é exibida na região de destino do Azure conforme esperado.
+5. Depois que o trabalho for concluído, verifique se a VM será exibida na região de destino do Azure conforme esperado.
 6. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Confirmar**. Isso concluirá o processo de movimentação para a região de destino. Aguarde até o trabalho de confirmação ser concluído.
 
 ## <a name="discard-the-resource-in-the-source-region"></a>Descartar o recurso na região de origem
 
-Vá até a VM. Selecione **Desabilitar a Replicação**. Essa ação interrompe o processo de cópia dos dados para a VM.  
+Vá até a VM. Selecione **Desabilitar Replicação**. Essa ação interrompe o processo de cópia dos dados para a VM.  
 
 > [!IMPORTANT]
 > Execute a etapa anterior para evitar ser cobrado por replicação do Site Recovery após a movimentação. As configurações de replicação de origem são limpas automaticamente. Observe que a extensão de Site Recovery instalada como parte da replicação não é removida e precisa ser removida manualmente.

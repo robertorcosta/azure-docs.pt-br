@@ -3,16 +3,16 @@ title: Contratos e aditamentos de EA do Azure
 description: Este artigo explica como os contratos e aditamentos de EA do Azure afetam o uso do Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: c38f28120b7c84077d8d5012c4be4698680e5fdb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200805"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301413"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
@@ -25,10 +25,6 @@ Qualquer aditamento para os clientes do Azure precisa passar pelo parceiro ou eq
 ## <a name="enrollment-provisioning-status"></a>Status de provisionamento do registro
 
 A data de início de um novo compromisso monetário é definida pela data em que o centro de operações regionais o processou. Como as ordens de compromisso monetário realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, você poderá enfrentar algum atraso se sua ordem de compra de compromisso monetário tiver sido processada em uma região diferente. A data de início da cobertura na ordem de compra em https://www.explore.ms mostra o início do compromisso monetário. A data de início da cobertura é quando o compromisso monetário aparece no Portal do EA do Azure.
-
-## <a name="special-pricing-and-azure-commitment-discount-amendments"></a>Preços especiais e aditamentos de desconto do compromisso do Azure
-
-Se você necessitar de aditamentos de ACD (Desconto de Compromisso com o Azure), precisará discuti-los com sua equipe de contas. A equipe do Azure Ops poderá aplicar o ACD depois que um aditamento tiver sido processado pela Business Desk e solicitado para a equipe do Azure Ops. O desconto de ACD é aplicado somente ao mês atual. Todos os meses anteriores são compensados por crédito retroativo. 
 
 ## <a name="support-offer-not-provisioned"></a>Oferta de suporte não provisionada
 

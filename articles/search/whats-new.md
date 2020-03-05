@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/30/2020
-ms.openlocfilehash: 74f69f789ecb0d529e52054eeb1ac7ccb51bd6c2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/03/2020
+ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588818"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271315"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
@@ -39,7 +39,7 @@ O Azure Search foi renomeado para **Azure Cognitive Search** para refletir o uso
 
 + O acesso privado a um serviço de pesquisa está disponível por meio de dois mecanismos, ambos atualmente em versão prévia:
 
-  + Você pode restringir o acesso a endereços IP específicos usando a API REST de Gerenciamento `api-version=2019-10-01-Preview` para criar o serviço. A API de versão prévia tem novas propriedades **IpRule** e **NetworkRuleSet** na [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Essa versão prévia do recurso está disponível em regiões selecionadas. Para obter mais informações, confira [Como usar a API REST de Gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + Você pode restringir o acesso a endereços IP específicos usando a API REST de Gerenciamento `api-version=2019-10-01-Preview` para criar o serviço. A API de versão prévia tem novas propriedades **IpRule** e **NetworkRuleSet** na [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Essa versão prévia do recurso está disponível em regiões selecionadas. Para obter mais informações, confira [Como usar a API REST de Gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + Atualmente disponível por meio de uma versão prévia de acesso limitado, você pode provisionar um serviço do Azure Search que dê suporte ao Ponto de Extremidade Privado do Azure para conexões de clientes na mesma rede virtual. Para obter mais informações, confira [Criar um Ponto de Extremidade Privado para uma conexão segura](service-create-private-endpoint.md).
 

@@ -1,7 +1,6 @@
 ---
 title: Monitorar aplicativos móveis com o Application Insights do Azure Monitor
 description: Fornece instruções para configurar rapidamente um aplicativo móvel para monitoramento com o Application Insights do Azure Monitor e o App Center
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
@@ -9,18 +8,18 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 07e162dc74a514c9e7e6c82c38b51460a2f797fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398878"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660284"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar seu aplicativo móvel com o App Center e o Application Insights
 
 Este guia de início rápido percorre as etapas para conectar a instância do App Center do seu aplicativo ao Application Insights. Com o Application Insights, você pode consultar, segmentar, filtrar e analisar a telemetria com ferramentas mais avançadas que estão disponíveis no serviço [Análise](https://docs.microsoft.com/mobile-center/analytics/) do App Center.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisa de:
 
@@ -76,7 +75,7 @@ Quando o aplicativo estiver enviando eventos personalizados e eles forem recebid
 
     Será exibida uma caixa de configuração. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        |  Valor           | DESCRIÇÃO  |
+    | Configurações        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Um valor globalmente exclusivo, como "myApp iOS" | Nome que identifica o aplicativo que você está monitorando |
      | **Grupo de recursos**     | Um novo grupo de recursos ou um existente no menu | O grupo de recursos no qual criar o novo recurso do Application Insights |

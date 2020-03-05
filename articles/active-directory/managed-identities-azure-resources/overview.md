@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f89a21eb0cebf30dac2bb55ae1b642a2ff756ead
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: a721d1e486010e22927512985611cccdd99f4505
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468667"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248313"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -140,6 +140,7 @@ Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 * [Serviço de Kubernetes do Azure](/azure/aks/use-managed-identity)
 * [Aplicativos Lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
 * [Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
+* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
 ## O recurso tem suporte de quais serviços do Azure?<a name="which-azure-services-support-managed-identity"></a>

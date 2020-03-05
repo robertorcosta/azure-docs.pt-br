@@ -1,45 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação do Azure Front Door Service
+summary: O Azure Front Door é um ponto de entrada escalonável e seguro para a distribuição rápida de seus aplicativos Web globais.
 metadata:
   title: Documentação do Azure Front Door Service
-  meta.description: 'Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.'
+  description: O Azure Front Door Service fornece um ponto de entrada seguro e dimensionável para a rápida distribuição de aplicativos Web globais. Saiba como usar o Front Door com nossos guias de início rápido, tutoriais e exemplos.
   services: frontdoor
-  author: dlepow
   ms.service: frontdoor
   ms.topic: landing-page
-  ms.date: 9/14/2018
-  ms.author: danlep
-abstract:
-  description: 'O Azure Front Door Service fornece um ponto de entrada seguro e dimensionável para a rápida distribuição de aplicativos Web globais. Saiba como usar o Front Door com nossos guias de início rápido, tutoriais e exemplos.'
-sections:
-  - title: Guia de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: Crie um Front Door para um aplicativo Web global altamente disponível.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portal do Azure
-            href: quickstart-create-front-door.md
-  - title: Tutoriais Passo a Passo
-    items:
-      - type: paragraph
-        text: Saiba como configurar o Azure Front Door Service para suas necessidades.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="front-door-custom-domain.md">Adicionar um domínio personalizado ao seu Front Door</a>
-          - html: <a href="front-door-custom-domain-https.md">Habilitar HTTPS para um domínio personalizado</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de comando
-            html: '<p><a href="/cli/azure/ext/front-door">CLI do Azure</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">PowerShell do Azure</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/frontdoor">API REST</a></p>
+  author: vhorne
+  ms.author: victorh
+  ms.date: 03/03/2020
+  ms.openlocfilehash: 7fdf859bc3d8f970fe16bd031d4fd60919c49a92
+  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 03/04/2020
+  ms.locfileid: "78273283"
+landingContent:
+- title: Saiba mais sobre o Azure Front Door
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Front Door?
+      url: front-door-overview.md
+- title: Criar um Front Door
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar um Front Door
+      url: quickstart-create-front-door.md
+- title: Adicionar um domínio personalizado
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Adicionar um domínio personalizado ao seu Front Door
+      url: front-door-custom-domain.md
+  - linkListType: how-to-guide
+    links:
+    - text: Integrar um domínio raiz ou apex no seu Front Door
+      url: front-door-how-to-onboard-apex-domain.md
+- title: Saiba mais sobre filtragem geográfica
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: O que é a filtragem geográfica em um domínio?
+      url: front-door-geo-filtering.md
+  - linkListType: tutorial
+    links:
+    - text: Configurar uma política de WAF de filtragem geográfica
+      url: front-door-tutorial-geo-filtering.md
+- title: Configurar o HTTPS
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Configurar HTTPS em um domínio personalizado do Front Door
+      url: front-door-custom-domain-https.md
+- title: Solucionar problemas do Azure Front Door
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Problemas de roteamento comuns
+      url: front-door-troubleshoot-routing.md
+    - text: Autoridades de certificação habilitadas
+      url: front-door-troubleshoot-allowed-ca.md
+- title: Saiba mais sobre o balanceamento de carga do Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Balanceamento de Carga do Azure
+      url: front-door-lb-with-azure-app-delivery-suite.md

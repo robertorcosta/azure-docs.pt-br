@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 92388c54804d85d2825a25abd0c234081670e8d4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092176"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303912"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Mover máquinas virtuais do Azure para outra região do Azure
 
@@ -32,7 +32,7 @@ Talvez você queira mover a infraestrutura do Azure como uma máquina virtual de
 > [!IMPORTANT]
 > Este tutorial descreve como mover as VMs do Azure de uma região para outra *no estado em que estão*. Se seu objetivo é melhorar a disponibilidade de sua infraestrutura, movendo VMs para as zonas de disponibilidade, consulte [Mover VMs do Azure para as zonas de disponibilidade](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Verifique se você tem as VMs do Azure na região de origem do Azure *da qual* deseja realizar a movimentação.
 - Verifique se [há suporte para sua escolha de combinação de região de origem – região de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e tome uma decisão informada sobre a região de destino.
@@ -70,7 +70,7 @@ Talvez você queira mover a infraestrutura do Azure como uma máquina virtual de
    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
    - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
-   Para quaisquer outros componentes de rede, consulte a [documentação da rede Azure](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
+   Para quaisquer outros componentes de rede, consulte a [documentação da rede Azure](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
 
 4. [Crie manualmente uma rede de não produção](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) na região de destino, caso você queira testar a configuração antes de executar a movimentação final. Testar a configuração criará interferência mínima com o ambiente de produção e é recomendado.
     

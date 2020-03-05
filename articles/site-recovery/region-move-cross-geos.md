@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970494"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298523"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre regiões públicas e do Azure Governamental 
 
@@ -100,7 +100,7 @@ O serviço de mobilidade deve ser instalado em cada servidor que você deseja re
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
     - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
-    Para outros componentes de rede, consulte a [documentação](https://docs.microsoft.com/azure/#pivot=products&panel=network) da rede. 
+    Para outros componentes de rede, veja a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network) da rede.
 
 4. [Crie uma rede de não produção](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manualmente na região de destino caso deseje testar a configuração antes de realizar a substituição final para a região de destino. Isso criará interferência mínima com a produção e é recomendado.
 

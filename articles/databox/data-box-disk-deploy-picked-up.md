@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845489"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273167"
 ---
 ::: zone target="chromeless"
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá a:
 > * Enviar o Data Box Disk para a Microsoft
 > * Retirada do Data Box Disk em regiões diferentes
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você concluiu o [Tutorial: copiar dados para o Azure Data Box Disk e verificar](data-box-disk-deploy-copy-data.md).
 
@@ -51,7 +51,7 @@ Antes de começar, verifique se você concluiu o [Tutorial: copiar dados para o 
 
 As próximas etapas são determinadas pelo local em você está devolvendo o dispositivo. As instruções são diferentes para EUA/Canadá, UE (União Europeia), Austrália ou países da Ásia.
 
-### <a name="in-us-or-canadatabin-us-or-canada"></a>[Nos EUA ou no Canadá](#tab/in-us-or-canada)
+### <a name="in-us-or-canada"></a>[Nos EUA ou no Canadá](#tab/in-us-or-canada)
 
 Execute as seguintes etapas se estiver devolvendo o dispositivo nos EUA ou Canadá.
 
@@ -67,7 +67,7 @@ Execute as seguintes etapas se estiver devolvendo o dispositivo nos EUA ou Canad
     - Se o número de controle não está entre aspas, o serviço de no-break exigirá que você pague um encargo adicional durante a retirada.
     - Em vez de agendar a retirada, você também pode descartar o Data Box Disk no local mais próximo de redistribuição.
 
-### <a name="in-europetabin-europe"></a>[Na Europa](#tab/in-europe)
+### <a name="in-europe"></a>[Na Europa](#tab/in-europe)
 
 Execute as seguintes etapas se estiver devolvendo o dispositivo na Europa.
 
@@ -80,7 +80,7 @@ Execute as seguintes etapas se estiver devolvendo o dispositivo na Europa.
 4. Acesse o site da DHL Express do país/região e escolha **Agendar a recolha pelo serviço de correio > Remessa de eReturn**.    
 3. Especifique o número da carta de porte e clique em **Agendar retirada** para organizar a retirada.
 
-### <a name="in-australiatabin-australia"></a>[Na Austrália](#tab/in-australia)
+### <a name="in-australia"></a>[Na Austrália](#tab/in-australia)
 
 Datacenters do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as seguintes etapas para retirada na Austrália.
 
@@ -88,7 +88,7 @@ Datacenters do Azure na Austrália têm uma notificação de segurança adiciona
 3. Afixe a etiqueta à caixa. 
 4. Agende online no link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference uma retirada. 
 
-### <a name="in-japantabin-japan"></a>[No Japão](#tab/in-japan)
+### <a name="in-japan"></a>[No Japão](#tab/in-japan)
 
 1. Escreva as informações de nome e endereço da sua empresa na nota de consignação como suas informações de remetente.
 2. Envie um email para a Quantium Solutions usando o modelo de email a seguir.
@@ -115,7 +115,7 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telefone：03-5755-0150 
 
-### <a name="in-koreatabin-korea"></a>[Na Coreia do Sul](#tab/in-korea)
+### <a name="in-korea"></a>[Na Coreia do Sul](#tab/in-korea)
 
 1. Inclua a nota de consignação de devolução.
 2. Para solicitar a retirada quando houver nota de consignação:
@@ -130,7 +130,7 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
     4. Você recebe uma confirmação verbal se a solicitação for feita por telefone.
 
 
-### <a name="in-singaporetabin-singapore"></a>[Em Singapura](#tab/in-singapore)
+### <a name="in-singapore"></a>[Em Singapura](#tab/in-singapore)
 
 1. Imprima a etiqueta de remessa e anexe-a à caixa. Se o rótulo estiver danificado ou tiver sido perdido:
     - Acesse **Visão Geral > Baixar etiqueta de remessa** e obtenha uma etiqueta de remessa de devolução.
@@ -157,7 +157,7 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
 3. Passe para a transportadora.
 
-### <a name="in-self-managedtabin-selfmanaged"></a>[Remessa autogerenciada](#tab/in-selfmanaged)
+### <a name="in-self-managed"></a>[Remessa autogerenciada](#tab/in-selfmanaged)
 
 Se estiver usando o Data Box Disk no Japão, em Singapura, na Coreia do Sul e no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções. 
 
@@ -175,8 +175,6 @@ Se estiver usando o Data Box Disk no Japão, em Singapura, na Coreia do Sul e no
 3. A equipe de Operações do Azure Data Box trabalhará com você para organizar a devolução para o Datacenter do Azure.
 
 ::: zone target="docs"
-
----
 
 ## <a name="next-steps"></a>Próximas etapas
 

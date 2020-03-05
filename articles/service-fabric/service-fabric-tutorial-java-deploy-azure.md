@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465282"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252796"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implantar um aplicativo Java em um cluster do Service Fabric no Azure
 
@@ -32,7 +32,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-java-elk.md)
 > * [Configurar CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
@@ -53,13 +53,13 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 2. Entre na sua conta do Azure
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. Defina a assinatura do Azure que você deseja usar para criar os recursos
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -73,7 +73,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
     O comando anterior retorna as informações a seguir, que devem ser anotadas para uso posterior.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -81,7 +81,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 5. Crie um grupo de recursos para a conta de armazenamento que armazena os logs
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -89,7 +89,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 6. Crie uma conta de armazenamento que será usada para armazenar os logs que serão produzidos
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -101,13 +101,13 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 8. Copie a URL da SAS de conta e separe-a para usar quando criar o cluster do Service Fabric. Ela é semelhante à URL a seguir:
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Crie um grupo de recursos que contenha os recursos do Hub de Eventos. Os Hubs de Eventos são usados para enviar mensagens do Service Fabric para o servidor que executa os recursos ELK.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -115,7 +115,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 10. Crie um recurso de Hubs de Eventos usando o comando a seguir. Siga os prompts para inserir detalhes para namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule e receiveAuthorizationRule.
 
-    ```bash
+    ```azurecli
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
@@ -158,7 +158,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
     Copie o valor do campo **sr** no JSON retornado. O valor do campo **sr** é o token SAS para EventHubs. A URL a seguir é um exemplo do campo **sr**:
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
@@ -185,7 +185,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 14. Execute o comando a seguir para criar o cluster do Service Fabric
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 

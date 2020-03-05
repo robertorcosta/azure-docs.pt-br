@@ -1,14 +1,17 @@
 ---
 title: Conectar a função Java ao Armazenamento do Azure
 description: Saiba como conectar uma função Java disparada por HTTP ao Armazenamento do Azure usando uma associação de saída do Armazenamento de Filas.
+author: KarlErickson
+ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198540"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272797"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conectar a função Java ao Armazenamento do Azure
 
@@ -18,7 +21,7 @@ Este artigo mostra como integrar a função criada no [artigo de início rápido
 
 A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço vinculado. Para facilitar essa conexão, use a conta de armazenamento que você criou com o seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este artigo, conclua as etapas na [parte 1 do início rápido do Java](functions-create-first-java-maven.md).
 
@@ -112,10 +115,19 @@ Agora você está pronto para experimentar a nova associação de saída localme
 
 Como anteriormente, use o seguinte comando para compilar o projeto e iniciar o Functions Runtime localmente:
 
+::: zone pivot="java-build-tools-maven"  
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end
 
 > [!NOTE]  
 > Como você habilitou os pacotes de extensões no host.json, a [extensão de associação do armazenamento](functions-bindings-storage-blob.md#add-to-your-functions-app) foi baixada e instalada para você durante a inicialização, juntamente com outras extensões de associação da Microsoft.
@@ -138,9 +150,17 @@ Em seguida, use a CLI do Azure para exibir a nova fila e verifique se uma mensag
 
 Para atualizar o aplicativo publicado, execute o seguinte comando novamente:  
 
-```azurecli
+::: zone pivot="java-build-tools-maven"  
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
 
 Novamente, use o cURL para testar a função implantada. Como anteriormente, passe o valor `AzureFunctions` no corpo da solicitação POST para a URL, como neste exemplo:
 

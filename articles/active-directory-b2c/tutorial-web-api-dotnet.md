@@ -3,20 +3,20 @@ title: 'Tutorial: Permitir acesso a uma ASP.NET Web API'
 titleSuffix: Azure AD B2C
 description: Tutorial sobre como usar o Active Directory B2C para proteger a ASP.NET Web API e chamá-la de um aplicativo Web ASP .NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: fe6f8469354922dcf38a987b9b4371547678eb36
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 23531bd4c53dc2fc4851a1e4718fca0e9c3bfc1c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849946"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187416"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma ASP.NET Web API usando o Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas e os pré-requisitos no [Tutorial: Habilitar autenticação em um aplicativo Web usando o Azure Active Directory B2C](tutorial-web-app-dotnet.md).
 
@@ -42,7 +42,7 @@ Os recursos da API Web precisam ser registrados no seu locatário antes de poder
 
 Para registrar um aplicativo no locatário do Azure Active Directory B2C, você pode usar a experiência **Aplicativos** atual ou a nossa nova experiência **Registros de Aplicativo (versão prévia)** unificada. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
@@ -55,7 +55,7 @@ Para registrar um aplicativo no locatário do Azure Active Directory B2C, você 
 9. Clique em **Criar**.
 10. Na página de propriedades, registre a ID do aplicativo que você usará ao configurar o aplicativo Web.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.

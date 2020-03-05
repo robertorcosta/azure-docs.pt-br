@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e a linha de comando para desenvolver um aplicativo no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2d3a498d72264d3084e45202b7daa99806d45ce3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 974f0039bb16dc685bb056e279df63933e358edd
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602616"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245262"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolver um aplicativo no Kubernetes – Azure Dev Spaces
 Neste guia, você aprenderá a:
@@ -19,7 +19,7 @@ Neste guia, você aprenderá a:
 - Configure o Azure Dev Spaces com um cluster Kubernetes gerenciado no Azure.
 - Desenvolver e executar o código em contêineres usando a linha de comando.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 - A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
@@ -28,7 +28,7 @@ Neste guia, você aprenderá a:
 
 Você precisa criar um cluster do AKS em uma [região com suporte][supported-regions]. Os comandos a seguir criam um grupo de recursos chamado *MyResourceGroup* e um cluster do AKS chamado *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -40,9 +40,11 @@ Use o comando `use-dev-spaces` para habilitar o Dev Spaces no cluster do AKS e s
 > [!NOTE]
 > O comando `use-dev-spaces` também instalará a CLI do Azure Dev Spaces se ela ainda não estiver instalada. Não é possível instalar a CLI do Azure Dev Spaces no Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -145,7 +147,7 @@ Para implantar uma versão atualizada do serviço, você pode atualizar qualquer
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, cont�
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: de830d07010037793eaf7471fc1147a42081b09c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770587"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245025"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio e .NET Core – Azure Dev Spaces
 
@@ -28,7 +28,7 @@ O Azure Dev Spaces também permite que você depure e itere usando:
 - [Node.js e Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core e Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
 - Visual Studio 2019 no Windows com a carga de trabalho de Desenvolvimento do Azure instalada. Também é possível usar o Visual Studio 2017 no Windows com a carga de trabalho de Desenvolvimento da Web e as [Ferramentas do Visual Studio para Kubernetes](https://aka.ms/get-vsk8stools) instaladas. Se você não tiver o Visual Studio instalado, baixe-o [aqui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -124,7 +124,7 @@ Remova o ponto de interrupção, colocando o cursor na linha 20 em `Controllers/
 
 Navegue até o grupo de recursos no portal do Azure e clique em *Excluir grupo de recursos*. Como alternativa, você pode usar o comando [az aks delete](/cli/azure/aks#az-aks-delete):
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

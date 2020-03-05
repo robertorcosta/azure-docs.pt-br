@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612202"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299067"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar uma VM de gerenciamento para configurar e administrar um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -59,7 +59,6 @@ O Azure AD DS fornece um domínio gerenciado para os usuários, aplicativos e se
 
 Membros do grupo *Administradores do AAD DC* recebem privilégios no domínio gerenciado do Azure AD DS que lhes permitem executar tarefas como:
 
-* Ingressar máquinas no domínio gerenciado.
 * Configurar o GPO (objeto de política de grupo) interno para os contêineres *Computadores do AADDC* e *Usuários do AADDC* no domínio gerenciado.
 * Administre o DNS no domínio gerenciado.
 * Criar e administrar personalizado UOs (unidades organizacionais) personalizadas no domínio gerenciado.

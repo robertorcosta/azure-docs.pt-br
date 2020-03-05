@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8d43a254ad79a13320fa2c5a19cf4bc8d6e2c968
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845833"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199743"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usar Aplicativos Lógicos para receber email sobre alterações de status de segredos do Key Vault
 
@@ -22,7 +23,7 @@ Neste guia, você aprenderá a responder a eventos do Azure Key Vault que são r
 
 Para obter uma visão geral da integração do Azure Key Vault/Grade de Eventos do Azure, confira [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](event-grid-overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta de email de qualquer provedor de email com suporte pelos Aplicativos Lógicos do Azure Apps (como Office 365 Outlook). Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores de Aplicativos Lógicos com suporte, consulte a [Visão geral dos conectores](/connectors)
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.

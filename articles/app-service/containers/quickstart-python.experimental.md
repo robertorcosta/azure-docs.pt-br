@@ -10,12 +10,12 @@ ms.author: msangapu
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 9a45353d3223844d828ffc4a8ac248a0ff68f781
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 68dc36ce96737fe8395280c3a833e359084d2fee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030036"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246848"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -23,7 +23,7 @@ Neste Início Rápido, você implantará um aplicativo Web Python no [Serviço d
 
 Se preferir implantar aplicativos por meio de um IDE, confira [Implantar aplicativos Python no Serviço de Aplicativo por meio do Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (o Python 3.6 também é compatível)
@@ -52,7 +52,7 @@ A CLI do Azure fornece muitos comandos úteis que você usa em um terminal local
 
 Para executar comandos do Azure na CLI do Azure, primeiro você precisa entrar usando o comando `az login`. Esse comando abre um navegador para coletar suas credenciais.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -63,7 +63,7 @@ O comando [`az webapp up`](/cli/azure/webapp#az-webapp-up) cria o aplicativo Web
 Na pasta *python-docs-hello-world* que contém o código de exemplo, execute o comando `az webapp up` a seguir. Substitua `<app-name>` por um nome de aplicativo global exclusivo (*os caracteres válidos são `a-z`, `0-9` e `-`* ). Também substitua `<location-name>` por uma região do Azure, assim como **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** e assim por diante. (Você pode recuperar uma lista de regiões permitidas para sua conta do Azure executando o comando [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -110,7 +110,7 @@ O código de exemplo Python está executando um contêiner Linux no Serviço de 
 
 Em uma janela do terminal, use os comandos abaixo (conforme apropriado para seu sistema operacional) para instalar as dependências necessárias e iniciar o servidor de desenvolvimento interno. 
 
-# <a name="bashtabbash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 python3 -m venv venv
@@ -120,7 +120,7 @@ FLASK_APP=application.py
 flask run
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -3 -m venv env
@@ -130,7 +130,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -3 -m venv env
@@ -161,7 +161,7 @@ Salve suas alterações e saia do editor.
 
 Reimplante o aplicativo usando o seguinte comando `az webapp up`, usando o mesmo comando usado para implantar o aplicativo pela primeira vez, substituindo `<app-name>` e `<location-name>` pelos mesmos nomes que você usou antes. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -178,13 +178,13 @@ Você pode acessar os logs do console gerados de dentro do aplicativo e do cont�
 
 Primeiro, ative o log de contêiner executando o seguinte comando em um terminal, substituindo `<app-name>` pelo nome do seu aplicativo e `<resource-group-name>` pelo nome do grupo de recursos mostrado na saída do comando `az webapp up` que você usou (como "appsvc_rg_Linux_centralus"):
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 Depois que o log do contêiner estiver ativado, execute o seguinte comando para exibir o fluxo de log:
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -221,7 +221,7 @@ Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos.
 
 Se você não espera precisar desses recursos no futuro, exclua o grupo de recursos pela execução do comando a seguir, substituindo `<resource-group-name>` pelo grupo de recursos mostrado na saída do comando `az webapp up`, por exemplo, "appsvc_rg_Linux_centralus". O comando pode demorar um minuto para ser concluído.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

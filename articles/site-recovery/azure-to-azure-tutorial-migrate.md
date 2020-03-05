@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954098"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303929"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -34,13 +34,13 @@ Neste tutorial, você irá:
 > [!NOTE]
 > Este tutorial mostra como mover as VMs do Azure de uma região para outra. Se você precisar melhorar a disponibilidade, movendo as VMs em um conjunto de disponibilidade para VMs fixas de zona em uma região diferente, consulte o tutorial [Mover as VMs do Azure para Zonas de Disponibilidade](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Verifique se as VMs do Azure estão na região do Azure a partir da qual você quer mover.
 - Verifique se [há suporte para sua escolha de combinação de região de origem – região de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e tome uma decisão informada sobre a região de destino.
 - Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
 - Examine os [requisitos e limitações com suporte](azure-to-azure-support-matrix.md).
-- Verifique as permissões da conta. Se você criou a conta gratuita do Azure, você será o administrador da assinatura. Se você não for o administrador da assinatura, trabalhe com o administrador para atribuir as permissões necessárias. Para habilitar a replicação de uma VM e essencialmente copiar dados usando o Azure Site Recovery, você deverá ter:
+- Verificar permissões da conta. Se você criou a conta gratuita do Azure, você será o administrador da assinatura. Se você não for o administrador da assinatura, trabalhe com o administrador para atribuir as permissões necessárias. Para habilitar a replicação de uma VM e essencialmente copiar dados usando o Azure Site Recovery, você deverá ter:
 
     - Permissões para criar uma VM em recursos do Azure. A função interna Colaborador da Máquina Virtual tem essas permissões, incluindo:
     - Permissão para criar uma VM no grupo de recursos selecionado
@@ -73,7 +73,7 @@ Neste tutorial, você irá:
     - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
     -  [IP público](../virtual-network/virtual-network-public-ip-address.md)
-    - Para quaisquer outros componentes de rede, consulte a [documentação da rede](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    - Para quaisquer outros componentes de rede, consulte a [documentação da rede](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 
 
@@ -120,7 +120,7 @@ As etapas a seguir mostram como executar a movimentação para a região de dest
 Caso você tenha marcado a VM movida e precise fazer alterações no ponto de failover ou deseje voltar a um ponto anterior, nos **Itens replicados**, selecione a VM com o botão direito do mouse > **Alterar ponto de recuperação**. Esta etapa fornece a opção de especificar outro ponto de recuperação e failover para aquele. 
 
 
-## <a name="commit"></a>Confirmar 
+## <a name="commit"></a>Commit 
 
 Depois de marcar a VM movida e estiver pronto para confirmar a alteração, nos **Itens replicados**, selecione a VM com o botão direito do mouse > **Confirmar**. Essa etapa conclui o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído.
 

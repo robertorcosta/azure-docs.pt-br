@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137954"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197463"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como fazer: Detectar o sentimento usando a API de Análise de Texto
 
@@ -76,7 +76,7 @@ A Análise de Sentimento v3 pode retornar pontuações e rótulos no nível do d
 
 ### <a name="example-c-code"></a>Código C# de exemplo
 
-Você pode encontrar um aplicativo em C# de exemplo que chama esta versão da Análise de Sentimento no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+Você pode encontrar um aplicativo em C# de exemplo que chama esta versão da Análise de Sentimento no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
 
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)

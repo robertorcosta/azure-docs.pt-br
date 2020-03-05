@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: banders
-ms.openlocfilehash: 017f617bff14eb0c031c40240ca6c1ac62c9c941
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: ca1064ce3414f4a796110c022125b68c0674e0d6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598214"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270181"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entender sua fatura do Contrato Enterprise do Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Examinar encargos de excedente de serviços
 > * Examinar a fatura do Marketplace
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para examinar e verificar os encargos na sua fatura, você deve ser um Administrador Corporativo. Para obter mais informações, consulte [Entendendo as funções administrativas do Azure Enterprise Agreement no Azure](../manage/understand-ea-roles.md). Se você não souber quem é o Administrador Corporativo da sua organização [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

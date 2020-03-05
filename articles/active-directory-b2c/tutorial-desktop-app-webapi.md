@@ -2,20 +2,20 @@
 title: 'Tutorial: Permitir acesso a uma API Web do Node.js em um aplicativo da área de trabalho'
 description: Tutorial sobre como usar o Active Directory B2C para proteger uma API Web do Node.js e chamá-la de um aplicativo da área de trabalho do .NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a72c45f80d03cda7b176c421cc5498dd16c242ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849866"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183357"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Conceder permissões à API Web
 > * Atualizar o exemplo para usar o aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas e os pré-requisitos no [Tutorial: Autentique os usuários em um cliente de área de trabalho nativo](tutorial-desktop-app.md).
 
@@ -51,7 +51,7 @@ Para chamar uma API Web de um aplicativo cliente nativo, você precisa conceder 
 
 No tutorial de pré-requisito, você registrou um aplicativo cliente nativo chamado *nativeapp1*. As etapas a seguir configuram esse registro de aplicativo nativo com os escopos de API expostos para *webapi1* na seção anterior. Isso permite que o aplicativo de área de trabalho obtenha um token de acesso do Azure AD B2C que a API Web pode usar para verificar e fornecer acesso com escopo para seus recursos. Você configurará e executará os exemplos de código do aplicativo de área de trabalho e da API Web posteriormente neste tutorial.
 
-#### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
+#### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
 1. Selecione **Aplicativos** e, em seguida, selecione *nativeapp1*.
 1. Selecione **Acesso à API** e, em seguida, selecione **Adicionar**.
@@ -59,7 +59,7 @@ No tutorial de pré-requisito, você registrou um aplicativo cliente nativo cham
 1. Na lista suspensa **Selecionar Escopos**, selecione os escopos que você definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
 1. Selecione **OK**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Selecione **Registros de aplicativo (versão prévia)** e, em seguida, selecione o aplicativo cliente nativo que deve ter acesso à API. Por exemplo, *nativeapp1*.
 1. Em **Gerenciar**, selecione **Permissões de API**.

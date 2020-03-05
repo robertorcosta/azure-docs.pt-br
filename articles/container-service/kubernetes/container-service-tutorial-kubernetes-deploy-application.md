@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e10fd982c19e45be8c5da4ffc7f7248276352c1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2c2d50da4328ff07c3d2fda4a8721839aa3aa6e7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275483"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274063"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(PRETERIDO) Executar aplicativos no Kubernetes
 
@@ -70,13 +70,13 @@ Salve e feche o arquivo.
 
 Use o comando [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) para executar o aplicativo. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos.
 
-```azurecli-interactive
+```console
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 Saída:
 
-```bash
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -89,13 +89,13 @@ Um [serviço Kubernetes](https://kubernetes.io/docs/concepts/services-networking
 
 Para monitorar o andamento, use o comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) com o argumento `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Inicialmente, o **EXTERNAL-IP** do serviço `azure-vote-front` aparece como `pending`. Depois que o endereço EXTERNAL-IP for alterado de `pending` para um `IP address`, use `CTRL-C` para interromper o processo de inspeção do kubectl.
 
-```bash
+```output
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   10.0.42.158   <pending>     80:31873/TCP   1m
 azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m

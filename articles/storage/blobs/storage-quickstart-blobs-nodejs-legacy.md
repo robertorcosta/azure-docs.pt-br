@@ -7,18 +7,18 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906478"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269494"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Início Rápido: Gerenciar blobs com o SDK do JavaScript v10 no Node.js
 
 Neste início rápido, você aprenderá a gerenciar blobs usando o Node.js. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará, listará e excluirá blobs, além de gerenciar contêineres.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
@@ -409,4 +409,4 @@ Este início rápido demonstra como gerenciar blobs e contêineres no Armazename
 
 > [!div class="nextstepaction"]
 > [SDK de Armazenamento do Azure v10 para o repositório JavaScript](https://github.com/Azure/azure-storage-js)
-> [Referência de API de JavaScript do Armazenamento do Azure](/javascript/api/overview/azure/storage?view=azure-node-legacy)
+> [Referência de API de JavaScript do Armazenamento do Azure](/javascript/api/overview/azure/storage-overview)

@@ -6,16 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490405"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197752"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
@@ -34,7 +35,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 3. Na lista de resultados, escolha **Key Vault**.
 4. Na seção Key Vault, escolha **Criar**.
 5. A seção **Criar cofre de chaves** fornece as seguintes informações:
-    - **Nome**: um nome exclusivo é necessário. Para este início rápido, usamos **Contoso-vault2**. 
+    - **Name**: um nome exclusivo é necessário. Para este início rápido, usamos **Contoso-vault2**. 
     - **Assinatura**: Escolha uma assinatura.
     - Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.
     - No menu suspenso **Local**, escolha um local.
@@ -58,7 +59,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 2. Clique em **Gerar/Importar**.
 3. Na tela **Criar um segredo**, escolha os seguintes valores:
     - **Opções de upload**: Manual.
-    - **Nome**: ExamplePassword.
+    - **Name**: ExamplePassword.
     - **Valor**: hVFkk965BuUv
     - Deixe os outros valores com seus padrões. Clique em **Criar**.
 
@@ -70,7 +71,7 @@ Ao clicar no botão "Mostrar o valor de segredo" no painel direito, será possí
 
 ![O valor do segredo apareceu](./media/quick-create-portal/current-version-shown.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros tutoriais e inícios rápidos do Key Vault complementam este início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
 Quando não for mais necessário, exclua o grupo de recursos, que excluirá o Key Vault e os recursos relacionados. Para excluir o grupo de recursos pelo portal:

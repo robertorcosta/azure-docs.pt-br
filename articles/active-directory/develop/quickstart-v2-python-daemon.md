@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 4a45f516f751609b413948278e2f2cfca47c9da2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c0967c411aa10d046caee13441b046bf0f462442
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703296"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274336"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo de console Python usando a identidade do aplicativo
 
@@ -25,7 +25,7 @@ Neste início rápido, escreva um aplicativo Python que obtém um token de acess
 > [!div renderon="docs"]
 > ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar este exemplo, você precisa de:
 
@@ -76,37 +76,42 @@ Para executar este exemplo, você precisa de:
 
 #### <a name="step-2-download-your-python-project"></a>Etapa 2: Baixar o seu projeto Python
 
-[Baixe o projeto do daemon do Python](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
+> [!div renderon="docs"]
+> [Baixe o projeto do daemon do Python](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
-#### <a name="step-3-configure-your-python-project"></a>Etapa 3: Configurar seu projeto Python
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Baixe o exemplo de código](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
-1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
-1. Navegue até a subpasta **1-Call-MsGraph-WithSecret"** .
-1. Edite **parameters.json** e substitua os valores dos campos `authority`, `client_id` e `secret` pelo seguinte trecho:
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Enter_the_Supported_Account_Info_Here
 
-    ```json
-    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
-    "client_id": "Enter_the_Application_Id_Here",
-    "secret": "Enter_the_Client_Secret_Here"
-    ```
-    > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Gerar um novo segredo do cliente]()
+
+> [!div renderon="docs"]
+> #### <a name="step-3-configure-your-python-project"></a>Etapa 3: Configurar seu projeto Python
+> 
+> 1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
+> 1. Navegue até a subpasta **1-Call-MsGraph-WithSecret"** .
+> 1. Edite **parameters.json** e substitua os valores dos campos `authority`, `client_id` e `secret` pelo seguinte trecho:
+>
+>    ```json
+>    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
+>    "client_id": "Enter_the_Application_Id_Here",
+>    "secret": "Enter_the_Client_Secret_Here"
+>    ```
+>    Em que:
+>    - `Enter_the_Application_Id_Here` - é a **ID do aplicativo (cliente)** que você registrou.
+>    - `Enter_the_Tenant_Id_Here` – substitua esse valor pela **ID do locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+>    - `Enter_the_Client_Secret_Here` – substitua esse valor pelo segredo do cliente criado na etapa 1.
+>
+> > [!TIP]
+> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** , acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
     
-    > [!div class="sxs-lookup" renderon="portal"]
-    > > [!NOTE]
-    > > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
-    
-    > [!div renderon="docs"]
-    >> Em que:
-    >> * `Enter_the_Application_Id_Here` - é a **ID do aplicativo (cliente)** que você registrou.
-    >> * `Enter_the_Tenant_Id_Here` – substitua esse valor pela **ID do locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` – substitua esse valor pelo segredo do cliente criado na etapa 1.
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-admin-consent"></a>Etapa 3: Consentimento do administrador
 
-    > [!div renderon="docs"]
-    > > [!TIP]
-    > > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** , acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
-    
-#### <a name="step-4-admin-consent"></a>Etapa 4: Consentimento do administrador
+> [!div renderon="docs"]
+> #### <a name="step-4-admin-consent"></a>Etapa 4: Consentimento do administrador
 
 Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403 – Proibido*: `Insufficient privileges to complete the operation`. Esse erro acontece porque qualquer *permissão somente do aplicativo* exige o consentimento do administrador, ou seja, um administrador global do seu diretório precisa dar consentimento ao seu aplicativo. Selecione uma das opções abaixo, dependendo de sua função:
 
@@ -133,7 +138,11 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Tenant_Id_Here` – substitua esse valor pela **ID do locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - é a **ID do aplicativo (cliente)** que você registrou.
 
-#### <a name="step-5-run-the-application"></a>Etapa 5: Executar o aplicativo
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-4-run-the-application"></a>Etapa 4: Executar o aplicativo
+
+> [!div renderon="docs"]
+> #### <a name="step-5-run-the-application"></a>Etapa 5: Executar o aplicativo
 
 Você precisará instalar as dependências deste exemplo uma vez
 

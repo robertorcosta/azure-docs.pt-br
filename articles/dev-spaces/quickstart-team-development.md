@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como fazer o desenvolvimento do Kubernetes de equipe com contêineres e microsserviços com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1f087225fc594b7c6469c4988ea1bf93ec558a71
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605276"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244953"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolvimento em equipe no Kubernetes – Azure Dev Spaces
 
@@ -23,7 +23,7 @@ Neste guia, você aprenderá a:
 
 ![Desenvolvimento em equipe com o Azure Dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 - A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
@@ -33,7 +33,7 @@ Neste guia, você aprenderá a:
 
 Você deve criar um cluster do AKS em uma [região com suporte][supported-regions]. Os comandos a seguir criam um grupo de recursos chamado *MyResourceGroup* e um cluster do AKS chamado *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -45,7 +45,7 @@ Use o comando `use-dev-spaces` para habilitar o Dev Spaces no cluster do AKS e s
 > [!NOTE]
 > O comando `use-dev-spaces` também instalará a CLI do Azure Dev Spaces se ela ainda não estiver instalada. Não é possível instalar a CLI do Azure Dev Spaces no Azure Cloud Shell.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 ```
 
@@ -199,7 +199,7 @@ Para que essas alterações sejam aplicadas em *dev* e em *dev/azureuser1*, siga
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

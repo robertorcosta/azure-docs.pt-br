@@ -6,15 +6,15 @@
       href: load-balancer-overview.md
 - name: Guia de Início Rápido
   items:
-    - name: Portal
+    - name: Criar balanceador de carga – Portal
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: CLI do Azure
+    - name: Criar balanceador de carga – CLI do Azure
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Azure PowerShell
+    - name: Criar balanceador de carga – PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Modelo do Azure Resource Manager
+    - name: Criar balanceador de carga – Modelo
       href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+  expanded: true
 - name: Tutoriais
   items:
     - name: Balancear tráfego de carga da internet para VMs

@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000658"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195321"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -37,9 +38,9 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 
 Para obter informações de visão geral sobre o Key Vault, consulte [O que é o Azure Key Vault?](key-vault-overview.md). Para obter informações sobre onde o Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir este tutorial, é necessário ter o seguinte:
 
 * Um cofre da chave existente que você esteja usando.  
 * Azure PowerShell, versão mínima 1.0.0. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, insira `$PSVersionTable.PSVersion`.  
@@ -248,7 +249,7 @@ Ele retorna uma entrada de log semelhante a esta:
 
 A tabela a seguir lista os nomes e as descrições de campo:
 
-| Nome do campo | DESCRIÇÃO |
+| Nome do campo | Descrição |
 | --- | --- |
 | **time** |Data e hora em UTC. |
 | **resourceId** |ID do Recurso do Azure Resource Manager. Para os logs do Cofre da Chave, isso sempre será a ID do recurso do Cofre da Chave. |

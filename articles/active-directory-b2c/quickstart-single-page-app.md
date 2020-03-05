@@ -3,20 +3,20 @@ title: 'Início Rápido: Configurar a entrada para um SPA (aplicativo de página
 titleSuffix: Azure AD B2C
 description: Neste Início Rápido, execute um aplicativo de página única de exemplo que usa o Azure Active Directory B2C para fornecer a entrada na conta.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98b4e7e6b64d68d98597c40c6aea3d6cfe104be0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a5d4319f47530a91bcceb9b2dba94c6aa8e4c388
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841314"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183883"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e do ASP.NET**
 - [Node.js](https://nodejs.org/en/download/)
