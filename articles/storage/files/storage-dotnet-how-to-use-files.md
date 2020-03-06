@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 361ee5179b20d9488bb477a4e3c9fc0f0e6f266e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190657"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301430"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
@@ -36,7 +36,7 @@ Para saber mais sobre os arquivos do Azure, confira [o que são os arquivos do A
 
 Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: protocolo SMB e REST. No .NET, as APIs `System.IO` e `WindowsAzure.Storage` abstraim essas abordagens.
 
-API | Quando usar | Observações
+API | Quando usar | {1&gt;Observações&lt;1}
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Seu aplicativo: <ul><li>Precisa ler/gravar arquivos usando SMB</li><li>Está em execução em um dispositivo que tem acesso pela porta 445 à sua conta do Arquivos do Azure</li><li>Não precisa gerenciar nenhum das configurações administrativas do compartilhamento de arquivo</li></ul> | A e/s de arquivo implementada com os arquivos do Azure via SMB geralmente é a mesma de e/s com qualquer compartilhamento de arquivos de rede ou dispositivo de armazenamento local. Para obter uma introdução a vários recursos no .NET, incluindo e/s de arquivo, consulte o tutorial [aplicativo de console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
 [Microsoft. Azure. Storage. File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | Seu aplicativo: <ul><li>Não é possível acessar os arquivos do Azure usando SMB na porta 445 devido a restrições de firewall ou ISP</li><li>Requer a funcionalidade administrativa, como a capacidade de definir uma cota de compartilhamento de arquivos ou criar uma assinatura de acesso compartilhado</li></ul> | Este artigo demonstra o uso de `Microsoft.Azure.Storage.File` para e/s de arquivo usando REST em vez de SMB e gerenciamento do compartilhamento de arquivos.
@@ -480,7 +480,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Se você encontrar algum problema, poderá consultar [solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre os arquivos do Azure, consulte os seguintes recursos:
 
@@ -492,7 +492,6 @@ Para obter mais informações sobre os arquivos do Azure, consulte os seguintes 
 ### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o armazenamento de arquivos
 
 * [Introdução ao AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Usando a CLI do Azure com o Armazenamento do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Solucionar problemas de Arquivos do Azure no Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referência

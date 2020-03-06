@@ -3,12 +3,12 @@ title: Armazenar gráficos do Helm
 description: Saiba como armazenar gráficos Helm para seus aplicativos kubernetes usando repositórios no registro de contêiner do Azure
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: 26588bb4dc3cf50656103b50d5d0559908a1ccb7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 7969efe37558fffb26b983131c56ae11f3ef9368
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524624"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398969"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Enviar por push e efetuar pull de gráficos do Helm para um registro de contêiner do Azure
 
@@ -28,7 +28,7 @@ Você pode usar o Helm 3 ou o Helm 2 para hospedar gráficos Helm no registro de
 * [Helm 3 cliente](#use-the-helm-3-client) – use `helm chart` comandos para gerenciar gráficos em seu registro como [artefatos de OCI](container-registry-image-formats.md#oci-artifacts)
 * [Cliente Helm 2](#use-the-helm-2-client) -use os comandos [AZ acr Helm][az-acr-helm] no CLI do Azure para adicionar e gerenciar seu registro de contêiner como um repositório de gráfico de Helm
 
-### <a name="additional-information"></a>Informações adicionais
+### <a name="additional-information"></a>{1&gt;{2&gt;Informações adicionais&lt;2}&lt;1}
 
 * É recomendável usar o fluxo de trabalho Helm 3 com comandos nativos `helm chart` para gerenciar gráficos como artefatos de OCI.
 * Você pode usar os comandos e o fluxo de trabalho do [AZ ACR helm][az-acr-helm] CLI do azures herdados com o cliente e os gráficos do Helm 3. No entanto, determinados comandos, como `az acr helm list`, não são compatíveis com gráficos Helm 3.
@@ -36,7 +36,7 @@ Você pode usar o Helm 3 ou o Helm 2 para hospedar gráficos Helm no registro de
 
 ## <a name="use-the-helm-3-client"></a>Usar o cliente Helm 3
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - **Um registro de contêiner do Azure** em sua assinatura do Azure. Se necessário, crie um registro usando o [portal do Azure](container-registry-get-started-portal.md) ou o [CLI do Azure](container-registry-get-started-azure-cli.md).
 - **Helm Client versão 3.0.0 ou posterior** -execute `helm version` para localizar a versão atual. Para obter mais informações sobre como instalar e atualizar o Helm, consulte [instalando o Helm][helm-install].
@@ -118,7 +118,7 @@ helm chart push mycontainerregistry.azurecr.io/helm/wordpress:latest
 
 Após um push bem-sucedido, a saída será semelhante a:
 
-```console
+```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
 ref:     mycontainerregistry.azurecr.io/helm/wordpress:latest
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
@@ -141,7 +141,7 @@ az acr repository show \
 
 A saída é semelhante a:
 
-```console
+```output
 {
   "changeableAttributes": {
     "deleteEnabled": true,
@@ -168,7 +168,7 @@ az acr repository show-manifests \
 
 A saída, abreviada neste exemplo, mostra uma `configMediaType` de `application/vnd.cncf.helm.config.v1+json`:
 
-```console
+```output
 [
   {
     [...]
@@ -216,7 +216,7 @@ helm inspect chart wordpress
 
 Quando nenhum número de versão é fornecido, a versão *mais recente* é usada. Helm retorna informações detalhadas sobre o gráfico, conforme mostrado na seguinte saída condensada:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 dependencies:
@@ -256,7 +256,7 @@ helm install wordpress --generate-name
 
 Conforme a instalação continuar, siga as instruções na saída do comando para ver as URLs e as credenciais do WorPress. Você também pode executar o comando `kubectl get pods` para ver os recursos de kubernetes implantados por meio do gráfico Helm:
 
-```console
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
@@ -273,7 +273,7 @@ az acr repository delete --name mycontainerregistry --image helm/wordpress:lates
 
 ## <a name="use-the-helm-2-client"></a>Usar o cliente Helm 2
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - **Um registro de contêiner do Azure** em sua assinatura do Azure. Se necessário, crie um registro usando o [portal do Azure](container-registry-get-started-portal.md) ou o [CLI do Azure](container-registry-get-started-azure-cli.md).
 - **Versão de cliente do Helm 2.11.0 (não uma versão RC) ou posterior**: execute `helm version` para descobrir sua versão atual. Também é necessário um servidor do Helm (Tiller) inicializado dentro de um cluster Kubernetes. Se necessário, crie um [cluster do serviço kubernetes do Azure][aks-quickstart]. Para obter mais informações sobre como instalar e atualizar o Helm, consulte [instalando o Helm][helm-install-v2].
@@ -311,7 +311,7 @@ helm fetch stable/wordpress
 
 Digite `ls` para listar o gráfico baixado e anote a versão do WordPress incluída no nome do arquivo. O comando `helm fetch stable/wordpress` não especificou uma versão específica, portanto, foi buscada a versão *mais recente*. Na saída de exemplo a seguir, o gráfico do WordPress é a versão *8.1.0*:
 
-```
+```output
 wordpress-8.1.0.tgz
 ```
 
@@ -323,7 +323,7 @@ az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
 
 Após alguns instantes, a CLI do Azure relata que o gráfico foi salvo, conforme mostrado na seguinte saída de exemplo:
 
-```
+```output
 {
   "saved": true
 }
@@ -345,7 +345,7 @@ helm search mycontainerregistry
 
 O gráfico do Wordpress enviado por push na etapa anterior é listado, conforme mostrado na saída de exemplo a seguir:
 
-```
+```output
 NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  8.1.0           5.3.2       Web publishing platform for building blogs and websites.
 ```
@@ -366,7 +366,7 @@ helm inspect mycontainerregistry/wordpress
 
 Quando nenhum número de versão é fornecido, a versão *mais recente* é usada. O Helm retorna informações detalhadas sobre seu gráfico, conforme mostrado na saída de exemplo condensada a seguir:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 description: Web publishing platform for building blogs and websites.
@@ -416,7 +416,7 @@ As seguintes etapas são concluídas durante o processo de instalação:
 
 Conforme a instalação continuar, siga as instruções na saída do comando para ver as URLs e as credenciais do WorPress. Você também pode executar o comando `kubectl get pods` para ver os recursos de kubernetes implantados por meio do gráfico Helm:
 
-```
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
@@ -439,7 +439,7 @@ O gráfico continua a ser retornado quando você executa `helm search`. Novament
 az acr helm repo add --name mycontainerregistry
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Este artigo usou um gráfico existente do Helm do repositório *estável* público. Para obter mais informações sobre como criar e implantar gráficos do Helm, consulte [desenvolvendo gráficos do Helm][develop-helm-charts].
 

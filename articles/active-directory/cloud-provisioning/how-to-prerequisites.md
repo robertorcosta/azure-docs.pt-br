@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909033"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298642"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento do Azure AD Connect Cloud
 Este artigo fornece orientação sobre como escolher e usar o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect como sua solução de identidade.
@@ -26,7 +26,7 @@ Este artigo fornece orientação sobre como escolher e usar o provisionamento de
 ## <a name="cloud-provisioning-agent-requirements"></a>Requisitos do agente de provisionamento de nuvem
 Você precisa do seguinte para usar Azure AD Connect provisionamento de nuvem:
     
-- Uma conta de administrador global para seu locatário do Azure AD.
+- Uma conta de administrador global para seu locatário do Azure AD que não é um usuário convidado.
 - Um servidor local para o agente de provisionamento com o Windows 2012 R2 ou posterior.
 - Configurações de firewall local.
 
@@ -39,6 +39,10 @@ O restante do documento fornece instruções passo a passo para esses pré-requi
 
 1. Crie uma conta de administrador global somente em nuvem no seu locatário do Azure AD. Dessa forma, você pode gerenciar a configuração do seu locatário se os serviços locais falharem ou ficarem indisponíveis. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A conclusão desta etapa é essencial para garantir que você não fique bloqueado do seu locatário.
 1. Adicione um ou mais [nomes de domínio personalizados](../active-directory-domains-add-azure-portal.md) ao seu locatário do Azure AD. Os usuários podem entrar com um desses nomes de domínio.
+
+### <a name="in-your-directory-in-active-directory"></a>Em seu diretório no Active Directory
+
+Execute a [ferramenta IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) para preparar os atributos de diretório para sincronização.
 
 ### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
 
@@ -91,7 +95,7 @@ Para habilitar o TLS 1,2, siga estas etapas.
 1. Reinicie o servidor.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)

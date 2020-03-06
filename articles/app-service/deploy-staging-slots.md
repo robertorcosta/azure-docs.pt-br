@@ -3,14 +3,14 @@ title: Configurar ambientes de preparo
 description: Saiba como implantar aplicativos em um slot que não seja de produção e o AutoSwap para produção. Aumente a confiabilidade e elimine o tempo de inatividade do aplicativo de implantações.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 03/04/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666441"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300836"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -23,7 +23,7 @@ A implantação do aplicativo em um slot de não produção traz os seguintes be
 * Implantar um aplicativo em um slot primeiro e alterná-lo para produção garantem que todas as instâncias do slot estejam aquecidas antes de alterná-lo para produção. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento de tráfego é contínuo, e nenhuma solicitação é removida devido a operações de alternância. Você pode automatizar todo esse fluxo de trabalho configurando a [troca automática](#Auto-Swap) quando a validação de pré-atualização não for necessária.
 * Após a troca, o slot com o aplicativo de preparo anterior terá o aplicativo de produção anterior. Se as alterações alternadas para o slot de produção não correspondem às suas expectativas, você pode realizar a mesma alternância imediatamente para ter o "último site válido conhecido" de volta.
 
-Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Não há nenhum custo adicional para usar os slots de implantação. Para descobrir o número de Slots com suporte na camada do aplicativo, consulte [limites do serviço de aplicativo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
+Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Não há nenhum custo adicional para usar os slots de implantação. Para descobrir o número de Slots com suporte na camada do aplicativo, consulte [limites do serviço de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 Para dimensionar seu aplicativo para uma camada diferente, verifique se a camada de destino dá suporte ao número de slots que seu aplicativo já usa. Por exemplo, se seu aplicativo tiver mais de cinco slots, você não poderá dimensioná-lo para a camada **Standard** , pois a camada **Standard** oferece suporte a apenas cinco slots de implantação. 
 
@@ -170,7 +170,7 @@ Se ocorrerem erros no slot de destino (por exemplo, o slot de produção) após 
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>Configurar a troca automática
+## <a name="configure-auto-swap"></a>Configurar troca automática
 
 > [!NOTE]
 > A troca automática não tem suporte em aplicativos Web no Linux.
@@ -303,7 +303,7 @@ New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot
 ---
 ### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Iniciar uma troca com uma visualização (troca de várias fases) e aplicar a configuração do slot de destino ao slot de origem
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
@@ -316,7 +316,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ---
 ### <a name="swap-deployment-slots"></a>Permute slots de implantação
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
@@ -425,5 +425,5 @@ Aqui estão alguns erros de permuta comuns:
 
 - Após trocas de slot, o aplicativo pode experimentar reinicializações inesperadas. Isso ocorre porque, após uma troca, a configuração de associação de nome de host fica fora de sincronia, o que por si só não causa reinicializações. No entanto, determinados eventos de armazenamento subjacentes (como failovers de volume de armazenamento) podem detectar essas discrepâncias e forçar a reinicialização de todos os processos de trabalho. Para minimizar esses tipos de reinicializações, defina a [configuração do aplicativo`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todos os slots*. No entanto, essa configuração de aplicativo *não funciona com* aplicativos Windows Communication Foundation (WCF).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Bloquear o acesso aos slots de não produção](app-service-ip-restrictions.md)

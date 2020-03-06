@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: ff8772f7c3c3213c010b0bdbd0d0aa8897404bac
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119990"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331137"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurar o OpenSSL para Linux
 
@@ -42,16 +42,16 @@ Verifique se há `certs` subdiretório em OPENSSLDIR. No exemplo acima, seria `/
 - OPENSSLDIR é `/opt/ssl`. Há `certs` subdiretório com muitos arquivos `.crt` ou `.pem`.
 Defina a variável de ambiente `SSL_CERT_DIR` para apontar para `/opt/ssl/certs` antes de executar um programa que usa o SDK de fala. Por exemplo:
 ```bash
-SSL_CERT_DIR=/opt/ssl/certs ./helloworld
+export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR é `/etc/pki/tls`. Há um arquivo de pacote de certificado, por exemplo `ca-bundle.pem` ou `ca-bundle.crt`.
-Defina a variável de ambiente `SSL_CERT_FILE` para apontar para `/etc/pki/tls/ca-bundle.pem` antes de executar um programa que usa o SDK de fala. Por exemplo:
+- OPENSSLDIR é `/etc/pki/tls` (como em sistemas baseados em RHEL/CentOS). Há `certs` subdiretório com um arquivo de pacote de certificado, por exemplo `ca-bundle.crt`.
+Defina a variável de ambiente `SSL_CERT_FILE` para apontar para esse arquivo antes de executar um programa que usa o SDK de fala. Por exemplo:
 ```bash
-SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
+export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Sobre o SDK de fala](speech-sdk.md)

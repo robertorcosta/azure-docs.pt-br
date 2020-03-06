@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5d65ac83fc8a41008971108c5b370c1d0416113b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805851"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331512"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Como usar a entrada de áudio compactado por codec com o SDK de fala no iOS
 
 A API de **fluxo de entrada de áudio compactada** do SDK de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando um fluxo de recepção ou de envio por push.
 
 > [!IMPORTANT]
-> O SDK de fala versão 1.7.0 ou superior é necessário para streaming de áudio compactado no iOS. Também há suporte para [ C++o, C#o e o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md) e [Java no Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
+> O SDK de fala versão 1.7.0 ou superior é necessário para streaming de áudio compactado no iOS. Também há suporte para [ C++o, C#o e o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md) e [Java no Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
 
 Para wav/PCM, consulte a documentação de fala principal. Fora de wav/PCM, há suporte para os seguintes formatos de entrada compactados do Codec:
 
@@ -32,7 +32,7 @@ Para wav/PCM, consulte a documentação de fala principal. Fora de wav/PCM, há 
 - ALAW no contêiner WAV
 - MULAW no contêiner WAV
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 O tratamento de áudio compactado é implementado usando o [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licenciamento, essas funções não podem ser enviadas com o SDK, mas uma biblioteca de wrapper que contém essas funções precisa ser criada por desenvolvedores de aplicativos e fornecida com os aplicativos usando o SDK.
 
@@ -64,7 +64,7 @@ O próximo trecho mostra como os dados de áudio compactados podem ser lidos de 
 
 [!code-objectivec[Push compressed audio data into the stream](~/samples-cognitive-services-speech-sdk/samples/objective-c/ios/compressed-streams/CompressedStreamsSample/CompressedStreamsSample/ViewController.m?range=105-151&highlight=19-44)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-- [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Veja como reconhecer a fala em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

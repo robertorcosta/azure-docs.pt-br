@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000978"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299407"
 ---
 # <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades e os controles de segurança a serem considerados quando você cria aplicativos para a nuvem. Os recursos de treinamento, juntamente com as perguntas de segurança e os conceitos a serem considerados durante as fases de design e de requisitos do Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para criar um aplicativo mais seguro.
@@ -38,7 +38,7 @@ Use os seguintes recursos durante o estágio de treinamento para se familiarizar
 
   - O [Guia de introdução para os desenvolvedores do Azure](../../guides/developer/azure-developer-guide.md) fornece informações essenciais para os desenvolvedores que procuram começar a usar a plataforma Azure para suas necessidades de desenvolvimento.
 
-  - [SDKs e ferramentas](https://docs.microsoft.com/azure/index#pivot=sdkstools) descreve as ferramentas que estão disponíveis no Azure.
+  - [SDKs e ferramentas](https://docs.microsoft.com/azure/index?pivot=sdkstools) descreve as ferramentas que estão disponíveis no Azure.
 
   - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) fornece ferramentas de colaboração de desenvolvimento. As ferramentas incluem pipelines de alto desempenho, repositórios git gratuitos, quadros Kanban configuráveis e testes de carga abrangentes e baseados em nuvem.
     A [central de recursos DevOps](https://docs.microsoft.com/azure/devops/learn/) combina nossos recursos para aprendizagem de práticas de DevOps, controle de versão do git, métodos Agile, como trabalhamos com DevOps na Microsoft e como você pode avaliar sua própria progressão de DevOps.
@@ -66,7 +66,7 @@ Faça perguntas de segurança como:
 
   - Meu aplicativo contém dados confidenciais?
 
-  - O meu aplicativo coleta ou armazena dados que exigem que eu respeite os padrões do setor e programas de conformidade como o [FFIEC (Instituto financeiro federal de exames)](../blueprints/ffiec-analytics-overview.md) ou os [padrões de segurança de dados do setor de cartão de pagamento (PCI DSS) ](../blueprints/pcidss-analytics-overview.md)?
+  - Meu aplicativo coleta ou armazena dados que exigem a adesão a padrões do setor e programas de conformidade como o [FFIEC (Instituto financeiro federal de exames)](../blueprints/ffiec-analytics-overview.md) ou os [padrões de segurança de dados do setor de cartão de pagamento (PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
 
   - O meu aplicativo coleta ou contém dados confidenciais pessoais ou de clientes que podem ser usados, por conta própria ou por outras informações, para identificar, contatar ou localizar uma única pessoa?
 
@@ -126,10 +126,10 @@ Para o desenvolvimento, use uma biblioteca de codificação segura e uma estrutu
 Verifique se você está usando a versão mais recente da estrutura e todos os recursos de segurança disponíveis na estrutura. A Microsoft oferece um [conjunto abrangente de ferramentas de desenvolvimento](https://azure.microsoft.com/product-categories/developer-tools/) para todos os desenvolvedores, trabalhando em qualquer plataforma ou linguagem, para fornecer aplicativos de nuvem. Você pode codificar com a linguagem de sua escolha escolhendo entre vários [SDKs](https://azure.microsoft.com/downloads/).
 Você pode aproveitar os IDEs (ambientes de desenvolvimento integrado) completos e editores que têm recursos de depuração avançados e suporte interno do Azure.
 
-A Microsoft oferece uma variedade de [linguagens, estruturas e ferramentas](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) que você pode usar para desenvolver aplicativos no Azure. Um exemplo é o [Azure para desenvolvedores .net e .NET Core](https://docs.microsoft.com/dotnet/azure/). Para cada idioma e estrutura que oferecemos, você encontrará guias de início rápido, tutoriais e referências de API para ajudá-lo a começar rapidamente.
+A Microsoft oferece uma variedade de [linguagens, estruturas e ferramentas](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) que você pode usar para desenvolver aplicativos no Azure. Um exemplo é o [Azure para desenvolvedores .net e .NET Core](https://docs.microsoft.com/dotnet/azure/). Para cada idioma e estrutura que oferecemos, você encontrará guias de início rápido, tutoriais e referências de API para ajudá-lo a começar rapidamente.
 
 O Azure oferece uma variedade de serviços que você pode usar para hospedar sites e aplicativos Web. Esses serviços permitem desenvolver em sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node. js, PHP ou Python.
-[Aplicativos Web do serviço Azure app](../../app-service/overview.md) (Aplicativos Web) é um desses serviços.
+Os [aplicativos Web do serviço Azure app](../../app-service/overview.md) (aplicativos Web) são um desses serviços.
 
 Os aplicativos Web adicionam o poder do Microsoft Azure ao seu aplicativo. Ele inclui segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você também pode aproveitar os recursos do DevOps em aplicativos Web, como gerenciamento de pacotes, ambientes de preparo, domínios personalizados, certificados SSL/TLS e implantação contínua do Azure DevOps, GitHub, Hub do Docker e outras fontes.
 
@@ -149,7 +149,7 @@ A modelagem de ameaças é o processo de identificar possíveis ameaças à segu
 
 Para ajudar a facilitar o processo de modelagem de ameaças, projetamos o [Threat Modeling Tool do SDL](threat-modeling-tool.md) com especialistas não relacionados à segurança em mente. Essa ferramenta facilita a modelagem de ameaças para todos os desenvolvedores, fornecendo uma orientação clara sobre como criar e analisar modelos de ameaça.
 
-Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) — falsificação, adulteração, repúdio, divulgação de informações, negação de serviço e elevação de privilégio — em todos os limites de confiança provou uma maneira eficaz de detectar erros de design no início. A tabela a seguir lista as ameaças STRIDE e fornece algumas atenuações de exemplo que usam os recursos fornecidos pelo Azure. Essas mitigações não funcionarão em todas as situações.
+Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) — falsificação, violação, repúdio, divulgação de informações, negação de serviço e elevação de privilégio — em todos os limites de confiança, comprovou uma maneira eficaz de detectar erros de design no início. A tabela a seguir lista as ameaças STRIDE e fornece algumas atenuações de exemplo que usam os recursos fornecidos pelo Azure. Essas mitigações não funcionarão em todas as situações.
 
 | Ameaça | Propriedade de segurança | Mitigação potencial da plataforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -160,7 +160,7 @@ Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.
 | Negação de Serviço      | Disponibilidade          | Monitore as métricas de desempenho para possíveis condições de negação de serviço. Implementar filtros de conexão. A [proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md#next-steps), combinada com as práticas recomendadas de design de aplicativo, fornece defesa contra ataques de DDoS.|
 | Elevação de privilégio | Autorização         | Use Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
-### <a name="reduce-your-attack-surface"></a>Reduzir sua superfície de ataque
+### <a name="reduce-your-attack-surface"></a>Reduzir a superfície de ataque
 
 Uma superfície de ataque é a soma total de onde podem ocorrer possíveis vulnerabilidades. Neste artigo, nos concentramos na superfície de ataque de um aplicativo.
 O foco é proteger um aplicativo contra ataques. Uma maneira simples e rápida de minimizar a superfície de ataque é remover recursos e códigos não utilizados do seu aplicativo. Quanto menor o seu aplicativo, menor a superfície de ataque. Por exemplo, remova:
@@ -233,7 +233,7 @@ Implemente o acesso JIT ( *just-in-time* ) para reduzir ainda mais o tempo de ex
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Exigir nova autenticação para transações importantes
 
-[Falsificação de solicitação entre sites](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecido como *XSRF* ou *CSRF*) é um ataque contra aplicativos hospedados na Web em que um aplicativo Web mal-intencionado influencia a interação entre um navegador cliente e um aplicativo Web que confia nesse navegador. Os ataques de solicitação entre sites forjado são possíveis porque os navegadores da Web enviam alguns tipos de tokens de autenticação automaticamente com cada solicitação para um site.
+A [solicitação entre sites forjada](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF*) é um ataque contra aplicativos hospedados na Web em que um aplicativo Web mal-intencionado influencia a interação entre um navegador cliente e um aplicativo Web que confia nesse navegador. Os ataques de solicitação entre sites forjado são possíveis porque os navegadores da Web enviam alguns tipos de tokens de autenticação automaticamente com cada solicitação para um site.
 Essa forma de exploração também é conhecida como um ataque ou *sessão* de *um clique* , pois o ataque aproveita a sessão autenticada anteriormente do usuário.
 
 A melhor maneira de se defender contra esse tipo de ataque é pedir ao usuário algo que apenas o usuário possa fornecer antes de cada transação importante, como uma compra, desativação de conta ou uma alteração de senha. Você pode pedir ao usuário para digitar novamente sua senha, concluir um captcha ou enviar um token secreto que apenas o usuário teria. A abordagem mais comum é o token secreto.

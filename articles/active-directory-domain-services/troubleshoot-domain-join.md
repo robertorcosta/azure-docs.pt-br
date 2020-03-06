@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612815"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299101"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de ingresso no domínio com um Azure AD Domain Services domínio gerenciado
 
@@ -55,7 +55,7 @@ Para solucionar problemas relacionados a credenciais, examine as seguintes etapa
 
 1. Tente usar o formato UPN para especificar as credenciais, como `dee@aaddscontoso.onmicrosoft.com`. Verifique se esse UPN está configurado corretamente no Azure AD.
     * O *sAMAccountName* para sua conta pode ser gerado automaticamente se houver vários usuários com o mesmo prefixo UPN em seu locatário ou se o prefixo UPN for muito longo. Portanto, o formato *sAMAccountName* para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
-1. Tente usar as credenciais de uma conta de usuário que pertença ao grupo de *Administradores de DC do AAD* para ingressar VMs no domínio gerenciado AD DS do Azure.
+1. Tente usar as credenciais de uma conta de usuário que faça parte do domínio gerenciado AD DS do Azure para ingressar VMs no domínio gerenciado.
 1. Certifique-se de que você [habilitou a sincronização de senha][enable-password-sync] e esperou tempo suficiente para a conclusão da sincronização de senha inicial.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,14 +8,13 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2020
-ms.custom: seodec18
-ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 03/10/2020
+ms.openlocfilehash: 9407ad09a9b30e11cbf1e3f3debb357df46e316d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249739"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399467"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -335,7 +334,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | DESCRIÇÃO | Edition |
+| Ferramenta baseada na Web | Descrição | Edition |
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | Básico & Enterprise |
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | Enterprise |
@@ -1516,7 +1515,7 @@ Observação: o SDK do Python de preparação de dados não instalará mais paco
 + Nova experiência de criação de gráficos de arrastar e soltar para relatórios. Os usuários podem arrastar uma coluna ou um atributo do poço à área do gráfico, na qual o sistema selecionará automaticamente um tipo de gráfico apropriado para o usuário com base no tipo de dados. Os usuários podem alterar o tipo de gráfico para outros tipos aplicáveis ou adicionar outros atributos.
 
     Tipos de gráfico compatíveis:
-    - Gráfico de linhas
+    - Gráfico de Linhas
     - Histograma
     - Gráfico de barras empilhadas
     - Gráfico de caixa
@@ -1790,6 +1789,6 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 Uma nova versão atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Leia a visão geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

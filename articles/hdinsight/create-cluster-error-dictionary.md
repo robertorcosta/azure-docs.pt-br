@@ -1,6 +1,6 @@
 ---
-title: Criar um dicionário de erros de cluster
-description: Saiba como criar um dicionário de erros de cluster.
+title: Criar um cluster do Azure HDInsight – dicionário de erros
+description: Saiba como solucionar erros que ocorrem durante a criação de clusters do Azure HDInsight
 author: karkrish
 ms.author: v-todmc
 ms.reviewer: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 979e83c0eeaac4555fc5144bca479f0b5656cd28
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617534"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302722"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: erros de criação de cluster
 
@@ -24,7 +24,7 @@ Este artigo descreve as resoluções para erros que podem surgir durante a cria�
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "O local da ação de script não pode ser acessado URI:\<URL da ação de SCRIPT\>"
 
@@ -46,7 +46,7 @@ O serviço HDInsight não pode acessar a URL de ação de script que você forne
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "O local da ação de script não pode ser acessado URI: \<SCRIPT_ACTION_URL\>"
 
@@ -66,7 +66,7 @@ Adicione a conta Azure Data Lake Storage Gen 1 correspondente ao cluster. Além 
 
 ## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "O tamanho da VM '\<CUSTOMER_SPECIFIED_VM_SIZE\>' fornecido na solicitação é inválido ou não tem suporte para a função '\<\>de função '. Os valores válidos são: \<VALID_VM_SIZE_FOR_ROLE\>".
 
@@ -82,7 +82,7 @@ A mensagem de erro lista os valores válidos para o tamanho da VM. Selecione um 
 
 ## <a name="error-codeinvalidvirtualnetworkid"></a>Código de erro: InvalidVirtualNetworkId  
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "O VirtualNetworkId não é válido. VirtualNetworkId '\<USER_VIRTUALNETWORKID\>' * "
 
@@ -106,7 +106,7 @@ Aqui está um exemplo de uma ID de rede virtual:
 
 ## <a name="error-code-customizationfailederrorcode"></a>Código de erro: CustomizationFailedErrorCode
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "Falha na implantação do cluster devido a um erro na ação de script personalizado. Ações com falha: \<SCRIPT_NAME\>, acesse a interface do usuário do Ambari para depurar ainda mais a falha. "
 
@@ -122,7 +122,7 @@ Como o script é seu script personalizado, recomendamos que você solucione o pr
 
 ## <a name="error-codeinvaliddocumenterrorcode"></a>Código de erro: InvalidDocumentErrorCode
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "A versão de esquema do metastore do \<META_STORE_TYPE\> \<METASTORE_MAJOR_VERSION\> no banco de dados \<database_name\> é incompatível com a versão do cluster \<CLUSTER_VERSION do"\>
 
@@ -138,7 +138,7 @@ Use somente as versões do metastore com suporte da versão do cluster HDInsight
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Código de erro: FailedToConnectWithClusterErrorCode 
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "Não é possível conectar ao ponto de extremidade de gerenciamento de cluster para executar a operação de dimensionamento. Verifique se as regras de segurança de rede não estão bloqueando o acesso externo ao cluster e se a interface do usuário do Gerenciador de cluster (Ambari) pode ser acessada com êxito. "
 
@@ -159,7 +159,7 @@ Se você planeja usar grupos de segurança de rede para controlar o tráfego de 
 
 ## <a name="error-code-storagepermissionsblockedformsi"></a>Código de erro: StoragePermissionsBlockedForMsi  
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "A identidade gerenciada não tem permissões na conta de armazenamento. Verifique se a função ' proprietário de dados do blob de armazenamento ' está atribuída à identidade gerenciada para a conta de armazenamento. Armazenamento:/subscriptions/\<ID da assinatura\>/resourceGroups/\< nome do grupo de recursos\>/providers/Microsoft.Storage/storageAccounts/\<nome da conta de armazenamento\>, identidade gerenciada:/subscriptions/\<ID da assinatura\>/resourceGroups//\< nome do grupo de recursos\>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/\<nome da identidade gerenciada do usuário\>"
 
@@ -180,7 +180,7 @@ Para obter mais informações, consulte [configurar permissões para a identidad
 
 ## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Código de erro: InvalidNetworkSecurityGroupSecurityRules  
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 "As regras de segurança no grupo de segurança de rede/subscriptions/\<SubscriptionId\>/resourceGroups/< nome do grupo de recursos\> padrão/provedores/Microsoft. Network/networkSecurityGroups/\<nome do grupo de segurança de rede\> configurado com a sub-rede/subscriptions/\<SubscriptionId\>/resourceGroups/\<nome do grupo de recursos\> RG-westeurope-vnet-tomtom-default/Providers/Microsoft. Network/virtualNetworks/\<virtual O nome da rede\>/Subnets/\<nome da sub-rede\> não permite a entrada necessária e/ou a conectividade de saída. Para obter mais informações, visite [planejar uma rede virtual para o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)ou contate o suporte. "
 
@@ -200,7 +200,7 @@ Se você planeja usar grupos de segurança de rede para controlar o tráfego de 
 
 ## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Código de erro: a instalação do cluster falhou ao instalar componentes em um ou mais hosts
 
-###  <a name="error"></a>Erro
+###  <a name="error"></a>Error
 
 "Falha da instalação do cluster ao instalar componentes em um ou mais hosts. Repita sua solicitação. "
 
@@ -212,6 +212,6 @@ Normalmente, esse erro é gerado quando há um problema transitório ou uma inte
 
 Verifique a página de [status do Azure](https://status.azure.com) para qualquer interrupção do Azure que possa afetar a implantação do cluster. Se não houver interrupções, repita a implantação do cluster.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre como solucionar erros de criação de cluster, consulte [solucionar problemas de falhas de criação de cluster com o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).

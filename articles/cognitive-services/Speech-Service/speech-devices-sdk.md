@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 854e7beb2afd8ae838455f77ff448f13d8b3fbea
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 43d08b466076672587e7f6545193e326283c0031
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188970"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330780"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Sobre os dispositivos de fala do SDK
 
@@ -39,7 +39,7 @@ O SDK dos dispositivos de fala permite uma variedade de cenários habilitados pa
 
 Para o Android, os dispositivos baixam a versão mais recente do [SDK de dispositivos de fala do Android](https://aka.ms/sdsdk-download-android).
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>Portal
 
 Para o Windows, o aplicativo de exemplo é fornecido como um aplicativo Java de plataforma cruzada. Baixe a versão mais recente do [SDK de dispositivos de fala do JRE](https://aka.ms/sdsdk-download-JRE).
 O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v4) no Windows de 64 bits. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
@@ -47,11 +47,11 @@ O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v
 ### <a name="linux"></a>Linux
 
 Para o Linux, o aplicativo de exemplo é fornecido como um aplicativo Java de plataforma cruzada. Baixe a versão mais recente do [SDK de dispositivos de fala do JRE](https://aka.ms/sdsdk-download-JRE).
-O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v4) no Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
+O aplicativo é criado com o pacote do SDK de fala e o eclipse Java IDE (v4) no Linux de 64 bits (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 8, CentOS 8). Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
 Binários adicionais são fornecidos para dar suporte a dispositivos futuros, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2)e [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Escolha seu dispositivo de fala](get-speech-devices-sdk.md)

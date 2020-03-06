@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: bb8477165afcaafe6d03ccb3fe7764124aa166c6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7cbd2dfab7d0d9ee0df730eb15fa2c4b4952c85b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928664"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399197"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
 Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
@@ -23,10 +23,10 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
 | PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5,3 | Para a conexão PHP 7.0 com o SSL MySQLi, adicione MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT na cadeia de conexão. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO defina a opção ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` como false.|
 | .NET | Conector MySQL assíncrono para .NET | https://github.com/mysql-net/MySqlConnector <br> [Pacote de instalação do Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 e posterior | 0.26.5 e anterior | |
-| .NET | Conector MySQL/NET | https://github.com/mysql/mysql-connector-net | 8.0, 7.0, 6.10 |  | Um bug de codificação pode causar falha em alguns sistemas não - UTF8 Windows nas conexões. |
+| .NET | Conector MySQL/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7,0, 8,0 |  | Um bug de codificação pode causar falha em alguns sistemas não - UTF8 Windows nas conexões. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Pacote de instalação do NPM:<br> Executar `npm install mysql` do NPM | 2.15 | 2.14.1 e anterior | |
 | Node.js | nó-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4 + | | |
-| Go | Acessar o driver do MySQL | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1,3. A versão 1,4 contém uma correção e `allowNativePasswords=true` não é mais necessária. |
+| Ir | Acessar o driver do MySQL | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1,3. A versão 1,4 contém uma correção e `allowNativePasswords=true` não é mais necessária. |
 | Python | Conector do MySQL/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2,0, 2,1, 2,2, use 8.0.16 + com MySQL 8,0  | 1.2.2 e anterior | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (regressão em web2py) | |
 | Java | Conector do MariaDB/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e anterior | | 
@@ -40,7 +40,7 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 | Swift | MySQL-Swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |
 | Swift | vapor/MySQL | https://github.com/vapor/mysql-kit | 2.0.1 + | | |
 
-## <a name="management-tools"></a>Ferramentas de Gerenciamento
+## <a name="management-tools"></a>Ferramentas de gerenciamento
 A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de banco de dados também. Suas ferramentas existentes devem continuar trabalhando com o Banco de Dados do Azure para MySQL, contanto que a manipulação do banco de dados seja operada dentro dos limites das permissões de usuário. Três ferramentas comuns de gerenciamento de banco de dados que foram testadas e identificadas como compatíveis com o Banco de Dados do Azure para MySQL 5.6 e 5.7 estão listadas na tabela a seguir:
 
 |                                     | **MySQL Workbench 6.x e superior** | **Navicat 12** | **PHPMyAdmin 4.x e superior** |
@@ -48,12 +48,12 @@ A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de
 | Criar, atualizar, ler, gravar, excluir | X | X | X |
 | Conexão SSL | X | X | X |
 | Preenchimento automático da consulta SQL | X | X |  |
-| Importar e exportar dados | X | X | X | 
+| Importação e exportação de dados | X | X | X | 
 | Exportar para vários formatos | X | X | X |
 | Backup e restauração |  | X |  |
 | Exibir parâmetros do servidor | X | X | X |
 | Exibir conexões de cliente | X | X | X |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Solucionar problemas de conexão no Banco de Dados do Azure para MySQL](howto-troubleshoot-common-connection-issues.md)

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697329"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300002"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
 
@@ -39,9 +39,9 @@ Os exemplos a seguir mostram o usuário experiência de consentimento quando as 
 
 Antes de adicionar links aos termos de serviço e aos documentos da declaração de privacidade do seu aplicativo, verifique se os URLs seguem essas diretrizes.
 
-| Diretriz     | Description                           |
+| Diretriz     | Descrição                           |
 |---------------|---------------------------------------|
-| Formatar        | URL Válida                             |
+| Formato        | URL Válida                             |
 | Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
 | Comprimento máximo    | 2048 caracteres                       |
 
@@ -53,7 +53,7 @@ Quando os termos de serviço e a declaração de privacidade estiverem prontos, 
 
 * [ através do portal do Azure ](#azure-portal)
 * [ Usando o objeto de aplicativo JSON ](#app-object-json)
-* [ Usando a API REST do MSGraph beta ](#msgraph-beta-rest-api)
+* [Usando a API de Microsoft Graph](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Usando o portal do Azure
 Siga estas etapas na portal do Azure.
@@ -77,12 +77,12 @@ Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usa
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a> Usando a API REST do MSGraph beta
+### <a name="msgraph-rest-api"></a>Usando a API de Microsoft Graph
 
-Para atualizar programaticamente todos os seus aplicativos, você pode usar a API REST beta do MSGraph para atualizar todos os seus aplicativos para incluir links para os termos de serviço e documentos de declaração de privacidade.
+Para atualizar todos os seus aplicativos programaticamente, você pode usar a API de Microsoft Graph para atualizar todos os seus aplicativos para incluir links para os documentos de termos de serviço e de política de privacidade.
 
 ```
-PATCH https://graph.microsoft.com/beta/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 { 
     "appId": "{your application id}", 
     "info": { 
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 
 > [!NOTE]
 > * Tenha cuidado para não sobrescrever quaisquer valores preexistentes atribuídos a qualquer um desses campos: `supportUrl`, `marketingUrl` e `logoUrl`
-> * A API REST beta do MSGraph só funcionará quando você fizer login com uma conta do AD do Azure. Contas pessoais da Microsoft não são suportadas.
+> * A API Microsoft Graph só funciona quando você entra com uma conta do Azure AD. Contas pessoais da Microsoft não são suportadas.

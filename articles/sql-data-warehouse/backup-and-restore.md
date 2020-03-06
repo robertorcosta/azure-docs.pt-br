@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/21/2019
+ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: ecaf9e007d93b3a99a7609ebf36307f3a6dad15c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b689588bcbca640dd55b25c52c462ad1a363da5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199947"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296330"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Backup e restauração no pool do SQL Synapse do Azure
 
@@ -58,7 +58,7 @@ A lista a seguir detalha os períodos de retenção do ponto de restauração:
 2. Os instantâneos não são feitos quando um pool do SQL é pausado.
 3. A idade de um ponto de restauração é medida pelos dias de calendário absolutos a partir do momento em que o ponto de restauração é realizado, incluindo quando o pool do SQL é pausado.
 4. Em qualquer ponto no tempo, é garantido que um pool SQL seja capaz de armazenar até 42 pontos de restauração definidos pelo usuário e 42 pontos de restauração automáticos, contanto que esses pontos de restauração não tenham atingido o período de retenção de 7 dias
-5. Se um instantâneo for obtido, o pool do SQL será pausado por mais de 7 dias e, em seguida, retomará, é possível que o ponto de restauração persista até que haja 42 de pontos de restauração totais (incluindo os definidos pelo usuário e automaticamente)
+5. Se um instantâneo for tirado, o pool do SQL será pausado por mais de 7 dias e, em seguida, será retomado, o ponto de restauração persistirá até que haja 42 de pontos de restauração totais (incluindo os definidos pelo usuário e automaticamente)
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Retenção de instantâneo quando um pool de SQL é Descartado
 

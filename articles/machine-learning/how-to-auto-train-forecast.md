@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 93695b407762766b0bdd40c9d99a0bf4965f59a8
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251844"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328772"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Os aprendizes da série temporal nativa também são fornecidos como parte do ML
 
 A média de movimentação integrada de regressão automática (ARIMA) é um método estatístico popular para a previsão de série temporal. Essa técnica de previsão é normalmente usada em cenários de previsão de curto prazo, em que os dados mostram evidências de tendências, como ciclos, que podem ser imprevisíveis e difíceis de modelar ou prever. O ARIMA transforma seus dados em dados estáticos para receber resultados consistentes e confiáveis.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Um Workspace do Azure Machine Learning. Para criar o espaço de trabalho, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 * Este artigo pressupõe familiaridade básica com a configuração de um experimento de aprendizado de máquina automatizado. Siga o [tutorial](tutorial-auto-train-models.md) ou [instruções](how-to-configure-auto-train.md) para ver os padrões básicos de design de experimento de aprendizado automático de máquina.
@@ -113,7 +113,7 @@ Para tarefas de previsão, o Machine Learning automatizado usa etapas de pré-pr
 
 O objeto [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) define as configurações e os dados necessários para uma tarefa de aprendizado de máquina automatizada. Semelhante a um problema de regressão, você define parâmetros de treinamento padrão, como tipo de tarefa, número de iterações, dados de treinamento e número de validações cruzadas. Para tarefas de previsão, há parâmetros adicionais que devem ser definidos para afetar o experimento. A tabela a seguir explica cada parâmetro e seu uso.
 
-| Param | DESCRIÇÃO | Obrigatório |
+| Nome do&nbsp;do parâmetro | Descrição | Obrigatório |
 |-------|-------|-------|
 |`time_column_name`|Usado para especificar a coluna datetime nos dados de entrada usados para criar a série temporal e inferir sua frequência.|✓|
 |`grain_column_names`|Nome (s) definindo grupos de séries individuais nos dados de entrada. Se a granulação não for definida, o conjunto de dados será considerado uma série temporal.||
@@ -242,7 +242,7 @@ Repita as etapas necessárias para carregar esses dados futuros em um dataframe 
 > [!NOTE]
 > Os valores não podem ser previstos para o número de períodos maiores que o `max_horizon`. O modelo deve ser treinado novamente com um horizonte maior para prever valores futuros além do horizonte atual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Siga o [tutorial](tutorial-auto-train-models.md) para aprender a criar experimentos com o Machine Learning automatizado.
 * Exiba a documentação de referência do [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .

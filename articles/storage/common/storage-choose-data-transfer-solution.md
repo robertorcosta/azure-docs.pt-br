@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900398"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303079"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução do Azure para transferência de dados
 
@@ -50,20 +50,19 @@ Responda às seguintes perguntas para ajudar a selecionar uma solução de trans
 
 - A sua largura de banda disponível limitada ou não existente está disponível e você deseja transferir grandes conjuntos de dados?
   
-    Em caso afirmativo, consulte: [Cenário 1: Transferência de grandes conjuntos de dados sem nenhuma ou pouca largura de banda](storage-solution-large-dataset-low-network.md).
+    Em caso afirmativo, consulte: [cenário 1: transferir conjuntos de grandes volumes com largura de banda de rede insuficiente ou baixa](storage-solution-large-dataset-low-network.md).
 - Deseja transferir grandes conjuntos de dados sobre a rede e ter uma largura de banda de rede de moderada a alta?
 
-    Em caso afirmativo, consulte: [Cenário 2: Transferência de grandes conjuntos de dados com largura de banda de rede moderada a alta](storage-solution-large-dataset-moderate-high-network.md).
+    Em caso afirmativo, consulte: [cenário 2: transferir grandes conjuntos de altos com largura de banda de rede moderada para alta](storage-solution-large-dataset-moderate-high-network.md).
 - Deseja transferir, ocasionalmente, apenas alguns arquivos pela rede?
 
-    Em caso positivo, consulte [Cenário 3: Transferir pequenos conjuntos de dados com largura de banda de rede limitada a moderada](storage-solution-small-dataset-low-moderate-network.md).
+    Em caso afirmativo, consulte [cenário 3: transferir pequenos conjuntos de valores com largura de banda de rede limitada a moderada](storage-solution-small-dataset-low-moderate-network.md).
 - Você está procurando a transferência de dados de point-in-time em intervalos regulares?
 
-    Em caso afirmativo, use as opções de script/programação descritas no [Cenário 4: Transferência de dados periódica](storage-solution-periodic-data-transfer.md).
+    Em caso afirmativo, use as opções de script/programática descritas no [cenário 4: transferências de dados periódicas](storage-solution-periodic-data-transfer.md).
 - Você está procurando a transferência de dados contínua em andamento?
 
-    Em caso positivo, use as opções no [Cenário 4: Transferência de dados periódica](storage-solution-periodic-data-transfer.md).
- 
+    Em caso afirmativo, use as opções no [cenário 4: transferências de dados periódicas](storage-solution-periodic-data-transfer.md).
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Recurso de transferência de dados no portal do Azure
 
@@ -74,7 +73,7 @@ Você também pode acessar sua conta de armazenamento do Azure em portal do Azur
 - [Obter uma introdução ao Armazenamento do Microsoft Azure](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [Leia uma visão geral do AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 - [Usar o Azure PowerShell com o Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
-- [Uso da CLI do Azure com o Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
+- [Início rápido: criar, baixar e listar BLOBs com CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Saiba mais sobre:
 
     - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](https://docs.microsoft.com/azure/databox/).

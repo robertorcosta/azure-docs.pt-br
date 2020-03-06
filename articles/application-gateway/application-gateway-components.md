@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971138"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301345"
 ---
 # <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
 
@@ -53,11 +53,11 @@ O gateway de aplicativo dá suporte a quatro protocolos: HTTP, HTTPS, HTTP/2 e W
 >O suporte ao protocolo HTTP/2 está disponível para os clientes que se conectam apenas os ouvintes do Gateway de Aplicativo. A comunicação com os pools de servidores back-end é sempre por HTTP/1.1. Por padrão, o suporte HTTP/2 está desabilitado. Você pode optar por habilitá-lo.
 
 - Especifique entre os protocolos HTTP e HTTPS na configuração do ouvinte.
-- O suporte para os [protocolos WebSockets e http/2](overview.md#websocket-and-http2-traffic) é fornecido nativamente, e o [suporte ao WebSocket](application-gateway-websocket.md) está habilitado por padrão. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket. Use WebSockets com ouvintes HTTP e HTTPS.
+- O suporte para os [protocolos WebSockets e http/2](features.md#websocket-and-http2-traffic) é fornecido nativamente, e o [suporte ao WebSocket](application-gateway-websocket.md) está habilitado por padrão. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket. Use WebSockets com ouvintes HTTP e HTTPS.
 
 Use um ouvinte HTTPS para terminação SSL. Um ouvinte HTTPS descarrega o trabalho de criptografia e descriptografia para o gateway de aplicativo, para que os servidores Web não sejam sobrecarregados pela sobrecarga.
 
-### <a name="custom-error-pages"></a>Páginas de erros personalizados
+### <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
 O gateway de aplicativo permite que você crie páginas de erro personalizadas em vez de exibir páginas de erro padrão. Você pode usar sua própria identidade visual e layout em uma página de erro personalizada. O gateway de aplicativo exibe uma página de erro personalizada quando uma solicitação não pode alcançar o back-end.
 
@@ -115,9 +115,9 @@ A porta e o protocolo usados nas configurações de HTTP determinam se o tráfeg
 
 Esse componente também é usado para:
 
-- Determine se uma sessão de usuário deve ser mantida no mesmo servidor usando a afinidade de [sessão baseada em cookie](overview.md#session-affinity).
+- Determine se uma sessão de usuário deve ser mantida no mesmo servidor usando a afinidade de [sessão baseada em cookie](features.md#session-affinity).
 
-- Remova normalmente os membros do pool de back-end usando o [descarregamento de conexão](overview.md#connection-draining).
+- Remova normalmente os membros do pool de back-end usando o [descarregamento de conexão](features.md#connection-draining).
 
 - Associar uma investigação personalizada para monitorar a integridade do back-end, definir o intervalo de tempo limite da solicitação, substituir o nome do host e o caminho na solicitação e fornecer uma facilidade de clique para especificar as configurações para o back-end do serviço de aplicativo.
 
@@ -126,7 +126,7 @@ Esse componente também é usado para:
 Um pool de back-end roteia a solicitação para servidores de back-end, que atendem à solicitação. Os pools de back-end podem conter:
 
 - NICs
-- Conjuntos de dimensionamento de máquinas virtuais
+- conjuntos de escala de máquina virtual
 - Endereços IP públicos
 - Endereços IP internos
 - FQDN
@@ -148,7 +148,7 @@ Além de usar o monitoramento da investigação de integridade padrão, você ta
 
 Para obter mais informações, consulte [monitorar a integridade do seu gateway de aplicativo](../application-gateway/application-gateway-probe-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Criar um Application Gateway:
 

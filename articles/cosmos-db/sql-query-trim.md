@@ -4,15 +4,15 @@ description: Saiba mais sobre o corte de função do sistema SQL no Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bcb62dc5b43e05fa96ce9bfb428d6fc9160edde9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 073efbd91e637a17693617b16c7787d61e150ad7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349110"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304235"
 ---
 # <a name="trim-azure-cosmos-db"></a>TRIM (Azure Cosmos DB)
  Retorna uma expressão de cadeia de caracteres após remover os espaços em branco iniciais e finais.  
@@ -46,7 +46,11 @@ SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM
 [{"t1": "abc", "t2": "abc", "t3": "abc", "t4": "abc"}]  
 ``` 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

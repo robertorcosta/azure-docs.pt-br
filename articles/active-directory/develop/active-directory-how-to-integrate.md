@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: dbbe501b27bf7ae4d4cb4bc00501aeb1fb06819e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5e4c6fb91b93b1035c68350a5f77a3c16db7323f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161215"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300105"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração ao Active Directory do Azure
 
@@ -38,13 +38,13 @@ Há várias maneiras de seu aplicativo integrar-se ao AD do Azure. Aproveite o m
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Procurar usuários, gerenciar o provisionamento de usuários e controlar o acesso ao seu aplicativo
 
-**Procure por usuários no diretório.**  Use a API do Graph para ajudar os usuários, ao convidar outras pessoas ou ao conceder acesso, a pesquisar e procurar por outras pessoas em suas organizações em vez de exigir que esses usuários digitem endereços de email. Os usuários podem navegar usando uma interface familiar estilo livro de endereços, incluindo a exibição dos detalhes da hierarquia organizacional. Saiba mais sobre a [API do Graph](active-directory-graph-api.md).
+**Procure por usuários no diretório.**  Use a API Microsoft Graph para ajudar os usuários a Pesquisar e procurar outras pessoas em sua organização ao convidar outros ou conceder acesso, em vez de exigir que digitem endereços de email. Os usuários podem navegar usando uma interface familiar estilo livro de endereços, incluindo a exibição dos detalhes da hierarquia organizacional. Saiba mais sobre a [API de Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-**Reutilize grupos do Active Directory e listas de distribuição que seu cliente já está gerenciando.**  O AD do Azure contém os grupos que seu cliente já está usando para distribuição de email e gerenciamento de acesso. Usando a Graph API, reutilize esses grupos em vez de exigir que o cliente crie e gerencie um conjunto separado de grupos em seu aplicativo. Informações de grupos também podem ser enviadas ao seu aplicativo em tokens de entrada. Saiba mais sobre a [API do Graph](active-directory-graph-api.md).
+**Reutilize grupos do Active Directory e listas de distribuição que seu cliente já está gerenciando.**  O AD do Azure contém os grupos que seu cliente já está usando para distribuição de email e gerenciamento de acesso. Usando a API Microsoft Graph, reutilize esses grupos em vez de exigir que o cliente crie e gerencie um conjunto separado de grupos em seu aplicativo. Informações de grupos também podem ser enviadas ao seu aplicativo em tokens de entrada. Saiba mais sobre a [API de Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-**Use o AD do Azure para controlar quem tem acesso ao aplicativo.**  Os administradores e os proprietários do aplicativo no AD do Azure podem atribuir acesso a aplicativos a usuários e grupos específicos. Usando a API do Graph, você pode ler essa lista e usá-la para controlar o provisionamento e desprovisionamento de recursos e acesso dentro do aplicativo.
+**Use o AD do Azure para controlar quem tem acesso ao aplicativo.**  Os administradores e os proprietários do aplicativo no AD do Azure podem atribuir acesso a aplicativos a usuários e grupos específicos. Usando a API de Microsoft Graph, você pode ler essa lista e usá-la para controlar o provisionamento e desprovisionamento de recursos e o acesso em seu aplicativo.
 
-**Use o AD do Azure para funções com base em controle de acesso.**  Os administradores e os proprietários do aplicativo podem atribuir usuários e grupos a funções que você define quando registra seu aplicativo no AD do Azure. Informações de função são enviadas ao aplicativo em tokens de entrada e também podem ser lidas usando a API do Graph. Saiba mais sobre [uso do AD do Azure para autorização](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Use o AD do Azure para funções com base em controle de acesso.**  Os administradores e os proprietários do aplicativo podem atribuir usuários e grupos a funções que você define quando registra seu aplicativo no AD do Azure. As informações de função são enviadas para seu aplicativo em tokens de entrada e também podem ser lidas usando a API Microsoft Graph. Saiba mais sobre [uso do AD do Azure para autorização](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Obtenha acesso ao perfil do usuário, calendário, email, contatos, arquivos e muito mais
 
@@ -88,7 +88,7 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 **O AD do Azure é implantado em data centers em todo o mundo e é gerenciado e monitorado ininterruptamente.**  O AD do Azure é o sistema de gerenciamento de identidade para ambos o Microsoft Azure e o Office 365, e é implantado em 28 datacenters em todo o mundo. É garantido que dados de diretório serão replicados para pelo menos três datacenters. Balanceadores de carga global garantem o acesso de usuários à cópia mais próxima do AD do Azure que contém seus dados e rotearão automaticamente solicitações para outros datacenters, se algum problema for detectado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Introdução à escrita de código](v2-overview.md#getting-started).
 

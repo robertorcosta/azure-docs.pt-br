@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459311"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300546"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluções de aplicativos Oracle que integram Microsoft Azure e a infraestrutura de nuvem da Oracle (versão prévia)
 
@@ -28,7 +28,7 @@ A Microsoft e a Oracle fizeram parceria para fornecer conectividade de nuvem cru
 Usando essa conectividade entre nuvens, você pode particionar um aplicativo multicamadas para executar sua camada de banco de dados no Oracle Cloud Infrastructure (OCI) e o aplicativo e outras camadas em Microsoft Azure. A experiência é semelhante à execução de toda a pilha de solução em uma única nuvem. 
 
 > [!IMPORTANT]
-> Esse recurso de nuvem está atualmente em visualização e as [limitações se aplicam](#preview-limitations). Para estabelecer conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser habilitada para esse recurso. Você deve se registrar na visualização concluindo este pequeno [formulário de pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Após a inscrição da sua assinatura, você receberá um email. Você somente poderá usar a funcionalidade quando receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+> Esse recurso de nuvem está atualmente em visualização e as [limitações se aplicam](#region-availability). Para estabelecer conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser habilitada para esse recurso. Você deve se registrar na visualização concluindo este pequeno [formulário de pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Após a inscrição da sua assinatura, você receberá um email. Você somente poderá usar a funcionalidade quando receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
 Se você estiver interessado em implantar soluções Oracle totalmente na infraestrutura do Azure, consulte [imagens de VM Oracle e sua implantação em Microsoft Azure](oracle-vm-solutions.md).
 
@@ -48,9 +48,13 @@ O diagrama a seguir é uma visão geral de alto nível da solução conectada. P
 
 ![Visão geral da solução de OCI do Azure](media/oracle-oci-overview/crosscloud.png)
 
-## <a name="preview-limitations"></a>Limitações de visualização
+## <a name="region-availability"></a>Disponibilidade da região 
 
-* A conectividade entre as nuvens na visualização é limitada às regiões do Azure leste dos EUA (lesteus), do Sul do Reino Unido (uksouth) e do Canadá central (canadacentral) e às regiões do OCI Ashburn (leste dos EUA), Londres (Sul do Reino Unido) e Toronto (sudeste do Canadá). Por Sul do Reino Unido, use o domínio de disponibilidade 1 (AD 1) no OCI ao implantar a inter-Connect para latências mais baixas.
+A conectividade entre nuvem é limitada às seguintes regiões:
+* Leste dos EUA do Azure (lesteus) & OCI Ashburn (leste dos EUA)
+* Sul do Reino Unido do Azure (uksouth) & OCI Londres (Sul do Reino Unido)
+* Azure Canada central (canadacentral) & OCI Toronto (sudeste do Canadá)
+* Azure Europa Ocidental (westeurope) & OCI Amsterdã (noroeste dos Países Baixos)
 
 ## <a name="networking"></a>Rede
 
@@ -72,7 +76,7 @@ A identidade é um dos pilares principais da parceria entre a Microsoft e a Orac
 
 Atualmente, essa integração permite que você gerencie em um local central, que é Azure Active Directory. O Azure AD sincroniza todas as alterações no diretório com o diretório Oracle correspondente e é usado para logon único em soluções do Oracle de nuvem cruzada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Introdução a uma [rede entre nuvens](configure-azure-oci-networking.md) entre o Azure e o OCI. 
 

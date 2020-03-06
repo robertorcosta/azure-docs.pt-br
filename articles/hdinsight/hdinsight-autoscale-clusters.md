@@ -7,21 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/21/2020
-ms.openlocfilehash: 6eb8f86d7bfa1c140c6422753840ded8a37ce3c4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 03/05/2020
+ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616084"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399719"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
 > [!Important]
-> O recurso de dimensionamento automático do Azure HDInsight foi lançado para disponibilidade geral em 7 de novembro de 2019 para clusters Spark e Hadoop e aprimoramentos incluídos não estão disponíveis na versão de visualização do recurso. Se você criou um cluster Spark antes de 7 de novembro de 2019 e deseja usar o recurso de dimensionamento automático em seu cluster, o caminho recomendado é criar um novo cluster e habilitar o dimensionamento automático no novo cluster. 
+> O recurso de dimensionamento automático do Azure HDInsight foi lançado para disponibilidade geral em 7 de novembro de 2019 para clusters Spark e Hadoop e aprimoramentos incluídos não estão disponíveis na versão de visualização do recurso. Se você criou um cluster Spark antes de 7 de novembro de 2019 e deseja usar o recurso de dimensionamento automático em seu cluster, o caminho recomendado é criar um novo cluster e habilitar o dimensionamento automático no novo cluster.
 >
->O dimensionamento automático para LLAP (consulta interativa) e clusters HBase ainda está em versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, consulta interativa e HBase. 
-
+> O dimensionamento automático para LLAP (consulta interativa) e clusters HBase ainda está em versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, consulta interativa e HBase.
 
 O recurso de dimensionamento automático do cluster do Azure HDInsight dimensiona automaticamente o número de nós de trabalho em um cluster para cima e para baixo. Outros tipos de nós no cluster não podem ser dimensionados no momento.  Durante a criação de um novo cluster HDInsight, um número mínimo e um número máximo de nós de trabalho podem ser definidos. O dimensionamento automático monitora os requisitos de recursos da carga de análise e dimensiona o número de nós de trabalho para cima ou para baixo. Não há encargos adicionais para esse recurso.
 
@@ -29,7 +28,7 @@ O recurso de dimensionamento automático do cluster do Azure HDInsight dimension
 
 A tabela a seguir descreve os tipos de cluster e as versões que são compatíveis com o recurso de dimensionamento automático.
 
-| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| {1&gt;Version&lt;1} | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 4,0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
@@ -48,7 +47,7 @@ O dimensionamento baseado em agendamento altera o número de nós no cluster com
 
 O dimensionamento automático monitora o cluster continuamente e coleta as seguintes métricas:
 
-|Métrica|DESCRIÇÃO|
+|Métrica|Descrição|
 |---|---|
 |Total de CPU pendente|o número total de núcleos necessários para iniciar a execução de todos os contêineres pendentes.|
 |Memória total pendente|o total de memória (em MB) necessária para iniciar a execução de todos os contêineres pendentes.|
@@ -59,23 +58,18 @@ O dimensionamento automático monitora o cluster continuamente e coleta as segui
 
 As métricas acima são verificadas a cada 60 segundos. O dimensionamento automático faz decisões de redução e redução com base nessas métricas.
 
-### <a name="load-based-cluster-scale-up"></a>Expansão de cluster com base em carga
+### <a name="load-based-scale-conditions"></a>Condições de escala baseadas em carga
 
-Quando as condições a seguir forem detectadas, o dimensionamento automático emitirá uma solicitação de expansão:
+Quando as condições a seguir forem detectadas, o dimensionamento automático emitirá uma solicitação de dimensionamento:
 
-* A CPU pendente total é maior que a CPU total livre por mais de 3 minutos.
-* A memória total pendente é maior que a memória livre total por mais de 3 minutos.
+|Escalar verticalmente|Reduzir verticalmente|
+|---|---|
+|A CPU pendente total é maior que a CPU total livre por mais de 3 minutos.|O total de CPU pendente é menor que o total de CPU livre por mais de 10 minutos.|
+|A memória total pendente é maior que a memória livre total por mais de 3 minutos.|O total de memória pendente é menor que o total de memória livre por mais de 10 minutos.|
 
-O serviço HDInsight calcula quantos novos nós de trabalho são necessários para atender aos requisitos atuais de CPU e memória e, em seguida, emite uma solicitação de expansão para adicionar o número necessário de nós.
+Para expansão, o serviço HDInsight calcula quantos novos nós de trabalho são necessários para atender aos requisitos atuais de CPU e memória e, em seguida, emite uma solicitação de expansão para adicionar o número necessário de nós.
 
-### <a name="load-based-cluster-scale-down"></a>Redução do cluster baseado em carga
-
-Quando as seguintes condições forem detectadas, o dimensionamento automático emitirá uma solicitação de redução horizontal:
-
-* O total de CPU pendente é menor que o total de CPU livre por mais de 10 minutos.
-* O total de memória pendente é menor que o total de memória livre por mais de 10 minutos.
-
-Com base no número de contêineres AM por nó e nos requisitos atuais de CPU e memória, o dimensionamento automático emite uma solicitação para remover um determinado número de nós. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução vertical primeiro encerra os nós e, em seguida, remove-os do cluster.
+Para reduzir verticalmente, com base no número de contêineres AM por nó e nos requisitos atuais de CPU e memória, o dimensionamento automático emite uma solicitação para remover um determinado número de nós. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução vertical primeiro encerra os nós e, em seguida, remove-os do cluster.
 
 ## <a name="get-started"></a>Introdução
 
@@ -118,7 +112,7 @@ Para o dimensionamento baseado em carga e em agendamento, selecione o tipo de VM
 
 ![Habilitar o tamanho do nó de dimensionamento automático baseado na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
-Sua assinatura tem uma cota de capacidade para cada região. O número total de núcleos de seus nós de cabeçalho combinado com o número máximo de nós de trabalho não pode exceder a cota de capacidade. No entanto, essa cota é um limite flexível; você sempre pode criar um tíquete de suporte para aumentá-lo facilmente.
+Sua assinatura tem uma cota de capacidade para cada região. O número total de núcleos dos nós de cabeçalho combinados com o número máximo de nós de trabalho não pode exceder a cota de capacidade. No entanto, essa cota é um limite flexível; você sempre pode criar um tíquete de suporte para aumentá-lo facilmente.
 
 > [!Note]  
 > Se você exceder o limite de cota de núcleo total, receberá uma mensagem de erro informando ' o nó máximo excedeu os núcleos disponíveis nesta região, escolha outra região ou entre em contato com o suporte para aumentar a cota. '
@@ -248,13 +242,13 @@ O status do cluster listado no portal do Azure pode ajudá-lo a monitorar as ati
 
 Todas as mensagens de status do cluster que você pode ver são explicadas na lista abaixo.
 
-| Status do cluster | DESCRIÇÃO |
+| Status do cluster | Descrição |
 |---|---|
-| Executando | O cluster está funcionando normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
+| Em execução | O cluster está funcionando normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
 | Atualizando  | A configuração de autoescala do cluster está sendo atualizada.  |
 | Configuração do HDInsight  | Uma operação de expansão ou redução do cluster está em andamento.  |
 | Erro de atualização  | O HDInsight encontrou problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repetir a atualização ou desabilitar o dimensionamento automático.  |
-| Erro  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
+| Error  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
 
 Para exibir o número atual de nós no cluster, acesse o gráfico **de tamanho do cluster** na página **visão geral** do cluster ou selecione **tamanho do cluster** em **configurações**.
 
@@ -266,6 +260,6 @@ Selecione **métricas** em **monitoramento**. Em seguida, selecione **Adicionar 
 
 ![Habilitar métrica de dimensionamento automático baseado em agenda de nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Leia sobre as práticas recomendadas para dimensionar os clusters manualmente em [Práticas recomendadas de dimensionamento](hdinsight-scaling-best-practices.md)

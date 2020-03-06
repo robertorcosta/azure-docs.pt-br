@@ -4,15 +4,15 @@ description: Saiba mais sobre a função de sistema SQL ENDSWITH em Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6b3e692877faab8a8d507a44068d4cdfdc73a916
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37c5a8b3c44c5ac46b837e4d851d22f85aeaf39c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873345"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299441"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
  Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda.  
@@ -49,7 +49,11 @@ SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2
 [{"e1": false, "e2": true}]  
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

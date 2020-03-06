@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913643"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331529"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de conteúdo de áudio
 
@@ -43,7 +43,7 @@ Este diagrama mostra as etapas necessárias para ajustar e exportar saídas de f
 
 Siga estas etapas para criar um recurso de fala e conectá-lo com o Speech Studio.
 
-1. Siga estas instruções para [se inscrever em uma conta do Azure](get-started.md#new-resource) e [criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verifique se o tipo de preço está definido como **S0**. Se você estiver usando uma das vozes neurais, certifique-se de criar seu recurso em uma [região com suporte](regions.md#standard-and-neural-voices).
+1. Siga estas instruções para [se inscrever em uma conta do Azure](get-started.md#new-resource) e [criar um recurso de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Verifique se o tipo de preço está definido como **S0**. Se você estiver usando uma das vozes neurais, certifique-se de criar seu recurso em uma [região com suporte](regions.md#standard-and-neural-voices).
 2. Entrar na [criação de conteúdo de áudio](https://aka.ms/audiocontentcreation).
 3. Selecione um projeto existente ou clique em **criar novo**.
 4. Você pode modificar sua assinatura a qualquer momento com a opção **configurações** , localizada na barra de navegação superior.

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7495c6b114e232a9aad0075e173abebcb3c92cd0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4ce56b64502904308f45c74a5471447d93419452
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273590"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303045"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ativos variáveis na Automação do Azure
 
@@ -35,9 +35,6 @@ Ao criar uma variável, você pode especificar sua criptografia e armazenamento 
 A automação do Azure armazena cada variável criptografada com segurança. Seu valor não pode ser recuperado usando o cmdlet [Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) que é fornecido como parte do módulo Azure PowerShell. A única maneira de recuperar um valor criptografado é usando a atividade **Get-AutomationVariable** em um runbook ou configuração DSC.
 
 >[!NOTE]
->Se você quiser remover a criptografia de uma variável, deverá excluir a variável e recriá-la como não criptografada.
-
->[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md).
 
 ## <a name="variable-types"></a>Tipos de variável
@@ -45,7 +42,7 @@ A automação do Azure armazena cada variável criptografada com segurança. Seu
 Ao criar uma variável com o portal do Azure, você deve especificar um tipo de dados na lista suspensa para que o portal possa exibir o controle apropriado para inserir o valor da variável. A seguir estão os tipos de variáveis disponíveis na automação do Azure:
 
 * String
-* Inteiro
+* Integer
 * Datetime
 * Boolean
 * Nulo
@@ -60,7 +57,7 @@ Você pode armazenar vários valores em uma única variável criando uma matriz 
 
 Para o módulo AZ, os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de variável de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo AZ. Automation](/powershell/azure/overview), que está disponível para uso em Runbooks de automação e configurações DSC.
 
-| Cmdlet | Descrição |
+| Cmdlet | DESCRIÇÃO |
 |:---|:---|
 |[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Recupera o valor de uma variável existente.|
 |[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Cria uma nova variável e define o seu valor.|
@@ -71,7 +68,7 @@ Para o módulo AZ, os cmdlets na tabela a seguir são usados para criar e gerenc
 
 As atividades na tabela a seguir são usadas para acessar variáveis em runbooks e configurações DSC. A diferença entre **Get-AzAutomationVariable** e **Get-AutomationVariable** é explicada para variáveis criptografadas no início deste artigo.
 
-| Atividade | Descrição |
+| Atividade | DESCRIÇÃO |
 |:---|:---|
 |**Get-AutomationVariable**|Recupera o valor de uma variável existente.|
 |**Set-AutomationVariable**|Define o valor de uma variável existente.|
@@ -81,7 +78,7 @@ As atividades na tabela a seguir são usadas para acessar variáveis em runbooks
 
 As funções na tabela a seguir são usadas para acessar e recuperar variáveis em um runbook Python2.
 
-|Funções Python2|Descrição|
+|Funções Python2|DESCRIÇÃO|
 |:---|:---|
 |automationassets.get_automation_variable|Recupera o valor de uma variável existente. |
 |automationassets.set_automation_variable|Define o valor de uma variável existente. |
@@ -96,6 +93,9 @@ As funções na tabela a seguir são usadas para acessar e recuperar variáveis 
 1. Na sua conta de automação, clique no bloco **Ativos** e então, na folha, **Ativos**, selecione **Variáveis**.
 2. No bloco **Variáveis**, clique em **Adicionar uma variável**.
 3. Conclua as opções na folha **nova variável** e, em seguida, clique em **criar** para salvar a nova variável.
+
+>[!NOTE]
+>Se você quiser remover a criptografia de uma variável, deverá excluir a variável e recriá-la como não criptografada.
 
 ### <a name="create-a-new-variable-with-windows-powershell"></a>Criar uma nova variável com o Windows PowerShell
 
@@ -186,7 +186,7 @@ A imagem a seguir mostra as atividades de exemplo para atualizar uma variável c
 
 ![Definir variável simples](../media/variables/runbook-set-simple-variable.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como conectar atividades na criação gráfica, confira [links na criação gráfica](../automation-graphical-authoring-intro.md#links-and-workflow).
 - Para começar a usar runbooks gráficos, consulte [meu primeiro runbook gráfico](../automation-first-runbook-graphical.md).

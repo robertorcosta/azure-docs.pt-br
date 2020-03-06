@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 11ff29dcae7bf5c2e532eee658ee39d39b964e35
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f5867850db6eb3d6552bc129cca3708ef7747072
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350966"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303878"
 ---
 # <a name="is_array-azure-cosmos-db"></a>IS_ARRAY (Azure Cosmos DB)
  Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz.  
@@ -53,7 +53,11 @@ SELECT
 [{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de verificação de tipo Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

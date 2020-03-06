@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 03b2312b554743d83eff268876be1f20be595290
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 7c15786e9a5d2fe65c20a26606087cee994ab54b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267534"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302841"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança do Azure para Key Vault
 
@@ -131,7 +131,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Exemplos de Azure Policy:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#networ
+https://docs.microsoft.com/azure/governance/policy/samples
 
 Início rápido: definir e atribuir um plano gráfico no Portal:
 
@@ -296,7 +296,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Responsabilidade**: não aplicável
 
-## <a name="identity-and-access-control"></a>Controle de identidade e acesso
+## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
 *Para obter mais informações, consulte [controle de segurança: identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
@@ -1241,7 +1241,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidade**: compartilhado
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte o [benchmark de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre as [linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

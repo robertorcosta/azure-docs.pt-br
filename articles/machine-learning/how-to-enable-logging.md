@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 07/12/2019
-ms.openlocfilehash: 65db6cfa64658edc4e604a009e672ba3aa5e86f3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/05/2020
+ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893993"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396142"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Habilitar logon Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -101,7 +101,7 @@ Do mesmo modo, é possível registrar rastreamentos de pilha personalizados para
 service.update(enable_app_insights=True)
 ```
 
-Consulte o " [como](how-to-enable-app-insights.md) " para obter mais informações sobre como trabalhar com Application Insights no Azure Machine Learning Studio.
+Para obter mais informações, consulte [monitorar e coletar dados de pontos de extremidade de serviço Web do ml](how-to-enable-app-insights.md).
 
 ## <a name="python-native-logging-settings"></a>Configurações de registro em log nativo do Python
 
@@ -111,3 +111,7 @@ Determinados logs no SDK poderão conter um erro que irá instrui-lo a definir o
 import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+
+* [Monitorar e coletar dados de pontos de extremidade de serviço Web do ML](how-to-enable-app-insights.md)

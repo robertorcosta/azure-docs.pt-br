@@ -4,15 +4,15 @@ description: Saiba mais sobre a função ToString do sistema SQL no Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 53630a0ecd76459f23a978e98040a86152d7c0d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 293449b1616e7124245d91c647177b958006009e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349119"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304252"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
  Retorna uma representação de cadeia de caracteres de uma expressão escalar. 
@@ -95,7 +95,11 @@ Este é o conjunto de resultados.
 {"nutrientID":"309","nutritionVal":"null"}]
 ``` 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

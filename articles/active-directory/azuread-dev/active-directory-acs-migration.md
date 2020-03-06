@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 7b009a6e2f540dc076340a6803679a541e60adc7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165339"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377914"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
 
@@ -68,13 +68,13 @@ Siga as etapas nesta seção para descobrir quais dos seus aplicativos serão af
 ### <a name="download-and-install-acs-powershell"></a>Baixar e instalar o PowerShell do ACS
 
 1. Vá para a Galeria do PowerShell e baixe [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Instale o módulo fazendo a execução
+2. Instale o módulo fazendo a execução
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Obtenha uma lista de todos os comandos possíveis fazendo a execução
+3. Obtenha uma lista de todos os comandos possíveis fazendo a execução
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -94,8 +94,8 @@ Siga as etapas nesta seção para descobrir quais dos seus aplicativos serão af
   
     Pode ser necessário executar `Set-ExecutionPolicy -ExecutionPolicy Bypass` antes de poder executar comandos e ser o administrador dessas assinaturas para executar os comandos.
 
-1. Liste suas assinaturas do Azure disponíveis usando o cmdlet **Get-AcsSubscription**.
-1. Liste seus namespaces do ACS usando o cmdlet **Get-AcsNamespace**.
+2. Liste suas assinaturas do Azure disponíveis usando o cmdlet **Get-AcsSubscription**.
+3. Liste seus namespaces do ACS usando o cmdlet **Get-AcsNamespace**.
 
 ### <a name="check-which-applications-will-be-impacted"></a>Verifique quais aplicativos serão afetados
 
@@ -103,8 +103,8 @@ Siga as etapas nesta seção para descobrir quais dos seus aplicativos serão af
 
     Por exemplo, se um dos namespaces for contoso-test, vá para `https://contoso-test.accesscontrol.windows.net`
 
-1. Sob **Relações de confiança**, selecione **Aplicativos de terceira parte confiável** para ver a lista de aplicativos que serão afetados pela desativação do ACS.
-1. Repita as etapas 1-2 para outros namespaces do ACS que você possa ter.
+2. Sob **Relações de confiança**, selecione **Aplicativos de terceira parte confiável** para ver a lista de aplicativos que serão afetados pela desativação do ACS.
+3. Repita as etapas 1-2 para outros namespaces do ACS que você possa ter.
 
 ## <a name="retirement-schedule"></a>Cronograma de desativação
 
@@ -127,12 +127,12 @@ As seções a seguir descrevem as recomendações de alto nível para a migraç�
 
 Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Controle de Acesso agora suportam pelo menos uma forma alternativa de autenticação. O mecanismo de autenticação correto varia para cada serviço. É recomendável que você consulte a documentação específica para cada serviço para obter orientação oficial. Para sua conveniência, cada conjunto de documentação é fornecido aqui:
 
-| Serviço | Orientação |
+| Service | {1&gt;Orientação&lt;1} |
 | ------- | -------- |
 | Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Retransmissão do Barramento de Serviço do Azure | [Migrar para Assinaturas de Acesso Compartilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Cache Gerenciado do Azure | [Migrar para o Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| DataMarket do Azure | [Migrar para as APIs de Serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure DataMarket | [Migrar para as APIs de Serviços Cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Serviços do BizTalk | [Migrar para o recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Serviços de Mídia do Azure | [Migrar para a Autenticação do Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Serviço de Backup do Azure | [Atualizar o Agente de Backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
@@ -148,7 +148,7 @@ Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Con
 
 Os clientes do SharePoint 2013, 2016 e SharePoint Online têm muito uso o ACS para fins de autenticação em cenários de nuvem, locais e híbridos. Alguns recursos do SharePoint e casos de uso serão afetados pela desativação do ACS, enquanto outros não. A tabela abaixo resume as orientações de migração para alguns dos recursos mais populares do SharePoint que utilizam o ACS:
 
-| Recurso | Orientação |
+| Recurso | {1&gt;Orientação&lt;1} |
 | ------- | -------- |
 | Autenticar usuários do Microsoft Azure AD | Anteriormente, o Microsoft Azure AD não fornecia suporte a tokens SAML 1.1 exigidos pelo SharePoint para autenticação e o ACS era usado como um intermediário que tornava o SharePoint compatível com os formatos de token do Microsoft Azure AD. Agora, você pode [conectar o SharePoint diretamente ao Azure ad usando aplicativo Azure ad Galeria do SharePoint no aplicativo local](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticação de aplicativo & autenticação de servidor para servidor no SharePoint local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela desativação do ACS; nenhuma mudança necessária. | 
@@ -187,7 +187,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Capability | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Suportado | Suportado |
@@ -202,7 +202,7 @@ Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção p
 | WS-Trust | Suportado | Sem suporte |
 | **Formatos de Token** | | |
 | JWT | Com suporte em versão beta | Suportado |
-| SAML 1.1 | Suportado | Visualização |
+| SAML 1.1 | Suportado | {1&gt;Preview&lt;1} |
 | SAML 2.0 | Suportado | Suportado |
 | SWT | Suportado | Sem suporte |
 | **Personalizações** | | |
@@ -210,7 +210,7 @@ Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção p
 | Carregar certificados de autenticação de tokens personalizados | Suportado | Suportado |
 | Personalizar declarações em gráficos |- Declarações de entrada de passagem de provedores de identidade<br />- Obter token de acesso do provedor de identidade como uma declaração<br />- Emitir declarações de saída com base nos valores de declarações de entrada<br />- Emitir declarações de saída com valores constantes |- Não é possível passar declarações de provedores de identidade federados<br />- Não pode obter um token de acesso do provedor de identidade como uma declaração<br />- Não pode emitir declarações de saída com base nos valores de declarações de entrada<br />- Pode emitir declarações de saída com valores constantes<br />- Pode emitir declarações de saída com base nas propriedades de usuários sincronizadas ao Azure AD |
 | **Automação** | | |
-| Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso | Com suporte via Microsoft Graph e API do Graph do Azure AD |
+| Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso | Com suporte usando a API de Microsoft Graph |
 
 Se você decidir que o Azure AD é o melhor caminho de migração para seus aplicativos e serviços, lembre-se de duas maneiras de integrar seu aplicativo com o Azure AD.
 
@@ -238,7 +238,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Capability | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Suportado | Com suporte via políticas personalizadas  |
@@ -261,7 +261,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 | Carregar certificados de autenticação de tokens personalizados | Suportado | Chaves de autenticação personalizadas, não certificados, com suporte via políticas personalizadas |
 | Personalizar declarações em gráficos |- Declarações de entrada de passagem de provedores de identidade<br />- Obter token de acesso do provedor de identidade como uma declaração<br />- Emitir declarações de saída com base nos valores de declarações de entrada<br />- Emitir declarações de saída com valores constantes |- Pode passar por declarações de provedores de identidade; políticas personalizadas necessárias para algumas declarações<br />- Não pode obter um token de acesso do provedor de identidade como uma declaração<br />- Pode emitir declarações de saída com base nos valores de declarações de entrada via políticas personalizadas<br />- Pode emitir declarações de saída com valores constantes via políticas personalizadas |
 | **Automação** | | |
-| Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso |- Criação de usuários permitidos por meio da API do Graph do Azure AD<br />- Não pode criar políticas, aplicativos ou locatários B2C programaticamente |
+| Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso |-Criação de usuários permitidos usando a API de Microsoft Graph<br />- Não pode criar políticas, aplicativos ou locatários B2C programaticamente |
 
 Se você decidir que o Azure AD B2C é o melhor caminho para seus aplicativos e serviços, comece com os seguintes recursos:
 
@@ -317,7 +317,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Capability | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |
@@ -325,7 +325,7 @@ Você também usar o Azure AB para a autenticação de servidor para servidor us
 | Métodos de autenticação do cliente |- Senha simples<br />- SWT assinado<br />- Token SAML de um provedor de identidade federado |- Senha simples<br />- JWT assinado |
 | Formatos de Token |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Somente JWT |
 | Transformação de token |- Adicionar declarações personalizadas<br />- Lógica de emissão se-então simples | Adicionar declarações personalizadas | 
-| Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso | Com suporte via Microsoft Graph e API do Graph do Azure AD |
+| Automatizar tarefas de gerenciamento e configuração | Suporte por meio do Serviço de Gerenciamento do Controle de Acesso | Com suporte usando a API de Microsoft Graph |
 
 Para obter diretrizes sobre a implementação de cenários de servidor para servidor, consulte os seguintes recursos:
 

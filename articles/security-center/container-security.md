@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205969"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303249"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
@@ -37,6 +37,8 @@ Para obter instruções sobre como usar esses recursos, consulte [monitorando a 
 Para monitorar seu registro de contêiner do Azure baseado em ARM, verifique se você está na camada Standard da central de segurança (consulte [preços](/azure/security-center/security-center-pricing)). Em seguida, habilite o pacote opcional de registros de contêiner. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
 
 Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança para contêineres, consulte a [lista de recomendações de referência](recommendations-reference.md#recs-containers).
+
+A central de segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a central de segurança a marca como tal. A central de segurança gera recomendações de segurança apenas para imagens que têm problemas a serem resolvidos. Notificando apenas quando há problemas, a central de segurança reduz o potencial para alertas informativos indesejados.
 
 ## <a name="environment-hardening"></a>Proteção do ambiente
 
@@ -61,11 +63,11 @@ O AKS fornece controles de segurança e visibilidade da postura de segurança de
 
 Para obter detalhes sobre as recomendações relevantes da central de segurança que podem ser exibidas para esse recurso, consulte a [seção contêiner](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
 
-## <a name="run-time-protection---real-time-threat-protection"></a>Proteção de tempo de execução-proteção contra ameaças em tempo real
+## <a name="run-time-protection---real-time-threat-detection"></a>Proteção de tempo de execução-detecção de ameaças em tempo real
 
-A central de segurança fornece proteção contra ameaças em tempo real para seus ambientes em contêineres e gera alertas para atividades suspeitas. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
+A central de segurança fornece detecção de ameaças em tempo real para seus ambientes em contêineres e gera alertas para atividades suspeitas. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
 
-Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes completos, consulte [proteção contra ameaças para contêineres do Azure](threat-protection.md#azure-containers).
+Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes completos, consulte [detecção de ameaças para contêineres do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="container-security-faq"></a>Perguntas frequentes sobre segurança do contêiner
@@ -73,10 +75,12 @@ Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes complet
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quais tipos de imagens a central de segurança do Azure pode verificar?
 A central de segurança examina as imagens baseadas no SO Linux que fornecem acesso ao shell. 
 
-O scanner Qualys não dá suporte a imagens de super plataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas seu aplicativo e suas dependências de tempo de execução (sem um Gerenciador de pacotes, Shell ou sistema operacional).
+O scanner Qualys não dá suporte a imagens de super plataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) , ou imagens "Distroless" que contêm apenas seu aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.
 
-### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Como Digitalizamos a central de segurança do Azure digitalizar uma imagem?
+### <a name="how-does-azure-security-center-scan-an-image"></a>Como a central de segurança do Azure examina uma imagem?
 A imagem é extraída do registro. Em seguida, ele é executado em uma área restrita isolada com o scanner Qualys, que extrai uma lista de vulnerabilidades conhecidas.
+
+A central de segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a central de segurança a marca como tal. A central de segurança gera recomendações de segurança apenas para imagens que têm problemas a serem resolvidos. Notificando apenas quando há problemas, a central de segurança reduz o potencial para alertas informativos indesejados.
 
 ### <a name="how-often-does-azure-security-center-scan-my-images"></a>Com que frequência a central de segurança do Azure verifica minhas imagens?
 As verificações de imagem são disparadas em cada Push.

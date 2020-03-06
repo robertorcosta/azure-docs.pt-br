@@ -4,18 +4,18 @@ description: Saiba mais sobre a função do sistema SQL inverso na Azure Cosmos 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8237918232bd8ba8edb2b8f71440ffd73a913334
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a22e1c8a5f4350bd2f966ee48f96368c648a4a1e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349551"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302161"
 ---
 # <a name="reverse-azure-cosmos-db"></a>REVERse (Azure Cosmos DB)
- Retorna a ordem inversa de um valor de cadeia de caracteres.  
+ Retorna a ordem inversa de um valor da cadeia de caracteres.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -46,7 +46,11 @@ SELECT REVERSE("Abc") AS reverse
 [{"reverse": "cbA"}]  
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

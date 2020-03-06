@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 761011cba71c3907994616904cc854003abda7ee
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 70fa17e3e6f91bf393865cc979a8e47e4bf8687b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245129"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393338"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: treinar e implantar um modelo da CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Saiba como executar as seguintes ações:
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará do [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -375,7 +375,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 ```
 
 > [!NOTE]
-> Você pode receber um aviso sobre "falha ao verificar a existência de LocalWebservice". Você pode ignorá-lo com segurança, pois não está implantando um serviço Web local.
+> Você pode receber um aviso sobre "falha ao verificar a existência de LocalWebservice" ou "falha ao criar o cliente Docker". Você pode ignorá-lo com segurança, pois não está implantando um serviço Web local.
 
 Este comando implanta um novo serviço chamado `myservice`, usando a versão 1 do modelo que você registrou anteriormente.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109994"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78400008"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de webhook no Azure Data Factory
 Você pode usar uma atividade de webhook para controlar a execução de pipelines por meio de seu código personalizado. Usando a atividade de webhook, os clientes podem chamar um ponto de extremidade e passar uma URL de retorno de chamada. A execução do pipeline aguarda a chamada do retorno de chamada antes de prosseguir para a próxima atividade.
@@ -116,6 +116,10 @@ Especifique o URI do recurso para o qual o token de acesso será solicitado usan
 Azure Data Factory passará uma propriedade adicional "callBackUri" no corpo para o ponto de extremidade da URL e esperará que esse URI seja invocado antes do valor de tempo limite especificado. Se o URI não for invocado, a atividade falhará com o status ' TimedOut '.
 
 A própria atividade de webhook falha quando a chamada para o ponto de extremidade personalizado falha. Qualquer mensagem de erro pode ser adicionada ao corpo do retorno de chamada e usada em uma atividade subsequente.
+
+Para cada chamada à API REST, o cliente atingirá o tempo limite se o ponto de extremidade não responder em 1 minuto. Essa é uma prática recomendada de http padrão. Para corrigir esse problema, você precisa implementar o padrão 202 nesse caso em que o ponto de extremidade retornará 202 (aceito) e o cliente será sondado.
+
+O tempo limite de 1 minuto na solicitação não tem nada a ver com o tempo limite da atividade. Que será usado para aguardar o callbackUri.
 
 O corpo passado de volta para o URI de retorno de chamada deve ser um JSON válido. Você deve definir o cabeçalho Content-Type como `application/json`.
 

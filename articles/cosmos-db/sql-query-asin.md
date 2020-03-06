@@ -4,15 +4,15 @@ description: Saiba mais sobre como a função de sistema do codeseno (Asen) do S
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3e790eb5ae5eb780637b199a1a65dec2dd02d1bc
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 8b70738a439b6c64a84a63adf63c83995530e92e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871731"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302688"
 ---
 # <a name="asin-azure-cosmos-db"></a>Asen (Azure Cosmos DB)
  Retorna o ângulo, em radianos, cujo seno é a expressão numérica especificada. Isso também é chamado de arco seno.  
@@ -46,7 +46,11 @@ SELECT ASIN(-1) AS asin
 [{"asin": -1.5707963267948966}]  
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

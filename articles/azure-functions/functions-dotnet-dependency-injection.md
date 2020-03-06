@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: df2acedd7f472b96d55d9ecc294d47e7173c5f90
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915700"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329009"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -131,6 +131,52 @@ Se você precisar de seu próprio provedor de log, registre um tipo personalizad
 > [!WARNING]
 > - Não adicione `AddApplicationInsightsTelemetry()` à coleção de serviços, pois ela registra os serviços que entram em conflito com os serviços fornecidos pelo ambiente.
 > - Não Registre seu próprio `TelemetryConfiguration` ou `TelemetryClient` se você estiver usando a funcionalidade interna do Application Insights. Se você precisar configurar sua própria instância de `TelemetryClient`, crie uma por meio do `TelemetryConfiguration` injetado, conforme mostrado em [monitorar Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+
+### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
+
+O host irá injetar `ILogger<T>` e `ILoggerFactory` serviços em construtores.  No entanto, por padrão, esses novos filtros de log serão filtrados dos logs de função.  Você precisará modificar o arquivo de `host.json` para aceitar filtros e categorias adicionais.  O exemplo a seguir demonstra como adicionar um `ILogger<HttpTrigger>` com logs que serão expostos pelo host.
+
+```csharp
+namespace MyNamespace
+{
+    public class HttpTrigger
+    {
+        private readonly ILogger<HttpTrigger> _log;
+
+        public HttpTrigger(ILogger<HttpTrigger> log)
+        {
+            _log = log;
+        }
+
+        [FunctionName("HttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+        {
+            _log.LogInformation("C# HTTP trigger function processed a request.");
+
+            // ...
+    }
+}
+```
+
+E um arquivo de `host.json` que adiciona o filtro de log.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingExcludedTypes": "Request",
+            "samplingSettings": {
+                "isEnabled": true
+            }
+        },
+        "logLevel": {
+            "MyNamespace.HttpTrigger": "Information"
+        }
+    }
+}
+```
 
 ## <a name="function-app-provided-services"></a>Serviços fornecidos pelo aplicativo de funções
 

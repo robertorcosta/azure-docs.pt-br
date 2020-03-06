@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 11/04/2019
-ms.openlocfilehash: 1217028dc6c206633f13fe44951732809cd72d22
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 03/05/2020
+ms.openlocfilehash: a930dc3974536047096912505b9a786cf53c41b8
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762783"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328584"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina
 
@@ -31,11 +31,11 @@ Considere as seguintes definições para entender o aprendizado profundo versus 
 - O **Machine Learning** é um subconjunto de inteligência artificial que usa técnicas (como aprendizado profundo) que permitem que os computadores usem a experiência para melhorar as tarefas. O _processo de aprendizado_ é baseado nas seguintes etapas:
 
    1. Alimentar dados em um algoritmo. (Nesta etapa, você pode fornecer informações adicionais para o modelo, por exemplo, executando extração de recursos.)
-   1. Usar esses dados para treinar um modelo.
-   1. Testar e implantar o modelo.
+   1. Use esses dados para treinar um modelo.
+   1. Teste e implante o modelo.
    1. Consuma o modelo implantado para realizar uma tarefa de previsão automatizada. (Em outras palavras, chame e use o modelo implantado para receber as previsões retornadas pelo modelo.)
 
-- O **ia (inteligência artificial)** é uma técnica que permite aos computadores imitar a inteligência humana. Ela inclui o machine learning. 
+- O **ia (inteligência artificial)** é uma técnica que permite aos computadores imitar a inteligência humana. Ele inclui aprendizado de máquina. 
  
 É importante entender a relação entre ia, Machine Learning e aprendizado profundo. O aprendizado de máquina é uma maneira de obter inteligência artificial. Usando as técnicas de aprendizado de máquina e de aprendizado profundo, você pode criar sistemas de computador e aplicativos que fazem tarefas que são normalmente associadas à inteligência humana. Essas tarefas incluem reconhecimento de imagem, reconhecimento de fala e tradução de idioma.
 
@@ -82,7 +82,7 @@ A tradução automática usa palavras ou frases de uma linguagem e as converte a
 
 Com a transformação de dados apropriada, uma rede neural pode entender o texto, áudio e sinais visuais. A tradução automática pode ser usada para identificar trechos de som em arquivos de áudio maiores e transcrever a palavra ou imagem falada como texto.
 
-### <a name="text-analytics"></a>Análises de texto
+### <a name="text-analytics"></a>Análise de Texto
 
 A análise de texto baseada em métodos de aprendizado profundo envolve a análise de grandes quantidades de dados de texto (por exemplo, documentos médicos ou recebimentos de despesas), reconhecimento de padrões e criação de informações organizadas e concisas.
 
@@ -108,7 +108,7 @@ Uma rede neural de revolução é uma rede neural artificialmente eficaz e apres
 
 As redes neurais de revolução foram usadas em áreas como reconhecimento de vídeo, reconhecimento de imagem e sistemas de recomendação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Os artigos a seguir mostram como usar a tecnologia de aprendizado profundo no [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
 

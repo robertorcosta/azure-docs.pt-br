@@ -3,7 +3,7 @@ title: Solucionar erros na API de relatório do Azure Active Directory | Microso
 description: Fornece uma resolução de erros ao chamar APIs de relatórios do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
@@ -14,36 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f34dcece9acb20d0db091152b24b26cb9fa2
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0d1fb4f49e4f9ad41f971d869873200e6180b5cd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989526"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399289"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Solucionar erros na API de relatório do Azure Active Directory
 
-Este artigo lista as mensagens de erro comuns que você pode encontrar ao acessar relatórios de atividades usando a API do MS Graph e as etapas para a resolução.
+Este artigo lista as mensagens de erro comuns que você pode encontrar ao acessar relatórios de atividade usando a API do Microsoft Graph e as etapas para sua resolução.
 
 ### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>500 Erro interno do servidor HTTP ao acessar o ponto de extremidade do Microsoft Graph V2
 
 No momento, não há suporte para o ponto de extremidade do Microsoft Graph v2 – acesse os logs de atividades usando o ponto de extremidade do Microsoft Graph v1.
-
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Erro: Falha ao obter as funções de usuário do AD Graph
-
-Você pode receber essa mensagem de erro ao tentar acessar entradas usando o Explorador do Graph. Verifique se que você está conectado à sua conta usando os dois botões de conexão na interface do usuário do Explorador do Graph, conforme é mostrado na imagem a seguir. 
-
-![Explorador do Graph](./media/troubleshoot-graph-api/graph-explorer.png)
-
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Erro: Falha ao fazer a verificação da licença Premium do AD Graph 
-
-Se você encontrar essa mensagem de erro ao tentar acessar entradas usando o Explorador do Graph, escolha **Modificar permissões** em sua conta na barra de navegação à esquerda e selecione **Tasks.ReadWrite** e **Directory.Read.All**. 
-
-![Modificar a interface do usuário de permissões](./media/troubleshoot-graph-api/modify-permissions.png)
-
 
 ### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Erro: O locatário não é B2C ou não tem uma licença Premium
 
@@ -57,11 +44,11 @@ Se essa mensagem de erro for exibida quando você tentar acessar os logs de audi
 
 Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja em execução com o conjunto certo de permissões. 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Erro: O aplicativo não tem a permissão 'Ler todos os dados do log de auditoria' da API do MSGraph
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Erro: o aplicativo não tem a permissão "ler todos os dados de log de auditoria" da API Microsoft Graph
 
 Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja em execução com o conjunto certo de permissões. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Usar a referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
 [Usar a referência de API de relatório de atividades de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

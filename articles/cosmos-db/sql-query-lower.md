@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 35efbb8d4d97ab52abb20487d15a80985946c499
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 80dba57d4fe05630eb5ae4f8fc96bd0aa214c6d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732596"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302263"
 ---
 # <a name="lower-azure-cosmos-db"></a>INFERIOR (Azure Cosmos DB)
  Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos.  
@@ -49,7 +49,11 @@ SELECT LOWER("Abc") AS lower
   
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

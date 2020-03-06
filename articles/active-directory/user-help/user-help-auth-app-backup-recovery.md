@@ -1,5 +1,5 @@
 ---
-title: Fazer backup e recuperar contas com o aplicativo Microsoft Authenticator-Azure AD
+title: Fazer backup e recuperar contas com o Microsoft Authenticator aplicativo-Azure AD
 description: Saiba como fazer backup e recuperar as credenciais de conta de backup, usando o aplicativo Microsoft Authenticator.
 services: active-directory
 author: curtand
@@ -8,17 +8,17 @@ ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: d1b28000a14ec0825435742efe238e713f116ba7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 2ac761355fc528fe3e4b4b5f05ee0a6e317ff99a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063927"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78297945"
 ---
-# <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer backup e recuperar credenciais da conta usando o aplicativo Microsoft Authenticator
+# <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer backup e recuperar as credenciais da conta usando o aplicativo Microsoft Authenticator
 
 **Aplica-se a:**
 
@@ -31,7 +31,7 @@ O aplicativo Microsoft Authenticator faz backup das credenciais da sua conta e d
 Cada local de armazenamento de backup exige que você tenha um conta Microsoft pessoal, enquanto o iOS também exige que você tenha uma conta do iCloud. Você pode ter várias contas armazenadas nesse único local. Por exemplo, você pode ter uma conta pessoal, uma conta corporativa ou de estudante e uma pessoa, não conta Microsoft como o Facebook, o Google e assim por diante.
 
 > [!IMPORTANT]
-> Somente suas credenciais de conta pessoal e de terceiros são armazenadas, o que inclui seu nome de usuário e o código de verificação de conta que é necessário para provar sua identidade. Não armazenamos outras informações associadas às contas, incluindo emails ou arquivos. Também não associamos ou compartilhamos as contas de forma alguma ou com qualquer outro produto ou serviço. E, finalmente, o administrador de TI não receberá informações sobre nenhuma dessas contas.
+> Somente suas credenciais de conta pessoal e de terceiros são armazenadas, o que inclui seu nome de usuário e o código de verificação de conta que é necessário para provar sua identidade. Não armazenamos nenhuma outra informação associada às suas contas, incluindo emails ou arquivos. Também não associamos ou compartilhamos suas contas de forma alguma ou com qualquer outro produto ou serviço. E, finalmente, o administrador de ti não obterá nenhuma informação sobre nenhuma dessas contas.
 
 ## <a name="back-up-your-account-credentials"></a>Fazer backup das credenciais da conta
 
@@ -75,29 +75,47 @@ Após concluir a recuperação, você poderá notar que os códigos de verifica�
 
 ## <a name="recover-additional-accounts-requiring-more-verification"></a>Recuperar contas adicionais que exigem mais verificação
 
-Se você usar notificações por push com suas contas pessoais ou corporativas, obterá um alerta na tela que diz que você deve fornecer verificação adicional antes de recuperar suas informações. Como as notificações por push exigem o uso de uma credencial vinculada ao dispositivo específico e nunca enviada pela rede, você deverá provar sua identidade antes que a credencial seja criada no dispositivo.
+Se você usar notificações por push com suas contas pessoais ou corporativas, obterá um alerta na tela que diz que você deve fornecer verificação adicional antes de recuperar suas informações. Como as notificações por push exigem o uso de uma credencial vinculada ao seu dispositivo específico e nunca enviada pela rede, você deve provar sua identidade antes que a credencial seja criada em seu dispositivo.
 
 Para contas pessoais da Microsoft, você pode provar sua identidade inserindo a senha junto com um email ou número de telefone alternativo. Para contas corporativas ou de estudante, você deverá digitalizar um código QR fornecido pelo provedor de conta.
 
 ### <a name="to-provide-additional-verification-for-personal-accounts"></a>Para fornecer verificação adicional para contas pessoais
 
-1. Na tela **Contas** do aplicativo Microsoft Authenticator, selecione a seta suspensa próxima à conta que você deseja recuperar.
+1. Na tela **contas** do aplicativo Microsoft Authenticator, selecione a conta que você deseja recuperar. Em um dispositivo Android, selecione a seta ao lado da conta que você deseja recuperar.
 
     ![Aplicativo Microsoft Authenticator, mostrando as contas disponíveis com as setas suspensas associadas](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
 
-2. Selecione **Entrar para recuperar**, digite a senha e confirme o endereço de email ou o número de telefone como verificação adicional.
+    Em um dispositivo iOS, toque na conta que você deseja recuperar para abrir a exibição em tela inteira da conta.
 
-    ![Aplicativo Microsoft Authenticator, permitindo que você insira as informações de entrada](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+    ![Aplicativo Microsoft Authenticator, mostrando as contas disponíveis com as setas suspensas associadas](./media/user-help-auth-app-backup-recovery/ios-select-account-to-recover.png)
+
+2. Entre para recuperar a conta. Em um dispositivo Android, selecione **entrar para recuperar**.
+
+    ![Microsoft Authenticator aplicativo para inserir suas informações de entrada no Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
+
+    Em um dispositivo iOS, toque no bloco de conta que você deseja recuperar e, em seguida, toque na opção para entrar e recuperar. Em seguida, digite sua senha e confirme seu endereço de email ou número de telefone como verificação adicional. NTA.
+
+    ![Microsoft Authenticator aplicativo para inserir suas informações de entrada no iOS](./media/user-help-auth-app-backup-recovery/ios-sign-in-to-recover.png)
 
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Para fornecer verificação adicional para contas corporativas ou de estudante
 
-1. Na tela **Contas** do aplicativo Microsoft Authenticator, selecione a seta suspensa próxima à conta que você deseja recuperar.
+1. Entre para recuperar a conta. Em um dispositivo Android, selecione **entrar para recuperar**.
 
-    ![Aplicativo Microsoft Authenticator, mostrando as contas disponíveis com as setas suspensas associadas](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
+    ![Microsoft Authenticator aplicativo recuperar uma conta corporativa ou de estudante no Android](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
 
-2. Selecione **Digitalizar código QR para recuperar** e, em seguida, digitalize o código QR.
+    Em um dispositivo iOS, toque na conta que você gostaria de recuperar para abrir o modo de exibição de tela inteira da conta.
 
-    ![Aplicativo Microsoft Authenticator, permitindo que você digitalize o código QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
+    ![Microsoft Authenticator aplicativo recuperar uma conta corporativa ou de estudante no iOS](./media/user-help-auth-app-backup-recovery/ios-recover-work-or-school-account.png)
+
+2. Você pode usar um código QR para recuperar uma conta. Selecione **Digitalizar código QR para recuperar** e, em seguida, digitalize o código QR.
+
+    No Android:
+
+    ![Microsoft Authenticator aplicativo no Android, permitindo que você examine seu código QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
+
+    No iOS:
+
+    ![Microsoft Authenticator aplicativo no iOS, permitindo que você examine seu código QR](./media/user-help-auth-app-backup-recovery/ios-scan-qr-code.png)
 
     >[!NOTE]
     >Para obter mais informações sobre códigos QR e como obter um, consulte Introdução [ao aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [configurar informações de segurança para usar um aplicativo autenticador](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), com base em se o administrador ativou as informações de segurança.
@@ -106,19 +124,19 @@ Para contas pessoais da Microsoft, você pode provar sua identidade inserindo a 
 
 ## <a name="troubleshoot-backup-and-recovery-problems"></a>Solucionar problemas de backup e recuperação
 
-Há alguns motivos pelos quais o backup pode não estar disponível:
+Há alguns motivos pelos quais o backup pode não estar disponível
 
-- **Alterar sistemas operacionais.** O backup é armazenado no iCloud para iOS e no provedor de armazenamento em nuvem da Microsoft para Android. Isso significa que o backup não estará disponível se você alternar entre dispositivos Android e iOS. Se você fizer a opção, deverá recriar manualmente suas contas no aplicativo Microsoft Authenticator.
+- **Alterando sistemas operacionais**: o backup é armazenado no icloud para IOS e no provedor de armazenamento em nuvem da Microsoft para Android. Isso significa que o backup não estará disponível se você alternar entre dispositivos Android e iOS. Se você fizer a opção, deverá recriar manualmente suas contas no aplicativo Microsoft Authenticator.
 
-- **Problemas de rede.** Se você estiver enfrentando problemas relacionados à rede, verifique se você está conectado à rede e conectado corretamente à sua conta.
+- **Problemas de rede**: se você estiver enfrentando problemas relacionados à rede, verifique se você está conectado à rede e conectado corretamente à sua conta.
 
-- **Problemas de conta.** Se você estiver enfrentando problemas relacionados à conta, verifique se você está conectado corretamente à sua conta. Para o iOS, isso significa que você deve estar conectado ao iCloud usando a mesma conta Appleid que o iPhone.
+- **Problemas de conta**: se você estiver enfrentando problemas relacionados à conta, verifique se você está conectado corretamente à sua conta. Para o iOS, isso significa que você deve estar conectado ao iCloud usando a mesma conta Appleid que o iPhone.
 
-- **Exclusão acidental.** É possível que você tenha excluído a conta de backup do dispositivo anterior ou ao gerenciar a conta de armazenamento em nuvem. Nessa situação, será necessário recriar manualmente a conta no aplicativo.
+- **Exclusão acidental**: é possível que você tenha excluído sua conta de backup do dispositivo anterior ou enquanto gerencia sua conta de armazenamento em nuvem. Nessa situação, será necessário recriar manualmente a conta no aplicativo.
 
-- **Contas existentes do Microsoft Authenticator.** Se você já configurou contas no aplicativo Microsoft Authenticator, o aplicativo não poderá recuperar as contas de backup. Impedir a recuperação ajuda a garantir que os detalhes da conta não sejam substituídos por informações desatualizadas. Nessa situação, antes de recuperar o backup você deverá remover todas as informações de conta existentes das contas existentes configuradas no aplicativo Authenticator.
+- **Contas de Microsoft Authenticator existentes**: se você já configurou contas no aplicativo Microsoft Authenticator, o aplicativo não poderá recuperar suas contas de backup. Impedir a recuperação ajuda a garantir que os detalhes da conta não sejam substituídos por informações desatualizadas. Nessa situação, antes de recuperar o backup você deverá remover todas as informações de conta existentes das contas existentes configuradas no aplicativo Authenticator.
 
-- **O backup está desatualizado.** Se suas informações de backup estiverem desatualizadas, você poderá ser solicitado a atualizar as informações entrando novamente na sua conta de recuperação da Microsoft. Sua conta de recuperação é a conta Microsoft pessoal usada inicialmente para armazenar o backup. Se uma entrada for necessária, você verá um ponto vermelho no menu ou na barra de ação. Depois de selecionar o ponto vermelho, você será solicitado a entrar novamente para atualizar suas informações.
+- O **backup está**desatualizado: se as informações de backup estiverem desatualizadas, você poderá ser solicitado a atualizar as informações entrando novamente na sua conta de recuperação da Microsoft. Sua conta de recuperação é a conta Microsoft pessoal usada inicialmente para armazenar o backup. Se uma entrada for necessária, você verá um ponto vermelho no menu ou na barra de ação, ou verá um sinal de exclamação solicitando que você entre para concluir a restauração do backup. Depois de selecionar o ícone, você será solicitado a entrar novamente para atualizar suas informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

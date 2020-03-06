@@ -1,7 +1,7 @@
 ---
-title: Proteger serviços Web usando SSL
+title: Proteger serviços Web usando TLS
 titleSuffix: Azure Machine Learning
-description: Saiba como habilitar o HTTPS para proteger um serviço Web que é implantado por meio de Azure Machine Learning.
+description: Saiba como habilitar o HTTPS para proteger um serviço Web que é implantado por meio de Azure Machine Learning. O Azure Machine Learning usa a versão 1,2 do TLS para proteger modelos implantados como serviços Web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 08/12/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34c6071a127d0fc0c967991582f629c6ae713783
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1f4b699476902fa24fa285754f13b1c61ddca8f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905215"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355524"
 ---
-# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usar SSL para proteger um serviço Web por meio do Azure Machine Learning
+# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Usar o TLS para proteger um serviço Web por meio do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este artigo mostra como proteger um serviço Web que é implantado por meio de Azure Machine Learning.
@@ -257,7 +257,7 @@ update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Saiba como:
 + [Consumir um modelo de machine learning implantado como um serviço web](how-to-consume-web-service.md)
 + [Executar experimentos e inferências com segurança dentro de uma rede virtual do Azure](how-to-enable-virtual-network.md)

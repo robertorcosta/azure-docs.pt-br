@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: e3dffca1d5e98de60941aab4400469810c9cfc30
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613766"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298727"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Ingressar uma máquina virtual do Windows Server em um Azure Active Directory Domain Services domínio gerenciado usando um modelo do Resource Manager
 
@@ -34,7 +34,7 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
     * Se necessário, o primeiro tutorial [cria e configura uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
+* Uma conta de usuário que faz parte do domínio gerenciado AD DS do Azure.
 
 ## <a name="azure-resource-manager-template-overview"></a>Visão geral do modelo de Azure Resource Manager
 
@@ -94,7 +94,7 @@ Para criar uma VM do Windows Server e, em seguida, associá-la a um domínio ger
     | Prefixo do rótulo DNS          | Insira um nome DNS a ser usado para a VM, como *MyVM*. |
     | Tamanho da VM                   | Especifique um tamanho de VM, como *Standard_DS2_v2*. |
     | Domínio para ingressar            | O nome DNS do domínio gerenciado AD DS do Azure, como *aaddscontoso.com*. |
-    | Nome de usuário de domínio           | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado, como `contosoadmin@aaddscontoso.com`. Essa conta deve ser um membro do grupo de *Administradores de DC do Azure ad* . |
+    | Nome de usuário de domínio           | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado, como `contosoadmin@aaddscontoso.com`. Essa conta deve fazer parte do domínio gerenciado AD DS do Azure. |
     | Senha do domínio           | A senha da conta de usuário especificada na configuração anterior. |
     | Caminho de UO opcional          | A UO personalizada na qual adicionar a VM. Se você não especificar um valor para esse parâmetro, a VM será adicionada à UO *computadores DC do AAD* padrão. |
     | Nome de usuário do administrador da VM         | Especifique uma conta de administrador local para criar na VM. |
@@ -104,7 +104,7 @@ Para criar uma VM do Windows Server e, em seguida, associá-la a um domínio ger
 
 > [!WARNING]
 > **Trate as senhas com cuidado.**
-> O arquivo de parâmetro de modelo solicita a senha para uma conta de usuário que seja membro do grupo de *Administradores de DC do Azure ad* . Não insira manualmente valores nesse arquivo e deixe-o acessível em compartilhamentos de arquivos ou em outros locais compartilhados.
+> O arquivo de parâmetro de modelo solicita a senha para uma conta de usuário que faz parte do domínio gerenciado AD DS do Azure. Não insira manualmente valores nesse arquivo e deixe-o acessível em compartilhamentos de arquivos ou em outros locais compartilhados.
 
 Demora alguns minutos para a implantação ser concluída com êxito. Quando terminar, a VM do Windows é criada e unida ao domínio gerenciado AD DS do Azure. A VM pode ser gerenciada ou conectada usando contas de domínio.
 
@@ -123,7 +123,7 @@ Para ingressar uma VM do Windows Server existente em um domínio gerenciado AD D
     | Resource group            | Escolha o grupo de recursos com sua VM existente. |
     | Location                  | Selecione o local da VM existente. |
     | Lista de VMs                   | Insira a lista separada por vírgulas das VMs existentes para ingressar no domínio gerenciado AD DS do Azure, como *myVM1, myVM2*. |
-    | Nome de usuário de ingresso no domínio     | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado, como `contosoadmin@aaddscontoso.com`. Essa conta deve ser um membro do grupo de *Administradores de DC do Azure ad* . |
+    | Nome de usuário de ingresso no domínio     | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado, como `contosoadmin@aaddscontoso.com`. Essa conta deve fazer parte do domínio gerenciado AD DS do Azure. |
     | Senha do usuário de ingresso no domínio | A senha da conta de usuário especificada na configuração anterior. |
     | Caminho de UO opcional          | A UO personalizada na qual adicionar a VM. Se você não especificar um valor para esse parâmetro, a VM será adicionada à UO *computadores DC do AAD* padrão. |
 
@@ -131,7 +131,7 @@ Para ingressar uma VM do Windows Server existente em um domínio gerenciado AD D
 
 > [!WARNING]
 > **Trate as senhas com cuidado.**
-> O arquivo de parâmetro de modelo solicita a senha para uma conta de usuário que seja membro do grupo de *Administradores de DC do Azure ad* . Não insira manualmente valores nesse arquivo e deixe-o acessível em compartilhamentos de arquivos ou em outros locais compartilhados.
+> O arquivo de parâmetro de modelo solicita a senha para uma conta de usuário que faz parte do domínio gerenciado AD DS do Azure. Não insira manualmente valores nesse arquivo e deixe-o acessível em compartilhamentos de arquivos ou em outros locais compartilhados.
 
 Demora alguns minutos para a implantação ser concluída com êxito. Quando terminar, as VMs do Windows especificadas serão Unidas ao domínio gerenciado AD DS do Azure e poderão ser gerenciadas ou conectadas usando contas de domínio.
 

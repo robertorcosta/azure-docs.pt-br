@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Resource Manager com suporte
 description: Forneça uma lista dos tipos de recursos do Resource Manager com suporte do grafo de recursos do Azure e do histórico de alterações.
-ms.date: 03/02/2020
+ms.date: 03/05/2020
 ms.topic: reference
-ms.openlocfilehash: 3d6ba89cbf5c35c2a06a214029971341c4184b41
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 597e1c2f7e04a7861099763d809ac09978e09805
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227335"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399595"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referência de tipo de recurso e tabela do grafo de recursos do Azure
 
@@ -348,6 +348,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. Search/SearchServices
 - Microsoft. Security/automations
 - Microsoft. Security/iotsecuritysolutions
+- Microsoft. securitydetonation/limpar
 - Microsoft. ServiceBus/namespaces
 - Microsoft. infabric/clusters
 - Microsoft. infabric/containergroupsets

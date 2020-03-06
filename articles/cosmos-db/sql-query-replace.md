@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2cb7d82efd010fd7c3395a4f6a9217370d9e5779
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349589"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302195"
 ---
 # <a name="replace-azure-cosmos-db"></a>SUBSTITUIR (Azure Cosmos DB)
- Substitui todas as ocorrências de um valor de cadeia de caracteres especificado por outro valor de cadeia de caracteres.  
+ Substitui todas as ocorrências de um valor da cadeia de caracteres especificado por outro valor de cadeia de caracteres.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,7 +26,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr1*  
-   É a expressão de cadeia de caracteres a ser pesquisada.  
+   É a expressão da cadeia de caracteres a ser pesquisada.  
   
 *str_expr2*  
    É a expressão de cadeia de caracteres a ser encontrada.  
@@ -43,7 +43,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
   O exemplo a seguir mostra como usar `REPLACE` em uma consulta.  
   
 ```sql
-SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
+SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```  
   
  Este é o conjunto de resultados.  
@@ -52,7 +52,11 @@ SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 [{"replace": "This is a desk"}]  
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

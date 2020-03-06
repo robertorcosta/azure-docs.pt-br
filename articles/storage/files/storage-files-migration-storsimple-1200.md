@@ -7,16 +7,25 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 4a32251b60066d6a85595e4d1b6c002f8587c01d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252672"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330933"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migração do StorSimple 1200 para o Sincronização de Arquivos do Azure
 
 O StorSimple 1200 Series é uma solução de virtualização que é executada em um data center local. É possível migrar os dados desse dispositivo para um ambiente Sincronização de Arquivos do Azure. Este artigo fornece as etapas de conhecimento e migrações em segundo plano necessárias para uma migração bem-sucedida para o Sincronização de Arquivos do Azure.
+
+## <a name="storsimple"></a>StorSimple
+
+O StorSimple é um produto descontinuado da Microsoft. O suporte estendido para este produto e seu serviço de nuvem expira em dezembro de 31 2022. É importante começar a planejar uma migração do StorSimple imediatamente.
+
+Sincronização de Arquivos do Azure é o serviço do Azure de longo prazo padrão e estratégico para o qual os dispositivos StorSimple podem ser migrados.
+
+> [!IMPORTANT]
+> A Microsoft está comprometida em auxiliar os clientes em sua migração. Envie um email AzureFilesMigration@microsoft. com para um plano de migração personalizado, bem como assistência durante a migração.
 
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 
@@ -111,7 +120,7 @@ O comando RoboCopy a seguir irá recuperar os arquivos do armazenamento do Azure
 Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
-Plano de fundo:
+Segundo plano:
 
 :::row:::
    :::column span="1":::
@@ -177,7 +186,7 @@ Você pode tentar executar algumas dessas cópias em paralelo. É recomendável 
 
 A política de espaço livre do volume de camadas de nuvem age em um nível de volume com potencialmente vários pontos de extremidade de servidor sincronizando a partir dele. Se você se esquecer de ajustar o espaço livre em um ponto de extremidade de servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, tornando o cache local não funcionando como você poderia esperar. A menos que seja o objetivo de ter apenas o namespace para um volume que contenha apenas dados de arquivamento raramente acessados.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 O problema mais provável que você pode encontrar é que o comando RoboCopy falha com *"volume cheio"* no lado do Windows Server. Se esse for o caso, a velocidade de download provavelmente será melhor do que a velocidade de carregamento. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco local do Windows Server, que foi sincronizado.
 

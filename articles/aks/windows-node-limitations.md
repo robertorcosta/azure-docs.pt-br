@@ -4,12 +4,12 @@ description: Saiba mais sobre as limitações conhecidas ao executar pools de n�
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615652"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298165"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para pools de nós do Windows Server e cargas de trabalho de aplicativo no serviço kubernetes do Azure (AKS)
 
@@ -69,7 +69,7 @@ Durante a visualização, os pools de nós do Windows não dão suporte à rota�
 
 ## <a name="how-many-node-pools-can-i-create"></a>Quantos pools de nós posso criar?
 
-O cluster AKS pode ter um máximo de oito (8) pools de nós. Você pode ter um máximo de 400 nós entre esses pools de nós. [Limitações do pool de nós][nodepool-limitations].
+O cluster AKS pode ter um máximo de 10 pools de nós. Você pode ter um máximo de 1000 nós entre esses pools de nós. [Limitações do pool de nós][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>O que posso nomear meus pools de nós do Windows?
 

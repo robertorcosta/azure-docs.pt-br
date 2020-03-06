@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 40ecb26e7ac782d7831e6ef94c9d3cfc6a370cbb
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 07a339d82f5e4bea1ea0412a5d5b19522611b54a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349336"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296109"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
  Retorna uma expressão booliana que indica se o objeto GeoJSON (Ponto, Polígono ou LineString) especificado no primeiro argumento está dentro do GeoJSON (Ponto, Polígono ou LineString) no segundo argumento.  
@@ -37,10 +37,10 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   O exemplo a seguir mostra como localizar todos os documentos da família em um polígono usando `ST_WITHIN`.  
   
 ```sql
-SELECT f.id   
-FROM Families f   
+SELECT f.id
+FROM Families f
 WHERE ST_WITHIN(f.location, {  
-    'type':'Polygon',   
+    'type':'Polygon',
     'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]  
 })  
 ```  
@@ -50,6 +50,10 @@ WHERE ST_WITHIN(f.location, {
 ```json
 [{ "id": "WakefieldFamily" }]  
 ```  
+
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice geoespacial](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Próximas etapas
 

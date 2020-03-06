@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0273a0a729d39de27b9e417c23624992d1d55b42
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b7ca4677507f73467dddac09050f250ae34342a9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064371"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329453"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
@@ -31,7 +31,7 @@ Este tutorial usa o exemplo de detecção de fraudes em tempo real com base nos 
 
 Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa deseja detectar chamadas fraudulentas em tempo real para que eles possam notificar clientes ou desligar o serviço para um número específico. Um tipo de fraude SIM envolve várias chamadas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes. Para detectar esse tipo de fraude, a empresa precisa examinar os registros de telefone de entrada e procurar padrões específicos — nesse caso, para chamadas feitas ao mesmo tempo em diferentes países/regiões. Os registros de telefone que entram nesta categoria são gravados no armazenamento para análise posterior.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Neste tutorial, você vai simular dados de chamada telefônica usando um aplicativo cliente que gera os metadados de exemplo de chamada telefônica. Alguns dos registros que o aplicativo produz se parecem com chamadas fraudulentas. 
 
@@ -94,7 +94,7 @@ Antes que um processo possa enviar dados para um hub de eventos, o hub de evento
     >[!NOTE]
     >Verifique se você está trabalhando com o hub de eventos, não com o namespace de hub de eventos.
 
-3.  Adicione uma política chamada `sa-policy-manage-demo` e para **Declaração**, selecione **Gerenciar**.
+3.  Adicione uma política chamada `asa-policy-manage-demo` e para **Declaração**, selecione **Gerenciar**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
@@ -194,7 +194,7 @@ Agora que você tem um fluxo de eventos de chamada, você pode configurar um tra
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Insira um nome para identificar a entrada do trabalho.   |
-   |Subscription   |  \<Sua assinatura\> |  Selecione a assinatura do Azure com o Hub de Eventos que você criou.   |
+   |Assinatura   |  \<Sua assinatura\> |  Selecione a assinatura do Azure com o Hub de Eventos que você criou.   |
    |Namespace do Hub de Eventos  |  asa-eh-ns-demo |  Insira o nome do namespace de Hub de Eventos.   |
    |Nome do Hub de Eventos  | asa-eh-frauddetection-demo | Selecione o nome do Hub de Eventos.   |
    |Nome da política do Hub de Eventos  | asa-policy-manage-demo | Selecione a política de acesso que você criou anteriormente.   |
@@ -364,14 +364,14 @@ Se você tiver uma conta de armazenamento de Blobs existente, poderá usá-la. P
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de saída  |  CallStream-FraudulentCalls   |  Insira um nome para identificar a saída do trabalho.   |
-   |Subscription   |  \<Sua assinatura\> |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
+   |Assinatura   |  \<Sua assinatura\> |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
    |Conta de armazenamento  |  asaehstorage |  Insira o nome da conta de armazenamento criada. |
    |Contêiner  | asa-fraudulentcalls-demo | Escolha Criar novo e insira um nome de contêiner. |
 
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Clique em **Save** (Salvar). 
+5. Clique em **Salvar**. 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Iniciar o trabalho do Stream Analytics
@@ -414,7 +414,7 @@ No entanto, se estiver pronto e não precisar dos recursos que você criou, voc�
 
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você pode continuar este tutorial com o seguinte artigo:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Aprenda a usar o Azure Dev Spaces e os serviços Kubernetess do Azure para fornecer continuidade dos negócios e se preparar para a recuperação de desastres
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 8561486bcf8524d309ba46fcbb4b4d3e180d7c72
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252396"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295820"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuidade dos negócios e recuperação de desastres no Azure Dev Spaces
 
@@ -27,11 +27,9 @@ Habilitar o Dev Spaces em clusters do AKS em regiões diferentes permite que voc
 
 Para obter informações gerais sobre implantações de várias regiões do AKS, confira [Planejar para implantações em várias regiões](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-Para obter informações sobre como implantar um cluster do AKS compatível com o Azure Dev Spaces, confira [Criar um cluster do Kubernetes usando o Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
-
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>Habilitar o Dev Spaces por meio do portal do Azure
 
-Clique no item de navegação **Dev Spaces** nas propriedades de cada cluster no portal do Azure. Em seguida, escolha a opção para habilitar o Dev Spaces.
+Selecione o item de menu de **espaços de desenvolvimento** nas configurações de cada cluster na portal do Azure. Em seguida, escolha a opção para habilitar espaços de desenvolvimento e salvar.
 
 ![Habilitando o Dev Spaces por meio do portal do Azure](../media/common/enable-dev-spaces.jpg)
 
@@ -53,7 +51,7 @@ Você deve implantar as versões mais recentes de seu conjunto de linha de base 
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Selecionar o cluster do AKS correto a ser usado para o Dev Spaces
 
-Depois de configurar corretamente um cluster de backup executando a linha de base da sua equipe, você poderá mudar rapidamente para o cluster de backup a qualquer momento. Em seguida, você pode executar novamente os serviços individuais nos quais está trabalhando no Dev Spaces.
+Depois de configurar corretamente um cluster de backup executando a linha de base da sua equipe, você poderá mudar rapidamente para o cluster de backup a qualquer momento. Em seguida, você pode executar novamente os serviços individuais nos quais está trabalhando em espaços de desenvolvimento filho.
 
 Selecione um cluster diferente com o seguinte comando da CLI:
 

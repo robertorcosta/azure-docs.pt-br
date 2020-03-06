@@ -3,12 +3,12 @@ title: Conformidade usando o Azure Policy
 description: Atribuir políticas internas no Azure Policy para auditar a conformidade de seus registros de contêiner do Azure
 ms.topic: article
 ms.date: 02/26/2020
-ms.openlocfilehash: 331fcfaf72b1ad2022aa3edeefefa597e5bcfe17
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925664"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330729"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy
 
@@ -68,14 +68,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Em seguida, execute a [lista de estado de política AZ](/cli/azure/policy/state#az-policy-assignment-list) para retornar o estado de conformidade formatado em JSON para todos os recursos em uma ID de política específica:
+Em seguida, execute a [lista de estado de política AZ](/cli/azure/policy/state#az-policy-state-list) para retornar o estado de conformidade formatado em JSON para todos os recursos em uma ID de política específica:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Ou execute a [lista de estado de política AZ](/cli/azure/policy/state#az-policy-assignment-list) para retornar o estado de conformidade formatado em JSON de um recurso de registro específico, como *myregistry*:
+Ou execute a [lista de estado de política AZ](/cli/azure/policy/state#az-policy-state-list) para retornar o estado de conformidade formatado em JSON de um recurso de registro específico, como *myregistry*:
 
 ```azurecli
 az policy state list \

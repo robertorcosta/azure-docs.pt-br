@@ -15,12 +15,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d970bbc5619bc25a1cf5d6abbdcf41fb4a0ae196
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c7c0a4567da11b10b9a0571656103ef2f17c7da4
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195514"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399054"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solução de problemas de colaboração B2B do Azure Active Directory
 
@@ -103,7 +103,6 @@ A partir de 18 de novembro de 2019, os usuários convidados em seu diretório (d
 
 Na nuvem do governo dos EUA do Azure, atualmente, a colaboração B2B só tem suporte entre locatários que estão na nuvem do governo dos EUA do Azure e que ambos dão suporte à colaboração B2B. Se você convidar um usuário em um locatário que não faz parte da nuvem do governo dos EUA do Azure ou que ainda não dá suporte à colaboração B2B, você receberá um erro. Para obter detalhes e limitações, consulte [Azure Active Directory Premium as variações P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
 
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Obtenção de suporte para colaboração B2B](get-support.md)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190255"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397821"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C
 
@@ -28,8 +28,8 @@ O Azure Active Directory B2C (Azure AD B2C) fornece suporte para o gerenciamento
 
 O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Todos os perfis técnicos do Azure AD incluem o perfil técnico **AAD-Common**. Os seguintes perfis técnicos não especificam o protocolo porque o protocolo é configurado no perfil técnico **AAD-Common**:
-
+Os seguintes perfis técnicos do Azure AD [Starter Pack de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack) incluem o perfil técnico do **AAD-comum** . Os perfis técnicos do Azure AD não especificam o protocolo porque o protocolo está configurado no perfil técnico **comum do AAD** :
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** e **UserReadUsingAlternativeSecurityId-AAD-NoError** – procure uma conta social no diretório.
 - **AAD-UserWriteUsingAlternativeSecurityId** – crie uma nova conta social.
 - **AAD-UserReadUsingEmailAddress** – procure uma conta local no diretório.
@@ -153,7 +153,7 @@ O perfil técnico a seguir lê os dados sobre uma conta de usuário usando o obj
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Gravar
+### <a name="write"></a>Gravação
 
 A operação **Gravar** cria ou atualiza uma conta de usuário único. Para gravar uma conta de usuário, você precisa fornecer uma chave como uma declaração de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.
 
@@ -253,7 +253,7 @@ O perfil técnico a seguir exclui uma conta de usuário social usando **alternat
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | A operação a ser executada. Valores possíveis: `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Gere um erro se o objeto de usuário não existe no diretório. Valores possíveis: `true` ou `false`. |

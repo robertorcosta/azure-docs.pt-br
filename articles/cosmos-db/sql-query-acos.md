@@ -4,15 +4,15 @@ description: Saiba como a função do sistema SQL de ACOS (arccosice) no Azure C
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: fd5baa3ffefb7039c40706253e633661a51150f2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 733d6b009f03d61c37170cc506a3b2ec842d7c47
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873515"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300954"
 ---
 # <a name="acos-azure-cosmos-db"></a>ACOS (Azure Cosmos DB)
  Retorna o ângulo, em radianos, cujo cosseno é a expressão numérica especificada (também chamado de arco cosseno).  
@@ -46,7 +46,11 @@ SELECT ACOS(-1) AS acos
 [{"acos": 3.1415926535897931}]  
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

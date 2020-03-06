@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dd9b82cbb2984386059988496c550123a8e67a3f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273088"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300903"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Linha de base de segurança do Azure para banco de dados SQL do Azure
 
@@ -251,7 +251,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 Como transmitir diagnósticos para Análise de SQL do Azure:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
 
 **Monitoramento da central de segurança do Azure**: Sim
 
@@ -360,7 +360,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 **Responsabilidade**: não aplicável
 
-## <a name="identity-and-access-control"></a>Controle de identidade e acesso
+## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
 *Para obter mais informações, consulte [controle de segurança: identidade e controle de acesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
@@ -1348,7 +1348,7 @@ Você pode encontrar mais informações sobre a estratégia da Microsoft e a exe
 
 **Responsabilidade**: compartilhado
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte o [benchmark de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre as [linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

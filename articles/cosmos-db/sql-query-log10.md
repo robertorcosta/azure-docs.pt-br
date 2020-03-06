@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5950a2a40a78716a76e49fcdaeb3129948b6a0e1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 6f47200f6978d91f46c010640bb9c2bb26e9b7d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871050"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302484"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
  Retorna o logaritmo de base 10 da expressão numérica especificada.  
@@ -34,7 +34,7 @@ LOG10 (<numeric_expr>)
   
 ## <a name="remarks"></a>Comentários
   
-  As funções LOG10 e POWER estão inversamente relacionadas entre si. Por exemplo, 10 ^ LOG10(n) = n.  
+  As funções LOG10 e POWER estão inversamente relacionadas uma à outra. Por exemplo, 10 ^ LOG10(n) = n.  
   
 ## <a name="examples"></a>Exemplos
   
@@ -50,7 +50,11 @@ SELECT LOG10(100) AS log10
 [{log10: 2}]  
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189917"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397818"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,35 +42,38 @@ O elemento **ClaimsSchema** define os tipos de declaração que podem ser refere
 
 O elemento **ClaimType** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
+| Id | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | O título que é exibido aos usuários em várias telas. O valor pode ser [localizado](localization.md). |
-| Tipo de dados | 1:1 | O tipo da declaração. |
+| Datatype | 1:1 | O tipo da declaração. |
 | DefaultPartnerClaimTypes | 0:1 | Os tipos de declaração padrão do parceiro a serem usados para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **InputClaim** ou **OutputClaim**. Use esse elemento para especificar o nome padrão de um protocolo.  |
 | Mask | 0:1 | Uma cadeia de caracteres opcional de caracteres de mascaramento que podem ser aplicados ao exibir a declaração. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os usuários entenderem sua finalidade. O valor pode ser [localizado](localization.md). |
 | UserInputType | 0:1 | O tipo de controle de entrada que deve estar disponível para o usuário ao inserir manualmente os dados da declaração para o tipo de declaração. Confira os tipos de entrada do usuário definidos nesta página. |
+| AdminHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os administradores entenderem sua finalidade. |
 | Restrição | 0:1 | As restrições de valor para essa declaração, como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado](localization.md). |
 PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateValidationsInput**. Os elementos **PredicateValidationReference** permitem que você execute um processo de validação para garantir que apenas dados formados corretamente sejam inseridos. Para obter mais informações, confira [Predicados](predicates.md). |
 
-### <a name="datatype"></a>Tipo de dados
+
+
+### <a name="datatype"></a>Datatype
 
 O elemento **DataType** dá suporte aos seguintes valores:
 
-| Type | DESCRIÇÃO |
+| Tipo | Descrição |
 | ------- | ----------- |
 |booleano|Representa um valor booliano (`true` ou `false`).|
 |date| Representa um instante no tempo, normalmente expresso como uma data de um dia. O valor da data segue a Convenção ISO 8601.|
 |dateTime|Representa um instante no tempo, normalmente expresso como uma data e hora do dia. O valor da data segue a Convenção ISO 8601.|
 |duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato de é `PnYnMnDTnHnMnS`, em que `P` indica positivo ou `N` para valor negativo. `nY` é o número de anos seguido por uma `Y`literal. `nMo` é o número de meses seguido por uma `Mo`literal. `nD` é o número de dias seguidos por uma `D`literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
 |phoneNumber|Representa um número de telefone. |
-|INT| Representa o número entre-2.147.483.648 e 2.147.483.647|
+|int| Representa o número entre-2.147.483.648 e 2.147.483.647|
 |long| Representa o número entre-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
 |string| Representa o texto como uma sequência de unidades de código UTF-16.|
 |stringCollection|Representa uma coleção de `string`.|
@@ -81,15 +84,15 @@ O elemento **DataType** dá suporte aos seguintes valores:
 
 O **DefaultPartnerClaimTypes** pode conter o seguinte elemento:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Protocolo | 1:n | Lista de protocolos com seu nome de tipo de declaração de parceiro padrão. |
 
 O elemento **Protocol** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| {1&gt;Nome&lt;1} | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
 No exemplo a seguir, quando o Identity Experience Framework interage com um provedor de identidade SAML2 ou com o aplicativo de terceira parte confiável, a declaração **surname** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a declaração é mapeada para `family_name`.
@@ -122,7 +125,7 @@ Como resultado, o token JWT emitido pelo B2C do Azure AD emite `family_name` ao 
 
 O elemento **Mask** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O valor `Regex` indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o valor `Regex` for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
 | `Regex` | Não | Se **`Type`** for definido como `Regex`, especifique a expressão regular a ser usada.
@@ -162,13 +165,13 @@ O Identity Experience Framework renderiza apenas a primeira letra de endereço d
 
 O elemento **Restriction** pode conter o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | MergeBehavior | Não | O método usado para mesclar valores de enumeração com um ClaimType em uma política pai com o mesmo identificador. Use esse atributo quando substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend` ou `ReplaceAll`. O valor `Append` é uma coleção de dados que deve ser acrescentada ao final da coleção especificada na política pai. O valor `Prepend` é uma coleção de dados que deve ser adicionada antes da coleção especificada na política pai. O valor `ReplaceAll` é uma coleção de dados especificados na política pai que deve ser ignorada. |
 
 O elemento **Restriction** contém os seguintes elementos:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Enumeração | 1:n | As opções disponíveis na interface do usuário para o usuário selecionar para uma declaração, como um valor em uma lista suspensa. |
 | Padrão | 1:1 | A expressão regular a ser usada. |
@@ -179,10 +182,10 @@ O elemento **Enumeration** define as opções disponíveis para o usuário selec
 
 O elemento **Enumeration** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
-|Valor | Sim | O valor da declaração associada à seleção dessa opção. |
+|{1&gt;Valor&lt;1} | Sim | O valor da declaração associada à seleção dessa opção. |
 | SelectByDefault | Não | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Os valores possíveis: True ou False. |
 
 O exemplo a seguir configura uma declaração de lista suspensa **city** com um valor padrão definido como `New York`:
@@ -208,7 +211,7 @@ Lista suspensa de cidades com um valor padrão definido como Nova York:
 
 O elemento **Pattern** pode conter os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | RegularExpression | Sim | A expressão regular a que declarações desse tipo devem corresponder para que sejam válidas. |
 | HelpText | Não | Uma mensagem de erro para os usuários se a verificação de expressão regular falhar. |
@@ -240,13 +243,13 @@ O Azure AD B2C dá suporte a uma variedade de tipos de entrada do usuário, como
 
 Os tipos de entrada do usuário do elemento **Userinputtype** estão disponíveis:
 
-| UserInputType | ClaimType com suporte | DESCRIÇÃO |
+| UserInputType | ClaimType com suporte | Descrição |
 | --------- | -------- | ----------- |
 |CheckboxMultiSelect| `string` |Caixa suspensa seleção múltipla. O valor da declaração é representado em uma cadeia de caracteres delimitadores de vírgula dos valores selecionados. |
 |DateTimeDropdown | `date`, `dateTime` |Menus suspensos para selecionar um dia, mês e ano. |
 |DropdownSingleSelect |`string` |Caixa suspensa seleção única. O valor da declaração é o valor selecionado.|
 |EmailBox | `string` |Campo de entrada de email. |
-|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Um campo que mostra texto somente em uma marca de parágrafo. |
+|Parágrafo | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Um campo que mostra texto somente em uma marca de parágrafo. |
 |Senha | `string` |Caixa de texto de senha.|
 |RadioSingleSelect |`string` | Coleção de botões de opção. O valor da declaração é o valor selecionado.|
 |Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Caixa de texto somente leitura. |
@@ -389,7 +392,7 @@ O tipo de entrada do usuário **Readonly** é usado para fornecer um campo somen
 ```
 
 
-#### <a name="paragraph"></a>Paragraph
+#### <a name="paragraph"></a>Parágrafo
 
 O tipo de entrada do usuário **Paragraph** é usado para fornecer um campo que mostra texto apenas em uma marca de parágrafo.  Por exemplo, &lt;p&gt;texto&lt;/p&gt;. Um tipo de entrada de usuário de **parágrafo** `OutputClaim` do perfil técnico autodeclarado, deve definir o atributo de `Required` `false` (padrão).
 

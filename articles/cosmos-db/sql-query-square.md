@@ -4,15 +4,15 @@ description: Saiba mais sobre a função do sistema SQL QUADRAda no Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 683db82f2574da9150fb64767047d6ada6d667da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349422"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303436"
 ---
 # <a name="square-azure-cosmos-db"></a>QUADRADO (Azure Cosmos DB)
  Retorna o quadrado do valor numérico especificado.  
@@ -46,7 +46,11 @@ SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3
 [{s1: 1, s2: 4, s3: 9}]  
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

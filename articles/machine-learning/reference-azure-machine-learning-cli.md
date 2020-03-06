@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 11/05/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe9cee44970da94c346caffc0d5fe76ffebf4a0b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845144"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402482"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usar a extensão da CLI para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,9 +31,9 @@ A CLI do Azure Machine Learning é uma extensão do [Azure CLI](https://docs.mic
 
 O CLI não é um substituto para o SDK do Azure Machine Learning. É uma ferramenta complementar que é otimizada para lidar com tarefas altamente parametrizadas que se adaptam bem à automação.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
-* Para usar a CLI, você deve ter uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Para usar a CLI, você deve ter uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -311,7 +311,7 @@ Se você usou o comando `az ml environment scaffold`, ele gera um arquivo de mod
 
 A tabela a seguir detalha cada campo de nível superior no arquivo JSON, é tipo e uma descrição. Se um tipo de objeto estiver vinculado a uma classe do SDK do Python, haverá uma correspondência de 1:1 flexível entre cada campo JSON e o nome da variável pública na classe Python. Em alguns casos, o campo pode ser mapeado para um argumento de Construtor em vez de uma variável de classe. Por exemplo, o campo `environmentVariables` é mapeado para a variável `environment_variables` na classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) .
 
-| Campo JSON | Tipo | Description |
+| Campo JSON | Tipo | Descrição |
 |---|---|---|
 | `name` | `string` | Nome do ambiente. Não inicie o nome com **Microsoft** ou **AzureML**. |
 | `version` | `string` | Versão do ambiente. |
@@ -408,7 +408,7 @@ Os comandos a seguir demonstram como registrar um modelo treinado e implantá-lo
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Referência de comando para a extensão da CLI do Machine Learning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 

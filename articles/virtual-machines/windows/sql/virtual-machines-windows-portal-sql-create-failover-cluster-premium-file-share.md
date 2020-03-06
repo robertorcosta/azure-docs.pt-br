@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651354"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303215"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -53,7 +53,7 @@ Verifique a atividade de IOPS do seu ambiente e verifique se os compartilhamento
 
 Muitas cargas de trabalho têm intermitência de e/s, portanto, é uma boa ideia verificar durante períodos de uso pesado e observar o IOPS máximo e a média de IOPS. Os compartilhamentos de arquivos Premium fornecem IOPS com base no tamanho do compartilhamento. Os compartilhamentos de arquivos Premium também fornecem intermitências gratuitas que permitem a intermitência de sua e/s para triplo da quantidade de linha de base por até uma hora.
 
-Para obter mais informações sobre o desempenho de compartilhamento de arquivos premium, consulte [níveis de desempenho de compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
+Para obter mais informações sobre o desempenho de compartilhamento de arquivos premium, consulte [níveis de desempenho de compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers).
 
 ### <a name="licensing-and-pricing"></a>Licenciamento e preços
 

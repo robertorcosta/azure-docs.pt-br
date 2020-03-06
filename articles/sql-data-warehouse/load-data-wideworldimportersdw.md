@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 8e58c315ddc171ba19e0bce1cea4f694691f946e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d8242731466df9b80a6a6c3f0e340d6deb76e7d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193526"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304031"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: carregar dados no pool do SQL do Azure Synapse Analytics
 
@@ -57,14 +57,14 @@ Siga estas etapas para criar um pool SQL em branco.
 
 1. Preencha a seção **detalhes do projeto** com as seguintes informações:   
 
-   | Configuração | Exemplo | DESCRIÇÃO | 
+   | Configuração | {1&gt;Exemplo&lt;1} | Descrição | 
    | ------- | --------------- | ----------- |
    | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
    | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
 
 1. Em **detalhes do pool do SQL**, forneça um nome para o pool do SQL. Em seguida, selecione um servidor existente na lista suspensa ou selecione **criar novo** nas configurações do **servidor** para criar um novo servidor. Preencha o formulário com as seguintes informações: 
 
-    | Configuração | Valor sugerido | DESCRIÇÃO | 
+    | Configuração | Valor sugerido | Descrição | 
     | ------- | --------------- | ----------- |
     |**Nome do pool SQL**|SampleDW| Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers). | 
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). | 
@@ -82,7 +82,7 @@ Siga estas etapas para criar um pool SQL em branco.
 
 1. Selecione **revisão + criar** para revisar suas configurações e, em seguida, selecione **criar** para criar seu data warehouse. Você pode monitorar seu progresso abrindo a página **implantação em andamento** no menu **notificações** . 
 
-     ![notificação](media/load-data-wideworldimportersdw/notification.png)
+     ![(notificação)](media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
@@ -108,7 +108,7 @@ O serviço de análise de Synapse do Azure cria um firewall no nível de servido
 
     ![regra de firewall do servidor](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
-1. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+1. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
 Agora você pode se conectar ao SQL Server usando o endereço IP do cliente. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta serveradmin criada anteriormente.  
 
@@ -129,12 +129,12 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
-    | Configuração      | Valor sugerido | DESCRIÇÃO | 
+    | Configuração      | Valor sugerido | Descrição | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
     | Nome do servidor | O nome do servidor totalmente qualificado | Por exemplo, **sqlpoolservername.Database.Windows.net** é um nome de servidor totalmente qualificado. |
     | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
-    | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
+    | Login | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
     | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 
     ![conectar-se ao servidor](media/load-data-wideworldimportersdw/connect-to-server.png)
@@ -1090,7 +1090,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 5. Para remover o grupo de recursos, clique em **SampleRG**, depois clique em **Excluir grupo de recursos**.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1} 
 Neste tutorial, você aprendeu como criar um data warehouse e um usuário para carregar dados. Você criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e depois usou a instrução CREATE TABLE AS SELECT do PolyBase para carregar dados em seu data warehouse. 
 
 Você fez essas coisas:

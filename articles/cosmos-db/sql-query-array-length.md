@@ -4,15 +4,15 @@ description: Saiba mais sobre como a função do sistema SQL de comprimento da m
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9a8bf33befdd842a2979151fef3d54679ee03de1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3596ce4bc702d5e54225d8c90db2f9563feab670
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871764"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303980"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
  Retorna o número de elementos da expressão de matriz especificada.  
@@ -46,8 +46,11 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len
 [{"len": 3}]  
 ```  
   
+## <a name="remarks"></a>Comentários
 
-## <a name="next-steps"></a>Próximos passos
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de matriz Azure Cosmos DB](sql-query-array-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

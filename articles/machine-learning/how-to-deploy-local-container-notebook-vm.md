@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 28d176289a0b6cfe659f390feb441158c57f6533
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.date: 03/05/2020
+ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169931"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398150"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implantar um modelo para Azure Machine Learning instâncias de computação
 
@@ -29,7 +29,7 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 > [!TIP]
 > Implantar um modelo de um Jupyter Notebook em uma instância de computação para um serviço Web na mesma VM é uma _implantação local_. Nesse caso, o computador "local" é a instância de computação. Para obter mais informações sobre implantações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Um espaço de trabalho Azure Machine Learning com uma instância de computação em execução. Para obter mais informações, consulte [ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
@@ -92,7 +92,7 @@ resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)

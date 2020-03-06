@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor do Exchange no Backup do Azu
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: dbd37bbb7418560a0426ed47d7869bf9d949d2e2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617562"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295837"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Fazer backup de um servidor do Exchange no Azure com o Servidor de Backup do Azure
 
@@ -23,7 +23,7 @@ Antes de continuar, verifique se o Servidor de Backup do Azure está [instalado 
 
 Execute estas etapas para instalar o agente de proteção do MABS no servidor do Exchange:
 
-1. Verifique se os firewalls estão configurados corretamente. Confira [Configurar exceções de firewall do agente](h https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+1. Verifique se os firewalls estão configurados corretamente. Confira [Configurar exceções de firewall do agente](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
 2. Instale o agente no servidor do Exchange clicando em **Gerenciamento > Agentes > Instalar** no Console do Administrador do MABS. Confira [Instalar o agente de proteção do MABS](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para conhecer as etapas detalhadas.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção do Exchange server
@@ -50,7 +50,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
 6. Clique em **Próximo**.
 7. Escolha a opção **Executar Eseutil para verificar a integridade dos dados** se você quiser verificar a integridade dos bancos de dados do Exchange Server.
 
-    Depois de escolher essa opção, a verificação de consistência do backup será executada no MABS a fim de evitar o tráfego de E/S gerado pela execução do comando **eseutil** no servidor Exchange.
+    Depois de selecionar essa opção, a verificação de consistência do backup será executada em MABS para evitar o tráfego de e/s gerado com a execução do comando **Eseutil** no servidor Exchange.
 
    > [!NOTE]
    > Para usar essa opção, você deve copiar os arquivos Ese.dll e Eseutil.exe no diretório C:\Arquivos de Programas\Backup do Microsoft Azure\DPM\DPM\bin no servidor MAB. Caso contrário, o seguinte erro será disparado:  
@@ -61,7 +61,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
 9. Escolha o banco de dados para **Copiar o Backup** e clique em **Próximo**.
 
    > [!NOTE]
-   > Se você não escolher "Backup completo" para pelo menos uma cópia de DAG de um banco de dados, os logs não ficarão truncados.
+   > Se você não selecionar "backup completo" para pelo menos uma cópia DAG de um banco de dados, os logs não serão truncados.
    >
    >
 10. Configure as metas de **Backup de Curto Prazo** e clique em **Próximo**.
@@ -76,7 +76,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
     ![Especifique o cronograma do backup online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > Observe que os Pontos de recuperação online têm base nos pontos de recuperação completos expressos. Portanto, você deve agendar o ponto de recuperação online após o período especificado para o ponto de recuperação completo expresso.
+    > Observe que os Pontos de recuperação online têm base nos pontos de recuperação completos expressos. Portanto, você deve agendar o ponto de recuperação online após o horário especificado para o ponto de recuperação completo expresso.
     >
     >
 16. Configure a política de retenção para o **Backup do Azure** e clique em **Próximo**.

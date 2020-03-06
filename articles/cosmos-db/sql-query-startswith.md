@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a7822425f17d6e121dfcb20d8766f0b3bc7032a2
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349322"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295701"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
  Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda.  
@@ -48,6 +48,10 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 ```json
 [{"s1": false, "s2": true}]  
 ```  
+
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Próximas etapas
 

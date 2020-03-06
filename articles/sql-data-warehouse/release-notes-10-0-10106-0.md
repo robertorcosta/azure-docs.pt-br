@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4811f24fb942689bddcc9d9d1bcb8c33d147c1af
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 934e804b60312a32300c4b884ea8fd15e2195870
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256012"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302025"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de versão do Azure Synapse Analytics
 
@@ -38,6 +38,13 @@ Use a versão identificada para confirmar qual versão foi aplicada ao seu pool 
 > ```
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="february-2020"></a>Fevereiro de 2020
+
+| Melhorias nos serviços | Detalhes |
+| --- | --- |
+|**Nível de compatibilidade do banco de dados (versão prévia)**| Com esta versão, agora os usuários podem definir o nível de compatibilidade de um banco de dados para obter a linguagem Transact-SQL e os comportamentos de processamento de consulta de uma versão específica do mecanismo de análise do SQL. Para obter mais informações, consulte [Sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?view=azure-sqldw-latest&branch=pr-en-us-13797) e [ALTER DATABASE scopeed Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver15).|
+|**Sp_describe_undeclared_parameters**| Permitir que os usuários vejam os metadados sobre parâmetros não declarados em um lote Transact-SQL. Para obter mais informações, consulte [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?view=sql-server-ver15).|
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
@@ -157,7 +164,7 @@ Use a versão identificada para confirmar qual versão foi aplicada ao seu pool 
 |**Bugs importantes**|CETAS a falhas de parquet em pequenas classes de recursos em data warehouses de DW2000 e mais-essa correção identifica corretamente uma referência nula no caminho de código de criação de tabela externa como para parquet.<br/><br/>O valor da coluna de identidade pode ser perdido em algumas operações CTAS-o valor de uma coluna de identificação não pode ser preservado quando CTASed para outra tabela. Relatado em um [blog](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/).<br/><br/>Falha interna em alguns casos em que uma sessão é encerrada enquanto uma consulta ainda está em execução – essa correção dispara uma InvalidOperationException se uma sessão for encerrada quando a consulta ainda estiver em execução.<br/><br/>(Implantado em novembro de 2018) Os clientes estavam enfrentando um desempenho inferior ao tentar carregar vários arquivos pequenos do ADLS (GEN1) usando o polybase. -O desempenho do sistema foi afunilado durante a validação do token de segurança do AAD. Problemas de desempenho foram reduzidos com a habilitação do cache de tokens de segurança. |
 | | |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - [criar um pool do SQL](./create-data-warehouse-portal.md)
 
 ## <a name="more-information"></a>Mais informações

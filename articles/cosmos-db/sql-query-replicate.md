@@ -4,18 +4,18 @@ description: Saiba mais sobre a replicação de função do sistema SQL no Azure
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5e0b7f29c503daa8a95dcc46238e60728c0cec50
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349562"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302178"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICAte (Azure Cosmos DB)
- Repete um valor de cadeia de caracteres por um número de vezes especificado.
+ Repete um valor da cadeia de caracteres um número especificado de vezes.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -52,7 +52,11 @@ SELECT REPLICATE("a", 3) AS replicate
 [{"replicate": "aaa"}]
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

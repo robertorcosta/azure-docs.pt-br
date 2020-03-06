@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 58ae39e8dfdf918ae14ca9bb8dac28405828999e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551974"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330950"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
 Este artigo ajuda você a verificar e solucionar problemas de conectividade do ExpressRoute. O ExpressRoute estende uma rede local para a nuvem da Microsoft por meio de uma conexão privada que é normalmente facilitada por um provedor de conectividade. A conectividade do ExpressRoute tradicionalmente envolve três zonas de rede distintas, da seguinte maneira:
@@ -34,7 +34,7 @@ A finalidade deste documento é ajudar o usuário a identificar se e onde existe
 >
 >
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O diagrama a seguir mostra a conectividade lógica de uma rede do cliente de rede da Microsoft usando o ExpressRoute.
 [![1]][1]
 
@@ -275,7 +275,7 @@ O exemplo a seguir mostra a resposta do comando para um emparelhamento que não 
 ## <a name="confirm-the-traffic-flow"></a>Confirmar o fluxo de tráfego
 Para obter as estatísticas de tráfego combinadas dos caminhos primário e secundário – bytes em entrada e em saída – de um contexto de emparelhamento, use o seguinte comando:
 
-    Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
+    Get-AzExpressRouteCircuitStats -ResourceGroupName $RG -ExpressRouteCircuitName $CircuitName -PeeringType 'AzurePrivatePeering'
 
 Uma saída de exemplo do comando é:
 
@@ -288,7 +288,7 @@ Uma saída de exemplo do comando para um emparelhamento inexistente é:
     Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
     StatusCode: 400
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais informações ou ajuda, confira os seguintes links:
 
 - [Suporte da Microsoft][Support]

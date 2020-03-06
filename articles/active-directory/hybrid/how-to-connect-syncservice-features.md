@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347526"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300529"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
 
@@ -57,13 +57,13 @@ As configurações a seguir são definidas pelo Azure AD Connect e não podem se
 
 | DirSyncFeature | Comentário |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: habilitar o write-back de dispositivo](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Sincronização do Azure AD Connect: extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Azure AD Connect: habilitando o write-back do dispositivo](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Sincronização do Azure AD Connect: extensões do Directory](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando ele é uma duplicata de outro objeto, em vez de causar falha de todo o objeto durante a exportação. |
 | Sincronização de hash de senha |[Implementação de sincronização de hash de senha com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticação de Passagem|[Entrada do usuário com autenticação de passagem do Azure Active Directory](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Visualização: write-back de grupo](how-to-connect-preview.md#group-writeback) |
-| UserWriteback |Não há suporte no momento. |
+| UserWriteback |Sem suporte no momento. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicar a resiliência do atributo
 
@@ -96,7 +96,7 @@ Historicamente, atualizações do atributo UserPrincipalName usando o serviço d
 
 Para obter mais detalhes, consulte [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou ID de logon alternativo](https://support.microsoft.com/kb/2523192).
 
-Habilitar esse recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele for alterado no local e você usar a autenticação de passagem ou sincronização de hash de senha. Se você usar a federação, não haverá suporte pra este recurso.
+Habilitar esse recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização de hash de senha ou a autenticação de passagem.
 
 O recurso fica ativado por padrão para diretórios recém-criados do Azure AD. Você pode ver se este recurso está habilitado executando:  
 

@@ -14,12 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5400ede4f3afd9f94d7380c6dfd55d8aa45d08ca
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834239"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399095"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -44,10 +44,10 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 1. Edite o manifesto do aplicativo localizando a configuração `appRoles` e adicionando todas as suas Funções de aplicativo.
 
      > [!NOTE]
-     > Cada definição de função de aplicativo neste manifesto deve ter um GUID válido diferente no contexto do manifesto para a propriedade `id`.    
-     > 
+     > Cada definição de função de aplicativo neste manifesto deve ter um GUID válido diferente no contexto do manifesto para a propriedade `id`.
+     >
      > A propriedade `value` de cada definição de função de aplicativo deve corresponder exatamente às cadeias de caracteres usadas no código no aplicativo. A propriedade `value` não pode conter espaços. Se tiver, você receberá um erro ao salvar o manifesto.
-     
+
 1. Salve o manifesto.
 
 ### <a name="examples"></a>Exemplos
@@ -108,7 +108,7 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
      Se não vir o aplicativo desejado na lista, use os diferentes filtros na parte superior da lista **Todos os aplicativos** para restringir a lista ou percorra a lista para localizar o aplicativo.
 
 1. Selecione o aplicativo no qual deseja atribuir funções a usuários ou grupos de segurança.
-1. Escolha o painel **Usuários e grupos** no menu de navegação esquerdo do aplicativo.
+1. Selecione o painel **usuários e grupos** no menu de navegação esquerdo do aplicativo.
 1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
 1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
 
@@ -122,7 +122,7 @@ Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir u
 
 ## <a name="more-information"></a>Mais informações
 
-- [Autorização em um aplicativo Web usando declarações de função &amp; nas funções de aplicativo do Azure AD (exemplo)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
+- [Adicionar autorização usando funções de aplicativo & declarações de funções para um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto de aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

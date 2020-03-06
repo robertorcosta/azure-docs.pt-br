@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1f40f16ddbe5231dd754ad97b54e414c6ce9b9e7
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838389"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328822"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
@@ -23,7 +23,7 @@ Ao criar uma conta do Video Indexer, você pode escolher uma conta de avaliaçã
 
 Este artigo mostra como criar uma conta do Video Indexer vinculada a uma assinatura do Azure e uma conta dos Serviços de Mídia do Azure. O tópico fornece etapas para conectar o Azure usando o fluxo automático (padrão). Também mostra como conectar o Azure manualmente (avançado).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure.
 
@@ -45,7 +45,7 @@ Um usuário e um membro em seu domínio do AD do Azure. Você usará esse membro
 
 Esse usuário deve ser um membro da assinatura do Azure com uma função **Proprietário**, ou ambos **Colaborador** e **Administrador de Acesso do Usuário**. Um usuário pode ser adicionado duas vezes, com 2 funções. Uma vez com o Contributor e uma vez com o User Access Administrator.
 
-![Controle de acesso](./media/create-account/access-control-iam.png)
+![controle de acesso](./media/create-account/access-control-iam.png)
 
 ### <a name="additional-prerequisites-for-manual-flow"></a>Pré-requisitos adicionais para fluxo manual
 
@@ -57,7 +57,7 @@ Pesquise **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estad
 
 ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Conecte-se ao Azure
+## <a name="connect-to-azure"></a>Conectar-se ao Azure
 
 > [!NOTE]
 > Se sua assinatura do Azure usa a autenticação multifator baseada em certificado, é crucial que você execute as etapas a seguir em um dispositivo que tenha os certificados necessários instalados.
@@ -124,8 +124,8 @@ Se a conexão com o Azure falhar, você poderá tentar solucionar o problema, co
 4. Para o Video Indexer autenticar com a API de Serviços de Mídia, é necessário criar um aplicativo do AD. As etapas a seguir irão orientá-lo pelo processo de autenticação do Azure AD descrito em [Introdução à autenticação do Azure AD usando o portal do Azure](../previous/media-services-portal-get-started-with-aad.md):
 
     1. Na nova conta de Serviços de Mídia, selecione **Acesso à API**.
-    2. Selecione [Método de autenticação de entidade de serviço](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
-    3. Obtenha a ID do cliente e o segredo do cliente, conforme descrito na seção [Obter a ID do cliente e o segredo do cliente](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret).
+    2. Selecione [Método de autenticação de entidade de serviço](../previous/media-services-portal-get-started-with-aad.md).
+    3. Obtenha o ID do cliente e o segredo do cliente
 
         Após selecionar **Configurações**->**Chaves**, adicione **Descrição**, pressione **Salvar**, o valor da chave será preenchido.
 
@@ -140,7 +140,7 @@ Na caixa de diálogo **Conectar o Video Indexer a uma assinatura do Azure** da p
 
 Na caixa de diálogo, forneça as informações a seguir:
 
-|Configuração|DESCRIÇÃO|
+|Configuração|Descrição|
 |---|---|
 |Região da conta do Indexador de Vídeo|O nome da região da conta do Video Indexer. Para um melhor desempenho e custos mais baixos, é altamente recomendável especificar o nome da região em que o recurso Serviços de Mídia do Azure e a conta do Armazenamento do Azure estão localizados. |
 |Locatário do Azure Active Directory (AAD)|O nome do locatário do Azure AD, por exemplo "contoso.onmicrosoft.com". As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito. Localize o nome à direita de **Domínio**.|
@@ -171,7 +171,7 @@ As seguintes considerações relacionadas aos Serviços de Mídia do Azure se ap
 
 * Se você conectar uma conta existente de Serviços de Mídias, o Video Indexer não alterará a configuração padrão do Ponto de Extremidade de Streaming. Se não houver **Streaming Endpoint** em execução, você não poderá assistir a vídeos dessa conta de Serviços de Mídia ou ao Video Indexer.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você pode interagir programaticamente com sua conta de avaliação e / ou com suas contas do Video Indexer conectadas ao azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 

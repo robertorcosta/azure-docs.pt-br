@@ -3,12 +3,12 @@ title: Tarefa de várias etapas para compilar, testar & imagem de patch
 description: Introdução a tarefas de várias etapas, um recurso de tarefas ACR no registro de contêiner do Azure que fornece fluxos de trabalho baseados em tarefas para criação, teste e aplicação de patch de imagens de contêiner na nuvem.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: cf5f90263c75aeb96220967142d28995209f2d86
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945677"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399706"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Executar tarefas de build, teste e aplicação de patch de várias etapas tarefas do ACR
 
@@ -95,8 +95,11 @@ az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.co
 
 Quando você executar a tarefa, a saída deverá mostrar o progresso de cada etapa definida no arquivo YAML. Na saída a seguir, as etapas aparecem como `acb_step_0` e `acb_step_1`.
 
-```console
-$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```azurecli
+az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```
+
+```output
 Sending context to registry: myregistry...
 Queued a run with ID: yd14
 Waiting for an agent...
@@ -145,7 +148,7 @@ Run ID: yd14 was successful after 19s
 
 Para obter mais informações sobre builds automatizados na confirmação do Git na atualização da imagem base, consulte os artigos de tutorial [Automatizar builds de imagem](container-registry-tutorial-build-task.md) e [Builds de atualização de imagem base](container-registry-tutorial-base-image-update.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você pode encontrar referências e exemplos de tarefas de várias etapas aqui:
 

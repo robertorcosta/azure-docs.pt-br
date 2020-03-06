@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 1539ca9aa18892f617f278e67c8b6141f5f6d880
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805834"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331120"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Como usar a entrada de áudio compactado por codec com o SDK de fala no Android
 
 A API de **fluxo de entrada de áudio compactada** do SDK de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando PullStream ou PushStream.
 
 > [!IMPORTANT]
-> O áudio de entrada compactado de streaming tem suporte no momento para [ C++o, C#o e o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). Também há suporte para Java no Android e [no Objective-C na plataforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) .
+> O áudio de entrada compactado de streaming tem suporte no momento para [ C++o, C#o e o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md). Também há suporte para Java no Android e [no Objective-C na plataforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) .
 > O Speech SDK versão 1.7.0 ou superior é necessário.
 
 Para wav/PCM, consulte a documentação de fala principal. Fora de wav/PCM, há suporte para os seguintes formatos de entrada compactados do Codec:
@@ -157,7 +157,7 @@ SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get()
 String text = result.getText();
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-- [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Veja como reconhecer a fala em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

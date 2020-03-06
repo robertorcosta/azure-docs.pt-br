@@ -13,11 +13,11 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/06/2020
 ms.openlocfilehash: 5bbb537ef6545852423bf5315b7636671c598fdc
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194845"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360008"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-azure-synapse"></a>Transparent Data Encryption para banco de dados SQL e Azure Synapse
 
@@ -98,7 +98,7 @@ Para configurar a Transparent Data Encryption por meio do PowerShell, é necess�
 
 Use os seguintes cmdlets para o banco de dados SQL do Azure e o Azure Synapse:
 
-| Cmdlet | DESCRIÇÃO |
+| Cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Habilita ou desabilita a Transparent Data Encryption para um banco de dados|
 | [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Obtém o estado de Transparent Data Encryption para um banco de dados |
@@ -118,7 +118,7 @@ Gerencie a Transparent Data Encryption usando o Transact-SQL.
 
 Conecte o banco de dados usando um logon que seja um administrador ou membro da função **dbmanager** no banco de dados mestre.
 
-| Comando | DESCRIÇÃO |
+| {1&gt;Comando&lt;1} | Descrição |
 | --- | --- |
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF criptografa ou descriptografa um banco de dados |
 | [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de um banco de dados e as chaves de criptografia de banco de dados associadas |
@@ -133,7 +133,7 @@ Gerencie a Transparent Data Encryption usando a API REST.
 Para configurar a Transparent Data Encryption por meio da API REST, é necessário estar conectado como o Proprietário do Azure, Colaborador ou Gerenciador de Segurança do SQL.
 Use o seguinte conjunto de comandos para o banco de dados SQL do Azure e o Azure Synapse:
 
-| Comando | DESCRIÇÃO |
+| {1&gt;Comando&lt;1} | Descrição |
 | --- | --- |
 |[Criar ou atualizar o servidor](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Adiciona uma identidade do Azure Active Directory a uma instância do SQL Server (usada para conceder acesso ao Key Vault)|
 |[Criar ou atualizar a chave do servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Adiciona uma chave do Key Vault a uma instância do SQL Server|
@@ -147,7 +147,7 @@ Use o seguinte conjunto de comandos para o banco de dados SQL do Azure e o Azure
 |[Obter configuração de Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Obtém a configuração de Transparent Data Encryption para um banco de dados|
 |[Lista de resultados de configuração de Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtém o resultado da criptografia para um banco de dados|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter uma descrição geral de Transparent Data Encryption, consulte [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Para saber mais sobre a Transparent Data Encryption com suporte de Bring Your Own Key para o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure e o Azure Synapse, consulte [Transparent Data Encryption com suporte Bring your own Key](transparent-data-encryption-byok-azure-sql.md).

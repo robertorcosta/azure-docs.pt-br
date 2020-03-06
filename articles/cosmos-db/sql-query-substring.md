@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bf14bda9bd1acc62820bf07f83ac074a8d1b691c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349197"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303691"
 ---
 # <a name="substring-azure-cosmos-db"></a>Subcadeia de caracteres (Azure Cosmos DB)
  Retorna parte de uma expressão de cadeia de caracteres começando na posição baseada em zero do caractere especificado e continua até o comprimento especificado ou até o final da cadeia de caracteres.  
@@ -50,9 +50,13 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
   
 ```json
 [{"substring": "b"}]  
-```  
+```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy) se a posição inicial for `0`.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

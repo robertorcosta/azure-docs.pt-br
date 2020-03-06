@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c745a37805862b77e7893788d9d089c8447ae465
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819879"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302858"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -87,7 +87,7 @@ O recurso precisa ser adicionado ao arquivo **mainTemplate.json** ou **azuredepl
 
 ## <a name="use-the-resource-manager-apis"></a>Use as APIs do Gerenciador de recursos
 
-Em alguns casos, talvez você prefira fazer chamadas diretamente contra as APIs REST do Resource Manager para implantar os serviços do Azure. [Azure dá suporte a vários SDKs](https://docs.microsoft.com/azure/#pivot=sdkstools) para habilitar essas chamadas. Você pode usar um dos SDKs, ou chamar as APIs REST diretamente para implantar recursos.
+Em alguns casos, talvez você prefira fazer chamadas diretamente contra as APIs REST do Resource Manager para implantar os serviços do Azure. [Azure dá suporte a vários SDKs](https://docs.microsoft.com/azure/?pivot=sdkstools) para habilitar essas chamadas. Você pode usar um dos SDKs, ou chamar as APIs REST diretamente para implantar recursos.
 
 Se você estiver usando um modelo do Resource Manager, deverá marcar sua solução seguindo as instruções descritas anteriormente. Se você não estiver usando um modelo do Resource Manager e fazendo chamadas diretas à API, ainda poderá marcar sua implantação para associar o uso de recursos do Azure.
 
@@ -187,7 +187,7 @@ Depois de adicionar o GUID ao modelo ou no agente do usuário, e registrar o GUI
 
 1. Para registrar mais de um GUID, selecione **Adicionar GUID de Rastreamento** novamente. Caixas adicionais aparecerão na página.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
 ## <a name="verify-the-guid-deployment"></a>Verificar a implantação de GUID
@@ -296,7 +296,7 @@ Você também pode receber orientações técnicas de um consultor técnico de p
     * Conclua/revise as informações de contato.
     * Os detalhes de consultoria podem ser preenchidos previamente ou selecionados nos menus suspensos.
     * Insira um título e a descrição do problema (forneça o máximo de detalhes possível).
-1. Clique em enviar
+1. Clique em Enviar
 
 Veja as instruções passo a passo com capturas de tela em [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 

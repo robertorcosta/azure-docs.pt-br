@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716881"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399168"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de idioma Análise de Texto no serviço kubernetes do Azure
 
 Saiba como implantar o contêiner de detecção de idioma. Este procedimento mostra como criar os contêineres locais do Docker, efetuar push dos contêineres para seu próprio registro de contêiner privado, executar o contêiner no cluster de Kubernetes e testá-lo em um navegador da Web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente. Não use o Azure Cloud Shell.
 
@@ -80,8 +80,11 @@ Para implantar o contêiner no Serviço de Kubernetes do Azure, as imagens do co
 
     Salve os resultados para obter a propriedade **loginServer**. Isso fará parte do endereço do contêiner hospedado, usado posteriormente no arquivo `language.yml`.
 
-    ```console
-    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```azurecli-interactive
+    az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```
+
+    ```output
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -136,8 +139,7 @@ Para implantar o contêiner no Serviço de Kubernetes do Azure, as imagens do co
 
     Quando o processo for concluído, os resultados deverão ser semelhantes a:
 
-    ```console
-    > docker push pattyregistry.azurecr.io/language-frontend:v1
+    ```output
     The push refers to repository [pattyregistry.azurecr.io/language-frontend]
     82ff52ee6c73: Pushed
     07599c047227: Pushed
@@ -180,8 +182,7 @@ As etapas a seguir são necessárias para obter as informações necessárias pa
 
     Salve os resultados de valor `appId` para o parâmetro de destinatário na etapa 3, `<appId>`. Salve a `password` para o parâmetro client-secret da próxima seção `<client-secret>`.
 
-    ```console
-    > az ad sp create-for-rbac --skip-assignment
+    ```output
     {
       "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "displayName": "azure-cli-2018-12-31-18-39-32",
@@ -199,8 +200,7 @@ As etapas a seguir são necessárias para obter as informações necessárias pa
 
     Na próxima etapa, salve a saída para o valor do parâmetro de escopo, `<acrId>`. Ele tem esta aparência:
 
-    ```console
-    > az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
+    ```output
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry
     ```
 
@@ -222,8 +222,7 @@ As etapas a seguir são necessárias para obter as informações necessárias pa
 
     Esta etapa pode levar alguns minutos. O resultado é:
 
-    ```console
-    > az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
+    ```output
     {
       "aadProfile": null,
       "addonProfiles": null,
@@ -300,8 +299,7 @@ Esta seção usa a CLI **kubectl** para se comunicar com o Serviço de Kubernete
 
     A resposta tem essa aparência:
 
-    ```console
-    > kubectl get nodes
+    ```output
     NAME                       STATUS    ROLES     AGE       VERSION
     aks-nodepool1-13756812-0   Ready     agent     6m        v1.9.11
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
@@ -337,8 +335,7 @@ Esta seção usa a CLI **kubectl** para se comunicar com o Serviço de Kubernete
 
     A resposta é:
 
-    ```console
-    > kubectl apply -f language.yml
+    ```output
     service "language-frontend" created
     deployment.apps "language-frontend" created
     service "language" created
@@ -353,8 +350,7 @@ Para os dois contêineres, verifique se os serviços `language-frontend` e `lang
 kubectl get all
 ```
 
-```console
-> kubectl get all
+```output
 NAME                                     READY     STATUS    RESTARTS   AGE
 pod/language-586849d8dc-7zvz5            1/1       Running   0          13h
 pod/language-frontend-68b9969969-bz9bg   1/1       Running   1          13h

@@ -9,24 +9,39 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: b83eb1556ed3f4a41409faf70f6ba9d8cd28322d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
-ms.translationtype: MT
+ms.openlocfilehash: 10e4ba16e00a37d532a2eceb69fedb8f5b62be8b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732171"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301651"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
-O [git](https://git-scm.com/) é um sistema de controle de versão popular que permite compartilhar e colaborar com seus projetos. Ao enviar um trabalho de treinamento para Azure Machine Learning, se os arquivos de treinamento estiverem armazenados em um repositório git local, as informações sobre o repositório serão rastreadas como parte do processo de treinamento.
+O [git](https://git-scm.com/) é um sistema de controle de versão popular que permite que você compartilhe e colabore em seus projetos. 
+
+Azure Machine Learning dá suporte total a repositórios git para o acompanhamento do trabalho – você pode clonar repositórios diretamente no seu sistema de arquivos de espaço de trabalho compartilhado, usar o Git em sua Workstation local ou usar o Git de um pipeline de CI/CD.
+
+Ao enviar um trabalho para Azure Machine Learning, se os arquivos de origem forem armazenados em um repositório git local, as informações sobre o repositório serão rastreadas como parte do processo de treinamento.
 
 Como Azure Machine Learning rastreia informações de um repositório git local, ele não está vinculado a nenhum repositório central específico. Seu repositório pode ser clonado do GitHub, GitLab, bitbucket, Azure DevOps ou qualquer outro serviço compatível com o git.
 
-## <a name="how-does-git-integration-work"></a>Como funciona a integração do git?
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonar repositórios git em seu sistema de arquivos de espaço de trabalho
+Azure Machine Learning fornece um sistema de arquivos compartilhado para todos os usuários no espaço de trabalho.
+Para clonar um repositório git nesse compartilhamento de arquivos, recomendamos que você crie uma instância de computação & abrir um terminal.
+Depois que o terminal for aberto, você terá acesso a um cliente git completo e poderá clonar e trabalhar com o Git por meio da experiência da CLI do git.
+
+Recomendamos que você clone o repositório no diretório de usuários para que outros não façam colisões diretamente em seu Branch de trabalho.
+
+É possível clonar qualquer repositório git que você possa autenticar (GitHub, Azure Repos, BitBucket, etc.)
+
+Para obter um guia sobre como usar a CLI do git, leia [aqui.](https://guides.github.com/introduction/git-handbook/)
+
+## <a name="track-code-that-comes-from-git-repositories"></a>Acompanhar o código proveniente de repositórios git
 
 Quando você envia uma execução de treinamento do SDK do Python ou da CLI do Machine Learning, os arquivos necessários para treinar o modelo são carregados no espaço de trabalho. Se o comando `git` estiver disponível em seu ambiente de desenvolvimento, o processo de carregamento o usará para verificar se os arquivos estão armazenados em um repositório git. Nesse caso, as informações do repositório git também são carregadas como parte da execução do treinamento. Essas informações são armazenadas nas seguintes propriedades para a execução de treinamento:
 
-| Propriedade | Comando git usado para obter o valor | Description |
+| Propriedade | Comando git usado para obter o valor | Descrição |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
@@ -99,6 +114,6 @@ az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup
 
 Para obter mais informações, consulte a documentação de referência de [execução do AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Configurar e usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md)

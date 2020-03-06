@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802205"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302042"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e a infraestrutura de nuvem do Oracle  
 
@@ -31,11 +31,11 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 
 ![Conexão de rede entre redes em nuvem](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Para estabelecer a conectividade entre o Azure e o OCI, você deve ter uma assinatura ativa do Azure e uma locação de OCI ativa.
 
-* A conectividade só é possível quando um local de emparelhamento do ExpressRoute do Azure está em proximidade com ou no mesmo local de emparelhamento que o FastConnect de OCI. Consulte [limitações de visualização](oracle-oci-overview.md#preview-limitations).
+* A conectividade só é possível quando um local de emparelhamento do ExpressRoute do Azure está em proximidade com ou no mesmo local de emparelhamento que o FastConnect de OCI. Consulte [disponibilidade da região](oracle-oci-overview.md#region-availability).
 
 * Sua assinatura do Azure deve ser habilitada para esse recurso de visualização.
 
@@ -57,7 +57,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 1. Crie um DRG (gateway de roteamento dinâmico). Você precisará disso ao criar seu circuito FastConnect. Para obter mais informações, consulte a documentação do [Gateway de roteamento dinâmico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Crie um circuito FastConnect em seu locatário do Oracle. Para obter mais informações, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute @ no__t-0 como o provedor.
+    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute** como o provedor.
     * Selecione o gateway de roteamento dinâmico que você provisionou na etapa anterior.
     * Selecione a largura de banda a ser provisionada. Para um desempenho ideal, a largura de banda deve corresponder à largura de banda selecionada ao criar o circuito de ExpressRoute.
     * Em **chave de serviço do provedor**, Cole a chave de serviço do ExpressRoute.
@@ -85,7 +85,7 @@ A Microsoft criou scripts Terraform para habilitar a implantação automatizada 
 
 Os scripts Terraform e a documentação relacionada para implantar a inter-Connect podem ser encontrados neste [repositório GitHub](https://aka.ms/azureociinterconnecttf).
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
 Instalando agentes em ambas as nuvens, você pode aproveitar o Azure [Monitor de desempenho de rede (NPM)](../../../expressroute/how-to-npm.md) para monitorar o desempenho da rede de ponta a ponta. O NPM ajuda você a identificar rapidamente os problemas de rede e a eliminá-los.
 
@@ -99,7 +99,7 @@ Para excluir a interconexão, as etapas a seguir devem ser seguidas, na ordem es
 
 Neste ponto, o processo de exclusão e desprovisionamento é concluído.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter mais informações sobre a conexão entre nuvem entre o OCI e o Azure, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
 * Use [scripts Terraform](https://aka.ms/azureociinterconnecttf) para implantar a infraestrutura para aplicativos Oracle direcionados no Azure e configurar a interconexão de rede. 

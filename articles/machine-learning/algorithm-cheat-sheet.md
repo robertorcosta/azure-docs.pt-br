@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 11/04/2019
-ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 03/05/2020
+ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328601"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Roteiro de Machine Learning de algoritmo para Azure Machine Learning designer
 
@@ -56,7 +56,7 @@ No aprendizado não supervisionado, os pontos de dados não têm rótulos associ
 
 No aprendizado de reforço, o algoritmo escolhe uma ação em resposta a cada ponto de dados. É uma abordagem comum em robótica, em que o conjunto de leituras do sensor, em um ponto no tempo, é um ponto de dados e o algoritmo deve escolher a próxima ação do robô. Também é um ajuste natural para aplicativos da Internet das Coisas. O algoritmo de aprendizado também recebe um sinal de recompensa pouco tempo depois, indicando se a decisão foi boa. Com base nesse sinal, o algoritmo modifica sua estratégia para alcançar o prêmio mais alto. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Consulte diretrizes adicionais sobre [como selecionar algoritmos](how-to-select-algorithms.md)
 

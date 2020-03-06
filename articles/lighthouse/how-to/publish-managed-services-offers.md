@@ -3,12 +3,12 @@ title: Publicar uma oferta de serviços gerenciados no Azure Marketplace
 description: Saiba como publicar uma oferta de serviço gerenciado que integre os clientes ao gerenciamento de recursos delegados do Azure.
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155240"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328935"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicar uma oferta de serviços gerenciados no Azure Marketplace
 
@@ -36,7 +36,7 @@ Quando um cliente adiciona sua oferta, ele poderá delegar uma ou mais assinatur
 
 Na seção **Configurações da oferta**, forneça o seguinte:
 
-|Campo  |Description  |
+|Campo  |Descrição  |
 |---------|---------|
 |**ID da oferta**     | Um identificador exclusivo para a oferta (dentro do seu perfil de fornecedor). Essa ID pode conter apenas caracteres alfanuméricos em minúsculas, traços e sublinhados, com no máximo 50 caracteres. Tenha em mente que a ID da oferta pode ficar visível para clientes em locais como URLs de produtos e relatórios de cobrança. Depois de publicar a oferta, você não poderá alterar esse valor.        |
 |**ID do Editor**     | A ID do fornecedor que será associada à oferta. Se você tem mais de uma ID de fornecedor, pode selecionar aquela que deseja usar para essa oferta.       |
@@ -54,7 +54,7 @@ Na seção Planos, selecione **Novo plano**. Em seguida, insira uma **ID de Plan
 
 Preencha as seguintes seções em **Detalhes do plano**:
 
-|Campo  |Description  |
+|Campo  |Descrição  |
 |---------|---------|
 |**Título**     | Nome amigável do plano para exibição. Comprimento máximo de 50 caracteres.        |
 |**Resumo**     | Descrição sucinta do plano para exibição abaixo do título. Comprimento máximo de 100 caracteres.        |
@@ -101,7 +101,7 @@ A seção **Marketplace** é onde você fornece o texto e as imagens que os clie
 
 Preencha os seguintes campos na seção **Visão geral**:
 
-|Campo  |Description  |
+|Campo  |Descrição  |
 |---------|---------|
 |**Título**     |  Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, ele deve ser igual ao **Nome** inserido na seção **Configurações da Oferta**.       |
 |**Resumo**     | Breve propósito ou função da solução. Isso geralmente é exibido abaixo do título. Comprimento máximo de 100 caracteres.        |
@@ -141,7 +141,7 @@ Na seção **Suporte**, forneça o nome, o email e o número de telefone de um c
 
 Depois de adicionar essas informações, selecione **Salvar.**
 
-## <a name="publish-your-offer"></a>Publique sua oferta
+## <a name="publish-your-offer"></a>Publicar sua oferta
 
 Depois de concluir todas as seções, a próxima etapa é publicar a oferta no Azure Marketplace. Selecione o botão **Publicar** para iniciar o processo de ativação da oferta. Para saber mais sobre esse processo, confira [Publicar ofertas do Azure Marketplace e do AppSource](../../marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer.md).
 
@@ -156,10 +156,7 @@ Após o cliente adicionar a oferta, ele poderá [delegar uma ou mais assinaturas
 
 Depois que o cliente delegar uma assinatura (ou um ou mais grupos de recursos em uma assinatura), o provedor de recursos **Microsoft.Managedservices** será registrado para essa assinatura, e os usuários em seu locatário poderão acessar os recursos delegados de acordo com as autorizações da oferta.
 
-> [!NOTE]
-> Neste momento, as assinaturas (ou grupos de recursos em uma assinatura) não poderão ser delegadas se a assinatura usar Azure Databricks. Da mesma forma, se uma assinatura (ou grupos de recursos dentro de uma assinatura) já tiver sido delegada, não será possível criar espaços de trabalho do Databricks nessa assinatura.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 1d203fd0c6777eee96311f45f4d5dfb8728ff431
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 48935dc74d6d22bcafa31afebbdfcb829e122815
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210594"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399235"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor de Azure Managed disks
 
@@ -61,7 +61,7 @@ No momento, há suporte apenas para as seguintes regiões:
 - Disponível como uma oferta GA nas regiões leste dos EUA, oeste dos EUA 2 e EUA Central do Sul.
 - Disponível como uma visualização pública nas regiões EUA Central ocidental, leste dos EUA 2, Canadá central e Europa Setentrional.
 
-### <a name="restrictions"></a>Restrições
+### <a name="restrictions"></a>{1&gt;Restrições&lt;1}
 
 Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 
@@ -72,6 +72,7 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 - Todos os recursos relacionados às chaves gerenciadas pelo cliente (cofres de chaves do Azure, conjuntos de criptografia de disco, VMs, discos e instantâneos) devem estar na mesma assinatura e região.
 - Discos, instantâneos e imagens criptografadas com chaves gerenciadas pelo cliente não podem passar para outra assinatura.
 - Se você usar o portal do Azure para criar o conjunto de criptografia de disco, não poderá usar instantâneos por enquanto.
+- Os discos gerenciados criptografados usando chaves gerenciadas pelo cliente também não podem ser criptografados com Azure Disk Encryption.
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configurando seu Azure Key Vault e DiskEncryptionSet
@@ -198,7 +199,7 @@ az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
 
 [Azure Disk Encryption para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) aproveita o recurso [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para criptografar discos gerenciados com chaves gerenciadas pelo cliente na VM convidada.  A criptografia do lado do servidor com chaves gerenciadas pelo cliente melhora o ADE, permitindo que você use qualquer tipo de sistema operacional e imagens para suas VMs criptografando os dados no serviço de armazenamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Explore os modelos de Azure Resource Manager para criar discos criptografados com chaves gerenciadas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [O que é o Cofre da Chave do Azure?](../../key-vault/key-vault-overview.md)

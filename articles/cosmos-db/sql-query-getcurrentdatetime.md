@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8a2c3dcd3c8ca6dc9d751e50a7862fe98e6de510
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d50b08ab85c7e299c465c3eb6f34e867d6634006
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351032"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303895"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
  Retorna a data e a hora UTC atuais (tempo Universal Coordenado) como uma cadeia de caracteres ISO 8601.
@@ -25,7 +25,7 @@ GetCurrentDateTime ()
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Retorna o valor de cadeia de caracteres atual de data e 8601 hora UTC no formato `YYYY-MM-DDThh:mm:ss.sssZ`, em que:
+  Retorna o valor da cadeia de caracteres UTC 8601 atual de data e hora no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` em que:
   
   |||
   |-|-|
@@ -34,9 +34,9 @@ GetCurrentDateTime ()
   |DD|dia de dois dígitos do mês (01 a 31)|
   |T|signifier para o início dos elementos de hora|
   |hh|hora de dois dígitos (00 a 23)|
-  |MM|minutos de dois dígitos (00 a 59)|
-  |II|segundos de dois dígitos (00 a 59)|
-  |. SSS|três dígitos de frações decimais de um segundo|
+  |mm|minutos de dois dígitos (00 a 59)|
+  |ss|segundos de dois dígitos (00 a 59)|
+  |. fffffff|segundos fracionários de sete dígitos|
   |Z|Designador UTC (tempo Universal Coordenado)||
   
   Para obter mais informações sobre o formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
@@ -46,6 +46,8 @@ GetCurrentDateTime ()
   GetCurrentDateTime () é uma função não determinística. 
   
   O resultado retornado é UTC.
+
+  A precisão é de 7 dígitos, com uma precisão de 100 nanossegundos.
 
 ## <a name="examples"></a>Exemplos
   
@@ -59,11 +61,11 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
   
 ```json
 [{
-  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+  "currentUtcDateTime": "2019-05-03T20:36:17.1234567Z"
 }]  
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de data e hora Azure Cosmos DB](sql-query-date-time-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

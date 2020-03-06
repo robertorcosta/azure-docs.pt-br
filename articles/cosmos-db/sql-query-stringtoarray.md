@@ -4,15 +4,15 @@ description: Saiba mais sobre a função do sistema SQL StringToArray no Azure C
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2d1f90da50950ac6ff4f87ffe96ebad9f3d811cc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349288"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302909"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Retorna a expressão convertida em uma matriz. Se a expressão não puder ser convertida, retornará indefinido.  
@@ -59,7 +59,7 @@ Este é o conjunto de resultados.
 Veja a seguir um exemplo de entrada inválida. 
    
  Aspas simples dentro da matriz não são JSON válidos.
-Mesmo que eles sejam válidos em uma consulta, eles não serão analisados em matrizes válidas. As cadeias de caracteres na cadeia de matriz devem ter escape "[\\" \\ "]" ou a aspa ao redor deve ser única ' [""] '.
+Mesmo que eles sejam válidos em uma consulta, eles não serão analisados em matrizes válidas. As cadeias de caracteres da matriz devem ser de escape "[\\"\\"]" ou a aspa ao redor deve ser única "[" "]".
 
 ```sql
 SELECT
@@ -90,6 +90,10 @@ Este é o conjunto de resultados.
 ```json
 [{}]
 ```
+
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 

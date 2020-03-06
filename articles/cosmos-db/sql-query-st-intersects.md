@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 549c6b69e9112a491060478e859338c14e977612
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349375"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303130"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
  Retorna uma expressão booliana que indica se o objeto GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento intercepta o GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
@@ -50,6 +50,10 @@ WHERE ST_INTERSECTS(a.location, {
 ```json
 [{ "id": "IntersectingPolygon" }]  
 ```  
+
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice geoespacial](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Próximas etapas
 

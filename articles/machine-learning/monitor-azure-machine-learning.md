@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/05/2020
+ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845731"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399105"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning de monitoramento
 
@@ -62,7 +62,7 @@ Você pode acessar alertas para Azure Machine Learning abrindo **alertas** no me
 
 A tabela a seguir lista as regras de alerta de métrica comuns e recomendadas para Azure Machine Learning:
 
-| Tipo de alerta | Condição | Description |
+| Tipo de alerta | Condição | Descrição |
 |:---|:---|:---|
 | Falha na Implantação de Modelo | Tipo de agregação: total, operador: maior que, valor do limite: 0 | Quando uma ou mais implantações de modelo falharam |
 | Porcentagem de utilização de cota | Tipo de agregação: Average, Operator: maior que, valor de limite: 90| Quando a porcentagem de utilização de cota é maior que 90% |
@@ -85,7 +85,7 @@ Para obter mais informações sobre como criar uma configuração de diagnóstic
 
 Você pode configurar os seguintes logs para Azure Machine Learning:
 
-| Categoria | Description |
+| Categoria | Descrição |
 |:---|:---|
 | AmlComputeClusterEvent | Eventos de clusters de computação Azure Machine Learning. |
 | AmlComputeClusterNodeEvent | Eventos de nós em um cluster de computação Azure Machine Learning. |
@@ -100,7 +100,7 @@ Usando Azure Monitor Log Analytics exige que você crie uma configuração de di
 
 Os dados em logs de Azure Monitor são armazenados em tabelas, sendo que cada tabela tem seu próprio conjunto de propriedades exclusivas. Azure Machine Learning armazena dados nas tabelas a seguir:
 
-| Tabela | Description |
+| Table | Descrição |
 |:---|:---|
 | AmlComputeClusterEvent | Eventos de clusters de computação Azure Machine Learning. |
 | AmlComputeClusterNodeEvent | Eventos de nós em um cluster de computação Azure Machine Learning. |
@@ -147,7 +147,7 @@ Veja a seguir as consultas que você pode usar para ajudá-lo a monitorar seus A
     | distinct NodeId
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter uma referência dos logs e métricas, consulte [Azure Machine Learning referência de dados de monitoramento](monitor-resource-reference.md).
 - Para obter informações sobre como trabalhar com cotas relacionadas a Azure Machine Learning, consulte [gerenciar e solicitar cotas para recursos do Azure](how-to-manage-quotas.md).

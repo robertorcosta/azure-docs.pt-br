@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: fe6ce23b9e87235521739b7808712a9d541dabf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df3c8d2abf59de6c9f685ad8d93e6689738df8e6
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734908"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302518"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar uploads de arquivo do Hub IoT usando a CLI do Azure
 
@@ -29,7 +29,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Um Hub IoT do Azure. Caso não tenha um Hub IoT, você poderá usar o [`az iot hub create` comando](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) para criar um ou [Criar um Hub IoT usando o portal](iot-hub-create-through-portal.md).
 
-* Uma conta de armazenamento do Azure. Se você não tiver uma conta de Armazenamento do Microsoft Azure, poderá usar a [CLI do Azure - Gerenciar contas de armazenamento](../storage/common/storage-azure-cli.md#manage-storage-accounts) para criar uma ou usar o portal para [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
+* Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento do Azure, poderá usar o CLI do Azure para criar uma. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Entre e configure sua conta do Azure
 
@@ -89,15 +89,15 @@ Agora é possível configurar o Hub IoT para permitir [upload de arquivos para o
 
 A configuração requer os seguintes valores:
 
-* **Contêiner de armazenamento**: Um contêiner de blobs em uma conta de armazenamento do Azure em sua assinatura atual do Azure a ser associado ao hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+* **Contêiner de armazenamento**: um contêiner de blob em uma conta de armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
-* **Receber notificações para arquivos carregados**: Habilite ou desabilite notificações de upload de arquivo.
+* **Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo.
 
-* **TTL de SAS**: Essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
+* **TTL de SAS**: essa configuração é o tempo de vida dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
 
-* **TTL padrão das configurações de notificação de arquivo**: A vida útil de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
+* **TTL de configurações de notificação de arquivo padrão**: o tempo de vida de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
 
-* **Contagem de entrega máxima de notificação de arquivo**: O número de vezes que o Hub IoT tenta entregar uma notificação de upload de arquivo. Defina como 10 por padrão.
+* **Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Defina como 10 por padrão.
 
 Use os seguintes comandos da CLI do Azure para definir as configurações de upload de arquivo no seu hub IoT:
 
@@ -131,7 +131,7 @@ Você pode examinar a configuração de upload de arquivo em seu hub IoT usando 
 az iot hub show --name {your iot hub name}
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre os recursos de upload de arquivos do Hub IoT, consulte [Upload de arquivos de um dispositivo](iot-hub-devguide-file-upload.md).
 

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6a967f328a4fbe17f2c451d35f413bd7fdcbc24a
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246456"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331461"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 
@@ -22,12 +22,12 @@ ms.locfileid: "78246456"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Este tutorial orienta você durante a criação de um [runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automação do Azure. Comece com um runbook simples que testa e publica, enquanto aprende como acompanhar o status do trabalho de runbook. Em seguida, modifique o runbook para realmente gerenciar os recursos do Azure, neste caso, iniciando uma máquina virtual do Azure. Conclua o tutorial para tornar o runbook mais robusto adicionando parâmetros de runbook e links condicionais.
+Este tutorial orienta você durante a criação de um [runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automação do Azure. Comece com um runbook simples que você pode testar e publicar, enquanto aprende como acompanhar o status do trabalho de runbook. Em seguida, modifique o runbook para realmente gerenciar os recursos do Azure, neste caso, iniciando uma máquina virtual do Azure. Conclua o tutorial para tornar o runbook mais robusto adicionando parâmetros de runbook e links condicionais.
 
 >[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <a name="step-1---create-runbook"></a>Etapa 1: criar o runbook
 
-Comece criando um runbook simples que produza o texto "Olá, Mundo".
+Comece criando um runbook simples que exibe o texto **Olá, Mundo**.
 
 1. No portal do Azure, abra sua conta da Automação. 
 
@@ -78,7 +78,7 @@ Antes de publicar o runbook para disponibilizá-lo na produção, você deve tes
 
    O status do trabalho é iniciado como **enfileirado**, indicando que o trabalho está aguardando que um runbook Worker na nuvem fique disponível. O status muda para **iniciando** quando um trabalho alega o trabalho. Por fim, o status se torna **em execução** quando o runbook realmente começa a ser executado.
 
-1. Quando o trabalho de runbook for concluído, a página de teste exibirá sua saída. Neste caso, você vê **Olá, Mundo**.<br> ![Olá mundo](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. Quando o trabalho de runbook for concluído, o painel de teste exibirá sua saída. Neste caso, você vê **Olá, Mundo**.<br> ![Olá mundo](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. Feche o Painel de teste para retornar à tela.
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>Etapa 4: publicar e iniciar o runbook
@@ -246,7 +246,7 @@ Agora você pode modificar o runbook para que ele só tente iniciar a VM se ela 
 1. Salve o runbook e abra o Painel de teste.
 1. Inicie o runbook com a VM interrompida e o computador deve iniciar.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre a criação gráfica, consulte [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
 * Para começar a usar os runbooks do PowerShell, confira [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).

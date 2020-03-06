@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: cb928558483a703a554d3eb6eb049af544f72eb1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b7f1cfb09121309e246b314d57a5e4e475bd0983
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349899"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303861"
 ---
 # <a name="is_bool-azure-cosmos-db"></a>IS_BOOL (Azure Cosmos DB)
  Retorna um valor booliano que indica se o tipo da expressão especificada é um booliano.  
@@ -53,7 +53,11 @@ SELECT
 [{"isBool1":true,"isBool2":false,"isBool3":false,"isBool4":false,"isBool5":false,"isBool6":false,"isBool7":false}]
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de verificação de tipo Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/22/2019
-ms.openlocfilehash: 05a466d52d89fa021235c10e7187900c350b5e50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/05/2020
+ms.openlocfilehash: 8c55fec08f05352d4587a8821c10600b7d7fad07
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086920"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396159"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,14 +41,14 @@ Este documento está dividido em duas seções:
 * Criar uma imagem de base personalizada: fornece informações para administradores e DevOps sobre como criar uma imagem personalizada e configurar a autenticação para um registro de contêiner do Azure usando o CLI do Azure e Machine Learning a CLI.
 * Implantar um modelo usando uma imagem de base personalizada: fornece informações para cientistas de dados e engenheiros de DevOps/ML usando imagens personalizadas ao implantar um modelo treinado do SDK do Python ou da CLI do ML.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Um Azure Machine Learning grupo de trabalho. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
 * O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * A [extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Um [registro de contêiner do Azure](/azure/container-registry) ou outro registro do Docker que está acessível na Internet.
-* As etapas neste documento pressupõem que você esteja familiarizado com a criação e o uso de um objeto de __configuração de inferência__ como parte da implantação do modelo. Para obter mais informações, consulte a seção "preparar para implantar" de [onde implantar e como](how-to-deploy-and-where.md#prepare-deployment-artifacts).
+* As etapas neste documento pressupõem que você esteja familiarizado com a criação e o uso de um objeto de __configuração de inferência__ como parte da implantação do modelo. Para obter mais informações, consulte a seção "preparar para implantar" de [onde implantar e como](how-to-deploy-and-where.md#prepare-to-deploy).
 
 ## <a name="create-a-custom-base-image"></a>Criar uma imagem de base personalizada
 
@@ -181,7 +181,7 @@ Para usar uma imagem personalizada, você precisará das seguintes informações
 
 A Microsoft fornece várias imagens do Docker em um repositório publicamente acessível, que pode ser usado com as etapas nesta seção:
 
-| Imagem | DESCRIÇÃO |
+| Imagem | Descrição |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem básica para Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contém tempo de execução ONNX para CPU inferência |
@@ -293,7 +293,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 Para obter mais informações sobre como implantar um modelo usando a CLI do ML, consulte a seção "registro do modelo, criação de perfil e implantação" da [extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) artigo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre [onde implantar e como](how-to-deploy-and-where.md).
 * Saiba como [treinar e implantar modelos de aprendizado de máquina usando o Azure pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

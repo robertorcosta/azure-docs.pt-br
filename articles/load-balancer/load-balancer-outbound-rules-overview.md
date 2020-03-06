@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d35241850d60e82b79bba0384f60c40e3ecd6427
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192516"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304184"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Load Balancer
 
@@ -206,10 +206,9 @@ Ao usar um Standard Load Balancer interno, a NAT de saída não estará disponí
 - O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 64.000.
 - O intervalo do tempo limite de ociosidade de saída configurável é de 4 a 120 minutos (240 a 7.200 segundos).
 - O Load Balancer não dá suporte a ICMP para NAT de saída.
-- O portal não pode ser usado para configurar ou exibir as regras de saída.  Em vez disso, use modelos, API REST, Az CLI 2.0 ou PowerShell.
 - As regras de saída só podem ser aplicadas à configuração de IP primário de uma NIC.  Há suporte para várias NICs.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre como usar o [Azure Load Balancer para conexões de saída](load-balancer-outbound-connections.md).
 - Saiba mais sobre o [Standard Load Balancer](load-balancer-standard-overview.md).

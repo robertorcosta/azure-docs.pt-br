@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 733743f4680f3197a1754d87b4672641b2321907
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756306"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399341"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar usando o Privileged Identity Management
 
@@ -27,7 +27,7 @@ Com o PIM (Privileged Identity Management), você pode gerenciar, controlar e mo
 
 Este artigo descreve como habilitar e começar a usar o Privileged Identity Management.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para usar Privileged Identity Management, você deve ter uma das seguintes licenças:
 
@@ -62,7 +62,7 @@ Para começar a usar Privileged Identity Management em seu diretório, primeiro 
 
     ![Escolha uma janela de conta para verificar sua identidade](./media/pim-getting-started/pick-account.png)
 
-1. Se mais informações forem necessárias para a verificação, você será guiado pelo processo. Para mais informações, consulte [Obter ajuda para a confirmação em dois passos](https://go.microsoft.com/fwlink/p/?LinkId=708614).
+1. Se mais informações forem necessárias para a verificação, você será guiado pelo processo. Para mais informações, consulte [Obter ajuda para a confirmação em dois passos](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
     ![Mais informações sobre a janela necessária se sua organização precisar de mais informações](./media/pim-getting-started/more-information-required.png)
 
@@ -131,7 +131,7 @@ Para facilitar a abertura de Privileged Identity Management, você deve adiciona
 
     ![Bloco Privileged Identity Management início rápido no painel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
 - [Descubra os recursos do Azure para gerenciar no Privileged Identity Management](pim-resource-roles-discover-resources.md)

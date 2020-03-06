@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
-ms.openlocfilehash: f8b3e541dfd55bbd613af2791329a08402cf8670
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581910"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78305054"
 ---
 ## <a name="configure-the-data-source"></a>Configurar a fonte de dados
 
@@ -29,7 +29,7 @@ Execute as etapas a seguir para configurar o Azure Data Explorer como uma fonte 
 
 1. Para criar a entidade de serviço, siga as instruções na [documentação do portal do Azure](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-    1. Na seção [Atribuir o aplicativo a uma função](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), atribua um tipo de função **Leitor** ao cluster do Azure Data Explorer.
+    1. Na seção [Atribuir o aplicativo a uma função](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application), atribua um tipo de função **Leitor** ao cluster do Azure Data Explorer.
 
     1. Na seção [obter valores para entrar](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) , copie os três valores de propriedade abordados nas etapas: **ID do diretório** (ID do locatário), **ID do aplicativo**e **senha**.
 
@@ -81,7 +81,7 @@ Agora que você tem uma entidade de serviço, adicione-a à função *visualizad
 
 1. Na seção **Visão geral**, selecione o banco de dados com os dados de exemplo do StormEvents.
 
-    ![Selecionar um banco de dados](media/data-explorer-configure-data-source/select-database.png)
+    ![Selecionar banco de dados](media/data-explorer-configure-data-source/select-database.png)
 
 1. Selecione **Permissões** e, em seguida, **Adicionar**.
 
@@ -103,7 +103,7 @@ Agora que você tem uma entidade de serviço, adicione-a à função *visualizad
 
 1. No portal do Azure, acesse o cluster do Azure Data Explorer e selecione **Consultar**.
 
-    ![Consultar](media/data-explorer-configure-data-source/query.png)
+    ![Query](media/data-explorer-configure-data-source/query.png)
 
 1. Execute o seguinte comando na janela de consulta. Use a ID de aplicativo e o ID de locatário do portal do Azure ou CLI.
 

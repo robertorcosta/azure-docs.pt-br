@@ -4,12 +4,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para armaz
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a58a42f65472a9c4b495e0cb964eefa40bf82041
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649612"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399483"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
 
@@ -75,7 +75,7 @@ Você usa volumes persistentes quando precisa anexar o armazenamento aos pods. E
 
 ![Declarações de volumes persistentes em um cluster de serviços de Kubernetes do Azure (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-Uma declaração de volume persistente (PVC) permite criar dinamicamente o armazenamento conforme necessário. Os discos do Azure subjacentes são criados conforme as solicitações dos pods. Na definição do pod, você solicita que um volume seja criado e anexado a um caminho de montagem projetado
+Uma declaração de volume persistente (PVC) permite criar dinamicamente o armazenamento conforme necessário. Os discos do Azure subjacentes são criados conforme as solicitações dos pods. Na definição do pod, você solicita que um volume seja criado e anexado a um caminho de montagem designado.
 
 Para obter os conceitos sobre como criar e usar volumes dinamicamente, confira [declarações de volumes persistentes][aks-concepts-storage-pvcs].
 
@@ -93,7 +93,7 @@ Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arq
 
 Entenda as limitações das diferentes abordagens de backups de dados e se será preciso desativar os dados antes de tirar o instantâneo. Os backups de dados não necessariamente permitem que você restaure seu ambiente de aplicativo da implantação do cluster. Para obter mais informações sobre esses cenários, consulte [práticas recomendadas para continuidade dos negócios e recuperação de desastres no AKs][best-practices-multi-region].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Este artigo se concentra nas práticas recomendadas de armazenamento de no AKS. Para obter mais informações sobre noções básicas de armazenamento no kubernetes, consulte [conceitos de armazenamento para aplicativos no AKs][aks-concepts-storage].
 

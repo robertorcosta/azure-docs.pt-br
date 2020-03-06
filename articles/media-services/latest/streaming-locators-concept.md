@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610991"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302875"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
 
@@ -90,20 +90,21 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
-|Idioma|API|
+|Linguagem|API|
 |---|---|
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
-|CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|CLI|[AZ AMS Asset List – streaming-Locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="also-see"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Ativos](assets-concept.md)
 * [Políticas de Streaming](streaming-policy-concept.md)
 * [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
+* [Tutorial: carregar, codificar e transmitir vídeos usando o .NET](stream-files-tutorial-with-api.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial: carregar, codificar e transmitir vídeos usando o .NET](stream-files-tutorial-with-api.md)
+[Como criar um localizador de streaming e URLs de compilação](create-streaming-locator-build-url.md)

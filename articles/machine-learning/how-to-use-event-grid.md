@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 11/04/2019
-ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/05/2020
+ms.openlocfilehash: 8a9dc92baf47242af502862edebffe686263dd5d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623911"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399668"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Criar fluxos de trabalho de aprendizado de máquina controlados por evento (versão prévia)
 
@@ -30,7 +30,7 @@ Use a grade de eventos para habilitar cenários comuns, como:
 * Transmitindo eventos de Azure Machine Learning para vários pontos de extremidade
 * Disparar um pipeline ML quando o descompasso for detectado
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 * Acesso de colaborador ou proprietário ao espaço de trabalho Azure Machine Learning você criará eventos para o.
 
 ### <a name="configure-eventgrid-using-the-azure-portal"></a>Configurar o EventGrid usando o portal do Azure
@@ -165,6 +165,6 @@ Agora, o pipeline data factory é disparado quando ocorre descompasso. Exiba det
 ![exibir-no-espaço de trabalho](./media/how-to-use-event-grid/view-in-workspace.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre os eventos disponíveis, consulte o [esquema de evento Azure Machine Learning](/azure/event-grid/event-schema-machine-learning)

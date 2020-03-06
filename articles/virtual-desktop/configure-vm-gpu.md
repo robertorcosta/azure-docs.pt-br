@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719748"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384815"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows
 
@@ -82,11 +82,11 @@ Para verificar se os aplicativos estão usando a GPU para renderização, tente 
 Para verificar se Área de Trabalho Remota está usando a codificação acelerada por GPU:
 
 1. Conecte-se à área de trabalho da VM usando o cliente de área de trabalho virtual do Windows.
-2. Inicie o Visualizador de Eventos e navegue até o seguinte nó: **logs de aplicativos e serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **operacional**
+2. Inicie o Visualizador de Eventos e navegue até o seguinte nó: **logs de aplicativos e serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **operacional**
 3. Para determinar se a codificação acelerada por GPU é usada, procure a ID de evento 170. Se você vir "codificador de hardware AVC habilitado: 1", a codificação de GPU será usada.
 4. Para determinar se o modo AVC 444 é usado, procure a ID do evento 162. Se você vir "AVC disponível: 1 perfil inicial: 2048", será usado o AVC 444.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Essas instruções devem estar em funcionamento com a aceleração de GPU em uma única VM host de sessão. Algumas considerações adicionais para habilitar a aceleração de GPU em um pool de hosts maior:
 

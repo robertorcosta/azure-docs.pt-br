@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: 607020f1d540e83a4d049b96b9ab9a4ebcd385f0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157246"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302705"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o REST
 
@@ -22,7 +22,7 @@ Saiba como usar a API REST do Apache Hive WebHCat para executar trabalhos MapRed
 > [!NOTE]  
 > Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas não com o HDInsight, consulte o documento [O que você precisa saber sobre o Apache Hadoop baseado em Linux no HDInsight](../hdinsight-hadoop-linux-information.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Um cluster do Apache Hadoop no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -171,9 +171,9 @@ Você pode:
 
 1. Depois que o estado do trabalho for alterado para `SUCCEEDED`, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída. Neste exemplo, o local é `/example/curl`. Esse endereço armazena a saída do trabalho no armazenamento padrão de clusters em `/example/curl`.
 
-Você pode listar e baixar esses arquivos usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como trabalhar com blobs da CLI do Azure, consulte o documento [Usando a CLI do Azure com o Armazenamento do Azure](../../storage/common/storage-azure-cli.md#create-and-manage-blobs).
+Você pode listar e baixar esses arquivos usando a [CLI do Azure](/cli/azure/install-azure-cli). Para obter mais informações sobre como usar o CLI do Azure para trabalhar com o armazenamento de BLOBs do Azure, consulte [início rápido: criar, baixar e listar BLOBs com CLI do Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ae7812670da836efa326b9224547e4d1b64374c2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873277"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302501"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
  Retorna o logaritmo natural de expressão numérica especificada.  
@@ -39,7 +39,7 @@ LOG (<numeric_expr> [, <base>])
   
   Por padrão, LOG() retorna o logaritmo natural. Você pode alterar a base do logaritmo para outro valor usando o parâmetro opcional de base.  
   
-  O logaritmo natural é o logaritmo de base **e**, em que **e** é uma constante irracional aproximadamente igual a 2,718281828.  
+  O logaritmo natural é o logaritmo à base de **e**, onde **e** é uma constante irracional aproximadamente igual a 2.718281828.  
   
   O logaritmo natural do exponencial de um número é o número em si: LOG(EXP(n)) = n. E o exponencial do logaritmo natural de um número é o número em si: EXP(LOG(n)) = n.  
   
@@ -69,7 +69,11 @@ SELECT EXP(LOG(10)) AS expLog
 [{expLog: 10.000000000000002}]  
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="remarks"></a>Comentários
+
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

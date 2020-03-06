@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/05/2020
+ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122518"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398343"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 > [!NOTE]
 > As informações neste artigo se baseiam nas informações no artigo [como implantar o serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md) . Onde esse artigo geralmente aborda a implantação no AKS, este artigo aborda a implantação específica da GPU.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
@@ -47,7 +47,7 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 
 * Uma compreensão geral de [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-## <a name="connect-to-your-workspace"></a>Conectar-se ao workspace
+## <a name="connect-to-your-workspace"></a>Conectar-se ao seu espaço de trabalho
 
 Para se conectar a um espaço de trabalho existente, use o seguinte código:
 
@@ -101,7 +101,7 @@ Para obter mais informações sobre como usar o AKS com Azure Machine Learning, 
 O script de entrada recebe dados enviados para o serviço Web, passa-os para o modelo e retorna os resultados da pontuação. O script a seguir carrega o modelo Tensorflow na inicialização e, em seguida, usa o modelo para pontuar dados.
 
 > [!TIP]
-> O script de entrada é específico para cada modelo. Por exemplo, o script deve saber a estrutura a ser usada com seu modelo, formatos de dados, etc.
+> O script de entrada é específico para seu modelo. Por exemplo, o script deve saber a estrutura a ser usada com seu modelo, formatos de dados, etc.
 
 ```python
 import json
@@ -287,7 +287,7 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Implantar modelo em FPGA](how-to-deploy-fpga-web-service.md)
 * [Implantar modelo com ONNX](concept-onnx.md#deploy-onnx-models-in-azure)

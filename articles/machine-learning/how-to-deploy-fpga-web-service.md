@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd77c77abc8fe60eb18febde6fcc5bdffe6d7871
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b036dd9c440e01bf32b35ee01c1d39d4ce6e129b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538092"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402705"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ O diagrama e a tabela a seguir mostram uma comparação das FPGAs com outros pro
 
 ![Diagrama de Azure Machine Learning comparação de FPGA](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processador||Description|
+|Processador||Descrição|
 |---|:-------:|------|
 |Circuitos integrados específicos do aplicativo|ASICs|Circuitos personalizados, como as Unidades de Processador (TPU) do TensorFlow da Google, fornecem a maior eficiência. Elas não podem ser reconfiguradas conforme suas necessidades mudam.|
 |Matrizes de portas programáveis em campo|FPGAs|As FPGAs, como aquelas disponíveis no Azure, fornecem desempenho aproximado ao dos ASICs. Eles também são flexíveis e reconfiguráveis ao longo do tempo, a fim de implementar a nova lógica.|
@@ -64,7 +64,7 @@ Esses modelos de DNN estão disponíveis no momento:
 FPGAs estão disponíveis nessas regiões do Azure:
   - Leste dos EUA
   - Sudeste Asiático
-  - Oeste da Europa
+  - Europa Ocidental
   - Oeste dos EUA 2
 
 > [!IMPORTANT]
@@ -88,7 +88,7 @@ Os cenários a seguir usam FPGAs:
 Você pode implantar um modelo como um serviço Web no FPGAs com Azure Machine Learning Modelos de Aceleração de Hardware. O uso de FPGAs fornece inferência de latência ultra baixa, mesmo com um único tamanho de lote. A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para previsão, mais comumente em dados de produção.
 
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Uma assinatura do Azure.  Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -325,7 +325,7 @@ Para implantar o modelo como um serviço Web de produção em larga escala, use 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2”. If no value is specified, the default is "eastus".
+# Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2". If no value is specified, the default is "eastus".
 prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
                                                     agent_count = 1,
                                                     location = "eastus")
@@ -428,7 +428,7 @@ Todos os [dispositivos Azure data Box Edge](https://docs.microsoft.com/azure/dat
 
 Para proteger seus serviços Web do FPGA, consulte o documento [Secure Web Services](how-to-secure-web-service.md) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Confira estes blocos de anotações, vídeos e Blogs:
 

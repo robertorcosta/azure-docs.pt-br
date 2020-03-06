@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: bc7d8d4aaec6ebe27a0f8d2ecc11ca408266f7ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453238"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296347"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Adicionar autenticação e gerenciar identidades de usuário em seus aplicativos móveis
 
@@ -21,7 +21,7 @@ Ter uma visão do usuário e seu comportamento em seu aplicativo permite que os 
 Use os seguintes serviços para habilitar a autenticação de usuário em seus aplicativos móveis.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center autenticação](/appcenter/auth/) é um serviço de gerenciamento de identidade baseado em nuvem que os desenvolvedores podem usar para autenticar usuários e gerenciar identidades de usuário. App Center autenticação também se integra a outras partes do Visual Studio App Center. Os desenvolvedores podem usar a identidade do usuário para [exibir dados do usuário](/appcenter/data/index) em outros serviços e até mesmo [enviar notificações por push para os usuários em vez de dispositivos individuais](/appcenter/push/push-to-user#app-center-auth-set-identity). 
+[App Center autenticação](/appcenter/auth/) é um serviço de gerenciamento de identidade baseado em nuvem que os desenvolvedores podem usar para autenticar usuários e gerenciar identidades de usuário. App Center autenticação também se integra a outras partes do Visual Studio App Center. Os desenvolvedores podem usar a identidade do usuário para [exibir dados do usuário](/appcenter/data/index) em outros serviços e até mesmo [enviar notificações por push para os usuários em vez de dispositivos individuais](/appcenter/push/push-to-user#setting-user-identity). 
 
 **Principais recursos**
 - Da plataforma Azure Active Directory B2C (Azure AD B2C). 
@@ -40,7 +40,7 @@ Use os seguintes serviços para habilitar a autenticação de usuário em seus a
 - [Inscreva-se com Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
 - [Introdução ao App Center auth](/appcenter/auth/)
 
-## <a name="azure-active-directory-b2c"></a>Active Directory B2C do Azure
+## <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
 [Azure ad B2C](https://azure.microsoft.com/services/active-directory-b2c/) é um serviço de gerenciamento de identidade entre empresas (B2C) que os desenvolvedores podem usar para autenticar seus clientes. Esse serviço de rótulo de branco permite que os desenvolvedores personalizem e controlem como os usuários interagem com segurança com seus aplicativos Web, de área de trabalho, móveis ou de página única. Usando o Azure AD B2C, os usuários podem se inscrever, entrar, redefinir senhas e editar perfis. O Azure AD B2C implementa um formulário dos protocolos OpenID Connect e OAuth 2.0. 
 
 **Principais recursos**

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2da7820a6c9f1f90585b4deb605bb99c7580b0e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f113aa51a7f739b506ec7e3eb5bf2cb9f49a03
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444815"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302637"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>TETO (Azure Cosmos DB)
  Retorna o menor valor de número inteiro maior ou igual à expressão numérica especificada.  
@@ -46,7 +46,11 @@ SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3
 [{c1: 124, c2: -123, c3: 0}]  
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

@@ -4,18 +4,18 @@ description: Saiba mais sobre como a função de sistema SQL CONCAT no Azure Cos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: adb8564d4addaaa3f4a383b32941549aed3d53bd
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c8a0941376ed74d7f8cb819d78df43eb9f0b7bd1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871543"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302603"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
- Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.  
+ Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -46,8 +46,11 @@ SELECT CONCAT("abc", "def") AS concat
 [{"concat": "abcdef"}]  
 ```  
   
+## <a name="remarks"></a>Comentários
 
-## <a name="next-steps"></a>Próximos passos
+Essa função do sistema não usará o índice.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

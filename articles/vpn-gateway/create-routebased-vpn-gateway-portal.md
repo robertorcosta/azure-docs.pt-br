@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a44bdf654842d964a02f6aebe60e3632aabcd64d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151677"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331342"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Criar um gateway de VPN baseado em rotas usando o portal do Azure
 
@@ -23,7 +23,7 @@ As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do 
 
 ## <a name="vnet"></a>Criar uma rede virtual
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="gwvalues"></a>Configurar e criar o gateway
 
@@ -31,7 +31,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
+[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 >[!NOTE]
 >O SKU do gateway básico não oferece suporte à autenticação IKEv2 ou RADIUS. Se você planeja ter clientes Mac conectados à sua rede virtual, não use a SKU básica.
@@ -48,7 +48,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 
    ![Exibir gateway de VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Exibir gateway de VPN")
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Uma vez que o gateway tenha sido criado, você pode criar uma conexão entre sua rede virtual e outra rede virtual. Ou criar uma conexão entre sua rede virtual e redes locais.
 

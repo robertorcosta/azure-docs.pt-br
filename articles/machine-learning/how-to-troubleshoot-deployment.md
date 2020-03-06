@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1645d2848c6d4b852a81042c4db8a0f6e90fd8fd
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945806"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399674"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -36,7 +36,7 @@ A abordagem recomendada e mais atualizada para implantação de modelo é por me
 
 Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
@@ -221,6 +221,10 @@ def run(input_data):
 
 **Observação**: o retorno de mensagens de erro da chamada `run(input_data)` deve ser feito para apenas para fins de depuração. Por motivos de segurança, você não deve retornar mensagens de erro dessa maneira em um ambiente de produção.
 
+## <a name="http-status-code-502"></a>Código de status HTTP 502
+
+Um código de status 502 indica que o serviço gerou uma exceção ou falhou no método `run()` do arquivo score.py. Use as informações neste artigo para depurar o arquivo.
+
 ## <a name="http-status-code-503"></a>Código de status HTTP 503
 
 As implantações do serviço kubernetes do Azure dão suporte ao dimensionamento automático, que permite que as réplicas sejam adicionadas para dar suporte à carga adicional. No entanto, o dimensionador automático foi projetado para lidar com alterações **graduais** na carga. Se você receber grandes picos em solicitações por segundo, os clientes poderão receber um código de status HTTP 503.
@@ -262,7 +266,13 @@ Há duas coisas que podem ajudar a evitar códigos de status 503:
 
 Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas`e `autoscale_min_replicas` para, consulte a referência do módulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
 
-## <a name="advanced-debugging"></a>Depurador avançado
+## <a name="http-status-code-504"></a>Código de status HTTP 504
+
+Um código de status 504 indica que a solicitação atingiu o tempo limite. O tempo limite padrão é de 1 minuto.
+
+Você pode aumentar o tempo limite ou tentar acelerar o serviço modificando o score.py para remover chamadas desnecessárias. Se essas ações não corrigirem o problema, use as informações neste artigo para depurar o arquivo score.py. O código pode estar em um estado suspenso ou um loop infinito.
+
+## <a name="advanced-debugging"></a>Depuração avançada
 
 Em alguns casos, talvez seja necessário depurar interativamente o código Python contido em sua implantação de modelo. Por exemplo, se o script de entrada estiver falhando e o motivo não puder ser determinado por log adicional. Usando Visual Studio Code e o Ferramentas Python para Visual Studio (PTVSD), você pode anexar ao código em execução dentro do contêiner do Docker.
 
@@ -434,7 +444,7 @@ Para parar o contêiner, use o seguinte comando:
 docker stop debug
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre a implantação:
 

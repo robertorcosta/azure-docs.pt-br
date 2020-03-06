@@ -2,15 +2,15 @@
 title: Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma VM do Azure
 description: Saiba como integrar uma máquina virtual do Azure com soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário que fazem parte da Automação do Azure.
 services: automation
-ms.date: 03/20/2019
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 93222b1b38fa37ec577da6377fdd9aff3fe12018
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421831"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299512"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma máquina virtual do Azure
 
@@ -22,13 +22,17 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Habilitar as soluções
 
-Acesse uma máquina virtual existente. Em **OPERAÇÕES** , selecione **Gerenciamento de atualizações**, **Inventário** ou **Controle de alterações**. A máquina virtual pode existir em qualquer região, independentemente do local da sua conta de automação. Ao integrar uma solução de uma VM, você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está integrada a um espaço de trabalho. Para saber mais sobre permissões adicionais que são necessárias em geral, confira [as permissões necessárias para carregar computadores](automation-role-based-access-control.md#onboarding).
+Primeiro, habilite uma ou todas as três soluções em sua VM:
 
-Para habilitar a solução somente para a VM, assegure-se de que **Habilitar para esta VM** está selecionado. Para integrar várias máquinas à solução, selecione **Habilitar para VMs nesta assinatura** e, em seguida, selecione **Clique para selecionar as máquinas para habilitar**. Para saber como integrar várias máquinas de uma só vez, consulte [Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário](automation-onboard-solutions-from-automation-account.md).
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **máquinas virtuais** ou pesquise e selecione **máquinas virtuais** na **Home** Page.
+2. Selecione a VM para a qual você deseja habilitar uma solução.
+3. Na página VM, em **operações**, selecione **Gerenciamento de atualizações**, **inventário**ou controle de **alterações**. A máquina virtual pode existir em qualquer região, independentemente do local da sua conta de automação. Ao integrar uma solução de uma VM, você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está integrada a um espaço de trabalho. Para saber mais sobre permissões adicionais que são necessárias, confira [as permissões necessárias para carregar computadores](automation-role-based-access-control.md#onboarding).
+
+Para saber como integrar várias máquinas de uma só vez, consulte [Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário](automation-onboard-solutions-from-automation-account.md).
 
 Selecione o espaço de trabalho do Azure Log Analytics e a conta de Automação e selecione **Habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
-![Integrar solução de Gerenciamento de Atualizações](media/automation-onboard-solutions-from-vm/onboard-solution.png)
+![Integrar solução de Gerenciamento de Atualizações](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
 Acesse outras soluções e selecione **Habilitar**. As listas suspensas Log Analytics espaço de trabalho e conta de automação estão desabilitadas porque essas soluções usam o mesmo espaço de trabalho e conta de automação que a solução habilitada anteriormente.
 
@@ -37,7 +41,7 @@ Acesse outras soluções e selecione **Habilitar**. As listas suspensas Log Anal
 
 ## <a name="scope-configuration"></a>Configuração de escopo
 
-Cada solução usa uma configuração de escopo no workspace para direcionar os computadores que obtêm a solução. A configuração do escopo é um grupo de uma ou mais pesquisas salvas que são usadas para limitar o escopo da solução a computadores específicos. Para acessar as configurações de escopo, na sua conta de Automação, em **RECURSOS RELACIONADOS**, selecione **Workspace**. No workspace, em **FONTES DE DADOS DO WORKSPACE**, selecione **Configurações de Escopo**.
+Cada solução usa uma configuração de escopo no workspace para direcionar os computadores que obtêm a solução. A configuração do escopo é um grupo de uma ou mais pesquisas salvas que são usadas para limitar o escopo da solução a computadores específicos. Para acessar as configurações de escopo, em sua conta de automação, em **recursos relacionados**, selecione **espaço de trabalho**. No espaço de trabalho, em **fontes de dados de espaço de trabalho**, selecione configurações de **escopo**.
 
 Se o workspace selecionado ainda não tiver as soluções Gerenciamento de Atualizações ou Controle de Alterações, as seguintes configurações de escopo serão criadas:
 
@@ -55,7 +59,7 @@ Quando um computador é adicionado às soluções Gerenciamento de Atualizaçõe
 
 Vá até seu workspace. Em **Geral**, selecione **Pesquisas salvas**. As duas pesquisas salvas usadas por essas soluções são mostradas na tabela a seguir:
 
-|Nome     |Categoria  |Alias  |
+|{1&gt;Nome&lt;1}     |Categoria  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
@@ -91,9 +95,9 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 
-* Atualizar agendas - Cada uma terá nomes que correspondam às implantações de atualizações que você criou)
+* Atualizar agendas-cada uma terá nomes que correspondam às implantações de atualização que você criou.
 
-* Grupos de trabalho híbrido criados para a solução - Cada um receberá um nome semelhante a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de pico, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 
@@ -110,10 +114,12 @@ Para remover uma VM do Gerenciamento de Atualizações:
 * No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a Configuração de Escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **Geral** no workspace.
 * Remover o [agente do Microsoft Monitoring](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Continue com os tutoriais das soluções para aprender como utilizá-las:
 
 * [Tutorial - Gerenciar atualizações de sua VM](automation-tutorial-update-management.md)
+
 * [Tutorial - Identificar o software em uma VM](automation-tutorial-installed-software.md)
+
 * [Tutorial - Solucionar problemas de alterações em uma VM](automation-tutorial-troubleshoot-changes.md)

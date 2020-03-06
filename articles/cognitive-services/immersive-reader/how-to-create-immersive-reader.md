@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 53de4608616cb8f3b85bb88f1dbc5a4a79f4c02b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188856"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330712"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
@@ -47,6 +47,11 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
         [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
     )
     {
+        $unused = ''
+        if (-not [System.Uri]::TryCreate($AADAppIdentifierUri, [System.UriKind]::Absolute, [ref] $unused)) {
+            throw "Error: AADAppIdentifierUri must be a valid URI"
+        }
+
         Write-Host "Setting the active subscription to '$SubscriptionName'"
         $subscriptionExists = Get-AzSubscription -SubscriptionName $SubscriptionName
         if (-not $subscriptionExists) {
@@ -152,7 +157,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
       -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
     ```
 
-    | Parâmetro | Comentários |
+    | Parâmetro | Comments |
     | --- | --- |
     | SubscriptionName |Nome da assinatura do Azure a ser usada para o recurso de leitura de imersão. Você deve ter uma assinatura do para criar um recurso. |
     | ResourceName |  Deve ser alfanumérico e pode conter '-', desde que '-' não seja o primeiro ou o último caractere. O comprimento não pode exceder 63 caracteres.|
@@ -176,7 +181,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
     }
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Confira o [Início rápido do Node.js](./quickstart-nodejs.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
 * Confira o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python

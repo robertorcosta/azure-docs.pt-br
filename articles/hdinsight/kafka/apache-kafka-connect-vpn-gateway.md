@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 66bb054ab75c5a4e387995bc64dbc026c073413f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122616"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397288"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conecte-se ao Apache Kafka no HDInsight por meio de uma rede virtual do Azure
 
@@ -38,7 +38,7 @@ O HDInsight não permite a conexão direta ao Kafka pela Internet pública. Em v
   4. Configure o encaminhamento entre o servidor DNS em cada rede.
   5. Crie um Kafka no cluster HDInsight na rede virtual.
 
-     Para obter mais informações, consulte o [Conectar-se ao Apache Kafka a partir de uma seção de rede local](#on-premises). 
+     Para obter mais informações, consulte o [Conectar-se ao Apache Kafka a partir de uma seção de rede local](#on-premises).
 
 * Conecte computadores individuais à rede virtual usando um gateway de VPN e um cliente VPN. Para habilitar essa configuração, execute as seguintes tarefas:
 
@@ -366,7 +366,7 @@ Para validar a conectividade com o Kafka, use as etapas a seguir para criar e ex
 
     * Se você tiver __habilitado a resolução de nomes por meio de um servidor DNS personalizado__, substitua as entradas `kafka_broker` pelo FQDN dos nós de trabalho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre como usar o HDInsight com uma rede virtual, consulte o documento [planejar a implantação de uma rede virtual para clusters do Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) .
 

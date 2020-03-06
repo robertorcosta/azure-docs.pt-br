@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4ffcd82931b4df92aa2885eb043deae90a70526f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695340"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299876"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrar aplicativos para MSAL.NET
 
@@ -121,7 +121,7 @@ Veja as seguintes concessões com suporte na ADAL.NET e MSAL.NET para aplicativo
 Conceder | ADAL.NET | MSAL.NET
 ----- |----- | -----
 Interativo | [Autenticação Interativa](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Adquirir tokens interativamente na MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-Autenticação Integrada do Windows | [Autenticação integrada no Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticação Integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication)
+Autenticação do Windows Integrada | [Autenticação integrada no Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticação Integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication)
 Nome de usuário + senha | [Adquirir tokens com nome de usuário e senha](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Autenticação de Senha do Nome de Usuário](msal-authentication-flows.md#usernamepassword)
 Fluxo de código do dispositivo | [Perfil de dispositivo para dispositivos sem navegadores web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Fluxo de código do dispositivo](msal-authentication-flows.md#device-code)
 
@@ -143,7 +143,7 @@ A MSAL.NET torna o cache de token uma classe selada, removendo a capacidade de e
 
 ## <a name="signification-of-the-common-authority"></a>Significado da autoridade comum
 
-Na v1.0, se você usar a autoridade https://login.microsoftonline.com/common , permitirá que os usuários entrem com qualquer conta do AAD (para qualquer organização). Consulte [Validação de autoridade na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
+Na v1.0, se você usar a autoridade https://login.microsoftonline.com/common, permitirá que os usuários entrem com qualquer conta do AAD (para qualquer organização). Consulte [Validação de autoridade na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
 Se você usar a autoridade https://login.microsoftonline.com/common na v2.0, permitirá que os usuários entrem com qualquer conta pessoal da Microsoft (MSA) ou da organização do AAD. Na MSAL.NET, se você quiser restringir logon a qualquer conta do AAD (Azure Active Directory) (mesmo comportamento da ADAL.NET), será necessário usar https://login.microsoftonline.com/organizations. Para obter detalhes, consulte o parâmetro `authority` no [aplicativo cliente público](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
@@ -165,7 +165,7 @@ As permissões do OAuth2 são escopos de permissão que um aplicativo de API Web
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas do OAuth2 de um aplicativo v1.0
 
-Se você quiser adquirir tokens para escopos específicos de um aplicativo v1.0 (por exemplo, a API do Graph do AAD que é https://graph.windows.net) , será necessário criar `scopes` concatenando um identificador de recurso desejado com uma permissão do OAuth2 desejada para esse recurso.
+Se você quiser adquirir tokens para um aplicativo que aceita tokens v 1.0 (por exemplo, a API de Microsoft Graph, que é https://graph.microsoft.com), você precisará criar `scopes` concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
 
 Por exemplo, para acessar em nome do usuário uma API Web v1.0 cujo URI da ID do Aplicativo é `ResourceId`, convém usar:
 
@@ -173,16 +173,16 @@ Por exemplo, para acessar em nome do usuário uma API Web v1.0 cujo URI da ID do
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Se você quiser ler e escrever com o Azure Active Directory da MSAL.NET usando a API do grafo do Azure Active Directory (https://graph.windows.net/) , você criaria uma lista de escopos, como no snippet a seguir:
+Se você quiser ler e gravar com MSAL.NET Azure Active Directory usando a API Microsoft Graph (https://graph.microsoft.com/), você criaria uma lista de escopos como no seguinte trecho de código:
 
 ```csharp
-ResourceId = "https://graph.windows.net/";
+ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Aviso: você deve ter uma ou duas barras no escopo correspondentes a uma API Web v 1.0
 
-Se você quiser gravar o escopo correspondente à API do Azure Resource Manager (https://management.core.windows.net/) , será necessário solicitar o seguinte escopo (observe as duas barras) 
+Se você quiser gravar o escopo correspondente à API do Azure Resource Manager (https://management.core.windows.net/), será necessário solicitar o seguinte escopo (observe as duas barras) 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -196,7 +196,7 @@ Isso porque a API do Resource Manager espera uma barra na declaração da audiê
 A lógica usada pelo Azure AD é a seguinte:
 - Para ponto de extremidade da ADAL (v1.0) com um token de acesso v1.0 (o único possível), aud=resource
 - Para MSAL (ponto de extremidade v2.0) solicitando um token de acesso para um recurso que aceita tokens v2.0, aud=resource.AppId
-- Para MSAL (ponto de extremidade v2.0) solicitando um token de acesso para um recurso que aceita um token de acesso v1.0 (que é o caso acima), o Azure AD analisa a audiência desejada do escopo solicitado, assumindo tudo antes da última barra e usando como identificador de recursos. Portanto, se https:\//database.windows.net espera um público de "https://database.windows.net/ ", você precisará solicitar um escopo de https:\/ /database.windows.net//.default. Veja também o problema n º[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): a barra à direita da URL do recurso é omitida, o que causou uma falha de autenticação do SQL #747
+- Para MSAL (ponto de extremidade v2.0) solicitando um token de acesso para um recurso que aceita um token de acesso v1.0 (que é o caso acima), o Azure AD analisa a audiência desejada do escopo solicitado, assumindo tudo antes da última barra e usando como identificador de recursos. Portanto, se https:\//database.windows.net espera um público de "https://database.windows.net/", você precisará solicitar um escopo de https:\//database.windows.net//.default. Veja também o problema n º[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): a barra à direita da URL do recurso é omitida, o que causou uma falha de autenticação do SQL #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a todas as permissões de um aplicativo v1.0
@@ -263,6 +263,6 @@ Você verá um token de acesso e um token de ID retornado no AuthenticationResul
 
 Além disso, também é possível usar esse método para vários cenários de integração nos quais você tem um token de atualização disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Encontre mais informações sobre os escopos em [Escopos, permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](v2-permissions-and-consent.md)

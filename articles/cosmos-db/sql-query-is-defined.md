@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2c3193262a41b3c6772d4fe29c78a132bc51bbd8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a5fcaf52d8e9e6b942a95f0b0c43f3f654c5d5d2
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349878"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303844"
 ---
 # <a name="is_defined-azure-cosmos-db"></a>IS_DEFINED (Azure Cosmos DB)
  Retorna um valor booliano que indica se um valor foi atribuído à propriedade.  
@@ -46,7 +46,11 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
 [{"isDefined1":true,"isDefined2":false}]  
 ```  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Funções de verificação de tipo Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)

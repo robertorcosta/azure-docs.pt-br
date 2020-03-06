@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 01/21/2020
-ms.openlocfilehash: 65f43bf87e704c85d83220f4ffbc50581aafb549
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 03/05/2020
+ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315461"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328656"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning
 
@@ -119,7 +119,7 @@ A seleção de recursos refere-se ao processo de aplicação de testes estatíst
 Você também pode usar o [módulo de importância do recurso de permuta](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) para calcular um conjunto de pontuações de importância do recurso para seu conjunto de seus conjuntos de resultados. Você pode aproveitar essas pontuações para ajudá-lo a determinar os melhores recursos a serem usados em um modelo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
  - [Saiba mais sobre o designer de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
  - Para obter descrições de todos os algoritmos de aprendizado de máquina disponíveis no designer de Azure Machine Learning, consulte [algoritmo de designer de Machine Learning e referência de módulo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)

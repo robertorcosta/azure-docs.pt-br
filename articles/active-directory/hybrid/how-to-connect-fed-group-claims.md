@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 3b45bcff300cc3e749d387ea83df2f96e51d3c66
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 78b36e1f5ababf2551bd69682807a8ed308ae24d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274289"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298438"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory (visualização pública)
 
@@ -84,7 +84,7 @@ Use os botões de opção para selecionar quais grupos devem ser incluídos no t
 
 ![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| Seleção | Descrição |
+| Seleção | DESCRIÇÃO |
 |----------|-------------|
 | **Todos os grupos** | Emite grupos de segurança e listas de distribuição e funções.  |
 | **Grupos de segurança** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
@@ -109,7 +109,7 @@ Para alterar os grupos atribuídos ao aplicativo, selecione o aplicativo na list
 
 Consulte os métodos de documento [para atribuir usuários e grupos a um aplicativo](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups) para obter detalhes sobre como gerenciar a atribuição de grupos a aplicativos.
 
-### <a name="advanced-options"></a>Opções avançadas
+### <a name="advanced-options"></a>Opções Avançadas
 
 A maneira como as declarações de grupo são emitidas pode ser modificada pelas configurações em opções avançadas
 
@@ -140,7 +140,7 @@ As declarações de grupo também podem ser configuradas na seção [declaraçõ
 
 Os valores válidos são:
 
-| Seleção | Descrição |
+| Seleção | DESCRIÇÃO |
 |----------|-------------|
 | **Os** | Emite grupos de segurança, listas de distribuição e funções |
 | **SecurityGroup** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
@@ -177,7 +177,7 @@ Os valores válidos são:
    }
    ```
 
-   | Esquema de declarações opcional | {1&gt;Valor&lt;1} |
+   | Esquema de declarações opcional | Valor |
    |----------|-------------|
    | **nomes** | Deve ser "grupos" |
    | **original** | Não usado. Omitir ou especificar nulo |
@@ -220,7 +220,7 @@ Para emitir nomes de grupo a serem retornados no formato netbiosDomain\samAccoun
  }
  ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Métodos para atribuir usuários e grupos a um aplicativo](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
 

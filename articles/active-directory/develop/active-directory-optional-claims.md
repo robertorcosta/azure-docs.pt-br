@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585842"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300061"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: fornecer declarações opcionais para seu aplicativo do Azure AD
 
@@ -37,7 +37,7 @@ Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v
 
 | Tipo de Conta | Tokens v1.0 | Tokens v2.0  |
 |--------------|---------------|----------------|
-| Conta pessoal da Microsoft  | N/D  | Suportado |
+| Conta pessoal da Microsoft  | {1&gt;N/A&lt;1}  | Suportado |
 | Conta do AD do Azure      | Suportado | Suportado |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>conjunto de declarações opcionais v 1.0 e v 2.0
@@ -49,7 +49,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 
 **Tabela 2: conjunto de declarações opcionais v 1.0 e v 2.0**
 
-| Nome                       |  DESCRIÇÃO   | Tipo de token | Tipo de Usuário | Observações  |
+| {1&gt;Nome&lt;1}                       |  Descrição   | Tipo de token | Tipo de Usuário | {1&gt;Observações&lt;1}  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora em que o usuário foi autenticado pela última vez. Confira especificações de OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
@@ -78,7 +78,7 @@ Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não
 
 **Tabela 3: v 2.0-apenas declarações opcionais**
 
-| Declaração JWT     | Nome                            | DESCRIÇÃO                                | Observações |
+| Declaração JWT     | {1&gt;Nome&lt;1}                            | Descrição                                | {1&gt;Observações&lt;1} |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP com o qual o cliente se conectou.   |       |
 | `onprem_sid`  | Identificador de Segurança Local |                                             |       |
@@ -96,7 +96,7 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 
 **Tabela 4: valores para configurar declarações opcionais**
 
-| Nome da propriedade  | Nome de Propriedade Adicional | DESCRIÇÃO |
+| Nome da propriedade  | Nome de Propriedade Adicional | Descrição |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usada para respostas SAML e JWT e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -122,7 +122,7 @@ Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua
 ## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
 
 > [!IMPORTANT]
-> Os tokens de acesso **sempre** são gerados usando o manifesto do recurso, não o cliente.  Portanto, na solicitação `...scope=https://graph.microsoft.com/user.read...` o recurso é grafo.  Assim, o token de acesso é criado usando o manifesto do grafo, não o manifesto do cliente.  Alterar o manifesto para seu aplicativo nunca fará com que os tokens do Graph pareçam diferentes.  Para validar que as alterações de `accessToken` estão em vigor, solicite um token para seu aplicativo, não para outro aplicativo.  
+> Os tokens de acesso **sempre** são gerados usando o manifesto do recurso, não o cliente.  Portanto, na solicitação `...scope=https://graph.microsoft.com/user.read...` o recurso é a API Microsoft Graph.  Assim, o token de acesso é criado usando o manifesto da API Microsoft Graph, não o manifesto do cliente.  Alterar o manifesto para seu aplicativo nunca fará com que os tokens da API de Microsoft Graph pareçam diferentes.  Para validar que as alterações de `accessToken` estão em vigor, solicite um token para seu aplicativo, não para outro aplicativo.  
 
 Você pode configurar declarações opcionais para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
 
@@ -186,7 +186,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: propriedades do tipo OptionalClaims**
 
-| Nome        | Type                       | DESCRIÇÃO                                           |
+| {1&gt;Nome&lt;1}        | Tipo                       | Descrição                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT. |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -199,7 +199,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: propriedades do tipo OptionalClaim**
 
-| Nome                 | Type                    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                   |
+| {1&gt;Nome&lt;1}                 | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |
@@ -286,7 +286,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
        }
     ```
 
-   | Esquema de declarações opcional | Valor |
+   | Esquema de declarações opcional | {1&gt;Valor&lt;1} |
    |----------|-------------|
    | **nomes** | Deve ser "grupos" |
    | **original** | Não usado. Omitir ou especificar nulo |
@@ -349,7 +349,7 @@ Nesta seção, você pode examinar um cenário para ver como usar o recurso opci
 Há várias opções disponíveis para atualizar as propriedades na configuração de identidade do aplicativo para habilitar e configurar declarações opcionais:
 -    Você pode usar a interface do usuário de **configuração de token (versão prévia)** (Veja o exemplo abaixo)
 -    Você pode usar o **manifesto** (Veja o exemplo abaixo). Primeiro leia o [documento Noções básicas sobre o manifesto do aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) para obter uma introdução ao manifesto.
--   Também é possível escrever um aplicativo que usa a [API do Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para atualizar o aplicativo. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência API do Graph pode ajudá-lo a configurar as declarações opcionais.
+-   Também é possível escrever um aplicativo que usa a [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) para atualizar seu aplicativo. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência da API Microsoft Graph pode ajudá-lo a configurar as declarações opcionais.
 
 **Exemplo:** No exemplo a seguir, você usará a interface do usuário de **configuração do token (versão prévia)** e o **manifesto** para adicionar declarações opcionais aos tokens de acesso, ID e SAML destinados ao seu aplicativo. Diferentes declarações opcionais serão adicionadas a cada tipo de token que o aplicativo pode receber:
 -    Os tokens de ID agora contêm o UPN para usuários federados no formato completo (`<upn>_<homedomain>#EXT#@<resourcedomain>`).

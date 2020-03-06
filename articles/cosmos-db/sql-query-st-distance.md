@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1c55bac14b3379f29d57bbad36026749089ec0fd
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4908d5f9f6eccaaaf71308b868d712f0eb96cb52
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349402"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303147"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
  Retorna a distância entre as duas expressões de ponto GeoJSON, Polígono ou LineString.  
@@ -34,11 +34,11 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como retornar todos os documentos de família que estão dentro de 30 km do local especificado usando a função interna `ST_DISTANCE`. .  
+  O exemplo a seguir mostra como retornar todos os documentos da família que estão dentro de 30 km do local especificado usando a função interna `ST_DISTANCE`. .  
   
 ```sql
-SELECT f.id   
-FROM Families f   
+SELECT f.id
+FROM Families f
 WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
 ```  
   
@@ -48,7 +48,11 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 [{  
   "id": "WakefieldFamily"  
 }]  
-```  
+```
+
+## <a name="remarks"></a>Comentários
+
+Essa função de sistema se beneficiará de um [índice geoespacial](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Próximas etapas
 

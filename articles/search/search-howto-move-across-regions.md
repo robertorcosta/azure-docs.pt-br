@@ -8,81 +8,97 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 02/18/2020
-ms.openlocfilehash: 392c86d8ea24e59d388926d4df581305ea2b531d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/05/2020
+ms.openlocfilehash: df712f48c5aff722a4f1a850788378fb78ea7335
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599295"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379585"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mover o serviço de Pesquisa Cognitiva do Azure para outra região do Azure
 
-Para mover sua conta de serviço cognitiva do Azure de uma região para outra, você criará um modelo de exportação para mover suas assinaturas. Depois de mover sua assinatura, você precisará mover seus dados e recriar o serviço.
+Atualmente, não há suporte para mover um serviço de pesquisa para outra região, pois não há automação ou ferramentas para ajudá-lo com a tarefa de ponta a ponta.
 
-Neste artigo, você aprenderá a:
+No portal, o comando **Exportar modelo** produz uma definição básica de um serviço (nome, local, camada, réplica e contagem de partições), mas não reconhece o conteúdo do seu serviço nem carrega chaves, funções ou logs.
+
+Ao mover a pesquisa de uma região para outra, recomendamos a seguinte abordagem:
+
+1. Inventariar seu serviço existente para obter uma lista completa de objetos no serviço. Se você habilitou o registro em log, crie e arquive relatórios que talvez precisem de comparação futura.
+
+1. Crie um serviço na nova região e Republique-o do código-fonte quaisquer índices, indexadores, fontes de dados, habilidades e mapas de sinônimos existentes. Os nomes de serviço devem ser exclusivos, portanto, não é possível reutilizar o nome existente.
+
+1. Habilite o registro em log e, se estiver usando-os, recrie as funções de segurança.
+
+1. Atualize os aplicativos cliente e os conjuntos de testes para usar o novo nome de serviço e as chaves de API e testar todos os aplicativos.
+
+1. Exclua o serviço antigo depois que o novo serviço estiver totalmente operacional.
+
+<!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
+
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * Exportar um modelo.
-> * Modifique o modelo: adicionando a região de destino, os nomes de conta de armazenamento e de pesquisa.
-> * Implante o modelo para criar novas contas de pesquisa e de armazenamento.
-> * Verifique o status do serviço na nova região
-> * Limpe os recursos na região de origem.
+> * Export a template.
+> * Modify the template: adding the target region, search and storage account names.
+> * Deploy the template to create the new search and storage accounts.
+> * Verify your service status in the new region
+> * Clean up resources in the source region.
 
-## <a name="prerequisites"></a>Prerequisites
+## Prerequisites
 
-- Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
+- Ensure that the services and features that your account uses are supported in the target region.
 
-- Para recursos de visualização, verifique se sua assinatura está na lista de permissões para a região de destino. Para obter mais informações sobre recursos de visualização, consulte [lojas de conhecimento](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [enriquecimento incremental](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)e [ponto de extremidade privado](https://docs.microsoft.com/azure/search/service-create-private-endpoint).
+- For preview features, ensure that your subscription is whitelisted for the target region. For more information about preview features, see [knowledge stores](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), [incremental enrichment](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual), and [private endpoint](https://docs.microsoft.com/azure/search/service-create-private-endpoint).
 
-## <a name="assessment-and-planning"></a>Avaliação e planejamento
+## Assessment and planning
 
-Ao mover o serviço de pesquisa para a nova região, você precisará [mover seus dados para o novo serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) e, em seguida, recriar seus índices, habilidades e armazenamentos de conhecimento. Você deve registrar as configurações atuais e copiar arquivos JSON para tornar a recriação de seu serviço mais fácil e rápida.
+When you move your search service to the new region, you will need to [move your data to the new storage service](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#configure-the-new-storage-account) and then rebuild your indexes, skillsets and knowledge stores. You should record current settings and copy json files to make the rebuilding of your service easier and faster.
 
-## <a name="moving-your-search-services-resources"></a>Movendo os recursos do serviço de pesquisa
+## Moving your search service's resources
 
-Para começar, você vai exportar e modificar um modelo do Resource Manager.
+To start you will export and then modify a Resource Manager template.
 
-### <a name="export-a-template"></a>Exportar um modelo
+### Export a template
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Vá para a página do grupo de recursos.
+2. Go to your Resource Group page.
 
 > [!div class="mx-imgBorder"]
-> ![exemplo de página do grupo de recursos](./media/search-move-resource/export-template-sample.png)
+> ![Resource Group page example](./media/search-move-resource/export-template-sample.png)
 
-3. Selecione **Todos os recursos**.
+3. Select **All resources**.
 
-3. No menu de navegação à esquerda, selecione **Exportar modelo**.
+3. In the left hand navigation menu select **Export template**.
 
-4. Escolha **baixar** na página **Exportar modelo** .
+4. Choose **Download** in the **Export template** page.
 
-5. Localize o arquivo. zip que você baixou do portal e descompacte esse arquivo em uma pasta de sua escolha.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
-O arquivo zip contém os arquivos. JSON que compõem o modelo e os scripts para implantar o modelo.
+The zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-### <a name="modify-the-template"></a>Modificar o modelo
+### Modify the template
 
-Você modificará o modelo alterando as regiões e os nomes de conta de armazenamento e pesquisa. Os nomes devem seguir as regras para cada serviço e convenções de nomenclatura de região. 
+You will modify the template by changing the search and storage account names and regions. The names must follow the rules for each service and region naming conventions. 
 
-Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central** = **centralus**.
+To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
-1. No Portal do Azure, selecione **Criar um recurso**.
+1. In the Azure portal, select **Create a resource**.
 
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **ENTER**.
+2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
 
-3. Selecione **Implantação de modelo**.
+3. Select **Template deployment**.
 
-4. Selecione **Criar**.
+4. Select **Create**.
 
-5. Selecione **Criar seu próprio modelo no editor**.
+5. Select **Build your own template in the editor**.
 
-6. Selecione **carregar arquivo**e siga as instruções para carregar o arquivo **Template. JSON** que você baixou e descompactou na seção anterior.
+6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded and unzipped in the previous section.
 
-7. No arquivo **Template. JSON** , nomeie a pesquisa de destino e as contas de armazenamento definindo o valor padrão dos nomes de conta de armazenamento e de pesquisa. 
+7. In the **template.json** file, name the target search and storage accounts by setting the default value of the search and storage account names. 
 
-8. Edite a propriedade **Location** no arquivo **Template. JSON** para a região de destino dos serviços de pesquisa e armazenamento. Este exemplo define a região de destino como `centralus`.
+8. Edit the **location** property in the **template.json** file to the target region for both your search and storage services. This example sets the target region to `centralus`.
 
 ```json
 },
@@ -113,35 +129,34 @@ Para obter códigos de localização de região, confira [locais do Azure](https
             },
 ```
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+### Deploy the template
 
-1. Salve o arquivo **Template. JSON** .
+1. Save the **template.json** file.
 
-2. Insira ou selecione os valores de propriedade:
+2. Enter or select the property values:
 
-- **Assinatura**: selecione uma assinatura do Azure.
+- **Subscription**: Select an Azure subscription.
 
-- **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
+- **Resource group**: Select **Create new** and give the resource group a name.
 
-- **Local**: selecione um local do Azure.
+- **Location**: Select an Azure location.
 
-3. Clique na caixa de seleção **eu concordo com os termos e condições declarados acima** e clique no botão **selecionar compra** .
+3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
 
-## <a name="verifying-your-services-status-in-new-region"></a>Verificando o status dos serviços em Nova região
+## Verifying your services' status in new region
 
-Para verificar a movimentação, abra o novo grupo de recursos e seus serviços serão listados com a nova região.
+To verify the move, open the new resource group and your services will be listed with the new region.
 
-Para mover seus dados da região de origem para a região de destino, consulte as diretrizes deste artigo para [mover seus dados para a nova conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account).
+To move your data from your source region to the target region, please see this article's guidelines for [moving your data to the new storage account](https://docs.microsoft.com/azure/storage/common/storage-account-move?tabs=azure-portal#move-data-to-the-new-storage-account).
 
-## <a name="clean-up-resources-in-your-original-region"></a>Limpar recursos em sua região original
+## Clean up resources in your original region
 
-Para confirmar as alterações e concluir a movimentação de sua conta de serviço, exclua a conta de serviço de origem.
+To commit the changes and complete the move of your service account, delete the source service account.
 
-## <a name="next-steps"></a>Próximas etapas
+## Next steps
 
-[Criar um índice](https://docs.microsoft.com/azure/search/search-get-started-portal)
+[Create an index](https://docs.microsoft.com/azure/search/search-get-started-portal)
 
-[Criar um conjunto de habilidades](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
+[Create a skillset](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
 
-[Criar uma loja de conhecimento](https://docs.microsoft.com/azure/search/knowledge-store-create-portal)
-
+[Create a knowledge store](https://docs.microsoft.com/azure/search/knowledge-store-create-portal) -->

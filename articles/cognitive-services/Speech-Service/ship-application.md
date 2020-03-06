@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9507428e63b337b3d8419a833d03d081d494c522
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902015"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330797"
 ---
 # <a name="ship-an-application"></a>Enviar um aplicativo
 
@@ -24,7 +24,7 @@ Observe a [Licença do SDK de fala](https://aka.ms/csspeech/license201809), bem 
 
 Dependendo da plataforma, existem dependências diferentes para executar seu aplicativo.
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a>Portal
 
 O SDK dos Serviços Cognitivos de Fala é testado no Windows 10 e no Windows Server 2016.
 
@@ -39,7 +39,7 @@ Para a entrada do microfone, as bibliotecas do Media Foundation precisam ser ins
 
 Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Selecione a versão correta (Win32/x64) que corresponda ao seu aplicativo.
 
-| Nome | Função |
+| {1&gt;Nome&lt;1} | Função |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK principal, necessário para implantação nativa e gerenciada |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerenciada                      |
@@ -52,7 +52,7 @@ Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretóri
 
 ## <a name="linux"></a>Linux
 
-O SDK de fala atualmente dá suporte às distribuições Ubuntu 16, 4, Ubuntu 18, 4 e Debian 9.
+O SDK de fala atualmente dá suporte às distribuições Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 8, CentOS 8.
 Para um aplicativo nativo, você precisa enviar a biblioteca do SDK de Fala, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Selecione a versão (x86/x64) que corresponde ao seu aplicativo. Dependendo da versão do Linux, talvez você também precise incluir as seguintes dependências:
 
@@ -74,7 +74,17 @@ sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-## <a name="next-steps"></a>Próximos passos
+No RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> No RHEL/CentOS 8, siga as instruções sobre [como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
