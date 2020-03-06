@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
 ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368780"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383461"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um locatário na Área de Trabalho Virtual do Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: criar um locatário na área de trabalho virtual do Windows
 
 A criação de um locatário na Área de Trabalho Virtual do Windows é a primeira etapa para a criação de sua solução de virtualização de área de trabalho. Um locatário é um grupo de um ou mais pools de host. Cada pool de hosts consiste em vários hosts de sessão, em execução como máquinas virtuais no Azure e registrados no serviço da Área de Trabalho Virtual do Windows. Cada pool de hosts também consiste em um ou mais grupos de aplicativos que são usados para publicar recursos de aplicativo remoto e área de trabalho remota para usuários. Com um locatário, é possível criar pools de hosts, criar grupos de aplicativos, atribuir usuários e fazer conexões por meio do serviço.
 
@@ -147,7 +147,7 @@ New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -A
 New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de criar seu locatário, você precisará criar uma entidade de serviço no Azure Active Directory e atribuir a ela uma função dentro da Área de Trabalho Virtual do Windows. A entidade de serviço permitirá que você implante com êxito a oferta do Azure Marketplace da Área de Trabalho Virtual do Windows para criar um pool de host. Para saber mais sobre os pools de host, continue com o tutorial para criar um pool de hosts na Área de Trabalho Virtual do Windows.
 

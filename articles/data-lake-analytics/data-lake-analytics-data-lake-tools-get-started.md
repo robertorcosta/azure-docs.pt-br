@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315781"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391831"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolvimento de scripts U-SQL usando as ferramentas do Data Lake para Visual Studio
 
@@ -37,7 +37,7 @@ Este artigo descreve como usar o Visual Studio para criar contas de Azure Data L
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* **Visual Studio**: Todas as edições, exceto Express, têm suporte.
+* **Visual Studio**: há suporte para todas as edições, exceto Express.
 
   * Visual Studio 2019
   * Visual Studio 2017
@@ -59,7 +59,7 @@ Este tutorial requer que Ferramentas do Data Lake Tools para Visual Studio estej
 
 1. Clique com o botão direito do mouse em **Azure**e selecione **conectar-se a Microsoft Azure assinatura**. Em **entrar em sua conta**, siga as instruções.
 
-1. Em **Gerenciador de servidores**, selecione**Data Lake Analytics** **do Azure** > . Você verá uma lista das suas contas do Data Lake Analytics.
+1. Em **Gerenciador de servidores**, selecione **Data Lake Analytics**de > **do Azure** . Você verá uma lista das suas contas do Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Escreve seu primeiro script U-SQL
 
@@ -112,7 +112,7 @@ Para ver o status do trabalho mais recente e atualizar a tela, selecione **Atual
 
 ## <a name="check-job-status"></a>Verificar o status do trabalho
 
-1. Em **Gerenciador de servidores**, selecione**Data Lake Analytics** **do Azure** > .
+1. Em **Gerenciador de servidores**, selecione **Data Lake Analytics**de > **do Azure** .
 
 1. Expanda o nome da conta do Data Lake Analytics.
 

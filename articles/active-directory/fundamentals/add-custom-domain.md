@@ -14,11 +14,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073513"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376868"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicionar um nome de domínio personalizado usando o portal do Azure Active Directory
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre as funções de assinatura, consulte [funç�
 
 Depois de criar seu diretório, você pode adicionar seu nome de domínio personalizado.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para o diretório.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
 1. Pesquise e selecione *Azure Active Directory* em qualquer página. Em seguida, selecione **nomes de domínio personalizados** > **Adicionar domínio personalizado**.
 
@@ -80,7 +80,7 @@ Depois de registrar seu nome de domínio personalizado, verifique se ele é vál
 
 Para verificar seu nome de domínio personalizado, siga estas etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para o diretório.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
 
 1. Procure e selecione *Azure Active Directory* em qualquer página e, em seguida, selecione **nomes de domínio personalizados**.
 

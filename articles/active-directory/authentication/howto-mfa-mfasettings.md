@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848401"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377497"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -30,7 +30,7 @@ Você pode acessar as configurações relacionadas à autenticação multifator 
 
 Algumas dessas configurações se aplicam ao servidor MFA, Azure MFA ou ambos.
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | ------- | ----------- |
 | Bloqueio de conta | Bloqueie contas temporariamente no serviço de autenticação multifator se houver muitas tentativas de autenticação negadas seguidas. Este recurso se aplica somente a usuários que inserem um PIN para autenticar. (Servidor MFA) |
 | [Bloquear/desbloquear usuários](#block-and-unblock-users) | Usado para impedir que usuários específicos possam receber solicitações de autenticação multifator. Qualquer tentativa de autenticação de usuários bloqueados é negada automaticamente. Os usuários permanecem bloqueados por 90 dias a contar do momento em que são bloqueados. |
@@ -44,7 +44,7 @@ Algumas dessas configurações se aplicam ao servidor MFA, Azure MFA ou ambos.
 
 As configurações nesta seção são apenas para o servidor MFA.
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | ------- | ----------- |
 | Configurações do servidor | Faça o download do Servidor MFA e gere credenciais de ativação para inicializar seu ambiente |
 | [Desvio único](#one-time-bypass) | Permita que um usuário se autentique sem executar a verificação em duas etapas por um período limitado. |
@@ -64,7 +64,7 @@ Use o recurso _bloquear e desbloquear usuários_ para impedir que os usuários r
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
 2. Navegue até **Azure Active Directory** > **Security** > **MFA** > **bloquear/desbloquear usuários**.
 3. Selecione **Adicionar** para bloquear um usuário.
-4. Selecione o **Grupo de Replicação**. Insira o nome de usuário para a usuária bloqueada como **username\@Domain.com**. Insira um comentário no campo **motivo** .
+4. Selecione o **Grupo de Replicação**. Insira o nome de usuário para a usuária bloqueada como **username\@Domain.com**. Insira um comentário no campo **Motivo**.
 5. Selecione **Adicionar** para concluir o bloqueio do usuário.
 
 ### <a name="unblock-a-user"></a>Desbloquear um usuário
@@ -179,7 +179,7 @@ Scripts de exemplo para a criação de mensagens personalizadas.
 
 ## <a name="one-time-bypass"></a>Desvio único
 
-O recurso _bypass avulso_ permite que um usuário se autentique uma única vez sem executar a verificação em duas etapas. O desvio é temporário e expira após um número especificado de segundos. Quando o aplicativo móvel ou o telefone não estiver recebendo notificações ou chamadas telefônicas, você poderá permitir um bypass avulso para que o usuário possa acessar o recurso desejado.
+O recurso _bypass avulso_ permite que um usuário se autentique uma única vez sem executar a verificação em duas etapas. O bypass é temporário e expira após um número de segundos especificado. Quando o aplicativo móvel ou o telefone não estiver recebendo notificações ou chamadas telefônicas, você poderá permitir um bypass avulso para que o usuário possa acessar o recurso desejado.
 
 ### <a name="create-a-one-time-bypass"></a>Criar um bypass avulso
 
@@ -219,7 +219,7 @@ As configurações para senhas de aplicativo, IPs, opções de verificação, co
 
 Os intervalos de endereços IP confiáveis podem ser privados ou públicos.
 
-## <a name="app-passwords"></a>Senhas do aplicativo
+## <a name="app-passwords"></a>Senhas de aplicativo
 
 Alguns aplicativos, como o Office 2010 ou anterior e o Apple Mail antes do iOS 11, não são compatíveis com a verificação em duas etapas. Os aplicativos não estão configurados para aceitar uma segunda verificação. Para usar esses aplicativos, use o recurso _senhas de aplicativo_. Você pode usar uma senha de aplicativo em vez da sua senha tradicional para permitir que um aplicativo ignore a verificação em duas etapas e continue funcionando.
 
@@ -300,7 +300,7 @@ Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos l
 
 | Tipo de locatário do Azure AD | Opções do recurso IPs Confiáveis |
 |:--- |:--- |
-| Gerenciado |**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
+| Gerenciada |**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
 | Federado |**Todos os usuários federados**: todos os usuários federados que se conectam de dentro da organização tem permissão para ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. |
 
 O bypass dos IPs Confiáveis funciona somente dentro da intranet da empresa. Se você selecionar a opção **Todos os usuários federados** e um usuário se conectar de fora da intranet da empresa, ele deverá se autenticar usando a verificação em duas etapas. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS. 
@@ -323,7 +323,7 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
 4. Insira um nome para o local.
 5. Selecione **Marcar como local confiável**.
 6. Insira o intervalo de IP em notação CIDR, como **192.168.1.1/24**.
-7. Clique em **Criar**.
+7. Selecione **Criar**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Habilitar o recurso IPs confiáveis usando o acesso condicional
 
@@ -368,7 +368,7 @@ Você pode escolher os métodos de verificação que estarão disponíveis para 
 
 Quando os usuários registram suas contas na Autenticação Multifator do Azure, eles escolhem o método de verificação preferido nas opções que você habilitou. As diretrizes para o processo de registro são fornecidas em [Configurar minha conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 |:--- |:--- |
 | Ligue para o telefone |Faz uma chamada de voz automatizada para o usuário. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. O número de telefone não é sincronizado com o Active Directory local. |
 | Mensagem de texto para telefone |Envia para o usuário uma mensagem de texto que contém um código de verificação. É solicitado que o usuário digite o código de verificação na interface de acesso. Esse processo é chamado de SMS unidirecional. SMS bidirecional significa que o usuário deve retornar um determinado código por SMS. O SMS bidirecional foi preterido e não terá compatibilidade depois de 14 de novembro de 2018. Os administradores devem habilitar outro método para os usuários que usaram o SMS bidirecional anteriormente.|
@@ -425,6 +425,6 @@ O recurso reduz o número de autenticações em aplicativos Web, que normalmente
 
 Depois de habilitar o recurso Lembrar a Autenticação Multifator, os usuários poderão marcar um dispositivo como confiável ao entrarem e selecionarem **Não perguntar novamente**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Modificar a identidade visual da página de entrada do Azure AD](../fundamentals/customize-branding.md)

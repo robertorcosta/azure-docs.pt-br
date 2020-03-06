@@ -9,11 +9,11 @@ ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056335"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379401"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre a WAN Virtual do Azure
 
@@ -25,13 +25,13 @@ A WAN Virtual do Azure reúne muitos serviços de conectividade de nuvem do Azur
 
 Este artigo fornece uma visão rápida da conectividade de rede na WAN Virtual do Azure. A WAN Virtual oferece as seguintes vantagens:
 
-* **Soluções de conectividade integradas no hub e spoke:** Automatize a configuração site a site e a conectividade entre sites locais e um hub do Azure.
-* **Definição e configuração do spoke automatizado:** Conecte as redes virtuais e cargas de trabalho ao hub do Azure diretamente.
-* **Solução de problemas intuitiva:** É possível ver o fluxo de ponta a ponta no Azure e usar essas informações para executar as ações necessárias.
+* **Soluções de conectividade integradas no Hub e spoke:** Automatize a configuração e a conectividade site a site entre sites locais e um Hub do Azure.
+* **Instalação e configuração automatizadas de spoke:** conecte suas redes virtuais e cargas de trabalho diretamente ao hub do Azure.
+* **Solução de problemas intuitiva:** Você pode ver o fluxo de ponta a ponta no Azure e, em seguida, usar essas informações para executar as ações necessárias.
 
 ## <a name="basicstandard"></a>WANs virtuais básicas e Standard
 
-Há dois tipos de WANs virtuais: Básico e Standard. A tabela a seguir mostra as configurações disponíveis para cada tipo.
+Há dois tipos de WANs virtuais: básica e Standard. A tabela a seguir mostra as configurações disponíveis para cada tipo.
 
 [!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
 
@@ -48,25 +48,25 @@ Para obter informações sobre a arquitetura da WAN Virtual e como fazer a migra
 
 Para configurar uma WAN virtual de ponta a ponta, crie os seguintes recursos:
 
-* **virtualWAN:** O recurso virtualWAN representa uma sobreposição virtual da rede do Azure e é uma coleção de vários recursos. Ele contém links para todos os seus hubs virtuais que você gostaria de ter dentro da WAN Virtual. Os recursos da WAN Virtual ficam isolados uns dos outros e não podem conter um hub comum. Os hubs virtuais na WAN Virtual não se comunicam entre si.
+* **virtualWAN:** o recurso virtualWAN representa uma sobreposição virtual de sua rede do Azure, e é uma coleção de vários recursos. Ele contém links para todos os seus hubs virtuais que você gostaria de ter dentro da WAN Virtual. Os recursos da WAN Virtual ficam isolados uns dos outros e não podem conter um hub comum. Os hubs virtuais na WAN Virtual não se comunicam entre si.
 
-* **Hub:** Um hub virtual é uma rede virtual gerenciada pela Microsoft. O hub contém vários pontos de extremidade de serviço para habilitar a conectividade. De sua rede local (vpnsite), você pode se conectar a um gateway de VPN dentro do hub virtual, conectar circuitos do ExpressRoute a um hub virtual ou até mesmo conectar usuários móveis a um gateway ponto a site no hub virtual. O hub é o núcleo da sua rede em uma região. Pode haver apenas um hub por região do Azure.
+* **Hub:** um hub virtual é uma rede virtual gerenciada pela Microsoft. O hub contém vários pontos de extremidade de serviço para habilitar a conectividade. De sua rede local (vpnsite), você pode se conectar a um gateway de VPN dentro do hub virtual, conectar circuitos do ExpressRoute a um hub virtual ou até mesmo conectar usuários móveis a um gateway ponto a site no hub virtual. O hub é o núcleo da sua rede em uma região. Pode haver apenas um hub por região do Azure.
 
   Um gateway de hub não é o mesmo que um gateway de rede virtual que você pode usar para ExpressRoute e Gateway de VPN. Por exemplo, ao usar WAN Virtual, você não cria uma conexão de site a site do site local diretamente para a rede virtual. Em vez disso, você cria uma conexão site a site com o hub. O tráfego sempre passa pelo gateway do hub. Isso significa que suas VNets não precisam de um gateway de rede virtual próprio. A WAN Virtual permite que suas VNets tirem proveito do dimensionamento fácil por meio do hub virtual e do gateway do hub virtual.
 
-* **Conexão de rede virtual do hub:** O recurso de conexão de rede virtual do Hub é usado para conectar o hub à rede virtual.
+* **Conexão de rede virtual do hub:** o recurso de conexão de rede virtual do Hub é usado para conectar o hub perfeitamente à sua rede virtual.
 
 * **(Apresentação) Conexão hub a hub** - Os hubs estão todos conectados entre si em uma WAN virtual. Isso quer dizer que uma ramificação, um usuário ou uma VNet conectada a um hub local pode se comunicar com outro branch ou VNet usando a arquitetura de malha completa dos hubs conectados. Você também pode conectar VNets em um hub que passa pelo hub virtual, bem como VNets ao longo do hub, usando a estrutura conectada de hub para hub.
 
-* **Tabela de rotas de hub:**  Você pode criar uma rota de hub virtual e aplicar a rota à tabela de rotas do hub virtual. Você pode aplicar várias rotas à tabela de rotas do hub virtual.
+* **Tabela de rotas do hub:** você pode criar uma rota de hub virtual e aplicar a rota à tabela de rotas de hub virtual. Você pode aplicar várias rotas à tabela de rotas do hub virtual.
 
 **Recursos adicionais de WAN Virtual**
 
-  * **Site:** Esse recurso é usado apenas para conexões site a site. O recurso do site é **vpnsite**. Ele representa o dispositivo VPN local e as respectivas configurações. Ao trabalhar com um parceiro de WAN Virtual, você terá uma solução interna para exportar automaticamente essas informações para o Azure.
+  * **Site:** Este recurso é usado somente para conexões site a site. O recurso do site é **vpnsite**. Ele representa o dispositivo VPN local e as respectivas configurações. Ao trabalhar com um parceiro de WAN Virtual, você terá uma solução interna para exportar automaticamente essas informações para o Azure.
 
 ## <a name="connectivity"></a>Tipos de conectividade
 
-A WAN Virtual permite os dois tipos de conectividade a seguir: VPN Site a Site, VPN do usuário (Ponto a Site) e ExpressRoute.
+A WAN virtual permite os seguintes tipos de conectividade: VPN site a site, VPN de usuário (ponto a site) e ExpressRoute.
 
 ### <a name="s2s"></a>Conexões VPN site a site
 
@@ -101,6 +101,6 @@ Para obter informações de localização, consulte o artigo [Parceiros e locali
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Criar uma conexão site a site usando WAN Virtual](virtual-wan-site-to-site-portal.md)

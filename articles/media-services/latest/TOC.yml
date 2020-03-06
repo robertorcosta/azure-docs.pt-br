@@ -72,7 +72,7 @@
       items:
         - name: Visão geral
           href: encoding-concept.md
-          displayName: 'encoding, presets, jobs, adaptive, bitrate'
+          displayName: 'encoding, presets, jobs, adaptive, bitrate, billing'
         - name: Formatos do codificador padrão
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md

@@ -8,11 +8,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
 ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982530"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386527"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
 
@@ -23,7 +23,7 @@ Embora seja possível criar, editar, gerenciar e implantar aplicativos lógicos 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -61,7 +61,7 @@ Embora seja possível criar, editar, gerenciar e implantar aplicativos lógicos 
 
 No Visual Studio, é possível localizar todos os aplicativos lógicos associados à sua assinatura do Azure e que estejam implantados no Portal do Azure utilizando o Cloud Explorer.
 
-1. Abra o Visual Studio. No menu **Exibir**, selecione **Cloud Explorer**.
+1. {1&gt;Abra o Visual Studio.&lt;1} No menu **Exibir**, selecione **Cloud Explorer**.
 
 1. No Cloud Explorer, selecione **Gerenciamento de conta**. Selecione a assinatura do Azure associada aos seus aplicativos lógicos e, em seguida, selecione **aplicar**. Por exemplo:
 
@@ -267,7 +267,7 @@ Quando você abre seu projeto de aplicativo lógico no Designer de Aplicativos L
 
 * Para remover as assinaturas selecionadas anteriormente para *todos os* aplicativos lógicos em sua solução, exclua a pasta de configurações ocultas do Visual Studio (. vs) no diretório da solução. Esse local armazena suas informações de assinatura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a gerenciar aplicativos lógicos implantados com Visual Studio. Em seguida, saiba mais sobre como personalizar as definições de aplicativos lógicos para implantação:
 

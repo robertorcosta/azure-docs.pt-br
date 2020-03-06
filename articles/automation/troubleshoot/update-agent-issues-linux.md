@@ -10,11 +10,11 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769822"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372985"
 ---
 # <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Entender e resolver o Linux Hybrid Runbook Worker Health para Gerenciamento de Atualizações
 
@@ -52,7 +52,7 @@ Após a conclusão, os resultados são retornados na janela. As seções de veri
 
 A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um dos seguintes sistemas operacionais:
 
-|Sistema operacional  |Observações  |
+|Sistema operacional  |{1&gt;Observações&lt;1}  |
 |---------|---------|
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização. O patch baseado em classificação requer que o yum retorne dados de segurança que o CentOS não possui.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
@@ -177,6 +177,6 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para solucionar problemas adicionais com os Hybrid runbook Workers, consulte [solução de problemas-Hybrid runbook Workers](hybrid-runbook-worker.md).

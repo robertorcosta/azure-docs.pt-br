@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 28fb464714f464a4c0a8f5eaf304dcdd5d603c90
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759713"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381019"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Excluir um laboratório ou VM em um laboratório no Azure DevTest Labs
 Este artigo mostra como excluir um laboratório ou uma VM em um laboratório.
@@ -71,7 +71,7 @@ Para excluir uma VM a partir de **página de Máquina Virtual**, selecione **Exc
 ![Excluir VM de página VM](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Se você quiser criar um laboratório, consulte os seguintes artigos: 
 
 - [Criar um laboratório](devtest-lab-create-lab.md)

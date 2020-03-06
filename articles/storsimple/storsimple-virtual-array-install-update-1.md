@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61411322"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365663"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instalar a Atualização 1.0 em seu StorSimple Virtual Array
 
@@ -58,7 +58,7 @@ Há duas etapas ao usar a interface do usuário da Web local:
 * Instale a atualização ou o hotfix
 
 > [!IMPORTANT] 
-> **Continue com essa atualização apenas se você estiver executando a Atualização 0.6 (10.0.10293.0). Se você estiver executando uma versão anterior, [Instale a Atualização 0.6](storsimple-virtual-array-install-update-06.md) em seu dispositivo primeiro e, em seguida, aplique a Atualização 1.**
+> **Continue com esta atualização somente se estiver executando a atualização 0,6 (10.0.10293.0). Se você estiver executando uma versão anterior, [Instale a atualização 0,6](storsimple-virtual-array-install-update-06.md) em seu dispositivo primeiro e, em seguida, aplique a atualização 1.**
 
 ### <a name="download-the-update-or-the-hotfix"></a>Baixe a atualização ou o hotfix
 
@@ -99,7 +99,7 @@ Esse procedimento leva cerca de 4 minutos para ser concluído. Execute as etapas
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**. Anote a versão do software que você está executando. **Continue com essa atualização apenas se você estiver executando a Atualização 0.6 (10.0.10293.0). Se você estiver executando uma versão anterior, [Instale a Atualização 0.6](storsimple-virtual-array-install-update-06.md) em seu dispositivo primeiro e, em seguida, aplique a Atualização 1.**
+1. Na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**. Anote a versão do software que você está executando. **Continue com esta atualização somente se estiver executando a atualização 0,6 (10.0.10293.0). Se você estiver executando uma versão anterior, [Instale a atualização 0,6](storsimple-virtual-array-install-update-06.md) em seu dispositivo primeiro e, em seguida, aplique a atualização 1.**
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
