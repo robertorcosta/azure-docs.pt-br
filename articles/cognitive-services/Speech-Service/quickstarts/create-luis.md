@@ -19,7 +19,7 @@ ms.locfileid: "77119603"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Início Rápido: Obter uma chave de ponto de extremidade LUIS
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará ter os itens a seguir antes de começar este tutorial:
 

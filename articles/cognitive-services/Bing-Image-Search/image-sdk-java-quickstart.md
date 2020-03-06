@@ -24,7 +24,7 @@ Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK
 
 O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) com anotações e tratamentos de erro adicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 A versão mais recente do JDK [(Java Development Kit)](https://aka.ms/azure-jdks)
 

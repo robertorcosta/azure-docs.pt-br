@@ -31,7 +31,7 @@ Este tutorial abrange:
 > * Configurar o aplicativo lógico para usar um recurso do Reconhecimento de Formulários
 > * Testar o fluxo de trabalho executando o aplicativo lógico
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
 

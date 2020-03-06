@@ -22,7 +22,7 @@ ms.locfileid: "68705179"
 
 O exemplo de Java a seguir cria uma visualização de Url para o site SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 

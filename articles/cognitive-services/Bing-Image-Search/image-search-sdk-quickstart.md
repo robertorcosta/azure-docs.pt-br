@@ -24,7 +24,7 @@ Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK
 
 O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) com anotações e tratamentos de erro adicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Qualquer edição do [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/vs/whatsnew/).
 * O [pacote NuGet de Pesquisa de Imagem Cognitiva](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 

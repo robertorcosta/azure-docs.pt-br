@@ -23,7 +23,7 @@ Este artigo utiliza Java para demonstrar a API de Pesquisa de Notícias do Bing,
  
 O exemplo de código usa Java com dependências externas mínimas.  Você também pode executá-lo no Linux ou Mac OS X usando Mono.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 

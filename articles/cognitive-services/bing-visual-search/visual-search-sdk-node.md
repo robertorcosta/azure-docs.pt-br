@@ -21,7 +21,7 @@ ms.locfileid: "77485090"
 
 Use este início rápido para começar obtendo insights de imagem do serviço da Pesquisa Visual do Bing, usando o SDK do Node.js. Embora a Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * [Node.js](https://www.nodejs.org/)
 * O SDK da Pesquisa Visual do Bing para Node.js
     * Para configurar um aplicativo de console usando o SDK da Pesquisa Visual do Bing, execute os seguintes comandos:

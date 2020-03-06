@@ -30,7 +30,7 @@ O aplicativo de tutorial ilustra como:
 > * Exibir resultados da pesquisa de imagem em um aplicativo Web
 > * Explorar as diferentes informações fornecidas pela API
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 

@@ -29,7 +29,7 @@ As informações neste documento demonstram como usar um arquivo ONNX exportado 
 > * Executar o exemplo
 > * Usar seu próprio modelo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Windows 10 versão 1809 ou superior
 

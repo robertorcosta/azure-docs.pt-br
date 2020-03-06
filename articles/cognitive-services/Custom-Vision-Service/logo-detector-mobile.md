@@ -30,7 +30,7 @@ Este tutorial mostrará como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
 - A carga de trabalho do Xamarin para Visual Studio (confira [Instalando o Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))

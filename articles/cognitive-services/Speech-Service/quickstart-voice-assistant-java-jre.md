@@ -23,7 +23,7 @@ Também há inícios rápidos disponíveis para [conversão de fala em texto](~/
 
 Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala dos Serviços Cognitivos do Azure](speech-sdk.md). O aplicativo se conecta a um bot criado anteriormente, configurado para usar o canal de Fala do Direct Line, envia uma solicitação de voz e retorna uma atividade de resposta de voz (se configurada). O aplicativo é criado com o pacote Maven do SDK de Fala e o Java IDE do Eclipse no Windows, no Ubuntu Linux ou no macOS. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este início rápido requer:
 

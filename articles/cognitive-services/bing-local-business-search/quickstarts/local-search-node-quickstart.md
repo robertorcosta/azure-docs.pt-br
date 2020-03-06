@@ -23,7 +23,7 @@ Use este início rápido para começar a enviar solicitações para a API de Pes
 
 Este aplicativo de exemplo obtém dados de resposta local da API para a consulta de pesquisa `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 

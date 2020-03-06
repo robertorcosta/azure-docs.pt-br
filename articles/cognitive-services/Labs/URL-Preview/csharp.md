@@ -22,7 +22,7 @@ ms.locfileid: "68706958"
 
 O exemplo de C# a seguir cria uma Visualização de Url para o site SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará ter o [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/) para executar esse código no Windows. (O Community Edition gratuito funcionará.)
 
