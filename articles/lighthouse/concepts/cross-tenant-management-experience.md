@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 02/14/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb484ea936bbb64b3ca3d7fcf648de0d0ef73c66
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
-ms.translationtype: HT
+ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328673"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402091"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -37,7 +37,14 @@ Usando o gerenciamento de recursos delegado do Azure, os usuários autorizados p
 
 Você pode executar tarefas de gerenciamento em recursos delegados diretamente no portal ou usando APIs e ferramentas de gerenciamento (como a CLI do Azure e o Azure PowerShell). Todas as APIs existentes podem ser usadas ao trabalhar com recursos delegados, desde que a funcionalidade seja compatível com o gerenciamento entre diferentes locatários e que o usuário tenha as permissões apropriadas.
 
-Também fornecemos APIs para realizar tarefas de gerenciamento de recursos delegados do Azure. Para saber mais, confira a seção **Referência**.
+O [cmdlet Azure PowerShell Get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) mostra a **tenantid** para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence ao seu locatário do provedor de serviços ou a um locatário gerenciado do cliente.
+
+Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **managedByTenants** .
+
+> [!TIP]
+> Se você não vir esses valores ao usar CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
+
+Também fornecemos APIs que são específicas para executar tarefas de gerenciamento de recursos delegadas do Azure. Para saber mais, confira a seção **Referência**.
 
 ## <a name="enhanced-services-and-scenarios"></a>Serviços e cenários com aprimorados
 

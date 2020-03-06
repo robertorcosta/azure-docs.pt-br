@@ -12,11 +12,11 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7976d602412037578d0a324916718b2d515aac
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771778"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355514"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Treinar e registrar um modelo de classificação Keras com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Se você estiver desenvolvendo um modelo de Keras do zero ou estiver trazendo um
 
 Consulte o [artigo conceitual](concept-deep-learning-vs-machine-learning.md) para obter informações sobre as diferenças entre o aprendizado de máquina e o aprendizado profundo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Execute este código em qualquer um destes ambientes:
 
@@ -206,7 +206,7 @@ for f in run.get_file_names():
         run.download_file(name=f, output_file_path=output_file_path)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você treinou e registrou um modelo Keras em Azure Machine Learning. Para saber como implantar um modelo, continue em nosso artigo de implantação de modelo.
 

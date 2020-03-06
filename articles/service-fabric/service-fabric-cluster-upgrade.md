@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
 ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024875"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391400"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
 
@@ -102,7 +102,7 @@ Muitas configurações diferentes podem ser personalizadas em um cluster, como o
 
 O aplicativo de orquestração de patch (POA) é um aplicativo do Service Fabric que automatiza a correção do sistema operacional em um cluster do Service Fabric sem tempo de inatividade. O [Aplicativo de Orquestração de Patches para Windows](service-fabric-patch-orchestration-application.md) pode ser implantado em seu cluster para instalar os patches de maneira orquestrada, mantendo os serviços disponíveis o tempo todo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md)

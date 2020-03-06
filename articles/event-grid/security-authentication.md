@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846298"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359302"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -353,6 +353,6 @@ Você pode criar funções personalizadas com [PowerShell](../role-based-access-
 
 Todos os eventos ou dados gravados no disco pelo serviço de grade de eventos são criptografados por uma chave gerenciada pela Microsoft, garantindo que ele seja criptografado em repouso. Além disso, o período máximo de tempo em que os eventos ou os dados são retidos é de 24 horas em conformidade com a [política de repetição de grade de eventos](delivery-and-retry.md). A grade de eventos excluirá automaticamente todos os eventos ou dados após 24 horas ou a vida útil do evento, o que for menor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para ver uma introdução à Grade de Eventos, confira [Sobre a Grade de Eventos](overview.md)

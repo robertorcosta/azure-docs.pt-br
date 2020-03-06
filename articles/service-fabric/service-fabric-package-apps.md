@@ -4,11 +4,11 @@ description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083625"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361266"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
 
@@ -224,7 +224,7 @@ Para provisionar o pacote, use o provisionamento o externo, o que requer o URI d
 >[!NOTE]
 > O provisionamento com base no caminho relativo do repositório de imagens no momento não oferece suporte a arquivos `sfpkg`. Portanto, o `sfpkg` não deve ser copiado para o repositório de imagens.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias de aplicativo
 

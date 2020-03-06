@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: 5d80cb2f2ed844126d1e9311151e6c53fcb11840
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391270"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma conexão ponto a site usando a autenticação de certificado (clássico)
 
@@ -35,7 +35,7 @@ Use um gateway VPN P2S (conexão ponto a site) para criar uma conexão segura pa
 
 ![Diagrama ponto a site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 As conexões de autenticação de certificado de ponto a site exigem os seguintes pré-requisitos:
 
@@ -168,7 +168,7 @@ Após o gateway ser criado, você pode carregar o arquivo. cer (que contém as i
 
 4. Selecione o gráfico de pasta para procurar o arquivo .cer. Selecione o arquivo e selecione **OK**. O certificado carregado aparece na página **Certificados**.
 
-   ![Carregar um certificado](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
+   ![Carregar certificado](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
 
 
 ## <a name="configure-the-client"></a>Configurar o cliente
@@ -280,7 +280,7 @@ Após a conclusão da atualização, o certificado não poderá mais ser usado p
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Após sua conexão ser concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/). 
 

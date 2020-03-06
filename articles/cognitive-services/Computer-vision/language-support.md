@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718619"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365458"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte a idiomas para Pesquisa Visual Computacional
 
@@ -27,7 +27,7 @@ Pesquisa Visual Computacional pode reconhecer texto em vários idiomas. Especifi
 
 O OCR detecta automaticamente o idioma do material de entrada, portanto, não é necessário especificar um código de idioma na chamada à API. No entanto, os códigos de idioma sempre são retornados como o valor do nó `"language"` na resposta JSON.
 
-|idioma| Código de idioma | API DE OCR |
+|Linguagem| Código de idioma | API DE OCR |
 |:-----|:----:|:-----:|
 |Árabe | `ar`|✔ |
 |Chinês (Simplificado) | `zh-Hans`|✔ |
@@ -60,9 +60,9 @@ O OCR detecta automaticamente o idioma do material de entrada, portanto, não é
 
 Algumas ações da API de [análise de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) podem retornar resultados em outras linguagens, especificadas com o parâmetro de consulta `language`. Outras ações retornam resultados em inglês, independentemente do idioma especificado, e outras geram uma exceção para idiomas sem suporte. As ações são especificadas com os parâmetros de consulta `visualFeatures` e `details`; consulte a [visão geral](home.md) para obter uma lista de todas as ações que você pode fazer com a análise de imagem.
 
-|idioma | Código de idioma | Categorias | Marcas | DESCRIÇÃO | Adulto | Marcas | Cor | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código de idioma | Categorias | Marcas | DESCRIÇÃO | Adulto | Marcas | Color | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Chinesa | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
+|Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
 |Japonês | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Português | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|

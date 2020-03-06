@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cbeb1ccaed6ec2c62aaa731e88fcefbe84d1df02
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: fff801731c3c3a94b4039a8c65ad8ccaab7cc725
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370876"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402735"
 ---
 # <a name="supported-data-format-details"></a>Detalhes de formato de dados com suporte
 
@@ -391,39 +391,39 @@ A primeira linha de dados será verificada em busca de cadeias de caracteres que
 
 Ao verificar a linha de cabeçalho, qualquer informação de tipo que esteja no nome da coluna será extraída e usada para converter as células nessa coluna. Aqui está um exemplo de um nome de coluna que tem um valor de tipo: "ColumnName (typeName)". Os seguintes nomes de tipos que não diferenciam maiúsculas de minúsculas têm suporte:
 
-**Números**
+#### <a name="numbers"></a>Números
 
-    - EDM. Int64
-    - int
-    - long
-    - EDM. Double
-    - float
-    - double
-    - número
+- EDM. Int64
+- int
+- long
+- EDM. Double
+- float
+- double
+- número
 
-**Boolianos**
+#### <a name="booleans"></a>Boolianos
 
-    - EDM. booliano
-    - {1&gt;bool&lt;1}
-    - booleano
+- EDM. booliano
+- {1&gt;bool&lt;1}
+- booleano
 
-**Date**
+#### <a name="dates"></a>Datas
 
-    - EDM. DateTime
-    - date
-    - datetime
+- EDM. DateTime
+- date
+- datetime
 
-**Geografia**
+#### <a name="geography"></a>painel Geografia do app&#39;s selecionado
 
-    - EDM. geography
-    - geografia
+- EDM. geography
+- geografia
 
-**Seqüências**
+#### <a name="strings"></a>Cadeias de caracteres
 
-    - EDM. String
-    - varchar
-    - texto
-    - String ' Case
+- EDM. String
+- varchar
+- texto
+- String ' Case
 
 Se nenhuma informação de tipo puder ser extraída do cabeçalho e a opção de digitação dinâmica estiver habilitada durante a leitura, cada célula será analisada individualmente para determinar a qual tipo de dados é mais adequado ser convertido como.
 

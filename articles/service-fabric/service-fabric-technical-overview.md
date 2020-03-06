@@ -7,11 +7,11 @@ ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024896"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389198"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
 
@@ -164,17 +164,17 @@ Ambientes diferentes têm diferentes níveis de suporte para estruturas e modelo
 
 | Tipo de aplicativo | Descrito por | Malha do Microsoft Azure Service Fabric | Clusters do Microsoft Azure Service Fabric (qualquer sistema operacional)| Cluster local | Cluster autônomo |
 |---|---|---|---|---|---|
-| Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | Com suporte |Sem suporte | Windows- com suporte, Linux e Mac - sem suporte | Windows- sem suporte |
-|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | Sem suporte| Com suporte|Com suporte|Windows- sem suporte|
+| Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | Suportado |Sem suporte | Windows- com suporte, Linux e Mac - sem suporte | Windows- sem suporte |
+|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | Sem suporte| Suportado|Suportado|Windows- sem suporte|
 
 A tabela a seguir descreve os diferentes modelos de aplicativos e as ferramentas existentes no Service Fabric.
 
 | Tipo de aplicativo | Descrito por | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
 |---|---|---|---|---|---|---|
 | Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | VS 2017 |Sem suporte |Sem suporte | Com suporte - apenas ambiente de Malha | Sem suporte|
-|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Com suporte|Com suporte|Com suporte|Com suporte|
+|Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Suportado|Suportado|Suportado|Suportado|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Service Fabric:
 

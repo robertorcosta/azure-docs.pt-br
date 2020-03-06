@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c59376344d2df7e9e9c76e630a4462b26343d187
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: c41ee293c853572ec9e1f9dd3edf001c805924d3
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371006"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402779"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Adicionar uma camada do mapa do Open Geospatial Consortium (OGC)
 
@@ -73,7 +73,7 @@ A ferramenta a seguir sobrepõe as imagens dos serviços do mapa da Web (WMS) e 
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Gerenciador de serviços do mapa da Web do OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a caneta <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service Explorer</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='750' style='width: 100%;' scrolling='no' title='Gerenciador de serviços do mapa da Web do OGC' src='//codepen.io/azuremaps/embed/YzXxYdX/?height=750&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Confira a caneta <a href='https://codepen.io/azuremaps/pen/YzXxYdX/'>OGC Web Map Service Explorer</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Você também pode especificar as configurações de mapa para usar um serviço de proxy. O serviço de proxy permite que você carregue recursos hospedados em domínios que não têm o CORs habilitado.

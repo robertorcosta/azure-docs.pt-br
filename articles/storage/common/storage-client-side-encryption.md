@@ -10,11 +10,11 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 921ea148c12a23ece47688a26743e1195caf52f4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003798"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391746"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -93,7 +93,7 @@ Criptografia de dados de tabela funciona da seguinte maneira:
 
 Observe que somente as propriedades de cadeia de caracteres podem ser criptografadas. Se outros tipos de propriedades precisarem ser criptografados, elas devem ser convertidas em cadeias de caracteres. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias, e são convertidas novamente em cadeias de caracteres após a descriptografia.
 
-Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando o atributo [EncryptProperty] \(para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; caso contrário, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou ap consultar entidades.
+Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando o atributo [EncryptProperty] \(para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, em seguida, criptografe A propriedade A; caso contrário, criptografe as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou consulta de entidades.
 
 ### <a name="batch-operations"></a>Operações em lote
 Em operações em lote, o mesmo KEK será usado em todas as linhas de operação em lote porque a biblioteca de cliente permite apenas um objeto de opções (e, portanto, uma política/KEK) por operação em lote. No entanto, a biblioteca de cliente gerará internamente um novo IV e CEK aleatórios por linha no lote. Os usuários também podem optar por criptografar propriedades diferentes para cada operação em lote definindo esse comportamento no resolvedor de criptografia.
@@ -105,7 +105,7 @@ Em operações em lote, o mesmo KEK será usado em todas as linhas de operação
 > 
 > Para executar operações de consulta, você deve especificar que um resolvedor de chave é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca de cliente gerará um erro. Para qualquer consulta que realiza as projeções do lado do servidor, a biblioteca de cliente adicionará as propriedades de metadados de criptografia especial (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) por padrão às colunas selecionadas.
 
-## <a name="azure-key-vault"></a>Azure Key Vault
+## <a name="azure-key-vault"></a>Cofre de Chave do Azure
 O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave do Azure, os usuários podem criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para obter mais informações, veja [O que é o Cofre da Chave do Azure?](../../key-vault/key-vault-overview.md).
 
 A biblioteca de cliente de armazenamento usa a biblioteca principal do Cofre da Chave para fornecer uma estrutura comum no Azure para o gerenciamento de chaves. Os usuários também recebem o benefício adicional de usar a biblioteca de extensões do Cofre da Chave. A biblioteca de extensões fornece funcionalidades úteis com Symmetric simples/RSA local e provedores de chave de nuvem e com agregação e armazenamento em cache.
@@ -126,7 +126,7 @@ O Cofre da Chave foi criado para chaves mestras de alto valor e os limites por C
 Mais informações sobre o uso do Cofre da Chave podem ser encontradas nos [exemplos de código de criptografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
 ## <a name="best-practices"></a>Práticas recomendadas
-O suporte à criptografia está disponível somente na biblioteca de cliente de armazenamento para .NET. Atualmente, o Windows Phone e o Tempo de Execução do Windows não dão suporte à criptografia.
+O suporte à criptografia está disponível somente na biblioteca de cliente de armazenamento para .NET. Atualmente, o Windows Phone e o Windows Runtime não dão suporte à criptografia.
 
 > [!IMPORTANT]
 > Lembre-se dos seguintes pontos importantes ao usar a criptografia no lado do cliente:
@@ -242,7 +242,7 @@ Como mencionado acima, se a entidade implementar TableEntity, as propriedades po
 Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga adicional no desempenho. O IV e a chave de conteúdo devem ser gerados, o próprio conteúdo deve ser criptografado e os metadados adicionais devem ser formatados e carregados. Essa sobrecarga poderá variar dependendo da quantidade de dados que está sendo criptografada. Recomendamos que os clientes sempre testem seus aplicativos a fim de verificar o desempenho durante o desenvolvimento.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Tutorial: Criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Baixar o [pacote NuGet da Biblioteca de Clientes do Armazenamento do Azure para o .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Baixar os pacotes NuGet de [Núcleo](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre de Chaves do Azure  
 * Visitar a [Documentação do Cofre de Chaves do Azure](../../key-vault/key-vault-overview.md)

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650650"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380852"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
 Esta seção contém as assinaturas para todas as funções com suporte de uma CreateUiDefinition.
@@ -431,7 +431,7 @@ O exemplo a seguir retorna `true`:
 "[greaterOrEquals(2, 2)]"
 ```
 
-### <a name="and"></a>e a
+### <a name="and"></a>e
 Retorna `true` se todos os parâmetros são avaliados como `true`. Essa função dá suporte apenas a dois ou mais parâmetros do tipo booliano.
 
 O exemplo a seguir retorna `true`:
@@ -488,7 +488,7 @@ Suponha que `element1` e `element2` são indefinidos. O exemplo a seguir retorna
 ## <a name="conversion-functions"></a>Funções de conversão
 Essas funções podem ser usadas para converter valores entre tipos de dados JSON e codificações.
 
-### <a name="int"></a>int
+### <a name="int"></a>INT
 Converte o parâmetro em um inteiro. Essa função dá suporte a parâmetros dos tipos número e cadeia de caracteres.
 
 O exemplo a seguir retorna `1`:
@@ -518,7 +518,7 @@ O exemplo a seguir retorna `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>cadeia de caracteres
+### <a name="string"></a>string
 Converte o parâmetro em uma cadeia de caracteres. Essa função dá suporte a parâmetros de todos os tipos de dados JSON.
 
 O exemplo a seguir retorna `"1"`:
@@ -687,7 +687,7 @@ O exemplo a seguir retorna `2`:
 "[mod(6, 4)]"
 ```
 
-### <a name="min"></a>min
+### <a name="min"></a>Min
 Retorna o menor dos dois números.
 
 O exemplo a seguir retorna `1`:
@@ -778,6 +778,6 @@ O exemplo a seguir retorna `"1991-01-01T00:59:59.000Z"`:
 "[addHours('1990-12-31T23:59:59Z', 1)]"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para obter uma introdução ao Azure Resource Manager, consulte [Visão geral do Azure Resource Manager](../management/overview.md).
 

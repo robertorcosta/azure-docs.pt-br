@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760514"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380928"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -304,7 +304,7 @@ O Microsoft Azure Marketplace deve ser usado por padrão, a menos que você tenh
 - Condições de conformidade ou regulamentares (por exemplo, políticas de segurança) que devem estar em vigor para todas as máquinas.
 - O uso de imagens personalizadas não deve ser considerado levemente. Elas apresentam complexidade extra, já que você deve gerenciar arquivos VHD para essas imagens base subjacentes. Também será preciso aplicar patches frequentemente nas imagens base com atualizações de software. Essas atualizações incluem novas atualizações do sistema operacional (SO) e todas as alterações de atualizações ou configurações necessárias para o pacote de software.
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>Artefatos
 
 ### <a name="what-are-artifacts"></a>O que são os artefatos?
 Artefatos são elementos personalizáveis que podem ser usados para implantar os bits mais recentes ou as ferramentas de desenvolvimento em uma VM. Anexe artefatos à VM quando criá-la. Depois que a VM é provisionada, os artefatos a implantam e configuram. Vários artefatos pré-existentes estão disponíveis em nosso [repositório GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Você também pode [criar seus próprios artefatos](devtest-lab-artifact-author.md).
