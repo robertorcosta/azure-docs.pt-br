@@ -10,11 +10,11 @@ ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187545"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380263"
 ---
 ::: zone target="docs"
 
@@ -35,13 +35,13 @@ Este tutorial descreve como devolver o Azure Data Box e verificar os dados carre
 Neste tutorial, você aprenderá sobre tópicos como:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Pré-requisitos
 > * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 

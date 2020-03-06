@@ -1,5 +1,5 @@
 ---
-title: solução de problemas
+title: Solução de problemas
 description: Solução de problemas do Azure Synapse Analytics.
 services: sql-data-warehouse
 author: kevinvngo
@@ -12,16 +12,16 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 085b907b6a848fb534df63b5465948864048cc19
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199862"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383767"
 ---
 # <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Solução de problemas de análise de SQL no Azure Synapse
 Este artigo lista perguntas de solução de problemas comuns.
 
-## <a name="connecting"></a>Connecting
+## <a name="connecting"></a>Conectando
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Falha de logon do usuário 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o pool SQL ao qual você deseja se conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Confira o artigo [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
@@ -67,7 +67,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Limitações de procedimento armazenado          | Confira [Limitações de procedimentos armazenados](../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md#limitations) para entender algumas dessas limitações. |
 | UDFs não oferecem suporte a instruções SELECT | Esta é uma limitação atual de nossos UDFs.  Confira [CREATE FUNCTION](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) para ver a sintaxe para a qual damos suporte. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais ajuda na busca de soluções para o problema, a seguir são apresentados alguns outros recursos que você pode experimentar.
 
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

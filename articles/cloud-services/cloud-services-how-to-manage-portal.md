@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360898"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386903"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar Serviços de Nuvem no portal do Azure
 Na área de **Serviços de Nuvem** do portal do Azure, você pode:
@@ -113,13 +113,13 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 ## <a name="find-more-information-about-failed-deployments"></a>Localizar mais informações sobre implantações com falha
 A folha **Visão geral** tem uma barra de status na parte superior. Quando você seleciona a barra, uma nova folha é aberta e exibe informações de erro. Se a implantação não contiver erros, a folha de informações ficará em branco.
 
-![Visão geral dos Serviços de Nuvem](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Visão Geral dos Cloud Services](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 
 [Azure portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).

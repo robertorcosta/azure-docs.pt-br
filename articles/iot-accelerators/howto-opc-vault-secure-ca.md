@@ -9,11 +9,11 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200092"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381131"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Execute o serviço de gerenciamento de certificados do cofre OPC com segurança
 
@@ -32,15 +32,15 @@ O microserviço do cofre OPC permite que funções distintas acessem várias par
 
 O microserviço do compartimento OPC define as seguintes funções:
 
-- **Leitor**: Por padrão, qualquer usuário autenticado no locatário tem acesso de leitura. 
+- **Leitor**: por padrão, qualquer usuário autenticado no locatário tem acesso de leitura. 
   - Acesso de leitura a aplicativos e solicitações de certificado. Pode listar e consultar aplicativos e solicitações de certificado. Além disso, as informações de descoberta de dispositivo e os certificados públicos estão acessíveis com acesso de leitura.
-- **Gravador**: A função de gravador é atribuída a um usuário para adicionar permissões de gravação para determinadas tarefas. 
+- **Writer**: a função de gravador é atribuída a um usuário para adicionar permissões de gravação para determinadas tarefas. 
   - Acesso de leitura/gravação a aplicativos e solicitações de certificado. Pode registrar, atualizar e cancelar o registro de aplicativos. Pode criar solicitações de certificado e obter certificados e chaves privadas aprovadas. Também pode excluir chaves privadas.
-- **Aprovador**: A função de aprovador é atribuída a um usuário para aprovar ou rejeitar solicitações de certificado. A função não inclui nenhuma outra função.
+- **Aprovador**: a função de aprovador é atribuída a um usuário para aprovar ou rejeitar solicitações de certificado. A função não inclui nenhuma outra função.
   - Além da função de aprovador para acessar a API de microserviço do compartimento OPC, o usuário também deve ter a permissão de assinatura de chave no Azure Key Vault para poder assinar os certificados.
   - A função de gravador e aprovador deve ser atribuída a usuários diferentes.
   - A função principal do aprovador é a aprovação da geração e rejeição de solicitações de certificado.
-- **Administrador**: A função de administrador é atribuída a um usuário para gerenciar os grupos de certificados. A função não dá suporte à função de aprovador, mas inclui a função de gravador.
+- **Administrador**: a função de administrador é atribuída a um usuário para gerenciar os grupos de certificados. A função não dá suporte à função de aprovador, mas inclui a função de gravador.
   - O administrador pode gerenciar os grupos de certificados, alterar a configuração e revogar certificados de aplicativos emitindo uma nova CRL (lista de certificados revogados).
   - Idealmente, as funções de gravador, Aprovador e administrador são atribuídas a diferentes usuários. Para segurança adicional, um usuário com a função de aprovador ou de administrador também precisa de permissão de assinatura de chave no Key Vault, para emitir certificados ou para renovar um certificado de autoridade de certificação do emissor.
   - Além da função de administração de microserviço, a função inclui, mas não está limitada a:
@@ -110,19 +110,19 @@ Mantenha um inventário de ativos para todos os hosts de produção (incluindo m
 #### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventário da implantação de produção do microserviço do cofre OPC do Azure padrão 
 
 No Azure:
-- **Plano do Serviço de Aplicativo**: Plano do serviço de aplicativo para hosts de serviço. Padrão S1.
-- **Serviço de aplicativo** para o microserviço: O host do serviço de cofre do OPC.
-- **Serviço** de aplicativo para aplicativo de exemplo: O host do aplicativo de exemplo do cofre OPC.
-- **Key Vault padrão**: Para armazenar segredos e chaves de Azure Cosmos DB para os serviços Web.
-- **Key Vault Premium**: Para hospedar as chaves de AC do emissor, para o serviço de assinatura e para a configuração do cofre e o armazenamento de chaves privadas do aplicativo.
-- **Azure Cosmos DB**: Banco de dados para solicitações de aplicativo e certificado. 
+- **Plano do serviço de aplicativo**: plano do serviço de aplicativo para hosts de serviço. Padrão S1.
+- **Serviço de aplicativo** para o microserviço: o host do serviço de cofre do OPC.
+- **Serviço** de aplicativo para aplicativo de exemplo: o host de aplicativo de exemplo do cofre OPC.
+- **Key Vault Standard**: para armazenar segredos e chaves de Azure Cosmos DB para os serviços Web.
+- **Key Vault Premium**: para hospedar as chaves de AC do emissor, para o serviço de assinatura e para a configuração do cofre e o armazenamento de chaves privadas do aplicativo.
+- **Azure Cosmos DB**: banco de dados para solicitações de aplicativo e certificado. 
 - **Application insights**: (opcional) monitoramento de solução para serviço Web e aplicativo.
-- **Registro de aplicativo do Azure ad**: Um registro para o aplicativo de exemplo, o serviço e o módulo de borda.
+- **Registro de aplicativo do Azure ad**: um registro para o aplicativo de exemplo, o serviço e o módulo de borda.
 
 Para os serviços de nuvem, todos os nomes de host, grupos de recursos, nome de recurso, IDs de assinatura e IDs de locatário usados para implantar o serviço devem ser documentados. 
 
 No Azure IoT Edge ou em um servidor de IoT Edge local:
-- **Módulo de IOT Edge do cofre OPC**: Para dar suporte a um servidor de descoberta global de rede de fábrica OPC UA. 
+- **Módulo do IOT Edge do OPC Vault**: para dar suporte a um servidor de descoberta global de OPC UA de rede de fábrica. 
 
 Para os dispositivos IoT Edge, os nomes de host e os endereços IP devem ser documentados. 
 
@@ -174,8 +174,8 @@ O serviço de cofre do OPC é uma AC online que emite certificados de entidade f
   - As chaves de AC raiz RSA com um tempo de vida típico maior ou igual a 20 anos devem ser de 4096 bits ou mais.
   - As chaves de AC do emissor RSA devem ter pelo menos 2048 bits. Se a data de expiração do certificado de autoridade de certificação for posterior a 2030, a chave da autoridade de certificação deverá ser de 4096 bits ou mais.
 - Tempo de vida do certificado
-  - Certificados de AC raiz: O período de validade máximo do certificado para autoridades de certificação raiz não deve exceder 25 anos.
-  - Subautoridade de certificação ou certificados de AC do emissor online: O período de validade máximo do certificado para CAs que estão online e que executam somente certificados de assinante não devem exceder 6 anos. Para essas CAs, a chave de assinatura privada relacionada não deve ser usada por mais de três anos para emitir novos certificados.<br>
+  - Certificados de autoridade de certificação raiz: o período máximo de validade do certificado para autoridades de certificação raiz não deve exceder 25 anos.
+  - Certificados de CA do emissor online ou da subautoridade de certificação: o período máximo de validade do certificado para CAs que estão online e emitem somente certificados do assinante não devem exceder 6 anos. Para essas CAs, a chave de assinatura privada relacionada não deve ser usada por mais de três anos para emitir novos certificados.<br>
     > [!IMPORTANT]
     > O certificado do emissor, como é gerado no microserviço do cofre do OPC padrão sem AC raiz externa, é tratado como uma subautoridade de certificação online, com requisitos e vidas de vida correspondentes. O tempo de vida padrão é definido como 5 anos, com um comprimento de chave maior ou igual a 2048.
   - Todas as chaves assimétricas devem ter um tempo de vida máximo de 5 anos e um tempo de vida de 1 ano recomendado.<br>
@@ -190,8 +190,8 @@ O serviço de cofre do OPC é uma AC online que emite certificados de entidade f
 
 ### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Chaves de CA e certificados devem atender aos requisitos mínimos
 
-- **Chaves privadas**: As chaves RSA devem ter pelo menos 2048 bits. Se a data de expiração do certificado de autoridade de certificação for posterior a 2030, a chave da autoridade de certificação deverá ser de 4096 bits ou mais.
-- **Tempo de vida**: O período de validade máximo do certificado para CAs que estão online e que executam somente certificados de assinante não devem exceder 6 anos. Para essas CAs, a chave de assinatura privada relacionada não deve ser usada por mais de três anos para emitir novos certificados.
+- **Chaves privadas**: chaves RSA devem ter pelo menos 2048 bits. Se a data de expiração do certificado de autoridade de certificação for posterior a 2030, a chave da autoridade de certificação deverá ser de 4096 bits ou mais.
+- **Tempo de vida**: o período máximo de validade do certificado para CAS que estão online e que executam somente certificados de assinante não devem exceder 6 anos. Para essas CAs, a chave de assinatura privada relacionada não deve ser usada por mais de três anos para emitir novos certificados.
 
 ### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>As chaves de CA são protegidas usando módulos de segurança de hardware
 
@@ -208,7 +208,7 @@ Documente e mantenha os procedimentos operacionais padrão (SOPs) para saber com
 - Como a solicitação de certificado é processada e validada (se aplicável, inclua também como a renovação de certificado e as solicitações de rechaveamento são processadas). 
 - Como os certificados emitidos são distribuídos para os assinantes. 
 
-O SOP de microserviço do cofre OPC é descrito na [arquitetura do cofre OPC](overview-opc-vault-architecture.md) e [gerencia o serviço de certificado do cofre do OPC](howto-opc-vault-manage.md). As práticas seguem a "especificação de arquitetura unificada do OPC, parte 12: Descoberta e serviços globais. "
+O SOP de microserviço do cofre OPC é descrito na [arquitetura do cofre OPC](overview-opc-vault-architecture.md) e [gerencia o serviço de certificado do cofre do OPC](howto-opc-vault-manage.md). As práticas seguem a "especificação de arquitetura unificada do OPC, parte 12: descoberta e serviços globais".
 
 
 ### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Documentar e manter as práticas de PKI operacional padrão para revogação de certificado
@@ -237,7 +237,7 @@ A cerimônia de geração de chave de CA deve ser executada em um script documen
   - Preparação dos materiais para armazenamento.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você aprendeu como gerenciar com segurança o cofre OPC, você pode:
 

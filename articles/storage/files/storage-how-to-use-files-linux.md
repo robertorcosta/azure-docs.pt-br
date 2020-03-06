@@ -8,11 +8,11 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772101"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394334"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -22,7 +22,7 @@ A maneira recomendada para montar um compartilhamento de arquivos do Azure no Li
 | | SMB 2.1 <br>(Montagens em VMs na mesma região do Azure) | SMB 3.0 <br>(Montagens de região cruzada e locais) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
-| RHEL (Red Hat Enterprise Linux) | 7+ | 7.5+ |
+| Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
@@ -34,7 +34,7 @@ Se você estiver usando uma distribuição do Linux não listada na tabela acima
 uname -r
 ```
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Verifique se o pacote CIFS-utils está instalado.**  
@@ -199,7 +199,7 @@ Para montar um compartilhamento de arquivos do Azure no Linux, a porta 445 deve 
 
 A partir do kernel do Linux 4,18, o módulo kernel SMB, chamado `cifs` por motivos herdados, expõe um novo parâmetro de módulo (muitas vezes conhecido como *Parm* por várias documentações externas), chamado `disable_legacy_dialects`. Embora introduzido no kernel do Linux 4,18, alguns fornecedores têm reportado essa alteração para os kernels mais antigos aos quais dão suporte. Para sua conveniência, a tabela a seguir detalha a disponibilidade desse parâmetro de módulo em distribuições comuns do Linux.
 
-| Distribuição | Pode desabilitar o SMB 1 |
+| Distribution | Pode desabilitar o SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04 – 16.04 | Não |
 | Ubuntu 18.04 | Sim |
@@ -278,7 +278,7 @@ Usuários do Linux, queremos ouvir sua opinião!
 
 O grupo do Arquivos do Azure para usuários do Linux oferece um fórum para que você possa compartilhar comentários à medida que você avalia e adota o Armazenamento de Arquivos no Linux. Envie um email para [Usuários do Linux do Arquivos do Azure](mailto:azurefileslinuxusers@microsoft.com) para ingressar no grupo de usuários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)

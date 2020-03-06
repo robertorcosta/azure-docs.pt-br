@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services) | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Amazon Web Services (AWS) | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o AWS (Amazon Web Services).
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 986aa000102cfed01666c8a95c00847ecc0cd651
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047274"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378413"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Amazon Web Services (AWS)
 
 Neste tutorial, você aprenderá a integrar a AWS (Amazon Web Services) ao Azure AD (Azure Active Directory). Quando você integra a AWS (Amazon Web Services) com o Azure Active Directory, pode:
 
@@ -53,7 +53,7 @@ Com esses valores, o Azure AD remove o valor de **#** e envia o valor correto `h
 > [!Note]
 > Use apenas o aplicativo da galeria.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para começar, você precisará dos seguintes itens:
 
@@ -173,7 +173,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     a. Em **Tipo de provedor**, selecione **SAML**.
 
-    b. Em **Nome do Provedor**, digite um nome para o provedor (por exemplo: *WAAD*).
+    b. Para **nome do provedor**, digite um nome de provedor (por exemplo: *WAAD*).
 
     c. Para carregar seu **arquivo de metadados** baixado do Portal do Azure, selecione **Escolher Arquivo**.
 
@@ -193,13 +193,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     a. Em **Selecionar tipo de entidade confiável**, selecione **Federação do SAML 2.0**.
 
-    b. Em **Escolher um provedor do SAML 2.0**, selecione o **Provedor do SAML** criado anteriormente (por exemplo: *WAAD*).
+    b. Em **escolher um provedor saml 2,0**, selecione o **provedor SAML** que você criou anteriormente (por exemplo: *WAAD*).
 
     c. Selecione **Permitir acesso do Console de Gerenciamento do AWS e programação**.
   
-    d. Selecione **Avançar: Permissões.**
+    d. Selecione **Avançar: permissões**.
 
-9. Na caixa de diálogo **Anexar políticas de permissão**, anexe a política adequada conforme sua organização. Em seguida, selecione **Avançar: Análise**.  
+9. Na caixa de diálogo **Anexar políticas de permissão**, anexe a política adequada conforme sua organização. Em seguida, selecione **Avançar: revisão**.  
 
     ![Captura de tela da caixa de diálogo Anexar política de permissões][33]
 
@@ -294,7 +294,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     b. Pesquise a política recém-criada na seção filtro **AzureAD_SSOUserRole_Policy**.
 
-    c. Selecione a política e, em seguida, **Próximo: Análise**.
+    c. Selecione a política e, em seguida, selecione **Avançar: revisão**.
 
 19. Examine a política para o usuário anexado.
 

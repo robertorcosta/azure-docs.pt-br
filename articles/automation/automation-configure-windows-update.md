@@ -6,18 +6,18 @@ ms.subservice: update-management
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226272"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373253"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Definir configurações de Windows Update para Gerenciamento de Atualizações
 
 O Azure Gerenciamento de Atualizações conta com [Windows Update cliente](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) para baixar e instalar atualizações do Windows. Há configurações específicas que são usadas pelo cliente do Windows Update ao se conectar ao Windows Server Update Services (WSUS) ou Windows Update. Muitas dessas configurações podem ser gerenciadas com:
 
 - Editor de Política de Grupo Local
-- Diretiva de grupos
+- Política de Grupo
 - PowerShell
 - Editando o registro diretamente
 
@@ -62,6 +62,6 @@ Você pode especificar as fontes para verificação e download de atualizações
 
 Para restringir os computadores apenas ao serviço de atualização interno, configure o [não se conecte a nenhum local Windows Update Internet](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de definir as configurações de Windows Update, você pode agendar uma implantação de atualização seguindo as instruções em [gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).

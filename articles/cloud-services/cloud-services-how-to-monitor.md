@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972953"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384120"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao Monitoramento de Serviço de Nuvem
 
@@ -42,7 +42,7 @@ O monitoramento avançado envolve o uso da extensão **Diagnóstico do Azure** (
 * Logs de aplicativo
 * Logs de eventos do Windows
 * Fonte de evento do .NET
-* Logs do IIS
+* Logs IIS
 * Manifesto com base no ETW
 * Despejos de memória
 * Logs de erro do cliente
@@ -92,7 +92,7 @@ Ao publicar o Serviço de Nuvem do Visual Studio, você recebe a opção de envi
 Perceba que embora você possa usar o Application Insights para exibir os contadores de desempenho (e as outras configurações) especificados por meio da extensão de Diagnóstico do Windows Azure, você só terá uma experiência mais rica integrando o SDK do Application Insights às suas funções de trabalho e da Web.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Saiba mais sobre o Application Insights com o Serviços de Nuvem](../azure-monitor/app/cloudservices.md)
 - [Configurar contadores de desempenho](diagnostics-performance-counters.md)

@@ -39,6 +39,8 @@
   items:
     - name: Noções básicas
       items:
+        - name: Recursos do Gateway de Aplicativo
+          href: features.md
         - name: Como o Gateway de Aplicativo funciona
           href: how-application-gateway-works.md
         - name: Componentes do Gateway de Aplicativo

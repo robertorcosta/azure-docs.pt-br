@@ -8,19 +8,19 @@
       href: what-is-ml-studio.md
     - name: Comparar os nossos produtos de ML
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- name: Tutoriais
+- name: Inícios rápidos
   items:
     - name: Criar seu primeiro experimento
       displayName: quickstart
       href: create-experiment.md
-    - name: Criar uma solução preditiva
-      items:
-        - name: 1 – Criar um experimento
-          href: tutorial-part1-credit-risk.md
-        - name: 2 – Treinar e avaliar
-          href: tutorial-part2-credit-risk-train.md
-        - name: 3 – Implantar serviço Web
-          href: tutorial-part3-credit-risk-deploy.md
+- name: Tutoriais
+  items:
+    - name: '1: Criar um experimento preditivo'
+      href: tutorial-part1-credit-risk.md
+    - name: '2: Treinar e avaliar a solução'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: Implantar serviço Web'
+      href: tutorial-part3-credit-risk-deploy.md
 - name: Exemplos
   items:
     - name: Conjuntos de dados disponíveis

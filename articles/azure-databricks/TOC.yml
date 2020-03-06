@@ -7,9 +7,9 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar workspace do Databricks – Portal
+    - name: Criar workspace do Databricks - Portal
       href: quickstart-create-databricks-workspace-portal.md
-    - name: Criar workspace do Databricks – Modelo do Resource Manager
+    - name: Criar workspace do Databricks - modelo do Resource Manager
       href: quickstart-create-databricks-workspace-resource-manager-template.md
     - name: Criar workspace do Databricks – Rede virtual
       href: quickstart-create-databricks-workspace-vnet-injection.md
@@ -63,7 +63,7 @@
             - name: Aprendizado de máquina
               href: /azure/databricks/getting-started/spark/machine-learning
               maintainContext: true
-            - name: Streaming estruturado
+            - name: Fluxo estruturado
               href: /azure/databricks/getting-started/spark/streaming
               maintainContext: true
             - name: O que vem a seguir
@@ -72,7 +72,7 @@
         - name: Treinamento e perguntas frequentes
           href: /azure/databricks/getting-started/training-faq
           maintainContext: true
-        - name: Navegadores compatíveis
+        - name: Navegadores com suporte
           href: /azure/databricks/getting-started/supported-browsers
           maintainContext: true
     - name: Tempos de execução do Databricks
@@ -89,7 +89,7 @@
         - name: Databricks Runtime para Machine Learning
           href: /azure/databricks/runtime/mlruntime
           maintainContext: true
-        - name: Databricks Runtime para Genomics
+        - name: Databricks Runtime para Genoma
           href: /azure/databricks/runtime/genomicsruntime
           maintainContext: true
         - name: Databricks Light
@@ -100,7 +100,7 @@
         - name: Explorar o workspace do Databricks
           href: /azure/databricks/workspace/index
           maintainContext: true
-        - name: Ativos de workspace
+        - name: Ativos de espaço de trabalho
           href: /azure/databricks/workspace/workspace-assets
           maintainContext: true
         - name: Trabalhar com objetos de workspace
@@ -212,7 +212,7 @@
         - name: Widgets
           href: /azure/databricks/notebooks/widgets
           maintainContext: true
-        - name: Fluxos de trabalho de notebook
+        - name: Fluxos de trabalho de blocos de anotações
           href: /azure/databricks/notebooks/notebook-workflows
           maintainContext: true
         - name: Células de pacote
@@ -248,7 +248,7 @@
             - name: Azure Data Lake Storage Gen2
               href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
               maintainContext: true
-            - name: Azure Data Lake Storage
+            - name: Armazenamento do Azure Data Lake
               href: /azure/databricks/data/data-sources/azure/azure-datalake
               maintainContext: true
             - name: Passagem de credencial do Azure Data Lake Storage
@@ -559,11 +559,17 @@
             - name: Excluir de (Delta Lake no Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/delete-from
               maintainContext: true
+            - name: Negar
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/deny
+              maintainContext: true
             - name: Descrever banco de dados
               href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-database
               maintainContext: true
             - name: Descrever função
               href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-function
+              maintainContext: true
+            - name: Descrever histórico (Delta Lake no Azure Databricks)
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-history
               maintainContext: true
             - name: Descrever tabela
               href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-table
@@ -577,6 +583,9 @@
             - name: Descartar tabela
               href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-table
               maintainContext: true
+            - name: Remover exibição
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-view
+              maintainContext: true
             - name: Explicar
               href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
               maintainContext: true
@@ -585,6 +594,9 @@
               maintainContext: true
             - name: Funções
               href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
+              maintainContext: true
+            - name: Conceder
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/grant
               maintainContext: true
             - name: Generate
               href: /azure/databricks/spark/latest/spark-sql/language-manual/generate
@@ -598,6 +610,9 @@
             - name: Mesclar com (Delta Lake no Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
               maintainContext: true
+            - name: Msck
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/msck
+              maintainContext: true
             - name: Otimizar (Delta Lake no Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
               maintainContext: true
@@ -606,6 +621,9 @@
               maintainContext: true
             - name: Redefinir
               href: /azure/databricks/spark/latest/spark-sql/language-manual/reset
+              maintainContext: true
+            - name: Revogar
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/revoke
               maintainContext: true
             - name: Selecionar
               href: /azure/databricks/spark/latest/spark-sql/language-manual/select
@@ -624,6 +642,9 @@
               maintainContext: true
             - name: Mostrar funções
               href: /azure/databricks/spark/latest/spark-sql/language-manual/show-functions
+              maintainContext: true
+            - name: Mostrar concessão
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-grant
               maintainContext: true
             - name: Mostrar partições
               href: /azure/databricks/spark/latest/spark-sql/language-manual/show-partitions
@@ -772,12 +793,12 @@
         - name: Integração de aprendizado de máquina de terceiros
           href: /azure/databricks/applications/machine-learning/third-party/index
           maintainContext: true
-    - name: Aprendizado profundo
+    - name: Aprendizado
       items:
         - name: Visão geral de aprendizado profundo
           href: /azure/databricks/applications/deep-learning/index
           maintainContext: true
-        - name: Preparação de dados
+        - name: Preparação dos dados
           items:
             - name: Visão geral de preparação de dados
               href: /azure/databricks/applications/deep-learning/data-prep/index
@@ -879,10 +900,10 @@
               href: /azure/databricks/applications/mlflow/quick-start
               maintainContext: true
             - name: Introdução ao MLflow Java e ao Scala
-              href: /azure/databricks/applications/mlflow/  quick-start-java-scala
+              href: /azure/databricks/applications/mlflow/quick-start-java-scala
               maintainContext: true
             - name: Introdução ao MLflow Python
-              href: /azure/databricks/applications/mlflow/  quick-start-python
+              href: /azure/databricks/applications/mlflow/quick-start-python
               maintainContext: true
             - name: Introdução ao MLflow R
               href: /azure/databricks/applications/mlflow/quick-start-r
@@ -1001,7 +1022,7 @@
           maintainContext: true
     - name: Segurança e privacidade
       items:
-        - name: Visão Geral de Segurança
+        - name: Visão geral da segurança
           href: /azure/databricks/security/index
           maintainContext: true
         - name: Segredos
@@ -1091,8 +1112,8 @@
                 - name: Habilitar controle de acesso de tabela
                   href: /azure/databricks/administration-guide/access-control/table-acls/table-acl
                   maintainContext: true
-                - name: Definir permissões em um objeto de dados
-                  href: /azure/databricks/administration-guide/access-control/table-acls/object-permissions
+                - name: Definir privilégios em um objeto de dados
+                  href: /azure/databricks/administration-guide/access-control/table-acls/object-privileges
                   maintainContext: true
             - name: Controle de acesso do workspace
               href: /azure/databricks/administration-guide/access-control/workspace-acl
@@ -1160,6 +1181,9 @@
           items:
             - name: Quem excluiu um workspace no Azure
               href: /azure/databricks/kb/administration/who-deleted-workspace
+              maintainContext: true
+            - name: Quem excluiu um cluster no Azure
+              href: /azure/databricks/kb/administration/who-deleted-cluster
               maintainContext: true
         - name: Business intelligence
           items:
@@ -1310,7 +1334,7 @@
             - name: Falha na consulta de ATUALIZAÇÃO com IllegalStateException
               href: /azure/databricks/kb/delta/update-query-fails
               maintainContext: true
-        - name: Ferramentas para desenvolvedores
+        - name: Ferramentas de desenvolvedor
           items:
             - name: Erros comuns de Azure Data Factory
               href: /azure/databricks/kb/dev-tools/common-errors-adf
@@ -1340,7 +1364,7 @@
             - name: Limites de CREATE do ADLS
               href: /azure/databricks/kb/jobs/azure-throttling
               maintainContext: true
-            - name: O driver está temporariamente não disponível
+            - name: O driver está temporariamente indisponível
               href: /azure/databricks/kb/jobs/driver-unavailable
               maintainContext: true
             - name: Excluir todos os trabalhos usando a API REST
@@ -1369,7 +1393,7 @@
               maintainContext: true
         - name: Bibliotecas
           items:
-            - name: Não é possível desinstalar a biblioteca da interface do usuário
+            - name: Não é possível desinstalar a biblioteca da IU
               href: /azure/databricks/kb/libraries/cant-uninstall-libraries
               maintainContext: true
             - name: Erro ao instalar o pyodbc em um cluster
@@ -1632,7 +1656,7 @@
       href: /azure/templates/microsoft.databricks/workspaces
 - name: Recursos
   items:
-    - name: Notas sobre a versão
+    - name: Notas de versão
       items:
         - name: Plataforma
           items:
@@ -1719,10 +1743,19 @@
               maintainContext: true
         - name: Databricks Runtime
           items:
-            - name: Compatíveis
+            - name: Com suporte
               items:
-                - name: Versões de runtime compatíveis
+                - name: Versões de runtime com suporte
                   href: /azure/databricks/release-notes/runtime/supported
+                  maintainContext: true
+                - name: Databricks Runtime 6.4
+                  href: /azure/databricks/release-notes/runtime/6.4
+                  maintainContext: true
+                - name: Databricks Runtime 6.4 ML
+                  href: /azure/databricks/release-notes/runtime/6.4ml
+                  maintainContext: true
+                - name: Databricks Runtime 6.4 Genomics
+                  href: /azure/databricks/release-notes/runtime/6.4genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.3
                   href: /azure/databricks/release-notes/runtime/6.3
@@ -1848,7 +1881,7 @@
       href: 'https://azure.microsoft.com/pricing/details/databricks/'
     - name: Faça uma pergunta — Fórum do MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks'
-    - name: Faça uma pergunta – Stack Overflow
+    - name: Faça uma pergunta — Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/regions/services/'
