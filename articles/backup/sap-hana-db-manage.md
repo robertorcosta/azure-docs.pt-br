@@ -4,11 +4,11 @@ description: Neste artigo, aprenda tarefas comuns para gerenciar e monitorar SAP
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390590"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382495"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerenciar e monitorar backup de bancos de dados do SAP HANA
 
@@ -81,7 +81,7 @@ Se você quiser fazer um backup local (usando o HANA Studio/cockpit) de um banco
    * Defina **enable_auto_log_backup** como **Sim**.
    * Defina **log_backup_using_backint** como **true**.
 
-### <a name="change-policy"></a>Alterar a política
+### <a name="change-policy"></a>Alterar política
 
 Você pode alterar a política subjacente para um item de backup SAP HANA.
 
@@ -115,16 +115,16 @@ Você pode alterar a política subjacente para um item de backup SAP HANA.
 
 ### <a name="stop-protection-for-an-sap-hana-database"></a>Interromper a proteção de um banco de dados SAP HANA
 
-Você pode interromper a proteção de um banco de dados SAP HANA de duas maneiras:
+Você pode interromper a proteção de um banco de dados SAP HANA de algumas maneiras:
 
 * Interromper todos os trabalhos de backup futuros e excluir todos os pontos de recuperação.
-* Pare todos os trabalhos de backup futuros e deixe os pontos de recuperação intactos.
+* Interromper todos os trabalhos de backup futuros e deixar os pontos de recuperação intactos.
 
 Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
-* Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida em parar proteção com manter dados.
+* Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida ao parar a proteção com os dados de retenção.
 * Você será cobrado pela instância protegida e pelo armazenamento consumido. Para obter mais informações, consulte [preços do backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
-* Se você excluir uma fonte de dados sem interromper os backups, novos backups falharão.
+* Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão.
 
 Para interromper a proteção para um banco de dados:
 
@@ -185,6 +185,6 @@ Cancele o registro de uma instância de SAP HANA depois de desabilitar a proteç
 
    ![Selecione cancelar registro](./media/sap-hana-db-manage/unregister.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [solucionar problemas comuns ao fazer backup de bancos de dados do SAP Hana.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)

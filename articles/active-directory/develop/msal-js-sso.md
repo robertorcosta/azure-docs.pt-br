@@ -14,11 +14,11 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695867"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377233"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Logon único com o MSAL.js
 
@@ -169,6 +169,6 @@ const myMSALObj = new UserAgentApplication(config);
 
 Quando isso estiver configurado, o MSAL. js poderá ler o estado de cache do usuário autenticado no ADAL. js e usá-lo para fornecer o SSO no MSAL. js.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a [sessão de logon único e](active-directory-configurable-token-lifetimes.md) os valores de tempo de vida do token no Azure AD.

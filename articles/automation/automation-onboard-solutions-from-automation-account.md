@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834275"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372966"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -22,7 +22,7 @@ Entre no Azure em https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Habilitar soluções
 
-Navegue até sua conta de Automação e selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO**.
+Navegue até sua conta de automação e selecione **inventário** ou **controle de alterações** em **Gerenciamento de configuração**.
 
 Escolha o espaço de trabalho Log Analytics e a conta de automação e clique em **habilitar** para habilitar a solução. A solução demora até 15 minutos para habilitar.
 
@@ -35,17 +35,17 @@ Escolha o espaço de trabalho Log Analytics e a conta de automação e clique em
 
 A solução de Controle de Alterações e Inventário fornece a capacidade de [acompanhar alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) em suas máquinas virtuais. Nesta etapa, você deve habilitar a solução em uma máquina virtual.
 
-Quando a notificação da integração da solução de inventário e controle de alterações for concluída, clique em **Gerenciamento de Atualizações** sob **GERENCIAMENTO DE CONFIGURAÇÃO**.
+Quando a notificação de integração de solução de inventário e controle de alterações for concluída, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações**.
 
-A solução de Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs do Windows do Azure. Você pode avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito na VM. Esta ação habilitou a solução para a VM.
+A solução Gerenciamento de Atualizações permite que você gerencie atualizações e patches para suas VMs híbridas e do Azure. Você pode avaliar o status das atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados da implantação para verificar se as atualizações foram aplicadas com êxito a elas.
 
-Selecione **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**. O espaço de trabalho Log Analytics selecionado é o mesmo espaço de trabalho usado na etapa anterior. Clique em **Habilitar** para integrar a solução de Gerenciamento de atualizações. A solução demora até 15 minutos para habilitar.
+Na página habilitar solução, o espaço de trabalho Log Analytics selecionado é o mesmo espaço de trabalho usado na etapa anterior. Clique em **habilitar** para carregar a solução de gerenciamento de atualizações. A solução demora até 15 minutos para habilitar.
 
 ![Integrar solução de atualização](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
 ## <a name="scope-configuration"></a>Configuração de Escopo
 
-Cada solução usa uma Configuração de Escopo dentro do workspace para direcionar os computadores que recebem a solução. A Configuração de Escopo é um grupo de uma ou mais pesquisas salvas utilizada para limitar o escopo da solução em computadores específicos. Para acessar as Configurações de Escopo, na sua conta de Automação, em **RECURSOS RELACIONADOS**, selecione **Workspace**. Em seguida, no workspace em **FONTES DE DADOS DO WORKSPACE**, selecione **Configurações de Escopo**.
+Cada solução usa uma Configuração de Escopo dentro do workspace para direcionar os computadores que recebem a solução. A Configuração de Escopo é um grupo de uma ou mais pesquisas salvas utilizada para limitar o escopo da solução em computadores específicos. Para acessar as configurações de escopo, em sua conta de automação em **recursos relacionados**, selecione **espaço de trabalho**. Em seguida, no espaço de trabalho em **fontes de dados do espaço de trabalho**, selecione configurações de **escopo**.
 
 Se o workspace selecionado ainda não tiver as soluções Gerenciamento de atualizações ou Controle de alterações, as seguintes configurações de escopo serão criadas:
 
@@ -72,7 +72,7 @@ Selecione a pesquisa salva para visualizar a consulta usada para preencher o gru
 
 ## <a name="onboard-azure-vms"></a>Integrar VMs do Azure
 
-Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
+Na sua conta de automação, selecione **inventário** ou **controle de alterações** em **Gerenciamento de configuração**ou gerenciamento de **atualizações** em **Gerenciamento de atualizações**.
 
 Clique em **+Adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máquinas virtuais que não podem ser habilitadas ficam esmaecidas e não podem ser selecionadas. As VMs do Azure podem existir em qualquer região, independentemente do local da sua conta de automação. Na página **Habilitar Gerenciamento de Atualizações**, clique em **Habilitar**. Esta ação adiciona as VMs selecionadas à pesquisa salva do grupo de computadores para a solução.
 
@@ -80,13 +80,13 @@ Clique em **+Adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máqu
 
 ## <a name="onboard-a-non-azure-machine"></a>Integrar um computador não Azure
 
-Computadores que não estão no Azure precisam ser adicionados manualmente. Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
+Computadores que não estão no Azure precisam ser adicionados manualmente. Na sua conta de automação, selecione **inventário** ou **controle de alterações** em **Gerenciamento de configuração**ou gerenciamento de **atualizações** em **Gerenciamento de atualizações**.
 
 Clique em **Adicionar computador não Azure**. Esta ação abre uma nova janela do navegador com as instruções [sobre como instalar e configurar o Microsoft Monitoring Agent na máquina](../azure-monitor/platform/log-analytics-agent.md) para que a máquina possa começar a gerar relatórios para a solução. Se você estiver integrando uma máquina que atualmente é gerenciada pelo System Center Operations Manager, um novo agente não é necessário, as informações do workspace são inseridas no agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Integrar computadores no workspace
 
-Máquinas ou máquinas instaladas manualmente que já estão se reportando ao seu workspace devem ser adicionadas ao Automação do Azure para que a solução seja habilitada. Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
+Máquinas ou máquinas instaladas manualmente que já estão se reportando ao seu workspace devem ser adicionadas ao Automação do Azure para que a solução seja habilitada. Na sua conta de automação, selecione **inventário** ou **controle de alterações** em **Gerenciamento de configuração**ou gerenciamento de **atualizações** em **Gerenciamento de atualizações**.
 
 Selecione **Gerenciar computadores**. Esta ação abre a página **Gerenciar Máquinas**. Esta página permite habilitar a solução em um conjunto selecionado de computadores, todos os computadores disponíveis ou habilitar a solução para todos os computadores atuais e habilitá-la em todos os computadores futuros. O botão **Gerenciar máquinas** pode ficar esmaecido se você escolheu anteriormente a opção **Ativar em todas as máquinas disponíveis e futuras**.
 
@@ -104,7 +104,7 @@ Você pode adicionar as configurações de escopo de volta adicionando as pesqui
 
 ### <a name="selected-machines"></a>Computadores selecionados
 
-Para habilitar a solução em um ou mais computadores, selecione **Habilitar nos computadores selecionados** e clique em **adicionar** próximo a cada computador que você quer adicionar à solução. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para a solução.
+Para habilitar a solução para um ou mais computadores, selecione **habilitar em computadores selecionados** e clique em **Adicionar** ao lado de cada computador que você deseja adicionar à solução. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para a solução.
 
 ## <a name="unlink-workspace"></a>Desvincular o workspace
 
@@ -133,15 +133,15 @@ Depois de remover essas soluções, você pode concluir as etapas a seguir para 
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 
-* Atualizar agendas - Cada uma terá nomes que correspondam às implantações de atualizações que você criou)
+* Atualizar agendas-cada uma terá nomes que correspondam às implantações de atualização que você criou.
 
-* Grupos de trabalho híbrido criados para a solução - Cada um receberá um nome semelhante a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Se você usou as VMs Iniciar e Parar durante a solução fora do horário, opcionalmente, talvez queira remover os seguintes itens que não são mais necessários após remover a solução.
 
 * Iniciar e parar agendas de runbook da VM
 * Iniciar e parar runbooks da VM
-* Variáveis
+* variáveis
 
 Como alternativa, você também pode desvincular seu espaço de trabalho de sua conta de automação do seu espaço de trabalho Log Analytics. Em seu espaço de trabalho, selecione **conta de automação** em **recursos relacionados**. Na página conta de automação, selecione **desvincular conta**.
 
@@ -152,7 +152,7 @@ Para remover uma VM do Gerenciamento de Atualizações:
 * No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a Configuração de Escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **Geral** no workspace.
 * Remover o [agente do Microsoft Monitoring](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Continue com os tutoriais sobre as soluções para aprender a utilizá-las.
 

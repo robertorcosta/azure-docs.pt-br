@@ -4,11 +4,11 @@ description: Liste as definições de políticas internas para o Azure Policy. A
 ms.date: 02/15/2020
 ms.topic: sample
 ms.openlocfilehash: 06c913bdccd8b35970a195f6ee658ce7b1d97a7b
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371207"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387297"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições de política interna do Azure Policy
 

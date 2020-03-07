@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637826"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381889"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para clonar um volume
 
@@ -81,7 +81,7 @@ Siga as seguintes etapas para criar um clone do seu volume com base no catálogo
       > [!NOTE]
       > Verifique se a capacidade necessária para o clone é menor que a capacidade disponível no dispositivo de destino.
        
-   2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
+   2. Especifique um nome de volume exclusivo para seu clone. O nome deve conter entre 3 e 127 caracteres.
       
        > [!NOTE]
        > O campo **Clonar Volume Como** será colocado **Em Camadas** mesmo que você esteja clonando um volume localmente afixado. Não é possível alterar esta configuração, no entanto, caso precise que o volume clonado também seja fixado localmente, você pode converter o clone para um volume fixado localmente após a criação com êxito do clone. Para obter informações sobre como converter um volume em camadas para um volume fixado localmente, vá para [Alterar o tipo de volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
@@ -117,7 +117,7 @@ Você precisa recuperar um arquivo de apresentação do Microsoft PowerPoint com
 ### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testando no ambiente de produção com um clone permanente
 Você precisa verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção e, em seguida, faz um instantâneo de nuvem desse clone para criar um volume clonado independente. Nesse cenário, é usado um clone permanente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-8000-restore-from-backup-set-u2.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

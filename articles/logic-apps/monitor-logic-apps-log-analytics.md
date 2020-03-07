@@ -7,11 +7,11 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426319"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381902"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure
 
@@ -21,7 +21,7 @@ Para configurar o registro em log para seu aplicativo lógico, você pode [habil
 
 Este artigo mostra como habilitar Log Analytics quando você cria aplicativos lógicos, como instalar e configurar a solução de gerenciamento de aplicativos lógicos e como configurar e criar consultas para logs de Azure Monitor.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de começar, você precisa de um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Se você não tiver um espaço de trabalho, saiba [como criar um log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -176,7 +176,7 @@ Depois que o aplicativo lógico for executado, você poderá exibir os dados sob
 
 Juntamente com os logs de Azure Monitor, você pode estender como usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo:
 
-* [Arquivar logs de recursos do Azure para a conta de armazenamento](../azure-monitor/platform/resource-logs-collect-storage.md)
+* [Arquivar logs de recursos do Azure na conta de armazenamento](../azure-monitor/platform/resource-logs-collect-storage.md)
 * [Transmitir logs da plataforma Azure para os hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/platform/powerbi.md). Por exemplo:
@@ -279,7 +279,7 @@ Este exemplo mostra como o evento de `ActionCompleted` inclui os atributos `clie
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Criar consultas de monitoramento e acompanhamento](../logic-apps/create-monitoring-tracking-queries.md)
 * [Monitorar mensagens B2B com logs de Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)

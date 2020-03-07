@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384980"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385071"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Idiomas e regiões compatíveis com a API de Pesquisa de Notícias do Bing
 
@@ -31,12 +31,12 @@ Para o ponto de extremidade `/news/search`, a tabela a seguir lista os valores d
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Linguagem|Código de mercado|  
+|País/região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Áustria|Alemão|de-AT|
 |Suíça|Alemão|de-CH|
-|Alemanha|Alemão|de-DE|
+|Germany|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
 |Canadá|Inglês|en-CA|
 |Reino Unido|Inglês|en-GB|
@@ -47,22 +47,22 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 |Nova Zelândia|Inglês|en-NZ|
 |República das Filipinas|Inglês|en-PH|
 |Singapura|Inglês|en-SG|
-|Estados Unidos|Inglês|en-US|
-|Inglês|geral|en-WW|
-|Inglês|geral|en-XA|
+|Estados Unidos|Inglês|pt-BR|
+|Inglês|gerais|en-WW|
+|Inglês|gerais|en-XA|
 |África do Sul|Inglês|en-ZA|
 |Argentina|Espanhol|es-AR|
 |Chile|Espanhol|es-CL|
 |Espanha|Espanhol|es-ES|
 |México|Espanhol|es-MX|
 |Estados Unidos|Espanhol|es-US|
-|Espanhol|geral|es-XL|
+|Espanhol|gerais|es-XL|
 |Finlândia|Finlandês|fi-FI|  
-|França|Francês|fr-BE|
+|France|Francês|fr-BE|
 |Canadá|Francês|fr-CA|
 |Bélgica|Holandês|nl-BE|
 |Suíça|Francês|fr-CH|
-|França|Francês|fr-FR|  
+|France|Francês|fr-FR|  
 |Itália|Italiano|it-IT|
 |RAE de Hong Kong|Chinês tradicional|zh-HK|  
 |Taiwan|Chinês tradicional|zh-TW|
@@ -80,20 +80,20 @@ Para o ponto de extremidade `/news`, a tabela a seguir lista os valores de códi
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Linguagem|Código de mercado|  
+|País/região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
-|Alemanha|Alemão|de-DE|
+|Germany|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|en-US|
-|Inglês|geral|en-WW|
+|Estados Unidos|Inglês|pt-BR|
+|Inglês|gerais|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
 |Estados Unidos|Espanhol|es-US|
 |Finlândia|Finlandês|fi-FI|  
 |Canadá|Francês|fr-CA|
-|França|Francês|fr-FR|  
+|France|Francês|fr-FR|  
 |Itália|Italiano|it-IT|
 |Brasil|Português|pt-BR|
 |República Popular da China|Chinês|zh-CN|
@@ -103,15 +103,15 @@ Para o ponto de extremidade `/news/trendingtopics`, a tabela a seguir lista os v
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Linguagem|Código de mercado|  
+|País/região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
-|Alemanha|Alemão|de-DE|
+|Germany|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|en-US|
+|Estados Unidos|Inglês|pt-BR|
 |Canadá|Inglês|en-CA|
 |Índia|Inglês|en-IN|
-|França|Francês|fr-FR|
+|France|Francês|fr-FR|
 |Canadá|Francês|fr-CA|
 |Brasil|Português|pt-BR|
 |República Popular da China|Chinês|zh-CN|
@@ -122,7 +122,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 
 A seguir, são apresentados os códigos de país/região que podem ser especificados no parâmetro de consulta `cc`. A lista está sujeita a alterações.  
 
-|País/Região|Código do país|  
+|País/região|Código do País|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Austrália|AU|  
@@ -133,8 +133,8 @@ A seguir, são apresentados os códigos de país/região que podem ser especific
 |Chile|CL|  
 |Dinamarca|DK|  
 |Finlândia|FI|  
-|França|FR|  
-|Alemanha|DE|  
+|France|FR|  
+|Germany|DE|  
 |RAE de Hong Kong|HK|  
 |Índia|IN|  
 |Indonésia|ID|  
@@ -145,7 +145,7 @@ A seguir, são apresentados os códigos de país/região que podem ser especific
 |México|MX|  
 |Países Baixos|NL|  
 |Nova Zelândia|NZ|  
-|Noruega|NÃO|  
+|Noruega|Não|  
 |República Popular da China|CN|  
 |Polônia|PL|  
 |Portugal|PT|  
@@ -159,7 +159,7 @@ A seguir, são apresentados os códigos de país/região que podem ser especific
 |Taiwan|TW|  
 |Turquia|TR|  
 |Reino Unido|GB|  
-|Estados Unidos|EUA|
+|Estados Unidos|US|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Notícias v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

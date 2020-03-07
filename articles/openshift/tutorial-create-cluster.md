@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
 ms.openlocfilehash: 0e6aecccc19572ee980feb4d816fae1f2b0101b7
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274900"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381470"
 ---
-# <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift no Azure
+# <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: criar um cluster do Azure Red Hat OpenShift
 
 Este tutorial é a primeira parte de uma série. Você aprenderá a criar um cluster do Red Hat OpenShift no Microsoft Azure usando a CLI do Azure, dimensioná-lo e, em seguida, excluí-lo para limpar os recursos.
 
@@ -28,7 +28,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Dimensionar um cluster do Red Hat OpenShift no Azure](tutorial-scale-cluster.md)
 > * [Excluir um cluster do Red Hat OpenShift no Azure](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 > [!IMPORTANT]
 > Este tutorial exige a CLI do Azure versão 2.0.65 ou posterior.
@@ -42,7 +42,7 @@ Certifique-se de [configurar o ambiente de desenvolvimento](howto-setup-environm
 - Criação de um grupo de segurança
 - Como criar um usuário do Active Directory para entrar no cluster.
 
-## <a name="step-1-sign-in-to-azure"></a>Etapa 1: Entrar no Azure
+## <a name="step-1-sign-in-to-azure"></a>Etapa 1: entrar no Azure
 
 Se você estiver executando a CLI do Azure localmente, abra um shell de comando de Bash e execute `az login` para entrar no Azure.
 
@@ -52,7 +52,7 @@ az login
 
  Caso tenha acesso a várias assinaturas, execute `az account set -s {subscription ID}` substituindo `{subscription ID}` pela assinatura que você deseja usar.
 
-## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Etapa 2: Criar um cluster do Red Hat OpenShift no Azure
+## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Etapa 2: criar um cluster do Azure Red Hat OpenShift
 
 Na janela Comando do Bash, defina as variáveis a seguir:
 
@@ -99,7 +99,7 @@ Crie um grupo de recursos para o cluster. Execute o seguinte comando no mesmo sh
 az group create --name $CLUSTER_NAME --location $LOCATION
 ```
 
-### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Opcional: Conectar a rede virtual do cluster a uma rede virtual existente
+### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Opcional: conectar a rede virtual do cluster a uma rede virtual existente
 
 Se você não precisar conectar a VNET (rede virtual) do cluster criado a uma VNET existente por meio do emparelhamento, ignore esta etapa.
 
@@ -119,7 +119,7 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 Por exemplo: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
 
-### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>Opcional: Conectar o cluster ao monitoramento do Azure
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>Opcional: conectar o cluster ao monitoramento do Azure
 
 Primeiro, obtenha o identificador do workspace do log-analytics **existente**. O identificador estará no formato:
 
@@ -180,7 +180,7 @@ Procure o `publicHostName` na saída, por exemplo: `"publicHostname": "openshift
 
 A URL de entrada para seu cluster será `https://`, seguida do valor `publicHostName`.  Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Você usará esse URI na próxima etapa como parte do URI de redirecionamento de registro de aplicativo.
 
-## <a name="step-3-update-your-app-registration-redirect-uri"></a>Etapa 3: Atualizar o URI de redirecionamento de registro de aplicativo
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>Etapa 3: atualizar o URI de redirecionamento de registro do aplicativo
 
 Agora que você tem a URL de entrada para o cluster, defina a interface do usuário de redirecionamento de registro de aplicativo:
 
@@ -190,7 +190,7 @@ Agora que você tem a URL de entrada para o cluster, defina a interface do usuá
 4. Certifique-se de que o **TIPO** é **Web** e defina o **URI DE REDIRECIONAMENTO** usando o seguinte padrão: `https://<public host name>/oauth2callback/Azure%20AD`. Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
 5. Clique em **Salvar**
 
-## <a name="step-4-sign-in-to-the-openshift-console"></a>Etapa 4: Entrar no console do OpenShift
+## <a name="step-4-sign-in-to-the-openshift-console"></a>Etapa 4: entrar no console do OpenShift
 
 Agora você está pronto para entrar no console do OpenShift com o novo cluster. O [Console Web OpenShift ](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) possibilita visualizar, procurar e gerenciar o conteúdo dos projetos do OpenShift.
 
@@ -209,7 +209,7 @@ Agora você está conectado ao console do cluster.
 
  Saiba mais sobre [como usar o console do OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) para criar e compilar imagens na documentação do [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html).
 
-## <a name="step-5-install-the-openshift-cli"></a>Etapa 5: Instalar a CLI do OpenShift
+## <a name="step-5-install-the-openshift-cli"></a>Etapa 5: instalar a CLI do OpenShift
 
 A [CLI do OpenShift](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (ou *Ferramentas de OC*) fornecem comandos para gerenciar os aplicativos e utilitários de nível inferior de modo a interagir com os diversos componentes do cluster do OpenShift.
 
@@ -224,7 +224,7 @@ A página **Ferramentas da Linha de Comando** fornece um comando do formato `oc 
 
 Se não foi possível obter o valor do token usando as etapas acima, obtenha o valor do token de: `https://<your cluster name>.<azure region>.cloudapp.azure.com/oauth/token/request`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Nesta parte do tutorial, você aprendeu a:
 

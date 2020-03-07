@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217451"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397235"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver o Azure Functions com os Serviços de Mídia
 
@@ -46,13 +46,13 @@ Ao desenvolver funções dos Serviços de Mídia, é útil adicionar variáveis 
 
 A função, definida neste artigo, pressupõe que você tenha as seguintes variáveis de ambiente nas configurações do aplicativo:
 
-**AMSAADTenantDomain**: Ponto de extremidade do locatário do Azure AD. Para obter mais informações sobre como se conectar à API do AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
+**AMSAADTenantDomain**: ponto de extremidade de locatário do Microsoft Azure AD. Para obter mais informações sobre como se conectar à API do AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
 
-**AMSRESTAPIEndpoint**:  URI que representa o ponto de extremidade da API REST. 
+**AMSRESTAPIEndpoint**: URI que representa o ponto de extremidade da API REST. 
 
-**AMSClientId**: ID do cliente do aplicativo do Azure AD.
+**AMSClientId**: ID do cliente do aplicativo do Microsoft Azure AD.
 
-**AMSClientSecret**: Segredo do cliente do aplicativo do Azure AD.
+**AMSClientSecret**: segredo do cliente do aplicativo do Azure AD.
 
 **StorageConnection**: conexão de armazenamento da conta associada à conta dos Serviços de Mídia. Esse valor é usado no arquivo **function.json** e no arquivo **run.csx** (descritos abaixo).
 
@@ -135,7 +135,7 @@ O exemplo definido nesta seção demonstra
 
 No cenário da vida real, provavelmente, você desejará acompanhar o andamento do trabalho e, em seguida, publicar o ativo codificado. Para obter mais informações, consulte [Usar o Azure WebHooks para monitorar notificações de trabalho dos Serviços de Mídia](media-services-dotnet-check-job-progress-with-webhooks.md). Para obter mais exemplos, consulte [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Substitua o conteúdo do arquivo run.csx pelo código a seguir: Depois de definir a função, clique em **Salvar e Executar**.
+Substitua o conteúdo do arquivo run.csx existente pelo seguinte código: depois de ter definindo sua função, clique em **Salvar e executar**.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
