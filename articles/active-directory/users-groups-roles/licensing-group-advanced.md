@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74025959"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376991"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos com o uso de grupos para gerenciar o licenciamento no Azure Active Directory
 
@@ -169,7 +169,7 @@ Quando uma licença for alterada em um grupo, o Azure AD começará a aplicar as
 
 2. Da mesma forma, para ver quando os grupos concluíram o processamento, use o valor de filtro *Concluir a aplicação de licença baseada em grupo aos usuários*.
    > [!TIP]
-   > Nesse caso, o campo *Propriedades Modificadas* contém um resumo dos resultados – isso é útil para verificar rapidamente se o processamento resultou em erros. Resultado de exemplo:
+   > Nesse caso, o campo *Propriedades Modificadas* contém um resumo dos resultados – isso é útil para verificar rapidamente se o processamento resultou em erros. Saída de exemplo:
    > ```
    > Modified Properties
    > ...

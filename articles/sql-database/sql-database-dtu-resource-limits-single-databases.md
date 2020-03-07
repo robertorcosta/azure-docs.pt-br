@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75637585"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359905"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de DTU
 
@@ -38,7 +38,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Número máximo de DTUs | 5 |
 | Armazenamento incluído (GB) | 2 |
 | Opções de espaço de armazenamento máximo (GB) | 2 |
-| Armazenamento máximo OLTP na memória (GB) |N/D |
+| Armazenamento máximo OLTP na memória (GB) |{1&gt;N/A&lt;1} |
 | Máximo de trabalhos simultâneos (solicitações) | 30 |
 | Máximo de sessões simultâneas | 300 |
 |||
@@ -56,7 +56,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Número máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |
+| Armazenamento máximo OLTP na memória (GB) | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} |
 | Máximo de trabalhos simultâneos (solicitações)| 60 | 90 | 120 | 200 |
 | Máximo de sessões simultâneas |600 | 900 | 1200 | 2400 |
 ||||||
@@ -74,7 +74,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 | Número máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Armazenamento máximo OLTP na memória (GB) | N/D | N/D | N/D | N/D |N/D |
+| Armazenamento máximo OLTP na memória (GB) | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} |{1&gt;N/A&lt;1} |
 | Máximo de trabalhos simultâneos (solicitações)| 400 | 800 | 1600 | 3200 |6000 |
 | Máximo de sessões simultâneas |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
@@ -83,7 +83,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 
 | **Tamanho da computação** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
-| Número máximo de DTUs | 125 | 250 | 500 | 1\.000 | 1750 | 4000 |
+| Número máximo de DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
 | Armazenamento incluído (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
 | Opções de espaço de armazenamento máximo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
 | Armazenamento máximo OLTP na memória (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
@@ -98,7 +98,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 > [!NOTE]
 > Para limites de `tempdb`, consulte [limites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para limites de recursos vCore para um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compra vCore](sql-database-vcore-resource-limits-single-databases.md)
 - Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra vCore](sql-database-vcore-resource-limits-elastic-pools.md)

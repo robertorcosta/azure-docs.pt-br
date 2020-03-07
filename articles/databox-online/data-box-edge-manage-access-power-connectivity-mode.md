@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 7ce4b9dda853e63e427757317abc2f7c878ba3a4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253150"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384700"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gerenciar o acesso, a energia e o modo de conectividade para seu Azure Data Box Edge
 
 Este artigo descreve como gerenciar o acesso, a energia e o modo de conectividade para seu Azure Data Box Edge. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Gerenciar o acesso de dispositivo
@@ -66,7 +66,7 @@ Ao gerar a chave de ativação para o dispositivo Data Box Edge ou executar qual
 -  Criando um compartilhamento com uma conta de armazenamento associada.
 -  Criar um usuário que pode acessar os compartilhamentos no dispositivo.
 
-Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de `Read all directory objects`fazer isso. Você não pode ser um usuário convidado, pois não tem permissões `Read all directory objects`para. Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento em seu Data Box Edge dispositivo, a criação de um usuário, a configuração da função de computação de borda, falharão ao redefinir a senha do dispositivo.
+Você deve ter um acesso `User` no locatário Active Directory, pois precisa ser capaz de `Read all directory objects`. Você não pode ser um usuário convidado, pois não tem permissões para `Read all directory objects`. Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento em seu Data Box Edge dispositivo, a criação de um usuário, a configuração da função de computação de borda, falharão ao redefinir a senha do dispositivo.
 
 Para obter mais informações sobre como fornecer acesso a usuários para Azure Active Directory API do Graph, consulte [acesso padrão para administradores, usuários e usuários convidados](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -80,7 +80,7 @@ Você não precisa conceder permissões de acesso ao nível de assinatura para q
 
 Antes de tentar criar qualquer recurso, verifique se o provedor de recursos está registrado na assinatura. Se o provedor de recursos não estiver registrado, você precisará certificar-se de que o usuário que está criando o novo recurso tenha direitos suficientes para registrar o provedor de recursos necessário no nível de assinatura. Se você ainda não fez isso, verá o seguinte erro:
 
-*O nome \<da assinatura de assinatura > não tem permissões para registrar o (s) provedor (es) de recursos: Microsoft.DataBoxEdge.*
+*A assinatura \<nome da assinatura > não tem permissões para registrar o (s) provedor (es) de recursos: Microsoft. DataBoxEdge.*
 
 
 Para obter uma lista de provedores de recursos registrados na assinatura atual, execute o seguinte comando:
@@ -89,7 +89,7 @@ Para obter uma lista de provedores de recursos registrados na assinatura atual, 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para data Box Edge dispositivo, `Microsoft.DataBoxEdge` deve ser registrado. Para se `Microsoft.DataBoxEdge`registrar, o administrador de assinatura deve executar o seguinte comando:
+Para Data Box Edge dispositivo, `Microsoft.DataBoxEdge` deve ser registrado. Para registrar `Microsoft.DataBoxEdge`, o administrador da assinatura deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

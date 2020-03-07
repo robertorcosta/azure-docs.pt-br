@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086646"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387207"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
 
@@ -23,7 +23,7 @@ Este artigo orienta todas as etapas necessárias para publicar e assinar eventos
 > [!NOTE]
 > Para saber mais sobre os tópicos e as assinaturas da grade de eventos do Azure, consulte [conceitos da grade de eventos](concepts.md).
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1} 
 Para concluir este tutorial, você precisará de:
 
 * **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
@@ -281,7 +281,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 * Exclua o módulo de assinante do seu dispositivo IoT Edge.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Neste tutorial, você criou um tópico de grade de eventos, uma assinatura e eventos publicados. Agora que você conhece as etapas básicas, consulte os seguintes artigos: 
 
 - Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).

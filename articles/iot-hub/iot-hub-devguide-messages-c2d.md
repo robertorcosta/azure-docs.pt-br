@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921021"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379803"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -84,7 +84,7 @@ Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de coment
 
 Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 
-| Propriedade     | Descrição |
+| Propriedade     | DESCRIÇÃO |
 | ------------ | ----------- |
 | EnqueuedTime | Um carimbo de data/hora que indica quando a mensagem de comentário foi recebida pelo Hub |
 | UserId       | `{iot hub name}` |
@@ -92,12 +92,12 @@ Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o H
 
 O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 
-| Propriedade           | Descrição |
+| Propriedade           | DESCRIÇÃO |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Um carimbo de data/hora que indica quando o resultado da mensagem ocorreu (por exemplo, o Hub recebeu a mensagem de comentário ou a mensagem original expirou) |
 | OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
 | StatusCode         | Uma cadeia de caracteres necessária, usada em mensagens de comentários que são geradas pelo Hub IoT: <br/> *Êxito* <br/> *Vencer* <br/> *DeliveryCountExceeded* <br/> *Recusa* <br/> *Limpos* |
-| Descrição        | Valores de cadeia de caracteres para *StatusCode* |
+| DESCRIÇÃO        | Valores de cadeia de caracteres para *StatusCode* |
 | deviceId           | A *DeviceID* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 | DeviceGenerationId | O *DeviceGenerationId* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 
@@ -132,7 +132,7 @@ Você pode resolver esse comportamento aguardando um período de tempo para que 
 
 Cada Hub IoT expõe as seguintes opções de configuração para mensagens de nuvem para o dispositivo:
 
-| Propriedade                  | Descrição | Intervalo e padrão |
+| Propriedade                  | DESCRIÇÃO | Intervalo e padrão |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); padrão: 1 hora |
 | maxDeliveryCount          | Contagem máxima de entregas para filas de nuvem para dispositivo por dispositivo | 1 a 100; padrão: 10 |
@@ -165,7 +165,7 @@ Você pode definir as opções de configuração de uma das seguintes maneiras:
         --set properties.cloudToDevice.feedback.lockDurationAsIso8601=PT0H1M0S
     ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre os SDKs que você pode usar para receber mensagens da nuvem para o dispositivo, consulte [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).
 

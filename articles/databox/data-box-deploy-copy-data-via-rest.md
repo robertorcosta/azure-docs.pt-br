@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar APIs REST para copiar para o Armazenamento de Blobs'
+title: 'Tutorial: usar as APIs REST para copiar para o armazenamento de BLOBs'
 titleSuffix: Azure Data Box
 description: Saiba como copiar dados para o Armazenamento de Blobs do Azure Data Box por meio de APIs REST
 services: databox
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
 ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471832"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380166"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o Armazenamento de Blobs do Azure Data Box por meio de APIs REST  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: copiar dados para Azure Data Box armazenamento de BLOBs por meio de APIs REST  
 
 Este tutorial descreve os procedimentos usados para se conectar ao Armazenamento de Blobs do Azure Data Box por meio de APIs REST via *HTTP* ou *HTTPS*. Após a conexão, as etapas necessárias para copiar os dados para o Armazenamento de Blobs do Data Box e preparar o Data Box para envio também são descritas.
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
+1. Você concluiu o [tutorial: configurar Azure data Box](data-box-deploy-set-up.md).
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**.
 3. Você examinou os [requisitos do sistema para o Armazenamento de Blobs do Data Box](data-box-system-requirements-rest.md) e está familiarizado com as versões compatíveis de APIs, SDKs e ferramentas.
 4. Você tem acesso a um computador host contendo os dados que deseja copiar para o Data Box. O computador host deve

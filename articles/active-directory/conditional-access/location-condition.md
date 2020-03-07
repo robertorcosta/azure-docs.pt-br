@@ -13,11 +13,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 915675af1e646f2cb77e36c0018ed372ff9496fc
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380292"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377589"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual é a condição de local em Azure Active Directory acesso condicional? 
 
@@ -68,7 +68,7 @@ A política de acesso condicional se aplica ao tráfego IPv4 e IPv6. Atualmente,
 
 Se uma política estiver configurada para ser aplicada a "qualquer local", ela será aplicada ao tráfego IPv4 e IPv6. Os locais nomeados configurados para países e regiões especificados só dão suporte a endereços IPv4. O tráfego IPv6 só será incluído se a opção "incluir áreas desconhecidas" estiver selecionada.
 
-## <a name="trusted-ips"></a>IPs Confiáveis
+## <a name="trusted-ips"></a>IPs confiáveis
 
 Você também pode configurar intervalos de endereços IP que representam a Intranet local da sua organização nas [configurações do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esse recurso permite que você configure até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, consulte [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 

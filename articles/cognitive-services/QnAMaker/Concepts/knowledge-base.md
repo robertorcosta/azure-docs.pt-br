@@ -4,13 +4,13 @@ description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843334"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389160"
 ---
-# <a name="importing-from-data-sources"></a>Importando de fontes de dados
+# <a name="importing-from-data-sources"></a>Importar de fontes de dados
 
 Uma base de dados de conhecimento consiste em conjuntos de perguntas e respostas trazidos por arquivos e URLs públicos.
 
@@ -58,7 +58,7 @@ O **displayOrder** é numérico e o **exibirtexto** é texto que não deve inclu
 
 Se você não tiver certeza de como representar o conjunto de QnA no arquivo de `.tsv`, crie o conjunto no portal de QnA Maker, salve e, em seguida, exporte a base de dados de conhecimento para obter um exemplo de como representar o conjunto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Ciclo de vida de desenvolvimento de uma base de dados de conhecimento](./development-lifecycle-knowledge-base.md)

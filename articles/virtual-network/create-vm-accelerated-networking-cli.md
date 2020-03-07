@@ -17,11 +17,11 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793326"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363479"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual Linux com rede acelerada usando o CLI do Azure
 
@@ -40,7 +40,7 @@ Os benefícios da rede acelerada aplicam-se somente à VM em que ela está habil
 * **Tremulação reduzida:** processamento de comutador virtual depende da quantidade de política que precisa ser aplicada e da carga de trabalho da CPU que está fazendo o processamento. O descarregamento da imposição de política para o hardware remove essa variabilidade ao entregar pacotes diretamente à VM, removendo a comunicação do host para a VM e todas as interrupções e mudanças de contexto de software.
 * **Menor utilização da CPU:** ignorar o comutador virtual no host resulta em menor utilização da CPU para processar o tráfego de rede.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 As seguintes distribuições têm suporte imediato da Galeria do Azure: 
 * **Ubuntu 14, 4 com o kernel Linux-Azure**
 * **Ubuntu 16, 4 ou posterior** 
@@ -85,7 +85,7 @@ Embora este artigo forneça etapas para criar uma máquina virtual com a rede ac
 Depois que a máquina virtual for criada, você poderá confirmar se a rede acelerada está habilitada seguindo as instruções em [confirmar se a rede acelerada está habilitada](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="cli-creation"></a>Criação de CLI
-### <a name="create-a-virtual-network"></a>Crie uma rede virtual
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Instale a [CLI do Azure](/cli/azure/install-azure-cli) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index). Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *myNic* e *myVm*.
 

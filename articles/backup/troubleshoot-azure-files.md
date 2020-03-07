@@ -4,11 +4,11 @@ description: Este artigo tem informações sobre a solução de problemas que oc
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293939"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382537"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solucionar problemas do backup de Compartilhamentos de Arquivos do Azure
 
@@ -25,7 +25,7 @@ O backup para compartilhamentos de Arquivos do Azure está em versão prévia. H
 - Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
 - Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivos e, portanto, perderá todos os pontos de restauração
 
-O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está disponível apenas no Centro dos EUA (CUS), Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Europa Setentrional (NE), Sudeste Asiático (SEA), Europa Ocidental (WE) e Oeste dos EUA 2 (WUS2).
+O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está disponível apenas no EUA Central (CUS), Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Norte da Europa (NE), Sudeste Asiático (SEA), Europa Ocidental (WE) e Oeste dos EUA 2 (WUS2).
 
 ## <a name="configuring-backup"></a>Configurar o backup
 
@@ -65,7 +65,7 @@ A tabela abaixo serve para configurar o backup:
 | Outra operação de configuração de proteção está em andamento para esse item. | Aguarde a conclusão da operação anterior de modificação da política e tente novamente após alguns instantes.|
 | Outra operação está em andamento no item selecionado. | Aguarde a conclusão da outra operação em andamento e tente novamente após alguns instantes |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o backup de compartilhamentos de arquivos do Azure, confira:
 

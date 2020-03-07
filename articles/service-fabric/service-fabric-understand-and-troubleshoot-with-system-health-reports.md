@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370368"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364948"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -48,7 +48,7 @@ O relatório especifica o tempo limite de concessão global como a TTL (vida út
 * **Propriedade**: começa com **Vizinhança** e inclui informações sobre o nó.
 * **Próximas etapas**: investigue o motivo da perda da vizinhança. Por exemplo, verifique a comunicação entre os nós do cluster.
 
-### <a name="rebuild"></a>Recriação
+### <a name="rebuild"></a>Recriar
 
 O serviço FM (Gerenciador de Failover) gerencia as informações sobre os nós de cluster. Quando o FM perde os dados e entra na perda de dados, ele não pode garantir que tem as informações mais atualizadas sobre os nós de cluster. Nesse caso, o sistema passa por uma recompilação e o System.FM coleta dados de todos os nós no cluster para recompilar o estado. Às vezes, devido a questões de rede ou nó, a recompilação pode ficar atrasada ou paralisada. O mesmo pode acontecer com o serviço FMM (Failover Manager Master). O FMM é um serviço de sistema sem estado que controla onde todos os FMs estão no cluster. O primário do FMM é sempre o nó com a ID mais próxima de 0. Se esse nó for removido, uma recompilação será disparada.
 Quando uma das condições anteriores ocorre, o **System.FM** ou **System.FMM** sinaliza um relatório de erros. A recompilação pode ficar paralisada em uma das duas fases:
@@ -872,7 +872,7 @@ System.Hosting relata um aviso se as capacidades de nó não estiverem definidas
 * **Propriedade**: **ResourceGovernance**.
 * **Próximas etapas**: a melhor maneira de resolver esse problema é alterar o manifesto do cluster para habilitar a detecção automática de recursos disponíveis. Outra maneira é atualizar o manifesto do cluster com as capacidades do nó especificadas corretamente para essas métricas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 * [Como relatar e verificar a integridade do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

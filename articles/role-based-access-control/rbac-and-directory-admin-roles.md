@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
 ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916516"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376848"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador da assinatura clássica, funções do Azure RBAC e funções de administrador do Azure AD
 
@@ -31,7 +31,7 @@ Se você for novo no Azure, poderá ter alguma dificuldade em entender todas as 
 
 ## <a name="how-the-roles-are-related"></a>Como as funções estão relacionadas
 
-Para entender melhor as funções no Azure, é bom conhecer sua história. Quando o Azure foi lançado inicialmente, o acesso aos recursos era gerenciado com apenas três funções de administrador: Administrador da conta, administrador de serviços e coadministrador. Posteriormente, o RBAC (controle de acesso baseado em função) foi adicionado para recursos do Azure. O Azure RBAC é um sistema de autorização mais recente que fornece gerenciamento de acesso refinado para recursos do Azure. O RBAC inclui muitas funções internas, pode ser atribuído em escopos diferentes e permite que você crie suas próprias funções personalizadas. Para gerenciar recursos no Azure AD, como usuários, grupos e domínios, há várias funções de administrador do Azure AD.
+Para entender melhor as funções no Azure, é bom conhecer sua história. Quando o Azure foi lançado inicialmente, o acesso aos recursos era gerenciado por apenas três funções de administrador: administrador da conta, administrador de serviços e coadministrador. Posteriormente, o RBAC (controle de acesso baseado em função) foi adicionado para recursos do Azure. O Azure RBAC é um sistema de autorização mais recente que fornece gerenciamento de acesso refinado para recursos do Azure. O RBAC inclui muitas funções internas, pode ser atribuído em escopos diferentes e permite que você crie suas próprias funções personalizadas. Para gerenciar recursos no Azure AD, como usuários, grupos e domínios, há várias funções de administrador do Azure AD.
 
 O diagrama a seguir é uma visão geral de como se relacionam as funções de administrador de assinatura clássico, as funções do Azure RBAC e as funções de administrador do Azure AD.
 

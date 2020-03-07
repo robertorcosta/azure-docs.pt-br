@@ -4,11 +4,11 @@ description: Definir uma linha de comando para substituir o ponto de entrada em 
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533400"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365152"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando em uma instância de contêiner para substituir a operação de linha de comando padrão
 
@@ -26,7 +26,7 @@ Como definir [variáveis de ambiente](container-instances-environment-variables.
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
   |Alpine     |   `/bin/sh`      |
-  |Windows     |    `cmd`     |
+  |Portal     |    `cmd`     |
 
   Siga as convenções do Shell para combinar vários comandos a serem executados em sequência.
 
@@ -52,7 +52,7 @@ A sintaxe da linha de comando varia dependendo da API do Azure ou da ferramenta 
 
 ### <a name="examples"></a>Exemplos
 
-|    |  Azure CLI   | Portal | Modelo | 
+|    |  CLI do Azure   | Portal | Modelo | 
 | ---- | ---- | --- | --- |
 | Comando único | `--command-line "python myscript.py arg1 arg2"` | **Substituição de comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Vários comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Substituição de comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
@@ -110,7 +110,7 @@ Saída:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem se beneficiar de linhas de comando personalizadas em tempo de execução. Para obter mais informações sobre a execução de contêineres baseados em tarefas, consulte [executar tarefas em contêineres com políticas de reinicialização](container-instances-restart-policy.md).
 
