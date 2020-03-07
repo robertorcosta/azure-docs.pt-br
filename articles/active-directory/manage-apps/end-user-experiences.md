@@ -13,11 +13,11 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586046"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377655"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure
 

@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.custom: mvc
 ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845523"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388898"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
@@ -34,7 +34,7 @@ Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMs
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Conclua](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:

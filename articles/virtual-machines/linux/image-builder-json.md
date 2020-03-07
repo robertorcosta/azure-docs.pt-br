@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
 ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191785"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385096"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Versão prévia: criar um modelo do construtor de imagens do Azure 
 
@@ -55,7 +55,7 @@ O `type` é o tipo de recurso, que deve ser `"Microsoft.VirtualMachineImages/ima
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>Local
 
 O local é a região em que a imagem personalizada será criada. Para a visualização do Image Builder, há suporte para as seguintes regiões:
 
@@ -102,7 +102,7 @@ Essa seção opcional pode ser usada para garantir que as dependências sejam co
 
 Para obter mais informações, consulte [definir dependências de recurso](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
-## <a name="identity"></a>Identidade
+## <a name="identity"></a>Identity
 Por padrão, o Image Builder dá suporte ao uso de scripts ou à cópia de arquivos de vários locais, como o GitHub e o armazenamento do Azure. Para usá-los, eles devem ser acessíveis publicamente.
 
 Você também pode usar uma identidade gerenciada atribuída pelo usuário do Azure, definida por você, para permitir que o construtor de imagens acesse o armazenamento do Azure, desde que a identidade tenha recebido um mínimo de ' leitor de dados de blob de armazenamento ' na conta de armazenamento do Azure. Isso significa que você não precisa tornar os blobs de armazenamento acessíveis externamente ou configurar tokens SAS.
@@ -567,7 +567,7 @@ az resource show \
 > [!NOTE]
 > Depois que o VHD tiver sido criado, copie-o para um local diferente, assim que possível. O VHD é armazenado em uma conta de armazenamento no grupo de recursos temporário criado quando o modelo de imagem é enviado para o serviço do construtor de imagem do Azure. Se você excluir o modelo de imagem, o VHD será perdido. 
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Há arquivos. JSON de exemplo para diferentes cenários no [GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder).
  

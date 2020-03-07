@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901507"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392962"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure 
 
@@ -52,7 +52,7 @@ Por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa de codifica�
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Predefinições
-O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
 Os metadados de entrada dos codificadores estão descritos [aqui](media-services-input-metadata-schema.md).
@@ -68,11 +68,11 @@ Para obter informações, veja [Como cortar vídeos usando o Codificador de Míd
 ### <a name="create-overlays"></a>Criar sobreposições
 Para obter informações, veja [Como criar sobreposições usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Consulte
+### <a name="see-also"></a>Consulte também
 [O blog Serviços de Mídia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Fluxo de trabalho do Media Encoder Premium
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 [Apresentando a codificação Premium nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>Como usar
@@ -89,7 +89,7 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
 * [Executar tarefas avançadas de codificação ao personalizar predefinições do Codificador de Mídia Padrão](media-services-custom-mes-presets-with-dotnet.md)
 * [Cotas e limitações](media-services-quotas-and-limitations.md)
 

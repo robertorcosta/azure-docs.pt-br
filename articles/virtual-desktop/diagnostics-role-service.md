@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 ms.openlocfilehash: 9c907052f10fa7d1cfd1ff79e981fdccef874ee5
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367331"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383650"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
@@ -174,7 +174,7 @@ A tabela a seguir lista os erros comuns que seus administradores podem encontrar
 |14|UnexpectedNetworkDisconnect|A conexão com a rede foi descartada. Peça ao usuário para se conectar novamente.|
 |24|ReverseConnectFailed|A máquina virtual do host não tem uma linha de visão direta para o gateway de área de trabalho remota. Verifique se o endereço IP do gateway pode ser resolvido.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre as funções na área de trabalho virtual do Windows, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
 

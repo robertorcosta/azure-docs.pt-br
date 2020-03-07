@@ -10,11 +10,11 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: f0367a195ca0aa5f26ff0819b00c50fabae1d271
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505836"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359661"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análise espacial de IoT usando o Azure Mapas
 
@@ -83,7 +83,7 @@ A figura a seguir representa a área de cerca geográfica realçada em azul. A r
   ![Rota de delimitação geográfica](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

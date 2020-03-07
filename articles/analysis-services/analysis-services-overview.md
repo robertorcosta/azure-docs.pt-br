@@ -8,11 +8,11 @@ ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272947"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375103"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -22,13 +22,13 @@ O Azure Analysis Services é uma PaaS (plataforma como serviço) totalmente gere
 
 ![Fontes de dados](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Vídeo:** Confira a [Visão geral do Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para saber como o Azure Analysis Services ajusta-se nos recursos gerais de BI da Microsoft.
+**Vídeo:** fazer check-out [Visão geral do Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para saber como o Azure Analysis Services ajusta-se nos recursos gerais de BI da Microsoft.
 
 ## <a name="get-up-and-running-quickly"></a>Entre rapidamente em funcionamento
 
 No Portal do Azure, você pode [criar um servidor](analysis-services-create-server.md) em questão de minutos. E com os [modelos](../azure-resource-manager/resource-manager-create-first-template.md) do Azure Resource Manager e PowerShell, você pode criar servidores usando um modelo declarativo. Com um único modelo, é possível implantar recursos do servidor junto com outros componentes do Azure, como contas de armazenamento e Azure Functions. 
 
-**Vídeo:** Confira [Automatizar implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como é possível usar a Automação do Azure para acelerar a criação de servidor.
+**Vídeo:** confira [Automatizar implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como é possível utilizar a Automação do Azure para acelerar a criação de servidor.
 
 O Azure Analysis Services integra-se com vários serviços do Azure, permitindo que você crie soluções sofisticadas de análise. A integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) fornece acesso seguro e baseado em função para seus dados críticos. Integre com pipelines do [Azure Data Factory](../data-factory/introduction.md), incluindo uma atividade que carrega dados no modelo. A [Automação do Azure](../automation/automation-intro.md) e o [Azure Functions](../azure-functions/functions-overview.md) podem ser usados para coordenação leve de modelos usando código personalizado. 
 
@@ -84,7 +84,7 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 |Leste dos EUA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Leste dos EUA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Leste dos EUA 2     |     S8, S9, S8v2, S9v2   |    1    |
-|Centro-Norte dos EUA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Centro Norte dos EUA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro dos EUA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Sul dos Estados Unidos     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Oeste dos EUA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
@@ -146,7 +146,7 @@ O modo DirectQuery* aproveita o banco de dados relacional back-end para armazena
 
 Modelos tabulares no Azure Analysis Services dão suporte a uma ampla variedade de fontes de dados, desde arquivos de texto simples até Big Data no Azure Data Lake Store. Para saber mais, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
 
-## <a name="compatibility-level"></a>Nível de Compatibilidade
+## <a name="compatibility-level"></a>Nível de compatibilidade
 
 O nível de compatibilidade refere-se a comportamentos específicos à versão no mecanismo do Analysis Services. O Azure Analysis Services dá suporte a modelos de tabela nos níveis de compatibilidade 1200 e superior. Para saber mais, confira [Nível de compatibilidade para modelos de tabela](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
@@ -165,7 +165,7 @@ O Firewall do Azure Analysis Services bloqueia todas as conexões de clientes qu
 
 A autenticação do usuário é tratada pelo [ AAD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md). Ao fazer logon, os usuários usam uma identidade de conta da organização com acesso baseado em função ao banco de dados. As identidades de usuário devem ser membros do Azure Active Directory padrão para a assinatura em que reside o servidor. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
-### <a name="data-security"></a>Segurança de dados
+### <a name="data-security"></a>Segurança dos dados
 
 O Azure Analysis Services usa o Armazenamento de Blobs do Azure para persistir o armazenamento e os metadados em bancos de dados do Analysis Services. Os arquivos de dados no blob são criptografados usando o [ SSE (Criptografia do Servidor de Blobs) do Azure](../storage/common/storage-service-encryption.md). Ao usar o modo Consulta Direta, apenas os metadados serão armazenados. Os dados reais são acessados por meio de protocolo criptografado da fonte de dados no momento da consulta.
 
@@ -198,7 +198,7 @@ Para saber mais sobre a Segurança do Azure, confira a [Central de Confiabilidad
 
 ![Ferramentas de desenvolvedor BI](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### <a name="visual-studio"></a>Visual Studio
+### <a name="visual-studio"></a>{1&gt;Visual Studio&lt;1}
 
 Desenvolva e implante modelos com o Visual Studio com projetos do Analysis Services. A extensão projetos do Analysis Services inclui modelos e assistentes que o deixa pronto rapidamente. O ambiente de criação de modelos no Visual Studio inclui agora a funcionalidade moderna de mashup e consulta da fonte de dados Get Data para modelos tabulares 1400 e superiores. Se você estiver familiarizado com o Obter Dados no Power BI Desktop e Excel 2016, já sabe como é fácil criar consultas de fonte de dados altamente personalizadas. 
 
@@ -254,13 +254,13 @@ As coisas estão mudando rapidamente. Confira as últimas informações no [Blog
 
 O Analysis Services tem uma comunidade de usuários vibrante. Participe das conversas no [Fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Inscrever-se para um teste gratuito do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md)   
+> [Início rápido: Criar um servidor - Portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)  
+> [Início rápido: Criar um servidor - PowerShell](analysis-services-create-powershell.md)  

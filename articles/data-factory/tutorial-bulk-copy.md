@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 4ab467c0dc5014ec6c8a543fe7e8ecc136dfa02d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439498"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388705"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 
@@ -44,7 +44,7 @@ Nesse cenário, temos um número de tabelas no Banco de Dados SQL do Azure que d
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -109,7 +109,7 @@ Para o Banco de Dados SQL e o SQL Data Warehouse, permita que os serviços do Az
         ```
 
     * Para criar instâncias do Data Factory, você precisa ser um colaborador ou administrador da assinatura do Azure.
-    * Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+    * Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
@@ -117,7 +117,7 @@ Neste tutorial, você cria três serviços vinculados respectivamente para orige
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço vinculado do Banco de Dados SQL do Azure de origem
 
-1. Crie um arquivo JSON chamado **AzureSqlDatabaseLinkedService.json** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: (Crie a pasta ADFv2TutorialBulkCopy caso ela ainda não exista.)
+1. Crie um arquivo JSON chamado **AzureSqlDatabaseLinkedService.json** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: (Crie a pasta ADFv2TutorialBulkCopy se ela ainda não existir.)
 
     > [!IMPORTANT]
     > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;password&gt; pelos valores de seu Banco de Dados SQL do Azure antes de salvar o arquivo.
@@ -136,7 +136,7 @@ Neste tutorial, você cria três serviços vinculados respectivamente para orige
 
 2. No **Azure PowerShell**, mude para a pasta **ADFv2TutorialBulkCopy**.
 
-3. Execute o cmdlet **Set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService**. 
+3. Execute o cmdlet **set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -170,7 +170,7 @@ Neste tutorial, você cria três serviços vinculados respectivamente para orige
     }
     ```
 
-2. Para criar o serviço vinculado: **AzureSqlDWLinkedService**, execute o cmdlet **Set-AzDataFactoryV2LinkedService**.
+2. Para criar o serviço vinculado: **AzureSqlDWLinkedService**, execute o cmdlet **set-AzDataFactoryV2LinkedService** .
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -206,7 +206,7 @@ Neste tutorial, você usa o Armazenamento de Blobs do Azure como uma área de pr
     }
     ```
 
-2. Para criar o serviço vinculado: **AzureStorageLinkedService**, execute o cmdlet **Set-AzDataFactoryV2LinkedService**.
+2. Para criar o serviço vinculado: **AzureStorageLinkedService**, execute o cmdlet **set-AzDataFactoryV2LinkedService** .
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -245,7 +245,7 @@ Neste tutorial você cria os conjuntos de dados de origem e de coletor, que espe
     }
     ```
 
-2. Para criar o conjunto de dados: **AzureSqlDatabaseDataset**, execute o cmdlet **Set-AzDataFactoryV2Dataset**.
+2. Para criar o conjunto de os: **AzureSqlDatabaseDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -263,7 +263,7 @@ Neste tutorial você cria os conjuntos de dados de origem e de coletor, que espe
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Criar um conjunto de dados para o SQL Data Warehouse do Azure de coletor
 
-1. Crie um arquivo JSON chamado **AzureSqlDWDataset.json** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: O "tableName" é definido como um parâmetro; posteriormente, a atividade de cópia que referencia esse conjunto de dados passará o valor real para o conjunto de dados.
+1. Crie um arquivo JSON chamado **AzureSqlDWDataset.json** na pasta **C:\ADFv2TutorialBulkCopy** com o seguinte conteúdo: O "tableName" é definido como um parâmetro e, posteriormente, a atividade de cópia que faz referência a esse conjunto de dados passa o valor real para o conjunto de dados.
 
     ```json
     {
@@ -289,7 +289,7 @@ Neste tutorial você cria os conjuntos de dados de origem e de coletor, que espe
     }
     ```
 
-2. Para criar o conjunto de dados: **AzureSqlDWDataset**, execute o cmdlet **Set-AzDataFactoryV2Dataset**.
+2. Para criar o conjunto de os: **AzureSqlDWDataset**, execute o cmdlet **set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -381,7 +381,7 @@ Esse pipeline usa uma lista de tabelas como um parâmetro. Para cada tabela na l
     }
     ```
 
-2. Para criar o pipeline: **IterateAndCopySQLTables**, execute o cmdlet **Set-AzDataFactoryV2Pipeline**.
+2. Para criar o pipeline: **IterateAndCopySQLTables**, execute o cmdlet **set-AzDataFactoryV2Pipeline** .
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -457,7 +457,7 @@ Esse pipeline realiza duas etapas:
     }
     ```
 
-2. Para criar o pipeline: **GetTableListAndTriggerCopyData**, execute o cmdlet **Set-AzDataFactoryV2Pipeline**.
+2. Para criar o pipeline: **GetTableListAndTriggerCopyData**, execute o cmdlet **set-AzDataFactoryV2Pipeline** .
 
     ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
@@ -573,7 +573,7 @@ Esse pipeline realiza duas etapas:
 
 3. Conecte-se ao SQL Data Warehouse do Azure de coletor e confirme que dados foram corretamente copiados do Banco de Dados SQL do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Neste tutorial, você realizará os seguintes procedimentos: 
 
 > [!div class="checklist"]

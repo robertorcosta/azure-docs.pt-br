@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure'
+title: 'Início rápido: implantar um cluster do serviço kubernetes do Azure'
 description: Saiba como criar rapidamente um cluster do Kubernetes, implantar um aplicativo e monitorar o desempenho no AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure.
 services: container-service
 ms.topic: quickstart
@@ -12,13 +12,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 ms.openlocfilehash: 0317be6652ff5f03c4c095788ecdde7cba3d1d98
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273051"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385496"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure usando a CLI do Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Início rápido: implantar um cluster do serviço kubernetes do Azure usando o CLI do Azure
 
 Neste início rápido, você implanta um cluster do AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure. O AKS é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância do Redis é executado no cluster. Em seguida, você verá como monitorar a integridade do cluster e dos pods que executam seu aplicativo.
 
@@ -257,7 +257,7 @@ Neste início rápido, foram usadas imagens de contêiner pré-criadas para cria
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste início rápido, você implantou um cluster Kubernetes e um aplicativo de com vários contêineres nele. Você também pode [acessar o painel da Web do Kubernetes][kubernetes-dashboard] para seu cluster do AKS.
 

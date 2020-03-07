@@ -7,11 +7,11 @@ ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456653"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359178"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados recorrentes com aplicativos lógicos do Azure
 
@@ -161,7 +161,7 @@ Se você quiser executar seu aplicativo lógico somente de uma vez no futuro, po
 
 Ou, se você puder iniciar seu aplicativo lógico com o gatilho **quando uma solicitação HTTP é recebida-solicitação** e passar a hora de início como um parâmetro para o gatilho. Para a primeira ação, use a ação **atrasar até-agenda** e forneça o tempo para quando a próxima ação começar a ser executada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência](../connectors/connectors-native-recurrence.md)
 * [Criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md)

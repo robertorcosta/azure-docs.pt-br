@@ -3,12 +3,12 @@ title: Recuperar arquivos e pastas do backup de VM do Azure
 description: Neste artigo, saiba como recuperar arquivos e pastas de um ponto de recuperação de máquina virtual do Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660913"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363676"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -65,7 +65,7 @@ Consulte a seção [requisitos de acesso](#access-requirements) para verificar s
 
 #### <a name="for-windows"></a>Para Windows
 
-Quando você executa o arquivo executável, o sistema operacional monta os novos volumes e atribui letras de unidade. Você pode usar o Windows Explorer ou o Explorador de arquivos para procurar essas unidades. As letras de unidade atribuídas aos volumes podem não ser as mesmas letras da máquina virtual original. No entanto, o nome do volume é preservado. Por exemplo, se o volume na máquina virtual original fosse “Disco de Dados (E:`\`)”, esse volume poderia ser anexado no computador local como “Disco de Dados ('Qualquer letra':`\`). Navegue por todos os volumes mencionados na saída do script até encontrar os arquivos ou a pasta.  
+Quando você executa o arquivo executável, o sistema operacional monta os novos volumes e atribui letras de unidade. Você pode usar o Windows Explorer ou o Explorador de arquivos para procurar essas unidades. As letras de unidade atribuídas aos volumes podem não ser as mesmas letras da máquina virtual original. No entanto, o nome do volume é preservado. Por exemplo, se o volume na máquina virtual original era "disco de dados (E:`\`)", esse volume pode ser anexado ao computador local como "disco de dados (' qualquer letra ':`\`). Navegue por todos os volumes mencionados na saída do script até encontrar os arquivos ou a pasta.  
 
    ![Menu de recuperação de arquivo](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -125,7 +125,7 @@ Para listar todos os volumes lógicos, nomes e seus caminhos em um grupo de volu
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command's results>
 ```
 
 Para montar os volumes lógicos no caminho de sua escolha:
@@ -202,10 +202,10 @@ Se você executar o script em um computador com acesso restrito, verifique se h�
 
 - `download.microsoft.com`
 - URLs de serviço de recuperação (geo-name refere-se para a região onde reside o cofre dos serviços de recuperação)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Para as geografias públicas do Azure)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (para o Azure China 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Para Governo dos EUA para Azure)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Para Azure Alemanha)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para as geografias públicas do Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (para o Azure China 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para Governo dos EUA para Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para Azure Alemanha)
 - Portas de saída 53 (DNS), 443, 3260
 
 > [!NOTE]
@@ -257,7 +257,7 @@ Se você tiver problemas durante a recuperação de arquivos de máquinas virtua
 | ------------------------ | -------------- | ------------------ |
 | Saída de exe: *exceção detectada ao conectar ao destino* | O script não é capaz de acessar o ponto de recuperação    | Verifique se o computador atende [aos requisitos de acesso anteriores](#access-requirements). |  
 | Saída de exe: *o destino já foi acessado por meio de uma sessão iSCSI.* | O script já foi executado na mesma máquina e as unidades foram anexadas | Os volumes do ponto de recuperação já foram anexados. Eles NÃO podem ser montados com as mesmas letras de unidade da VM original. Navegue por todos os volumes disponíveis no explorador de arquivos para o arquivo. |
-| Saída de exe: *esse script é inválido porque os discos foram desmontados por meio do portal/excederam o limite de 12 horas. Baixe um novo script do Portal.* |    Os discos foram desmontados do portal ou o limite de 12 horas foi excedido | Esse exe é inválido e não pode ser executado. Se você quiser acessar os arquivos desse ponto de recuperação no tempo, visite o portal para obter um novo exe.|
+| Saída de exe: *esse script é inválido porque os discos foram desmontados por meio do portal/excederam o limite de 12 horas. Baixe um novo script do Portal.* |    Os discos foram desmontados do portal ou o limite de 12 horas foi excedido | Este exe específico agora é inválido e não pode ser executado. Se você quiser acessar os arquivos desse ponto de recuperação no tempo, visite o portal para obter um novo exe.|
 | No computador em que o exe é executado: os novos volumes não são desmontados depois que o botão de desmontagem é clicado | O iniciador iSCSI no computador não está respondendo/atualizando sua conexão com o destino e mantendo o cache. |  Depois de clicar em **Desmontar**, aguarde alguns minutos. Se os novos volumes não forem desmontados, procure todos os volumes. Procurar todos os volumes força o iniciador a atualizar a conexão e o volume é desmontado com uma mensagem de erro informando que o disco não está disponível.|
 | Saída de exe: o script é executado com êxito, mas "novos volumes anexados" não é exibido na saída do script |    Esse é um problema temporário    | Os volumes já estarão anexados. Abra o Explorer para navegar. Se você estiver usando o mesmo computador para executar scripts todas as vezes, considere reiniciar o computador e a lista deverá ser exibida nas execuções subsequentes do exe. |
 | Específico do Linux: não é possível exibir os volumes desejados | O SO da máquina onde o script é executado pode não reconhecer o sistema de arquivos subjacente da VM protegida | Verifique se o ponto de recuperação é consistente com falha ou consistente com o arquivo. Se estiver consistente com o arquivo, execute o script em outra máquina cujo sistema operacional reconheça o sistema de arquivos da VM protegida. |
@@ -295,7 +295,7 @@ Para procurar arquivos e pastas, o script usa o iniciador iSCSI no computador e 
 
 Usamos um mecanismo de autenticação CHAP mútuo para que cada componente autentique o outro. Isso significa que é extremamente difícil para um iniciador falso se conectar ao destino iSCSI e para que um destino falso seja conectado à máquina onde o script é executado.
 
-O fluxo de dados entre o serviço de recuperação e o computador é protegido pela criação de um túnel SSL seguro sobre TCP (o[TLS 1,2 deve ter suporte](#system-requirements) no computador onde o script é executado).
+O fluxo de dados entre o serviço de recuperação e o computador é protegido pela criação de um túnel TLS seguro sobre TCP (o[tls 1,2 deve ter suporte](#system-requirements) no computador onde o script é executado).
 
 Qualquer ACL (lista de controle de acesso) de arquivo presente na VM pai/com backup também é preservada no sistema de arquivos montado.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Adicionar um usuário convidado com o PowerShell – Azure AD'
+title: 'Início rápido: adicionar um usuário convidado com o PowerShell-Azure AD'
 description: Este início rápido ensinará a usar o PowerShell para enviar um convite para um usuário de colaboração do Azure AD B2B.
 services: active-directory
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273366"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377772"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início Rápido: Adicionar um usuário convidado com o PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início rápido: adicionar um usuário convidado com o PowerShell
 
 Existem várias maneiras de convidar parceiros externos para aplicativos e serviços com a colaboração B2B do Azure Active Directory. No início rápido anterior, você aprendeu como adicionar usuários convidados diretamente no portal de administração do Azure Active Directory. Também é possível usar o PowerShell para adicionar usuários convidados, um de cada vez ou em massa. Neste início rápido, você usará o comando New-AzureADMSInvitation para adicionar um usuário convidado ao seu locatário do Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Instalar o módulo AzureADPreview mais recente
 Instale a versão mais recente do módulo do Azure AD PowerShell para Graph (AzureADPreview). 
@@ -95,7 +95,7 @@ Insira suas credenciais quando solicitado.
 
    ![Saída do PowerShell exibindo o usuário convidado adicionado](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 É possível excluir a conta de usuário de teste no diretório quando ela não for mais necessária. Execute o comando a seguir para excluir uma conta de usuário:
 
@@ -105,8 +105,8 @@ Insira suas credenciais quando solicitado.
 Por exemplo: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Neste início rápido, você convidou e adicionou um único usuário convidado ao seu diretório usando o PowerShell. Em seguida, saiba como convidar usuários em massa usando o PowerShell.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Convidar usuários de colaboração B2B do Azure AD em massa](tutorial-bulk-invite.md)
+> [Tutorial: convidar usuários de colaboração do Azure AD B2B em massa](tutorial-bulk-invite.md)

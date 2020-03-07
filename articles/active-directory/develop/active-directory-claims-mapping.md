@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 57a66f73a2c0c37426c23c7274853148fd976ac8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699063"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375800"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -44,7 +44,7 @@ Uma política de mapeamento de declarações é um tipo de objeto de **Política
 
 Há determinados conjuntos de declarações que definem como e quando elas são usadas em tokens.
 
-| Conjunto de declarações | Description |
+| Conjunto de declarações | Descrição |
 |---|---|
 | Conjunto de declarações de núcleo | Estão presentes em todos os tokens, independentemente da política. Essas declarações também são consideradas restritas e não podem ser modificadas. |
 | Conjunto de declarações básicas | Inclui as declarações que são emitidas por padrão para os tokens (além do conjunto de declarações principais). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
@@ -105,7 +105,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | grant_type |
 | grafo |
 | group_sids |
-| de recursos |
+| groups |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -157,9 +157,9 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | refreshtoken |
 | request_nonce |
 | recurso |
-| função |
-| roles |
-| scope |
+| role |
+| funções |
+| escopo |
 | scp |
 | sid |
 | assinatura |
@@ -177,7 +177,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| Nome de Usuário |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,13 +284,13 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
 
-| Origem | ID | Description |
+| Origem | ID | Descrição |
 |-----|-----|-----|
-| Usuário | sobrenome | Nome da família |
+| Usuário | sobrenome | Nome da Família |
 | Usuário | givenname | Nome |
 | Usuário | displayname | Nome de exibição |
 | Usuário | objectid | ObjectID |
-| Usuário | mail | Endereço de Email |
+| Usuário | email | Endereço de Email |
 | Usuário | userprincipalname | Nome UPN |
 | Usuário | department|department|
 | Usuário | onpremisessamaccountname | Nome da conta SAM local |
@@ -299,10 +299,10 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | onpremisesecurityidentifier | Identificador de segurança local |
 | Usuário | companyname| Nome da Organização |
 | Usuário | streetaddress | Endereço |
-| Usuário | postalcode | Código postal |
+| Usuário | postalcode | CEP |
 | Usuário | preferredlanguange | Idioma preferencial |
 | Usuário | onpremisesuserprincipalname | UPN local |
-| Usuário | mailNickname | Apelido de email |
+| Usuário | mailnickname | Apelido de email |
 | Usuário | extensionattribute1 | Atributo de extensão 1 |
 | Usuário | extensionattribute2 | Atributo de extensão 2 |
 | Usuário | extensionattribute3 | Atributo de extensão 3 |
@@ -358,10 +358,10 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
 
-|TransformationMethod|Entrada esperada|Saída esperada|Description|
+|TransformationMethod|Entrada esperada|Saída esperada|Descrição|
 |-----|-----|-----|-----|
 |Join|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver nenhum sinal \@ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
+|ExtractMailPrefix|email|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver nenhum sinal \@ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
 
 **InputClaims:** use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -384,9 +384,9 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
 
-|Origem|ID|Description|
+|Origem|ID|Descrição|
 |-----|-----|-----|
-| Usuário | mail|Endereço de Email|
+| Usuário | email|Endereço de Email|
 | Usuário | userprincipalname|Nome UPN|
 | Usuário | onpremisessamaccountname|Nome da conta SAM local|
 | Usuário | employeeid|ID do funcionário|
@@ -408,14 +408,14 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: Métodos de transformação permitidos para o NameID SAML
 
-| TransformationMethod | Restrições |
+| TransformationMethod | {1&gt;Restrições&lt;1} |
 | ----- | ----- |
 | ExtractMailPrefix | Nenhum |
 | Join | O sufixo que está sendo acrescentado deve ser um domínio verificado do locatário do recurso. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet do Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para seu objeto de aplicativo. Para obter mais informações sobre este cmdlet do Azure PowerShell, clique [aqui](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para seu objeto de aplicativo. Para obter mais informações sobre esse Azure PowerShell cmdlet, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Os aplicativos que têm o mapeamento de declarações habilitado devem validar suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados do OpenID Connect que você deve usar: 
 
@@ -435,7 +435,7 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você é um novo usuário do Azure AD, recomendamos que [aprenda como obter um locatário do Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.
 
@@ -469,7 +469,7 @@ Neste exemplo, você cria uma política que remove o conjunto de declarações b
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço.
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar a API de Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre na sua conta do Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
@@ -493,7 +493,7 @@ Neste exemplo, você cria uma política que adiciona EmployeeID e TenantCountry 
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar a API de Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre na sua conta do Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
@@ -517,7 +517,7 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar a API de Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre na sua conta do Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando: 
      
       ``` powershell
