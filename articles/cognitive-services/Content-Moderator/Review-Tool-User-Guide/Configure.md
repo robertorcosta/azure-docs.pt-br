@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169584"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379042"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a ferramenta de análise
 
@@ -97,7 +97,7 @@ A [ferramenta de revisão](./human-in-the-loop.md) inclui os seguintes conectore
 - Emoção
 - Face
 - Serviço de nuvem PhotoDNA
-- Análises de texto
+- Análise de texto
 
 ### <a name="add-a-connector"></a>Adicionar um conexão
 
@@ -138,6 +138,6 @@ Para usar sua chave do Azure com as APIs de revisão, você precisa recuperar su
 
 Se você tiver inserido sua chave de assinatura em ambos os locais, a chave de avaliação que acompanha a sua conta da ferramenta de revisão não será usada, mas permanecerá disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Siga o guia de [início rápido da ferramenta de revisão](../quick-start.md) para começar a usar a ferramenta de revisão em cenários de moderação de conteúdo.

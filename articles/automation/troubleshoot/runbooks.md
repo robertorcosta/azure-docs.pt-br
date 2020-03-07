@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: b7d876c7f865b8368451ea1b6cc96ade89a59aa8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190952"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373416"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -98,7 +98,7 @@ Você recebe o seguinte erro ao trabalhar com os cmdlets `Select-AzureSubscripti
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Error
 
 Esse erro pode ocorrer se:
 
@@ -648,7 +648,7 @@ Para usar certificados autoassinados, consulte [criando um novo certificado](htt
 * [Como iniciar um Runbook na Automação do Azure](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Execução de runbook na automação do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

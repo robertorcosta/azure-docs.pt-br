@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28d6e5362df9f41822525af0d256cfd99568d6de
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512123"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377079"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios federados
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar ingresso no Azure Active Directory híbrido para domínios federados
 
 Como um usuário na sua organização, um dispositivo é uma identidade importante que você quer proteger. É possível usar uma identidade do dispositivo para proteger seus recursos a qualquer momento e de qualquer local. É possível atingir esse objetivo colocando e gerenciando identidades de dispositivo no Azure Active Directory (Azure AD) seguindo um dos seguintes métodos:
 
@@ -30,8 +30,8 @@ Colocar os dispositivos no Azure AD maximiza a produtividade do usuário por mei
 
 Um ambiente federado deve ter um provedor de identidade que dá suporte aos requisitos a seguir. Se você tem um ambiente federado usando o AD FS (Serviços de Federação do Active Directory), os requisitos abaixo já são compatíveis.
 
-- **Declaração WIAORMULTIAUTHN:** Essa declaração é necessária para fazer o ingresso de dispositivos de nível inferior do Windows no Azure AD híbrido.
-- **Protocolo WS-Trust:** Esse protocolo é um requisito para autenticar os dispositivos atuais do Windows ingressados no Azure AD híbrido com o Azure AD.
+- **Declaração de WIAORMULTIAUTHN:** Essa declaração é necessária para fazer uma junção híbrida do Azure AD para dispositivos de nível inferior do Windows.
+- **Protocolo WS-Trust:** Esse protocolo é necessário para autenticar dispositivos adicionados ao Azure AD híbridos atuais do Windows com o Azure AD.
   Quando você estiver usando o AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust: `/adfs/services/trust/2005/windowstransport`
    `/adfs/services/trust/13/windowstransport`
    `/adfs/services/trust/2005/usernamemixed`
@@ -50,9 +50,9 @@ Você aprenderá como:
 > * Configurar ingresso no Azure AD híbrido
 > * Habilitar dispositivos de nível inferior do Windows
 > * Verificar o registro
-> * Solucionar problemas
+> * Solução de problemas
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Este tutorial presume que você esteja familiarizado com estes artigos:
 
@@ -106,7 +106,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
 1. Inicie o Azure AD Connect e selecione **Configurar**.
 
-   ![Bem-Vindo](./media/hybrid-azuread-join-federated-domains/11.png)
+   ![Bem-vindo](./media/hybrid-azuread-join-federated-domains/11.png)
 
 1. Na página **Tarefas adicionais**, selecione **Configurar opções de dispositivo** e, em seguida, **Avançar**.
 
@@ -118,7 +118,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
 1. Na página **Conectar o Azure AD**, insira as credenciais de administrador global para o locatário do Azure AD e selecione **Avançar**.
 
-   ![Conecte-se ao AD do Azure](./media/hybrid-azuread-join-federated-domains/14.png)
+   ![Conectar ao AD do Azure](./media/hybrid-azuread-join-federated-domains/14.png)
 
 1. Na página **Opções do dispositivo**, selecione **Configurar ingresso no Azure AD Híbrido** e, em seguida,selecione **Avançar**.
 
@@ -200,7 +200,7 @@ Se estiver com problemas para concluir o ingresso no Azure AD híbrido de dispos
 - [Solucionar problemas de ingresso no Azure AD híbrido para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
 - [Solucionar problemas de ingresso no Azure AD híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como [gerenciar identidades de dispositivo usando o portal do Azure](device-management-azure-portal.md).
 

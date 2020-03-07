@@ -4,11 +4,11 @@ description: Este artigo orienta você pela criação e gerenciamento programát
 ms.date: 01/31/2019
 ms.topic: how-to
 ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982462"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386773"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -16,9 +16,9 @@ Este artigo orienta você na criação e gerenciamento por meio de programação
 
 Para obter informações sobre a conformidade, veja [como obter dados de conformidade](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
-Antes de começar, verifique se os seguintes pré-requisitos são cumpridos:
+Antes de começar, certifique-se de que os pré-requisitos a seguir foram atendidos:
 
 1. Caso ainda não tenha feito, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia solicitações HTTP para APIs baseadas no Azure Resource Manager.
 
@@ -237,7 +237,7 @@ A ID de definição de política para a definição de política que você criou
 
 Para obter mais informações sobre como gerenciar políticas de recursos com a CLI do Azure, consulte [Políticas de Recursos da CLI do Azure](/cli/azure/policy?view=azure-cli-latest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Examine os seguintes artigos para obter mais informações sobre os comandos e consultas neste artigo.
 

@@ -10,15 +10,15 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514146"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380442"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: copiar dados para o Azure Data Box Disk e verificar
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Azure Data Box Disk e verificar
 
 ::: zone-end
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
-- Você concluiu o [Tutorial: instalar e configurar o Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+- Você concluiu o [Tutorial: Instalar e configurar o Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Os discos são desbloqueados e conectados a um computador cliente.
 - O computador cliente usado para copiar dados para os discos precisa executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Certifique-se de que o tipo de armazenamento pretendido para seus dados corresponde aos [tipos de armazenamento suportados](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
@@ -100,14 +100,14 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
     
     Os parâmetros e as opções para o comando são tabulados da seguinte maneira:
     
-    |Parâmetros/Opções  |Descrição |
+    |Parâmetros/Opções  |DESCRIÇÃO |
     |--------------------|------------|
     |Fonte            | Especifica o caminho para o diretório de origem.        |
     |Destino       | Especifica o caminho para o diretório de destino.        |
     |/E                  | Copia subdiretórios, inclusive diretórios vazios. |
     |/MT[:N]             | Cria cópias com N threads, em que N é um inteiro entre 1 e 128. <br>O valor padrão para N é 8.        |
-    |/R: \<N>             | Especifica o número de repetições em cópias com falha. O valor padrão de N é 1.000.000 (um milhão de repetições).        |
-    |/W: \<N>             | Especifica o tempo de espera entre as tentativas, em segundos. O valor padrão de N é 30 (tempo de espera de 30 segundos).        |
+    |/R: \<N >             | Especifica o número de repetições em cópias com falha. O valor padrão de N é 1.000.000 (um milhão de repetições).        |
+    |/W: \<N >             | Especifica o tempo de espera entre as tentativas, em segundos. O valor padrão de N é 30 (tempo de espera de 30 segundos).        |
     |/ NFL                | Especifica que os nomes de arquivo não devem ser registrados.        |
     |/NDL                | Especifica que os nomes de diretório não devem ser registrados.        |
     |/FFT                | Pressupõe tempos de arquivo FAT (precisão de dois segundos).        |

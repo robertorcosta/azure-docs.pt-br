@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185751"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376790"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -122,7 +122,7 @@ Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar
 | Um administrador cria uma revisão de acesso do grupo C com 50 usuários Membros e 25 usuários convidados. O torna uma análise automática. | 50 licenças para cada usuário como revisores automáticos.<br/>(os usuários convidados são abordados na proporção 1:5 necessária) | 50 |
 | Um administrador cria uma revisão de acesso do Grupo D com 6 usuários Membros e usuários convidados de 108. O torna uma análise automática. | 6 licenças para cada usuário como autoviewers + 16 licenças adicionais para cobrir todos os usuários convidados de 108 na proporção 1:5 necessária. 6 licenças, que abrangem 6\*5 = 30 usuários convidados. Para os restantes (108-6\*5) = 78 usuários convidados, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)

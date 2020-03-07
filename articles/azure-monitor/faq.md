@@ -8,11 +8,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
 ms.openlocfilehash: 169cc3f6a195a7339ab33eb9f00d9937451a93e0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620447"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395361"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -169,7 +169,7 @@ WireData
 ```
 
 ### <a name="how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-azure-monitor"></a>Quanta largura de banda de rede é usada pelo MMA (agente de gerenciamento da Microsoft) ao enviar dados para Azure Monitor?
-A largura de banda é uma função na quantidade de dados enviados. Dados são compactados conforme eles são enviados pela rede.
+Largura de banda é uma função sobre a quantidade de dados enviados. Dados são compactados conforme eles são enviados pela rede.
 
 
 ### <a name="how-can-i-be-notified-when-data-collection-from-the-log-analytics-agent-stops"></a>Como posso ser notificado quando a coleta de dados do agente de Log Analytics é interrompida?
@@ -345,7 +345,7 @@ Isso é possível se o seu código envia tais dados. Isso também pode acontecer
 * Ele pode ser usado para distorcer seus dados ou disparar alertas.
 * Não temos conhecimento se algum cliente teve tais problemas.
 
-Você pode:
+Foi possível:
 
 * Use duas chaves de instrumentação separadas (recursos de Application Insights separados) para dados de cliente e servidor. Ou
 * Gravar um proxy que execute no seu servidor e o cliente Web envie dados através desse proxy.
@@ -749,7 +749,7 @@ Se você configurou o Azure Monitor com um espaço de trabalho do Log Analytics 
 Nessa condição, uma opção **Experimentar Agora** será exibida quando você abrir a VM e selecionar **Insights (versão prévia)** no painel esquerdo, mesmo após já ter sido instalado na VM.  No entanto, não serão exibidas as opções como normalmente ocorreria se essa VM não estivesse incorporada ao Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Se sua pergunta não for respondida aqui, você poderá consultar os fóruns a seguir para obter perguntas e respostas adicionais.
 
 - [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)

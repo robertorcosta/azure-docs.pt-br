@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Recursos em versão prévia | Microsoft Docs'
+title: 'Azure AD Connect: recursos em visualização | Microsoft Docs'
 description: Este tópico descreve em mais detalhes os recursos que estão na visualização no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347797"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375953"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre os recursos no modo de visualização
 Este tópico descreve como usar recursos presentes atualmente na visualização.
@@ -51,7 +51,7 @@ Um grupo do Office 365 é representado como um grupo de distribuição no AD DS 
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Continuar a [Instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
 
-Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
