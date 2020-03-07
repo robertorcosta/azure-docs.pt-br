@@ -9,15 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623427"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397351"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode se comunicar com a API do Cassandra do Azure Cosmos DB por meio de [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) de cliente do Cassandra de software livre em conformidade com o [protocolo de transmissão](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) da CQL (linguagem de consulta do Cassandra) v4. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode se comunicar com a API do Cassandra do Azure Cosmos DB por meio de [drivers](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) de cliente do Cassandra de software livre em conformidade com o [protocolo de transmissão](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) da CQL (linguagem de consulta do Cassandra) v4. 
 
 Ao usar a API do Cassandra do Azure Cosmos DB, você pode aproveitar os benefícios das APIs do Apache Cassandra, bem como as funcionalidades empresariais que o Azure Cosmos DB fornece. As funcionalidades empresariais incluem [distribuição global](distribute-data-globally.md), [particionamento com expansão automática](partition-data.md), garantias de disponibilidade e latência, criptografia em repouso, backups e muito mais.
 
@@ -42,21 +42,21 @@ As seguintes versões de drivers Cassandra são compatíveis com a API do Cassan
 A API do Cassandra do Azure Cosmos DB é compatível com os seguintes tipos de dados do CQL:
 
 * ascii  
-* BIGINT  
+* bigint  
 * blob  
 * booleano  
 * contador  
 * date  
 * decimal  
 * double  
-* FLOAT  
+* float  
 * frozen  
 * inet  
-* INT  
-* list  
+* int  
+* {1&gt;list&lt;1}  
 * set  
-* SMALLINT  
-* text  
+* smallint  
+* texto  
 * time  
 * timestamp  
 * timeuuid  
@@ -96,7 +96,7 @@ A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções 
 
 ## <a name="cassandra-api-limits"></a>Limites de API do Cassandra
 
-A API do Cassandra do Azure Cosmos DB não tem limites para o tamanho dos dados armazenados em uma tabela. Centenas de terabytes ou petabytes de dados podem ser armazenados, com a garantia de que os limites de chave de partição sejam respeitados. Da mesma forma, todas as entidades ou linhas equivalentes não têm nenhum limite no número de colunas. No entanto, o tamanho total da entidade não deve ultrapassar 2 MB. Os dados por chave de partição não podem exceder 20 GB, como em todas as outras APIs.
+A API do Cassandra do Azure Cosmos DB não tem limites para o tamanho dos dados armazenados em uma tabela. Centenas de terabytes ou petabytes de dados podem ser armazenados, com a garantia de que os limites de chave de partição sejam respeitados. Da mesma forma, todas as entidades ou linhas equivalentes não têm nenhum limite no número de colunas. No entanto, o tamanho total da entidade não deve ultrapassar 2 MB. Os dados por chave de partição não podem exceder 20 GB como em todas as outras APIs.
 
 ## <a name="tools"></a>Ferramentas 
 
@@ -151,7 +151,7 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 * SELECT 
 * UPDATE 
 * BATCH – Somente comandos não registrados são compatíveis 
-* Delete (excluir)
+* DELETE
 
 Todas as operações CRUD que são executadas por meio de um SDK compatível com CQL v4, retornarão informações adicionais sobre erros e unidades de solicitação consumidas. Os comandos DELETE e UPDATE devem ser tratados com a governança de recursos levada em consideração para garantir o uso mais eficiente da taxa de transferência provisionada.
 
@@ -198,7 +198,7 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 O Azure Cosmos DB é um sistema controlado por recursos. Isso significa que você pode fazer um determinado número de operações em um determinado segundo com base nas unidades de solicitação consumidas pelas operações. Se um aplicativo exceder esse limite em um determinado segundo, as solicitações serão limitadas por taxa e exceções serão geradas. A API do Cassandra do Azure Cosmos DB converte essas exceções em erros de sobrecarga no protocolo nativo do Cassandra. Para garantir que seu aplicativo possa interceptar e repetir solicitações na limitação da taxa de caso, as extensões [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) e [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) são fornecidas. Se você usar outros SDKs para acessar API do Cassandra no Azure Cosmos DB, crie uma política de conexão para tentar novamente ao encontrar essas exceções.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Introdução à [criação de uma conta de API do Cassandra, banco de dados e uma tabela](create-cassandra-api-account-java.md) pelo uso de um aplicativo Java
 

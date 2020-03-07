@@ -10,11 +10,11 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066995"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380299"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -56,7 +56,7 @@ O Data Box foi projetado para mover grandes quantidades de dados para o Azure co
 
 O dispositivo Data Box tem os seguintes recursos nesta versão.
 
-| Especificações                                          | DESCRIÇÃO              |
+| Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | <50 lb                |
 | Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            

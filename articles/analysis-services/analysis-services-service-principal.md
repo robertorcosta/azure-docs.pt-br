@@ -8,11 +8,11 @@ ms.date: 02/18/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461667"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375166"
 ---
 # <a name="automation-with-service-principals"></a>Automação com entidades de serviço
 
@@ -24,14 +24,14 @@ O Analysis Services também dá suporte a operações executadas por identidades
 
 ## <a name="create-service-principals"></a>Criar entidades de serviço
  
-As entidades de serviço podem ser criadas no portal do Azure ou usando o PowerShell. Para saber mais, consulte:
+As entidades de serviço podem ser criadas no portal do Azure ou usando o PowerShell. Para obter mais informações, consulte:
 
 [Criar entidade de serviço - Portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar entidade de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar credenciais e ativos de certificado na Automação do Azure
 
-Credenciais e certificados da entidade de serviço podem ser armazenados de forma segura na Automação do Azure para operações de runbook. Para saber mais, consulte:
+Credenciais e certificados da entidade de serviço podem ser armazenados de forma segura na Automação do Azure para operações de runbook. Para obter mais informações, consulte:
 
 [Ativos de credenciais na Automação do Azure](../automation/automation-credentials.md)   
 [Ativos de certificado na Automação do Azure](../automation/automation-certificates.md)
@@ -108,6 +108,6 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 [Entrar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   

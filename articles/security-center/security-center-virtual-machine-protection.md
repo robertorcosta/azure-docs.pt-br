@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
 ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430583"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380819"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja seus computadores e aplicativos
 Quando a central de segurança do Azure identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -163,7 +163,7 @@ Ao abrir a guia **contêineres** , dependendo do seu ambiente, você poderá ver
 
 ![Host do contêiner](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) Hosts de contêiner-VMs executando o Docker 
 
-![Serviço kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Clusters do AKS (serviço kubernetes do Azure)
+![Serviço do Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Clusters do AKS (serviço kubernetes do Azure)
 
 ![Registro de contêiner](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Registros de ACR (registro de contêiner do Azure) – mostrados somente quando você está no tipo de preço Standard e quando o pacote do registro de contêiner do Azure está habilitado.
 
@@ -198,7 +198,7 @@ A Central de Segurança examina as configurações do Docker e fornece visibilid
 ![guia contêiner](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes artigos:
 
 * [Lista de referências completa das recomendações de segurança da central de segurança do Azure](recommendations-reference.md)

@@ -14,11 +14,11 @@ ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
 ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698009"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377198"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -26,7 +26,7 @@ As nuvens nacionais são instâncias fisicamente isoladas do Azure. Essas regiõ
 
 Incluindo a nuvem global, o Azure Active Directory (Azure AD) é implantado nas seguintes nuvens nacionais:  
 
-- Azure Governamental
+- Azure Government
 - Azure Alemanha
 - Azure China 21Vianet
 
@@ -74,7 +74,7 @@ Para saber como chamar as APIs de Microsoft Graph em um ambiente de nuvem nacion
 
 Para saber como criar um aplicativo usando a plataforma de identidade da Microsoft, siga o [tutorial da MSAL (biblioteca de autenticação da Microsoft)](msal-national-cloud.md). Especificamente, esse aplicativo conectará um usuário e obterá um token de acesso para chamar a API de Microsoft Graph.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre:
 

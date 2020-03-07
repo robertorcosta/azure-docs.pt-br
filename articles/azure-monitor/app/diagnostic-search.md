@@ -4,11 +4,11 @@ description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669668"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368304"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 

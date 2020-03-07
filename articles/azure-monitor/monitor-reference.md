@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
 ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669107"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360791"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -23,7 +23,7 @@ As principais informações e soluções são consideradas parte do Azure Monito
 
 As informações fornecem uma experiência de monitoramento Personalizada para aplicativos e serviços específicos. Eles coletam e analisam os logs e as métricas.
 
-| Insight | Descrição |
+| Insight | DESCRIÇÃO |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Serviço de gerenciamento de desempenho de aplicativos (APM) extensível para monitorar seu aplicativo Web ativo em qualquer plataforma. |
 | [Azure Monitor para contêineres](insights/container-insights-overview.md) | Monitora o desempenho de cargas de trabalho de contêiner implantadas em instâncias de contêiner do Azure ou em clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure). |
@@ -37,7 +37,7 @@ As informações fornecem uma experiência de monitoramento Personalizada para a
 
 As soluções são baseadas em consultas de log e exibições personalizadas para um determinado aplicativo ou serviço. Eles coletam e analisam somente logs e estão sendo preteridos ao longo do tempo em favor das ideias.
 
-| Solução | Descrição |
+| Solução | DESCRIÇÃO |
 |:---|:---|
 | [Integridade do agente](insights/solution-agenthealth.md) | Analise a integridade e a configuração dos agentes de Log Analytics. |
 | [Gerenciamento de alertas](platform/alert-management-solution.md) | Analise os alertas coletados de System Center Operations Manager, Nagios ou Zabbix. |
@@ -52,16 +52,16 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 - Logs – o serviço dá suporte a configurações de diagnóstico que podem coletar logs e métricas de plataforma para Azure Monitor logs.
 - Insight – há uma Insight disponível para o serviço que fornece uma experiência de monitoramento Personalizada para o serviço.
 
-| Service | Métricas | Logs | Insight | {1&gt;Observações&lt;1} |
+| Serviço | Métricas | Logs | Insight | Observações |
 |:---|:---|:---|:---|:---|
 |Active Directory | Não | Sim | [Sim](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Não | Não | Não |  |
-|Serviços de Domínio do Active Directory | Não | Sim | Não |  |
+|Active Directory Domain Services | Não | Sim | Não |  |
 |Log de atividades | Não | Sim | Não | |
 |Proteção Avançada contra Ameaças | Não | Não | Não |  |
-|Advisor | Não | Não | Não |  |
+|Supervisor | Não | Não | Não |  |
 |Construtor de ia | Não | Não | Não |  |
-|Analysis Services | Sim | Sim | Não |  |
+|Serviços de análise | Sim | Sim | Não |  |
 |API para FHIR | Não | Não | Não |  |
 |Gerenciamento de API | Sim | Sim | Não |  |
 |Serviço de Aplicativo | Sim | Sim | Não |  |
@@ -72,12 +72,12 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Service Manager do Azure (RDFE) | Não | Não | Não |  |
 |Backup | Não | Sim | Não |  |
 |Bastion | Não | Não | Não |  |
-|Batch | Sim | Sim | Não |  |
+|Lote | Sim | Sim | Não |  |
 |Lote AI | Não | Não | Não |  |
 |Blockchain Service | Não | Sim | Não |  |
 |Blueprints | Não | Não | Não |  |
 |Serviço de Bot | Não | Não | Não |  |
-|Cloud Services | Sim | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
+|Serviços de Nuvem | Sim | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
 |Cloud Shell | Não | Não | Não |  |
 |Serviços Cognitivos | Sim | Sim | Não |  |
 |Instâncias de Contêiner | Sim | Não | Não |  |
@@ -104,11 +104,11 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Compromisso com o cliente do Dynamics 365 | Não | Não | Não |  |
 |Operações e finanças do Dynamics 365 | Não | Não | Não |  |
 |Grade de Eventos | Sim | Não | Não |  |
-|Hubs de evento | Sim | Sim | Não |  |
+|Hubs de Eventos | Sim | Sim | Não |  |
 |ExpressRoute | Sim | Sim | Não |  |
 |Firewall | Sim | Sim | Não |  |
 |Front Door | Sim | Sim | Não |  |
-|{1&gt;Funções&lt;1} | Sim | Sim | Não |  |
+|Funções | Sim | Sim | Não |  |
 |HDInsight | Não | Sim | Não |  |
 |Cache do HPC | Não | Não | Não |  |
 |Proteção de informações | Não | Sim | Não |  |
@@ -122,14 +122,14 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Serviço do Machine Learning | Não | Não | Não |  |
 |Aplicativos gerenciados  | Não | Não | Não |  |
 |Mapas  | Não | Não | Não |  |
-|Serviços de Mídia | Sim | Sim | Não |  |
+|Serviços de mídia | Sim | Sim | Não |  |
 |Microsoft Flow | Não | Não | Não |  |
 |Área de trabalho gerenciada da Microsoft | Não | Não | Não |  |
 |Microsoft PowerApps | Não | Não | Não |  |
 |Engajamento social da Microsoft | Não | Não | Não |  |
 |Microsoft Stream | Sim | Sim | Não |  |
 |Migrar | Não | Não | Não |  |
-|Autenticação Multifator do Azure | Não | Sim | Não |  |
+|Autenticação Multifator | Não | Sim | Não |  |
 |Observador de Rede | Sim | Sim | Não |  |
 |Hubs de Notificação | Sim | Não | Não |  |
 |Conjuntos de dados em aberto | Não | Não | Não |  |
@@ -144,7 +144,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Gerenciador de Recursos | Não | Não | Não |  |
 |Pesquisa de varejo – por Bing | Não | Não | Não |  |
 |Search | Sim | Sim | Não |  |
-|Service Bus | Sim | Sim | Não |  |
+|Barramento de Serviço | Sim | Sim | Não |  |
 |Service Fabric | Não | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
 |Portal de inscrição | Não | Não | Não |  |
 |Site Recovery | Não | Sim | Não |  |
@@ -172,7 +172,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 ## <a name="product-integrations"></a>Integrações de produtos
 Os serviços e as soluções na tabela a seguir armazenam seus dados em um Log Analytics espaço de trabalho para que possam ser analisados com outros dados de log coletados pelo Azure Monitor.
 
-| Produto/Serviço | Descrição |
+| Produto/Serviço | DESCRIÇÃO |
 |:---|:---|
 | [Automação do Azure](/azure/automation/) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Consulte [controle de alterações](../automation/change-tracking.md) e [Gerenciamento de atualizações](../automation/automation-update-management.md). |
 | [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Consulte [relatórios centrais para a proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
@@ -187,14 +187,14 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um Log A
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Colete dados de agentes de Operations Manager conectando seu grupo de gerenciamento ao Azure Monitor. Consulte [conectar Operations Manager ao Azure monitor](platform/om-agents.md)<br> Avalie o risco e a integridade de seu grupo de gerenciamento de System Center Operations Manager com Operations Manager solução de [avaliação](insights/scom-assessment.md) . |
 | [Salas do Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gerenciamento integrado de ponta a ponta de dispositivos de salas do Microsoft Teams. |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Crie, teste e distribua aplicativos e, em seguida, monitore seu status e uso. Consulte [começar a analisar seu aplicativo móvel com app Center e Application insights](learn/mobile-center-quickstart.md). |
-| Portal | [Conformidade de Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) – avalie as atualizações da área de trabalho do Windows.<br>[Análise de desktop](https://docs.microsoft.com/configmgr/desktop-analytics/overview) -integra-se com Configuration Manager para fornecer informações e inteligência para tomar decisões mais informadas sobre a prontidão de atualização de seus clientes Windows. |
+| Windows | [Conformidade de Windows Update](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) – avalie as atualizações da área de trabalho do Windows.<br>[Análise de desktop](https://docs.microsoft.com/configmgr/desktop-analytics/overview) -integra-se com Configuration Manager para fornecer informações e inteligência para tomar decisões mais informadas sobre a prontidão de atualização de seus clientes Windows. |
 
 
 
 ## <a name="other-solutions"></a>Outras soluções
 Outras soluções estão disponíveis para monitorar diferentes aplicativos e serviços, mas o desenvolvimento ativo foi interrompido e eles podem não estar disponíveis em todas as regiões. Eles são cobertos pelo contrato de nível de serviço de ingestão de dados do Azure Log Analytics.
 
-| Solução | Descrição |
+| Solução | DESCRIÇÃO |
 |:---|:---|
 | [Active Directory verificação de integridade](insights/ad-assessment.md) | Avalie o risco e a integridade de seus ambientes de Active Directory. |
 | [Status de replicação do Active Directory](insights/ad-replication-status.md) | Monitora regularmente seu ambiente de Active Directory em busca de falhas de replicação. |
@@ -209,7 +209,7 @@ Outras soluções estão disponíveis para monitorar diferentes aplicativos e se
 
 ## <a name="third-party-integration"></a>Integração de terceiros
 
-| Solução | Descrição |
+| Solução | DESCRIÇÃO |
 |:---|:---|
 | [ITSM](platform/itsmc-overview.md) | O ITSMC (Conector de Gerenciamento de Serviços de TI) permite que você conecte o Azure e um produto/serviço de ITSM (Gerenciamento de Serviços de TI) compatível.  |
 
@@ -225,7 +225,7 @@ Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos li
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia mais sobre a [plataforma de dados Azure monitor que armazena os logs e as métricas coletados por informações e soluções](platform/data-platform.md).
 - Conclua um [tutorial sobre como monitorar um recurso do Azure](learn/tutorial-resource-logs.md).

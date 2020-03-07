@@ -14,11 +14,11 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073427"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374437"
 ---
 # <a name="about-api-management"></a>Sobre o Gerenciamento de API
 
@@ -60,7 +60,7 @@ O sistema é composto pelos seguintes componentes:
   * Criar uma conta e fazer uma assinatura para obter chaves de API.
   * Acessar a análise do seu próprio uso.
 
-Para obter mais informações, confira o white paper em PDF intitulado [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) (Gerenciamento de API baseado em nuvem: aproveitando o poder das APIs). Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange: 
+Para obter mais informações, consulte o white-paper em PDF [Gerenciamento de API baseado em nuvem: utilizando a energia das APIs](https://j.mp/ms-apim-whitepaper) . Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange: 
  
  * Desafios e requisitos comuns de API
  * Dissociação de APIs e apresentação de fachadas
@@ -76,12 +76,12 @@ As APIs são a fundação de uma instância de serviço de Gerenciamento de API.
 
 Para obter mais informações, consulte [Como criar APIs][How to create APIs] e [Como adicionar operações a uma API][How to add operations to an API].
 
-## <a name="products"> </a> Produtos
+## <a name="products"></a> Produtos
 Os produtos são como as APIs são exibidas para os desenvolvedores. Os produtos no Gerenciamento de API têm uma ou mais APIs e são configurados com título, descrição e termos de uso. Produtos podem ser **Abertos** ou **Protegidos**. Produtos protegidos devem ser assinados antes que possam ser usados, enquanto produtos abertos podem ser usados sem uma assinatura. Quando um produto fica pronto para uso pelo desenvolvedor ele pode ser publicado. Após ele ser publicado, pode ser visualizado (e em caso de produtos protegidos, assinado) pelos desenvolvedores. A aprovação de assinatura é configurada no nível do produto e pode requere a aprovação do administrador ou ser aprovada automaticamente.
 
 Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem. 
 
-## <a name="groups"> </a> Grupos
+## <a name="groups"></a> Grupos do
 Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvolvedores. O Gerenciamento de API tem os grupos de sistema imutáveis a seguir:
 
 * **Administradores** - os administradores de assinatura do Azure são membros desse grupo. Os administradores gerenciam instâncias de serviço de Gerenciamento de API, criando as APIs, operações e produtos que são usados pelos desenvolvedores.
@@ -92,14 +92,14 @@ Além desses grupos de sistema, os administradores podem criar grupos personaliz
 
 Para obter mais informações, consulte [Como criar e utilizar grupos][How to create and use groups].
 
-## <a name="developers"> </a> Desenvolvedores
+## <a name="developers"></a> Desenvolvedores
 Os desenvolvedores representam as contas de usuários em uma instância de serviço de Gerenciamento de API. Os desenvolvedores podem ser criados ou convidados para se juntar aos administradores ou podem fazer a inscrição no [Portal do desenvolvedor][Developer portal]. Cada desenvolvedor é um membro de um ou mais grupos, e pode assinar produtos que dão visibilidade a esses grupos.
 
 Quando os desenvolvedores assinam um produto, recebem as chaves principal e secundária para esse produto. Essa chave é usada quando eles fazem chamadas às APIs dos produtos.
 
 Para obter mais informações, consulte [Como criar ou convidar desenvolvedores][How to create or invite developers] e [Como associar grupos aos desenvolvedores][How to associate groups with developers].
 
-## <a name="policies"> </a> Políticas
+## <a name="policies"></a> Políticas do
 As políticas são um poderoso recurso de Gerenciamento de API que permite ao Portal do Azure alterar o comportamento da API através da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor, além de várias outras políticas disponíveis.
 
 Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](/azure/api-management/api-management-advanced-policies#choose) e [Definir variável](/azure/api-management/api-management-advanced-policies#set-variable) se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) e [Expressões de política](/azure/api-management/api-management-policy-expressions).
@@ -108,7 +108,7 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 Para obter uma lista completa de políticas de Gerenciamento de API, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como usar e configurar políticas, consulte [Políticas de Gerenciamento de API][API Management policies]. Para obter um tutorial sobre como criar um produto com políticas de cota e limite de taxa, consulte [Como criar e definir configurações avançadas de produto][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"> </a> Portal do desenvolvedor
+## <a name="developer-portal"></a> Portal do desenvolvedor
 O portal do desenvolvedor é onde os desenvolvedores podem aprender sobre suas operações de APIs, visualização e atendimento e assinar produtos. Clientes potenciais podem visitar o portal do desenvolvedor, exibir APIs e operações e fazer inscrição. A URL para o seu portal do desenvolvedor está localizada no painel no portal do Azure da sua instância de serviço de Gerenciamento de API.
 
 Você pode personalizar a aparência do portal do desenvolvedor adicionando conteúdo personalizado, personalização de estilo e adicionando sua marca.

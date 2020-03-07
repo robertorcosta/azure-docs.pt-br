@@ -12,11 +12,11 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
 ms.openlocfilehash: f00ab883f9e2b1365c4e7486d61b55157cecb2a7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197259"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383755"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Monitorar a carga de trabalho do pool SQL do Azure Synapse Analytics usando DMVs
 
@@ -301,6 +301,6 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre DMVs, consulte [exibições do sistema](sql-data-warehouse-reference-tsql-system-views.md).

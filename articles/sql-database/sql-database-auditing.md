@@ -11,11 +11,11 @@ ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206598"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365312"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -99,7 +99,7 @@ Para configurar a gravação de logs de auditoria para uma conta de armazenament
    > - O valor padrão do período de retenção é 0 (retenção ilimitada). Você pode alterar esse valor movendo o controle deslizante de **retenção (dias)** em **configurações de armazenamento** ao configurar a conta de armazenamento para auditoria.
    > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (logs gravados durante o período em que a retenção foi definida como ilimitada são preservados, mesmo após a retenção está habilitada)
 
-   ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![conta de armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 Para configurar uma conta de armazenamento em uma rede virtual ou firewall, você precisará de um [Active Directory administrador](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) no servidor, habilitar **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** na conta de armazenamento. Além disso, você precisa ter a permissão ' Microsoft. Authorization/roleAssignments/Write ' na conta de armazenamento selecionada.
 
