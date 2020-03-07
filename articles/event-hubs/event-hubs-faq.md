@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
 ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706392"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393666"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -66,7 +66,7 @@ Os Hubs de Eventos emitem métricas exaustivas que fornecem o estado de seus rec
 Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
 - Advanced Message Queuing Protocol (AMQP)
-- http
+- HTTP
 - Apache Kafka
 
 Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
@@ -78,7 +78,7 @@ Consulte a tabela a seguir para as portas de saída que você precisa abrir para
 | Kafka | 9093 | Consulte [usar hubs de eventos de aplicativos Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
-Para localizar os endereços IP corretos para a lista de permissões de suas conexões, siga estas etapas:
+Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando em um prompt de comando: 
 
@@ -122,7 +122,7 @@ Observação: se SASL. JAAS. config não for uma configuração com suporte em s
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Qual é o tamanho de mensagem/evento para Hubs de Eventos habilitados para Kafka?
 O tamanho máximo de mensagem permitido para hubs de eventos habilitados para Kafka é de 1 MB.
 
-## <a name="throughput-units"></a>Unidades de taxa de transferência
+## <a name="throughput-units"></a>Unidades de transferência
 
 ### <a name="what-are-event-hubs-throughput-units"></a>O que são unidades de produtividade dos Hubs de Eventos?
 A taxa de transferência nos Hubs de Eventos define a quantidade de dados em megabytes ou o número (em milhares) de eventos de 1 KB que entram e saem por meio dos Hubs de Eventos. Essa taxa de transferência é medida em unidades de produtividade (TUs). Compre TUs antes de começar a usar o serviço Hubs de Eventos. Seleciona explicitamente as TUs dos Hubs de Eventos usando o portal do Azure ou de modelos do Resource Manager dos Hubs de Eventos. 
@@ -207,7 +207,7 @@ A camada Standard dos Hubs de Eventos permite a retenção de mensagens por per�
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Como o tamanho do armazenamento de Hubs de Eventos é calculado e cobrado?
 
-O tamanho total de todos os eventos armazenados, incluindo eventuais sobrecargas internas para cabeçalhos de eventos ou estruturas de armazenamento em disco em todos os Hubs de Eventos, é medido durante todo o dia. Ao final do dia, o tamanho máximo de armazenamento é calculado. A concessão de armazenamento diária é calculada com base no número mínimo de unidades de produtividade que são selecionadas durante o dia (cada unidade de produtividade oferece uma concessão de 84 GB). Se o tamanho total exceder o limite de armazenamento diário calculado, o armazenamento em excesso será cobrado usando as taxas de armazenamento de Blob do Azure (com base na taxa de **armazenamento com redundância local** ).
+O tamanho total de todos os eventos armazenados, incluindo eventuais sobrecargas internas para cabeçalhos de eventos ou estruturas de armazenamento em disco em todos os Hubs de Eventos, é medido durante todo o dia. No final do dia, o tamanho do armazenamento de pico é calculado. O limite de armazenamento diário é calculado com base no número mínimo de unidades de produtividade que foram selecionadas durante o dia (cada unidade de produtividade fornece um limite de 84 GB). Se o tamanho total exceder o limite de armazenamento diário calculado, o armazenamento em excesso será cobrado usando as taxas de armazenamento de Blob do Azure (com base na taxa de **armazenamento com redundância local** ).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Como os eventos de entrada de Hubs de Eventos são calculados?
 
@@ -217,9 +217,9 @@ Eventos consumidos de um Hub de Eventos, bem como operações de gerenciamento e
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Cobranças por conexões agenciadas são aplicadas aos Hubs de Eventos?
 
-Cobranças de conexão são aplicadas somente quando o protocolo AMQP é usado. Não há cobrança de conexão pelo envio de eventos com HTTP, independentemente do número de sistemas ou dispositivos. Se você pretende usar o AMQP (por exemplo, para obter transmissões de eventos mais eficientes ou para habilitar a comunicação bidirecional em cenários de comando e controle da IoT), consulte a página [Informações sobre preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/) para obter detalhes sobre quantas conexões estão incluídas em cada camada de serviço.
+Cobranças de conexão são aplicadas somente quando o protocolo AMQP é usado. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. Se você pretende usar o AMQP (por exemplo, para obter transmissões de eventos mais eficientes ou para habilitar a comunicação bidirecional em cenários de comando e controle da IoT), consulte a página [Informações sobre preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/) para obter detalhes sobre quantas conexões estão incluídas em cada camada de serviço.
 
-### <a name="how-is-event-hubs-capture-billed"></a>Como a Captura dos Hubs de Eventos é cobrada?
+### <a name="how-is-event-hubs-capture-billed"></a>Como a Captura de Hubs de Eventos é cobrada?
 
 A Captura de Hubs de Eventos será habilitada quando qualquer Hub de Eventos no namespace tiver o recurso Captura habilitado. A Captura de Hubs de Eventos é cobrada por hora de acordo com a unidade de taxa de transferência comprada. À medida que a contagem das unidades de taxa de transferência aumentar ou diminuir, a cobrança da Captura de Hubs de Eventos refletirá essas mudanças em incrementos de hora cheia. Para obter mais informações sobre a cobrança da Captura de Hubs de Eventos, confira [informações de preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -233,7 +233,7 @@ A Captura usa uma conta de armazenamento fornecida quando habilitado em um Hub d
 
 Para obter uma lista de todas as cotas de Hubs de Eventos, consulte [cotas](event-hubs-quotas.md).
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não eu consigo criar um namespace após excluí-lo de outra assinatura? 
 Quando você exclui um namespace de uma assinatura, aguarde até 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, a seguinte mensagem de erro será exibida: `Namespace already exists`. 
@@ -246,16 +246,16 @@ Para obter uma lista de exceções possíveis dos Hubs de Eventos, confira [Vis�
 
 Os Hubs de Eventos dão suporte a dois tipos de [logs de diagnóstico](event-hubs-diagnostic-logs.md) – logs de erro de Captura e logs operacionais – ambos os quais são representados em json e podem ser ativados por meio do Portal do Azure.
 
-### <a name="support-and-sla"></a>Suporte e Contrato de Nível de Serviço
+### <a name="support-and-sla"></a>Suporte e SLA
 
-Suporte técnico para os Hubs de Eventos está disponível por meio dos [fóruns da comunidade](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). O suporte à cobrança e ao gerenciamento de assinaturas é fornecido gratuitamente.
+Suporte técnico para os Hubs de Eventos está disponível por meio dos [fóruns da comunidade](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). O suporte para gerenciamento de assinaturas e cobranças é fornecido sem custo adicional.
 
 Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de hubs de eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
 * [Inflar automaticamente de Hubs de Eventos](event-hubs-auto-inflate.md)

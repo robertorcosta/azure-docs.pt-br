@@ -15,11 +15,11 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847043"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375489"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Assistente de segurança de funções do Azure AD no Privileged Identity Management
 
@@ -37,7 +37,7 @@ A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuiç
 
 ## <a name="run-the-wizard"></a>Executar o assistente
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Abra o **Azure AD Privileged Identity Management**.
 
@@ -67,7 +67,7 @@ A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuiç
 
 Se você precisar converter outras atribuições de função com privilégios para qualificados, você pode executar o assistente novamente. Se você quiser usar a interface Privileged Identity Management em vez do assistente, consulte [atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
 - [Conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md)

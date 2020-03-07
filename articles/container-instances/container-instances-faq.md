@@ -5,11 +5,11 @@ author: dkkapur
 ms.topic: article
 ms.date: 01/07/2020
 ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888015"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364982"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre as instâncias de contêiner do Azure
 
@@ -95,7 +95,7 @@ A duração do grupo de contêineres é calculada a partir do momento em que com
 
 Os medidores param de ser executados quando todo o grupo de contêineres é interrompido. Contanto que um contêiner em seu grupo de contêineres esteja em execução, guardaremos os recursos caso você queira iniciar os contêineres novamente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais](container-instances-overview.md) sobre as instâncias de contêiner do Azure.
 * [Solucionar problemas comuns](container-instances-troubleshooting.md) em instâncias de contêiner do Azure.

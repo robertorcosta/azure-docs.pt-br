@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547499"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372123"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o Avere vFXT
 
@@ -49,7 +49,7 @@ Verifique se você tem cota suficiente para os seguintes componentes do Azure. S
 >
 > Verifique se a cota está habilitada para a região em que você pretende executar o fluxo de trabalho.
 
-|Componente do Azure|Cota|
+|Componente do Azure|Quota|
 |----------|-----------|
 |Máquinas virtuais|3 ou mais E32s_v3 (um por nó de cluster) |
 |Armazenamento SSD Premium|Espaço do sistema operacional de 200 GB, além de 1 a 4 TB de espaço do cache por nó |
@@ -104,6 +104,6 @@ Crie o ponto de extremidade do serviço de armazenamento no portal do Azure.
 
    ![Captura de tela do portal do Azure com anotações para as etapas de criação de ponto de extremidade de serviço](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de concluir esses pré-requisitos, você poderá criar o cluster. Leia [Implantar o cluster vFXT](avere-vfxt-deploy.md) para obter instruções.

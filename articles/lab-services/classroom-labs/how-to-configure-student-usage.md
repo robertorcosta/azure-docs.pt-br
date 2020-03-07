@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539125"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358645"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar os usuários do laboratório
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 

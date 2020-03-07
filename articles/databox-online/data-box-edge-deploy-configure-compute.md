@@ -10,13 +10,13 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277249"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397319"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Tutorial: Transformar dados com o Azure Data Box Edge
+# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Tutorial: transformar dados com Azure Data Box Edge
 
 Este tutorial descreve como configurar uma função de computação no dispositivo do Azure Data Box Edge. Depois de configurar a função de computação, o Data Box Edge pode transformar os dados antes de enviar para o Azure.
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar a transformação e a transferência de dados
 
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de configurar uma função de computação em seu dispositivo do Data Box Edge, certifique-se de que:
 
@@ -50,10 +50,10 @@ Para configurar a computação no Data Box Edge, você criará um recurso do Hub
 3. Na folha **Configurar computação de borda**, insira o seguinte:
 
    
-    |Campo  |Valor  |
+    |Campo  |{1&gt;Valor&lt;1}  |
     |---------|---------|
     |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Data Box Edge.     |
-    |NOME     |Insira um nome para o recurso do Hub IoT.         |
+    |{1&gt;Nome&lt;1}     |Insira um nome para o recurso do Hub IoT.         |
 
     ![Introdução à computação](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
 
@@ -109,9 +109,9 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 2. Na folha **Configurar e adicionar módulo**, insira os seguintes valores:
 
     
-    |Campo  |Valor  |
+    |Campo  |{1&gt;Valor&lt;1}  |
     |---------|---------|
-    |NOME     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Data Box Edge.        |
+    |{1&gt;Nome&lt;1}     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Data Box Edge.        |
     |URI da imagem     | O URI da imagem para a imagem de contêiner correspondente ao módulo.        |
     |Credenciais necessárias     | Se essa opção for marcada, o nome de usuário e a senha serão usados para recuperar os módulos com uma URL correspondente.        |
     |Compartilhamento de entrada     | Selecione um compartilhamento de entrada. O compartilhamento local do Microsoft Edge é o compartilhamento de entrada, nesse caso. O módulo usado aqui move os arquivos do compartilhamento local do Microsoft Edge para um compartilhamento do Microsoft Edge, em que são carregados para a nuvem.        |
@@ -155,9 +155,9 @@ Para verificar se o módulo está em execução, faça o seguinte:
 Você concluiu o processo de validação.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a computação

@@ -1,5 +1,5 @@
 ---
-title: Políticas de indexação de Azure Cosmos DB
+title: Políticas de indexação no Azure Cosmos DB
 description: Saiba como configurar e alterar a política de indexação padrão para indexação automática e melhor desempenho no Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
 ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597153"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386970"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -58,9 +58,9 @@ Dando o mesmo exemplo novamente:
     }
 ```
 
-- o caminho de `employees` do `headquarters` é `/headquarters/employees/?`
+- o caminho de `employees` do `headquarters`é `/headquarters/employees/?`
 
-- o caminho do `locations` ' `country` é `/locations/[]/country/?`
+- o caminho do `locations`' `country` é `/locations/[]/country/?`
 
 - o caminho para qualquer coisa em `headquarters` é `/headquarters/*`
 
@@ -73,7 +73,7 @@ Qualquer política de indexação deve incluir o caminho raiz `/*` como um camin
 - Inclua o caminho raiz para excluir seletivamente os caminhos que não precisam ser indexados. Essa é a abordagem recomendada, pois ela permite que Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
 - Exclua o caminho raiz para incluir seletivamente os caminhos que precisam ser indexados.
 
-- Para caminhos com caracteres regulares que incluem: caracteres alfanuméricos e _ (sublinhado), você não precisa escapar da cadeia de caracteres do caminho em volta de aspas duplas (por exemplo, "/Path/?"). Para caminhos com outros caracteres especiais, você precisa escapar da cadeia de caracteres de caminho em aspas duplas (por exemplo, "/\"path-ABC \"/?"). Se você espera caracteres especiais em seu caminho, pode escapar de cada caminho para segurança. Funcionalmente não faz nenhuma diferença se você escapa de todos os caminhos, e não apenas aqueles com caracteres especiais.
+- Para caminhos com caracteres regulares que incluem: caracteres alfanuméricos e _ (sublinhado), você não precisa escapar da cadeia de caracteres do caminho em volta de aspas duplas (por exemplo, "/Path/?"). Para caminhos com outros caracteres especiais, você precisa escapar da cadeia de caracteres do caminho em aspas duplas (por exemplo, "/\"caminho-ABC\"/?"). Se você espera caracteres especiais em seu caminho, pode escapar de cada caminho para segurança. Funcionalmente não faz nenhuma diferença se você escapa de todos os caminhos, e não apenas aqueles com caracteres especiais.
 
 - A propriedade do sistema "ETag" é excluída da indexação por padrão, a menos que a ETag seja adicionada ao caminho incluído para indexação.
 
@@ -87,7 +87,7 @@ Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
 
 Quando não for especificado, essas propriedades terão os seguintes valores padrão:
 
-| **Nome da propriedade**     | **Valor padrão** |
+| **Nome da Propriedade**     | **Valor padrão** |
 | ----------------------- | -------------------------------- |
 | `kind`   | `range` |
 | `precision`   | `-1`  |
@@ -99,7 +99,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Ao definir um caminho espacial na política de indexação, você deve definir qual ```type``` de índice deve ser aplicado a esse caminho. Os tipos possíveis para índices espaciais incluem:
 
-* Empresas
+* Point
 
 * Polygon
 
@@ -157,7 +157,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age = 18
 
 Essa consulta será mais eficiente, levando menos tempo e consumindo menos RU, se for capaz de aproveitar um índice composto em (nome ASC, idade ASC).
 
-Consultas com filtros de intervalo também podem ser otimizadas com um índice composto. No entanto, a consulta só pode ter um filtro de intervalo único. Os filtros de intervalo incluem `>`, `<`, `<=`, `>=` e `!=`. O filtro de intervalo deve ser definido por último no índice composto.
+Consultas com filtros de intervalo também podem ser otimizadas com um índice composto. No entanto, a consulta só pode ter um filtro de intervalo único. Os filtros de intervalo incluem `>`, `<`, `<=`, `>=`e `!=`. O filtro de intervalo deve ser definido por último no índice composto.
 
 Considere a seguinte consulta com filtros de igualdade e de intervalo:
 
@@ -171,7 +171,7 @@ As seguintes considerações são usadas ao criar índices compostos para consul
 
 - As propriedades no filtro da consulta devem corresponder às do índice composto. Se uma propriedade estiver no índice composto, mas não estiver incluída na consulta como um filtro, a consulta não usará o índice composto.
 - Se uma consulta tiver propriedades adicionais no filtro que não foram definidas em um índice composto, uma combinação de índices compostos e de intervalo será usada para avaliar a consulta. Isso exigirá menos RU do que usar exclusivamente índices de intervalo.
-- Se uma propriedade tiver um filtro de intervalo (`>`, `<`, `<=`, `>=` ou `!=`), essa propriedade deverá ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de intervalo, ela não usará o índice composto.
+- Se uma propriedade tiver um filtro de intervalo (`>`, `<`, `<=`, `>=`ou `!=`), essa propriedade deverá ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de intervalo, ela não usará o índice composto.
 - Ao criar um índice composto para otimizar consultas com vários filtros, a `ORDER` do índice composto não terá impacto sobre os resultados. Essa propriedade é opcional.
 - Se você não definir um índice composto para uma consulta com filtros em várias propriedades, a consulta ainda terá sucesso. No entanto, o custo de RU da consulta pode ser reduzido com um índice composto.
 
@@ -255,9 +255,9 @@ Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o 
 - nenhum caminho incluído e
 - `/*` como o único caminho excluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Leia mais sobre a indexação nos seguintes artigos:
+Leia mais sobre indexação nos artigos a seguir:
 
-- [Visão geral da indexação](index-overview.md)
+- [Visão geral de indexação](index-overview.md)
 - [Como gerenciar a política de indexação](how-to-manage-indexing-policy.md)

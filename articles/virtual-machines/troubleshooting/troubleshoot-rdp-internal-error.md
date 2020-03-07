@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918250"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381697"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota
 
@@ -196,7 +196,7 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 #### <a name="reset-the-permission-for-machinekeys-folder"></a>Redefinir a permissão para a pasta MachineKeys
 
 1. Abra uma sessão de prompt de comandos com privilégios elevados (**Executar como administrador**).
-2. Execute o script a seguir. Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
+2. Execute o seguinte script. Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
 
         Md F:\temp
 

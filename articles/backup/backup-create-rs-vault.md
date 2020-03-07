@@ -5,11 +5,11 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: eb7dcb4038260b1edac57a2163a1c0eae29ee452
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363667"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -123,7 +123,7 @@ Saiba como [monitorar trabalhos de restauração de região secundária](backup-
 
 - A **exclusão reversível** por padrão é **habilitada** em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) para examinar e modificar as configurações.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos serviços de recuperação.
 [Saiba mais](backup-azure-delete-vault.md) Excluir cofres dos serviços de recuperação.

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: fffe1ebda0103b3ed2cd8f76642ecb2967d23069
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510287"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396735"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
 
@@ -193,8 +193,8 @@ Use o mesmo comando com o sinalizador `--layered` para criar um deploymet em cam
 O comando de criação de implantação usa os seguintes parâmetros:
 
 * **--em camadas** – um sinalizador opcional para identificar a implantação como uma implantação em camadas.
-* **--deployment-id** - O nome da implantação que será criada no Hub IoT. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`. Parâmetro necessário.
-* **--content** - Caminho do arquivo para o manifesto de implantação JSON. Parâmetro necessário.
+* **--deployment-id** - O nome da implantação que será criada no Hub IoT. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`. Parâmetro obrigatório.
+* **--content** - Caminho do arquivo para o manifesto de implantação JSON. Parâmetro obrigatório.
 * **--hub-name** - Nome do hub IoT no qual a implantação será criada. O hub deve estar na assinatura atual. Altere sua assinatura atual com o comando `az account set -s [subscription name]`.
 * **--labels** - Adicione rótulos para ajudar a acompanhar as implantações. Rótulos são pares de Nome e Valor que descrevem a implantação. Os rótulos usam a formatação JSON para os nomes e valores. Por exemplo, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition** - Insira uma condição de destino para determinar quais dispositivos serão segmentados com essa implantação. A condição é baseada nas marcas de dispositivo ou nas propriedades relatadas do dispositivo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`.
@@ -211,7 +211,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 
 O comando Deployment show usa os seguintes parâmetros:
 
-* **--deployment-id** - O nome da implantação que existe no hub IoT. Parâmetro necessário.
+* **--deployment-id** - O nome da implantação que existe no hub IoT. Parâmetro obrigatório.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
 Inspecione a implantação na janela de comando. A propriedade de **métricas** lista uma contagem de cada métrica que é avaliada por cada Hub:
@@ -277,6 +277,6 @@ O comando de exclusão de implantação usa os seguintes parâmetros:
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [a implantação de módulos em dispositivos IOT Edge](module-deployment-monitoring.md).

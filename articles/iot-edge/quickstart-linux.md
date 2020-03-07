@@ -10,13 +10,13 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 4a076f9e6ae67b9a4dc27fcd058945716dfebe75
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264603"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384385"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início rápido: implantar seu primeiro módulo de IoT Edge em um dispositivo Linux Virtual
 
 Teste o Azure IoT Edge neste início rápido implantando um código em contêineres em um dispositivo virtual IoT Edge. O IoT Edge permite que você gerencie remotamente o código em seus dispositivos para que você possa enviar mais cargas de trabalho para a borda. Para este início rápido, recomendamos o uso de uma máquina virtual do Azure para o dispositivo IoT Edge, o que permitirá criar rapidamente um computador de teste com todos os pré-requisitos instalados e, em seguida, excluí-lo quando você terminar.
 
@@ -43,7 +43,7 @@ Adicione a extensão do Azure IoT à instância do shell de nuvem.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Recursos de nuvem:
 
@@ -215,7 +215,7 @@ Remova o grupo **IoTEdgeResources**.
 az group delete --name IoTEdgeResources
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste início rápido, você criou um dispositivo IoT Edge e usou a interface de nuvem do Azure IoT Edge para implantar código no dispositivo. Agora, você tem um dispositivo de teste que gera dados brutos sobre seu ambiente.
 

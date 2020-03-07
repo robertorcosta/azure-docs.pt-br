@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: c6e15c9a99a78f0f3637f718b35462fe49fd5ee6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202132"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370801"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Associação de saída do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -20,7 +20,7 @@ Para obter informações sobre configuração e detalhes de configuração, cons
 
 ## <a name="example"></a>Exemplo
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo a seguir é uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de blob e duas associações de blob de saída. A função é gatilhada pela criação de um blob de imagem no contêiner *imagens de amostra*. Isso cria cópias de pequeno e médio tamanho de blob de imagem.
 
@@ -73,7 +73,7 @@ public class ResizeImages
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -122,7 +122,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
@@ -171,7 +171,7 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 <!--Same example for input and output. -->
 
@@ -224,7 +224,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Esta seção contém os seguintes exemplos:
 
@@ -295,7 +295,7 @@ Esta seção contém os seguintes exemplos:
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
@@ -323,19 +323,19 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 O script não dá suporte C# a atributos.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Não há suporte para atributos pelo JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Não há suporte para atributos no Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O atributo `@BlobOutput` fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary`. Consulte o [exemplo de saída](#example) para obter detalhes.
 
@@ -362,19 +362,19 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="usage"></a>Uso
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Em JavaScript, acesse os dados do blob usando `context.bindings.<name from function.json>`.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Você pode declarar parâmetros de função como os seguintes tipos para gravar no armazenamento de BLOBs:
 
@@ -383,7 +383,7 @@ Você pode declarar parâmetros de função como os seguintes tipos para gravar 
 
 Consulte o [exemplo de saída](#example) para obter detalhes.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O atributo `@BlobOutput` fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, defina `dataType` como `binary`. Consulte o [exemplo de saída](#example) para obter detalhes.
 
