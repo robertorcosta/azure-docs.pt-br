@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247236"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394744"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando as predefinições do Media Encoder Standard  
 
@@ -30,7 +30,7 @@ Este artigo mostra como executar a codificação avançada com o MES (Media Enco
 Este artigo mostra a você como personalizar uma predefinição usando a predefinição a [H264 Taxas de Bits Múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e reduzindo o número de camadas. O artigo [Personalizando as predefinições do Media Encoder Standard](media-services-advanced-encoding-with-mes.md) demonstra as predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
 
 > [!NOTE]
-> As predefinições personalizadas descritas neste artigo não podem ser usadas [serviços de mídia V3](https://docs.microsoft.com/azure/media-services/latest/) transformações ou os comandos da CLI. Consulte a [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
+> As predefinições personalizadas descritas neste artigo não podem ser usadas nas transformações do [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) ou nos comandos da CLI. Consulte as [diretrizes de migração de v2 a V3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
 
 ## <a id="customizing_presets"></a> Personalizando uma predefinição do MES
 
@@ -134,7 +134,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemplo   
+#### <a name="example"></a>{1&gt;Exemplo&lt;1}   
 
 ```csharp
 using System;

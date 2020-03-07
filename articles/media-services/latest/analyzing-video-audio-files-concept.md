@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988338"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359475"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com os serviços de mídia do Azure
 
@@ -30,7 +30,7 @@ Para analisar seu conteúdo usando as predefinições dos serviços de mídia v3
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
 
-Como um lembrete importante, você deve obedecer a todas as leis aplicáveis em seu uso de Video Indexer, e você não pode usar Video Indexer ou qualquer outro serviço do Azure de uma maneira que viole os direitos de outras pessoas ou possa ser prejudicial para outras pessoas. Antes de carregar qualquer vídeo, incluindo quaisquer dados biométricos, para o serviço de Video Indexer para processamento e armazenamento, você deve ter todos os direitos apropriados, incluindo todos os condados apropriados, do (s) indivíduo (es) no vídeo. Para saber mais sobre conformidade, privacidade e segurança em Video Indexer, os [termos de serviços cognitivas](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)da Microsoft. Para obrigações de privacidade e manipulação de seus dados da Microsoft, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [termos de serviços online](https://www.microsoft.com/licensing/product-licensing/products) ("OST") e o [adendo de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informações de privacidade adicionais, incluindo a retenção de dados, exclusão/destruição, estão disponíveis no OST e [aqui](../video-indexer/faq.md). Usando Video Indexer, você concorda em estar associado aos termos de serviços cognitivas, do OST, do DPA e da declaração de privacidade.
+Como um lembrete importante, você precisará respeitar todas as leis aplicáveis em seu uso do Video Indexer e não poderá usar o Video Indexer ou qualquer outro serviço do Azure de uma maneira que viole os direitos de outras pessoas ou que possa ser prejudicial a outras pessoas. Antes de carregar qualquer vídeo, incluindo dados biométricos, no serviço do Video Indexer para processamento e armazenamento, você precisará ter todos os direitos apropriados, incluindo todos os consentimentos apropriados, dos indivíduos mostrados no vídeo. Para saber mais sobre a conformidade, a privacidade e a segurança do Video Indexer, leia os [Termos dos Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) da Microsoft. Para saber mais sobre as obrigações de privacidade e o tratamento de seus dados pela Microsoft, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement), o “OST” [(Termos do Online Services)](https://www.microsoft.com/licensing/product-licensing/products) e o “DPA” [(Adendo de Processamento de Dados)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) da Microsoft. Informações de privacidade adicionais, incluindo retenção de dados, exclusão/destruição, estão disponíveis no OST e [aqui](../video-indexer/faq.md). Ao usar o Video Indexer, você concorda em vincular-se aos Termos dos Serviços Cognitivos, ao OST, ao DPA e à política de privacidade.
 
 ## <a name="built-in-presets"></a>Predefinições internas
 
@@ -67,12 +67,12 @@ A saída inclui um arquivo JSON (insights. JSON) com todas as informações enco
 
 ### <a name="transcript"></a>transcript
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID da linha.|
 |text|A própria transcrição.|
 |Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
-|instâncias|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
+|instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
 Exemplo:
 
@@ -105,13 +105,13 @@ Exemplo:
 
 ### <a name="ocr"></a>ocr
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID da linha de OCR.|
 |text|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |Linguagem|O idioma do OCR.|
-|instâncias|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
+|instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
 
 ```json
 "ocr": [
@@ -148,7 +148,7 @@ Exemplo:
 
 ### <a name="faces"></a>faces
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID da face.|
 |name|O nome da face. Pode ser ' desconhecido #0 ', um celebridade identificado ou uma pessoa treinada para o cliente.|
@@ -160,7 +160,7 @@ Exemplo:
 |referenceType|No momento, apenas Bing.|
 |título|O título (se for um celebridade — por exemplo, "CEO da Microsoft").|
 |imageUrl|A URL da imagem, se for um celebridade.|
-|instâncias|Instâncias em que a face apareceu no intervalo de tempo determinado. Cada ocorrência também tem uma thumbnailsId. |
+|instances|Instâncias em que a face apareceu no intervalo de tempo determinado. Cada ocorrência também tem uma thumbnailsId. |
 
 ```json
 "faces": [{
@@ -193,11 +193,11 @@ Exemplo:
 
 ### <a name="shots"></a>shots
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID da captura.|
 |keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias). As instâncias de frames principais têm um campo thumbnailId com o ID de miniatura da keyFrame.|
-|instâncias|Uma lista com os intervalos de tempo desta captura (as capturas têm apenas 1 instância).|
+|instances|Uma lista com os intervalos de tempo desta captura (as capturas têm apenas 1 instância).|
 
 ```json
 "Shots": [
@@ -250,7 +250,7 @@ Exemplo:
 
 ### <a name="statistics"></a>estatísticas
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por alto-falante.|
@@ -263,11 +263,11 @@ Exemplo:
 
 Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID do sentimento.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
-|instâncias|Uma lista com os intervalos de tempo nos quais esse sentimento apareceu.|
+|instances|Uma lista com os intervalos de tempo nos quais esse sentimento apareceu.|
 |sentimentType |O tipo pode ser 'Positivo', 'Neutro' ou 'Negativo'.|
 
 ```json
@@ -298,12 +298,12 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="labels"></a>rótulos
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID do rótulo.|
 |name|O nome do rótulo (por exemplo, "Computador", "TV").|
 |Linguagem|O idioma do nome do rótulo (quando traduzido). BCP-47|
-|instâncias|Uma lista de intervalos de tempo nos quais esse rótulo apareceu (um rótulo pode aparecer várias vezes). Cada instância tem um campo de confiança. |
+|instances|Uma lista de intervalos de tempo nos quais esse rótulo apareceu (um rótulo pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 ```json
 "labels": [
@@ -356,13 +356,13 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="keywords"></a>palavras-chave
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID da palavra-chave.|
 |text|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |Linguagem|O idioma da palavra-chave (quando traduzida).|
-|instâncias|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
+|instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
 "keywords": [
@@ -407,12 +407,12 @@ O bloco visualContentModeration contém intervalos de tempo que o Video Indexer 
 
 Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários podem enviar uma solicitação para uma revisão humana do conteúdo; nesse caso, o atributo `IsAdult` conterá o resultado da revisão humana.
 
-|Nome|Description|
+|Nome|DESCRIÇÃO|
 |---|---|
 |id|A ID de moderação de conteúdo visual.|
 |adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|
 |racyScore|A pontuação racista (de moderação de conteúdo).|
-|instâncias|Uma lista de intervalos de tempo em que apareceu esse visual moderação de conteúdo.|
+|instances|Uma lista de intervalos de tempo em que apareceu esse visual moderação de conteúdo.|
 
 ```json
 "VisualContentModeration": [
@@ -440,6 +440,6 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 }
 ] 
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Tutorial: Analisar vídeos com os Serviços de Mídia do Azure](analyze-videos-tutorial-with-api.md)

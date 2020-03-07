@@ -12,24 +12,24 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380847"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades gerenciadas no gerenciamento de API do Azure
 
-Este artigo mostra como criar uma identidade gerenciada para uma instância de serviço de gerenciamento de API e como acessar outros recursos. Uma identidade gerenciada gerada pelo Azure Active Directory (Azure AD) permite que a instância de gerenciamento de API com facilidade e segurança acessar outros recursos do Azure protegidos pelo AD, como o Azure Key Vault. Essa identidade é gerenciada pelo Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre identidades gerenciadas, consulte [What ' s identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Este artigo mostra como criar uma identidade gerenciada para uma instância do serviço de gerenciamento de API e como acessar outros recursos. Uma identidade gerenciada gerada pelo Azure Active Directory (AD do Azure) permite que sua instância de gerenciamento de API acesse com facilidade e segurança outros recursos protegidos pelo Azure AD, como Azure Key Vault. Essa identidade é gerenciada pelo Azure e não exige que você provisione ou gire quaisquer segredos. Para obter mais informações sobre identidades gerenciadas, consulte [o que são identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Criar uma identidade gerenciada para uma instância de gerenciamento de API
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Para configurar uma identidade gerenciada no portal, você primeiro cria uma instância de gerenciamento de API como normal e, em seguida, habilite o recurso.
+Para configurar uma identidade gerenciada no portal, primeiro você criará uma instância de gerenciamento de API como normal e, em seguida, habilitará o recurso.
 
 1. Crie uma instância de Gerenciamento de API no portal, como você faria normalmente. Navegue até ele no portal.
-2. Selecione **identidades de serviço gerenciadas**.
+2. Selecione **identidades de serviço gerenciado**.
 3. Defina Registrar com o Azure Active Directory como Ativado. Clique em Salvar.
 
 ![Habilitar MSI](./media/api-management-msi/enable-msi.png)
@@ -75,14 +75,14 @@ Por exemplo, um modelo completo do Azure Resource Manager pode ter a seguinte ap
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Usar a identidade de serviço gerenciado para acessar outros recursos
 
 > [!NOTE]
-> Atualmente, as identidades gerenciadas podem ser usadas para obter certificados do Azure Key Vault para nomes de domínio personalizado de gerenciamento de API. Em breve, mais cenários receberão suporte.
+> Atualmente, as identidades gerenciadas podem ser usadas para obter certificados de Azure Key Vault para nomes de domínio personalizados de gerenciamento de API. Em breve, mais cenários receberão suporte.
 >
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obter um certificado do Azure Key Vault
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 1. O Key Vault que contém o certificado pfx deve estar na mesma assinatura do Azure e no mesmo Grupo de recursos que o serviço de Gerenciamento de API. Este é um requisito do modelo do Azure Resource Manager.
 2. O Tipo de conteúdo do segredo deve ser *application/x-pkcs12*. É possível usar o seguinte script para carregar o certificado:
 
@@ -231,10 +231,10 @@ O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seg
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre identidades gerenciadas para recursos do Azure:
 
-* [O que é gerenciadas identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md)
+* [O que são identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modelos do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-quickstart-templates)
 * [Autenticar com uma identidade gerenciada em uma política](./api-management-authentication-policies.md#ManagedIdentity)

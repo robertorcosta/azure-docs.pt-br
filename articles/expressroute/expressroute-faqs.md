@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
 ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770978"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361533"
 ---
-# <a name="expressroute-faq"></a>Perguntas frequentes sobre o ExpressRoute
+# <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
 ## <a name="what-is-expressroute"></a>O que é ExpressRoute?
 
@@ -87,7 +87,7 @@ Se o circuito do ExpressRoute estiver habilitado para o emparelhamento da Micros
 **Sem suporte:**
 
 * CDN
-* Azure Front Door
+* Porta da frente do Azure
 * Servidor de autenticação multifator (Herdado)
 * Gerenciador de Tráfego
 

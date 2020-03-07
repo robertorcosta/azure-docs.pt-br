@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar uma Máquina Virtual de Ciência de Dados do Ubuntu'
+title: 'Início rápido: criar um Máquina Virtual de Ciência de Dados Ubuntu'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma Máquina Virtual de Ciência de Dados para Linux (Ubuntu) para realizar a análise e o aprendizado de máquina.
 ms.service: machine-learning
@@ -9,13 +9,13 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360589"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início rápido: configurar o Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
 Coloque tudo em funcionamento com a Máquina Virtual de Ciência de Dados do Ubuntu 18.04.
 
@@ -39,13 +39,13 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 
     1. **Noções básicas**:
     
-       * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
-       * **Grupo de recursos**: crie um novo grupo ou use um existente.
+       * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que a máquina será criada e cobrada. Você deve ter privilégios de criação de recurso nessa assinatura.
+       * **Grupo de recursos**: Crie um novo grupo ou use um existente.
        * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá no seu portal do Azure.
        * **Região**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Imagem**: Mantenha o valor padrão.
-       * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
-       * **Tipo de autenticação**: Para configuração mais rápida, selecione "Senha". 
+       * **Imagem**: Deixe o valor padrão.
+       * **Tamanho**: isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
+       * **Tipo de autenticação**: para configuração mais rápida, selecione "senha". 
          
          > [!NOTE]
          > Caso pretenda usar o JupyterHub, selecione "Senha", pois o JupyterHub *não* é configurado para usar chaves públicas SSH.
@@ -94,12 +94,12 @@ A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar con
 
 1. Na janela de configuração resultante, insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
-     * **Host**: Insira o endereço IP de sua VM, que você anotou anteriormente.
-     * **Logon**: Insira o nome de usuário na VM Linux.
-     * **Porta SSH**: Deixe em 22, o valor padrão.
-     * **Tipo de Sessão**: Altere o valor para **XFCE**. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
-   * **Guia Mídia**: Você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
-   * **Pastas compartilhadas**: Caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
+     * **Host**: Insira o endereço IP da sua VM, que você fez anotar anteriormente.
+     * **Logon**: Insira o nome de usuário na VM do Linux.
+     * **Porta SSH**: deixe-a em 22, o valor padrão.
+     * **Tipo de Sessão**: altere o valor para **XFCE**. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
+   * **Guia Mídia**: você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
+   * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
 
    ![Configuração do X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selecione **OK**.

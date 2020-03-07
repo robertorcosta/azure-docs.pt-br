@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
 ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888559"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390166"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -28,7 +28,7 @@ O vídeo a seguir demonstra como usar esse contêiner.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para executar o contêiner LUIS, observe os seguintes pré-requisitos:
 
@@ -55,7 +55,7 @@ Criando APIs para aplicativos empacotados:
 
 Esse contêiner dá suporte aos valores mínimos e recomendados para as configurações:
 
-|Contêiner| Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
+|Contêiner| Mínimo | Recomendadas | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |LUIS|1 núcleo, 2 GB de memória|1 núcleo, 4 GB de memória|20, 40|
 
@@ -108,8 +108,8 @@ O diretório de montagem de entrada pode conter os modelos de **produção**, de
 |Tipo de pacote|API do ponto de extremidade de consulta|Disponibilidade de consulta|Formato do nome de arquivo do pacote|
 |--|--|--|--|
 |Versão|GET, POST|Somente contêiner|`{APP_ID}_v{APP_VERSION}.gz`|
-|Preparação|GET, POST|Azure e contêiner|`{APP_ID}_STAGING.gz`|
-|Produção|GET, POST|Azure e contêiner|`{APP_ID}_PRODUCTION.gz`|
+|Staging|GET, POST|Azure e contêiner|`{APP_ID}_STAGING.gz`|
+|Production|GET, POST|Azure e contêiner|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > Não renomeie, altere, substitua ou descompacte os arquivos de pacote LUIS.
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Espaço reservado | Valor |
+| Espaço reservado | {1&gt;Valor&lt;1} |
 |-------------|-------|
 | **{APP_ID}** | A ID de aplicativo do aplicativo LUIS publicado. |
 | **{SLOT_NAME}** | O ambiente do aplicativo LUIS publicado. Use um dos seguintes valores:<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Espaço reservado | Valor |
+| Espaço reservado | {1&gt;Valor&lt;1} |
 |-------------|-------|
 | **{APP_ID}** | A ID de aplicativo do aplicativo LUIS treinado. |
 | **{APP_VERSION}** | A versão do aplicativo do aplicativo LUIS treinado. |
@@ -243,34 +243,34 @@ O contêiner fornece APIs de ponto de extremidade de previsão de consulta com b
 
 Use o host, `http://localhost:5000`, para APIs de contêiner.
 
-# <a name="v3-prediction-endpointtabv3"></a>[Ponto de extremidade de previsão V3](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[Ponto de extremidade de previsão V3](#tab/v3)
 
 |Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
 |--|--|--|--|
-|Publicação|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 |Versão|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
 
 |Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
-|`query`|cadeia de caracteres|A declaração do usuário.|
+|`query`|string|A declaração do usuário.|
 |`verbose`|booleano|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é false.|
 |`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é false.|
 |`show-all-intents`|booleano|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é false.|
 
-# <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão V2](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[Ponto de extremidade de previsão V2](#tab/v2)
 
 |Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
 |--|--|--|--|
-|Publicação|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
+|Published|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
 |Versão|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
 
 Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
 
 |Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
-|`q`|cadeia de caracteres|A declaração do usuário.|
+|`q`|string|A declaração do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
 |`verbose`|booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
 |`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
@@ -282,7 +282,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 Um exemplo de comando CURL para consultar o contêiner em relação a um aplicativo publicado é:
 
-# <a name="v3-prediction-endpointtabv3"></a>[Ponto de extremidade de previsão V3](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[Ponto de extremidade de previsão V3](#tab/v3)
 
 Para consultar um modelo em um slot, use a seguinte API:
 
@@ -308,7 +308,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
-# <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão V2](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[Ponto de extremidade de previsão V2](#tab/v2)
 
 Para consultar um modelo em um slot, use a seguinte API:
 
@@ -385,7 +385,7 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 > [!IMPORTANT]
 > Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Revise [Configurar contêineres](luis-container-configuration.md) para configurações.
 * Consulte [limitações de contêiner Luis](luis-container-limitations.md) para obter restrições de funcionalidade conhecidas.
