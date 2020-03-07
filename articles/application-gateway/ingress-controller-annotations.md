@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: a3583a5efd120733ce7f6b71a7594b5636593f99
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795998"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373490"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotações para o controlador de entrada do gateway de aplicativo 
 
@@ -45,7 +45,7 @@ Esta anotação permite que o caminho de back-end especificado em um recurso de 
 appgw.ingress.kubernetes.io/backend-path-prefix: <path prefix>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -80,7 +80,7 @@ O gateway de aplicativo [pode ser configurado](https://docs.microsoft.com/azure/
 appgw.ingress.kubernetes.io/ssl-redirect: "true"
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -117,7 +117,7 @@ appgw.ingress.kubernetes.io/connection-draining: "true"
 appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -149,7 +149,7 @@ Esta anotação permite especificar se a afinidade baseada em cookie deve ser ha
 appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -180,7 +180,7 @@ Essa anotação permite especificar o tempo limite da solicitação em segundos 
 appgw.ingress.kubernetes.io/request-timeout: "20"
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -215,7 +215,7 @@ Essa anotação nos permite especificar se deve-se expor esse ponto de extremida
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -248,7 +248,7 @@ Essa anotação nos permite especificar o protocolo que o gateway de aplicativo 
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress

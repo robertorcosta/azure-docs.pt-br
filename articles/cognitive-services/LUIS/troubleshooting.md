@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123104"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393702"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -241,9 +241,9 @@ Se você estiver usando o log para análise de previsão, não capture enunciado
 
 ### <a name="can-i-delete-data-from-luis"></a>Posso excluir dados de LUIS?
 
-* Você sempre pode excluir enunciados de exemplo usados para treinar o LUIS. Se você excluir uma declaração de exemplo do seu aplicativo LUIS, ela será removida do serviço Web do LUIS e não estará disponível para exportação.
-* É possível excluir enunciados da lista de enunciados do usuário sugeridos pelo LUIS na página **Examinar enunciados do ponto de extremidade**. Excluir declarações dessa lista impede que elas sejam sugeridas, mas não as exclui dos logs.
-* Se você excluir uma conta, todos os aplicativos serão excluídos, junto com seus logs e declarações de exemplo. Os dados serão mantidos nos servidores por 60 dias antes de serem excluídos permanentemente.
+* Você sempre pode excluir enunciados de exemplo usados para treinar o LUIS. Se você excluir um enunciado de exemplo do seu aplicativo de LUIS, ele será removido do serviço Web de LUIS e não estará disponível para exportação.
+* É possível excluir enunciados da lista de enunciados do usuário sugeridos pelo LUIS na página **Examinar enunciados do ponto de extremidade**. Excluir enunciados dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
+* Se você excluir uma conta, todos os aplicativos serão excluídos, junto com os respectivos logs e enunciados de exemplo. Os dados serão mantidos nos servidores por 60 dias antes de serem excluídos permanentemente.
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Como a Microsoft gerencia dados que posso enviar para LUIS?
 
@@ -333,7 +333,7 @@ Vídeos:
 
 * [Como usar o AI de conversa do Azure para dimensionar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre o LUIS, veja os seguintes recursos:
 * [Perguntas do Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)

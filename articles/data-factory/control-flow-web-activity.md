@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110025"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394470"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
@@ -82,9 +82,9 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 
 | Tipo de valor | Corpo da solicitação | Corpo da resposta |
 |---|---|---|
-|Objeto JSON | Com suporte | Com suporte |
-|Matriz JSON | Com suporte <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. A correção está em andamento.) | Sem suporte |
-| Valor JSON | Com suporte | Sem suporte |
+|Objeto JSON | Suportado | Suportado |
+|Matriz JSON | Suportado <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. A correção está em andamento.) | Sem suporte |
+| Valor JSON | Suportado | Sem suporte |
 | Tipo não-JSON | Sem suporte | Sem suporte |
 ||||
 

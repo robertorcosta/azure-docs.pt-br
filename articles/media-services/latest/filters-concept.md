@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225421"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388101"
 ---
-# <a name="filters"></a>Filtros
+# <a name="filters"></a>Filtros.
 
-Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Serviços de mídia do Azure oferecem [manifestos dinâmico](filters-dynamic-manifest-overview.md) com base em filtros predefinidos. 
+Ao entregar seu conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade do que o descrito no arquivo de manifesto do ativo padrão. Os serviços de mídia do Azure oferecem [manifestos dinâmicos](filters-dynamic-manifest-overview.md) com base em filtros predefinidos. 
 
 Os filtros são regras do lado do servidor que permitem que seus clientes façam coisas como: 
 
@@ -32,22 +32,22 @@ Os filtros são regras do lado do servidor que permitem que seus clientes façam
 - Entregue apenas as execuções especificadas e / ou faixas de idioma especificadas que são suportadas pelo dispositivo usado para reproduzir o conteúdo ("filtragem de renderização"). 
 - Ajuste a Janela de Apresentação (DVR) para fornecer uma duração limitada da janela do DVR no leitor ("ajustar a janela de apresentação").
 
-Os serviços de mídia permite que você crie **filtros de conta** e **filtros de ativo** para seu conteúdo. Além disso, você pode associar seus filtros pré-criado com um **localizador de Streaming**.
+Os serviços de mídia permitem que você crie **filtros de conta** e **filtros de ativo** para seu conteúdo. Além disso, você pode associar seus filtros criados previamente a um **localizador de streaming**.
 
 ## <a name="defining-filters"></a>Definir filtros
 
-Há dois tipos de filtros: 
+Existem dois tipos de filtros: 
 
 * [Filtros de conta](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - podem ser aplicados a qualquer recurso na conta dos Serviços de Mídia do Azure, têm vida útil da conta.
 * [Filtros de ativos](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - só podem ser aplicados a um ativo ao qual o filtro foi associado na criação, têm uma vida útil do recurso. 
 
-**Filtros de conta** e **filtros de ativo** tipos têm exatamente as mesmas propriedades para definir/descrevendo o filtro. Exceto ao criar o **Filtro de ativos**, você precisa especificar o nome do ativo ao qual deseja associar o filtro.
+**Filtros de conta** e tipos de **filtros de ativos** têm exatamente as mesmas propriedades para definir/descrever o filtro. Exceto ao criar o **Filtro de ativos**, você precisa especificar o nome do ativo ao qual deseja associar o filtro.
 
 Dependendo do seu cenário, você decide qual tipo de filtro é mais adequado (Filtro de ativos ou Filtro de conta). Os filtros de conta são adequados para perfis de dispositivos (filtragem de renderização) em que os filtros de recursos podem ser usados para cortar um recurso específico.
 
 Você usa as seguintes propriedades para descrever os filtros. 
 
-|NOME|DESCRIÇÃO|
+|{1&gt;Nome&lt;1}|Descrição|
 |---|---|
 |firstQuality|A primeira taxa de bits de qualidade do filtro.|
 |presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é usada para filtrar os pontos de início / fim do manifesto, a duração da janela de apresentação e a posição de início ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
@@ -57,30 +57,30 @@ Você usa as seguintes propriedades para descrever os filtros.
 
 Use essa propriedade com **filtros de ativo**. Não é recomendável definir a propriedade com **filtros de conta**.
 
-|NOME|DESCRIÇÃO|
+|{1&gt;Nome&lt;1}|Descrição|
 |---|---|
-|**endTimestamp**|Aplica-se ao Video on Demand (VoD).<br/>Para a apresentação de transmissão ao vivo, ela será silenciosamente ignorada e aplicada quando as extremidades de apresentação e o fluxo se torna VoD.<br/>Isso é um valor longo que representa um ponto de extremidade absoluto da apresentação, arredondado para o próximo início de GOP mais próximo. A unidade é a escala de tempo, portanto, seria um endTimestamp de 1800000000 para 3 minutos.<br/>Use startTimestamp e endTimestamp para cortar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 usando a escala de tempo padrão irá gerar uma lista de reprodução que contém os fragmentos de intervalo entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
-|**forceEndTimestamp**|Aplica-se à transmissão ao vivo.<br/>Indica se a propriedade endTimestamp deve estar presente. Se for true, endTimestamp deve ser especificado ou um código de solicitação incorreta é retornado.<br/>Valores permitidos: false, true.|
-|**liveBackoffDuration**|Aplica-se à transmissão ao vivo.<br/> Esse valor define a posição mais recentes ao vivo em que um cliente pode buscar.<br/>Usando essa propriedade, você pode atrasar a posição de reprodução ao vivo e criar um buffer do lado do servidor para os jogadores.<br/>A unidade para essa propriedade é a escala de tempo (veja abaixo).<br/>O máximo ao vivo-a duração é de 300 segundos (3000000000).<br/>Por exemplo, um valor de 2000000000 significa que o conteúdo mais recente disponível é de 20 segundos atrasado da borda ao vivo real.|
-|**presentationWindowDuration**|Aplica-se à transmissão ao vivo.<br/>Use presentationWindowDuration para aplicar uma janela deslizante de fragmentos para incluir em uma lista de reprodução.<br/>A unidade para essa propriedade é a escala de tempo (veja abaixo).<br/>Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Mídia dentro de 2 minutos da borda ao vivo será incluída na lista de reprodução. Se um fragmento ultrapassar o limite, todo o fragmento será incluído na lista de reprodução. A duração mínima da janela de apresentação é de 60 segundos.|
-|**startTimestamp**|Aplica-se ao vídeo sob demanda (VoD) ou transmissão ao vivo.<br/>Isso é um valor longo que representa um ponto de partida absoluto do fluxo. O valor é arredondado para o próximo início de GOP mais próximo. A unidade é a escala de tempo, portanto, seria um startTimestamp de 150000000 para 15 segundos.<br/>Use startTimestamp e endTimestampp para cortar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 usando a escala de tempo padrão irá gerar uma lista de reprodução que contém os fragmentos de intervalo entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
-|**Escala de tempo**|Aplica-se a todos os carimbos de hora e durações em um intervalo de tempo de apresentação, especificado como o número de incrementos em um segundo.<br/>O padrão é 10000000 - dez milhões de incrementos em um segundo, em que cada incremento seria longo de 100 nanossegundos.<br/>Por exemplo, se você desejar definir um startTimestamp em 30 segundos, você usaria um valor de 300000000 ao usar a escala de tempo padrão.|
+|**endTimestamp**|Aplica-se ao Video on Demand (VoD).<br/>Para a apresentação de transmissão ao vivo, ela é silenciosamente ignorada e aplicada quando a apresentação termina e o fluxo se torna VoD.<br/>Esse é um valor longo que representa um ponto de extremidade absoluto da apresentação, arredondado para o próximo início da próxima GOP. A unidade é a escala de tempo, de modo que um carimbo de data/hora de 1800000000 seria por 3 minutos.<br/>Use startTimestamp e EndTimestamp para cortar os fragmentos que estarão na playlist (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e EndTimestamp = 100000000 usando a escala de espera padrão gerará uma lista de reprodução que contém fragmentos entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
+|**forceEndTimestamp**|Aplica-se somente à transmissão ao vivo.<br/>Indica se a propriedade EndTimestamp deve estar presente. Se for true, EndTimestamp deverá ser especificado ou um código de solicitação inadequado será retornado.<br/>Valores permitidos: false, true.|
+|**liveBackoffDuration**|Aplica-se somente à transmissão ao vivo.<br/> Esse valor define a última posição dinâmica que um cliente pode buscar.<br/>Usando essa propriedade, você pode atrasar a posição de reprodução dinâmica e criar um buffer do lado do servidor para players.<br/>A unidade dessa propriedade é TIMESCALE (veja abaixo).<br/>A duração máxima de retirada ao vivo é de 300 segundos (3000000000).<br/>Por exemplo, um valor de 2000000000 significa que o conteúdo mais recente disponível é de 20 segundos atrasados do Live Edge real.|
+|**presentationWindowDuration**|Aplica-se somente à transmissão ao vivo.<br/>Use presentationWindowDuration para aplicar uma janela deslizante de fragmentos para incluir em uma lista de reprodução.<br/>A unidade dessa propriedade é TIMESCALE (veja abaixo).<br/>Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Mídia dentro de 2 minutos da borda ao vivo será incluída na lista de reprodução. Se um fragmento ultrapassar o limite, todo o fragmento será incluído na lista de reprodução. A duração mínima da janela de apresentação é de 60 segundos.|
+|**startTimestamp**|Aplica-se a VoD (vídeo por demanda) ou transmissão ao vivo.<br/>Esse é um valor longo que representa um ponto de partida absoluto do fluxo. O valor é arredondado para o próximo início de GOP mais próximo. A unidade é a escala de espera, portanto, um startTimestamp de 150 milhões seria por 15 segundos.<br/>Use startTimestamp e endTimestampp para cortar os fragmentos que estarão na playlist (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e EndTimestamp = 100000000 usando a escala de espera padrão gerará uma lista de reprodução que contém fragmentos entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
+|**Escala de tempo**|Aplica-se a todos os carimbos de data/hora e durações em um intervalo de tempo de apresentação, especificado como o número de incrementos em um segundo.<br/>O padrão é 10 milhões-10 milhões incrementos em um segundo, em que cada incremento seria 100 nanossegundos.<br/>Por exemplo, se você quiser definir um startTimestamp em 30 segundos, usará um valor de 300 milhões ao usar a escala de tempo padrão.|
 
-### <a name="tracks"></a>Faixas
+### <a name="tracks"></a>Trilhas
 
-Você especifica uma lista de condições de propriedade de controle de filtro (FilterTrackPropertyConditions) com base no qual as faixas do seu fluxo (transmissão ao vivo ou vídeo sob demanda) devem ser incluídas no manifesto criado dinamicamente. Os filtros são combinados usando uma operação lógica **E** e **OU**.
+Você especifica uma lista de condições de propriedade de controle de filtro (FilterTrackPropertyConditions) com base nas faixas de seu fluxo (transmissão ao vivo ou vídeo sob demanda) que devem ser incluídas no manifesto criado dinamicamente. Os filtros são combinados usando uma operação lógica **E** e **OU**.
 
 As condições de propriedade da faixa de filtro descrevem tipos de trilha, valores (descritos na tabela a seguir) e operações (Equal, NotEqual). 
 
-|NOME|DESCRIÇÃO|
+|{1&gt;Nome&lt;1}|Descrição|
 |---|---|
 |**Bitrate**|Use a taxa de bits da faixa para filtragem.<br/><br/>O valor recomendado é um intervalo de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora você possa usar um valor de taxa de bits específico, como 250000 (bits por segundo), essa abordagem não é recomendada, pois as taxas de bits exatas podem variar de um ativo para outro.|
-|**FourCC**|Use o valor de FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado na [6381 RFC](https://tools.ietf.org/html/rfc6381). Atualmente, há suporte para os seguintes codecs: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas em um ativo, obter e examine o arquivo de manifesto.|
-|**Linguagem**|Use a linguagem da faixa para filtragem.<br/><br/>O valor é a tag de um idioma que você deseja incluir, conforme especificado no RFC 5646. Por exemplo, “in”|
+|**FourCC**|Use o valor de FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado na [6381 RFC](https://tools.ietf.org/html/rfc6381). Atualmente, há suporte para os seguintes codecs: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", "ec-3"<br/><br/>Para determinar os valores FourCC para faixas em um ativo, obtenha e examine o arquivo de manifesto.|
+|**Idioma**|Use a linguagem da faixa para filtragem.<br/><br/>O valor é a tag de um idioma que você deseja incluir, conforme especificado no RFC 5646. Por exemplo, “in”|
 |**Nome**|Use o nome da faixa para filtragem.|
 |**Tipo**|Use o tipo da faixa para filtragem.<br/><br/>Os seguintes valores são permitidos: "video", "áudio" ou "texto".|
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 O exemplo a seguir define um filtro de transmissão ao vivo: 
 
@@ -137,24 +137,24 @@ O exemplo a seguir define um filtro de transmissão ao vivo:
 }
 ```
 
-## <a name="associating-filters-with-streaming-locator"></a>Associando a filtros de localizador de Streaming
+## <a name="associating-filters-with-streaming-locator"></a>Associando filtros com o localizador de streaming
 
-Você pode especificar uma lista de [filtros de ativo ou a conta](filters-concept.md) no seu [localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [Dynamic Packager](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto com aqueles seu cliente especifica a URL. Essa combinação gera uma [manifesto dinâmico](filters-dynamic-manifest-overview.md), que se baseia nos filtros na URL + filtros que você especificar no localizador de Streaming. 
+Você pode especificar uma lista de [ativos ou filtros de conta](filters-concept.md) no [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [Gerenciador dinâmico](dynamic-packaging-overview.md) aplica essa lista de filtros junto com aqueles que seu cliente especifica na URL. Essa combinação gera um [manifesto dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros na URL + filtros especificados no localizador de streaming. 
 
 Veja os exemplos a seguir:
 
-* [Associar filtros de localizador de Streaming - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
-* [Associar filtros de localizador de Streaming - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+* [Associar filtros ao localizador de streaming-.NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Associar filtros ao localizador de streaming – CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
-## <a name="updating-filters"></a>Atualizar filtros
+## <a name="updating-filters"></a>Atualizando filtros
  
-**Os localizadores de streaming** não são atualizáveis enquanto os filtros podem ser atualizados. 
+Os **localizadores de streaming** não são atualizáveis enquanto os filtros podem ser atualizados. 
 
-Não é recomendável atualizar a definição de filtros associados ativamente publicados **localizador de Streaming**, especialmente quando CDN está habilitado. As CDNs e servidores de Streaming pode ter caches internos que podem resultar em dados armazenados em cache obsoletos a ser retornado. 
+Não é recomendável atualizar a definição de filtros associados a um **localizador de streaming**publicado ativamente, especialmente quando a CDN está habilitada. Os servidores de streaming e CDNs podem ter caches internos que podem resultar na retorno de dados armazenados em cache obsoletos. 
 
-Se a definição do filtro precisa ser alterado considere criar um novo filtro e adicioná-lo para o **localizador de Streaming** URL ou publicar uma nova **localizador de Streaming** que referencia o filtro diretamente.
+Se a definição de filtro precisar ser alterada, considere criar um novo filtro e adicioná-lo à URL do **localizador de streaming** ou publicar um novo **localizador de streaming** que faça referência diretamente ao filtro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Os artigos a seguir mostram como criar filtros programaticamente.  
 

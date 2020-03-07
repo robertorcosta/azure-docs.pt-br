@@ -15,11 +15,11 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918369"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389056"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Conecte-se a uma máquina virtual do SQL Server no Azure
 
@@ -39,7 +39,7 @@ Se você provisionar uma VM do SQL Server no Portal do Azure, terá a opção de
 
 As opções de conectividade incluem:
 
-| {1&gt;Opção&lt;1} | Descrição |
+| Opção | DESCRIÇÃO |
 |---|---|
 | **Pública** | Conectar-se ao SQL Server pela Internet |
 | **Privada** | Conectar-se ao SQL Server na mesma rede virtual |
@@ -135,7 +135,7 @@ Embora o portal forneça opções para configurar a conectividade automaticament
 
 A tabela a seguir lista os requisitos para conectar-se ao SQL Server em execução em uma VM do Azure.
 
-| Requisito | Descrição |
+| Requisito | DESCRIÇÃO |
 |---|---|
 | [Habilitar o modo de autenticação do SQL Server](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | A autenticação do SQL Server é necessária para conectar-se remotamente à VM, a menos que o Active Directory esteja configurado em uma Rede Virtual. |
 | [Criar um logon do SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Se você estiver usando a autenticação do SQL, será necessário um logon do SQL com um nome de usuário e uma senha que também tenha permissões para o banco de dados de destino. |
@@ -146,7 +146,7 @@ A tabela a seguir lista os requisitos para conectar-se ao SQL Server em execuç�
 > [!TIP]
 > As etapas na tabela acima serão executadas automaticamente quando você configurar a conectividade no portal. Apenas use essas etapas para confirmar a sua configuração ou ao configurar manualmente a conectividade do SQL Server.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para ver instruções de provisionamento com estas etapas de conectividade, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 

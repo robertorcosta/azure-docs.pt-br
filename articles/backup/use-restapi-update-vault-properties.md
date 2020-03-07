@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78204490"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395558"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
-|Nome  |Type  |DESCRIÇÃO  |
+|{1&gt;Nome&lt;1}  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,12 +83,12 @@ As seguintes definições comuns são usadas para criar um corpo de solicitaçã
 
 Para obter mais detalhes, consulte [a documentação da API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Obrigatório  |Type  |DESCRIÇÃO  |
+|{1&gt;Nome&lt;1}  |Obrigatório  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag Opcional       |
-|local     |  true       |String         |   Localização do recurso      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
-|marcas     |         | Objeto        |     Marcações de recursos    |
+|local     |  {1&gt;true&lt;1}       |String         |   Localização do recurso      |
+|propriedades     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
+|marcas     |         | Object        |     Marcações de recursos    |
 
 #### <a name="example-request-body"></a>Exemplo do corpo de solicitação
 
@@ -107,7 +107,7 @@ O exemplo a seguir é usado para atualizar o estado de exclusão reversível par
 
 A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
-|Nome  |Type  |DESCRIÇÃO  |
+|{1&gt;Nome&lt;1}  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -127,7 +127,7 @@ Depois que a solicitação ' PATCH ' for enviada, uma resposta 200 (bem-sucedida
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Crie uma política de backup para fazer backup de uma VM do Azure neste Vault](backup-azure-arm-userestapi-createorupdatepolicy.md).
 

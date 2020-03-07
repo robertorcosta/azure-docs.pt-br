@@ -5,11 +5,11 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659266"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373389"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor.
@@ -146,9 +146,9 @@ Você pode criar propriedades de email e webhook usando `New-AzAlertRuleEmail` e
 
 A tabela a seguir descreve os parâmetros e valores usados para criar um alerta usando uma métrica.
 
-| parâmetro | value |
+| parâmetro | {1&gt;Valor&lt;1} |
 | --- | --- |
-| Nome |simpletestdiskwrite |
+| {1&gt;Nome&lt;1} |simpletestdiskwrite |
 | Local desta regra de alerta |Leste dos EUA |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
