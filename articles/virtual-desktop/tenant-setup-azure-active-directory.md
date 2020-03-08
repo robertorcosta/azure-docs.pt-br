@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 600b0f598c54b5db154fd488aebf26a6fcdc0b1d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383461"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925244"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: criar um locatário na área de trabalho virtual do Windows
 
@@ -72,7 +72,7 @@ A atribuição de um usuário do Azure Active Directory à função de aplicativ
 
 Para atribuir a função de aplicativo TenantCreator:
 
-1. Vá para o  [portal do Azure](https://portal.azure.com) para gerenciar a função de aplicativo TenantCreator. Pesquise por **Aplicativos empresariais** e selecione essa opção. Se você está trabalhando com vários locatários do Azure Active Directory, é uma prática recomendada abrir uma sessão privada do navegador e copiar e colar as URLs na barra de endereços.
+1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar a função de aplicativo TenantCreator. Pesquise por **Aplicativos empresariais** e selecione essa opção. Se você está trabalhando com vários locatários do Azure Active Directory, é uma prática recomendada abrir uma sessão privada do navegador e copiar e colar as URLs na barra de endereços.
 
    ![Captura de tela da pesquisa por Aplicativos empresariais no portal do Azure](media/azure-portal-enterprise-applications.png)
 2. Em **Aplicativos Empresariais**, pesquise **Área de Trabalho Virtual do Windows**. Você verá os dois aplicativos para os quais forneceu consentimento na seção anterior. Desses dois aplicativos, selecione **Área de Trabalho Virtual do Windows**.

@@ -2,17 +2,23 @@
 title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 2e747b7faa6e9766a577b472cc3e283d6223109e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.date: 03/06/2020
+ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379124"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925753"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
 
-Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar recursos no nível da assinatura. Você usa implantações de nível de assinatura para executar ações que fazem sentido nesse nível, como a criação de grupos de recursos ou a atribuição [de controle de acesso baseado em função](../../role-based-access-control/overview.md).
+Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar recursos no:
+
+* nível de assinatura (abordado neste artigo)
+* [nível do grupo de gerenciamento](deploy-to-management-group.md)
+* [nível de locatário](deploy-to-tenant.md)
+
+Você usa implantações de nível de assinatura para executar ações que fazem sentido nesse nível, como a criação de grupos de recursos ou a atribuição [de controle de acesso baseado em função](../../role-based-access-control/overview.md).
 
 Para implantar modelos no nível de assinatura, use CLI do Azure, PowerShell ou API REST. O portal do Azure não dá suporte à implantação em nível de assinatura.
 
@@ -21,7 +27,7 @@ Para implantar modelos no nível de assinatura, use CLI do Azure, PowerShell ou 
 Você pode implantar os seguintes tipos de recursos no nível da assinatura:
 
 * [Orçamentos](/azure/templates/microsoft.consumption/budgets)
-* [implantações](/azure/templates/microsoft.resources/deployments)
+* [implantações](/azure/templates/microsoft.resources/deployments) -para modelos aninhados que são implantados em grupos de recursos.
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -88,12 +94,12 @@ Para implantações em nível de assinatura, há algumas considerações importa
 
 * A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
 * A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-a para obter a ID de recurso para recursos que são usados em implantações de nível de assinatura. Não forneça um valor para o parâmetro do grupo de recursos.
+* Use a função [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) para obter a ID de recurso para os recursos que são implantados no nível de assinatura.
 
   Por exemplo, para obter a ID de recurso para uma definição de política, use:
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   A ID de recurso retornada tem o seguinte formato:
@@ -101,8 +107,6 @@ Para implantações em nível de assinatura, há algumas considerações importa
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  Ou use a função [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) para obter a ID de recurso para um recurso de nível de assinatura.
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
