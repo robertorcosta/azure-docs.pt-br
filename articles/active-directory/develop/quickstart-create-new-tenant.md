@@ -13,14 +13,14 @@ ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 74747e1bc5247e2a95a180b7361eafe8ca795bc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: ffd47d886a9d74c637f4f7ff634b3fd4c4a77574
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160699"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390758"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um locatário
+# <a name="quickstart-set-up-a-tenant"></a>Início rápido: configurar um locatário
 
 A plataforma de identidade da Microsoft permite que os desenvolvedores criem aplicativos direcionados para uma ampla variedade de ambientes e identidades personalizados do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você precisará ter acesso a um ambiente, também chamado de locatário do Azure AD, que pode registrar e gerenciar aplicativos, ter acesso a dados do Microsoft 365 e implantar restrições personalizadas de Acesso Condicional e de locatário.
 
@@ -70,8 +70,8 @@ Se você ainda não tem um locatário do Azure AD ou deseja criar um para desenv
 
 Para começar a criar aplicativos que entram em contas sociais e locais, você precisará criar um locatário do Azure AD B2C. Para começar, siga [criando um locatário do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Experimente um início rápido de codificação e comece a autenticação de usuários. 
 * Para obter exemplos de código mais detalhados, confira a seção **Tutoriais** da documentação.
-* Deseja implantar seu aplicativo na nuvem? Confira [implantando contêineres no Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* Deseja implantar seu aplicativo na nuvem? Confira [implantando contêineres no Azure](https://docs.microsoft.com/azure/index?pivot=products&panel=containers).

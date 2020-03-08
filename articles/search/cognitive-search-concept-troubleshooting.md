@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113834"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391243"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para o enriquecimento de ia no Azure Pesquisa Cognitiva
 
@@ -60,7 +60,7 @@ O campo enriquecido tem finalidade apenas de depuração, para ajudá-lo a enten
 
 Adicione um campo ```enriched``` como parte da definição do índice para fins de depuração:
 
-#### <a name="request-body-syntax"></a>Sintaxe do corpo da solicitação
+#### <a name="request-body-syntax"></a>Sintaxe de Corpo da Solicitação
 ```json
 {
   "fields": [

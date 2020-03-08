@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Conectar cabos a um Azure FXT Edge Filer'
+title: 'Tutorial: conectar cabos a um Filer do Azure FXT Edge'
 description: Como cabear as portas de rede e anexar a alimentação ao hardware do Azure FXT Edge Filer
 author: ekpgh
 ms.author: rohogue
@@ -7,13 +7,13 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550937"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395422"
 ---
-# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: Estabelecer conexões de rede e fornecer alimentação para o nó do Azure FXT Edge Filer
+# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: fazer conexões de rede e fornecer energia para o nó de filer do Azure FXT Edge
 
 Este tutorial ensina como cabear as conexões de rede para um nó de hardware do Azure FXT Edge Filer.
 
@@ -25,7 +25,7 @@ Neste tutorial, você irá aprender:
 > * Como rotear os cabos por meio do CMA (braço de gerenciamento de cabos)
 > * Como conectar a alimentação ao dispositivo em rack e ligá-lo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de iniciar este tutorial, o Azure FXT Edge Filer deve ser instalado em um rack de equipamento padrão. O CMA deve ser instalado no nó do arquivista. 
 
@@ -161,7 +161,7 @@ Para ligar o nó, pressione o botão de energia na parte frontal do sistema. O b
 
 O botão de energia pode ser usado para desligar o sistema durante o teste e antes de adicioná-lo a um cluster. No entanto, depois que um nó do Azure FXT Edge Filer estiver em uso como parte de um cluster, você deverá usar o software do painel de controle do cluster para desligar o hardware. Leia [Como desligar o hardware do Azure FXT Edge Filer com segurança](fxt-power-off.md) para obter detalhes. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de concluir o cabeamento do hardware, ligue cada um dos nós e inicialize-os definindo suas senhas raiz. 
 > [!div class="nextstepaction"]

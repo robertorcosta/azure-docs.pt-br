@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314327"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355307"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -66,7 +66,7 @@ Também é possível [automatizar o treinamento e o ajuste do modelo](tutorial-a
 
 Para treinamento e implantação sem código ou com pouco código, experimente:
 
-+ **Designer do Azure Machine Learning**
++ **Azure Machine Learning Designer (versão prévia)**
 
   Use o designer para preparar dados, treinar, testar, implantar, gerenciar e rastrear modelos de aprendizado de máquina sem escrever nenhum código. Não há necessidade de programação; conecte visualmente os conjuntos de dados e módulos para construir seu modelo. Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md).
 

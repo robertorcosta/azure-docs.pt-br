@@ -4,11 +4,11 @@ description: Saiba como criar um modelo do Resource Manager para um cluster do S
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: a00f2bc505acd89d9fb9488565b6235bf7d146ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463254"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396644"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo do Resource Manager do cluster do Service Fabric
 
@@ -247,7 +247,7 @@ O diagrama a seguir ilustra onde a configuração do cofre de chaves e do Azure 
 
 ![Mapa de dependências do Resource Manager][cluster-security-arm-dependency-map]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Agora que você tem um modelo para o cluster, saiba como [implantar o cluster no Azure](service-fabric-cluster-creation-via-arm.md).  Se você ainda não tiver feito isso, leia a [Lista de verificação de preparação para produção](service-fabric-production-readiness-checklist.md) antes de implantar um cluster de produção.
 
 Para saber mais sobre as propriedades e a sintaxe JSON dos recursos implantados neste artigo, consulte:

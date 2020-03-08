@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.openlocfilehash: db1d530c9cab77ae612c83a0d4f52478fb9ee270
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024029"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395221"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Práticas recomendadas para usar Power BI para consultar e Visualizar dados de Data Explorer do Azure
 
@@ -144,7 +144,7 @@ O Power BI inclui um Agendador de atualização de dados que pode emitir consult
 
 Se a execução de uma consulta no Power BI resultar no seguinte erro: _"DataSource. Error: Web. Contents falhou ao obter conteúdo de..."_ a consulta provavelmente tem mais de 2000 caracteres. Power BI usa **PowerQuery** para consultar o Kusto emitindo uma solicitação HTTP Get que codifica a consulta como parte do URI que está sendo recuperado. Portanto, as consultas Kusto emitidas por Power BI são limitadas ao comprimento máximo de um URI de solicitação (2000 caracteres, menos deslocamento pequeno). Como alternativa, você pode definir uma [função armazenada](/azure/kusto/query/schema-entities/stored-functions) em Kusto e ter Power bi usar essa função na consulta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Visualizar dados usando o conector de Data Explorer do Azure para Power BI](power-bi-connector.md)
 

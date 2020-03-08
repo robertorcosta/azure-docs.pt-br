@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75fdc59b9110c3bfc29fe52be917a7d6e6636b8a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963199"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376277"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -31,7 +31,7 @@ Tópico |  Detalhes
 --------- | --------- |
 Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](how-to-upgrade-previous-version.md) do Azure AD Connect.
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
-Baixar| [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+{1&gt;{2&gt;Baixar&lt;2}&lt;1}| [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >A liberação de uma nova versão do Azure AD Connect é um processo que requer várias etapas de controle de qualidade para garantir a funcionalidade de operação do serviço e, enquanto passamos por esse processo, o número de versão de uma nova versão e o status da versão serão atualizados para refletir o estado mais recente.
@@ -50,7 +50,7 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >Veja [Este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar Azure ad Connect para a versão mais recente.
 
 ## <a name="14380"></a>1.4.38.0
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 12/9/2019: versão para download. Não disponível por meio da atualização automática.
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Atualizamos a sincronização de hash de senha para Azure AD Domain Services para considerar adequadamente o preenchimento em hashes Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do AAD para o Azure AD Domain Services.
@@ -64,7 +64,7 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 - Foi feita uma correção para habilitar o DSSO simultaneamente em toda a floresta por meio da interface de usuário do AADConnect
 
 ## <a name="14320"></a>1.4.32.0
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 11/08/2019: liberado para download. Não disponível por meio da atualização automática.
 
 >[!IMPORTANT]
@@ -76,7 +76,7 @@ Observe que essa alteração de regra pode causar a exclusão de dispositivos ob
 
 ## <a name="14250"></a>1.4.25.0
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 9/28/2019: liberado para atualização automática para selecionar locatários. Não disponível para download.
 
 Essa versão corrige um bug em que alguns servidores que foram atualizados automaticamente de uma versão anterior para 1.4.18.0 e problemas experientes com autoatendimento de redefinição de senha (SSPR) e Write-back de senha.
@@ -96,7 +96,7 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 >Com esta versão do Azure AD Connect alguns clientes podem ver que alguns ou todos os seus dispositivos Windows desaparecem do Azure AD. Isso não é uma causa de preocupação, pois essas identidades de dispositivo não são usadas pelo AD do Azure durante a autorização de acesso condicional. Para obter mais informações, consulte [Understanding Azure ad Connect 1.4. XX. x Device disappearnce](reference-connect-device-disappearance.md)
 
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 9/25/2019: liberado somente para atualização automática.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
@@ -145,7 +145,7 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 >2. Execute `Import-Module "ADSync"`
 >3. Execute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
-### <a name="release-status"></a>Status de liberação 
+### <a name="release-status"></a>Previsão de lançamento 
 
 05/14/2019: liberado para download
 
@@ -155,7 +155,7 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 
 ## <a name="13200"></a>1.3.20.0 
 
-### <a name="release-status"></a>Status de liberação 
+### <a name="release-status"></a>Previsão de lançamento 
 
 04/24/2019: liberado para download
 
@@ -202,7 +202,7 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 
 ## <a name="12700"></a>1.2.70.0
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 
 12/18/2018: liberado para download
 
@@ -213,7 +213,7 @@ Esta compilação atualiza os conectores não padrão (por exemplo, conector LDA
 
 ## <a name="12690"></a>1.2.69.0
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 12/11/2018: liberado para download
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
@@ -225,7 +225,7 @@ Se algum build com a funcionalidade Opções de Dispositivo atualizada tiver sid
 
 ## <a name="12680"></a>1.2.68.0
 
-### <a name="release-status"></a>Status de liberação 
+### <a name="release-status"></a>Previsão de lançamento 
 
 11/30/2018: liberado para download
 
@@ -237,7 +237,7 @@ Este build de hotfix corrige um conflito em que um erro de autenticação pode o
 
 ## <a name="12670"></a>1.2.67.0
 
-### <a name="release-status"></a>Status de liberação 
+### <a name="release-status"></a>Previsão de lançamento 
 
 19/11/2018: liberado para download
 
@@ -247,7 +247,7 @@ Esta compilação de hotfix corrige uma regressão na compilação anterior em q
 
 ## <a name="12650"></a>1.2.65.0 
 
-### <a name="release-status"></a>Status de liberação 
+### <a name="release-status"></a>Previsão de lançamento 
 
 25/10/2018: liberado para download
 
@@ -287,7 +287,7 @@ A atualização do Azure AD Connect falha se a Disponibilidade AlwaysOn do SQL f
 
 ## <a name="118800"></a>1.1.880.0
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 
 21/8/2018: liberado para download e atualização automática. 
 
@@ -326,7 +326,7 @@ A atualização do Azure AD Connect falha se a Disponibilidade AlwaysOn do SQL f
 
 ## <a name="118190"></a>1.1.819.0
 
-### <a name="release-status"></a>Status de liberação
+### <a name="release-status"></a>Previsão de lançamento
 
 14/5/2018: liberado para atualização automática e download.
 
@@ -496,12 +496,12 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Tipo     | Nome                          | Acesso               | Aplica-se A
+Tipo     | {1&gt;Nome&lt;1}                          | Acesso               | Aplica-se a
 ---------|-------------------------------|----------------------|--------------|
-Permitir    | SYSTEM                        | Controle Total         | Este objeto  |
-Permitir    | Administradores Corporativos             | Controle Total         | Este objeto  |
-Permitir    | Administradores de Domínio                 | Controle Total         | Este objeto  |
-Permitir    | Administradores                | Controle Total         | Este objeto  |
+Permitir    | SYSTEM                        | Controle total         | Este objeto  |
+Permitir    | Administradores Corporativos             | Controle total         | Este objeto  |
+Permitir    | Administradores de Domínio                 | Controle total         | Este objeto  |
+Permitir    | Administradores                | Controle total         | Este objeto  |
 Permitir    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
 Permitir    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
 Permitir    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
@@ -521,7 +521,7 @@ Para usar o script do PowerShell, para aplicar essas configurações, para uma c
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+Onde 
 
 **$ObjectDN** = A conta do Active Directory cujas permissões precisam ser reforçadas.
 
@@ -840,8 +840,8 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecionar|
-    |CertKeyAlgorithmParams|CertHashString|Where|
-    |||Com|
+    |CertKeyAlgorithmParams|CertHashString|Onde|
+    |||{1&gt;Por&lt;1}|
 
 * As seguintes alterações de esquema foram introduzidas para permitir que os clientes criem regras de sincronização personalizadas para transmitir sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como transmitir distinguishedName para objetos de usuário:
 
@@ -1296,7 +1296,7 @@ Lançamento: abril de 2015
 
 **Novos recursos:**
 
-* Um ingresso agora pode se conectar ao tipo de objeto "ANY" na MV.
+* Uma junção agora pode se conectar ao objeto "ANY" no MV.
 
 ## <a name="104850222"></a>1.0.485.0222
 Lançamento: fevereiro de 2015
@@ -1358,5 +1358,5 @@ Lançamento: setembro de 2014
 
 **Versão inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

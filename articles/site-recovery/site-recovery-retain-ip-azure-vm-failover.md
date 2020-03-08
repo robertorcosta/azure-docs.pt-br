@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083686"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396899"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante o failover
 
@@ -40,7 +40,7 @@ Esta é a arquitetura antes do failover.
 - Para reduzir o RTO (objetivo de tempo de recuperação), a empresa usa nós de réplica para SQL Server Always On, controladores de domínio, etc. Esses nós de réplica estão em uma VNet diferente na região de destino, para que eles possam estabelecer a conectividade VPN site a site entre as regiões de origem e de destino. Isso não é possível quando o mesmo espaço de endereços IP é usado na origem e no destino.  
 - Antes do failover, a arquitetura de rede é a seguinte:
     - A região primária é o Azure no Leste da Ásia
-        - A Ásia Oriental tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
+        - O Leste da Ásia tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
         - O Leste da Ásia tem cargas de trabalho divididas em três sub-redes na rede virtual:
             - **Sub-rede 1**: 10.1.1.0/24
             - **Sub-rede 2**: 10.1.2.0/24
@@ -56,7 +56,7 @@ Esta é a arquitetura antes do failover.
 
 ![Recursos no Azure antes do failover completo](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
-### <a name="after-failover"></a>Após o failover
+### <a name="after-failover"></a>Depois do failover
 
 Se ocorrer uma interrupção regional na origem, a Empresa A poderá fazer failover de todos os seus recursos para a região de destino.
 
@@ -104,7 +104,7 @@ Antes do failover, a arquitetura é a seguinte:
 
     ![Recursos no Azure antes do failover do aplicativo](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
-### <a name="after-failover"></a>Após o failover
+### <a name="after-failover"></a>Depois do failover
 
 No caso de uma interrupção ou de um problema que afete um único aplicativo (na **VNet de Origem 2 em nosso exemplo), a Empresa A pode recuperar o aplicativo afetado da seguinte maneira:
 
@@ -128,8 +128,8 @@ Neste cenário, a **Empresa B** tem um negócio híbrido, com parte da infraestr
 A arquitetura de rede tem a seguinte aparência antes do failover.
 
 - VMs de aplicativo são hospedadas no Azure no Leste da Ásia.
-- A Ásia Oriental tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
-  - A Ásia Oriental tem cargas de trabalho divididas entre três sub-redes na **VNet de Origem**:
+- O Leste da Ásia tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
+  - O Leste da Ásia tem cargas de trabalho divididas entre três sub-redes na **VNet de Origem**:
     - **Sub-rede 1**: 10.1.1.0/24
     - **Sub-rede 2**: 10.1.2.0/24
     - **Sub-rede 3**: 10.1.3.0/24, utilizando uma rede virtual do Azure com espaço de endereço 10.1.0.0/16. Essa rede virtual é chamada de **VNet de Origem**
@@ -142,7 +142,7 @@ A arquitetura de rede tem a seguinte aparência antes do failover.
 
 ![Conectividade local para Azure antes do failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
-### <a name="after-failover"></a>Após o failover
+### <a name="after-failover"></a>Depois do failover
 
 
 Se ocorrer uma interrupção regional na origem, a Empresa B poderá fazer failover de todos os seus recursos para a região de destino.
@@ -161,6 +161,6 @@ A Empresa B não pode efetuar o failover de aplicativos isolados no nível da su
  - Para ter resiliência de aplicativos, a Empresa B precisará colocar cada aplicativo em sua própria VNet do Azure dedicada.
  - Com cada aplicativo em uma VNet separada, a Empresa B pode efetuar failover de aplicativos isolados e encaminhar conexões da origem para a região de destino.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md).

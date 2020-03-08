@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: raynew
 ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014004"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361755"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
@@ -33,18 +33,18 @@ O suporte a ferramentas específicas é resumido na tabela.
 **Ferramenta** | **Avaliar** | **Migrar** 
 --- | --- | ---
 Avaliação de Servidor das Migrações para Azure | Avalie [VMs VMware](tutorial-prepare-vmware.md), [VMs Hyper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (NA)
-Migração de Servidor das Migrações para Azure | ND | Migre [VMs VMware](tutorial-migrate-vmware.md), [VMs Hyper-V](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
-[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | ND | Migre VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. 
-[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | ND
+Migração de Servidor das Migrações para Azure | NA | Migre [VMs VMware](tutorial-migrate-vmware.md), [VMs Hyper-V](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | NA | Migre VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | NA
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar e migrar VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. |  Migre VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.
-[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.| ND
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar os bancos de dados SQL Server locais. | ND
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Migre SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avalie o Virtual Desktop Infrastructure (VDI) | ND
-[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | ND
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Migrar VMs VMWare, VMs do Hyper-V, VMS Xen, VMs KVM, máquinas físicas, cargas de trabalho de nuvem pública 
-[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | ND
-[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados SQL Server. | ND
+[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.| NA
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar os bancos de dados SQL Server locais. | NA
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | NA | Migre SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avalie o Virtual Desktop Infrastructure (VDI) | NA
+[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | NA
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrar VMs VMWare, VMs do Hyper-V, VMS Xen, VMs KVM, máquinas físicas, cargas de trabalho de nuvem pública 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. | NA
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados SQL Server. | NA
 [Assistente de Migração webapp](https://appmigration.microsoft.com/) | Avaliar aplicativos Web | Migre aplicativos Web.
 
 
@@ -52,7 +52,7 @@ Migração de Servidor das Migrações para Azure | ND | Migre [VMs VMware](tuto
 
 **Suporte** | **Detalhes**
 --- | ---
-Subscription | Você pode ter vários projetos de migrações para Azure em uma assinatura.
+Assinatura | Você pode ter vários projetos de migrações para Azure em uma assinatura.
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
 VMs VMware  | Avalie até 35.000 VMs VMware em um único projeto.
 VMs Hyper-V | Avalie até 35.000 VMs do Hyper-V em um único projeto.
@@ -75,13 +75,13 @@ Você pode criar um projeto de migrações para Azure em uma série de geografia
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Azure Governamental | US Gov - Virgínia
+Azure Government | Gov. dos EUA – Virgínia
 Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
 Canadá | Canadá central ou leste do Canadá
 Europa | Norte da Europa ou Europa Ocidental
-França | França Central
+France | França Central
 Índia | Índia central ou sul da Índia
 Japão |  Leste do Japão ou oeste do Japão
 Coreia do Sul | Coreia central ou sul da Coreia
@@ -111,7 +111,7 @@ Há duas versões do serviço de Migrações para Azure:
 - **Versão atual**: usando esta versão, você pode criar novos projetos de migrações para Azure, descobrir avaliações locais e orquestrações e migrações. [Saiba mais](whats-new.md#release-version-july-2019).
 - **Versão anterior**: para o cliente que usa a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Na versão anterior, você não pode criar novos projetos de migrações para Azure ou executar novas descobertas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Avalie as VMs do VMware](tutorial-assess-vmware.md) para migração.
 - [Avalie as VMs do Hyper-V](tutorial-assess-hyper-v.md) para migração.

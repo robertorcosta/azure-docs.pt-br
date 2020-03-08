@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: d0a9f643516af5945037acb3dd1da24b06944171
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960627"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396490"
 ---
 # <a name="401003-iothubunauthorized"></a>IoTHubUnauthorized 401003
 
@@ -67,6 +67,6 @@ Em geral, a mensagem de erro apresentada deve explicar como corrigir o erro. Se,
 - A credencial de autorização é bem formada para o protocolo que você usa. Para saber mais, confira [controle de acesso do Hub IOT](iot-hub-devguide-security.md).
 - A regra de autorização usada tem a permissão para a operação solicitada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para facilitar a autenticação no Hub IoT, é recomendável usar [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).

@@ -4,11 +4,11 @@ description: As configurações de aprendizado determinam os *hiperparâmetros* 
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623791"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381273"
 ---
 # <a name="learning-policy-and-settings"></a>Política de aprendizado e configurações
 
@@ -49,6 +49,6 @@ O personalizador pode criar uma política de aprendizado otimizada em uma [avali
 
 Depois de otimizar uma política de aprendizado, você pode aplicá-la diretamente ao personalizador para que ela substitua imediatamente a política atual. Ou você pode salvar a política otimizada para avaliação adicional e, posteriormente, decidir se deseja descartá-la, salvá-la ou aplicá-la.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Aprenda [eventos ativos e inativos](concept-active-inactive-events.md).

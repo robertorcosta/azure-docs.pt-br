@@ -16,17 +16,17 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015444"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392969"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium
 ## <a name="overview"></a>Visão geral
-Há situações em que talvez você precise personalizar as propriedades do componente, especificar o conteúdo XML da Lista de Clipes ou enviar vários arquivos de entrada ao enviar uma tarefa com o processador de mídia **Fluxo de trabalho Premium de codificação de mídia** . Alguns exemplos incluem:
+Há situações em que talvez você precise personalizar as propriedades do componente, especificar o conteúdo XML da Lista de Clipes ou enviar vários arquivos de entrada ao enviar uma tarefa com o processador de mídia **Fluxo de trabalho Premium de codificação de mídia** . Alguns exemplos são:
 
-* Sobreposição de texto em vídeo e definição do valor do texto (por exemplo, a data atual) no tempo de execução de cada vídeo de entrada.
+* Sobreposição de texto em vídeo e definição do valor do texto (por exemplo, a data atual) no runtime de cada vídeo de entrada.
 * Personalização do XML da Lista de Clipes (para especificar um ou vários arquivos de origem, com ou sem corte etc.).
 * Sobreposição de uma imagem de logotipo no vídeo de entrada durante a codificação do vídeo.
 * Vários idiomas de áudio codificação.
@@ -79,7 +79,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ### <a name="property-with-a-simple-value"></a>Propriedade com um valor simples
 Em alguns casos, é útil personalizar uma propriedade do componente junto com o arquivo de fluxo de trabalho que será executado pelo Fluxo de Trabalho Premium do Codificador de Mídia.
 
-Suponha que você tenha criado um fluxo de trabalho que sobrepõe texto em vídeos, e que o texto (por exemplo, a data atual) deva ser definido em tempo de execução. É possível fazer isso enviando o texto a ser definido como o novo valor da propriedade de texto do componente de sobreposição por meio da tarefa de codificação. Você pode usar esse mecanismo para alterar outras propriedades de um componente no fluxo de trabalho (por exemplo, a posição ou a cor da sobreposição, a taxa de bits do codificador AVC etc.).
+Suponha que você tenha criado um fluxo de trabalho que sobrepõe texto em vídeos, e que o texto (por exemplo, a data atual) deva ser definido em runtime. É possível fazer isso enviando o texto a ser definido como o novo valor da propriedade de texto do componente de sobreposição por meio da tarefa de codificação. Você pode usar esse mecanismo para alterar outras propriedades de um componente no fluxo de trabalho (por exemplo, a posição ou a cor da sobreposição, a taxa de bits do codificador AVC etc.).
 
 **setRuntimeProperties** é usado para substituir uma propriedade nos componentes do fluxo de trabalho.
 
@@ -171,7 +171,7 @@ Conexões no fluxo de trabalho:
 *É possível conectar o XML da Lista de Clipes à Fonte de Mídia e usar transcodeSource.*
 
 ### <a name="clip-list-xml-customization"></a>Personalização do XML da Lista de Clipes
-É possível especificar o XML da Lista de Clipes no fluxo de trabalho, em tempo de execução, usando **transcodeSource** no XML da cadeia de caracteres de configuração. Isso exige que o marcador do XML da Lista de Clipes esteja conectado ao componente de Fonte de Mídia no fluxo de trabalho.
+É possível especificar o XML da Lista de Clipes no fluxo de trabalho, em runtime, usando **transcodeSource** no XML da cadeia de caracteres de configuração. Isso exige que o marcador do XML da Lista de Clipes esteja conectado ao componente de Fonte de Mídia no fluxo de trabalho.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -269,13 +269,13 @@ Com outro corte preciso de quadro:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemplo 1 : Sobrepor uma imagem no vídeo
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemplo 1: Sobrepor imagem sobre o vídeo
 
 ### <a name="presentation"></a>Apresentação
 Considere um exemplo no qual você deseja sobrepor uma imagem de logotipo no vídeo de entrada durante a codificação do vídeo. Neste exemplo, o vídeo de entrada chamado "Microsoft_HoloLens_Possibilities_816p24.mp4" e o logotipo é chamado "PNG". Você deve executar as seguintes etapas:
 
 * Criar um Ativo de Fluxo de Trabalho com o arquivo de fluxo de trabalho (veja o exemplo a seguir).
-* Crie um ativo de mídia que contém dois arquivos: MyInputVideo.mp4 como o arquivo primário e MYLOGO.
+* Criar um Ativo de Mídia, que contém dois arquivos: MyInputVideo.mp4 como o arquivo primário e MyLogo.png.
 * Enviar uma tarefa para o processador de mídia Fluxo de Trabalho Premium do Codificador de Mídia com os ativos de entrada indicados acima e especificar a cadeia de caracteres de configuração a seguir.
 
 Configuração:
@@ -392,7 +392,7 @@ Este tutorial mostra como gerenciar ativos com o AMSE. Há duas maneiras de adic
 
 Selecione o ativo e escolha codificá-lo com o Codificador Premium. Carregue o fluxo de trabalho e selecione-o.
 
-Clique no botão para transmitir dados ao processador e adicione o seguinte XML para definir as propriedades de tempo de execução:
+Clique no botão para transmitir dados ao processador e adicione o seguinte XML para definir as propriedades de runtime:
 
 ![Codificador Premium no AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
 
@@ -429,7 +429,7 @@ Após a conclusão do trabalho, o arquivo MP4 no ativo de saída exibirá a sobr
 
 Você pode baixar o fluxo de trabalho de exemplo no [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exemplo 2: Várias codificações de idioma de áudio
+## <a name="example-2--multiple-audio-language-encoding"></a>Exemplo 2: Codificação de vários idiomas de áudio
 
 Um exemplo de fluxo de trabalho de codificação de vários idiomas de áudio está disponível em [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
