@@ -8,11 +8,11 @@ ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667033"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365309"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -31,7 +31,7 @@ Para uma visão geral prática sobre o uso da solução da Análise de SQL do Az
 
 Análise de SQL do Azure é uma solução de monitoramento somente de nuvem com suporte para streaming de telemetria de diagnóstico para todos os seus bancos de dados SQL do Azure. Como Análise de SQL do Azure não usa agentes para se conectar ao Azure Monitor, ele não oferece suporte ao monitoramento de SQL Server hospedados localmente ou em máquinas virtuais.
 
-| Fonte Conectada | Suportado | Descrição |
+| Fonte Conectada | Suportado | DESCRIÇÃO |
 | --- | --- | --- |
 | [Configurações de diagnóstico](../platform/diagnostic-settings.md) | **Sim** | Os dados de log e métrica do Azure são enviados para Azure Monitor logs diretamente pelo Azure. |
 | [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | Azure Monitor não lê os dados de uma conta de armazenamento. |
@@ -43,12 +43,12 @@ Análise de SQL do Azure é uma solução de monitoramento somente de nuvem com 
 
 A tabela abaixo descreve as opções com suporte para duas versões do painel Análise de SQL do Azure, uma para bancos de dados individuais e pools elásticos e o outro para instâncias gerenciadas e bancos de dados de instância.
 
-| Opção Análise de SQL do Azure | Descrição | Suporte a banco de dados único e em pool e pools elásticos | Instâncias gerenciadas e suporte a banco de dados de instâncias |
+| Opção Análise de SQL do Azure | DESCRIÇÃO | Suporte a banco de dados único e em pool e pools elásticos | Instâncias gerenciadas e suporte a banco de dados de instâncias |
 | --- | ------- | ----- | ----- |
 | Recurso por tipo | Perspectiva que conta todos os recursos monitorados. | Sim | Sim |
 | Insights | Fornece uma busca detalhada hierárquica no Intelligent Insights sobre o desempenho. | Sim | Sim |
-| Erros | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. | Sim | Sim |
-| Tempo Limite | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. | Sim | Não |
+| Errors | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. | Sim | Sim |
+| Tempos limite | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. | Sim | Não |
 | Bloqueios | Fornece drill down hierárquico sobre bloqueios do SQL que ocorreram nos bancos de dados. | Sim | Não |
 | Esperas do banco de dados | Fornece drill down hierárquico sobre estatísticas de espera do SQL sobre o nível do banco de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |Sim | Não |
 | Duração da consulta | Fornece drill down hierárquico sobre as estatísticas de execução de consulta como duração da consulta, uso da CPU, uso de E/S dos dados, uso de E/S do log. | Sim | Sim |
@@ -292,7 +292,7 @@ AzureDiagnostics
 
 Embora Análise de SQL do Azure esteja livre para uso, o consumo de telemetria de diagnóstico acima das unidades livres de ingestão de dados alocada a cada mês se aplica, consulte [preços de log Analytics](https://azure.microsoft.com/pricing/details/monitor). As unidades gratuitas de ingestão de dados fornecidas habilitam o monitoramento gratuito de vários bancos de dados por mês. Mais bancos de dados ativos com cargas de trabalho mais pesadas ingerirão mais informações em comparação com bancos de dados ociosos. Você pode monitorar facilmente o consumo de ingestão de dados em Análise de SQL do Azure selecionando espaço de trabalho do OMS no menu de navegação do Análise de SQL do Azure e, em seguida, selecionando uso e custos estimados.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Use [consultas de log](../log-query/log-query-overview.md) em Azure monitor para exibir dados do Azure SQL detalhados.
 - [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados do Azure SQL.

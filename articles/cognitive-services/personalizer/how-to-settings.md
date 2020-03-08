@@ -4,11 +4,11 @@ description: A configuração do serviço inclui como o serviço trata as recomp
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623711"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381282"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configurar o loop de aprendizagem do personalizador
 

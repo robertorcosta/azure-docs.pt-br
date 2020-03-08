@@ -4,11 +4,11 @@ description: Este artigo descreve como você pode exibir e analisar o desempenho
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75731009"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385531"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -69,17 +69,17 @@ A tabela a seguir fornece uma análise do cálculo que controla os Estados de in
 | |Status |Disponibilidade |  
 |-------|-------|-----------------|  
 |**Pod do usuário**| | |  
-| |Integridade |100% |  
+| |Healthy |100% |  
 | |Aviso |90 – 99% |  
 | |Crítico |<90% |  
 | |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |  
 |**Pod do sistema**| | |  
-| |Integridade |100% |
+| |Healthy |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
 | |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
 |**Nó** | | |
-| |Integridade |>85% |
+| |Healthy |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
 | |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
@@ -117,7 +117,7 @@ O Azure Monitor para contêineres também dá suporte a Azure Monitor [métricas
 
 No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod agregadas de Azure Monitor para contêineres. A tabela a seguir resume os detalhes para ajudá-lo a entender como usar os gráficos de métrica para visualizar as métricas de contêiner.
 
-|Namespace | Métrica | Description | 
+|Namespace | Métrica | DESCRIÇÃO | 
 |----------|--------|-------------|
 | insights.container/nodes | |
 | | cpuUsageMillicores | Medição agregada da utilização da CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (Mili = 1000). Usado para determinar o uso de núcleos em um contêiner em que muitos aplicativos podem estar usando um núcleo.| 
@@ -189,7 +189,7 @@ Essas informações podem ajudá-lo a identificar rapidamente se você tem um eq
 
 As informações apresentadas quando você exibe a guia **nós** é descrita na tabela a seguir.
 
-| Column | Description | 
+| Coluna | DESCRIÇÃO | 
 |--------|-------------|
 | Nome | O nome do host. |
 | Status | Exibição de Kubernetes do status do nó. |
@@ -218,7 +218,7 @@ Selecione o valor na coluna **nó** para o controlador específico.
 
 As informações exibidas quando você exibe controladores são descritas na tabela a seguir.
 
-| Column | Description | 
+| Coluna | DESCRIÇÃO | 
 |--------|-------------|
 | Nome | O nome do controlador.|
 | Status | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado*ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
@@ -255,7 +255,7 @@ Em um contêiner, você pode fazer drill down até um pod ou nó para exibir dad
 
 As informações exibidas quando você exibe contêineres são descritas na tabela a seguir.
 
-| Column | Description | 
+| Coluna | DESCRIÇÃO | 
 |--------|-------------|
 | Nome | O nome do controlador.|
 | Status | Status dos contêineres, se houver. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
@@ -305,7 +305,7 @@ Você acessa essas pastas de trabalho selecionando cada uma na lista suspensa **
 
 ![Exibir lista suspensa de pastas de trabalho](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine [criar alertas de desempenho com Azure monitor para contêineres](container-insights-alerts.md) para saber como criar alertas para alta utilização de CPU e memória para dar suporte aos procedimentos e processos DevOps ou operacionais.
 

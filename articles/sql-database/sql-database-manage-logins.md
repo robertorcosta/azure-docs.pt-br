@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 ms.date: 02/06/2020
 tags: azure-synapse
 ms.openlocfilehash: 79a31e5b8e3433af7879fcde8597173f25bf96b7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196953"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360067"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-azure-synapse-analytics"></a>Controlando e concedendo acesso ao banco de dados SQL e ao Azure Synapse Analytics
 

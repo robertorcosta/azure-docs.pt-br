@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Copiar de VHDs para discos gerenciados'
+title: 'Tutorial: copiar de VHDs para Managed disks'
 titleSuffix: Azure Data Box
 description: Saiba como copiar dados de VHDs de cargas de trabalho de VM local para o Azure Data Box
 services: databox
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471220"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380204"
 ---
-# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Usar o Data Box para importar dados como discos gerenciados no Azure
+# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: usar Data Box para importar dados como discos gerenciados no Azure
 
 Este tutorial descreve como usar o Azure Data Box para migrar VHDs locais para discos gerenciados no Azure. Os VHDs de VMs locais são copiados para o Data Box como blobs de páginas e transferidos por upload para o Azure como discos gerenciados. Em seguida, esses discos gerenciados podem ser anexados a VMs do Azure.
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
+1. Você concluiu o [tutorial: configurar Azure data Box](data-box-deploy-set-up.md).
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**.
 3. Você está conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se não houver uma conexão de 10 GbE disponível, use um link de dados de 1 GbE, mas as velocidades de cópia são afetadas.
 4. Você revisou:

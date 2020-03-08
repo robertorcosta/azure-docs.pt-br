@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919814"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390429"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Terminar notificação para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
 As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.
@@ -186,7 +186,7 @@ Você também pode consultar scripts de exemplos para consultar e responder a ev
 -   Aprovar todas as exclusões pendentes – se houver uma exclusão pendente em VM_1 que não está aprovada e você tiver aprovado outro evento de encerramento em VM_2, VM_2 não será excluído até que o evento de encerramento para VM_1 seja aprovado ou seu tempo limite tenha decorrido. Depois de aprovar o evento Terminate para VM_1, os VM_1 e VM_2 são excluídos.
 -   Aprovar todas as exclusões simultâneas – estendendo o exemplo acima, se VM_1 e VM_2 tiverem o mesmo tempo *antes* , então ambos os eventos de término deverão ser aprovados ou nenhuma VM será excluída antes que o tempo limite expire.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Falha ao habilitar scheduledEventsProfile
 Se você receber um erro ' BadRequest ' com uma mensagem de erro informando "não foi possível encontrar o membro ' scheduledEventsProfile ' no objeto do tipo ' VirtualMachineProfile '", verifique a versão da API usada para as operações do conjunto de dimensionamento. A versão de API de computação **2019-03-01** ou superior é necessária. 
 
@@ -197,5 +197,5 @@ Se você não estiver obtendo eventos de **término** por meio de eventos agenda
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Obtendo evento de encerramento com hora incorreta  
 Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout*, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Aprenda como [Implantar o aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais

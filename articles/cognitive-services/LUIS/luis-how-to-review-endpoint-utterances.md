@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775110"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393757"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
 
@@ -42,7 +42,7 @@ Use o portal do LUIS para construir a consulta de ponto de extremidade correta.
     > [!div class="mx-imgBorder"]
     > ![usar o portal do LUIS para salvar logs, o que é necessário para o aprendizado ativo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     Essa ação altera a URL de exemplo adicionando o parâmetro `log=true` QueryString. Copie e use a URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto de extremidade de tempo de execução.
+     Essa ação altera a URL de exemplo adicionando o parâmetro querystring `log=true`. Copie e use a URL de consulta de exemplo alterada ao fazer consultas de previsão para o ponto de extremidade do runtime.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Corrigir previsões de intenção para alinhar declarações
 
@@ -66,6 +66,6 @@ Se você não tiver certeza se deve excluir o expressão, mova-o para a intenç�
 
 Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) com o `log=false` parâmetro e o valor de QueryString ou não usando o valor de QueryString porque o valor padrão é false.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para testar como o desempenho melhora depois que você rotula as declarações sugeridas, você poderá acessar o console de teste selecionando **Teste** no painel superior. Para obter instruções sobre como testar seu aplicativo usando o console de teste, consulte [Treinar e testar seu aplicativo](luis-interactive-test.md).

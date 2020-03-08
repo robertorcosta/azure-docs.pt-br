@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 01741ea56b9e6f55c1393e88fc7991d410c33119
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934990"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379189"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 usando identidades gerenciadas
 
-O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada com a saída do ADLS (Azure Data Lake Storage) Gen1. A identidade é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics e pode ser usada para autenticação em um recurso de destino. As identidades gerenciadas eliminam limitações dos métodos de autenticação baseados no usuário, tais como a necessidade de autenticar novamente em virtude de alterações de senha ou de expirações do token de usuário ocorridas a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações de trabalho do Stream Analytics que produzem saída para o Azure Data Lake Storage Gen1.
+O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada com a saída do ADLS (Azure Data Lake Storage) Gen1. A identidade é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics e pode ser usada para autenticar um recurso almejado. Identidades gerenciadas eliminam as limitações dos métodos de autenticação baseados em usuário, como a necessidade de autenticar novamente devido a alterações de senha ou expirações de token de usuário que ocorrem a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações de trabalho do Stream Analytics que produzem saída para o Azure Data Lake Storage Gen1.
 
 Este artigo mostra três maneiras de habilitar a identidade gerenciada para um trabalho do Azure Stream Analytics que gera saídas para um Azure Data Lake Storage Gen1 por meio do portal do Azure, da implantação de modelo do Azure Resource Manager e das ferramentas do Azure Stream Analytics para Visual Studio.
 
@@ -178,11 +178,11 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
 ## <a name="limitations"></a>Limitações
 Este recurso não oferece suporte ao seguinte:
 
-1. **Acesso multilocatário**: a entidade de serviço criada para um determinado trabalho de Stream Analytics residirá no locatário Azure Active Directory no qual o trabalho foi criado e não pode ser usada em um recurso que resida em um Azure Active Directory diferente vários. Portanto, você só pode usar o MSI em recursos do ADLS Gen 1 que estão dentro do mesmo locatário Azure Active Directory que o seu trabalho de Azure Stream Analytics. 
+1. **Acesso multilocatário**: a entidade de serviço criada para um determinado trabalho de Stream Analytics residirá no locatário de Azure Active Directory no qual o trabalho foi criado e não pode ser usada em um recurso que resida em um locatário de Azure Active Directory diferente. Portanto, você só pode usar o MSI em recursos do ADLS Gen 1 que estão dentro do mesmo locatário Azure Active Directory que o seu trabalho de Azure Stream Analytics. 
 
 2. **[Identidade atribuída ao usuário](../active-directory/managed-identities-azure-resources/overview.md)** : não tem suporte. Isso significa que o usuário não é capaz de inserir sua própria entidade de serviço a ser usada por seus Stream Analytics trabalho. A entidade de serviço é gerada pelo Azure Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma saída do Data Lake Storage com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio](stream-analytics-vs-tools-local-run.md)

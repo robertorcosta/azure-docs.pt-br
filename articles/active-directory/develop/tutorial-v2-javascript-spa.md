@@ -16,11 +16,11 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159873"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377417"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
@@ -45,7 +45,7 @@ O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consu
 
 Este guia usa a seguinte biblioteca:
 
-|Biblioteca|Descrição|
+|Biblioteca|DESCRIÇÃO|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Versão prévia da Biblioteca de Autenticação da Microsoft para JavaScript|
 
@@ -75,7 +75,7 @@ Este guia usa a seguinte biblioteca:
 
 ## <a name="create-your-project"></a>Criar seu projeto
 
-> ### <a name="option-1-nodejs-or-other-web-servers"></a>Opção 1: Node.js ou outros servidores Web
+> ### <a name="option-1-nodejs-or-other-web-servers"></a>Opção 1: node. js ou outros servidores Web
 > Verifique se você tem o [Node.js](https://nodejs.org/en/download/) instalado e, em seguida, crie uma pasta para hospedar seu aplicativo.
 >
 > ### <a name="option-2-visual-studio"></a>Opção 2: Visual Studio

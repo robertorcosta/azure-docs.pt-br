@@ -15,11 +15,11 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161249"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375885"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -57,7 +57,7 @@ Na lista suspensa **escolher formato do identificador de nome** , você pode sel
 
 | Formato NameID | DESCRIÇÃO |
 |---------------|-------------|
-| **Padrão** | O Azure AD usará o formato de origem padrão. |
+| **Default** | O Azure AD usará o formato de origem padrão. |
 | **Persistente** | O Azure AD usará persistente como o formato NameID. |
 | **EmailAddress** | O Azure AD usará EmailAddress como o formato NameID. |
 | **Não especificado** | O AD do Azure usará não especificado como o formato NameID. |

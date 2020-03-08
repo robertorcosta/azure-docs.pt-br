@@ -8,16 +8,16 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932630"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361863"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
 
-Um *ponto de extremidade do servidor* representa uma localização específica em um *servidor registrado*, como uma pasta em um volume do servidor ou a raiz do volume. Pode haver vários pontos de extremidade do servidor no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, F:\sync1 e F:\sync2). Você pode configurar políticas de disposição em camadas de nuvem individualmente para cada ponto de extremidade do servidor. Se você adicionar uma localização de servidor com um conjunto existente de arquivos como um ponto de extremidade de servidor a um Grupo de Sincronização, esses arquivos serão mesclados com quaisquer outros arquivos que já estiverem em outros pontos de extremidade no Grupo de Sincronização.
+Um *ponto de extremidade do servidor* representa uma localização específica em um *servidor registrado*, como uma pasta em um volume do servidor ou a raiz do volume. Pode haver vários pontos de extremidade do servidor no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, F:\sync1 e F:\sync2). Você pode configurar políticas de disposição em camada de nuvem individualmente para cada ponto de extremidade de servidor. Se você adicionar uma localização de servidor com um conjunto existente de arquivos como um ponto de extremidade de servidor a um Grupo de Sincronização, esses arquivos serão mesclados com quaisquer outros arquivos que já estiverem em outros pontos de extremidade no Grupo de Sincronização.
 
 Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivos do Azure de ponta a ponta.
 
@@ -35,9 +35,9 @@ Para adicionar um ponto de extremidade do servidor, navegue até o Grupo de Sinc
 
 As informações a seguir são necessárias em **Adicionar ponto de extremidade do servidor**:
 
-- **Servidor registrado**: O nome do servidor ou cluster no qual criar o ponto de extremidade do servidor.
-- **Caminho**: O caminho no Windows Server a ser sincronizado como parte do grupo de sincronização.
-- **Camada de nuvem**: Uma opção para habilitar ou desabilitar a camada de nuvem. Quando habilitada, será camada na nuvem *camada* arquivos para os compartilhamentos de arquivos do Azure. Isso converte os compartilhamentos de arquivos local em um cache, em vez de uma cópia completa do conjunto de dados, para ajudá-lo a gerenciar a eficiência de espaço em seu servidor.
+- **Servidor Registrado**: o nome do servidor ou cluster no qual criar o ponto de extremidade do servidor.
+- **Caminho**: o caminho no Windows Server a ser sincronizado como parte do grupo de sincronização.
+- **Nuvem em camadas**: uma opção para habilitar ou desabilitar a nuvem camadas. Quando habilitada, será camada na nuvem *camada* arquivos para os compartilhamentos de arquivos do Azure. Isso converte os compartilhamentos de arquivos local em um cache, em vez de uma cópia completa do conjunto de dados, para ajudá-lo a gerenciar a eficiência de espaço em seu servidor.
 - **Espaço Livre no Volume**: a quantidade de espaço livre para reservar no volume no qual reside o ponto de extremidade do servidor. Por exemplo, se o espaço livre do volume estiver definido como 50% em um volume com um único ponto de extremidade do servidor, aproximadamente metade da quantidade de dados será disposta em camadas para os Arquivos do Azure. Independentemente de as camadas na nuvem estarem habilitadas, o Compartilhamento de Arquivos do Azure sempre terá uma cópia completa dos dados no Grupo de Sincronização.
 
 Selecione **Criar** para adicionar o ponto de extremidade do servidor. Agora, os arquivos dentro de um namespace de um Grupo de Sincronização serão mantidos sincronizados. 
@@ -54,11 +54,11 @@ Para garantir que todos os arquivos em camadas são recuperados antes de remover
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-Se `-Order CloudTieringPolicy` você especificar, os arquivos modificados mais recentemente serão relembrados primeiro.
+A especificação de `-Order CloudTieringPolicy` irá lembrar os arquivos modificados mais recentemente primeiro.
 Outros parâmetros opcionais, mas úteis a serem considerados, são:
-* `-ThreadCount`determina a quantidade de arquivos que podem ser recuperados em paralelo.
+* `-ThreadCount` determina a quantidade de arquivos que podem ser recuperados em paralelo.
 * `-PerFileRetryCount`determina com que frequência uma recall será tentada de um arquivo bloqueado no momento.
-* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre tentativas de recuperação e sempre deve ser usado em combinação com o parâmetro anterior.
+* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre as tentativas de repetição para recuperar e deve ser sempre usada em combinação com o parâmetro anterior.
 
 > [!Note]  
 > Se o volume local que hospeda o servidor não tiver espaço livre suficiente para realizar o recall de todos os dados em camadas, o cmdlet `Invoke-StorageSyncFileRecall` falha.  
@@ -67,7 +67,7 @@ Para remover o ponto de extremidade do servidor:
 
 1. Navegue até o Serviço de Sincronização do Armazenamento no qual o servidor está registrado.
 2. Navegue até o Grupo de Sincronização desejado.
-3. Remova o ponto de extremidade do servidor que você desejar no Grupo de Sincronização no Serviço de Sincronização de Armazenamento. Isso pode ser feito clicando com o botão direito do mouse no ponto de extremidade do servidor relevante no painel Grupo de Sincronização.
+3. Remova o ponto de extremidade do servidor que você desejar no Grupo de Sincronização no Serviço de Sincronização de Armazenamento. Isso pode ser feito clicando com o botão direito do mouse no ponto de extremidade do servidor relevante no painel Grupo de sincronização.
 
     ![Removendo um ponto de extremidade do servidor de um grupo de sincronização](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 

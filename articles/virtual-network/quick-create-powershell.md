@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161533"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392056"
 ---
-# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início Rápido: Criar uma rede virtual usando o PowerShell
+# <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início Rápido: criar uma rede virtual usando o PowerShell
 
 Uma rede virtual permite que recursos do Azure, como VMs (máquinas virtuais), comuniquem-se em modo privado e com a Internet. Neste início rápido, você aprende como criar uma rede virtual. Após criar uma rede virtual, você implantará duas VMs na rede virtual. Você fará a conexão com as VMs usando a Internet e se comunicará de modo privado na rede virtual.
 
@@ -209,7 +209,7 @@ mstsc /v:<publicIpAddress>
 
 1. Feche a conexão da área de trabalho remota para *myVm2*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao terminar a rede virtual e as VMs, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele tem:
 

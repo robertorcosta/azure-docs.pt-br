@@ -4,11 +4,11 @@ description: Pesquisar logs gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665979"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361766"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do .NET/.NET Core e do Python no Application Insights
 
@@ -180,7 +180,7 @@ Por exemplo, você pode:
 >Se seu aplicativo enviar muitos dados e você estiver usando o SDK do Application Insights para a versão ASP.NET 2.0.0-Beta3 ou posterior, o recurso de *amostragem adaptável* poderá operar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
 >
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 ### <a name="how-do-i-do-this-for-java"></a>Como faço isso no Java?
 Use os [adaptadores de log Java](../../azure-monitor/app/java-trace-logs.md).
 

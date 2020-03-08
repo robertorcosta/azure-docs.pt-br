@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385651"
 ---
 # <a name="semantic-interpretation"></a>Interpretação de semântica
 
@@ -35,8 +35,8 @@ Abaixo está uma lista de tipos de dados com suporte no momento:
 
 |Type|DESCRIÇÃO|Exemplos|
 |----|----|----|
-|Cadeia de caracteres|Sequência de 0 ou mais caracteres|"Olá, Mundo!"<br/>""|
-|Bool|Valor booliano|verdadeiro<br/>falso|
+|String|Sequência de 0 ou mais caracteres|"Olá, Mundo!"<br/>""|
+|Bool|Valor booliano|true<br/>false|
 |Int32|Inteiro com sinal de 32 bits.  -2.1e9 para 2.1e9|123<br/>-321|
 |Int64|Inteiro com sinal de 64 bits. -9.2e18 e 9.2e18|9876543210|
 |Double|Ponto flutuante de precisão dupla. 1.7e+/-308 (15 dígitos)|123.456789<br/>1.23456789e2|
@@ -139,7 +139,7 @@ Variáveis de escopo de solicitação são compartilhados entre todas as interpr
 
 Variáveis de sistema são predefinidas pelo serviço e podem ser usadas para recuperar várias estatísticas sobre o estado atual do sistema.  Abaixo está o conjunto de variáveis de sistema com suporte no momento:
 
-|NOME|Type|DESCRIÇÃO|
+|Nome|Type|DESCRIÇÃO|
 |----|----|----|
 |IsAtEndOfQuery|Bool|True se a interpretação atual correspondeu todo o texto de consulta de entrada|
 |IsBeyondEndOfQuery|Bool|True se a interpretação atual sugeriu conclusões além de texto de consulta de entrada|

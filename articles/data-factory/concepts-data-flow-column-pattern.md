@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.openlocfilehash: 0c9a3c2ef05f4a11933ca7fc81c7c0f87a612293
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789914"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395915"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna no fluxo de dados de mapeamento
 
@@ -35,7 +35,7 @@ As duas caixas de expressões abaixo da condição de correspondência especific
 
 ![padrões de coluna](media/data-flow/columnpattern2.png "Padrões de coluna")
 
-O padrão de coluna acima corresponde a cada coluna do tipo Double e cria uma coluna de agregação por correspondência. O nome da nova coluna é o nome da coluna correspondente concatenado com ' _ total '. O valor da nova coluna é a soma arredondada, agregada do valor Double existente.
+O padrão de coluna acima corresponde a cada coluna do tipo Double e cria uma coluna de agregação por correspondência. O nome da nova coluna é o nome da coluna correspondente concatenado com ' _total '. O valor da nova coluna é a soma arredondada, agregada do valor Double existente.
 
 Para verificar se a condição de correspondência está correta, você pode validar o esquema de saída das colunas definidas na guia **inspecionar** ou obter um instantâneo dos dados na guia **visualização de dados** . 
 
@@ -69,6 +69,6 @@ Se a regra resultar em vários mapeamentos idênticos, habilite **ignorar entrad
 * `stream` representa o nome associado a cada fluxo ou transformação em seu fluxo
 * `position` é a posição ordinal das colunas em seu fluxo de dados
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [linguagem de expressão](data-flow-expression-functions.md) de fluxo de dados de mapeamento para transformações de dados
 * Usar padrões de coluna na [transformação do coletor](data-flow-sink.md) e [selecionar a transformação](data-flow-select.md) com mapeamento baseado em regras

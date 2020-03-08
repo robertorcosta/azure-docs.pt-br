@@ -12,11 +12,11 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822116"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359119"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerenciar o esquema em um aplicativo SaaS que usa bancos de dados SQL multilocatários fragmentados
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá a:
 > * Atualizar dados de referência em todos os bancos de dados de locatário.
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - O aplicativo de banco de dados multilocatário Wingtip Tickets já deve estar implantado:
     - Para obter instruções, consulte o primeiro tutorial, que apresenta o aplicativo de banco de dados multilocatário SaaS Wingtip Tickets:<br />[Implantar e explorar um aplicativo multilocatário fragmentado que usa o Banco de dados SQL do Azure](saas-multitenantdb-get-started-deploy.md).
@@ -88,7 +88,7 @@ Cada banco de dados de locatários inclui um conjunto de tipos de local na tabel
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados.
 
 1. Abra o SSMS e conecte-se ao servidor *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados *contosoconcerthall* do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes*.
+1. Para confirmar se o *Motorcycle de corrida* e o *clube nadare* **não estão** atualmente incluídos, navegue até o banco de dados *contosoconcerthall* no servidor do *tenants1-DPT-&lt;&gt;do usuário* e consulte a tabela *VenueTypes* .
 
 
 

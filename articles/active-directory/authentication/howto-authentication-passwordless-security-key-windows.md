@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269346"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378194"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 com Azure Active Directory (versão prévia)
 
@@ -27,7 +27,7 @@ Este documento se concentra em habilitar a autenticação sem senha baseada em c
 | As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## <a name="requirements"></a>{1&gt;{2&gt;Requisitos&lt;2}&lt;1}
+## <a name="requirements"></a>Requisitos
 
 | Tipo de dispositivo | Adicionado ao Azure AD | Adicionado ao Azure AD híbrido |
 | --- | --- | --- |
@@ -160,7 +160,7 @@ Se você quiser compartilhar comentários ou encontrar problemas ao visualizar e
    - Subcategoria: FIDO
 1. Para capturar logs, use a opção para **recriar meu problema**
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Habilitar o acesso a recursos locais para o Azure AD e dispositivos ingressados no Azure AD híbrido](howto-authentication-passwordless-security-key-on-premises.md)
 

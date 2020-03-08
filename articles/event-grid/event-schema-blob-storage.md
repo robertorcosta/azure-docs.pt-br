@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844472"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397367"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos da Grade de Eventos do Azure para armazenamento de Blob
 
@@ -21,16 +21,16 @@ Este artigo fornece as propriedades e o esquema para eventos de armazenamento de
 Para obter uma lista de scripts e tutoriais de amostra, consulte [Storage event source](event-sources.md#storage).
 
 >[!NOTE]
-> Somente as contas de armazenamento do tipo **StorageV2 (uso geral v2)** e a integração de eventos de suporte do **BlobStorage** . O **armazenamento (genral purpose v1)** *não oferece* suporte à integração com a grade de eventos.
+> Somente contas de armazenamento do tipo **StorageV2 (v2 de uso geral)** e **BlobStorage** dão suporte à integração de eventos. Contas do tipo **Armazenamento (v1 de uso geral)** *não* dão suporte à integração com a Grade de Eventos.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Lista de eventos para APIs REST de BLOB
 
 Esses eventos são disparados quando um cliente cria, substitui ou exclui um blob chamando APIs REST de BLOB.
 
- |Nome do evento |Description|
+ |Nome do evento |DESCRIÇÃO|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Disparado quando um blob é criado ou substituído. <br>Especificamente, esse evento é disparado quando os clientes usam as operações `PutBlob`, `PutBlockList`ou `CopyBlob` que estão disponíveis na API REST do blob.   |
- |**Microsoft.Storage.BlobDeleted** |Disparado quando um blob é excluído. <br>Especificamente, esse evento é disparado quando os clientes chamam a operação de `DeleteBlob` que está disponível na API REST do blob. |
+ |**Microsoft. Storage. BlobCreated** |Disparado quando um blob é criado ou substituído. <br>Especificamente, esse evento é disparado quando os clientes usam as operações `PutBlob`, `PutBlockList`ou `CopyBlob` que estão disponíveis na API REST do blob.   |
+ |**Microsoft. Storage. BlobDeleted** |Disparado quando um blob é excluído. <br>Especificamente, esse evento é disparado quando os clientes chamam a operação de `DeleteBlob` que está disponível na API REST do blob. |
 
 > [!NOTE]
 > Se você quiser garantir que o evento **Microsoft. Storage. BlobCreated** seja disparado somente quando um blob de blocos for completamente confirmado, filtre o evento para as chamadas de API REST `CopyBlob`, `PutBlob`e `PutBlockList`. Essas chamadas de API disparam o evento **Microsoft. Storage. BlobCreated** somente depois que os dados são totalmente confirmados em um blob de blocos. Para saber como criar um filtro, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
@@ -39,14 +39,14 @@ Esses eventos são disparados quando um cliente cria, substitui ou exclui um blo
 
 Esses eventos serão disparados se você habilitar um namespace hierárquico na conta de armazenamento e os clientes chamarem Azure Data Lake Storage Gen2 APIs REST.
 
-|Nome do evento|Description|
+|Nome do evento|DESCRIÇÃO|
 |----------|-----------|
-|**Microsoft.Storage.BlobCreated** | Disparado quando um blob é criado ou substituído. <br>Especificamente, esse evento é disparado quando os clientes usam as operações `CreateFile` e `FlushWithClose` que estão disponíveis na API REST do Azure Data Lake Storage Gen2. |
-|**Microsoft.Storage.BlobDeleted** |Disparado quando um blob é excluído. <br>Especificamente, esse evento também é disparado quando os clientes chamam a operação de `DeleteFile` que está disponível na API REST do Azure Data Lake Storage Gen2. |
-|**Microsoft.Storage.BlobRenamed**|Disparado quando um blob é renomeado. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `RenameFile` que está disponível na API REST do Azure Data Lake Storage Gen2.|
-|**Microsoft.Storage.DirectoryCreated**|Disparado quando um diretório é criado. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `CreateDirectory` que está disponível na API REST do Azure Data Lake Storage Gen2.|
-|**Microsoft.Storage.DirectoryRenamed**|Disparado quando um diretório é renomeado. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `RenameDirectory` que está disponível na API REST do Azure Data Lake Storage Gen2.|
-|**Microsoft.Storage.DirectoryDeleted**|Disparado quando um diretório é excluído. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `DeleteDirectory` que está disponível na API REST do Azure Data Lake Storage Gen2.|
+|**Microsoft. Storage. BlobCreated** | Disparado quando um blob é criado ou substituído. <br>Especificamente, esse evento é disparado quando os clientes usam as operações `CreateFile` e `FlushWithClose` que estão disponíveis na API REST do Azure Data Lake Storage Gen2. |
+|**Microsoft. Storage. BlobDeleted** |Disparado quando um blob é excluído. <br>Especificamente, esse evento também é disparado quando os clientes chamam a operação de `DeleteFile` que está disponível na API REST do Azure Data Lake Storage Gen2. |
+|**Microsoft. Storage. BlobRenamed**|Disparado quando um blob é renomeado. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `RenameFile` que está disponível na API REST do Azure Data Lake Storage Gen2.|
+|**Microsoft. Storage. DirectoryCreated**|Disparado quando um diretório é criado. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `CreateDirectory` que está disponível na API REST do Azure Data Lake Storage Gen2.|
+|**Microsoft. Storage. DirectoryRenamed**|Disparado quando um diretório é renomeado. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `RenameDirectory` que está disponível na API REST do Azure Data Lake Storage Gen2.|
+|**Microsoft. Storage. DirectoryDeleted**|Disparado quando um diretório é excluído. <br>Especificamente, esse evento é disparado quando os clientes usam a operação `DeleteDirectory` que está disponível na API REST do Azure Data Lake Storage Gen2.|
 
 > [!NOTE]
 > Se você quiser garantir que o evento **Microsoft. Storage. BlobCreated** seja disparado somente quando um blob de blocos for completamente confirmado, filtre o evento para a chamada à API REST do `FlushWithClose`. Essa chamada à API dispara o evento **Microsoft. Storage. BlobCreated** somente depois que os dados são totalmente confirmados em um blob de blocos. Para saber como criar um filtro, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
@@ -292,37 +292,37 @@ Se a conta de armazenamento de BLOBs tiver um namespace hierárquico, os dados s
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | string | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| api | cadeia de caracteres | A operação que disparou o evento. |
-| clientRequestId | cadeia de caracteres | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | cadeia de caracteres | Id da solicitação gerada pelo serviço para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| eTag | cadeia de caracteres | O valor que você pode usar para executar operações condicionalmente. |
-| contentType | cadeia de caracteres | O tipo de conteúdo especificado para o blob. |
+| api | string | A operação que disparou o evento. |
+| clientRequestId | string | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | Id da solicitação gerada pelo serviço para a operação da API de armazenamento. Pode ser usada para correlacionar com os logs de diagnóstico do Armazenamento do Azure usando o campo "request-id-header" nos logs, e retornada pela inicialização da chamada á API no cabeçalho 'x-ms-request-id'. Consulte [Formato de Log](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | string | O valor que você pode usar para executar operações condicionalmente. |
+| contentType | string | O tipo de conteúdo especificado para o blob. |
 | contentLength | inteiro | O tamanho do blob em bytes. |
-| BlobType | cadeia de caracteres | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
+| BlobType | string | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |
 | contentOffset | número | O deslocamento em bytes de uma operação de gravação realizada no ponto em que o aplicativo de gatilho de evento concluiu a gravação no arquivo. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico.|
-| destinationUrl |cadeia de caracteres | A URL do arquivo que existirá após a conclusão da operação. Por exemplo, se um arquivo for renomeado, a propriedade `destinationUrl` conterá a URL do novo nome de arquivo. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico.|
-| sourceUrl |cadeia de caracteres | A URL do arquivo que existe antes da operação. Por exemplo, se um arquivo for renomeado, o `sourceUrl` conterá a URL do nome do arquivo original antes da operação de renomeação. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico. |
-| url | cadeia de caracteres | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: *\<Storage-Account-name\>. blob.core.windows.net/\<nome-do-contêiner\>/\<nome-do-arquivo\>* . <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: *\<nome-da-conta de armazenamento\>. dfs.core.windows.net/\<arquivo-System-name\>/\<nome-* do-arquivo\>. |
-| recursiva | cadeia de caracteres | `True` executar a operação em todos os diretórios filho; caso contrário `False`. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico. |
-| sequenciador | cadeia de caracteres | Um valor de cadeia de caracteres opaca que representa a sequência lógica de eventos para qualquer nome específico de blob.  Os usuários podem usar a comparação de cadeia de caracteres padrão para entender a sequência relativa dos dois eventos no mesmo nome de blob. |
+| destinationUrl |string | A URL do arquivo que existirá após a conclusão da operação. Por exemplo, se um arquivo for renomeado, a propriedade `destinationUrl` conterá a URL do novo nome de arquivo. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico.|
+| sourceUrl |string | A URL do arquivo que existe antes da operação. Por exemplo, se um arquivo for renomeado, o `sourceUrl` conterá a URL do nome do arquivo original antes da operação de renomeação. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico. |
+| url | string | O caminho para o blob. <br>Se o cliente usar uma API REST de BLOB, a URL terá essa estrutura: *\<Storage-Account-name\>. blob.core.windows.net/\<nome-do-contêiner\>/\<nome-do-arquivo\>* . <br>Se o cliente usar uma API REST Data Lake Storage, a URL terá essa estrutura: *\<nome-da-conta de armazenamento\>. dfs.core.windows.net/\<arquivo-System-name\>/\<nome-* do-arquivo\>. |
+| recursiva | string | `True` executar a operação em todos os diretórios filho; caso contrário `False`. <br>Aparece somente para eventos disparados em contas de armazenamento de BLOBs que têm um namespace hierárquico. |
+| sequenciador | string | Um valor de cadeia de caracteres opaca que representa a sequência lógica de eventos para qualquer nome específico de blob.  Os usuários podem usar a comparação de cadeia de caracteres padrão para entender a sequência relativa dos dois eventos no mesmo nome de blob. |
 | storageDiagnostics | objeto | Dados de diagnóstico ocasionalmente incluídos pelo serviço de Armazenamento do Azure. Quando presente, deve ser ignorado pelos consumidores de evento. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](overview.md)
 * Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).

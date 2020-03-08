@@ -15,19 +15,19 @@ ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
 ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309516"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365305"
 ---
 # <a name="scaling-with-event-hubs"></a>Dimensionamento com hubs de eventos
 
 Há dois fatores que influenciam o dimensionamento com os hubs de eventos.
-*   Unidades de taxa de transferência
+*   Unidades de transferência
 *   Partições
 
-## <a name="throughput-units"></a>Unidades de taxa de transferência
+## <a name="throughput-units"></a>Unidades de transferência
 
 A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única taxa de transferência permite que você:
 
@@ -57,7 +57,7 @@ Use uma [chave de partição](event-hubs-programming-guide.md#partition-key) par
 O editor de eventos só está ciente da sua chave de partição, não da partição para a qual os eventos são publicados. Essa desassociação de chave e partição isenta o remetente da necessidade de saber muito sobre o processamento de downstream. Uma identidade por dispositivo ou exclusiva do usuário é uma boa chave de partição, mas outros atributos, como geografia, também podem ser usados para agrupar eventos relacionados em uma única partição.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 - [Dimensionar automaticamente as unidades de taxa de transferência](event-hubs-auto-inflate.md)

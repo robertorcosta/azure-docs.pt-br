@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080524"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394767"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -103,7 +103,7 @@ Informações sobre a máquina virtual Linux, sistema operacional, dispositivos 
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/Azure/[pasta de extensão]\*/log\*
+  - /var/log/Azure/[pasta de extensão]/log de\*\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
   - /etc/waagent.config
@@ -125,9 +125,9 @@ Informações sobre a máquina virtual Linux, sistema operacional, dispositivos 
 
 - Atualmente, há suporte para as seguintes distribuições:
 
-    | Distribuição               | Version                                         |
+    | Distribuição               | Versão                                         |
     |----------------------------|-------------------------------------------------|
-    | Servidor de Oracle Linux        | 6,10 [`*`], 7,3, 7,6, 7,5 (imagem do Marketplace do Oracle-Database-13,8 EE)|
+    | Servidor de Oracle Linux        | 6,10 [`*`], 7,3, 7,6, 7,5 (imagem do Marketplace do Oracle-Database-EE 13,8)|
     | CentOS                     | 6,5 [`*`], 7,6                                    |
     | RHEL                       | 7,2, 7,5, 8,0 [`*`]                               |
     | Ubuntu                     | 14.04, 16.04, 18.04                               |
@@ -136,7 +136,7 @@ Informações sobre a máquina virtual Linux, sistema operacional, dispositivos 
     |                            |                                                   |
 
 >[!Note]
->[`*`] Consulte a seção de [problemas conhecidos](#known-issues)
+>[`*`] Veja a seção de [problemas conhecidos](#known-issues)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
@@ -173,7 +173,7 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. Navegue até a pasta que contém `perfinsights.py` o arquivo e, em `perfinsights.py` seguida, execute para exibir os parâmetros de linha de comando disponíveis.
+2. Navegue até a pasta que contém `perfinsights.py` arquivo e execute `perfinsights.py` para exibir os parâmetros de linha de comando disponíveis.
 
     ```bash
     cd <the path of PerfInsights folder>
@@ -205,11 +205,11 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     >
     >Se você tiver um tíquete de suporte ativo com a Microsoft e executando PerfInsights de acordo com a solicitação do engenheiro de suporte com o qual está trabalhando, certifique-se de fornecer o número do tíquete de suporte usando a opção **-s ou--support-Request** .
 
-Quando a execução for concluída, um novo arquivo tar aparecerá na mesma pasta que PerfInsights, a menos que nenhuma pasta de saída seja especificada. O nome do arquivo é **PerformanceDiagnostics\_aaaa-mm\_-DD FFF. tar. gz.** Você pode enviar esse arquivo para o agente de suporte para análise ou abrir o relatório dentro do arquivo para examinar as conclusões e as recomendações.
+Quando a execução for concluída, um novo arquivo tar aparecerá na mesma pasta que PerfInsights, a menos que nenhuma pasta de saída seja especificada. O nome do arquivo é **PerformanceDiagnostics\_aaaa-mm-dd\_FFF. tar. gz.** Você pode enviar esse arquivo para o agente de suporte para análise ou abrir o relatório dentro do arquivo para examinar as conclusões e as recomendações.
 
 ## <a name="review-the-diagnostics-report"></a>Examine o relatório de diagnóstico
 
-No arquivo **PerformanceDiagnostics\_aaaa-mm-dd\_FFF. tar. gz** , você pode encontrar um relatório HTML que detalha as conclusões de PerfInsights. Para examinar o relatório, expanda o arquivo **PerformanceDiagnostics\_aaaa-mm\_-DD FFF. tar. gz** e, em seguida, abra o arquivo **PerfInsights Report. html** .
+Dentro do **PerformanceDiagnostics\_aaaa-mm-dd\_arquivo FFF. tar. gz** , você pode encontrar um relatório HTML que detalha as conclusões de PerfInsights. Para examinar o relatório, expanda o **PerformanceDiagnostics\_aaaa-mm-dd\_arquivo FFF. tar. gz** e, em seguida, abra o arquivo **PerfInsights Report. html** .
 
 ### <a name="overview-tab"></a>Guia Visão geral
 
@@ -254,4 +254,4 @@ A captura de tela a seguir mostra uma mensagem semelhante à qual você poderá 
 
 Siga as instruções na mensagem para acessar o workspace de transferência de arquivo. Para mais segurança, você deve alterar sua senha no primeiro uso.
 
-Depois de entrar, você encontrará uma caixa de diálogo para carregar o **arquivo\_PerformanceDiagnostics aaaa-mm-\_DD FFF. tar. gz** que foi coletado pelo PerfInsights.
+Depois de entrar, você encontrará uma caixa de diálogo para carregar o **PerformanceDiagnostics\_aaaa-mm-dd\_arquivo FFF. tar. gz** que foi coletado pelo PerfInsights.

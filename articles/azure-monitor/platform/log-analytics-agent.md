@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 365c228edd97ffcd02b86508deff4272365447f6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.openlocfilehash: 99083cd08db98a6d6ac56d4cf55aaf9d0e64e2b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672133"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361801"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente de Log Analytics do Azure foi desenvolvido para gerenciamento abrangente em máquinas virtuais em qualquer nuvem, em máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes do Windows e Linux enviam dados coletados de fontes diferentes para seu espaço de trabalho do Log Analytics no Azure Monitor, bem como quaisquer logs ou métricas exclusivos, conforme definido em uma solução de monitoramento. O agente de Log Analytics também dá suporte a informações e outros serviços em Azure Monitor como [Azure monitor para VMs](../insights/vminsights-enable-overview.md), [central de segurança do Azure](/azure/security-center/)e [automação do Azure](../../automation/automation-intro.md).
@@ -39,7 +39,7 @@ Não há nenhum custo para Log Analytics Agent, mas você pode incorrer em encar
 ## <a name="data-collected"></a>Dados coletados
 A tabela a seguir lista os tipos de dados que você pode configurar um espaço de trabalho Log Analytics para coletar de todos os agentes conectados. Veja [o que é monitorado pelo Azure monitor?](../monitor-reference.md) para obter uma lista de informações, soluções e outras soluções que usam o agente de log Analytics para coletar outros tipos de dados.
 
-| Fonte de Dados | Descrição |
+| fonte de dados | DESCRIÇÃO |
 | --- | --- |
 | [Logs de eventos do Windows](data-sources-windows-events.md) | Informações enviadas ao sistema de registro de evento do Windows. |
 | [Syslog](data-sources-syslog.md)                     | Informações enviadas para o sistema de log de eventos do Linux. |
@@ -70,7 +70,7 @@ Se você estiver usando o System Center Operations Manager 2012 R2 ou posterior:
 
 Há vários métodos para instalar o agente de Log Analytics e conectar seu computador ao Azure Monitor dependendo de seus requisitos. A tabela a seguir realça cada método para determinar o que funciona melhor em sua organização.
 
-|Origem | Método | Descrição|
+|Fonte | Método | DESCRIÇÃO|
 |-------|-------------|-------------|
 |VM do Azure| [Manualmente a partir do portal do Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Especifique as VMs a serem implantadas a partir do espaço de trabalho Log Analytics. |
 | | Log Analytics extensão de VM para [Windows](../../virtual-machines/extensions/oms-windows.md) ou [Linux](../../virtual-machines/extensions/oms-linux.md) usando CLI do Azure ou com um modelo de Azure Resource Manager | A extensão instala o agente do Log Analytics nas máquinas virtuais do Azure e as registra em um workspace do Azure Monitor existente. |
@@ -101,7 +101,7 @@ Esta seção fornece detalhes sobre as distribuições de Linux com suporte.
 Começando com versões lançadas depois de agosto de 2018, estamos fazendo as seguintes alterações ao nosso modelo de suporte:  
 
 * Somente o servidor versões têm suporte, um não cliente.  
-* Novas versões de [distros do Azure Linux Endorsed](../../virtual-machines/linux/endorsed-distros.md) são sempre suportadas.  
+* Concentre o suporte em qualquer um dos [distribuições endossados do Linux do Azure](../../virtual-machines/linux/endorsed-distros.md). Observe que pode haver algum atraso entre uma nova distribuição/versão sendo endossada pelo Linux do Azure e há suporte para o agente do Log Analytics Linux.
 * Todas as versões secundárias têm suporte para cada versão principal listada.
 * As versões que passaram a data de fim de suporte do fabricante não são suportadas.  
 * Não há suporte para novas versões do AMI.  
@@ -126,10 +126,10 @@ Começando com versões lançadas depois de agosto de 2018, estamos fazendo as s
 
 A tabela a seguir realça os pacotes necessários para distribuições do Linux com suporte em que o agente será instalado.
 
-|Pacote necessário |Descrição |Versão mínima |
+|Pacote necessário |DESCRIÇÃO |Versão mínima |
 |-----------------|------------|----------------|
-|Glibc |    Biblioteca do GNU C | 2.5-12 
-|Openssl    | Bibliotecas do OpenSSL | 1,0. x ou 1.1. x |
+|Glibc |    Biblioteca GNU C | 2.5-12 
+|Openssl    | Bibliotecas OpenSSL | 1,0. x ou 1.1. x |
 |Curl | cliente Web cURL | 7.15.5 |
 |Python-ctypes | | 
 |PAM | Módulos de autenticação conectáveis | | 
@@ -170,10 +170,10 @@ Para o agente Linux, o servidor proxy pode ser especificado durante a instalaç�
 > [!NOTE]
 > Se seu servidor proxy não exigir autenticação, o agente para Linux exigirá mesmo assim fornecendo um pseudo usuário/senha. Isso pode ser qualquer nome de usuário ou senha.
 
-|Propriedade| Descrição |
+|Propriedade| DESCRIÇÃO |
 |--------|-------------|
-|Protocolo | https |
-|{1&gt;user&lt;1} | Nome de usuário opcional para autenticação de proxy |
+|Protocolo | HTTPS |
+|usuário | Nome de usuário opcional para autenticação de proxy |
 |password | Senha opcional para autenticação de proxy |
 |proxyhost | Endereço ou FQDN do servidor proxy/gateway do Log Analytics |
 |porta | Número da porta opcional para o servidor proxy/gateway do Log Analytics |
@@ -185,7 +185,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Consultar as [fontes de dados](agent-data-sources.md) para entender as fontes de dados disponíveis para coletar dados do sistema Windows ou Linux. 
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 

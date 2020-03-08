@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977005"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387056"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Gerenciador de Dados Blockchain usando o portal do Azure
 
@@ -20,7 +20,7 @@ Para configurar uma instância de Gerenciador de Dados do Blockchain, você:
 * Criar uma instância de Gerenciador de Dados do Blockchain para um nó de transação do serviço Blockchain do Azure
 * Adicionar seus aplicativos blockchain
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Conclua [o início rápido: criar um membro do blockchain usando o portal do Azure](create-member.md) ou [início rápido: criar um membro Blockchain do serviço blockchain do Azure usando o CLI do Azure](create-member-cli.md)
 * Criar um [tópico da Grade de Eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
@@ -40,9 +40,9 @@ Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do A
 
     Insira os seguintes detalhes:
 
-    Configuração | Descrição
+    Configuração | DESCRIÇÃO
     --------|------------
-    name | Insira um nome exclusivo para um Gerenciador de Dados do Blockchain conectado. O nome de Gerenciador de Dados Blockchain pode conter letras minúsculas e números e tem um comprimento máximo de 20 caracteres.
+    Nome | Insira um nome exclusivo para um Gerenciador de Dados do Blockchain conectado. O nome de Gerenciador de Dados Blockchain pode conter letras minúsculas e números e tem um comprimento máximo de 20 caracteres.
     Nó de transação | Escolha um nó de transação. Somente os nós de transação aos quais você tem acesso de leitura são listados.
     Nome da conexão | Insira um nome exclusivo para a conexão de saída pela qual os dados da transação de blockchain são enviados.
     Ponto de extremidade da Grade de Eventos | Escolha um tópico de grade de eventos na mesma assinatura que a instância de Gerenciador de Dados do Blockchain.
@@ -78,13 +78,13 @@ O ABI do contrato define as interfaces do contrato inteligente. Ele descreve com
 
 1. Salve a matriz **abi** como um arquivo JSON. Por exemplo, *abi.json*. Você usará esse arquivo em uma etapa posterior.
 
-O Gerenciador de Dados do Blockchain requer o código de bytes implantado para o contrato inteligente. O código de bytes implantado é diferente do código de bytes do contrato inteligente. Use a extensão do kit de desenvolvimento do Azure blockchain para copiar o código de bytes para a área de transferência.
+O Gerenciador de Dados do Blockchain requer o código de bytes implantado para o contrato inteligente. O código de bytes implantado é diferente do código de bytes do contrato inteligente. Use a extensão do Azure Blockchain Development Kit para copiar o código de bytes para a área de transferência.
 
 1. No painel do Visual Studio Code Explorer, expanda a pasta **build/contracts** do projeto do Solidity.
 1. Clique com o botão direito do mouse no arquivo JSON de metadados do contrato. O nome do arquivo é o nome do contrato inteligente seguido pela extensão **.json**.
-1. Selecione **copiar código de bytes da transação**.
+1. Selecione **Copiar Código de Bites de Transação**.
 
-    ![Painel de Visual Studio Code com a seleção de bytes de transação de cópia](./media/data-manager-portal/bytecode-devkit.png)
+    ![Painel do Visual Studio Code com a seleção de Copiar Código de Bytes da Transação](./media/data-manager-portal/bytecode-devkit.png)
 
     O código de bytes é copiado para a área de transferência.
 
@@ -108,9 +108,9 @@ O Gerenciador de Dados do Blockchain requer que os arquivos de código de bytes 
 
     ![Criar um contêiner de conta de armazenamento](./media/data-manager-portal/create-container.png)
 
-    | Campo | Descrição |
+    | Campo | DESCRIÇÃO |
     |-------|-------------|
-    | name  | Dê um nome ao contêiner. Por exemplo, *smartcontract* |
+    | Nome  | Dê um nome ao contêiner. Por exemplo, *smartcontract* |
     | Nível de acesso público | Escolha *Privado (sem acesso anônimo)* |
 
 1. Selecione **OK** para criar o contêiner.
@@ -144,9 +144,9 @@ Para cada blob, gere uma assinatura de acesso compartilhado.
 
     Insira o nome do aplicativo de blockchain, a URL da ABI do contrato inteligente e a URL do código de bytes.
 
-    Configuração | Descrição
+    Configuração | DESCRIÇÃO
     --------|------------
-    name | Insira um nome exclusivo para o aplicativo de blockchain rastrear.
+    Nome | Insira um nome exclusivo para o aplicativo de blockchain rastrear.
     ABI do Contrato | Caminho da URL para o arquivo da ABI do contrato. Para obter mais informações, confira [Criar a ABI do contrato e a URL do código de bytes](#create-contract-abi-and-bytecode-url).
     Código de bytes do contrato | Caminho da URL para o arquivo de código de bytes. Para obter mais informações, confira [Criar a ABI do contrato e a URL do código de bytes](#create-contract-abi-and-bytecode-url).
 
@@ -166,7 +166,7 @@ Pare a instância do Gerenciador de Blockchain quando desejar parar de capturar 
 
     ![Parar instância](./media/data-manager-portal/stop-instance.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente o próximo tutorial Criando um Gerenciador de mensagens de transação blockchain usando o Blockchain Gerenciador de Dados e o Azure Cosmos DB.
 

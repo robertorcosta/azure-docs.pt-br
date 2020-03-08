@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671810"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361770"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
@@ -475,7 +475,7 @@ As atividades são cidadãos de primeira classe em Application Insights, e a col
 
 Cada operação de Application Insights (solicitação ou dependência) envolve `Activity`-quando `StartOperation` é chamado, ele cria a atividade abaixo. `StartOperation` é a maneira recomendada de controlar a telemetrias de solicitação ou de dependência manualmente e garantir que tudo esteja correlacionado.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Aprenda noções básicas de [correlação de telemetria](correlation.md) no Application Insights.
 - Confira como os dados correlacionados alimentam a [experiência de diagnóstico de transação](../../azure-monitor/app/transaction-diagnostics.md) e o mapa do [aplicativo](../../azure-monitor/app/app-map.md).

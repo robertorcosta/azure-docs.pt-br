@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
 ms.openlocfilehash: dd73f42aaa0d0bd1884892143d96446935a401a5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048435"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395476"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
 
@@ -22,7 +22,7 @@ O ponto de extremidade privado do Azure é uma interface de rede que conecta voc
  Um ponto de extremidade privado especifica as seguintes propriedades: 
 
 
-|Propriedade  |Descrição |
+|Propriedade  |DESCRIÇÃO |
 |---------|---------|
 |Nome    |    Um nome exclusivo dentro do grupo de recursos.      |
 |Sub-rede    |  A sub-rede para implantar e alocar endereços IP privados de uma rede virtual. Para obter os requisitos de sub-rede, consulte a seção limitações neste artigo.         |
@@ -115,7 +115,7 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabela|privatelink.table.cosmos.azure.com|
 |Banco de dados do Azure para PostgreSQL-servidor único (Microsoft. DBforPostgreSQL/Servers)|postgresqlServer|privatelink.postgres.database.azure.com|
 |Banco de dados do Azure para MySQL (Microsoft. DBforMySQL/Servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Banco de dados do Azure para MariaDB (Microsoft. DBforMariaDB/Servers)|mariadbServer|privatelink.mariadb.database.azure.com|
@@ -130,12 +130,12 @@ Seus aplicativos não precisam alterar a URL de conexão. Ao tentar resolver usa
 A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de extremidade privados: 
 
 
-|Limitações |Descrição |Atenuação  |
+|Limitações |DESCRIÇÃO |Atenuação  |
 |---------|---------|---------|
 |As regras do NSG (grupo de segurança de rede) e as rotas definidas pelo usuário não se aplicam ao ponto de extremidade privado    |Não há suporte para NSG em pontos de extremidade privados. Embora as sub-redes que contenham o ponto de extremidade privado possam ter NSG associado a ela, as regras não serão efetivas no tráfego processado pelo ponto de extremidade privado. Você deve ter [imposição de políticas de rede desabilitada](disable-private-endpoint-network-policy.md) para implantar pontos de extremidade privados em uma sub-rede. O NSG ainda é imposto em outras cargas de trabalho hospedadas na mesma sub-rede. As rotas em qualquer sub-rede do cliente usarão um prefixo/32, alterando o comportamento de roteamento padrão requer um UDR semelhante  | Controle o tráfego usando regras de NSG para o tráfego de saída em clientes de origem. Implante rotas individuais com o prefixo/32 para substituir rotas de ponto de extremidade particulares. Logs de fluxo NSG e informações de monitoramento para conexões de saída ainda têm suporte e podem ser usadas        |
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o portal](create-private-endpoint-portal.md)
 - [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
 - [Criar um Ponto de Extremidade Privado para o Servidor do Banco de Dados SQL usando a CLI ](create-private-endpoint-cli.md)

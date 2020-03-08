@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17bfbc29f38230dc2533c9ccc63cdee4fc776717
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.openlocfilehash: 3407214d332cbd333fe019948d254e01d71197fb
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512101"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672250"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar ingresso híbrido do Azure Active Directory para domínios gerenciados
 
 Como um usuário na sua organização, um dispositivo é uma identidade importante que você quer proteger. É possível usar uma identidade do dispositivo para proteger seus recursos a qualquer momento e de qualquer local. É possível atingir esse objetivo colocando e gerenciando identidades de dispositivo no Azure Active Directory (Azure AD) seguindo um dos seguintes métodos:
 
@@ -66,7 +66,7 @@ O ingresso no Azure AD híbrido requer que os dispositivos tenham acesso aos seg
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (se você usa ou planeja usar o SSO contínuo)
 
-Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomendará [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Se você encontrar problemas para configurar e gerenciar a WPAD, veja como [solucionar problemas de detecção automática](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomendará [implementar a WPAD (Descoberta Automática de Proxy Web)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Se você encontrar problemas para configurar e gerenciar a WPAD, veja como [solucionar problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Se você não usar a WPAD e precisar configurar as definições de proxy no computador, faça isso começando com o Windows 10 1709. Para saber mais, confira [Definir as configurações de WinHTTP usando um GPO (Objeto de Política de Grupo)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -154,7 +154,7 @@ Para concluir o ingresso no Azure AD híbrido de seus dispositivos de nível inf
 
 Para registrar dispositivos de nível inferior do Windows, as organizações devem instalar o [Workplace Join da Microsoft nos computadores sem Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). O Workplace Join da Microsoft para computadores sem Windows 10 está disponível no Centro de Download da Microsoft.
 
-É possível implantar o pacote usando um sistema de distribuição de software como o  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro `quiet`. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
+É possível implantar o pacote usando um sistema de distribuição de software como o  [Microsoft Endpoint Configuration Manager](/configmgr/). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro `quiet`. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
 
 O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa une silenciosamente o dispositivo com o Azure AD usando as credenciais do usuário depois que ele se autentica com o Azure AD.
 

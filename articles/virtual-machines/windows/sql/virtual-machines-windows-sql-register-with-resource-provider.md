@@ -15,11 +15,11 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388771"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -35,14 +35,14 @@ A implantação de uma imagem SQL Server VM do Azure Marketplace por meio do por
 
 - **Gerenciamento de licenças simplificado**: o registro com o provedor de recursos de VM do SQL simplifica SQL Server o gerenciamento de licenças e permite identificar rapidamente SQL Server VMs com o benefício híbrido do Azure habilitado usando o [portal do Azure](virtual-machines-windows-sql-manage-portal.md), a CLI AZ ou o PowerShell: 
 
-   # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+   # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -106,14 +106,14 @@ Para registrar sua VM SQL Server com o provedor de recursos de VM do SQL, você 
 
 Registre seu provedor de recursos de VM do SQL em sua assinatura do Azure usando AZ CLI ou PowerShell. 
 
-# <a name="az-clitabbash"></a>[CLI do Azure](#tab/bash)
+# <a name="az-cli"></a>[CLI do Azure](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -132,7 +132,7 @@ Forneça SQL Server tipo de licença como pré-pago (`PAYG`) para pagar por uso,
 
 As instâncias de cluster de failover e as implantações de várias instâncias só podem ser registradas com o provedor de recursos de VM do SQL no modo leve. 
 
-# <a name="az-clitabbash"></a>[CLI do Azure](#tab/bash)
+# <a name="az-cli"></a>[CLI do Azure](#tab/bash)
 
 Registre SQL Server VM no modo leve com a CLI AZ: 
 
@@ -142,7 +142,7 @@ Registre SQL Server VM no modo leve com a CLI AZ:
   ```
 
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registrar SQL Server VM no modo leve com o PowerShell:  
 
@@ -183,7 +183,7 @@ Especifique `AHUB`, `PAYG`ou `DR` como **Sqllicenciadotype**e `SQL2008-WS2008` o
 Para registrar sua instância do SQL Server 2008 ou 2008 R2 na instância do Windows Server 2008, use os seguintes trechos de código AZ CLI ou PowerShell: 
 
 
-# <a name="az-clitabbash"></a>[CLI do Azure](#tab/bash)
+# <a name="az-cli"></a>[CLI do Azure](#tab/bash)
 
 Registre sua VM SQL Server 2008 no modo noagent com a CLI AZ: 
 
@@ -202,7 +202,7 @@ Registre sua VM do SQL Server 2008 R2 no modo noagent com a CLI AZ:
    --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registrar SQL Server VM 2008 no modo noagent com o PowerShell: 
 
@@ -258,7 +258,7 @@ Para atualizar o modo do agente para completo:
 
 ### <a name="command-line"></a>Linha de comando
 
-# <a name="az-clitabbash"></a>[CLI do Azure](#tab/bash)
+# <a name="az-cli"></a>[CLI do Azure](#tab/bash)
 
 Execute o seguinte trecho de código AZ CLI:
 
@@ -267,7 +267,7 @@ Execute o seguinte trecho de código AZ CLI:
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Execute o seguinte trecho de código do PowerShell:
 
@@ -297,14 +297,14 @@ Você pode verificar se sua VM de SQL Server já foi registrada com o provedor d
 
 Verifique o status atual de registro da VM SQL Server usando o AZ CLI ou o PowerShell. `ProvisioningState` mostrará `Succeeded` se o registro tiver sido bem-sucedido. 
 
-# <a name="az-clitabbash"></a>[CLI do Azure](#tab/bash)
+# <a name="az-cli"></a>[CLI do Azure](#tab/bash)
 
 
   ```azurecli-interactive
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -345,7 +345,7 @@ Para cancelar o registro da VM SQL Server com o provedor de recursos usando o po
 
 ### <a name="command-line"></a>Linha de comando
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Para cancelar o registro de sua máquina virtual SQL Server do provedor de recursos com CLI do Azure, use o comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Isso removerá o SQL Server *recurso* de máquina virtual, mas não excluirá a máquina virtual. 
 
 
@@ -356,7 +356,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para cancelar o registro de sua máquina virtual SQL Server do provedor de recursos com CLI do Azure, use o comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Isso removerá o SQL Server *recurso* de máquina virtual, mas não excluirá a máquina virtual. 
 
 ```powershell-interactive

@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516769"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365628"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,28 +31,28 @@ ms.locfileid: "68516769"
 
 Este artigo descreve como executar a configuração inicial, registrar o servidor de arquivos do StorSimple, concluir a configuração do dispositivo, criar compartilhamentos SMB e conectar-se a eles. Este é o último artigo da série de tutoriais de implantação necessários para implantar completamente sua matriz virtual como um servidor de arquivos ou um servidor iSCSI.
 
-O processo de preparação e configuração pode levar aproximadamente 10 minutos para ser concluído. As informações neste artigo se aplicam apenas à implantação da Matriz Virtual StorSimple. Para a implantação de dispositivos da série StorSimple 8000, vá para: [Implantar seu dispositivo da série StorSimple 8000 executando a Atualização 2](storsimple-deployment-walkthrough-u2.md).
+O processo de preparação e configuração pode levar aproximadamente 10 minutos para ser concluído. As informações neste artigo se aplicam apenas à implantação da Matriz Virtual StorSimple. Para a implantação de dispositivos da série StorSimple 8000, vá para: [Implantar seu dispositivo da série StorSimple 8000 com a Atualização 2](storsimple-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Pré-requisitos de configuração
 Antes de configurar e de instalar a Matriz Virtual StorSimple, verifique se:
 
 * Você provisionou uma matriz virtual e se conectou a ela conforme detalhado em [Provisionar uma Matriz Virtual StorSimple no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Provisionar uma Matriz Virtual StorSimple no VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Você tem a chave de registro do serviço Gerenciador de Dispositivos StorSimple que você criou para gerenciar Matrizes Virtuais StorSimple. Para obter mais informações, confira a [Etapa 2: Obter a chave de registro do serviço](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para a Matriz Virtual StorSimple.
+* Você tem a chave de registro do serviço Gerenciador de Dispositivos StorSimple que você criou para gerenciar Matrizes Virtuais StorSimple. Para obter mais informações, veja [Etapa 2: Obter a chave de registro do serviço](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para o StorSimple Virtual Array.
 * Se essa for a segunda matriz virtual ou a subsequente que você está registrando com um serviço Gerenciador de Dispositivos StorSimple existente, você deverá ter a chave de criptografia de dados do serviço. Essa chave foi gerada quando o primeiro dispositivo foi registrado com êxito com esse serviço. Caso tenha perdido essa chave, veja [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) do StorSimple Virtual Array.
 
 ## <a name="step-by-step-setup"></a>Configuração passo a passo
 Use as instruções passo a passo a seguir para preparar e configurar sua Matriz Virtual StorSimple.
 
-## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Etapa 1: Concluir a configuração da IU da Web local e registrar seu dispositivo
+## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Etapa 1: concluir a configuração de interface do usuário da Web local e registrar seu dispositivo
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Para concluir a configuração e registrar o dispositivo
-1. Abra uma janela do navegador e conecte-se à interface do usuário da Web local. Digite:
+1. Abra uma janela do navegador e conecte-se à interface do usuário da Web local. Tipo:
    
    `https://<ip-address of network interface>`
    
    Use a URL de conexão observada na etapa anterior. Você verá um erro indicando que há um problema com o certificado de segurança do site. Clique em **Continuar para essa página da Web**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
-2. Entre na interface do usuário da Web da sua matriz virtual como **StorSimpleAdmin**. Digite a senha do administrador do dispositivo que você alterou na Etapa 3: Inicie a matriz virtual em [Provisionar um Matriz Virtual StorSimple no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou em [Provisionar uma Matriz Virtual StorSimple no VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+2. Entre na interface do usuário da Web da sua matriz virtual como **StorSimpleAdmin**. Insira a senha do administrador do dispositivo que você alterou na Etapa 3: inicie a matriz virtual em [Provisionar um Matriz Virtual StorSimple no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou em [Provisionar uma Matriz Virtual StorSimple no VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. Você será direcionado para a página **Início**. Esta página descreve as várias configurações necessárias para configurar e registrar a matriz virtual com o serviço Gerenciador de Dispositivos StorSimple. As **Configurações de rede**, as **Configurações de proxy Web** e as **Configurações de hora** são opcionais. As únicas configurações obrigatórias são as **Configurações do dispositivo** e **Configurações de nuvem**.
@@ -70,7 +70,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
 6. Na página **Configurações do dispositivo** :
    
    1. Atribua um **Nome** exclusivo ao seu dispositivo. Esse nome pode ter de 1 a 15 caracteres e pode conter letras, números e hifens.
-   2. Clique no ícone ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) do **Servidor de arquivos** para o **Tipo** de dispositivo que você está criando. Um servidor de arquivos permitirá que você crie pastas compartilhadas.
+   2. Clique no ícone **do**Servidor de arquivos![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) para o **Tipo** de dispositivo que você está criando. Um servidor de arquivos permitirá que você crie pastas compartilhadas.
    3. Como o dispositivo é um servidor de arquivos, você precisará ingressar o dispositivo em um domínio. Insira um **Nome de domínio**.
    4. Clique em **Aplicar**.
 7. Uma caixa de diálogo aparecerá. Insira suas credenciais de domínio no formato especificado. Clique no ícone de verificação. As credenciais de domínio são verificadas. Você verá uma mensagem de erro se as credenciais estiverem incorretas.
@@ -106,7 +106,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
     4. Clique em **Aplicar**. Isso validará e aplicará as configurações de hora definidas.
 11. Defina as configurações de nuvem para seu dispositivo. Nesta etapa, você concluirá a configuração de dispositivo local e, em seguida, registrará o dispositivo com o serviço Gerenciador de Dispositivos StorSimple.
     
-    1. Insira a **Chave de registro do serviço** que você obteve na [Etapa 2: Obter a chave de registro do serviço](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para a Matriz Virtual StorSimple.
+    1. Insira a **Chave de registro do serviço** que você obteve na [Etapa 2: obter a chave de registro do serviço](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para a StorSimple Virtual Array.
     2. Se esse for o primeiro dispositivo registrado nesse serviço, você verá a **Chave de criptografia de dados de serviço**. Copie essa chave e salve-a em um local seguro. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador de Dispositivos StorSimple. 
        
        Se não for o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a chave de criptografia de dados de serviço. Para obter mais informações, consulte obter a [chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
@@ -138,7 +138,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
     
    3. Uma chave AES de 256 bits é ser usada com a chave de criptografia definida pelo usuário. Especifique uma chave de 32 caracteres e, em seguida, insira novamente a chave para confirmá-la. Registre a chave em um aplicativo de gerenciamento de chaves para referência futura.
     
-   4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Certifique-se de que a conta de armazenamento usada oferece suporte a blobs de bloco. Blobs de página não têm suporte.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Verifique se a conta de armazenamento que você usa dá suporte a blobs de blocos. Não há suporte para BLOBs de páginas.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Na folha **Adicionar credenciais de uma conta de armazenamento**, faça o seguinte: 
@@ -169,7 +169,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
    
    Você pode prosseguir para a adição de um compartilhamento.
 
-## <a name="step-3-add-a-share"></a>Etapa 3: Adicionar um compartilhamento
+## <a name="step-3-add-a-share"></a>Etapa 3: adicionar um compartilhamento
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para criar um compartilhamento.
 
 #### <a name="to-create-a-share"></a>Para criar um compartilhamento
@@ -185,7 +185,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
    3. Um **Tipo** para o compartilhamento. O tipo pode ser **Em camadas** ou **Localmente afixado**, sendo que Em camadas é o padrão. Para cargas de trabalho que exigem garantias locais, menos latências e um melhor desempenho, selecione um compartilhamento **Fixado localmente** . Para todos os outros dados, selecione um compartilhamento **Em camadas** .
       Um compartilhamento fixado localmente é provisionado estaticamente e garante que os dados primários no compartilhamento permaneçam como locais para o dispositivo e não sejam divulgados na nuvem. Um compartilhamento em camadas, por outro lado, é provisionado dinamicamente. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, você não poderá provisionar um compartilhamento em camadas.
    
-   4. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou o grupo de usuários no *formato\@John contoso.com* . É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
+   4. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários em *john\@formato contoso.com* . É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
    
    5. Clique em **Adicionar** para criar o compartilhamento. 
     
@@ -199,7 +199,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
    
       ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
-## <a name="step-4-connect-to-the-share"></a>Etapa 4: Conectar-se ao compartilhamento
+## <a name="step-4-connect-to-the-share"></a>Etapa 4: conectar-se ao compartilhamento
 Agora, você precisará conectar-se a um ou mais compartilhamentos que você criou na etapa anterior. Execute estas etapas no host do Windows Server conectado à sua Matriz Virtual StorSimple.
 
 #### <a name="to-connect-to-the-share"></a>Para conectar-se ao compartilhamento

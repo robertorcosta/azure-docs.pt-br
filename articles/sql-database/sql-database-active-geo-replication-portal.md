@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348874"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396874"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 
@@ -24,7 +24,7 @@ Este artigo mostra como configurar a [replicação geográfica ativa para bancos
 
 Para obter informações sobre grupos de failover automático com bancos de dados individuais e em pool, confira [Práticas recomendadas de como usar grupos de failover com bancos de dados individuais e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de failover automático com instâncias gerenciadas, consulte [práticas recomendadas de uso de grupos de failover com instâncias gerenciadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a replicação geográfica ativa usando o Portal do Azure, você precisa do seguinte recurso:
 
@@ -48,7 +48,7 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
 1. No [portal do Azure](https://portal.azure.com), navegue até o banco de dados que você deseja configurar para a replicação geográfica.
 2. Na página de banco de dados SQL, selecione **replicação geográfica** e, em seguida, selecione a região para criar o banco de dados secundário. É possível selecionar qualquer região além da região que hospeda o banco de dados primário, mas recomendamos a [região emparelhada](../best-practices-availability-paired-regions.md).
 
-    ![Configurar replicação geográfica](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
+    ![Configurar a replicação geográfica](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. Selecione ou configure o servidor e o tipo de preço do banco de dados secundário.
 
     ![Configurar secundário](./media/sql-database-geo-replication-portal/create-secondary.png)
@@ -91,7 +91,7 @@ Essa operação termina permanentemente a replicação para o banco de dados sec
     ![Remover secundário](./media/sql-database-geo-replication-portal/remove-secondary.png)
 5. Uma janela de confirmação é aberta. Clique em **Sim** para remover o banco de dados da parceria de replicação geográfica. (Defina-o como um banco de dados de leitura/gravação que não faz parte de nenhuma replicação.)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre a replicação geográfica ativa, confira [Replicação geográfica ativa](sql-database-active-geo-replication.md).
 * Para saber mais sobre grupos de failover automático, confira [Grupos de failover automático](sql-database-auto-failover-group.md)

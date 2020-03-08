@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775214"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377310"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicativo daemon que chama APIs da Web – mover para produção
 
@@ -37,11 +37,11 @@ Você precisará explicar aos seus clientes como executar essas operações. Par
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Aqui estão alguns links para ajudá-lo a saber mais:
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 - Início rápido: [adquirir um token e chamar Microsoft Graph API de um aplicativo de console usando a identidade do aplicativo](./quickstart-v2-netcore-daemon.md).
 - Documentação de referência para:
@@ -60,11 +60,11 @@ Aqui estão alguns links para ajudá-lo a saber mais:
 
     ![Topologia](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Experimente o início rápido [adquira um token e chame Microsoft Graph API de um aplicativo de console do Python usando a identidade do aplicativo](./quickstart-v2-python-daemon.md).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 O MSAL Java está atualmente em visualização pública. Para obter mais informações, consulte [exemplos de desenvolvimento do MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
 

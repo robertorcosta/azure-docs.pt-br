@@ -4,11 +4,11 @@ description: Descreve como usar o Gerenciador de Recursos do Azure para implanta
 ms.topic: overview
 ms.date: 08/29/2019
 ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75455860"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344562"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 

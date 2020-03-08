@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176879"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374413"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
 
@@ -89,7 +89,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`apis`|Coleção de entidades de [Resumo da API](api-management-template-data-model-reference.md#APISummary).|As APIs visíveis para o usuário atual.|  
   
@@ -344,7 +344,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`apiId`|string|A ID da API atual.|  
 |`apiName`|string|O nome da API.|  
@@ -1472,5 +1472,5 @@ puts response.body
 }  
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

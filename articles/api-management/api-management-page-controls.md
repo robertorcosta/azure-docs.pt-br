@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176606"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374406"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página do Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelos de portal do desenvolvedor.  
@@ -60,7 +60,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
   
 ### <a name="parameters"></a>parâmetros  
   
-|.|Descrição|  
+|Parâmetro|DESCRIÇÃO|  
 |---------------|-----------------|  
 |appId|A ID do aplicativo.|  
   
@@ -81,7 +81,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ```  
   
 ### <a name="parameters"></a>parâmetros  
- Nenhuma.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `basic-signin` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
@@ -100,7 +100,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ```  
   
 ### <a name="parameters"></a>parâmetros  
- Nenhuma.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `paging-control` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
@@ -123,7 +123,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ```  
   
 ### <a name="parameters"></a>parâmetros  
- Nenhuma.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `providers` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
@@ -142,7 +142,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ```  
   
 ### <a name="parameters"></a>parâmetros  
- Nenhuma.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `search-control` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
@@ -163,7 +163,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ```  
   
 ### <a name="parameters"></a>parâmetros  
- Nenhuma.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `sign-up` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
@@ -182,12 +182,12 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ```  
   
 ### <a name="parameters"></a>parâmetros  
- Nenhuma.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `subscribe-button` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
--   [Produto](api-management-product-templates.md#Product)  
+-   [Product](api-management-product-templates.md#Product)  
   
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  O controle `subscription-cancel` fornece um controle para cancelar uma assinatura de um produto na página de perfil do usuário no portal do desenvolvedor.  
@@ -204,7 +204,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
   
 ### <a name="parameters"></a>parâmetros  
   
-|.|Descrição|  
+|Parâmetro|DESCRIÇÃO|  
 |---------------|-----------------|  
 |subscriptionId|A ID da assinatura a ser cancelada.|  
 |cancelUrl|A assinatura cancela a URL.|  
@@ -212,7 +212,7 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
  O controle `subscription-cancel` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
--   [Produto](api-management-product-templates.md#Product)
+-   [Product](api-management-product-templates.md#Product)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

@@ -10,11 +10,11 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510525"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379352"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos do Azure IoT Edge do portal do Azure
 
@@ -22,7 +22,7 @@ Após criar os módulos do IoT Edge com a lógica de negócios, você pretende i
 
 Este artigo mostra como o portal do Azure guia você por meio da criação de um manifesto de implantação e de empurrar a implantação a um dispositivo IoT Edge. Para obter informações sobre como criar uma implantação que se destina a vários dispositivos com base em suas marcas compartilhadas, consulte [implantar e monitorar módulos de IOT Edge em escala](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure.
 * Um [Dispositivo do IoT Edge](how-to-register-device.md#register-in-the-azure-portal) com o runtime do IoT Edge instalado.
@@ -104,6 +104,6 @@ Escolha um módulo na página **IOT Edge do Marketplace do módulo** . O módulo
 
 Selecione **Avançar: rotas** e continuar com a implantação conforme descrito por [especificar rotas](#specify-routes) e [examinar a implantação](#review-deployment) anteriormente neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Implantar e monitorar módulos do IoT Edge em escala](how-to-deploy-monitor.md)

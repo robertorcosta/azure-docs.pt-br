@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed28b4bb8ec61455168f50058c8cdcaf9f50717d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: HT
+ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882843"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672246"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: configurar manualmente dispositivos ingressados no Azure Active Directory híbrido
+# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos ingressados no Azure Active Directory híbrido manualmente
 
 Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, confira [Introdução ao gerenciamento de dispositivos no Azure Active Directory](overview.md).
 
@@ -64,7 +64,7 @@ Se a organização está planejando usar o SSO Contínuo, as URLs a seguir preci
 
 * `https://autologon.microsoftazuread-sso.com`
 
-Além disso, a seguinte configuração deve ser habilitada na zona de intranet do usuário: "Permitir atualizações da barra de status por meio de script".
+Além disso, a seguinte configuração deve ser habilitada na zona de intranet do usuário: "Permitir atualizações à barra de status por meio de script".
 
 Se sua organização usar a instalação gerenciada (não federada) com o Active Directory local e não usar os Serviços de Federação do Active Directory (AD FS) para federar ao Azure AD, o ingresso no Azure AD híbrido no Windows 10 dependerá de objetos de computador no Active Directory para ser sincronizado com o Azure AD. Verifique se as UOs que contêm os objetos de computador que precisam ser ingressados no Azure AD híbrido estão habilitadas para sincronização na configuração de sincronização do Azure AD Connect.
 
@@ -91,7 +91,7 @@ Use a tabela a seguir para ter uma visão geral das etapas necessárias para o s
 
 O objeto de SCP (ponto de conexão de serviço) é usado pelos seus dispositivos durante o registro para descobrir informações de locatário do Azure AD. Na instância local do Active Directory, o objeto SCP para dispositivos ingressados no Azure AD híbrido precisa existir na partição do contexto de nomenclatura da configuração da floresta do computador. Há apenas um contexto de nomenclatura de configuração por floresta. Em uma configuração de várias florestas do Active Directory, o ponto de conexão de serviço precisa existir em todas as florestas que contêm computadores ingressados no domínio.
 
-Você pode usar o cmdlet [ **Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) para recuperar o contexto de nomenclatura de configuração da sua floresta.  
+Você pode usar o cmdlet [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) para recuperar o contexto de nomenclatura de configuração da sua floresta.  
 
 Para uma floresta com um nome de domínio do Active Directory *fabrikam.com*, o contexto de nomenclatura de configuração é:
 
@@ -185,7 +185,7 @@ Quando você estiver usando o AD FS, será necessário habilitar os pontos de ex
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> O **adfs/services/trust/2005/windowstransport** e também o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [Desabilitar pontos de extremidade do Windows do WS-Trust no proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Veja quais pontos de extremidade estão habilitados por meio do console de gerenciamento do AD FS em **Serviço** > **Pontos de extremidade**.
+> O **adfs/services/trust/2005/windowstransport** e também o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [Desabilitar pontos de extremidade do Windows do WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Veja quais pontos de extremidade estão habilitados por meio do console de gerenciamento do AD FS em **Serviço** > **Pontos de extremidade**.
 
 > [!NOTE]
 >Se o AD FS não for seu serviço de federação local, siga as instruções do fornecedor para garantir que ele dê suporte aos pontos de extremidade WS-Trust 1.3 ou 2005 e que sejam publicados por meio do MEX (Arquivo de Troca de Metadados).
@@ -503,7 +503,7 @@ Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de n�
 
 Para registrar dispositivos de nível inferior do Windows, verifique se a configuração para permitir que os usuários registrem dispositivos no Azure AD está habilitada. No portal do Azure, você pode encontrar essa configuração em **Azure Active Directory** > **Usuários e grupos** > **Configurações de dispositivo**.
 
-A política a seguir deve ser definida como **Tudo**: **Os usuários podem registrar seus dispositivos no Azure AD**.
+A política a seguir deve ser definida como **todos**: **os usuários podem registrar seus dispositivos com o Azure ad**.
 
 ![O botão Tudo que permite que os usuários registrem dispositivos](./media/hybrid-azuread-join-manual/23.png)
 
@@ -549,7 +549,7 @@ Para registrar os dispositivos de nível inferior do Windows, é necessário bai
 
 ## <a name="verify-joined-devices"></a>Verificar dispositivos ingressados
 
-Você pode verificar os dispositivos ingressados com sucesso à sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo do PowerShell do Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Você pode verificar os dispositivos ingressados com sucesso à sua organização usando o cmdlet [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) no [módulo do PowerShell do Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 A saída desse cmdlet mostra os dispositivos que foram registrados e adicionados no Azure AD. Para obter todos os dispositivos, use o parâmetro **-All** e, em seguida, filtre-os usando a propriedade **deviceTrustType**. Dispositivos ingressados no domínio possuem um valor de **Ingressado no domínio**.
 
