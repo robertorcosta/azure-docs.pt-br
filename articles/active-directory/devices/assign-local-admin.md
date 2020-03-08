@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379653"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672719"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
@@ -48,7 +48,7 @@ Para exibir e atualizar a associação de função de administrador global, cons
 No portal do Azure, você pode gerenciar a função de administrador do dispositivo na página **Dispositivos**. Vá para a página **Dispositivos**:
 
 1. Entre no [portal do Azure](https://portal.azure.com) como administrador global ou administrador de usuários.
-1. Procurar pelo *Azure Active Directory* e selecioná-lo.
+1. Pesquise *Azure Active Directory* e selecione-o.
 1. Na seção **Gerenciar**, clique em **Dispositivos**.
 1. Na página **Dispositivos**, clique em **Configurações de Dispositivo**.
 
@@ -68,8 +68,8 @@ Administradores do dispositivo são atribuídos a todos os dispositivos ingressa
 
 Por padrão, o Microsoft Azure Active Directory adiciona o usuário que está executando o ingresso no Microsoft Azure Active Directory ao grupo administrador no dispositivo. Se você quiser impedir que os usuários normais se tornem os administradores locais, você tem as seguintes opções:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) - Windows Autopilot lhe oferece uma opção para impedir que o usuário primário que está executando a junção de se tornar um administrador local. Você pode fazer isso [criando um perfil do Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Registro em massa](https://docs.microsoft.com/intune/windows-bulk-enroll) -um ingresso no Microsoft Azure Active Directory que é executado no contexto de um registro em massa acontece no contexto de um usuário criado automaticamente. Usuários entrando depois que um dispositivo foi associado não são adicionados ao grupo de administradores.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) - Windows Autopilot lhe oferece uma opção para impedir que o usuário primário que está executando a junção de se tornar um administrador local. Você pode fazer isso [criando um perfil do Autopilot](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Registro em massa](/intune/windows-bulk-enroll) -um ingresso no Microsoft Azure Active Directory que é executado no contexto de um registro em massa acontece no contexto de um usuário criado automaticamente. Usuários entrando depois que um dispositivo foi associado não são adicionados ao grupo de administradores.   
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>Elevar manualmente um usuário em um dispositivo 
 

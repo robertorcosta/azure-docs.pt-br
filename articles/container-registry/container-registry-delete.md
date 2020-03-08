@@ -3,12 +3,12 @@ title: Excluir recursos de imagem
 description: Detalhes sobre como gerenciar efetivamente o tamanho do registro excluindo dados de imagem de contêiner usando comandos CLI do Azure.
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 8d20bf2be1d472855c3e67dd79ea1725c152e3d2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455274"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403340"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Excluir imagens de contêiner no registro de contêiner do Azure usando o CLI do Azure
 
@@ -43,9 +43,12 @@ Para excluir por marca, use [AZ ACR Repository Delete][az-acr-repository-delete]
 Por exemplo, excluindo a imagem "acr-helloworld: latest" do registro "myregistry":
 
 ```azurecli
-$ az acr repository delete --name myregistry --image acr-helloworld:latest
+az acr repository delete --name myregistry --image acr-helloworld:latest
+```
+
+```output
 This operation will delete the manifest 'sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108' and all the following images: 'acr-helloworld:latest', 'acr-helloworld:v3'.
-Are you sure you want to continue? (y/n): y
+Are you sure you want to continue? (y/n):
 ```
 
 > [!TIP]
@@ -57,8 +60,11 @@ Um [resumo do manifesto](container-registry-concepts.md#manifest-digest) pode se
 
 Para excluir, digest, a primeira lista o manifesto resumos para o repositório que contém as imagens que você deseja excluir. Por exemplo:
 
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
+```azurecli
+az acr repository show-manifests --name myregistry --repository acr-helloworld
+```
+
+```output
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -86,10 +92,13 @@ az acr repository delete --name <acrName> --image <repositoryName>@<digest>
 
 Por exemplo, para excluir o último manifesto listado na saída anterior (com a tag "v2"):
 
-```console
-$ az acr repository delete --name myregistry --image acr-helloworld@sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57
+```azurecli
+az acr repository delete --name myregistry --image acr-helloworld@sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57
+```
+
+```output
 This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57' and all the following images: 'acr-helloworld:v2'.
-Are you sure you want to continue? (y/n): y
+Are you sure you want to continue? (y/n): 
 ```
 
 A imagem de `acr-helloworld:v2` é excluída do registro, assim como qualquer dado de camada exclusivo para essa imagem. Se um manifesto é associado com várias marcas, todas as marcas associadas também são excluídas.
@@ -148,8 +157,12 @@ Conforme mencionado na [manifesto digest](container-registry-concepts.md#manifes
 1. Enviar imagem por push *acr helloworld* com marca **mais recente**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Verifique os manifestos do repositório *acr helloworld*:
 
-   ```console
-   $ az acr repository show-manifests --name myregistry --repository acr-helloworld
+   ```azurecli
+   az acr repository show-manifests --name myregistry --repository acr-helloworld
+   
+   ```
+   
+   ```output
    [
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
@@ -165,8 +178,11 @@ Conforme mencionado na [manifesto digest](container-registry-concepts.md#manifes
 1. Enviar imagem por push *acr helloworld* com marca **mais recente**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Verifique os manifestos do repositório *acr helloworld*:
 
-   ```console
-   $ az acr repository show-manifests --name myregistry --repository acr-helloworld
+   ```azurecli
+   az acr repository show-manifests --name myregistry --repository acr-helloworld
+   ```
+   
+   ```output
    [
      {
        "digest": "sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728",

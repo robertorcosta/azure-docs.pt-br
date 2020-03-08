@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377619"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671902"
 ---
 # <a name="what-is-conditional-access"></a>O que é Acesso Condicional?
 
@@ -92,9 +92,9 @@ Descubra como outras organizações usam o Acesso Condicional do Azure AD para d
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Os clientes com [licenças do Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso a recursos de Acesso Condicional. 
+Os clientes com [licenças do Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso a recursos de Acesso Condicional. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Como criar uma política de acesso condicional por partes](concept-conditional-access-policies.md)
 
@@ -102,6 +102,6 @@ Para saber como implementar o Acesso Condicional em seu ambiente, confira [Plane
 
 [Sais mais sobre o Identity Protection](../identity-protection/overview-v2.md)
 
-[Saiba mais sobre o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[Saiba mais sobre o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 
-[Saiba mais sobre o Microsoft Intune](https://docs.microsoft.com/intune/index)
+[Saiba mais sobre o Microsoft Intune](/intune/index)

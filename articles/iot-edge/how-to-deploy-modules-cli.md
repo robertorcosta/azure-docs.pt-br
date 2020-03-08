@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c63180e77a15c6fc7cbee06ad2eb344b50b97ab7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e93360d4045f9c97d45abe2af489804a4c3c85f0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434333"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673514"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implantar módulos do Azure IoT Edge com CLI do Azure
 
@@ -24,11 +24,11 @@ A [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é 
 
 Este artigo mostra como criar um manifesto de implantação JSON e usar esse arquivo para enviar a implantação a um dispositivo do IoT Edge. Para obter informações sobre como criar uma implantação voltada a vários dispositivos com base nas marcações compartilhadas, consulte [Implantar e monitorar módulos do IoT Edge em escala](how-to-deploy-monitor-cli.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure.
 * Um [Dispositivo do IoT Edge](how-to-register-device.md#register-with-the-azure-cli) com o runtime do IoT Edge instalado.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack.
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, sua versão de CLI do Azure deve ser 2.0.70 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack.
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
@@ -138,6 +138,6 @@ O parâmetro de ID do dispositivo diferencia maiúsculas de minúsculas.
 
    ![saída da lista de identidade do módulo hub iot az](./media/how-to-deploy-cli/list-modules.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Implantar e monitorar módulos do IoT Edge em escala](how-to-deploy-monitor.md)

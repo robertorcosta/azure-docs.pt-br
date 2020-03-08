@@ -186,9 +186,14 @@
               href: live-event-error-codes.md
             - name: Códigos de erro do trabalho
               href: job-error-codes.md
-    - name: Diretriz de alta disponibilidade
-      displayName: 'failover, bcdr'
-      href: media-services-high-availability-guidance.md
+    - name: Alta disponibilidade
+      items:
+        - name: Codificação
+          displayName: 'failover, bcdr'
+          href: media-services-high-availability-encoding.md
+        - name: Streaming
+          displayName: 'failover, bcdr'
+          href: media-services-high-availability-streaming.md
     - name: Diretrizes de migração da v2 para a v3
       href: migrate-from-v2-to-v3.md
       displayName: naming

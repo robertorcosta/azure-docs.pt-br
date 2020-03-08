@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 353501912836e0f6706f20deed1c1d9d416f1ce6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367258"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894512"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts de sessão usando a automação do Azure
 
@@ -37,7 +37,7 @@ Durante o tempo de uso de pico, o trabalho verifica o número atual de sessões 
 >[!NOTE]
 >*SessionThresholdPerCPU* não restringe o número de sessões na VM. Esse parâmetro determina apenas quando novas VMs precisam ser iniciadas para balancear a carga das conexões. Para restringir o número de sessões, você precisa seguir as instruções [set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) para configurar o parâmetro *MaxSessionLimit* de acordo.
 
-Durante o tempo de uso fora de pico, o trabalho determina quais VMs de host de sessão devem ser desligadas com base no parâmetro *MinimumNumberOfRDSH* . O trabalho definirá as VMs do host da sessão para o modo de descarga para evitar novas sessões se conectando aos hosts. Se você definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo diferente de zero, o script notificará qualquer usuário conectado no momento para salvar seu trabalho, aguardará a quantidade de tempo configurada e, em seguida, forçará os usuários a se desconectarem. Depois que todas as sessões de usuário na VM host de sessão forem desconectadas, o script desligará a VM.
+Durante o tempo de uso fora de pico, o trabalho determina quais VMs de host de sessão devem ser desligadas com base no parâmetro *MinimumNumberOfRDSH* . O trabalho definirá as VMs do host da sessão para o modo de descarga para evitar novas sessões se conectando aos hosts. Se você definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo diferente de zero, o trabalho notificará qualquer usuário conectado no momento para salvar seu trabalho, aguardará a quantidade de tempo configurada e, em seguida, forçará os usuários a se desconectarem. Depois que todas as sessões de usuário na VM host de sessão forem desconectadas, o trabalho desligará a VM.
 
 Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá para **configuração do computador** > **políticas** > **Modelos Administrativos** > **componentes do Windows** > serviços de **terminal** ** > Terminal Server > ** limites de **tempo de sessão**. Se houver sessões ativas em uma VM host de sessão, o trabalho deixará a VM host de sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 10/11/2019
-ms.openlocfilehash: 10e4ba16e00a37d532a2eceb69fedb8f5b62be8b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.date: 03/05/2020
+ms.openlocfilehash: 7cc2e346a35cd1cdf1278b527dc451a903d60f89
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301651"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402825"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
@@ -41,7 +41,7 @@ Para obter um guia sobre como usar a CLI do git, leia [aqui.](https://guides.git
 
 Quando você envia uma execução de treinamento do SDK do Python ou da CLI do Machine Learning, os arquivos necessários para treinar o modelo são carregados no espaço de trabalho. Se o comando `git` estiver disponível em seu ambiente de desenvolvimento, o processo de carregamento o usará para verificar se os arquivos estão armazenados em um repositório git. Nesse caso, as informações do repositório git também são carregadas como parte da execução do treinamento. Essas informações são armazenadas nas seguintes propriedades para a execução de treinamento:
 
-| Propriedade | Comando git usado para obter o valor | Descrição |
+| Propriedade | Comando git usado para obter o valor | DESCRIÇÃO |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
@@ -114,6 +114,6 @@ az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup
 
 Para obter mais informações, consulte a documentação de referência de [execução do AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest) .
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar e usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md)

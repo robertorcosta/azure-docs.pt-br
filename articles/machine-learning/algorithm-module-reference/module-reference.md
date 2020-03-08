@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 02/22/2020
-ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 334cf69db70e8a1e0c2994c492f15ff44505af0d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920086"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673367"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referência de módulo de & de algoritmo para o designer de Azure Machine Learning (versão prévia)
 
@@ -32,7 +32,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 ## <a name="data-preparation-modules"></a>Módulos de preparação de dados
 
 
-| Funcionalidade | Descrição | {1&gt;Módulo&lt;1} |
+| Funcionalidade | DESCRIÇÃO | Módulo |
 | --- |--- | --- |
 | Entrada e saída de dados | Mova dados de fontes de nuvem para seu pipeline. Grave os resultados ou os dados intermediários no armazenamento do Azure, em um banco de dados SQL ou Hive, durante a execução de um pipeline, ou use o armazenamento em nuvem do para o Exchange data entre pipelines.  | [Inserir dados manualmente](enter-data-manually.md) <br/> [Exportar dados](export-data.md) <br/> [Importar dados](import-data.md) |
 | Transformação de dados | Operações em dados que são exclusivas do aprendizado de máquina, como normalização ou compartimentalização de dados, redução de dimensionalidade e conversão de dados entre vários formatos de arquivo.| [Adicionar colunas](add-columns.md) <br/> [Adicionar linhas](add-rows.md) <br/> [Aplicar operação matemática](apply-math-operation.md) <br/> [Aplicar transformação SQL](apply-sql-transformation.md) <br/> [Limpar dados ausentes](clean-missing-data.md) <br/> [Valores de clipe](clip-values.md) <br/> [Converter em CSV](convert-to-csv.md) <br/> [Converter em conjunto de um](convert-to-dataset.md) <br/> [Converter em valores de indicador](convert-to-indicator-values.md) <br/> [Editar metadados](edit-metadata.md) <br/> [Dados de junção](join-data.md) <br/> [Normalizar dados](normalize-data.md) <br/> [Partição e exemplo](partition-and-sample.md)  <br/> [Remover linhas duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selecionar transformação de colunas](select-columns-transform.md) <br/> [Selecionar colunas no conjunto de linhas](select-columns-in-dataset.md) <br/> [Dividir Dados](split-data.md) |
@@ -41,7 +41,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 
 ## <a name="machine-learning-algorithms"></a>Algoritmos de aprendizado de máquina
 
-| Funcionalidade | Descrição | {1&gt;Módulo&lt;1} |
+| Funcionalidade | DESCRIÇÃO | Módulo |
 | --- |--- | --- |
 | Regressão | Prever um valor. | [Regressão da árvore de decisão aumentada](boosted-decision-tree-regression.md) <br/> [Regressão de floresta de decisão](decision-forest-regression.md) <br/> [Regressão linear](linear-regression.md)  <br/> [Regressão de rede neural](neural-network-regression.md)  <br/> |
 | Clustering | Agrupar dados juntos.| [Clustering de K-means](k-means-clustering.md)
@@ -49,7 +49,7 @@ Para obter ajuda com a escolha de algoritmos, consulte
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Módulos para criação e avaliação de modelos
 
-| Funcionalidade | Descrição | {1&gt;Módulo&lt;1} |
+| Funcionalidade | DESCRIÇÃO | Módulo |
 | --- |--- | --- |
 | Treinamento do modelo | Execute os dados por meio do algoritmo. |  [Treinar modelo de clustering](train-clustering-model.md) <br/> [Treinar Modelo](train-model.md)  <br/> [Ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) |
 | Pontuação e avaliação do modelo | Meça a precisão do modelo treinado. | [Aplicar transformação](apply-transformation.md) <br/> [Atribuir dados a clusters](assign-data-to-clusters.md) <br/> [Modelo de validação cruzada](cross-validate-model.md) <br/> [Avaliar modelo](evaluate-model.md) <br/> [Modelo de Pontuação](score-model.md) |
@@ -57,12 +57,12 @@ Para obter ajuda com a escolha de algoritmos, consulte
 | Linguagem R | Escreva o código e incorpore-o em um módulo para integrar o R ao seu pipeline. | [Executar script R](execute-r-script.md) |
 | Análise de texto | Forneça ferramentas computacionais especializadas para trabalhar com texto estruturado e não estruturado. | [Extrair N recursos de grama do texto](extract-n-gram-features-from-text.md) <br/> [Hash de recurso](feature-hashing.md) <br/> [Pré-processar texto](preprocess-text.md) |
 | Recomendação | Crie modelos de recomendação. | [Avaliar Recomendador](evaluate-recommender.md) <br/> [Pontuar Recomendador SVD](score-svd-recommender.md) <br/> [Treinar Recomendador SVD](train-SVD-recommender.md) |
-| Detecção de anomalias | Crie modelos de detecção de anomalias. | [Detecção de anomalias baseada em PCA](pca-based-anomaly-detection.md) <br/> [Treinar modelo de detecção de anomalias](train-anomaly-detection-model.md) |
+
 
 ## <a name="error-messages"></a>Mensagens de erro
 
 Saiba mais sobre as [mensagens de erro e os códigos de exceção](designer-error-codes.md) que você pode encontrar usando módulos no designer de Azure Machine Learning.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: criar um modelo no designer para prever preços automáticos](../tutorial-designer-automobile-price-train-score.md)

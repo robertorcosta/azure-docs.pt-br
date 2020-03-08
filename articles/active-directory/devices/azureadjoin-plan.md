@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512412"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672689"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -24,7 +24,7 @@ O ingresso no Azure AD permite que você ingresse dispositivos diretamente ao Az
 
 Esse artigo fornece as informações necessárias para começar com as APIs de relatório do Azure Active Directory.
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este artigo presume que você esteja familiarizado com o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](../device-management-introduction.md).
 
@@ -59,7 +59,7 @@ O ingresso no Azure AD funciona com os ambientes, gerenciados e federados.
 
 ### <a name="managed-environment"></a>Ambiente de leitura
 
-Um ambiente gerenciado pode ser implantado por meio da [Sincronização de Hash de senha](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou [Autenticação de passagem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) com logon único contínuo.
+Um ambiente gerenciado pode ser implantado por meio da [Sincronização de Hash de senha](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou [Autenticação de passagem](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) com logon único contínuo.
 
 Esses cenários não exigem que você configure um servidor de federação para autenticação.
 
@@ -78,7 +78,7 @@ Quando você estiver usando o AD FS, será necessário habilitar os seguintes po
 Se seu provedor de identidade não oferece suporte a esses protocolos, o ingresso no Azure Active Directory não trabalha nativamente. 
 
 >[!NOTE]
-> Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
+> Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Cartões inteligentes e autenticação baseada em certificado
@@ -91,7 +91,7 @@ Se seu provedor de identidade não oferece suporte a esses protocolos, o ingress
 
 Se você criar usuários no seu:
 
-- **Active Directory local**, você precisa sincronizá-los com o Azure AD usando o [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory local**, você precisa sincronizá-los com o Azure AD usando o [Azure Active Directory Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
 - **Azure AD**, nenhuma configuração adicional é necessária.
 
 UPNs locais que são diferentes de UPNs do Azure AD não têm suporte em dispositivos ingressados no Azure AD. Se os usuários usarem um UPN local, você deverá planejar passar a usar seus UPNs primários do Azure AD.
@@ -127,9 +127,9 @@ Revisar as políticas compatíveis ou não compatíveis para determinar se você
 - As diretivas sem suporte são necessárias para dispositivos ou usuários adicionados ao Azure Active Directory?
 - As diretivas sem suporte são aplicáveis em uma nuvem controlada por implantação?
 
-Se sua solução de MDM não estiver disponível por meio da galeria de aplicativo do Azure Active Directory, você pode adicioná-lo seguindo o processo descrito em [integração do Active Directory do Azure com o MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
+Se sua solução de MDM não estiver disponível por meio da galeria de aplicativo do Azure Active Directory, você pode adicioná-lo seguindo o processo descrito em [integração do Active Directory do Azure com o MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Por meio de cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma MDM. Microsoft Intune permite que o cogerenciamento com o SCCM. Para obter mais informações sobre o cogerenciamento para dispositivos Windows 10, consulte [o que é cogerenciamento?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Se você usar um produto MDM que não seja o Intune, entre em contato com seu provedor de MDM em cenários de cogerenciamento aplicável.
+Por meio de cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma MDM. Microsoft Intune permite que o cogerenciamento com o SCCM. Para obter mais informações sobre o cogerenciamento para dispositivos Windows 10, consulte [o que é cogerenciamento?](/configmgr/core/clients/manage/co-management-overview). Se você usar um produto MDM que não seja o Intune, entre em contato com seu provedor de MDM em cenários de cogerenciamento aplicável.
 
 **Recomendação:** considere MDM somente a dispositivos adicionados ao gerenciamento do Azure Active Directory.
 
@@ -155,7 +155,7 @@ Se seus aplicativos são personalizados criados e/ou hospedados no local, você 
 - Habilitar autenticação integrada do Windows para trabalhar 
 - Fornecer uma experiência não prompt SSO para usuários. 
 
-Se você usar o AD FS, consulte [Verificar e gerenciar logon único com o AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
+Se você usar o AD FS, consulte [Verificar e gerenciar logon único com o AD FS](/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
 **Recomendação:** c’onsidere hospedar na nuvem (por exemplo, o Azure) e a integração com o Azure Active Directory para uma melhor experiência.
 
@@ -163,7 +163,7 @@ Se você usar o AD FS, consulte [Verificar e gerenciar logon único com o AD FS]
 
 Os usuários obtêm SSO dos dispositivos Azure Active Directory ingressado se o dispositivo tiver acesso ao controlador de domínio. 
 
-**Recomendação:** implantar o [proxy de Aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para habilitar o acesso seguro para esses aplicativos.
+**Recomendação:** implantar o [proxy de Aplicativo do Azure Active Directory](/azure/active-directory/manage-apps/application-proxy) para habilitar o acesso seguro para esses aplicativos.
 
 ### <a name="on-premises-network-shares"></a>Compartilhamento de rede local
 
@@ -171,7 +171,7 @@ Seus usuários têm o SSO de dispositivos ingressados no Azure Active Directory 
 
 ### <a name="printers"></a>Impressoras
 
-Para as impressoras, você precisará implantar [nuvem híbrida impressão](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para descobrir impressoras no Azure Active Directory e ingressado em dispositivos. 
+Para as impressoras, você precisará implantar [nuvem híbrida impressão](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para descobrir impressoras no Azure Active Directory e ingressado em dispositivos. 
 
 Enquanto as impressoras não podem ser descobertas automaticamente em um único ambiente de nuvem, os usuários também podem usar o caminho UNC das impressoras para direcioná-los. 
 
@@ -181,17 +181,17 @@ O Azure Active Directory não dão suporte a aplicativos locais na autenticaçã
 
 **Recomendação:** considere desativar esses aplicativos e mover para suas alternativas modernas.
 
-### <a name="remote-desktop-services"></a>Serviços de Área de Trabalho Remota
+### <a name="remote-desktop-services"></a>Serviços da Área de Trabalho Remota
 
-Conexão da área de trabalho remota para um dispositivos adicionados ao Azure Active Directory requer que o computador host para o Azure Active Directory ingressado ou Azure AD Híbrido ingressado. Área de trabalho remota de um dispositivo não relacionado ou não Windows que não é compatível. Para obter mais informações, consulte [Conectar ao Azure Active Directory ingressado remoto pc](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
+Conexão da área de trabalho remota para um dispositivos adicionados ao Azure Active Directory requer que o computador host para o Azure Active Directory ingressado ou Azure AD Híbrido ingressado. Área de trabalho remota de um dispositivo não relacionado ou não Windows que não é compatível. Para obter mais informações, consulte [Conectar ao Azure Active Directory ingressado remoto pc](/windows/client-management/connect-to-remote-aadj-pc)
 
 ## <a name="understand-your-provisioning-options"></a>Entenda suas opções de provisionamento
 
 Você pode provisionar o ingresso no Azure Active Directory usando as seguintes abordagens:
 
-- **Autoatendimento nas configurações doOOBE/** – no modo autoatendimento, os usuários vão por meio do ingresso no Azure Active Directory seja durante fora do Windows Out of Box Experience (OOBE) ou Configurações do Windows. Para obter mais informações, consulte [ingressar seu dispositivo de trabalho para a rede da sua organização](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
-- **Windows Autopilot** - Windows Autopilot permite a configuração prévia de dispositivos para uma experiência mais suave em OOBE para realizar uma junção do Azure Active Directory. Para saber mais, confira a página [visão geral do Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Registro em massa** - o registro em massa permite que um administrador de ingresso no Azure Active Directory usando uma ferramenta de provisionamento em massa para configurar os dispositivos. Para obter mais informações, consulte [Registro em massa para dispositivos Windows](https://docs.microsoft.com/intune/windows-bulk-enroll).
+- **Autoatendimento nas configurações doOOBE/** – no modo autoatendimento, os usuários vão por meio do ingresso no Azure Active Directory seja durante fora do Windows Out of Box Experience (OOBE) ou Configurações do Windows. Para obter mais informações, consulte [ingressar seu dispositivo de trabalho para a rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Windows Autopilot** - Windows Autopilot permite a configuração prévia de dispositivos para uma experiência mais suave em OOBE para realizar uma junção do Azure Active Directory. Para saber mais, confira a página [visão geral do Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Registro em massa** - o registro em massa permite que um administrador de ingresso no Azure Active Directory usando uma ferramenta de provisionamento em massa para configurar os dispositivos. Para obter mais informações, consulte [Registro em massa para dispositivos Windows](/intune/windows-bulk-enroll).
  
 Aqui está uma comparação dessas três abordagens 
  
@@ -292,11 +292,11 @@ Se você tiver um provedor MDM configurado para os dispositivos Azure Active Dir
 
 Você pode usar essa implementação para [exigir dispositivos gerenciados para acesso de aplicativo de nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Ingressar um novo dispositivo Windows 10 com o Azure Active Directory durante uma primeira execução](azuread-joined-devices-frx.md)
-> [ingressar seu dispositivo de trabalho para a rede da sua organização](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [ingressar seu dispositivo de trabalho para a rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

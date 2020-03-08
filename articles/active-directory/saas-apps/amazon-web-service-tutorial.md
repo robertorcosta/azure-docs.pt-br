@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986aa000102cfed01666c8a95c00847ecc0cd651
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 6970debd3885a513ac0e30d6cc5391b0db66cf9b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378413"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669277"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -53,7 +53,7 @@ Com esses valores, o Azure AD remove o valor de **#** e envia o valor correto `h
 > [!Note]
 > Use apenas o aplicativo da galeria.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -337,7 +337,10 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     ![Captura de tela da seção Configurações, com Ativado realçado](./media/amazon-web-service-tutorial/provisioning2.png)
 
 > [!NOTE]
-> O serviço de provisionamento só importará funções da AWS para o Azure AD. Esse serviço não provisionará usuários e grupos do Azure AD novamente para a AWS.
+> O serviço de provisionamento importa funções somente do AWS para o Azure AD. O serviço não provisiona usuários e grupos do Azure AD para o AWS.
+
+> [!NOTE]
+> Depois de salvar as credenciais de provisionamento, você deve aguardar a execução do ciclo de sincronização inicial. A sincronização normalmente leva cerca de 40 minutos para ser concluída. Você pode ver o status na parte inferior da página de **provisionamento** , em **status atual**.
 
 ### <a name="create-amazon-web-services-aws-test-user"></a>Criar usuário de teste da AWS (Amazon Web Services)
 

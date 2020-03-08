@@ -4,14 +4,14 @@ description: Saiba mais sobre a cláusula WHERE do SQL para Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982222"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898760"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE em Azure Cosmos DB
 
@@ -35,10 +35,11 @@ WHERE <filter_condition>
   
    Expressão que representa o valor a ser calculado. Consulte [expressões escalares](sql-query-scalar-expressions.md) para obter detalhes.  
   
-
 ## <a name="remarks"></a>Comentários
   
-  Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como verdadeira. Somente o valor booliano verdadeiro satisfará a condição, qualquer outro valor: indefinido, nulo, falso, Número, Matriz ou Objeto não satisfará a condição. 
+  Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como verdadeira. Somente o valor booliano `true` atenderá à condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não atenderá à condição.
+
+  Se você incluir sua chave de partição na cláusula `WHERE` como parte de um filtro de igualdade, sua consulta filtrará automaticamente somente as partições relevantes.
 
 ## <a name="examples"></a>Exemplos
 
@@ -106,7 +107,7 @@ Você também pode usar os operadores unários +,-, ~, e não em consultas, conf
 
 Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`ou `<array>`, exclui o item do resultado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Guia de Introdução](sql-query-getting-started.md)
 - [Palavra-chave IN](sql-query-keywords.md#in)

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f7f6f31c4d2f67660fef507ce101b2d15897d51
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 158b3b34bf433c1da0d1c4bdc851fd99e5bd54d2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620863"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671969"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como bloquear a autenticação herdada no Azure AD com acesso condicional   
 
-Para fornecer aos usuários acesso fácil aos aplicativos na nuvem, o Azure AD (Azure Active Directory) dá suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação herdada. No entanto, protocolos herdados não dão suporte para MFA (autenticação multifator). Em muitos ambientes, a MFA é um requisito comum para lidar com roubo de identidade. 
+Para fornecer aos usuários acesso fácil aos aplicativos na nuvem, o Azure AD (Azure Active Directory) dá suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação herdada. No entanto, os protocolos herdados não dão suporte à MFA (autenticação multifator). Em muitos ambientes, a MFA é um requisito comum para lidar com roubo de identidade. 
 
 Se o seu ambiente estiver pronto para bloquear a autenticação herdada para melhorar a proteção do locatário, você poderá atingir esse objetivo com o acesso condicional. Este artigo explica como você pode configurar políticas de acesso condicional que bloqueiam a autenticação herdada para seu locatário.
 
@@ -54,7 +54,7 @@ As opções a seguir são consideradas protocolos de autenticação herdados
 
 - SMTP autenticado-usado pelo cliente POP e IMAP para enviar mensagens de email.
 - Descoberta automática-usada pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.
-- Exchange Online PowerShell-usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, consulte [conectar-se ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Exchange Online PowerShell-usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, consulte [conectar-se ao Exchange Online PowerShell usando a autenticação multifator](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
 - Serviços Web do Exchange (EWS)-uma interface de programação usada pelo Outlook, Outlook para Mac e aplicativos de terceiros.
 - IMAP4 – usado por clientes de email IMAP.
 - MAPI sobre HTTP (MAPI/HTTP) – usado pelo Outlook 2010 e posterior.
@@ -137,4 +137,4 @@ Se você bloquear a autenticação herdada usando a condição **outros clientes
 ## <a name="next-steps"></a>Próximas etapas
 
 - Se você ainda não estiver familiarizado com a configuração de políticas de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md) para obter um exemplo.
-- Para obter mais informações sobre o suporte à autenticação moderna, consulte [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- Para obter mais informações sobre o suporte à autenticação moderna, consulte [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 

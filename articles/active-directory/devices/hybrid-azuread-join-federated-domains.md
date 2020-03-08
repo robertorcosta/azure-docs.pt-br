@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d6e5362df9f41822525af0d256cfd99568d6de
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 1a61c89199c89f09b5cc0e553dbbf48655ad1b6a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377079"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672227"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar ingresso no Azure Active Directory híbrido para domínios federados
 
@@ -40,7 +40,7 @@ Um ambiente federado deve ter um provedor de identidade que dá suporte aos requ
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> O **adfs/services/trust/2005/windowstransport** e o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [Desabilitar pontos de extremidade do Windows do WS-Trust no proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Veja quais pontos de extremidade estão habilitados por meio do console de gerenciamento do AD FS em **Serviço** > **Pontos de extremidade**.
+> O **adfs/services/trust/2005/windowstransport** e o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [Desabilitar pontos de extremidade do Windows do WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Veja quais pontos de extremidade estão habilitados por meio do console de gerenciamento do AD FS em **Serviço** > **Pontos de extremidade**.
 
 Neste tutorial, você aprenderá como configurar o ingresso no Azure AD híbrido para dispositivos de computadores ingressados no domínio do Active Directory em um ambiente federado, usando o AD FS.
 
@@ -50,9 +50,9 @@ Você aprenderá como:
 > * Configurar ingresso no Azure AD híbrido
 > * Habilitar dispositivos de nível inferior do Windows
 > * Verificar o registro
-> * Solução de problemas
+> * Solucionar problemas
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial presume que você esteja familiarizado com estes artigos:
 
@@ -83,7 +83,7 @@ O ingresso no Azure AD híbrido requer que os dispositivos tenham acesso aos seg
 
 A partir do Windows 10 1803, se o ingresso instantâneo no Azure AD híbrido para o ambiente federado do AD FS falhar, dependeremos do Azure AD Connect para sincronizar o objeto de computador no Azure AD que será usado posteriormente para concluir o registro do dispositivo para ingresso no Azure AD híbrido. Verifique se o Azure AD Connect sincronizou os objetos de computador dos dispositivos que você quer que sejam unidos ao Azure AD híbrido com o Azure AD. Se os objetos de computador pertencerem a unidades organizacionais (OUs) específicas, você também deverá configurar as OUs para sincronizarem no Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador usando o Azure AD Connect, veja como [configurar a filtragem usando o Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
-Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomendará [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Se você encontrar problemas para configurar e gerenciar a WPAD, veja como [solucionar problemas de detecção automática](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomendará [implementar a WPAD (Descoberta Automática de Proxy Web)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Se você encontrar problemas para configurar e gerenciar a WPAD, veja como [solucionar problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Se você não usa a WPAD e precisa configurar as definições de proxy no computador, é possível fazer isso a partir do Windows 10 1709. Para obter mais informações, veja como [definir as configurações de WinHTTP usando um Objeto de Política de Grupo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -106,7 +106,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
 1. Inicie o Azure AD Connect e selecione **Configurar**.
 
-   ![Bem-vindo](./media/hybrid-azuread-join-federated-domains/11.png)
+   ![Bem-Vindo](./media/hybrid-azuread-join-federated-domains/11.png)
 
 1. Na página **Tarefas adicionais**, selecione **Configurar opções de dispositivo** e, em seguida, **Avançar**.
 
@@ -118,7 +118,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
 1. Na página **Conectar o Azure AD**, insira as credenciais de administrador global para o locatário do Azure AD e selecione **Avançar**.
 
-   ![Conectar ao AD do Azure](./media/hybrid-azuread-join-federated-domains/14.png)
+   ![Conecte-se ao AD do Azure](./media/hybrid-azuread-join-federated-domains/14.png)
 
 1. Na página **Opções do dispositivo**, selecione **Configurar ingresso no Azure AD Híbrido** e, em seguida,selecione **Avançar**.
 
@@ -172,7 +172,7 @@ Também será preciso habilitar **Permitir atualizações da barra de status via
 
 Para registrar dispositivos de nível inferior do Windows, as organizações devem instalar o [Workplace Join da Microsoft nos computadores sem Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). O Workplace Join da Microsoft para computadores sem Windows 10 está disponível no Centro de Download da Microsoft.
 
-É possível implantar o pacote usando um sistema de distribuição de software como o  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro `quiet`. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
+É possível implantar o pacote usando um sistema de distribuição de software como o  [Microsoft Endpoint Configuration Manager](/configmgr/). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro `quiet`. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
 
 O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa une silenciosamente o dispositivo com o Azure AD usando as credenciais do usuário depois que ele se autentica com o Azure AD.
 
@@ -200,7 +200,7 @@ Se estiver com problemas para concluir o ingresso no Azure AD híbrido de dispos
 - [Solucionar problemas de ingresso no Azure AD híbrido para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
 - [Solucionar problemas de ingresso no Azure AD híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [gerenciar identidades de dispositivo usando o portal do Azure](device-management-azure-portal.md).
 

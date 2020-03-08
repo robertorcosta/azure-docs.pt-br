@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888793"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672259"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido 
 
@@ -26,7 +26,7 @@ Para outros clientes do Windows, consulte o artigo [solução de problemas de Az
 
 Este artigo pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](hybrid-azuread-join-plan.md) para dar suporte aos seguintes cenários:
 
-- Acesso Condicional baseado no dispositivo
+- Acesso condicional com base no dispositivo
 - [Roaming corporativo de configurações](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Configurar o Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
@@ -356,7 +356,7 @@ Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as fa
    - Resolução: desabilite o TPM em dispositivos com este erro. O Windows 1809 detecta automaticamente falhas do TPM e conclui a junção híbrida do Azure AD sem usar o TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Motivo: TPM bloqueado.
-   - Resolução: erro transitório. Aguarde o período de cooldown. A tentativa de junção depois de algum tempo deve ser realizada com sucesso. Mais informações podem ser encontradas no artigo [conceitos básicos do TPM](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+   - Resolução: erro transitório. Aguarde o período de cooldown. A tentativa de junção depois de algum tempo deve ser realizada com sucesso. Mais informações podem ser encontradas no artigo [conceitos básicos do TPM](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
 ##### <a name="network-errors"></a>Erros de rede
 
@@ -408,7 +408,7 @@ Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao se 
 ## <a name="known-issues"></a>Problemas conhecidos
 - Em Configurações-> contas – > acessar trabalho ou escola, dispositivos ingressados no Azure AD híbrido podem mostrar duas contas diferentes, uma para o Azure AD e outra para o AD local, quando conectadas a hotspots móveis ou a redes WiFi externas. Isso é apenas um problema de interface do usuário e não tem nenhum impacto sobre a funcionalidade. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Continuar a [solução de problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
 

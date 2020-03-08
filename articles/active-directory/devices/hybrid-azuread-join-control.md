@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2c1a088e4c200dcc4a2ff35db942e3eb8480674
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512084"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672414"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de ingresso no Azure AD híbrido
 
@@ -82,13 +82,13 @@ Use o exemplo a seguir para criar um objeto de Política de Grupo (GPO) para imp
 Se estiver usando AD FS, primeiro você precisará configurar o SCP do lado do cliente usando as instruções mencionadas acima vinculando o GPO aos seus servidores de AD FS. O objeto SCP define a origem de autoridade para objetos de dispositivo. Ele pode ser local ou Azure AD. Quando o SCP do lado do cliente é configurado para AD FS, a origem dos objetos de dispositivo é estabelecida como Azure AD.
 
 > [!NOTE]
-> Se você não configurou o SCP do lado do cliente em seus servidores de AD FS, a origem das identidades do dispositivo seria considerada como local. O ADFS iniciará a exclusão de objetos de dispositivo do diretório local após o período estipulado definido no atributo "MaximumInactiveDays" do registro do dispositivo ADFS. Os objetos de registro de dispositivo do ADFS podem ser encontrados usando o [cmdlet Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Se você não configurou o SCP do lado do cliente em seus servidores de AD FS, a origem das identidades do dispositivo seria considerada como local. O ADFS iniciará a exclusão de objetos de dispositivo do diretório local após o período estipulado definido no atributo "MaximumInactiveDays" do registro do dispositivo ADFS. Os objetos de registro de dispositivo do ADFS podem ser encontrados usando o [cmdlet Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validação controlada do ingresso no Azure AD híbrido em dispositivos de nível inferior do Windows
 
 Para registrar dispositivos de nível inferior do Windows, as organizações devem instalar o [Microsoft Workplace Join para computadores não Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) disponível no Centro de Download da Microsoft.
 
-Você pode implantar o pacote usando um sistema de distribuição de software como [o Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro quiet. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
+É possível implantar o pacote usando um sistema de distribuição de software como o  [Microsoft Endpoint Configuration Manager](/configmgr/). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro quiet. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
 
 O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa ingressa silenciosamente o dispositivo com Azure AD com as credenciais do usuário após a autenticação no Azure AD.
 
@@ -100,6 +100,6 @@ Para controlar o registro do dispositivo, você deve implantar o pacote de Windo
 
 Depois de verificar se tudo está funcionando conforme o esperado, você pode registrar automaticamente o restante de seus dispositivos atuais e de nível inferior do Windows com o Azure AD [Configurando o SCP usando o Azure ad Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Planejar sua implementação de junção do Azure Active Directory híbrido](hybrid-azuread-join-plan.md)

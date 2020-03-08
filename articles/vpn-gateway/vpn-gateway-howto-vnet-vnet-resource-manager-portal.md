@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399204"
+ms.locfileid: "78674174"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
@@ -127,7 +127,7 @@ Se você já tiver uma rede virtual, verifique se as configurações são compat
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="create-a-virtual-network-gateway"></a>Criar um gateway de rede virtual
+## <a name="create-the-vnet1-gateway"></a>Criar o gateway VNet1
 Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar um gateway pode levar 45 minutos ou mais, dependendo do SKU de gateway selecionado. Se você estiver criando esta configuração como um exercício, confira [Configurações de exemplo](#example-settings).
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -138,7 +138,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-vnet4"></a>Criar e configurar o VNet4
-Depois de configurar o VNet1, crie VNet4 repetindo as etapas anteriores e substituindo os valores por valores de VNet4. Você não precisa esperar até que o gateway de rede virtual para VNet1 tenha concluído a criação antes de configurar o VNet4. Se você estiver usando seus próprios valores, verifique se os espaços de endereço não se sobrepõem a nenhuma das redes virtuais às quais você deseja se conectar.
+Depois de configurar o VNet1, crie VNet4 e o gateway VNet4 repetindo as etapas anteriores e substituindo os valores por valores de VNet4. Você não precisa esperar até que o gateway de rede virtual para VNet1 tenha concluído a criação antes de configurar o VNet4. Se você estiver usando seus próprios valores, verifique se os espaços de endereço não se sobrepõem a nenhuma das redes virtuais às quais você deseja se conectar.
 
 ## <a name="configure-the-vnet1-gateway-connection"></a>Configurar a conexão de gateway VNet1
 Quando os gateways de rede virtual para VNet1 e VNet4 tiverem sido concluídos, você poderá criar suas conexões de gateway de rede virtual. Nesta seção, você cria uma conexão de VNet1 para VNet4. Estas etapas funcionam apenas para as VNets na mesma assinatura. Se as VNets estiverem em assinaturas diferentes, você deverá usar o [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) para fazer a conexão. No entanto, se as redes virtuais estiverem em grupos de recursos diferentes na mesma assinatura, você poderá conectá-las usando o portal.
@@ -148,7 +148,7 @@ Quando os gateways de rede virtual para VNet1 e VNet4 tiverem sido concluídos, 
    ![Página conexões](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Página conexões")
 2. Selecione **+ Adicionar** para abrir a página **Adicionar conexão** .
 
-   ![Adicionar Conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "Adicionar uma conexão")
+   ![Adicionar Conexão](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Adicionar uma conexão")
 3. Na página **Adicionar conexão**, preencha os valores para sua conexão:
 
    - **Nome**: Insira um nome para a conexão. Por exemplo, *VNet1toVNet4*.
@@ -189,7 +189,7 @@ Exiba os detalhes de perguntas frequentes para obter informações adicionais so
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como você pode limitar o tráfego de rede para recursos em uma rede virtual, confira [Segurança de Rede](../virtual-network/security-overview.md).
 

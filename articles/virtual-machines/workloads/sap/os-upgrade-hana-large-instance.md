@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83b86b9bc5c09cc9f97a320e3019ddea68434309
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3a0a5d39a7cb2162186291ea534a623ef45c40d4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616470"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675625"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
 Este documento descreve os detalhes sobre as atualizações de sistema operacional em Instâncias Grandes de HANA.
@@ -58,11 +58,11 @@ A configuração do sistema operacional pode descompasso das configurações rec
   Para ter um desempenho de rede adequado e a estabilidade do sistema, é aconselhável garantir que a versão apropriada específica do sistema operacional dos drivers eNIC e fNIC sejam instaladas conforme descrito na tabela de compatibilidade a seguir. Os servidores são entregues aos clientes com versões compatíveis. Observe que, em alguns casos, durante o patch do sistema operacional/kernel, OS drivers podem ser revertidos para as versões de driver padrão. Verifique se a versão apropriada do driver está executando operações de aplicação de patch do sistema operacional/kernel.
        
       
-  |  Fornecedor do sistema operacional    |  Versão do pacote do so     |  Driver eNIC  |  Driver fNIC |
-  |---------------|-------------------------|---------------|--------------|
-  |   SuSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
-  |   SuSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
-  |   Red Hat     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
+  |  Fornecedor do sistema operacional    |  Versão do pacote do so     |  Versão do Firmware  |  Driver eNIC |  Driver fNIC | 
+  |---------------|-------------------------|--------------------|--------------|--------------|
+  |   SuSE        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
+  |   Red Hat     |  RHEL 7.2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
 ### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>Comandos para atualização de driver e limpar pacotes de RPM antigos

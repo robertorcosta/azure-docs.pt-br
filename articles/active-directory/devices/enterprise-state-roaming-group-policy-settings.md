@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a18715385eca85c199b17f6a675be1a7e60153
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194306"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672360"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configurações de Política de Grupo e do MDM
 
@@ -26,7 +26,7 @@ As empresas que quiserem gerenciar o roaming para dispositivos pessoais (não ge
 As tabelas a seguir descrevem as configurações de política disponíveis.
 
 > [!NOTE]
-> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="mdm-settings"></a>Configurações do MDM
 

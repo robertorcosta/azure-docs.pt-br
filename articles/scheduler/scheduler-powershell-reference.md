@@ -1,33 +1,34 @@
 ---
-title: Referência de cmdlets do PowerShell - Agendador do Azure
+title: Referência de cmdlets do PowerShell
 description: Saiba mais sobre os cmdlets do PowerShell para o Agendador do Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 1ad1d6b9f59fa51b9e27fe5b70ce4e2a5d36f3ad
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 577e2128cf7e4e9f914ec5504917053acb3c19d5
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300886"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898493"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Referência de cmdlets do PowerShell para o Agendador do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+>
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 Para criar scripts para criar e gerenciar trabalhos do Agendador e conjuntos de trabalhos, você pode usar os cmdlets do PowerShell. Este artigo lista os principais cmdlets do PowerShell para o Agendador do Azure com links para seus artigos de referência. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para obter mais informações sobre os [Cmdlets do Azure Resource Manager](/powershell/azure/overview), consulte [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) (Usando o Azure PowerShell com o Azure Resource Manager).
 
-| Cmdlet | Descrição |
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+| Cmdlet | DESCRIÇÃO |
 |--------|-------------|
-| [Disable-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |Desabilita uma coleção de trabalhos. |
+| [Desabilitar-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azurermschedulerjobcollection) |Desabilita uma coleção de trabalhos. |
 | [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azurermschedulerjobcollection) |Habilita uma coleção de trabalhos. |
 | [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azurermschedulerjob) |Obtém os trabalhos do Agendador. |
 | [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azurermschedulerjobcollection) |Obtém coleções de trabalhos. |
@@ -48,15 +49,14 @@ Para criar scripts para criar e gerenciar trabalhos do Agendador e conjuntos de 
 
 Para mais detalhes, você pode executar qualquer um desses cmdlets: 
 
-```
+```text
 Get-Help <cmdlet name> -Detailed
 Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o Agendador do Azure?](scheduler-intro.md)
-* [Hierarquia de entidades, terminologia e conceitos](scheduler-concepts-terms.md)
-* [Crie e agende seu primeiro trabalho - Portal do Azure](scheduler-get-started-portal.md)
-* [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
+* [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+* [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
+* [Referência da API REST do Agendador do Azure](/rest/api/scheduler)

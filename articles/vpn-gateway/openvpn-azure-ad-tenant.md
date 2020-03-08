@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/05/2020
 ms.author: alzam
-ms.openlocfilehash: b9627862002a70dc84b0e268128c53a97df0ebe8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: f4092f651a3058c8a2e738c81d9db7e296386bfa
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472291"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402903"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário de Azure Active Directory para conexões de protocolo P2S OpenVPN
 
@@ -22,9 +22,10 @@ Ao conectar-se à sua VNet, você pode usar a autenticação baseada em certific
 > A Autenticação do Azure AD é compatível apenas com conexões de protocolo OpenVPN®.
 >
 
-## <a name="tenant"></a>1. criar o locatário do Azure AD
 
-Crie um locatário do Azure AD usando as etapas no artigo [criar um novo locatário](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
+## <a name="tenant"></a>1. verificar o locatário do Azure AD
+
+Verifique se você tem um locatário do Azure AD. Se você não tiver um locatário do Azure AD, poderá criar um usando as etapas no artigo [criar um novo locatário](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
 * Nome organizacional
 * Nome de domínio inicial
@@ -35,7 +36,7 @@ Exemplo:
 
 ## <a name="users"></a>2. criar usuários de locatário do Azure AD
 
-Em seguida, crie duas contas de usuário. Crie uma conta de administrador global e uma conta de usuário mestre. A conta de usuário mestre é usada como sua conta de incorporação mestre (conta de serviço). Ao criar uma conta de usuário de locatário do Azure AD, você ajusta a função de diretório para o tipo de usuário que deseja criar.
+Seu locatário do Azure AD precisa das seguintes contas: uma conta de administrador global e uma conta de usuário mestre. A conta de usuário mestre é usada como sua conta de incorporação mestre (conta de serviço). Ao criar uma conta de usuário de locatário do Azure AD, você ajusta a função de diretório para o tipo de usuário que deseja criar.
 
 Use as etapas neste [artigo](../active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois usuários para seu locatário do Azure AD. Certifique-se de alterar a **função de diretório** para criar os tipos de conta:
 

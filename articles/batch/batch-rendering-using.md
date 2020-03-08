@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449676"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672000"
 ---
 # <a name="using-azure-batch-rendering"></a>Usar a renderização de Lote do Azure
 
@@ -32,7 +32,7 @@ Há várias maneiras de usar a renderização de Lote do Azure:
 
 A melhor forma de experimentar o Lote do Azure e a maneira mais simples para os usuários finais, que não são desenvolvedores e nem especialistas do Azure, é usar o aplicativo Batch Explorer diretamente ou invocando a partir de um plug-in de aplicativo cliente.
 
-## <a name="using-batch-explorer"></a>Usando o Explorador do Lote
+## <a name="using-batch-explorer"></a>Usar o Batch Explorer
 
 Para um tutorial passo a passo para usar o Batch Explorer para executar a renderização, consulte o [tutorial do Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
 
@@ -48,21 +48,22 @@ Um conjunto abrangente de modelos está disponível para uso com o Batch Explore
 
 São fornecidos modelos que atendem a todos os aplicativos presentes no Marketplace nas imagens de VM de renderização do Marketplace.  Para cada aplicativo há vários modelos, incluindo modelos de pool para atender a pools de CPU e GPU, pools do Windows e do Linux, e os modelos de trabalho incluem renderização de Blender em bloco ou quadro completo e renderização distribuída V-Ray. O conjunto de modelos fornecidos será expandido ao longo do tempo para atender a outros recursos do Lote como o dimensionamento automático do pool.
 
-Também é possível que modelos personalizados sejam produzidos, a partir do zero ou modificando os modelos fornecidos. Modelos personalizados podem ser usados, selecionando o item "Modelos locais" na seção "Galeria" do Batch Explorer.
+Também é possível que modelos personalizados sejam produzidos, a partir do zero ou modificando os modelos fornecidos. Os modelos personalizados podem ser usados selecionando o item ' modelos locais ' na seção ' Galeria ' de Batch Explorer.
 
 ### <a name="file-system-and-data-movement"></a>Sistema de arquivos e movimentação de dados
 
-A seção "Dados" no Batch Explorer permite que os arquivos sejam copiados entre um sistema de arquivos local e as contas do Armazenamento do Microsoft Azure.
+A seção ' dados ' no Batch Explorer permite que os arquivos sejam copiados entre um sistema de arquivos local e contas de armazenamento do Azure.
 
 ## <a name="client-application-plug-ins"></a>Plug-ins de aplicativo cliente
 
 Plug-ins estão disponíveis para alguns dos aplicativos clientes.  Os plug-ins permitem que pools e trabalhos sejam criados diretamente do aplicativo ou invocam o Batch Explorer.
 
-* [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2,79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.8 +](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para exemplos de renderização de Lote, experimente os dois tutoriais:
 

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9e5b3e633bf35a25a68eb513d0ec691c3254bde4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916499"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674207"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
@@ -181,13 +181,27 @@ A tabela a seguir lista os limites para o [Azure Cosmos DB de teste para avalia�
 | Duração da avaliação | 30 dias (pode ser renovado várias vezes) |
 | Máximo de contêineres por assinatura (SQL, Gremlin, API de Tabela) | 1 |
 | Máximo de contêineres por assinatura (API do MongoDB) | 3 |
-| Taxa de transferência máxima por contêiner | 5000 |
+| Taxa de transferência máxima por contêiner | 5\.000 |
 | Taxa de transferência máxima por banco de dados de taxa de transferência compartilhada | 20000 |
 | Máximo de armazenamento total por conta | 10 GB |
 
 Tente Cosmos DB dá suporte à distribuição global somente nas regiões EUA Central, Europa Setentrional e sudeste asiático. Tíquetes de suporte do Azure não podem ser criados para contas try Azure Cosmos DB. No entanto, o suporte é fornecido para assinantes com planos de suporte existentes.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="free-tier-account-limits"></a>Limites de conta de camada gratuita
+A tabela a seguir lista os limites para [Azure Cosmos DB contas de camada gratuita.](optimize-dev-test.md#azure-cosmos-db-free-tier)
+
+| Recurso | Limite padrão |
+| --- | --- |
+| Número de contas de camada gratuita por assinatura do Azure | 1 |
+| Duração do desconto de camada livre | Tempo de vida da conta. Deve aceitar durante a criação da conta. |
+| RU/s máximos gratuitamente | 400 RU/s |
+| Armazenamento máximo gratuito | 5 GB |
+| Número máximo de bancos de dados de produtividade compartilhados | 5 |
+| Número máximo de contêineres em um banco de dados de produtividade compartilhado | 25 <br>Em contas de camada gratuita, o mínimo de RU/s para um banco de dados de produtividade compartilhado com até 25 contêineres é de 400 RU/s. |
+
+  Além do acima, os [limites por conta](#per-account-limits) também se aplicam a contas de camada gratuita.
+
+## <a name="next-steps"></a>Próximas etapas
 
 Leia mais sobre os conceitos principais do Cosmos DB a [distribuição global](distribute-data-globally.md) e o [particionamento](partitioning-overview.md) e a [taxa de transferência provisionada](request-units.md).
 

@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448082"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898368"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular uma entidade de aprendizado de máquina em um enunciado de exemplo
 
@@ -86,7 +86,7 @@ As funções de entidade são rotuladas usando a paleta da entidades.
 1. Na página Detalhes da intenção, selecione a **paleta de entidades** na barra de ferramentas de contexto.
 1. Depois que a Paleta de entidades for aberta, selecione a entidade na lista de entidades.
 1. Mova para o **Inspetor de entidade** e, em seguida, selecione uma função existente ou crie uma função.
-1. No texto do enunciado de exemplo, rotule o texto com a função de entidade. 
+1. No texto do enunciado de exemplo, rotule o texto com a função de entidade.
 
 ## <a name="unlabel-entities"></a>Remover o rótulo de entidades
 

@@ -9,14 +9,14 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971509"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671573"
 ---
-# <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas frequentes sobre o Azure Databricks
+# <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas frequentes a respeito do Azure Databricks
 
 Este artigo lista as principais dúvidas que você pode ter relacionadas ao Azure Databricks. Também lista alguns problemas comuns que você pode enfrentar durante o uso do Azure Databricks. Para obter mais informações, consulte [O que é o Azure Databricks](what-is-azure-databricks.md). 
 
@@ -40,11 +40,11 @@ Para obter mais informações, consulte [usar Azure data Lake Storage com Azure 
 
 Aqui estão alguns problemas que podem ocorrer com o Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: A assinatura não está registrada para usar o namespace ‘Microsoft.Databricks’
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: esta assinatura não está registrada para usar o namespace ' Microsoft. databricks '
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Essa assinatura não está registrada para usar o namespace ‘Microsoft.Databricks’. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas. (Código: MissingSubscriptionRegistration)"
+"Esta assinatura não está registrada para usar o namespace ' Microsoft. databricks '. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas. (Código: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Solução
 
@@ -88,11 +88,20 @@ Se você não criou o workspace e foi adicionado como um usuário do workspace, 
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Falha ao iniciar o provedor de nuvem: Foi encontrado um erro do provedor de nuvem durante a configuração do cluster. Para obter mais informações, consulte o guia do Databricks. Código de erro do Azure: PublicIPCountLimitReached. Mensagem de erro do Azure: Não é possível criar mais de 60 endereços IP públicos para esta assinatura nesta região."
+"Falha ao iniciar o provedor de nuvem: Foi encontrado um erro do provedor de nuvem durante a configuração do cluster. Para obter mais informações, consulte o guia do Databricks. Código de erro do Azure: PublicIPCountLimitReached. Mensagem de erro do Azure: não é possível criar mais de 10 endereços IP públicos para esta assinatura nesta região. "
+
+#### <a name="background"></a>Segundo plano
+
+Os clusters do databricks usam um endereço IP público por nó (incluindo o nó de driver). As assinaturas do Azure têm [limites de endereço IP público](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) por região. Assim, as operações de criação de cluster e de expansão podem falhar se causarem o número de endereços IP públicos alocados para essa assinatura nessa região para exceder o limite. Esse limite também inclui endereços IP públicos alocados para o uso de não-Bricks, como VMs personalizadas definidas pelo usuário.
+
+Em geral, os clusters consomem apenas endereços IP públicos enquanto estão ativos. No entanto, `PublicIPCountLimitReached` erros podem continuar ocorrendo por um curto período de tempo mesmo depois que outros clusters são encerrados. Isso ocorre porque o databricks armazena temporariamente os recursos do Azure em cache quando um cluster é encerrado. O cache de recursos é por design, pois reduz significativamente a latência da inicialização do cluster e do dimensionamento automático em muitos cenários comuns.
 
 #### <a name="solution"></a>Solução
 
-Os clusters do Azure Databricks usam um endereço IP público por nó. Caso sua assinatura já tenha usado todos os seus IPs públicos, [solicite um aumento da cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Escolha **Cota** como o **Tipo de problema**, e **Rede: ARM** como o **Tipo de cota**. Em **Detalhes**, solicite um aumento de cota de endereço de IP público. Por exemplo, se o limite atual for de 60 e você deseja criar um cluster de 100 nós, solicite um aumento de limite para 160.
+Se sua assinatura já tiver atingido seu limite de endereço IP público para uma determinada região, você deverá executar uma ou outra das opções a seguir.
+
+- Crie novos clusters em um espaço de trabalho do databricks diferente. O outro espaço de trabalho deve estar localizado em uma região em que você não tenha atingido o limite de endereços IP públicos da sua assinatura.
+- [Solicitação para aumentar o limite de endereços IP públicos](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Escolha **Cota** como o **Tipo de problema**, e **Rede: ARM** como o **Tipo de cota**. Em **Detalhes**, solicite um aumento de cota de endereço de IP público. Por exemplo, se o limite atual for de 60 e você deseja criar um cluster de 100 nós, solicite um aumento de limite para 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: Um segundo tipo de falha de inicialização do provedor de nuvem durante a configuração do cluster (MissingSubscriptionRegistration)
 
@@ -119,8 +128,7 @@ O Azure Databricks é integrado ao Azure Active Directory. Você pode definir pe
 
 Entre como administrador global no portal do Azure. Para o Azure Active Directory, vá para a guia **Configurações do usuário** e certifique-se de que **Os usuários podem dar consentimento para aplicativos que acessam dados da empresa em seu nome** está definido como **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Guia de início rápido: Introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [O que é o Azure Databricks?](what-is-azure-databricks.md)
-

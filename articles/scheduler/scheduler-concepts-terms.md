@@ -1,32 +1,33 @@
 ---
-title: Conceitos, termos e entidades – Agendador do Azure | Microsoft Docs
+title: Conceitos, termos e entidades
 description: Aprenda os conceitos, a terminologia e a hierarquia de entidades, incluindo trabalhos e coleções de trabalhos, no Agendador do Azure
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
+ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300945"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898584"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+>
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 ## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
 A API REST do Agendador do Azure expõe e usa essas entidades principais, ou recursos:
 
-| Entidade | Descrição |
+| Entidade | DESCRIÇÃO |
 |--------|-------------|
 | **Trabalho** | Define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de fila de Barramento de Serviço ou de tópico do Barramento de Serviço. | 
 | **Coleção de trabalhos** | Contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos na coleção. Como proprietário de uma assinatura do Azure, você pode criar coleções de trabalhos e trabalhos de grupo com base em limites de aplicativo ou uso. Uma coleção de trabalhos tem estes atributos: <p>– Restrita a uma região. <br>– Permite que você imponha cotas para que possa restringir o uso de todos os trabalhos em uma coleção. <br>– As cotas incluem MaxJobs e MaxRecurrence. | 
@@ -75,13 +76,13 @@ O Agendador do Azure é compatível com vários tipos de trabalho:
 Em alto nível, um trabalho do Agendador tem essas partes básicas:
 
 * A ação executada quando o temporizador do trabalho é disparado
-* Opcional: A hora para executar o trabalho
-* Opcional: Quando e com que frequência repetir o trabalho
-* Opcional: Uma ação de erro que é executada se a ação principal falhar
+* Opcional: o tempo para executar o trabalho
+* Opcional: quando e com que frequência repetir o trabalho
+* Opcional: uma ação de erro que é executada se a ação principal falha
 
 O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execução agendada do próximo do trabalho. A definição do código desse trabalho é um objeto no formato JSON (JavaScript Object Notation), que tem estes elementos:
 
-| Elemento | Necessário | Descrição | 
+| Elemento | Obrigatório | DESCRIÇÃO | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Não | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
@@ -147,7 +148,7 @@ No objeto **startTime**, você pode especificar a hora de início e um deslocame
 
 <a name="action"></a>
 
-## <a name="action"></a>action
+## <a name="action"></a>ação
 
 Seu trabalho do Agendador executa uma **action** primária com base no agendamento especificado. O Agendador é compatível com ações HTTP, de fila de armazenamento, de tópico do Barramento de Serviço e de fila do Barramento de Serviço. Se a **action** primária falha, o Agendador pode executar uma [**errorAction**](#erroraction) secundária que cuida do erro. O objeto **action** descreve estes elementos:
 
@@ -227,7 +228,7 @@ Assim como **action** primária, você pode fazer com que a ação de erro use a
 
 <a name="recurrence"></a>
 
-## <a name="recurrence"></a>recorrência
+## <a name="recurrence"></a>recurrence
 
 Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto **recurrence**, por exemplo:
 
@@ -245,7 +246,7 @@ Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto *
 },
 ```
 
-| Propriedade | Necessário | Value | Descrição | 
+| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sim, quando **recurrence** é usado | "Minute", "Hour", "Day", "Week", "Month", "Year" | A unidade de tempo entre ocorrências | 
 | **interval** | Não | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
@@ -255,7 +256,7 @@ Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto *
 | **months** | Não | 1 a 12 | Uma matriz com os meses para quando executar o trabalho | 
 | **Dias do mês** | Não | Varia | Uma matriz com os dias do mês para quando executar o trabalho | 
 | **Dias da semana** | Não | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Uma matriz com os dias da semana para quando executar o trabalho | 
-| **count** | Não | <*none*> | O número de recorrências. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
+| **contagem** | Não | <*none*> | O número de recorrências. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
 | **endTime** | Não | <*none*> | A data e hora para quando interromper a recorrência. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
 ||||
 
@@ -275,7 +276,7 @@ Para o caso quando um trabalho do Agendador falhar, você pode configurar uma po
 },
 ```
 
-| Propriedade | Necessário | Value | Descrição | 
+| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sim | **Fixed**, **None** | Determina se você especifica uma política de repetição (**fixed**) ou não (**none**). | 
 | **retryInterval** | Não | PT30S | Especifica o intervalo e a frequência entre as tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos, enquanto o valor máximo é 18 meses. | 
@@ -319,11 +320,9 @@ Por exemplo:
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o Agendador do Azure?](scheduler-intro.md)
-* [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
 * [Criar agendamentos complexos e recorrência avançada](scheduler-advanced-complexity.md)
-* [Limites, cotas, valores padrão e códigos de erro](scheduler-limits-defaults-errors.md)
 * [Referência da API REST do Agendador do Azure](/rest/api/scheduler)
 * [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
+* [Limites, cotas, valores padrão e códigos de erro](scheduler-limits-defaults-errors.md)

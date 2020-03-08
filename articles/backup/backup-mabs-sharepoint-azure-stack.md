@@ -3,12 +3,12 @@ title: Fazer backup de um farm do SharePoint no Azure Stack
 description: Use o Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint no Azure Stack. Este artigo fornece informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: c503ac7a76872e71d1920765656610dd462d4db3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583207"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673024"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
 
@@ -64,7 +64,7 @@ Você pode encontrar o **ConfigureSharePoint.exe** na pasta [Caminho de instala�
    * Conceda acesso de leitura do grupo WSS_Admin_WPG à chave do Registro do DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Você precisará executar novamente o ConfigureSharePoint.exe sempre que houver uma alteração nas credenciais de administrador de farm do SharePoint.
+> Você precisará executar novamente o ConfigureSharePoint. exe sempre que houver uma alteração nas credenciais de administrador do farm do SharePoint.
 >
 >
 
@@ -123,7 +123,7 @@ Depois de configurar o MABS e o farm do SharePoint conforme explicado anteriorme
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > O MABS fornece um máximo de dois backups diários para o Azure do ponto de backup de disco mais recente disponível nesses momentos. O Backup do Azure também pode controlar o volume de largura de banda WAN que pode ser usada para backups em horário de pico e fora dos horários de pico usando a [Limitação de Rede do Backup do Azure](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > O MABS fornece um máximo de dois backups diários para o Azure do ponto de backup de disco mais recente disponível nesses momentos. O Backup do Azure também pode controlar o volume de largura de banda WAN que pode ser usada para backups em horário de pico e fora dos horários de pico usando a [Limitação de Rede do Backup do Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Dependendo do agendamento de backup selecionado, na página **Especificar Política de Retenção Online** , selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.

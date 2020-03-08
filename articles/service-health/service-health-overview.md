@@ -3,12 +3,12 @@ title: Visão geral da Integridade de Serviço | Microsoft Docs
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados pela manutenção e pelos problemas de serviço atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: db9d74e2883e755c3e5c3dbbe9d6570f1e78c4a6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654011"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898434"
 ---
 # <a name="service-health-overview"></a>Visão geral da integridade do serviço
 
@@ -16,11 +16,12 @@ A Integridade do Serviço oferece um painel personalizável que controla a integ
 
 ## <a name="service-health-events"></a>Eventos de Integridade do Serviço
 
-A integridade do serviço controla os três tipos de eventos de integridade que podem afetar seus recursos:
+A integridade do serviço rastreia quatro tipos de eventos de integridade que podem afetar seus recursos:
 
 1. **Problemas de serviço** – problemas nos serviços do Azure que lhe afetam imediatamente. 
 2. **Manutenção planejada** – próxima manutenção que poderá afetar a disponibilidade de seus serviços no futuro.  
 3. **Aconselhamento de integridade** – alterações nos serviços do Azure que exigem sua atenção. Exemplos incluem quando os recursos do Azure são preteridos ou se você excede uma cota de uso.
+4. **Avisos de segurança (versão prévia)** – notificações relacionadas à segurança que podem afetar a disponibilidade dos serviços do Azure.
 
 > [!NOTE]
 > Para exibir eventos de integridade do serviço, os usuários devem receber [a função leitor](../role-based-access-control/role-assignments-portal.md) em uma assinatura.
@@ -43,7 +44,7 @@ Escolha a guia **Impacto potencial** para ver a lista específica de recursos qu
 
 ## <a name="get-links-and-downloadable-explanations"></a>Obter links e explicações para download 
 
-Você pode obter um link para o problema a fim de usá-lo em seu sistema de gerenciamento de problemas. Você pode baixar um PDF e, algumas vezes, arquivos CSV para compartilhar com pessoas que não tenham acesso ao Portal do Azure.   
+Você pode obter um link para o problema a fim de usá-lo em seu sistema de gerenciamento de problemas. Você pode baixar PDF e, às vezes, arquivos CSV para compartilhar com pessoas que não têm acesso ao portal do Azure.   
 
 ![Gerenciar problema de serviço – gerenciamento de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
 

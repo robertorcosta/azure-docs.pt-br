@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8f148bfe08d5f7933857eb46cf0d13d4582da108
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950270"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898157"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
 
@@ -124,7 +124,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 e versões posteriores.</td>
     </tr>
     <tr>
       <td>Exibição do Oracle Database</td>
@@ -132,7 +132,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 e versões posteriores.</td>
     </tr>
     <tr>
       <td>Outros (ativo genérico)</td>
@@ -455,7 +455,7 @@ Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou man
        <td><b>Estrutura de DSL<b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store</td>
+      <td>Repositório Azure Data Lake</td>
       <td>Contêiner</td>
       <td>Data Lake</td>
       <td>

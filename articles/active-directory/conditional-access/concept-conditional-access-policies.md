@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 2d2ebcc885b4018f4d9c3ff1b525ffc19b1abdda
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186244"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671921"
 ---
 # <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
 
@@ -34,7 +34,7 @@ A parte de atribuições controla quem, e e onde a política de acesso condicion
 
 [Usuários e grupos](concept-conditional-access-users-groups.md) atribuem quem a política incluirá ou excluirá. Essa atribuição pode incluir todos os usuários, grupos específicos de usuários, funções de diretório ou usuários convidados externos. 
 
-### <a name="cloud-apps-or-actions"></a>Aplicativos de nuvem ou ações
+### <a name="cloud-apps-or-actions"></a>Aplicativos na nuvem ou ações
 
 Os [aplicativos de nuvem ou as ações](concept-conditional-access-cloud-apps.md) podem incluir ou excluir aplicativos de nuvem ou ações do usuário que estarão sujeitas à política.
 
@@ -131,6 +131,6 @@ O artigo [políticas de acesso condicional comum](concept-conditional-access-pol
 
 [Planejando uma implantação da autenticação multifator do Azure baseada em nuvem](../authentication/howto-mfa-getstarted.md)
 
-[Gerenciando a conformidade do dispositivo com o Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
+[Gerenciando a conformidade do dispositivo com o Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security e acesso condicional](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Microsoft Cloud App Security e acesso condicional](/cloud-app-security/proxy-intro-aad)

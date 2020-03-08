@@ -2,30 +2,36 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.date: 03/06/2020
+ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228112"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894888"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gerenciamento
 
-Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar recursos no nível do grupo de gerenciamento. Você usa implantações no nível do grupo de gerenciamento para executar ações que fazem sentido nesse nível, como a atribuição [de controle de acesso baseado em função](../../role-based-access-control/overview.md) ou aplicação de [políticas](../../governance/policy/overview.md).
+Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar recursos no:
 
-## <a name="supported-resources"></a>Recursos com suporte
+* [nível de assinatura](deploy-to-subscription.md)
+* nível do grupo de gerenciamento (abordado neste artigo)
+* [nível de locatário](deploy-to-tenant.md)
+
+Você usa implantações no nível do grupo de gerenciamento para executar ações que fazem sentido nesse nível, como a atribuição [de controle de acesso baseado em função](../../role-based-access-control/overview.md) ou aplicação de [políticas](../../governance/policy/overview.md).
+
+## <a name="supported-resources"></a>Recursos compatíveis
 
 Você pode implantar os seguintes tipos de recursos no nível do grupo de gerenciamento:
 
-* [implantações](/azure/templates/microsoft.resources/deployments)
+* [implantações](/azure/templates/microsoft.resources/deployments) – para modelos aninhados que são implantados em assinaturas ou grupos de recursos.
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>Esquema
 
 O esquema usado para implantações de grupo de gerenciamento é diferente do esquema para implantações de grupo de recursos.
 
@@ -159,7 +165,7 @@ O exemplo a seguir atribui uma definição de política existente ao grupo de ge
 
 * [Crie um grupo de recursos, uma política e uma atribuição de política](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para obter um exemplo de implantação de configurações de workspace para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

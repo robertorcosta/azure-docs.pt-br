@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168298"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669133"
 ---
 ## <a name="authentication"></a>Autenticação
 
@@ -22,7 +22,7 @@ Cada solicitação requer um cabeçalho de autorização. Esta tabela ilustra qu
 
 Ao usar o cabeçalho `Ocp-Apim-Subscription-Key`, você só precisa fornecer sua chave de assinatura. Por exemplo:
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
@@ -34,7 +34,7 @@ Para obter um token de acesso, você precisará fazer uma solicitação para o e
 
 O ponto de extremidade `issueToken` tem este formato:
 
-```
+```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
@@ -62,7 +62,7 @@ O corpo da resposta contém o token de acesso no formato JSON Web Token (JWT).
 
 Este exemplo é um script simples do PowerShell para obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua chave de assinatura do serviço de Fala. Certifique-se de usar o endpoint correto para a região que corresponde à sua assinatura. Este exemplo está atualmente definido para o oeste dos EUA.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -81,7 +81,7 @@ $OAuthToken
 
 cURL é uma ferramenta de linha de comando no Linux (e no Subsistema do Windows para Linux). Este comando cURL ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua chave de assinatura do serviço de Fala. Certifique-se de usar o endpoint correto para a região que corresponde à sua assinatura. Este exemplo está atualmente definido para o oeste dos EUA.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -93,7 +93,7 @@ curl -v -X POST
 
 Esta classe C# ilustra como obter um token de acesso. Passar sua chave de assinatura do serviço de Fala quando você instanciar a classe. Se a sua assinatura não estiver na região Oeste dos EUA, altere o valor de `FetchTokenUri` para que corresponda à região da sua assinatura.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =

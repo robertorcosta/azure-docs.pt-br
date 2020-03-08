@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905520"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894538"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e failover de conta (versão prévia)
 
@@ -114,16 +114,7 @@ Para evitar uma grande perda de dados, verifique o valor da propriedade **Hora d
 
 ## <a name="about-the-preview"></a>Sobre a visualização
 
-O failover de conta está disponível em versão prévia para todos os clientes que usam GRS ou RA-GRS com implantações Azure Resource Manager. Há suporte para uso geral v1, uso geral v2 e os tipos de conta de armazenamento de Blob. O failover de conta está disponível atualmente nestas regiões:
-
-- Leste da Ásia
-- Sudeste da Ásia
-- Leste da Austrália
-- Sudeste da Austrália
-- Centro dos EUA
-- Leste dos EUA 2
-- Centro-oeste dos EUA
-- Oeste dos EUA 2
+O failover de conta está disponível em versão prévia para todos os clientes que usam GRS ou RA-GRS com implantações Azure Resource Manager. Há suporte para uso geral v1, uso geral v2 e os tipos de conta de armazenamento de Blob. O failover de conta está disponível atualmente em todas as regiões públicas. O failover de conta não está disponível em nuvens soberanas/nacionais no momento.
 
 A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
 
@@ -131,13 +122,17 @@ A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos d
 
 Examine as considerações adicionais descritas nesta seção para entender como seus aplicativos e serviços podem ser afetados quando você força um failover durante o período da versão prévia.
 
+#### <a name="storage-account-containing-archived-blobs"></a>Conta de armazenamento que contém BLOBs arquivados
+
+As contas de armazenamento que contêm BLOBs arquivados dão suporte a failover de conta. Depois que o failover for concluído, para converter a conta de volta para GRS ou RA-GRS, todos os blobs de archieved precisam ser resalimentados primeiro a uma camada online.
+
 #### <a name="storage-resource-provider"></a>Provedor de recursos de armazenamento
 
 Depois que um failover for concluído, os clientes poderão ler novamente e gravar dados do armazenamento do Azure na nova região primária. No entanto, o provedor de recursos de armazenamento do Azure não faz failover, portanto, as operações de gerenciamento de recursos ainda devem ocorrer na região primária. Se a região primária não estiver disponível, você não poderá executar operações de gerenciamento na conta de armazenamento.
 
 Como o provedor de recursos de armazenamento do Azure não faz failover, a propriedade [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) retornará o local primário original após a conclusão do failover.
 
-#### <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
+#### <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 
 As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) específicas para máquinas virtuais no Azure.
 
@@ -162,8 +157,8 @@ Tenha em mente que todos os dados armazenados em um disco temporário serão per
 
 Os seguintes recursos e serviços não têm suporte para failover de conta para a versão de visualização:
 
-- A Sincronização de Arquivos do Azure não oferece suporte ao failover de conta de armazenamento. Não deve ser realizado o failover das contas de armazenamento que contêm compartilhamentos de arquivos do Azure que estejam sendo usadas como pontos de extremidade de nuvem na Sincronização de Arquivos do Azure. Se isso for feito, a sincronização deixará de funcionar e poderá causar a perda inesperada de dados no caso de arquivos recentes em camadas.  
-- Não é possível fazer failover em uma conta de armazenamento que contenha blobs. Mantenha os blobs arquivados em uma conta de armazenamento separada na qual não planeje fazer failover.
+- A Sincronização de Arquivos do Azure não oferece suporte ao failover de conta de armazenamento. Não deve ser realizado o failover das contas de armazenamento que contêm compartilhamentos de arquivos do Azure que estejam sendo usadas como pontos de extremidade de nuvem na Sincronização de Arquivos do Azure. Se isso for feito, a sincronização deixará de funcionar e poderá causar a perda inesperada de dados no caso de arquivos recentes em camadas.
+- ADLS Gen2 contas de armazenamento (contas que têm o namespace hierárquico habilitado) não têm suporte no momento.
 - Não é possível realizar failover em uma conta de armazenamento que contenha blob de blocos premium. As contas de armazenamento que dão suporte a blobs de bloco premium atualmente não são compatíveis com a redundância geográfica.
 - Não é possível fazer failover de uma conta de armazenamento contendo contêineres habilitados da [política de imutabilidade do worm](../blobs/storage-blob-immutable-storage.md) . A retenção baseada em tempo desbloqueada/bloqueada ou as políticas de manutenção legal impedem o failover para manter a conformidade.
 - Após a conclusão do failover, os recursos a seguir podem parar de funcionar se originalmente habilitados: [assinaturas de evento](../blobs/storage-blob-event-overview.md), [feed de alterações](../blobs/storage-blob-change-feed.md), políticas de ciclo de [vida](../blobs/storage-lifecycle-management-concepts.md)e [log de análise de armazenamento](storage-analytics-logging.md).
@@ -180,7 +175,7 @@ Se sua conta de armazenamento estiver configurada para o RA-GRS, você terá ace
 
 Em circunstâncias extremas em que uma região for perdida devido a um desastre significativo, a Microsoft poderá iniciar um failover regional. Nesse caso, nenhuma ação sua é necessária. Você não terá acesso para gravação na conta de armazenamento até que o failover gerenciado pela Microsoft seja concluído. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para o RA-GRS. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md)
 - [Criando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)

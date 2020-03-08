@@ -1,24 +1,24 @@
 ---
-title: Perguntas frequentes sobre proteção de senha local-Azure Active Directory
-description: Perguntas frequentes sobre a proteção por senha do Azure AD local
+title: Perguntas frequentes sobre a proteção por senha do Azure AD local
+description: Examinar as perguntas frequentes sobre a proteção de senha do Azure AD em um ambiente de Active Directory Domain Services local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7b4c941272906e7ff5a017c78c8bc7c5084a667
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abef6e52e37cfa2faeb426bc59bb0de5a52a6658
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847823"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671675"
 ---
-# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Perguntas frequentes locais sobre a proteção por senha do Azure AD
 
 Esta seção fornece respostas para muitas perguntas frequentes sobre a proteção de senha do Azure AD.
 
@@ -157,7 +157,7 @@ Os links a seguir não fazem parte da principal documentação da Proteção de 
 
 Se você estiver interessado em aprender mais sobre a proteção por senha do Azure AD e como implantá-la em seu ambiente, poderá aproveitar um serviço proativo da Microsoft disponível para clientes com um contrato de suporte Premier ou Unified. O serviço é chamado de Azure Active Directory: proteção por senha. Para obter mais informações, entre em contato com seu Gerente Técnico de Conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver uma pergunta sobre proteção de senha do Azure AD local que não foi respondida aqui, envie um item de Comentário abaixo. Obrigado!
 

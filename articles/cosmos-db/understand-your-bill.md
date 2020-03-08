@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 74a4279d347be92b1047a9cf361e233ecc7fcff8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046135"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674313"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes encontrado
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Taxa de cobrança em caso de mudança do tamanho de armazenamento
 
-A capacidade de armazenamento é cobrada em unidades da quantidade máxima por hora de dados armazenados (em GB) durante um período de um mês. Por exemplo, se você usar 100 GB de armazenamento na primeira metade do mês e 50 GB na segunda metade, você será cobrado pelo equivalente a 75 GB de armazenamento durante o mês em questão.
+A capacidade de armazenamento é cobrada em unidades da quantidade máxima por hora de dados armazenados (em GB) durante um período de um mês. Por exemplo, se você usar 100 GB de armazenamento na primeira metade do mês e 50 GB na segunda metade, será cobrado pelo equivalente a 75 GB de armazenamento durante o mês em questão.
 
 ### <a name="billing-rate-when-container-or-a-set-of-containers-are-active-for-less-than-an-hour"></a>Taxa de cobrança quando o contêiner ou um conjunto de contêineres fica ativo por menos de uma hora
 
@@ -100,7 +100,7 @@ Vamos supor que você tenha um contêiner do Azure Cosmos no Oeste dos EUA. O co
 |**Item** |**Uso (por mês)** |**Tarifa** |**Custo mensal** |
 |---------|---------|---------|-------|
 |Cobrança da taxa de transferência para o contêiner no Oeste dos EUA      | 10 mil RU/s * 24 * 30    |US$ 0,008 por 100 RU/s por hora   |US$ 576|
-|Cobrança da taxa de transferência para três regiões adicionais – Leste dos EUA, Europa Setentrional e Ásia Oriental       | 3 * 10 mil RU/s * 24 * 30    |US$ 0,008 por 100 RU/s por hora  |US$ 1.728|
+|Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Norte da Europa e Leste da Ásia       | 3 * 10 mil RU/s * 24 * 30    |US$ 0,008 por 100 RU/s por hora  |US$ 1.728|
 |Cobrança de armazenamento para o contêiner no Oeste dos EUA      | 250 GB    |US$ 0,25/GB  |US$ 62,50|
 |Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Norte da Europa e Leste da Ásia      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
 |**Total**     |     |  |**US$ 2.554**|
@@ -125,7 +125,7 @@ Vamos supor que você criou um contêiner do Azure Cosmos no Oeste dos EUA. O co
 
 Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multirregiões em que todas as regiões são graváveis (configuração de vários mestres). Vamos pressupor que o tamanho de armazenamento permanece constante e não é alterado, e vamos omiti-lo aqui para simplificar a explicação. A taxa de transferência durante o mês variou da seguinte maneira (supondo-se 30 dias ou 720 horas): 
 
-[0 a 100 horas]\:  
+[0 a 100 horas]:  
 
 * Criamos uma conta do Azure Cosmos com três regiões (Oeste dos EUA, Leste dos EUA, Norte da Europa), em que todas as regiões são graváveis 
 
@@ -135,7 +135,7 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Criamos um contêiner (C1) com taxa de transferência dedicada de 20 mil RU/s 
 
-[101 a 200 horas]\:  
+[101 a 200 horas]:  
 
 * Expandimos o banco de dados (D1) para 50 mil RU/s 
 
@@ -143,11 +143,11 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Excluímos o contêiner (C1)  
 
-[201 a 300 horas]\:  
+[201 a 300 horas]:  
 
 * Criamos o contêiner (C1) novamente com taxa de transferência dedicada de 20 mil RU/s 
 
-[301 a 400 horas]\:  
+[301 a 400 horas]:  
 
 * Removemos uma das regiões da conta do Azure Cosmos (o número de regiões graváveis agora é 2) 
 
@@ -157,13 +157,13 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Excluímos o contêiner (C1) novamente 
 
-[401 a 500 horas]\:  
+[401 a 500 horas]:  
 
 * Reduzimos verticalmente o banco de dados (D2) para 10 mil RU/s  
 
 * Criamos o contêiner (C1) novamente com taxa de transferência dedicada de 20 mil RU/s 
 
-[501 a 700 horas]\:  
+[501 a 700 horas]:  
 
 * Expandimos o banco de dados (D1) para 20 mil RU/s  
 
@@ -171,7 +171,7 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Excluímos o contêiner (C1) novamente  
 
-[701 a 720 horas]\:  
+[701 a 720 horas]:  
 
 * Reduzimos verticalmente o banco de dados (D2) para 50 mil RU/s  
 
@@ -199,6 +199,37 @@ A fatura mensal total (supondo 30 dias/720 horas em um mês) será calculada da 
 | | |Fatura de taxa de transferência para 2 regiões adicionais: leste dos EUA, Europa Setentrional (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |U$ 224  |
 || |**Custo mensal total**  | |**US$ 38.688**   |
 
+## <a name="billing-examples-with-free-tier-accounts"></a>Exemplos de cobrança com contas de camada gratuita
+Com Azure Cosmos DB camada gratuita, você obterá os primeiros 400 RU/s e 5 GB de armazenamento em sua conta gratuitamente, aplicados no nível da conta. Qualquer RU/s e armazenamento além de 400 RU/s e 5 GB serão cobrados com as tarifas de preços regulares por página de preços. Na fatura, você não verá um item de cobrança ou de linha para os 400 ru/s gratuitos e 5 GB, somente o RU/s e o armazenamento além do que é coberto pela camada gratuita. O 400 RU/s se aplica a qualquer tipo de taxa de transferência de RU/s-provisionada, AutoPilot (versão prévia) e vários mestres.  
+
+### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemplo de cobrança-contêiner ou banco de dados com taxa de transferência provisionada
+- Vamos supor que criamos um banco de dados ou contêiner em uma conta de camada gratuita com 400 RU/s e 5 GB de armazenamento.
+- Sua fatura não mostrará nenhuma cobrança para esse recurso. Seu custo por hora e mensal será de $0.
+- Agora, vamos supor que, na mesma conta, adicionamos outro banco de dados ou contêiner com 1000 RU/s e 10 GB de armazenamento.
+- Agora, sua fatura mostrará um encargo para 1000 RU/s e 10 GB de armazenamento. 
+
+### <a name="billing-example---container-or-database-with-autopilot-throughput-preview"></a>Exemplo de cobrança-contêiner ou banco de dados com taxa de transferência do AutoPilot (versão prévia)
+- Vamos supor que em uma conta de camada gratuita, criamos um banco de dados ou contêiner com o piloto automático habilitado, com um máximo de RU/s de 4000 RU/s. Este recurso será dimensionado automaticamente entre 400 RU/s-4000 RU/s. 
+- Suponha que, na hora 1 até a hora 10, o recurso esteja no mínimo de 400 RU/s. Durante 11 de hora, o recurso escala até 1000 RU/s e, em seguida, volta a 400 RU/s dentro da hora.
+- Nas horas 1 a 10, você será cobrado $0 para taxa de transferência, pois as 400 RU/s foram cobertas pela camada gratuita. 
+- Na hora 11, você será cobrado por um efetivo de 1000 RU/s-400 RU/s = 600 RU/s, pois esse é o mais alto RU/s na hora. Essas serão 6 unidades de 100 RU/s para a hora, portanto, o custo total de taxa de transferência para a hora será de 6 unidades * $0.12 = $0.72. 
+- Qualquer armazenamento além dos primeiros 5 GB será cobrado em taxas de armazenamento normais. 
+
+### <a name="billing-example---multi-region-single-write-region-account"></a>Exemplo de cobrança-várias regiões, conta de região de gravação única
+- Vamos supor que, em uma conta de camada gratuita, criamos um banco de dados ou contêiner com 1200 RU/s e 10 GB de armazenamento. Nós replicamos a conta para três regiões e temos uma única conta de mestre (única região de gravação).
+- No total, sem a camada gratuita, seria cobrado por 3 * 1200 RU/s = 3600 RU/s e 3 * 10 GB = 30 GB de armazenamento.
+- Com o desconto de camada gratuita, após a remoção de 400 RU/s e 5 GB de armazenamento, será cobrado um valor de 3200 RU/s (unidades 32) em vigor de taxa de transferência provisionada na taxa de região de gravação única e 25 GB de armazenamento.
+- O custo mensal para RU/s seria: 32 unidades * $0.08 * 24 horas * 31 dias = $190.46. O custo mensal para o armazenamento seria: 25 GB * 0,25/GB = $6.25. O custo total seria $190.46 + $6.25 = $196.71.
+- Observação: se o preço unitário para RU/s ou armazenamento for diferente nas regiões, a camada gratuita 400 RU/s e 5 GB refletirá as taxas da conta em que a região foi criada.
+
+### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Exemplo de cobrança – conta de várias regiões, vários mestres (várias regiões de gravação)
+
+Este exemplo reflete os [preços de vários mestres](https://azure.microsoft.com/pricing/details/cosmos-db/) para contas criadas após 1º de dezembro de 2019. 
+- Vamos supor que, em uma conta de camada gratuita, criamos um banco de dados ou contêiner com 1200 RU/s e 10 GB de armazenamento. Nós replicamos a conta para três regiões e temos uma conta de vários mestres (várias regiões de gravação). 
+- No total, sem a camada gratuita, seria cobrado por 3 * 1200 RU/s = 3600 RU/s e 3 * 10 GB = 30 GB de armazenamento.
+- Com o desconto de camada gratuita, depois de remover 400 RU/s e 5 GB de armazenamento, será cobrado por uma 3200 RU/s (unidades 32) em vigor de taxa de transferência provisionada na taxa de várias regiões de gravação e 25 GB de armazenamento.
+- O custo mensal para RU/s seria: 32 unidades * $0.16 * 24 horas * 31 dias = $380.93. O custo mensal para o armazenamento seria: 25 GB * 0,25/GB = $6.25. O custo total seria $380.93 + $6.25 = $387.18.
+
 ## <a name="proactively-estimating-your-monthly-bill"></a>Estimando proativamente sua fatura mensal  
 
 Vamos considerar outro exemplo, em que você deseja proativamente estimar sua fatura antes do final do mês. É possível estimar sua fatura da seguinte maneira:
@@ -216,8 +247,8 @@ Vamos considerar outro exemplo, em que você deseja proativamente estimar sua fa
 |**Custo de taxa de transferência** | | | |
 |----|----|----|----|
 |Tipo de operação| Solicitações/s| Média de RU/solicitação| RUs necessárias|
-|Gravação| 100 | 5 | 500|
-|Leitura| 400| 1| 400|
+|Gravar| 100 | 5 | 500|
+|Ler| 400| 1| 400|
 
 Total de RU/s: 500 + 400 = 900 custo por hora: 900/100 * $0.08 = $0.72 custo mensal esperado para taxa de transferência (supondo 31 dias): $0.72 * 24 * 31 = $53.57
 
@@ -255,7 +286,7 @@ O que você efetivamente comprou é um crédito de US$ 8 por hora, para 100 mil 
 |----|----|----|----|----|
 |Leste dos EUA|US$ 0,008 |50 mil|US$ 4|US$ 2.880 |
 |Leste do Japão|US$ 0,009 |50 mil| US$ 4,50 |US$ 3.240 |
-|||Pós-pago|US$ 8,50|US$ 6.120|
+|||Pago conforme o uso|US$ 8,50|US$ 6.120|
 |Capacidade reservada comprada|US$ 0,0064 (20% de desconto) |Capacidade de 100 RU/s ou US$ 8 pré-adquirida |-US$ 8|-US$ 5.760 |
 |Valor líquido|||US$ 0,50 |US$ 360 |
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 82f6da54aec7aee94c19fd75a06d2850ca0db8b6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883126"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673392"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desenvolva para a plataforma Android Things usando SDKs de IoT do Azure
 
@@ -40,16 +40,16 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e criar a identidade do dispositivo.
 
-   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
+   **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
-   **MyAndroidThingsDevice**: Esse é o nome fornecido para o dispositivo registrado. Use MyAndroidThingsDevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyAndroidThingsDevice** : esse é o nome fornecido para o dispositivo registrado. Use MyAndroidThingsDevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Execute os seguintes comandos no Azure Cloud Shell para obter a *cadeia de conexão do dispositivo* para o dispositivo que você acabou de registrar. Substitua `YourIoTHubName` abaixo pelo nome que você escolher para o Hub IOT.
+2. Execute os seguintes comandos no Azure Cloud Shell para obter a *cadeia de conexão do dispositivo* para o dispositivo que você acabou de registrar. Substitua `YourIoTHubName` abaixo pelo nome que você escolher para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -95,7 +95,7 @@ Execute os seguintes comandos no Azure Cloud Shell, substituindo `YourIoTHubName
 az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHubName
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

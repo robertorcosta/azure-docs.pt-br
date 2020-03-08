@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 03/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fa6da347289a12867a2416dea16631ba4758832f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c23648d70192607b2a5b977dcdd445931e995154
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187467"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671799"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token JWT em uma política personalizada do Azure Active Directory B2C
 
@@ -56,6 +56,7 @@ Os elementos **InputClaims**, **OutputClaims** e **PersistClaims** estão vazios
 | allow_infinite_rolling_refresh_token | Não | Se definido como `true`, o tempo de vida da janela deslizante do token de atualização nunca expira. |
 | IssuanceClaimPattern | Não | Controla a declaração do emissor (iss). Um dos valores:<ul><li>AuthorityAndTenantGuid-a declaração ISS inclui seu nome de domínio, como `login.microsoftonline` ou `tenant-name.b2clogin.com`, e seu identificador de locatário https:\//login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp – A declaração de iss inclui seu nome de domínio, como `login.microsoftonline` ou `tenant-name.b2clogin.com`, seu identificador de locatário e o nome da política da terceira parte confiável. https:\//login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> Valor padrão: AuthorityAndTenantGuid |
 | AuthenticationContextReferenceClaimPattern | Não | Controla o valor da declaração `acr`.<ul><li>Nenhum – O Azure AD B2C não emite a declaração do ACR</li><li>PolicyId – A declaração `acr` contém o nome da política</li></ul>As opções para definir esse valor são TFP (política de estrutura confiável) e ACR (referência do contexto de autenticação). É recomendável definir esse valor como TFP. Para definir o valor, verifique se o `<Item>` com o `Key="AuthenticationContextReferenceClaimPattern"` existe e o valor é `None`. Em sua política de terceira parte confiável, adicione o item `<OutputClaims>` e este elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Além disso, verifique se a sua política contém o tipo de declaração `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+|RefreshTokenUserJourneyId| Não | O identificador de um percurso do usuário que deve ser executado durante a solicitação [atualizar uma](authorization-code-flow.md#4-refresh-the-token) postagem de token de acesso para o ponto de extremidade `/token`. |
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 

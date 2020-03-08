@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a2b66cdc7a0704cd3560c0776a0ca5302dc689d2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: eb1bde6bb58e3e5299311636f8222e2fc181ec5d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250765"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673313"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
@@ -425,13 +425,14 @@ Para obter informações mais detalhadas sobre como usar consultas e logs, consu
 
 * [OpenCensus Python no GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Personalização](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
-* [Integração do Flask](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
-* [Integração do Django](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
-* [Integração do MySQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
-* [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
+* [Exportadores de Azure Monitor no GitHub](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+* [Integrações do OpenCensus](https://github.com/census-instrumentation/opencensus-python#extensions)
+* [Azure Monitor aplicativos de exemplo](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Acompanhamento de solicitações de entrada](./../../azure-monitor/app/opencensus-python-dependency.md)
+* [Acompanhamento de solicitações em andamento](./../../azure-monitor/app/opencensus-python-request.md)
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)
 

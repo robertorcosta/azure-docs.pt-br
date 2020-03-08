@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 6bce69889910296f5ff28090e62cfe27c0640d95
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755025"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897856"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos de extremidade regionais para a conta de grafo do Azure Cosmos DB
 O banco de dados de grafo do Azure Cosmos DB é [distribuído globalmente](distribute-data-globally.md) para que os aplicativos possam usar vários pontos de extremidade de leitura. Aplicativos que precisam de acesso de gravação em vários locais devem habilitar a funcionalidade de [vários mestres](how-to-multi-master.md).

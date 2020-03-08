@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186370"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671940"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso condicional: aplicativos de nuvem ou ações
 
@@ -39,7 +39,7 @@ Os administradores podem atribuir uma política de acesso condicional aos seguin
 - [Banco de dados SQL do Azure e data warehouse](../../sql-database/sql-database-conditional-access.md)
 - Dynamics CRM Online
 - Análise do Microsoft Application Insights
-- [Proteção de Informações do Microsoft Azure](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- [Proteção de Informações do Microsoft Azure](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Gerenciamento de Microsoft Azure](#microsoft-azure-management)
 - Gerenciamento de assinatura Microsoft Azure
 - Microsoft Cloud App Security
@@ -48,7 +48,7 @@ Os administradores podem atribuir uma política de acesso condicional aos seguin
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- [Registro de Microsoft Intune](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
+- [Registro de Microsoft Intune](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft PowerApps
 - Pesquisa da Microsoft no Bing

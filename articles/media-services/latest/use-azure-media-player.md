@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: a0b0a4e89242103811f20071b7235c825c9d8bd2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d9e42e809443a2dd6cdeb989f692b96d63269f79
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967517"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673572"
 ---
 # <a name="azure-media-player-overview"></a>Visão geral do Player de Mídia do Azure
 
@@ -26,8 +26,6 @@ Os Serviços de Mídia do Microsoft Azure permitem que o conteúdo seja fornecid
 
 > [!NOTE]
 > A reprodução de HTTPS é necessária para conteúdo criptografado Widevine.
-
-[Inicie sua avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Use a página de demonstração do Player de Mídia do Azure
 
@@ -53,9 +51,9 @@ O Player de Mídia do Azure é fácil de configurar. São necessários apenas al
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação do Player de Mídia do Azure](https://aka.ms/ampdocs)
 - [Amostras do Player de Mídia do Azure](https://aka.ms/ampsamples)

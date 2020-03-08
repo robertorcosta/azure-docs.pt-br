@@ -1,25 +1,26 @@
 ---
-title: Autenticação de saída - Agendador do Azure
+title: Autenticação de saída
 description: Saiba como configurar ou remover a autenticação de saída do Agendador do Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300858"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898506"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para Agendador do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+>
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 Os trabalhos do Agendador do Azure podem precisar chamar serviços que exigem autenticação, como outros serviços do Azure, Salesforce.com, Facebook e sites seguros personalizados. O serviço chamado pode determinar se o trabalho do Agendador poderá acessar seus recursos solicitados. 
 
@@ -44,10 +45,10 @@ O Agendador oferece suporte a esses modelos de autenticação:
 
 Ao adicionar a autenticação usando o modelo `ClientCertificate`, especifique estes elementos adicionais no corpo da solicitação.  
 
-| Elemento | Necessário | Descrição |
+| Elemento | Obrigatório | DESCRIÇÃO |
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | Objeto de autenticação para usar um certificado de cliente SSL |
-| **type** | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **tipo** | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
 | **pfx** | Sim | Conteúdo codificado na base64 do arquivo PFX |
 | **password** | Sim | A senha para acessar o arquivo PFX |
 ||| 
@@ -56,10 +57,10 @@ Ao adicionar a autenticação usando o modelo `ClientCertificate`, especifique e
 
 Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os elementos de autenticação.
 
-| Elemento | Descrição | 
+| Elemento | DESCRIÇÃO | 
 |---------|-------------| 
 | **autenticação (elemento pai)** | Objeto de autenticação para usar um certificado de cliente SSL |
-| **type** | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **tipo** | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
 | **certificateThumbprint** |A impressão digital do certificado |
 | **certificateSubjectName** |O nome distinto da entidade do certificado |
 | **certificateExpiration** | A data de validade do certificado |
@@ -164,10 +165,10 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Ao adicionar a autenticação usando o modelo `Basic`, especifique estes elementos adicionais no corpo da solicitação.
 
-| Elemento | Necessário | Descrição |
+| Elemento | Obrigatório | DESCRIÇÃO |
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | O objeto de autenticação para usar a autenticação básica | 
-| **type** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. | 
+| **tipo** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. | 
 | **username** | Sim | Nome de usuário para autenticação | 
 | **password** | Sim | Senha para autenticação |
 |||| 
@@ -176,10 +177,10 @@ Ao adicionar a autenticação usando o modelo `Basic`, especifique estes element
 
 Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os elementos de autenticação.
 
-| Elemento | Descrição | 
+| Elemento | DESCRIÇÃO | 
 |---------|-------------|
 | **autenticação (elemento pai)** | O objeto de autenticação para usar a autenticação básica |
-| **type** | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. |
+| **tipo** | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. |
 | **username** | O nome de usuário autenticado |
 ||| 
 
@@ -282,10 +283,10 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 Ao adicionar a autenticação usando o modelo `ActiveDirectoryOAuth`, especifique estes elementos adicionais no corpo da solicitação.
 
-| Elemento | Necessário | Descrição |
+| Elemento | Obrigatório | DESCRIÇÃO |
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | Sim | Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth |
-| **type** | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
+| **tipo** | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
 | **tenant** | Sim | O identificador do locatário para o locatário do Azure AD. Para encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell. |
 | **audience** | Sim | Esse valor é configurado para `https://management.core.windows.net/`. | 
 | **clientId** | Sim | O identificador de cliente para o aplicativo do Azure AD | 
@@ -296,10 +297,10 @@ Ao adicionar a autenticação usando o modelo `ActiveDirectoryOAuth`, especifiqu
 
 Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os elementos de autenticação.
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 |---------|-------------|
 | **autenticação (elemento pai)** | Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth |
-| **type** | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| **tipo** | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 | **tenant** | O identificador do locatário para o locatário do Azure AD |
 | **audience** | Esse valor é configurado para `https://management.core.windows.net/`. |
 | **clientId** | O identificador de cliente para o aplicativo do Azure AD |
@@ -403,10 +404,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o Agendador do Azure?](scheduler-intro.md)
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
-* [API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
+* [Referência da API REST do Agendador do Azure](/rest/api/scheduler)
 * [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)

@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 26ed6fefdf95281429a8c91057195785db4f5589
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617595"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673260"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -172,4 +172,4 @@ Uma frase secreta é usada para criptografar e descriptografar dados durante o b
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre cenários e limitações com suporte, consulte a [matriz de suporte para o agente Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Saiba mais sobre o [comportamento de retenção da política de backup sob demanda](backup-configure-vault.md#set-up-on-demand-backup-policy-retention-behavior).
+- Saiba mais sobre o [comportamento de retenção da política de backup sob demanda](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).

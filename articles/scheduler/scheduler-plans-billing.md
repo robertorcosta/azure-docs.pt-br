@@ -1,31 +1,32 @@
 ---
-title: Planos e Cobrança - Agendador do Microsoft Azure
+title: Planos e cobrança
 description: Saiba mais sobre planos e cobrança do Agendador do Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300863"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898466"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planos e Cobrança do Agendador do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+>
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 ## <a name="job-collection-plans"></a>Planos de coleção de trabalhos
 
 No Agendador do Azure, uma coleção de trabalhos contém um número específico de trabalhos. A coleção de trabalhos é a entidade faturável e fornecida nos planos Standard, P10 Premium e P20 Premium, que são descritos aqui: 
 
-| Plano de coleção de trabalhos | Máximo de trabalhos por coleção | Recorrência máxima | Máximo de coleções de trabalhos por assinatura | Limites | 
+| Plano de coleção de trabalhos | Máximo de trabalhos por coleção | Recorrência máxima | Máximo de coleções de trabalhos por assinatura | limites | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Standard** | 50 trabalhos por coleção | Um por minuto. Não pode executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 100 contas de coleções de trabalhos Standard. | Acesso ao conjunto de recursos completo do Agendador | 
 | **P10 Premium** | 50 trabalhos por coleção | Um por minuto. Não pode executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 10.000 contas de coleções de trabalhos P10 Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">Contate-nos</a>. | Acesso ao conjunto de recursos completo do Agendador |
@@ -80,8 +81,7 @@ As coleções de trabalhos P20 Premium fornecem os mesmos recursos das coleçõe
 
   O serviço do Agendador faz a cobrança com base no número de coleções de trabalhos ativas que são definidas como standard ou premium.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o Agendador do Azure?](scheduler-intro.md)
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9465b77d03fb3dbb668bd40bf2c7e6ded6891a05
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5718a23e5669de6ba16354a718d72b68d14bbf49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962043"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894547"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: aplicativo daemon que chama APIs da Web
 
 Saiba tudo o que você precisa para criar um aplicativo daemon que chama APIs da Web.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Seu aplicativo pode adquirir um token para chamar uma API da Web em nome de si mesmo (não em nome de um usuário). Esse cenário é útil para aplicativos de daemon. Ele usa a concessão de [credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 padrão.
 
@@ -42,11 +42,11 @@ Aqui estão alguns exemplos de casos de uso para aplicativos de daemon:
 - Aplicativos de área de trabalho (como serviços do Windows em processos do Windows ou daemon no Linux) que executam trabalhos em lotes ou um serviço do sistema operacional executado em segundo plano
 - APIs Web que precisam manipular diretórios, não usuários específicos
 
-Há outro caso comum em que aplicativos não daemon usam credenciais de cliente: mesmo quando eles atuam em nome dos usuários, eles precisam acessar uma API da Web ou um recurso sob sua identidade por motivos técnicos. Um exemplo é o acesso a segredos no Azure Key Vault ou um banco de dados SQL do Azure para um cache.
+Há outro caso comum em que aplicativos não daemon usam credenciais de cliente: mesmo quando eles atuam em nome dos usuários, eles precisam acessar uma API da Web ou um recurso sob sua própria identidade por motivos técnicos. Um exemplo é o acesso a segredos no Azure Key Vault ou um banco de dados SQL do Azure para um cache.
 
 Aplicativos que adquirem um token para suas próprias identidades:
 
-- são aplicativos cliente confidenciais. Esses aplicativos, Considerando que acessam recursos independentemente dos usuários, precisam provar sua identidade. Eles também são aplicativos confidenciais. Eles precisam ser aprovados pelos administradores de locatário do Azure Active Directory (AD do Azure).
+- São aplicativos cliente confidenciais. Esses aplicativos, Considerando que acessam recursos independentemente dos usuários, precisam provar sua identidade. Eles também são aplicativos confidenciais. Eles precisam ser aprovados pelos administradores de locatário do Azure Active Directory (AD do Azure).
 - Registrou um segredo (senha de aplicativo ou certificado) com o Azure AD. Esse segredo é passado durante a chamada para o Azure AD para obter um token.
 
 ## <a name="specifics"></a>Especificações
@@ -63,7 +63,7 @@ Para os desenvolvedores, a experiência de ponta a ponta para esse cenário tem 
 - A [configuração do aplicativo](./scenario-daemon-app-configuration.md) precisa fornecer credenciais de cliente como compartilhadas com o Azure ad durante o registro do aplicativo.
 - O [escopo](scenario-daemon-acquire-token.md#scopes-to-request) usado para adquirir um token com o fluxo de credenciais do cliente precisa ser um escopo estático.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Aplicativo daemon-registro de aplicativo](./scenario-daemon-app-registration.md)

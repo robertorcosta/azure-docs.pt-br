@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: f3ce439f3e8c2290539e088402c2636974d37821
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430401"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898840"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor de Azure Managed disks
 
@@ -72,6 +72,7 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 - Todos os recursos relacionados às chaves gerenciadas pelo cliente (cofres de chaves do Azure, conjuntos de criptografia de disco, VMs, discos e instantâneos) devem estar na mesma assinatura e região.
 - Discos, instantâneos e imagens criptografadas com chaves gerenciadas pelo cliente não podem passar para outra assinatura.
 - Se você usar o portal do Azure para criar o conjunto de criptografia de disco, não poderá usar instantâneos por enquanto.
+- Os discos gerenciados criptografados usando chaves gerenciadas pelo cliente também não podem ser criptografados com Azure Disk Encryption.
 
 ### <a name="powershell"></a>PowerShell
 

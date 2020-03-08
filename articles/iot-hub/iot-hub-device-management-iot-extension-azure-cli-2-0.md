@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 93efd6e53470fb78bb6d823652437e7a37c33732
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: c189ad1a6b6ebc13b71ca547176af27a43a78a7d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640564"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673435"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Use a extensão de IoT da CLI do Azure para gerenciamento de dispositivo Hub IoT do Azure
 
@@ -23,7 +23,9 @@ ms.locfileid: "68640564"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[A extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) é uma nova extensão de IOT de software livre que adiciona aos recursos do [CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). O CLI do Azure inclui comandos para interagir com os pontos de extremidade de Azure Resource Manager e de gerenciamento. Por exemplo, é possível usar a CLI do Azure para criar uma VM do Azure ou um Hub IoT. Uma extensão CLI permite que um serviço do Azure amplie a CLI do Azure, fornecendo acesso a recursos específicos de serviços adicionais. A extensão de IoT fornece aos desenvolvedores de IoT acesso de linha de comando a todos os recursos do Hub IoT, IoT Edge e do serviço de provisionamento de dispositivos no Hub IoT.
+[A extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) é uma extensão de IOT de software livre que adiciona aos recursos do [CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). O CLI do Azure inclui comandos para interagir com os pontos de extremidade de Azure Resource Manager e de gerenciamento. Por exemplo, é possível usar a CLI do Azure para criar uma VM do Azure ou um Hub IoT. Uma extensão CLI permite que um serviço do Azure amplie a CLI do Azure, fornecendo acesso a recursos específicos de serviços adicionais. A extensão de IoT fornece aos desenvolvedores de IoT acesso de linha de comando a todos os recursos do Hub IoT, IoT Edge e do serviço de provisionamento de dispositivos no Hub IoT.
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -59,12 +61,11 @@ Execute a CLI do Azure e a extensão do IoT para a CLI do Azure com várias opç
 
 * [Python 2.7x ou Python 3.x](https://www.python.org/downloads/)
 
-<!-- I'm not sure we need all this info, so comment out this include for now. Robin 7.26.2019
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)] -->
+* A CLI do Azure. Se você precisar instalar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). No mínimo, sua versão de CLI do Azure deve ser 2.0.70 ou superior. Use `az –version` para validar.
 
-* A CLI do Azure. Se você precisar instalar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az –version` para validar.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-* Instalar a extensão de IoT. A maneira mais simples é executar `az extension add --name azure-cli-iot-ext`. [O Leiame da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) descreve várias maneiras de instalar a extensão.
+* Instalar a extensão de IoT. A maneira mais simples é executar `az extension add --name azure-iot`. [O Leiame da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) descreve várias maneiras de instalar a extensão.
 
 ## <a name="sign-in-to-your-azure-account"></a>Entre na sua conta do Azure
 

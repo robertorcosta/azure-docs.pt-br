@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: d16954760d1f2bf11ec5575f912ee32810696590
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: c812e00699cd8f8cfbaf32feea1b43866ffb0990
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108210"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674365"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: usar os aprimoramentos de mensagem do Hub IoT do Azure
 
@@ -35,12 +35,12 @@ Estas são as tarefas que você executa para concluir este tutorial:
 > * Execute um aplicativo que simule um dispositivo IoT enviando mensagens para o Hub.
 > * Exiba os resultados e verifique se os aprimoramentos da mensagem estão funcionando conforme o esperado.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Você precisa ter uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * Instalar o [Visual Studio](https://www.visualstudio.com/).
 
-* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste tutorial usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta pode ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de contornar esse problema, consulte [conectando-se ao Hub IOT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Verifique se a porta 8883 está aberta no firewall. A amostra de dispositivo deste tutorial usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -64,7 +64,7 @@ Além de criar os recursos necessários, o script de CLI do Azure também config
 Você pode usar o script a seguir ou pode abrir o script na pasta/resources do repositório baixado. O script executa as seguintes etapas:
 
 * Crie um Hub IoT.
-* Crie uma conta de armazenamento.
+* Criar uma conta de armazenamento.
 * Crie dois contêineres na conta de armazenamento. Um contêiner é para as mensagens aprimoradas e outro contêiner é para mensagens que não são enriquecedas.
 * Configure o roteamento para as duas contas de armazenamento diferentes:
     * Crie um ponto de extremidade para cada contêiner de conta de armazenamento.
@@ -76,7 +76,7 @@ Se você ainda não tiver feito isso, abra uma [janela de Cloud Shell](https://s
 
 Aqui estão os recursos criados pelo script. *Aprimorado* significa que o recurso é para mensagens com aprimoramentos. *Original* significa que o recurso é para mensagens que não são aprimoradas.
 
-| {1&gt;Nome&lt;1} | {1&gt;Valor&lt;1} |
+| Nome | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do contêiner | original  |
@@ -102,7 +102,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity.
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that
 #   don't have to be globally unique.
@@ -258,7 +258,7 @@ Neste ponto, os recursos estão todos configurados e o roteamento de mensagens �
 
 2. Adicione esses valores à lista para o ponto de extremidade ContosoStorageEndpointEnriched.
 
-   | Chave | {1&gt;Valor&lt;1} | Ponto de extremidade (lista suspensa) |
+   | Chave | Valor | Ponto de extremidade (lista suspensa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -278,7 +278,7 @@ Neste ponto, os recursos estão todos configurados e o roteamento de mensagens �
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Criar e configurar usando um modelo do Resource Manager
 Você pode usar um modelo do Resource Manager para criar e configurar os recursos, o roteamento de mensagens e os aprimoramentos de mensagens.
 
-1. Entre no Portal do Azure. Selecione **+ criar um recurso** para exibir uma caixa de pesquisa. Insira a *implantação do modelo*e pesquise por ele. No painel de resultados, selecione **implantação de modelo (implantar usando o modelo personalizado)** .
+1. Entre no portal do Azure. Selecione **+ criar um recurso** para exibir uma caixa de pesquisa. Insira a *implantação do modelo*e pesquise por ele. No painel de resultados, selecione **implantação de modelo (implantar usando o modelo personalizado)** .
 
    ![Implantação de modelo no portal do Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -296,7 +296,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
 
    Aqui estão os recursos criados carregando o modelo. **Aprimorado** significa que o recurso é para mensagens com aprimoramentos. **Original** significa que o recurso é para mensagens que não são aprimoradas. Esses são os mesmos valores usados no script de CLI do Azure.
 
-   | {1&gt;Nome&lt;1} | {1&gt;Valor&lt;1} |
+   | Nome | Valor |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome do contêiner | original  |
@@ -309,7 +309,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
    | Nome da rota 1 | ContosoStorageRouteOriginal |
    | Nome da rota 2 | ContosoStorageRouteEnriched |
 
-1. Selecione **Salvar**. O painel **implantação personalizada** é exibido e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **grupo de recursos**. Crie um novo ou selecione um na lista suspensa.
+1. Clique em **Salvar**. O painel **implantação personalizada** é exibido e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **grupo de recursos**. Crie um novo ou selecione um na lista suspensa.
 
    Aqui está a metade superior do painel de **implantação personalizado** . Você pode ver onde você preenche o grupo de recursos.
 
@@ -379,7 +379,7 @@ Esta é uma mensagem não enriqueceda. Observe que "meu Hub IoT", "devicelocatio
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover todos os recursos criados neste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ela remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos.
 
@@ -391,7 +391,7 @@ Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.
 az group delete --name $resourceGroup
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você configurou e testou a adição de aprimoramentos de mensagens às mensagens do Hub IoT usando as seguintes etapas:
 

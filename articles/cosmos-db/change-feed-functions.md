@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3487de958df100cd43d4191028d0a15d7007067a
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605003"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851374"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com Azure Cosmos DB e Azure Functions
 
@@ -37,7 +37,7 @@ Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 A criação de sua função do Azure com um gatilho Azure Functions para Cosmos DB agora tem suporte em todas as integrações de IDE e CLI do Azure Functions:
 
 * [Extensão do Visual Studio](../azure-functions/functions-develop-vs.md) para usuários do Visual Studio.
-* [Extensão principal do Visual Studio](/azure/javascript/tutorial-vscode-serverless-node-01) para Visual Studio Code usuários.
+* [Extensão de Visual Studio Code](/azure/javascript/tutorial-vscode-serverless-node-01) para usuários de Visual Studio Code.
 * E, finalmente, as [ferramentas da CLI principal](../azure-functions/functions-run-local.md#create-func) para uma experiência independente de IDE de plataforma cruzada.
 
 ## <a name="run-your-trigger-locally"></a>Executar o gatilho localmente

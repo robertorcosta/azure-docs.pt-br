@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a493179e6e657a1d99d7cdb808629bae7332567
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: faecb0bc8cbb5ca84e9fc8bfc3cb99e2ccef1f11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918960"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894560"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: configurar o local de dados preferencial para recursos do Office 365
 A finalidade deste tópico é orientá-lo sobre como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de várias regiões geográficas no Office 365, você usa esse atributo para designar a localização geográfica dos dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -40,11 +40,11 @@ Uma lista de todas as áreas geográficas para o Office 365 pode ser encontrada 
 
 As áreas geográficas no Office 365, disponíveis para replicação Multigeográfica, são:
 
-| Geografia | Valor de preferredDataLocation |
+| Localização geográfica | Valor de preferredDataLocation |
 | --- | --- |
 | Pacífico Asiático | APC |
 | Austrália | AUS |
-| Canadá | CAN |
+| Canada | CAN |
 | União Europeia | EUR |
 | França | FRA |
 | Índia | IND |
@@ -52,7 +52,7 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 | Coreia do Sul | KOR |
 | África do Sul | ZAF |
 | Emirados Árabes Unidos | ARE |
-| Reino Unido | GBR |
+| United Kingdom | GBR |
 | Estados Unidos | NAM |
 
 * Se uma área geográfica não estiver listada nesta tabela, por exemplo, América do Sul, ela não poderá ser usada para Multi-Geo.
@@ -61,7 +61,7 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Suporte do Azure AD Connect para sincronização
 
-O Azure AD Connect dá suporte à sincronização do atributo **PreferredDataLocation** para objetos de **Usuário** na versão 1.1.524.0 e posteriores. Mais especificamente:
+O Azure AD Connect dá suporte à sincronização do atributo **PreferredDataLocation** para objetos de **Usuário** na versão 1.1.524.0 e posteriores. Especificamente:
 
 * O esquema do tipo de objeto **Usuário** no Azure AD Connector é estendido para incluir o atributo **preferredDataLocation**. O atributo é do tipo de cadeia de caracteres de valor único.
 * O esquema do tipo de objeto **Pessoa** no metaverso é estendido para incluir o atributo **preferredDataLocation**. O atributo é do tipo de cadeia de caracteres de valor único.
@@ -139,22 +139,22 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 3. Para criar uma nova regra de entrada, selecione **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Value | Detalhes |
+    | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | name | *Fornecer um nome* | Por exemplo, "Entrada do AD – PreferredDataLocation do usuário" |
-    | Descrição | *Forneça uma descrição personalizada* |  |
+    | Nome | *Fornecer um nome* | Por exemplo, "Entrada do AD – PreferredDataLocation do usuário" |
+    | DESCRIÇÃO | *Forneça uma descrição personalizada* |  |
     | Sistema Conectado | *Selecione o Active Directory Connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
-    | Tipo de Objeto de Metaverso | **Pessoa** |  |
+    | Tipo de Objeto de Metaverso | **Person** |  |
     | Tipo de link | **Join** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Mantenha o **Filtro de escopo** vazio para incluir todos os objetos. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
 6. Acesse a guia **Transformação** e implemente a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
+    | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Selecione o atributo de origem | Desmarcado | Atualizar |
+    |Direto | preferredDataLocation | Selecione o atributo de origem | Desmarcado | Atualizar |
 
 7. Para criar a regra de entrada, selecione **Adicionar**.
 
@@ -168,30 +168,30 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 3. Selecione **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Value | Detalhes |
+    | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | name | *Fornecer um nome* | Por exemplo, "Saída para Microsoft Azure AD – PreferredDataLocation do usuário" |
-    | Descrição | *Fornecer uma descrição* ||
+    | Nome | *Fornecer um nome* | Por exemplo, "Saída para Microsoft Azure AD – PreferredDataLocation do usuário" |
+    | DESCRIÇÃO | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecionar o Azure AD Connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
-    | Tipo de Objeto de Metaverso | **Pessoa** ||
+    | Tipo de Objeto de Metaverso | **Person** ||
     | Tipo de link | **Join** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Acesse a guia **Filtro de escopo** e adicione um único grupo de filtro de escopo com as duas cláusulas a seguir:
 
-    | Atributo | operador | Value |
+    | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuário |
     | cloudMastered | NOTEQUAL | True |
 
-    Filtro de escopo determina a quais objetos do Azure AD essa regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de escopo da regra de sincronização OOB (fora de uso) do Azure AD – identidade do usuário. Impede que a regra de sincronização seja aplicada aos objetos de **Usuário** que não estão sincronizados do Active Directory local. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
+    Filtro de escopo determina a quais objetos do Azure AD essa regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de escopo da regra de sincronização OOB (fora de uso) do Azure AD – identidade do usuário. Ele impede que a regra de sincronização seja aplicada a objetos de **usuário** que não estão sincronizados de um Active Directory local. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
 
 6. Acesse a guia **Transformação** e implemente a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
+    | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Desmarcado | Atualizar |
+    | Direto | preferredDataLocation | preferredDataLocation | Desmarcado | Atualizar |
 
 7. Feche **Adicionar** para criar a regra de saída.
 
@@ -260,9 +260,8 @@ Agora é hora de verificar a configuração e ativá-la para seus usuários.
 3. Usando o PowerShell do Exchange Online, verifique se a região da caixa de correio foi definida corretamente.  
 ![Captura de tela do PowerShell do Exchange Online](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Supondo que o locatário foi marcado para ser capaz de usar esse recurso, a caixa de correio será movida para a área geográfica correta. Isso pode ser verificado ao examinar o nome do servidor em que a caixa de correio está localizada.
-4. Para verificar se essa configuração foi eficaz em várias caixas de correio, use o script de [Galeria do TechNet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Esse script também tem uma lista dos prefixos dos servidores dos datacenters do Office 365 e em quais áreas geográficas eles estão localizados. Ele pode ser usado como uma referência na etapa anterior para verificar o local da caixa de correio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o Multi-Geo no Office 365:
 

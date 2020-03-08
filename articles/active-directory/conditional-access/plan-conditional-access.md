@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671823"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como planejar sua implantação de acesso condicional no Azure Active Directory
 
@@ -163,13 +163,13 @@ O plano de teste é importante para que se tenha uma comparação entre os resul
 
 |Política |Cenário |Resultado esperado | Result |
 |---|---|---|---|
-|[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando está no trabalho/em um local confiável|Não é solicitado que o usuário use a MFA| |
-|[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando não está no trabalho/em um local confiável|É solicitado que o usuário use a MFA para se conectar com êxito| |
-|[Exigir MFA (para administradores)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Administrador global entra no *Aplicativo*|É solicitado que o administrador use MFA| |
-|[Entradas de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|O usuário entra no *Aplicativo* usando um [navegador Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|É solicitado que o administrador use MFA| |
-|[Gerenciamento de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo autorizado|Acesso concedido| |
-|[Gerenciamento de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo não autorizado|Acesso bloqueado| |
-|[Alteração de senha para usuários arriscados](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|O usuário autorizado tenta se conectar com credenciais comprometidas (conexão de alto risco)|O usuário é solicitado a alterar a senha ou o acesso é bloqueado com base na sua política| |
+|[Exigir MFA quando não estiver no trabalho](/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando está no trabalho/em um local confiável|Não é solicitado que o usuário use a MFA| |
+|[Exigir MFA quando não estiver no trabalho](/azure/active-directory/conditional-access/untrusted-networks)|Usuário autorizado entra no *Aplicativo* quando não está no trabalho/em um local confiável|É solicitado que o usuário use a MFA para se conectar com êxito| |
+|[Exigir MFA (para administradores)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Administrador global entra no *Aplicativo*|É solicitado que o administrador use MFA| |
+|[Entradas de risco](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|O usuário entra no *Aplicativo* usando um [navegador Tor](/azure/active-directory/active-directory-identityprotection-playbook)|É solicitado que o administrador use MFA| |
+|[Gerenciamento de dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo autorizado|Acesso concedido| |
+|[Gerenciamento de dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|O usuário autorizado tenta se conectar usando um dispositivo não autorizado|Acesso bloqueado| |
+|[Alteração de senha para usuários arriscados](/azure/active-directory/identity-protection/howto-user-risk-policy)|O usuário autorizado tenta se conectar com credenciais comprometidas (conexão de alto risco)|O usuário é solicitado a alterar a senha ou o acesso é bloqueado com base na sua política| |
 
 ### <a name="configure-the-policy"></a>Configurar a política
 

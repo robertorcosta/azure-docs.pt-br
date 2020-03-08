@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291491"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675601"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho do SAP com Zonas de Disponibilidade do Azure
 As [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) são um dos recursos de alta disponibilidade que o Azure oferece. Usar as Zonas de Disponibilidade melhora a disponibilidade geral das cargas de trabalho do SAP no Azure. Esse recurso já está disponível em algumas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
@@ -119,6 +119,9 @@ As seguintes considerações se aplicam a essa configuração:
 - Para obter a consistência do tempo de execução para processos comerciais críticos, você pode tentar direcionar determinados trabalhos e usuários do lote para instâncias de aplicativo que estão em zona com a instância do DBMS ativa usando grupos de servidores do lote SAP, grupos de logon SAP ou grupos de RFC. No entanto, no caso de um failover da zona, seria preciso mover manualmente esses grupos para as instâncias em execução nas VMs da zona com a VM do DB ativo.  
 - Talvez você queira implantar instâncias de caixa de diálogo inativas em cada uma das zonas. Isso serve para habilitar um retorno imediato à capacidade do recurso anterior se uma zona usada por parte de suas instâncias do aplicativo estiver fora de serviço.
 
+> [!IMPORTANT]
+> Neste cenário ativo/ativo, encargos adicionais de largura de banda são anunciados pela Microsoft do 04/01/2020 em. Verifique os [detalhes de preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/)do documento. A transferência de dados entre a camada de aplicativo SAP e a camada de DBMS do SAP é bastante intensiva. Portanto, o cenário ativo/ativo pode contribuir para um pouco mais de custos. Continue verificando este artigo para obter os custos exatos 
+
 
 ## <a name="activepassive-deployment"></a>Implantação ativa/passiva
 Caso não consiga encontrar um delta aceitável entre a latência de rede dentro de uma zona e a latência do tráfego de rede entre zonas, implante uma arquitetura que tenha um caráter ativo/passivo do ponto de vista da camada de aplicativo SAP. Defina uma zona *ativa*, que é a zona em que você implantará a camada de aplicativo completa e onde tentará executar o DBMS ativo e a instância do SAP Central Services. Com essa configuração, você garante que não haja variações extremas de tempo de execução, dependendo se uma tarefa é executada na zona com a instância do DBMS ativo ou não, em transações comerciais e tarefas em lote.
@@ -176,7 +179,7 @@ As seguintes considerações se aplicam a essa configuração:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Apresentamos abaixo algumas próximas etapas para implantar em Zonas de Disponibilidade do Azure:
 
 - [Clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)

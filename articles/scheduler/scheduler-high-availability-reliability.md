@@ -1,25 +1,26 @@
 ---
-title: Alta disponibilidade e confiabilidade – Agendador do Azure
+title: Alta disponibilidade e confiabilidade
 description: Saiba mais sobre alta disponibilidade e confiabilidade no Agendador do Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979297"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898554"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Alta disponibilidade e confiabilidade para Agendador do Azure
 
 > [!IMPORTANT]
 > O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+>
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 O Agendador do Azure fornece [alta disponibilidade](https://docs.microsoft.com/azure/architecture/framework/#resiliency) e confiabilidade para seus trabalhos. Para obter mais informações, veja [SLA para Agendador](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -29,7 +30,7 @@ O Agendador do Azure [com alta disponibilidade] e usa implantação de serviço 
 
 ### <a name="geo-redundant-service-deployment"></a>Implantação de serviço com redundância geográfica
 
-O Agendador do Azure está disponível no portal do Azure em quase [todas as regiões geográficas com suporte do Azure hoje mesmo](https://azure.microsoft.com/global-infrastructure/regions/#services). Portanto, se um datacenter do Azure em uma região hospedada ficar indisponível, você ainda poderá usar o Agendador do Azure devido às funcionalidades de failover do serviço tornam o Agendador disponível de outro datacenter.
+O Agendador do Azure está disponível em quase [todas as regiões geográficas com suporte do Azure hoje](https://azure.microsoft.com/global-infrastructure/regions/#services). Portanto, se um datacenter do Azure em uma região hospedada ficar indisponível, você ainda poderá usar o Agendador do Azure devido às funcionalidades de failover do serviço tornam o Agendador disponível de outro datacenter.
 
 ### <a name="geo-regional-job-replication"></a>Replicação geográfica regional de trabalho
 
@@ -70,9 +71,9 @@ O tipo de ação para a ação alternativa pode ser diferente da ação original
 
 Para saber como configurar um ponto de extremidade alternativo, consulte [errorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o Agendador do Azure?](scheduler-intro.md)
 * [Hierarquia de entidades, terminologia e conceitos](scheduler-concepts-terms.md)
-* [Criar agendamentos complexos e recorrência avançada](scheduler-advanced-complexity.md)
+* [Referência da API REST do Agendador do Azure](/rest/api/scheduler)
+* [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
 * [Limites, cotas, valores padrão e códigos de erro](scheduler-limits-defaults-errors.md)

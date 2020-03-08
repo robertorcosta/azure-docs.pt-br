@@ -6,20 +6,22 @@ ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, estfan
 ms.topic: article
-ms.date: 09/23/2019
-ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.date: 02/29/2020
+ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911988"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899040"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para Aplicativos Lógicos do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, mova para o aplicativo lógico do Azure assim que possível, seguindo este artigo. 
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, migre para o aplicativo lógico do Azure assim que possível, seguindo este artigo. 
+>
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 Este artigo mostra como é possível agendar trabalhos únicos e recorrentes criando fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure, em vez de com o Agendador do Azure. Quando você cria trabalhos agendados com Aplicativos Lógicos, você tem estes benefícios:
 
@@ -33,7 +35,7 @@ Este artigo mostra como é possível agendar trabalhos únicos e recorrentes cri
 
 Para saber mais, confira [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md) ou tente criar seu primeiro aplicativo lógico neste guia de início rápido: [crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -45,19 +47,19 @@ Cada trabalho do Agendador é exclusivo, portanto, não existe uma ferramenta de
 
 ## <a name="schedule-one-time-jobs"></a>Agendar trabalhos únicos
 
-É possível executar trabalhos únicos criando apenas um único aplicativo lógico. 
+É possível executar trabalhos únicos criando apenas um único aplicativo lógico.
 
-1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco no Designer de Aplicativo Lógico. 
+1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco no Designer de Aplicativo Lógico.
 
    Para obter as etapas básicas, siga [Início Rápido: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, insira "quando uma solicitação http" como o filtro. Na lista de gatilhos, selecione este gatilho: **Quando uma solicitação HTTP for recebida** 
+1. Na caixa de pesquisa, digite `when a http request` para localizar o gatilho de solicitação. Na lista de gatilhos, selecione este gatilho: **Quando uma solicitação HTTP for recebida**
 
    ![Adicionar gatilho de solicitação](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
-1. Para o gatilho de solicitação, é possível fornecer opcionalmente um esquema JSON, que ajuda o Designer de Aplicativo Lógico a entender a estrutura das entradas da solicitação de entrada e facilita as saídas para você selecionar posteriormente em seu fluxo de trabalho.
+1. Para o gatilho de solicitação, você pode opcionalmente fornecer um esquema JSON, que ajuda o designer de aplicativo lógico a entender a estrutura das entradas incluídas na chamada de entrada para o gatilho de solicitação e torna as saídas mais fáceis de selecionar posteriormente no fluxo de trabalho.
 
-   Para especificar um esquema, insira o esquema na caixa **Esquema JSON do Corpo da Solicitação**, por exemplo: 
+   Na caixa **esquema JSON do corpo da solicitação** , insira o esquema, por exemplo:
 
    ![Esquema de solicitação](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 
@@ -65,27 +67,34 @@ Cada trabalho do Agendador é exclusivo, portanto, não existe uma ferramenta de
 
    1. No gatilho de Solicitação, selecione **Usar o conteúdo de amostra para gerar o esquema**.
 
-   1. Em **Inserir ou colar um exemplo de carga JSON**, forneça seu conteúdo de exemplo e, em seguida, selecione **concluído**, por exemplo:
+   1. Em **Inserir ou colar um exemplo de carga JSON**, forneça seu conteúdo de exemplo e selecione **concluído**, por exemplo:
 
       ![Carga de exemplo](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. No gatilho, selecione **próxima etapa**. 
+      ```json
+      {
+         "runat": "2012-08-04T00:00Z",
+         "endpoint": "https://www.bing.com"
+      }
+      ```
 
-1. Na caixa de pesquisa, insira "atrasar até" como seu filtro. Na lista de ações, selecione esta ação: **Atrasar até**
+1. No gatilho, selecione **próxima etapa**.
+
+1. Na caixa de pesquisa, insira `delay until` como o filtro. Na lista de ações, selecione esta ação: **Atrasar até**
 
    Essa ação pausa seu fluxo de trabalho do aplicativo lógico até uma data e hora especificadas.
 
    ![Adicionar ação "Atrasar até"](./media/migrate-from-scheduler-to-logic-apps/delay-until.png)
 
-1. Insira o carimbo de data/hora para quando você desejar iniciar o fluxo de trabalho d aplicativo lógico. 
+1. Insira o carimbo de data/hora para quando você desejar iniciar o fluxo de trabalho d aplicativo lógico.
 
-   Quando você clica dentro da caixa **Carimbo de data/hora**, a lista de conteúdo dinâmico é exibida; assim, é possível selecionar opcionalmente uma saída do gatilho.
+   Quando você clica dentro da caixa **timestamp** , a lista de conteúdo dinâmico é exibida para que você possa, opcionalmente, selecionar uma saída do gatilho.
 
    ![Forneça detalhes de "Atrasar até"](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Adicione outras ações que você deseja executar selecionando entre [centenas de conectores prontos para uso](../connectors/apis-list.md). 
+1. Adicione outras ações que você deseja executar selecionando entre [centenas de conectores prontos para uso](../connectors/apis-list.md).
 
-   Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço: 
+   Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
    ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
@@ -93,16 +102,15 @@ Cada trabalho do Agendador é exclusivo, portanto, não existe uma ferramenta de
 
    ![Salve seu aplicativo lógico](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-   Quando você salva seu aplicativo lógico pela primeira vez, a URL do ponto de extremidade do Gatilho de solicitação do seu aplicativo lógico é exibido na caixa **URL DE HTTP POST**. 
-   Quando você desejar chamar seu aplicativo lógico e enviar entradas para ele processar, use esta URL como o destino da chamada.
+   Quando você salva seu aplicativo lógico pela primeira vez, a URL do ponto de extremidade do Gatilho de solicitação do seu aplicativo lógico é exibido na caixa **URL DE HTTP POST**. Quando você desejar chamar seu aplicativo lógico e enviar entradas para ele processar, use esta URL como o destino da chamada.
 
    ![Salvar URL do ponto de extremidade do Gatilho de solicitação](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
 
-1. Copie e salve esta URL de ponto de extremidade para poder enviar posteriormente uma solicitação manual que dispara seu aplicativo lógico. 
+1. Copie e salve esta URL de ponto de extremidade para poder enviar posteriormente uma solicitação manual que dispara seu aplicativo lógico.
 
 ## <a name="start-a-one-time-job"></a>Iniciar um trabalho único
 
-Para executar manualmente ou disparar um trabalho único, envie uma chamada para a URL de ponto de extremidade para o Gatilho de solicitação do seu aplicativo lógico. Nessa chamada, especifique a entrada ou o conteúdo a ser enviado, que talvez você tenha descrito anteriormente especificando um esquema. 
+Para executar manualmente ou disparar um trabalho único, envie uma chamada para a URL de ponto de extremidade para o Gatilho de solicitação do seu aplicativo lógico. Nessa chamada, especifique a entrada ou o conteúdo a ser enviado, que talvez você tenha descrito anteriormente especificando um esquema.
 
 Por exemplo, usando o aplicativo de postmaster, você pode criar uma solicitação POST com as configurações semelhantes a este exemplo e, em seguida, selecione **Enviar** para fazer a solicitação.
 
@@ -129,11 +137,11 @@ Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância 
 
 ## <a name="schedule-recurring-jobs"></a>Agendar trabalhos recorrentes
 
-1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco no Designer de Aplicativo Lógico. 
+1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco no Designer de Aplicativo Lógico.
 
    Para obter as etapas básicas, siga [Início Rápido: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, insira "recorrência" como filtro. Na lista de gatilhos, selecione este gatilho: **Recorrência** 
+1. Na caixa de pesquisa, insira "recorrência" como filtro. Na lista de gatilhos, selecione este gatilho: **Recorrência**
 
    ![Adicionar gatilho "Recorrência"](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
@@ -145,7 +153,7 @@ Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância 
 
 1. Adicione outras ações desejadas, selecionando entre [centenas de pronto para uso](../connectors/apis-list.md). No gatilho, selecione **próxima etapa**. Localize e selecione as ações desejadas.
 
-   Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço: 
+   Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
    ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
@@ -173,7 +181,7 @@ Para controlar a maneira como uma ação tenta ser executada novamente em seu ap
 
 No Agendador do Azure, se a ação padrão não for executada, será possível executar uma ação alternativa que resolva a condição de erro. Nos Aplicativos Lógicos do Azure, também é possível realizar a mesma tarefa.
 
-1. No designer de aplicativo lógico, acima da ação que você deseja manipular, mova o ponteiro sobre a seta entre as etapas e selecione **Adicionar uma ramificação paralela**. 
+1. No designer de aplicativo lógico, acima da ação que você deseja manipular, mova o ponteiro sobre a seta entre as etapas e selecione **Adicionar uma ramificação paralela**.
 
    ![Adicionar branch paralelo](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -193,7 +201,7 @@ No Agendador do Azure, se a ação padrão não for executada, será possível e
 
 Para saber mais sobre a manipulação da exceção, confira [Lidar com erros e exceções – Propriedade RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 <a name="retire-date"></a>
 
@@ -204,13 +212,13 @@ Para saber mais sobre a manipulação da exceção, confira [Lidar com erros e e
 **R**: todas as coleções de trabalhos e trabalhos do Agendador param de executar e são excluídos do sistema.
 
 **P**: é necessário fazer backup ou executar outras tarefas antes de migrar meus trabalhos do Agendador para o Aplicativos Lógicos? <br>
-**R**: como melhor prática, sempre faça backup do seu trabalho. Verifique se os aplicativos lógicos criados estão sendo executados conforme o esperado antes de excluir ou desabilitar seus trabalhos do Agendador. 
+**R**: como melhor prática, sempre faça backup do seu trabalho. Verifique se os aplicativos lógicos criados estão sendo executados conforme o esperado antes de excluir ou desabilitar seus trabalhos do Agendador.
 
 **P**: há uma ferramenta que possa me ajudar a migrar meus trabalhos do Agendador para o Aplicativos Lógicos? <br>
 **R**: cada trabalho do Agendador é único, portanto não há uma ferramenta uniformizada. No entanto, com base em suas necessidades, você pode [Editar esse script para migrar trabalhos do Agendador do Azure para aplicativos lógicos do Azure](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **P**: onde posso obter suporte para a migração dos meus trabalhos do Agendador? <br>
-**R**: veja algumas maneiras de obter suporte: 
+**R**: veja algumas maneiras de obter suporte:
 
 **Azure portal**
 
@@ -234,7 +242,6 @@ Se a assinatura do Azure tiver um plano de suporte pago, será possível criar u
 * [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Crie tarefas e fluxos de trabalho de execução regular com os Aplicativos Lógicos do Azure](../connectors/connectors-native-recurrence.md)
-* [Tutorial: verificar o tráfego com um aplicativo lógico baseado em agendamento](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

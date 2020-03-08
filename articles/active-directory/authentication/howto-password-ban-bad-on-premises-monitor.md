@@ -1,6 +1,6 @@
 ---
-title: Monitor de proteção de senha e registro em log-Azure Active Directory
-description: Entender o monitoramento e o logon na Proteção de Senha do Azure AD
+title: Monitorar a proteção de senha do Azure AD local
+description: Saiba como monitorar e examinar os logs da proteção de senha do Azure AD para um ambiente de Active Directory Domain Services local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847704"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671650"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoramento e o logon na Proteção de Senha do Azure AD
+# <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorar e examinar os logs de ambientes de proteção de senha do Azure AD locais
 
 Após a implantação da Proteção de Senha do Azure AD, o monitoramento e o relatório são tarefas essenciais. Este artigo apresenta detalhes para entender várias técnicas de monitoramento, incluindo o local em que cada serviço registra informações e como relatar o uso da Proteção de Senha do Azure AD.
 
@@ -235,7 +235,7 @@ O log de texto é desabilitado por padrão. Uma reinicialização do serviço do
 
 O software de serviço do agente DC instala um objeto de contador de desempenho denominado **Proteção de senha do Microsoft Azure Active Directory**. Atualmente, estão disponíveis os contadores de desempenho a seguir:
 
-|Nome do contador de desempenho | Descrição|
+|Nome do contador de desempenho | DESCRIÇÃO|
 | --- | --- |
 |Senhas processadas |Esse contador exibe o número total de senhas processadas (aceitas ou rejeitadas) desde o último reinício.|
 |Senhas aceitas |Esse contador exibe o número total de senhas aceitas desde o último reinício.|
@@ -382,7 +382,7 @@ O evento acima não especifica a versão do software mais recente. Você deve ir
 
 Esse evento será emitido mesmo se o agente de proxy estiver configurado com a atualização autohabilitada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Solução de problemas de Proteção de Senha do Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)
 

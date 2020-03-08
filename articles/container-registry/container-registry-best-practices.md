@@ -3,12 +3,12 @@ title: Práticas recomendadas do registro
 description: Saiba como usar o registro de contêiner do Azure efetivamente seguindo estas melhores práticas.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362340"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668848"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas para o Registro de Contêiner do Azure
 
@@ -35,12 +35,10 @@ Ao aproveitar os namespaces de repositório, você pode permitir o compartilhame
 
 Por exemplo, considere as seguintes marcas de imagem de contêiner. As imagens usadas em toda a empresa, como `aspnetcore`, são colocadas no namespace raiz, enquanto as imagens de contêiner de propriedade dos produtos e grupos de marketing usam seus próprios namespaces.
 
-```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
-```
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## <a name="dedicated-resource-group"></a>Grupo de recursos dedicados
 
@@ -52,7 +50,7 @@ Embora seja possível fazer experiências com um tipo de host específico, como 
 
 Ao se autenticar com um registro de contêiner do Azure, há dois cenários principais: autenticação individual e autenticação de serviço (ou "sem periférico"). A tabela a seguir fornece uma visão geral sobre esses cenários e o método de autenticação recomendado para cada.
 
-| Tipo | Cenário de exemplo | Método recomendado |
+| Type | Cenário de exemplo | Método recomendado |
 |---|---|---|
 | Identidade individual | Um desenvolvedor que efetua o pull de imagens de ou para seu computador de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Sem periférico/serviço identidade | Pipelines de implantação e compilação em que o usuário não está diretamente envolvido. | [Entidade de serviço](container-registry-authentication.md#service-principal) |
@@ -65,8 +63,11 @@ As restrições de armazenamento de [cada SKU de registro de contêiner][contain
 
 Use o comando CLI do Azure [AZ ACR show-Usage][az-acr-show-usage] para exibir o tamanho atual do registro:
 
-```console
-$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```azurecli
+az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```
+
+```output
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes
@@ -83,7 +84,7 @@ O Registro de Contêiner do Azure dá suporte a vários métodos para excluir da
 
 Para obter detalhes sobre como excluir dados de imagem do registro, incluindo imagens não marcadas (às vezes chamadas de "pendentes" ou "órfãs"), consulte [Excluir imagens de contêiner no Registro de Contêiner do Azure](container-registry-delete.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 O Registro de Contêiner do Azure está disponível em várias camadas, chamadas de SKUs e cada uma delas fornece funcionalidades diferentes. Para obter detalhes sobre as SKUs disponíveis, consulte [SKUs de Registro de Contêiner do Azure](container-registry-skus.md).
 

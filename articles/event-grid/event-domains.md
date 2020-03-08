@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511375"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898858"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Entenda os domínios de eventos para gerenciar tópicos do Event Grid
 
@@ -31,7 +31,7 @@ Os domínios de eventos disponibilizam a mesma arquitetura usada pelos serviços
 
 ### <a name="example-use-case"></a>Caso de uso de exemplo
 
-Os domínios de eventos são mais facilmente explicados usando um exemplo. Digamos que você execute o Maquinário de Construção Contoso na fabricação de tratores, equipamentos de escavação e outras máquinas pesadas. Como parte da execução dos negócios, você envia informações em tempo real aos clientes sobre manutenção de equipamentos, integridade de sistemas e atualizações de contrato. Todas essas informações vão para vários pontos de extremidade, incluindo seu aplicativo, endpoints de clientes e outras infraestruturas que os clientes configuraram.
+Os domínios de eventos são mais facilmente explicados usando um exemplo. Digamos que você execute máquinas de construção da Contoso, em que você fabrica os tratores, a utilização de equipamentos e outras máquinas pesadas. Como parte da execução dos negócios, você envia informações em tempo real aos clientes sobre manutenção de equipamentos, integridade de sistemas e atualizações de contrato. Todas essas informações vão para vários pontos de extremidade, incluindo seu aplicativo, endpoints de clientes e outras infraestruturas que os clientes configuraram.
 
 Todas essas informações vão para vários pontos de extremidade, incluindo seu aplicativo, endpoints de clientes e outras infraestruturas que os clientes configuraram. Cada um dos seus clientes é representado como um tópico dentro do domínio. Autenticação e autorização são tratadas usando o Active Directory do Azure. Cada um de seus clientes pode se inscrever no tópico deles e receber os eventos deles. O acesso gerenciado por meio do domínio do evento garante que eles possam acessar apenas o tópico deles.
 
@@ -43,13 +43,13 @@ Além disso, também fornece um ponto de extremidade exclusivo, em que todos os 
 
 Com um domínio, você obtém autorização de granulação fina e controle de autenticação sobre cada tópico através do controle de acesso baseado em função (RBAC) do Azure. É possível usar essas funções para restringir cada locatário no aplicativo somente aos tópicos que você deseja permitir acesso.
 
-O RBAC em domínios de eventos funciona da mesma maneira que o [controle de acesso gerenciado](security-authentication.md#management-access-control) funciona no restante da Grade de Eventos e do Azure. Use o RBAC para criar e impor definições de função personalizadas em domínios de eventos.
+O RBAC em domínios de eventos funciona da mesma maneira que o [controle de acesso gerenciado](security-authorization.md) funciona no restante da Grade de Eventos e do Azure. Use o RBAC para criar e impor definições de função personalizadas em domínios de eventos.
 
 ### <a name="built-in-roles"></a>Funções internas
 
 O Event Grid tem duas definições de função integradas para tornar o RBAC mais fácil para trabalhar com domínios de eventos. Essas funções são **EventGrid EventSubscription Contributor (Visualizar)** e **EventGrid EventSubscription Reader (Visualizar)** . Você atribui essas funções a usuários que precisam se inscrever em tópicos em seu domínio de evento. Você faz o escopo da atribuição de função apenas para o tópico que os usuários precisam assinar.
 
-Para obter informações sobre essas funções, consulte [Funções internas da grade de eventos](security-authentication.md#built-in-roles).
+Para obter informações sobre essas funções, consulte [Funções internas da grade de eventos](security-authorization.md#built-in-roles).
 
 ## <a name="subscribing-to-topics"></a>Assinar tópicos
 
@@ -101,7 +101,7 @@ Aqui estão os limites e as cotas relacionados aos domínios de evento:
 
 - 100.000 tópicos por domínio de evento 
 - 100 domínios de evento por assinatura do Azure 
-- 500 assinaturas de evento por tópico em um domínio de eventos
+- 500 assinaturas de evento por tópico em um domínio de evento
 - 50 assinaturas de escopo de domínio 
 - taxa de ingestão de eventos por segundo do 5.000 (em um domínio)
 
@@ -112,6 +112,6 @@ Os domínios de evento usam o mesmo [preço de operações](https://azure.micros
 
 As operações funcionam da mesma forma em domínios de eventos, como em tópicos personalizados. Cada entrada de um evento para um domínio de evento é uma operação e cada tentativa de entrega de um evento é uma operação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como configurar domínios de eventos, criar tópicos, criar inscrições de eventos e publicar eventos, consulte [Gerenciar domínios de eventos](./how-to-event-domains.md).

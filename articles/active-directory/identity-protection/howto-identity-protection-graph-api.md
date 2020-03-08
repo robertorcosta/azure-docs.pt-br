@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15b9bae1bd901325efdefeaa4db53df2d6b42b44
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f6fd62ccab4d6e32b23835d280732797e133ada8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275898"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671614"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
 
 O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Há quatro APIs que expõem informações sobre usuários arriscados e entradas. A primeira API, **riskDetection**, permite que você consulte Microsoft Graph para obter uma lista de detecções de risco vinculadas de usuário e de entrada e informações associadas sobre a detecção. A segunda API, **riskyUsers**, permite que você consulte o Microsoft Graph para obter informações sobre a proteção do Identity Protection detectada como risco. A terceira API, **signIn**, permite que você consulte o Microsoft Graph para obter informações sobre entradas do Azure AD com propriedades específicas relacionadas ao estado, detalhe e nível de risco. A quarta API, **identityRiskEvents**, permite que você consulte Microsoft Graph para obter uma lista de [detecções de risco](../reports-monitoring/concept-risk-events.md) e informações associadas. A API identityRiskEvents será preterida em 10 de janeiro de 2020; Sugerimos que você use a API **riskDetections** em vez disso. Este artigo apresenta a você uma introdução à conexão com o Microsoft Graph e à consulta dessas APIs. Para obter uma introdução detalhada, documentação completa e acesso ao Graph Explorer, consulte o [site do Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específica para essas APIs:
 
-* [API riskDetection](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
-* [API riskyUsers](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
-* [API signIn](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
-* a [API identityRiskEvents](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta) *será preterida em 10 de janeiro de 2020*
+* [API riskDetection](/graph/api/resources/riskdetection?view=graph-rest-beta)
+* [API riskyUsers](/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [API signIn](/graph/api/resources/signin?view=graph-rest-beta)
+* a [API identityRiskEvents](/graph/api/resources/identityriskevent?view=graph-rest-beta) *será preterida em 10 de janeiro de 2020*
 
 ## <a name="connect-to-microsoft-graph"></a>Conectar o Microsoft Graph
 
@@ -124,7 +124,7 @@ Antes de começar, será necessário:
 
    1. Na caixa de texto **Descrição da chave** , digite uma descrição (por exemplo, *detecção de risco do Azure ad*).
    1. Como **Duração**, selecione **Em um ano**.
-   1. Clique em **Salvar**.
+   1. Clique em **Save** (Salvar).
    1. Copie o valor da chave e cole em um local seguro.   
    
    > [!NOTE]
@@ -224,7 +224,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 Parabéns, você acabou de criar sua primeira chamada para o Microsoft Graph!  
 Agora você pode consultar as detecções de risco de identidade e usar os dados, no entanto, se desejar.
 
-Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do Graph, confira a [documentação](https://docs.microsoft.com/graph/overview) e muito mais no [site Microsoft Graph](https://developer.microsoft.com/graph). 
+Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do Graph, confira a [documentação](/graph/overview) e muito mais no [site Microsoft Graph](https://developer.microsoft.com/graph). 
 
 Para obter informações relacionadas. consulte:
 

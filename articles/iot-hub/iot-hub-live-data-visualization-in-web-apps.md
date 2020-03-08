@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 138e077f7b47fa9f38a4710db95eb7208cef78e3
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767959"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675312"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizar dados de sensor em tempo real do Hub IoT do Azure em um aplicativo Web
 
@@ -52,7 +52,7 @@ Neste tutorial, você aprenderá a Visualizar dados de sensor em tempo real que 
 Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos IoT) à CLI do Azure.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT
@@ -229,7 +229,7 @@ Nesta seção, você provisiona um aplicativo Web no serviço de aplicativo e im
 
 11. Navegue até `https://<your web app name>.azurewebsites.net` em um navegador. Uma página da Web semelhante à que você viu quando executou o aplicativo Web é exibida localmente. Supondo que o dispositivo esteja executando e enviando dados, você deverá ver um gráfico em execução das leituras mais recentes de temperatura e umidade do 50 enviadas pelo dispositivo.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Se você tiver problemas com este exemplo, tente as etapas nas seções a seguir. Se você ainda tiver problemas, envie-nos comentários na parte inferior deste tópico.
 
@@ -255,7 +255,7 @@ Se você tiver problemas com este exemplo, tente as etapas nas seções a seguir
 
 * Se você vir um erro sobre a não localização de um pacote, você pode ter executado as etapas fora de ordem. Quando o site é implantado (com `git push`), o serviço de aplicativo é executado `npm install`, que é executado com base na versão atual do nó que ele configurou. Se isso for alterado na configuração mais tarde, você precisará fazer uma alteração sem sentido no código e enviá-lo novamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você usou com êxito seu aplicativo Web para visualizar dados do sensor em tempo real do seu Hub IoT.
 

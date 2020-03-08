@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646987"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898414"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usar máquinas virtuais de ciência de dados do Azure
 
@@ -38,6 +38,9 @@ Quando você tiver criado o DSVM, selecione a lista suspensa **executar** no pai
 
 Quando você seleciona uma instância de DSVM, o Azure Notebooks pode solicitar as credenciais de máquina específicas que usou quando criou a VM.
 
+> [!Important]
+> O nome de usuário deve estar em minúsculas para usá-lo com JupyterHub.
+
 Se qualquer uma das condições não for atendida, você ainda poderá se conectar ao DSVM. Na lista suspensa, selecione a opção de **computação direta** , que solicita um nome (para mostrar na lista), o endereço IP e a porta da VM (geralmente 8000, a porta padrão para a qual o JupyterHub escuta) e as credenciais da VM:
 
 ![Prompt que coleta informações do servidor para a opção de Computação Direta](media/project-compute-tier-direct.png)
@@ -60,9 +63,9 @@ Se vários usuários compartilharem um DSVM, você poderá evitar o bloqueio uns
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até sua máquina virtual.
 1. Em **suporte + solução de problemas** na margem esquerda, selecione **Redefinir senha**.
-1. Insira um novo nome de usuário e senha e selecione **Atualizar**. (Nomes de já existentes não são afetados.)
+1. Insira um novo **nome de usuário**. O nome de usuário deve estar em minúsculas para usá-lo com JupyterHub. Digite uma senha. Em seguida, selecione **Atualizar**. (Nomes de já existentes não são afetados.)
 1. Repita a etapa anterior para quaisquer usuários adicionais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o DSVMs na [introdução às máquinas virtuais de ciência de dados do Azure](/azure/machine-learning/data-science-virtual-machine/overview).

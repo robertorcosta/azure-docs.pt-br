@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505735"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851389"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solucionar problemas da solução Iniciar/Parar VMs fora do horário comercial
 
@@ -203,7 +203,7 @@ Esse problema pode ser causado por uma conta Run As configurada incorretamente o
 
 Para verificar se sua Conta Run As está configurada corretamente, acesse sua Conta de Automação no portal do Azure e selecione **Contas Run as** em **Configurações da conta**. Aqui você verá o status das Contas Run As, se uma Conta Run As estiver configurada incorretamente ou expirada o status mostrará isso.
 
-Se a conta Run As estiver [configurada incorretamente](../manage-runas-account.md#misconfiguration), você deve excluir e recriar a Conta Run As.
+Se sua conta Executar como estiver configurada incorretamente, você deverá excluir e recriar sua conta Executar como. Consulte [gerenciar contas Executar como da automação do Azure](../manage-runas-account.md).
 
 Se o certificado expirou para sua Conta Run As, siga as etapas listadas em [Renovação de certificado autoassinados](../manage-runas-account.md#cert-renewal) para renovar o certificado.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: da44e8482e335c209f45db478797efa5461bbfe1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186078"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671852"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurar uma política de acesso condicional no modo somente de relatório (visualização)
 
@@ -48,8 +48,8 @@ Para exibir o resultado de uma política somente de relatório para uma entrada 
 
 Para exibir o impacto agregado das políticas de acesso condicional usando a nova pasta de trabalho de informações de acesso condicional, você deve integrar o Azure Monitor ao Azure AD e exportar os logs de entrada. Há duas etapas para configurar essa integração: 
 
-1. [Inscreva-se em uma assinatura Azure monitor e crie um espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-1. [Exporte os logs de entrada do Azure ad para Azure monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Inscreva-se em uma assinatura Azure monitor e crie um espaço de trabalho](/azure/azure-monitor/learn/quick-create-workspace).
+1. [Exporte os logs de entrada do Azure ad para Azure monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 Mais informações sobre preços de Azure Monitor podem ser encontradas na [página de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Os recursos para estimar os custos, definir um limite diário ou personalizar o período de retenção de dados podem ser encontrados no artigo [gerenciar o uso e os custos com logs de Azure monitor](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

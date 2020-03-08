@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral da proteção do servidor do D
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6640690f725c84899babef6825f817bad447b40f
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586471"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673277"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
 
@@ -74,7 +74,7 @@ Você pode encontrar o **ConfigureSharePoint.exe** na pasta [Caminho de instala�
    * Conceda acesso de leitura do grupo WSS_Admin_WPG à chave do Registro do DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Você precisará executar novamente o ConfigureSharePoint.exe sempre que houver uma alteração nas credenciais de administrador de farm do SharePoint.
+> Você precisará executar novamente o ConfigureSharePoint. exe sempre que houver uma alteração nas credenciais de administrador do farm do SharePoint.
 >
 >
 
@@ -133,7 +133,7 @@ Depois de configurar o DPM e o farm do SharePoint conforme explicado anteriormen
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > O DPM fornece um máximo de dois backups diários no Azure em momentos diferentes. O Backup do Azure também pode controlar o volume de largura de banda WAN que pode ser usada para backups em horário de pico e fora dos horários de pico usando a [Limitação de Rede do Backup do Azure](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > O DPM fornece um máximo de dois backups diários no Azure em momentos diferentes. O backup do Azure também pode controlar a quantidade de largura de banda de WAN que pode ser usada para backups em horários de pico e fora de pico usando a [limitação de rede de backup do Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Dependendo do agendamento de backup selecionado, na página **Especificar Política de Retenção Online** , selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.

@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 8fb4d50a4ba56efd9087a829c7d54c3010fc671e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 5fd38a781a58da530ad805bbeee352858eb33b41
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382061"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892898"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell
 
@@ -28,7 +28,7 @@ O trabalho de exemplo lê dados de streaming de um dispositivo Hub IoT. Os dados
 
 * Este início rápido requer o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão que está instalada em seu computador local. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Algumas ações do Hub IoT não são compatíveis com o Azure PowerShell e precisam ser concluídas por meio da CLI do Azure versão 2.0.24 ou posterior e da extensão de IoT para a CLI do Azure. [Instale a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e use `az extension add --name azure-cli-iot-ext` para instalar a extensão de IoT.
+* Algumas ações do Hub IoT não são suportadas pelo Azure PowerShell e devem ser concluídas usando CLI do Azure versão 2.0.70 ou posterior e a extensão de IoT para CLI do Azure. [Instale a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e use `az extension add --name azure-iot` para instalar a extensão de IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
@@ -329,7 +329,7 @@ Remove-AzResourceGroup `
   -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste guia de início rápido, você implantou um trabalho simples do Stream Analytics usando PowerShell. Você também pode implantar trabalhos do Stream Analytics usando o [portal do Azure](stream-analytics-quick-create-portal.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 

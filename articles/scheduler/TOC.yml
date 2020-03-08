@@ -6,8 +6,8 @@
       href: scheduler-intro.md
 - name: Introdução
   items:
-    - name: Criar e gerenciar trabalhos – portal
-      href: scheduler-get-started-portal.md
+    - name: Criar e gerenciar agendas – Azure PowerShell
+      href: scheduler-powershell-reference.md
     - name: Migrar do Agendador para Aplicativos Lógicos
       href: migrate-from-scheduler-to-logic-apps.md
 - name: Conceitos
@@ -30,7 +30,7 @@
           href: scheduler-advanced-complexity.md
         - name: Criar e gerenciar agendas – Azure PowerShell
           href: scheduler-powershell-reference.md
-    - name: Segurança
+    - name: Seguro
       items:
         - name: Autenticar chamadas de saída
           href: scheduler-outbound-authentication.md

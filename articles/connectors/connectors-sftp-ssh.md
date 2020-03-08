@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161867"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851504"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -36,29 +36,34 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a se
   > [!NOTE]
   > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
 
+  Você pode substituir esse comportamento adaptável ao [especificar um tamanho de parte constante](#change-chunk-size) para usar em vez disso. Esse tamanho pode variar de 5 MB a 50 MB. Por exemplo, suponha que você tenha um arquivo de 45 MB e uma rede que possa dar suporte a esse tamanho de arquivo sem latência. O agrupamento adaptável resulta em várias chamadas, em vez de uma chamada. Para reduzir o número de chamadas, você pode tentar definir um tamanho de bloco de 50 MB. Em um cenário diferente, se seu aplicativo lógico estiver atingindo o tempo limite, por exemplo, ao usar partes de 15 MB, você poderá tentar reduzir o tamanho para 5 MB.
+
   O tamanho da parte é associado a uma conexão, o que significa que você pode usar a mesma conexão para ações que dão suporte a agrupamento e, em seguida, para ações que não dão suporte a agrupamento. Nesse caso, o tamanho da parte para ações que não dão suporte a intervalos de agrupamento de 5 MB a 50 MB. Esta tabela mostra quais ações de SFTP-SSH dão suporte ao agrupamento:
 
-  | Ação | Suporte a agrupamentos |
-  |--------|------------------|
-  | **Copiar arquivo** | Não |
-  | **Criar arquivo** | Sim |
-  | **Criar pasta** | Não aplicável |
-  | **Excluir arquivo** | Não aplicável |
-  | **Extrair o arquivo morto para a pasta** | Não aplicável |
-  | **Obter conteúdo do arquivo** | Sim |
-  | **Obter o conteúdo do arquivo usando o caminho** | Sim |
-  | **Obter metadados do arquivo** | Não aplicável |
-  | **Obter Metadados do Arquivo usando o caminho** | Não aplicável |
-  | **Listar arquivos na pasta** | Não aplicável |
-  | **Renomear arquivo** | Não aplicável |
-  | **Atualizar arquivo** | Não |
-  |||
+  | Ação | Suporte a agrupamentos | Substituir suporte ao tamanho da parte |
+  |--------|------------------|-----------------------------|
+  | **Copiar arquivo** | Não | Não aplicável |
+  | **Criar arquivo** | Sim | Sim |
+  | **Criar pasta** | Não aplicável | Não aplicável |
+  | **Excluir arquivo** | Não aplicável | Não aplicável |
+  | **Extrair o arquivo morto para a pasta** | Não aplicável | Não aplicável |
+  | **Obter conteúdo do arquivo** | Sim | Sim |
+  | **Obter o conteúdo do arquivo usando o caminho** | Sim | Sim |
+  | **Obter metadados do arquivo** | Não aplicável | Não aplicável |
+  | **Obter Metadados do Arquivo usando o caminho** | Não aplicável | Não aplicável |
+  | **Listar arquivos na pasta** | Não aplicável | Não aplicável |
+  | **Renomear arquivo** | Não aplicável | Não aplicável |
+  | **Atualizar arquivo** | Não | Não aplicável |
+  ||||
 
-* Os gatilhos SFTP-SSH não dão suporte ao agrupamento. Ao solicitar o conteúdo do arquivo, os gatilhos selecionam apenas os arquivos que são 15 MB ou menores. Para obter arquivos com mais de 15 MB, siga este padrão em vez disso:
+  > [!NOTE]
+  > Para carregar arquivos grandes, você precisa de permissões de leitura e gravação para a pasta raiz em seu servidor SFTP.
 
-  * Use um gatilho SFTP-SSH que retorne Propriedades de arquivo, como **quando um arquivo é adicionado ou modificado (somente Propriedades)** .
+* SFTP-os gatilhos SSH não dão suporte ao agrupamento de mensagens. Ao solicitar o conteúdo do arquivo, os gatilhos selecionam apenas os arquivos que são 15 MB ou menores. Para obter arquivos com mais de 15 MB, siga este padrão em vez disso:
 
-  * Siga o gatilho com a ação SFTP-SSH **Get file Content** , que lê o arquivo completo e usa implicitamente o agrupamento de mensagens.
+  1. Use um gatilho SFTP-SSH que retorna apenas Propriedades de arquivo, como **quando um arquivo é adicionado ou modificado (somente Propriedades)** .
+
+  1. Siga o gatilho com a ação SFTP-SSH **Get file Content** , que lê o arquivo completo e usa implicitamente o agrupamento de mensagens.
 
 <a name="comparison"></a>
 
@@ -74,7 +79,7 @@ Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conecto
 
 * Armazena em cache a conexão com o servidor SFTP *por até 1 hora*, o que melhora o desempenho e reduz o número de tentativas de conexão com o servidor. Para definir a duração desse comportamento de armazenamento em cache, edite a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração do SSH em seu servidor SFTP.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -153,13 +158,13 @@ Se sua chave privada estiver no formato de reversões, que usa a extensão de no
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "sftp ssh" como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira `sftp ssh` como filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
    -ou-
 
-   Para aplicativos lógicos existentes, na última etapa em que deseja adicionar uma ação, escolha **Nova etapa**. Na caixa de pesquisa, digite "sftp ssh" como seu filtro. Na lista de ações, selecione a ação desejada.
+   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma ação, selecione **nova etapa**. Na caixa de pesquisa, insira `sftp ssh` como o filtro. Na lista de ações, selecione a ação desejada.
 
-   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Forneça os detalhes necessários para sua conexão.
 
@@ -177,9 +182,25 @@ Se sua chave privada estiver no formato de reversões, que usa a extensão de no
 
    1. No acionador ou ação SFTP-SSH que você adicionou, cole a chave *completa* que você copiou na propriedade **chave privada SSH**, que suporta várias linhas.  ***Certifique-se de colar*** a chave. ***Não insira ou edite manualmente a chave***.
 
-1. Quando você terminar inserindo os detalhes de conexão, escolha **criar**.
+1. Quando você terminar de inserir os detalhes da conexão, selecione **criar**.
 
 1. Agora, forneça os detalhes necessários para o acionador ou a ação selecionada e continue criando o fluxo de trabalho do seu aplicativo lógico.
+
+<a name="change-chunk-size"></a>
+
+## <a name="override-chunk-size"></a>Substituir tamanho da parte
+
+Para substituir o comportamento adaptável padrão que o agrupamento usa, você pode especificar um tamanho de parte constante de 5 MB a 50 MB.
+
+1. No canto superior direito da ação, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
+
+   ![Abrir SFTP-configurações de SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. Em **transferência de conteúdo**, na propriedade **tamanho da parte** , insira um valor inteiro de `5` para `50`, por exemplo: 
+
+   ![Especifique o tamanho da parte para usar em vez disso](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. Quando tiver terminado, selecione **Concluído**.
 
 ## <a name="examples"></a>Exemplos
 
@@ -204,6 +225,6 @@ Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

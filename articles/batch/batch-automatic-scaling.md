@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200088"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672061"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
@@ -134,8 +134,8 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 | $SucceededTasks |O número de tarefas que foram concluídas com êxito. |
 | $FailedTasks |O número de tarefas que falharam. |
 | $CurrentDedicatedNodes |O número atual de nós de computação dedicados. |
-| $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo quaisquer nós que tenham sido capturados. |
-| $PreemptedNodeCount | O número de nós no pool que está em um estado capturado. |
+| $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo todos os nós que foram preempçãos. |
+| $PreemptedNodeCount | O número de nós no pool que estão em estado de prevenção. |
 
 > [!TIP]
 > As variáveis definidas pelo serviço de somente leitura mostradas na tabela anterior são *objetos* que fornecem vários métodos para acessar os dados associados a cada um. Para obter mais informações, consulte [Obter amostras de dados](#getsampledata) a seguir neste artigo.

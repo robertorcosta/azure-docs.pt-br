@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512191"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672674"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD
 
@@ -28,7 +28,7 @@ O ingresso no Azure AD destina-se a organizações que desejam ser somente na nu
 | **Público-alvo principal** | Adequado para organizações híbridas e somente de nuvem. |
 |   | Aplicável a todos os usuários em uma organização |
 | **Propriedade do dispositivo** | Organização |
-| **Sistemas Operacionais** | Todos os dispositivos Windows 10 |
+| **Sistemas operacionais** | Todos os dispositivos Windows 10 |
 | **Provisionamento** | Autoatendimento: Windows OOBE ou configurações |
 |   | Registro em massa |
 |   | Windows Autopilot |
@@ -45,9 +45,9 @@ O ingresso no Azure AD destina-se a organizações que desejam ser somente na nu
 
 Os dispositivos ingressados no Azure AD são conectados ao usando uma conta organizacional do Azure AD. O acesso a recursos na organização pode ser ainda mais limitado com base nessa conta do Azure AD e [nas políticas de acesso condicional](../conditional-access/overview.md) aplicadas à identidade do dispositivo.
 
-Os administradores podem proteger e controlar ainda mais os dispositivos adicionados ao Azure AD usando ferramentas de MDM (gerenciamento de dispositivo móvel) como Microsoft Intune ou em cenários de cogerenciamento usando o Microsoft Endpoint Configuration Manager. Essas ferramentas fornecem um meio de impor configurações necessárias à organização, como exigir que o armazenamento seja criptografado, complexidade de senha, instalações de software e atualizações de software. Os administradores podem disponibilizar aplicativos da organização para dispositivos ingressados no Azure AD usando Configuration Manager para [gerenciar aplicativos da Microsoft Store para negócios e educação](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Os administradores podem proteger e controlar ainda mais os dispositivos adicionados ao Azure AD usando ferramentas de MDM (gerenciamento de dispositivo móvel) como Microsoft Intune ou em cenários de cogerenciamento usando o Microsoft Endpoint Configuration Manager. Essas ferramentas fornecem um meio de impor configurações necessárias à organização, como exigir que o armazenamento seja criptografado, complexidade de senha, instalações de software e atualizações de software. Os administradores podem disponibilizar aplicativos da organização para dispositivos ingressados no Azure AD usando Configuration Manager para [gerenciar aplicativos da Microsoft Store para negócios e educação](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-O ingresso no Azure AD pode ser feito usando opções de autoatendimento como a OOBE (configuração inicial do uso), o registro em massa ou o [Windows AutoPilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+O ingresso no Azure AD pode ser feito usando opções de autoatendimento como a OOBE (configuração inicial do uso), o registro em massa ou o [Windows AutoPilot](/intune/enrollment-autopilot).
 
 Os dispositivos ingressados no Azure AD ainda podem manter o acesso de logon único a recursos locais quando estão na rede da organização. Os dispositivos que são ingressados no Azure AD ainda podem ser autenticados em servidores locais como arquivos, impressão e outros aplicativos.
 
@@ -74,11 +74,11 @@ A meta dos dispositivos adicionados ao Azure AD é simplificar:
 
 O Ingresso no Azure AD pode ser implantado usando um destes métodos:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Implantação em massa](https://docs.microsoft.com/intune/windows-bulk-enroll)
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
+- [Implantação em massa](/intune/windows-bulk-enroll)
 - [Experiência de autoatendimento](azuread-joined-devices-frx.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Planejar sua implementação de ingresso no Azure AD](azureadjoin-plan.md)
 - [Como gerenciar o grupo de administradores locais em dispositivos ingressados no Azure AD](assign-local-admin.md)

@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: 64d8c636aa4b0f8b75ba3a6f92d7792c91a9271d
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 11fbb549409afd78f77e194fe45fa0d7626f75a7
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562895"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78674442"
 landingContent:
 - title: Introdução
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: quickstarts/text-to-speech.md
     - text: Sintetizar uma fala em um arquivo de áudio
       url: quickstarts/text-to-speech-audio-file.md
-    - text: Sintetizar fala com áudio de formato longo
+    - text: Sintetizar uma fala com áudio de formato longo
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
 - title: Guias passo a passo
   linkLists:
@@ -79,6 +79,8 @@ landingContent:
       url: language-support.md#text-to-speech
     - text: Preços
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Conjuntos fonéticos de SSML
+      url: speech-ssml-phonetic-sets.md
     - text: Código de conduta
       url: https://aka.ms/custom-neural-code-of-conduct
     - text: Divulgação para ator de voz

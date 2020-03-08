@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a75b662fabcce8ffa64f1b705e86a1c1dde625
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194323"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672619"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 
@@ -52,7 +52,7 @@ Os grupos de configurações a seguir estão disponíveis para que os usuários 
 ![Sincronizar suas configurações](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
-> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 A sincronização do grupo de configuração do navegador do Microsoft Edge (favoritos, lista de leitura) pode ser habilitada ou desabilitada por usuários finais por meio da opção de menu Configurações do navegador Microsoft Edge.
 

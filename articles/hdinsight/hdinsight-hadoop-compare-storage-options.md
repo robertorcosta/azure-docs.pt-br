@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 593f80583067d28292701353c8a6a62d81282614
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 02/26/2020
+ms.openlocfilehash: 72534225acffa176d248901f363100955e36c6f6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650819"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898923"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -28,7 +28,7 @@ A tabela a seguir resume os serviços de armazenamento do Azure que têm suporte
 
 | Serviço de armazenamento | Tipo de conta | Tipo de namespace | Serviços com suporte | Níveis de desempenho compatíveis | Camadas de acesso compatíveis | Versão do HDInsight | Tipo de cluster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Uso geral V2 | Hierárquico (Filesystem) | Blob | Standard | Quente, frio e arquivo morto | 3.6+ | Todos, exceto Spark 2,1 |
+|Azure Data Lake Storage Gen2| Uso geral V2 | Hierárquico (Filesystem) | Blob | Standard | Quente, frio e arquivo morto | 3.6+ | Todos, exceto Spark 2,1 e 2,2|
 |Armazenamento do Azure| Uso geral V2 | Objeto | Blob | Standard | Quente, frio e arquivo morto | 3.6+ | Todos |
 |Armazenamento do Azure| Uso geral V1 | Objeto | Blob | Standard | N/D | Todos | Todos |
 |Armazenamento do Azure| Armazenamento de BLOBs * * | Objeto | Blob de blocos | Standard | Quente, frio e arquivo morto | Todos | Todos |
@@ -58,7 +58,7 @@ Você pode criar um cluster usando diferentes combinações de serviços para ar
 \* = Isso pode ser uma ou várias contas de Data Lake Storage Gen2, desde que todas as configurações usem a mesma identidade gerenciada para acesso ao cluster.
 
 > [!Note] 
-> Não há suporte para o armazenamento primário Data Lake Storage Gen2 para clusters Spark 2,1. 
+> Não há suporte para o armazenamento primário Data Lake Storage Gen2 para clusters Spark 2,1 ou 2,2. 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Usar Azure Data Lake Storage Gen2 com Apache Hadoop no Azure HDInsight
 

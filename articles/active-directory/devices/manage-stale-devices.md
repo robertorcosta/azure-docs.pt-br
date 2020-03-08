@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538813"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672291"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
@@ -57,7 +57,7 @@ Você tem duas opções para recuperar o valor do carimbo de data/hora da ativid
 
     ![Carimbo de data/hora da atividade](./media/manage-stale-devices/01.png)
 
-- O cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+- O cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
 
     ![Carimbo de data/hora da atividade](./media/manage-stale-devices/02.png)
 
@@ -129,11 +129,11 @@ Embora seja possível limpar dispositivos obsoletos no portal do Azure, é mais 
 
 Uma rotina típica é composta das seguintes etapas:
 
-1. Conectar-se ao Azure Active Directory usando o cmdlet [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
+1. Conectar-se ao Azure Active Directory usando o cmdlet [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
 1. Obter a lista de dispositivos
-1. Desabilite o dispositivo usando o cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
+1. Desabilite o dispositivo usando o cmdlet [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 1. Aguarde o período de cortesia com o número de dias escolhido por você antes de excluir o dispositivo.
-1. Remova o dispositivo usando o cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+1. Remova o dispositivo usando o cmdlet [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Obter a lista de dispositivos
 
@@ -180,6 +180,6 @@ Qualquer autenticação em que um dispositivo está sendo usado para autenticar-
 - **Dispositivo ingressado no Azure AD** – usuários não podem usar o dispositivo para entrar. 
 - **Dispositivos móveis** – o usuário não pode acessar os recursos do Azure AD como o Office 365. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma visão geral de como gerenciar dispositivos no portal do Azure, consulte [Gerenciar dispositivos usando o portal do Azure](device-management-azure-portal.md)

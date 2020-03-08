@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9240b863eef4d460cd8d3a47304fb96ffb4bc8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917764"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672644"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um token de atualização primário?
 
@@ -33,7 +33,7 @@ Os componentes do Windows a seguir desempenham um papel fundamental na solicita�
 * **Plug-in CloudAP do Azure ad**: um plug-in específico do Azure ad criado na estrutura CloudAP, que verifica as credenciais do usuário com o Azure ad durante a entrada do Windows.
 * **Plug-in do Azure ad WAM**: um plug-in específico do Azure ad criado na estrutura WAM, que HABILITA o SSO para aplicativos que dependem do Azure ad para autenticação.
 * **Dsreg**: um componente específico do Azure AD no Windows 10, que manipula o processo de registro de dispositivo para todos os Estados do dispositivo.
-* **Trusted Platform Module** (TPM): um TPM é um componente de hardware incorporado a um dispositivo, que fornece funções de segurança baseadas em hardware para segredos de usuário e dispositivo. Mais detalhes podem ser encontrados no artigo [Trusted Platform Module visão geral da tecnologia](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Trusted Platform Module** (TPM): um TPM é um componente de hardware incorporado a um dispositivo, que fornece funções de segurança baseadas em hardware para segredos de usuário e dispositivo. Mais detalhes podem ser encontrados no artigo [Trusted Platform Module visão geral da tecnologia](/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 ## <a name="what-does-the-prt-contain"></a>O que o PRT contém?
 
@@ -48,7 +48,7 @@ Um PRT é um blob opaco enviado do Azure AD cujo conteúdo não é conhecido por
 
 ## <a name="how-is-a-prt-issued"></a>Como um PRT é emitido?
 
-O registro de dispositivo é um pré-requisito para a autenticação baseada em dispositivo no Azure AD. Um PRT é emitido para usuários somente em dispositivos registrados. Para obter detalhes mais detalhados sobre o registro de dispositivos, consulte o artigo [Windows Hello para empresas e registro de dispositivos](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). Durante o registro do dispositivo, o componente dsreg gera dois conjuntos de pares de chaves de criptografia:
+O registro de dispositivo é um pré-requisito para a autenticação baseada em dispositivo no Azure AD. Um PRT é emitido para usuários somente em dispositivos registrados. Para obter detalhes mais detalhados sobre o registro de dispositivos, consulte o artigo [Windows Hello para empresas e registro de dispositivos](/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). Durante o registro do dispositivo, o componente dsreg gera dois conjuntos de pares de chaves de criptografia:
 
 * Chave do dispositivo (dkpub/dkpriv)
 * Chave de transporte (tkpub/tkpriv)
@@ -145,9 +145,9 @@ Os diagramas a seguir ilustram os detalhes subjacentes na emissão, renovação 
 > [!NOTE]
 > Em dispositivos adicionados ao Azure AD, essa troca ocorre de forma síncrona para emitir um PRT antes que o usuário possa fazer logon no Windows. Em dispositivos ingressados no Azure AD híbridos, Active Directory local é a autoridade principal. Portanto, o usuário está aguardando até que possa adquirir um TGT para fazer logon, enquanto a emissão de PRT ocorre de forma assíncrona. Esse cenário não se aplica aos dispositivos registrados do Azure AD, pois o logon não usa as credenciais do Azure AD.
 
-| Etapa | Descrição |
+| Etapa | DESCRIÇÃO |
 | :---: | --- |
-| A | O usuário insere sua senha na interface do usuário de entrada. O LogonUI passa as credenciais em um buffer de autenticação para o LSA, que, por sua só, passa internamente para CloudAP. O CloudAP encaminha essa solicitação para o plug-in CloudAP. |
+| Um | O usuário insere sua senha na interface do usuário de entrada. O LogonUI passa as credenciais em um buffer de autenticação para o LSA, que, por sua só, passa internamente para CloudAP. O CloudAP encaminha essa solicitação para o plug-in CloudAP. |
 | B | O plug-in CloudAP inicia uma solicitação de descoberta de realm para identificar o provedor de identidade para o usuário. Se o locatário do usuário tiver uma configuração de provedor de Federação, o Azure AD retornará o ponto de extremidade MEX (Exchange Metadata Endpoint) do provedor de Federação. Caso contrário, o AD do Azure retorna que o usuário é gerenciado indicando que o usuário pode se autenticar com o Azure AD. |
 | C | Se o usuário for gerenciado, o CloudAP receberá o nonce do Azure AD. Se o usuário for federado, o plug-in CloudAP solicitará um token SAML do provedor de Federação com as credenciais do usuário. Depois de receber, o token SAML solicita um nonce do Azure AD. |
 | D | O plug-in CloudAP constrói a solicitação de autenticação com as credenciais do usuário, nonce e um escopo do agente, assina a solicitação com a chave do dispositivo (dkpriv) e a envia ao Azure AD. Em um ambiente federado, o plug-in CloudAP usa o token SAML retornado pelo provedor de Federação em vez das credenciais do usuário. |
@@ -158,9 +158,9 @@ Os diagramas a seguir ilustram os detalhes subjacentes na emissão, renovação 
 
 ![Renovação de PRT em logons subsequentes](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
 
-| Etapa | Descrição |
+| Etapa | DESCRIÇÃO |
 | :---: | --- |
-| A | O usuário insere sua senha na interface do usuário de entrada. O LogonUI passa as credenciais em um buffer de autenticação para o LSA, que, por sua só, passa internamente para CloudAP. O CloudAP encaminha essa solicitação para o plug-in CloudAP. |
+| Um | O usuário insere sua senha na interface do usuário de entrada. O LogonUI passa as credenciais em um buffer de autenticação para o LSA, que, por sua só, passa internamente para CloudAP. O CloudAP encaminha essa solicitação para o plug-in CloudAP. |
 | B | Se o usuário tiver feito logon anteriormente no usuário, o Windows iniciará a entrada em cache e validará as credenciais para fazer o logon do usuário. A cada 4 horas, o plug-in CloudAP inicia a renovação de PRT de forma assíncrona. |
 | C | O plug-in CloudAP inicia uma solicitação de descoberta de realm para identificar o provedor de identidade para o usuário. Se o locatário do usuário tiver uma configuração de provedor de Federação, o Azure AD retornará o ponto de extremidade MEX (Exchange Metadata Endpoint) do provedor de Federação. Caso contrário, o AD do Azure retorna que o usuário é gerenciado indicando que o usuário pode se autenticar com o Azure AD. |
 | D | Se o usuário for federado, o plug-in CloudAP solicitará um token SAML do provedor de Federação com as credenciais do usuário. Depois de receber, o token SAML solicita um nonce do Azure AD. Se o usuário for gerenciado, o CloudAP receberá diretamente o nonce do Azure AD. |
@@ -172,9 +172,9 @@ Os diagramas a seguir ilustram os detalhes subjacentes na emissão, renovação 
 
 ![Uso de PRT durante solicitações de token de aplicativo](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
 
-| Etapa | Descrição |
+| Etapa | DESCRIÇÃO |
 | :---: | --- |
-| A | Um aplicativo (por exemplo, Outlook, OneNote, etc.) inicia uma solicitação de token para o WAM. O WAM, por sua vez, solicita ao plug-in do Azure AD WAM para atender à solicitação de token. |
+| Um | Um aplicativo (por exemplo, Outlook, OneNote, etc.) inicia uma solicitação de token para o WAM. O WAM, por sua vez, solicita ao plug-in do Azure AD WAM para atender à solicitação de token. |
 | B | Se um token de atualização para o aplicativo já estiver disponível, o plug-in do Azure AD WAM o usará para solicitar um token de acesso. Para fornecer uma prova de ligação de dispositivo, o plugin WAM assina a solicitação com a chave de sessão. O Azure AD valida a chave de sessão e emite um token de acesso e um novo token de atualização para o aplicativo, criptografado pela chave de sessão. O plugin WAM solicita plug-in de AP de nuvem para descriptografar os tokens que, por sua vez, solicita que o TPM descriptografe usando a chave de sessão, resultando no plugin WAM obter ambos os tokens. Em seguida, o plugin WAM fornece apenas o token de acesso para o aplicativo, enquanto criptografa novamente o token de atualização com DPAPI e o armazena em seu próprio cache  |
 | C |  Se um token de atualização para o aplicativo não estiver disponível, o plug-in do Azure AD WAM usará o PRT para solicitar um token de acesso. Para fornecer uma prova de posse, o plugin WAM assina a solicitação que contém o PRT com a chave de sessão. O Azure AD valida a assinatura de chave de sessão comparando-a com a chave de sessão inserida no PRT, verifica se o dispositivo é válido e emite um token de acesso e um token de atualização para o aplicativo. Além disso, o Azure AD pode emitir um novo PRT (com base no ciclo de atualização), todos eles criptografados pela chave de sessão. |
 | D | O plugin WAM solicita plug-in de AP de nuvem para descriptografar os tokens que, por sua vez, solicita que o TPM descriptografe usando a chave de sessão, resultando no plugin WAM obter ambos os tokens. Em seguida, o plugin WAM fornece apenas o token de acesso para o aplicativo, enquanto criptografa novamente o token de atualização com DPAPI e o armazena em seu próprio cache. O plugin WAM usará o token de atualização no futuro para este aplicativo. O plugin WAM também fornece de volta o novo PRT para o plug-in de AP de nuvem, que valida o PRT com o Azure AD antes de atualizá-lo em seu próprio cache. O plug-in de AP de nuvem usará o novo PRT no futuro. |
@@ -184,15 +184,15 @@ Os diagramas a seguir ilustram os detalhes subjacentes na emissão, renovação 
 
 ![SSO do navegador usando PRT](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
 
-| Etapa | Descrição |
+| Etapa | DESCRIÇÃO |
 | :---: | --- |
-| A | O usuário faz logon no Windows com suas credenciais para obter um PRT. Quando o usuário abrir o navegador, o navegador (ou extensão) carregará as URLs do registro. |
+| Um | O usuário faz logon no Windows com suas credenciais para obter um PRT. Quando o usuário abrir o navegador, o navegador (ou extensão) carregará as URLs do registro. |
 | B | Quando um usuário abre uma URL de logon do Azure AD, o navegador ou a extensão valida a URL com aquelas obtidas do registro. Se eles corresponderem, o navegador invocará o host do cliente nativo para obter um token. |
 | C | O host de cliente nativo valida que as URLs pertencem aos provedores de identidade da Microsoft (conta Microsoft ou Azure AD), extrai um nonce enviado da URL e faz uma chamada para o plug-in CloudAP para obter um cookie de PRT. |
 | D | O plug-in CloudAP criará o cookie PRT, entrará com a chave de sessão associada ao TPM e a enviará de volta para o host do cliente nativo. Como o cookie é assinado pela chave de sessão, ele não pode ser adulterado. |
 | E | O host do cliente nativo retornará esse cookie de PRT ao navegador, que o incluirá como parte do cabeçalho de solicitação chamado x-MS-RefreshTokenCredential e solicitará tokens do Azure AD. |
 | F | O Azure AD valida a assinatura de chave de sessão no cookie PRT, valida o nonce, verifica se o dispositivo é válido no locatário e emite um token de ID para a página da Web e um cookie de sessão criptografado para o navegador. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como solucionar problemas relacionados a PRT, consulte o artigo [solução de problemas de Azure Active Directory híbrida ingressado em dispositivos Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md).
