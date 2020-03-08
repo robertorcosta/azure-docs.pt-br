@@ -3,22 +3,48 @@ title: Notas de versão – serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Um log em execução de versões de recursos do Speech Service, melhorias, correções de bugs e problemas conhecidos.
 services: cognitive-services
-author: oscholz
-manager: nitinme
+author: brianem
+manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.author: oliversc
+ms.date: 02/25/2020
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 235d8788b47355925d93cb3e3835d32e25c1b51f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cbe9c7cbd0f402e38d1163050d77b055f89948ba
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168154"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394799"
 ---
 # <a name="release-notes"></a>Notas de versão
+## <a name="speech-sdk-1100-2020-february-release"></a>SDK de fala 1.10.0:2020 – versão de fevereiro
+
+**Novos recursos**
+ - Pacotes python adicionados para dar suporte à nova versão 3,8 do Python.
+ - Red Hat Enterprise Linux (RHEL)/centos 8 x64 support (C++, C#, Java, Python).
+   > [!NOTE] 
+   > Os clientes devem configurar o OpenSSL de acordo com [estas instruções](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux).
+ - Suporte do Linux ARM32 para Debian e Ubuntu.
+ - O DialogServiceConnector agora dá suporte a um parâmetro opcional "ID do bot" em BotFrameworkConfig. Esse parâmetro permite o uso de vários bots de fala de linha direta com um único recurso de fala do Azure. Sem o parâmetro especificado, o bot padrão (conforme determinado pela página de configuração de canal da Direct line Speech) será usado.
+ - DialogServiceConnector agora tem uma propriedade SpeechActivityTemplate. O conteúdo dessa cadeia de caracteres JSON será usado pela Direct line Speech para preencher previamente uma grande variedade de campos com suporte em todas as atividades que atingem um bot de fala de linha direta, incluindo atividades geradas automaticamente em resposta a eventos como reconhecimento de fala.
+ - A TTS agora usa a chave de assinatura para autenticação, reduzindo a latência de primeiro byte do primeiro resultado de síntese após a criação de um sintetizador.
+ - Modelos de reconhecimento de fala atualizados para 19 localidades para uma redução média da taxa de erros do Word de 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, ZH-HK, NB-NO, Fi-FL, ru-RU, pl-PL, CA-ES, zh-TW, th-ÉSIMO, pt-PT, TR-TR). Os novos modelos trazem melhorias significativas em vários domínios, incluindo ditado, transcrição de Call Center e cenários de indexação de vídeo.
+
+**Correções de bug**
+ - Corrigido o bug em que o transcrevedor de conversa não aguardou corretamente em APIs JAVA 
+ - Correção do emulador do Android x86 para o problema do Xamarin [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
+ - Adição ausente (Get | Set) métodos de propriedade para AudioConfig
+ - Corrigir um bug de TTS em que o audioDataStream não pôde ser interrompido quando a conexão falha
+ - Usar um ponto de extremidade sem uma região causaria falhas de USP para o tradutor de conversa
+ - A geração de ID em aplicativos universais do Windows agora usa um algoritmo GUID exclusivo apropriado; Ele, anteriormente, de forma não intencional, um padrão de implementação de fragmentado que frequentemente produziu colisões em grandes conjuntos de interações.
+ 
+ **Amostras**
+ - Exemplo de Unity para usar o SDK de fala com o [microfone do Unity e streaming do modo Push](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone)
+
+**Outras alterações**
+ - [Documentação de configuração do OpenSSL atualizada para Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>SDK de fala 1.9.0:2020 – versão de janeiro
 

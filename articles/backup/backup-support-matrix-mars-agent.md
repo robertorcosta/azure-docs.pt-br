@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 515ca065914dc535c1ba21fdb5ac574e3987ca32
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582629"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668323"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -85,7 +85,7 @@ Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e o
 - Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
 - Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
 
-Para obter mais detalhes, consulte os [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais informações, consulte os [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.
@@ -97,7 +97,7 @@ Para obter mais detalhes, consulte os [requisitos de roteamento do ExpressRoute]
 Controle de Largura de Banda | Com suporte. No agente MARS, use **alterar propriedades** para ajustar a largura de banda.
 Limitação de rede | Não disponível para computadores com backup que executam o Windows Server 2008 R2, o Windows Server 2008 SP2 ou o Windows 7.
 
-## <a name="support-for-direct-backups"></a>Suporte para backups diretos
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 >[!NOTE]
 > O agente MARS não dá suporte a SKUs do Windows Server Core.
@@ -114,7 +114,6 @@ Os sistemas operacionais devem ser de 64 bits e devem estar executando os servi�
 Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
 Windows 8.1 (Enterprise, Pro)| Sim |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
 Windows 8 (Enterprise, Pro) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Básico, Starter) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |-.NET 4,5 <br> \- Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
@@ -122,6 +121,20 @@ Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | -.
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 
 Para obter mais informações, consulte [supported mAbs and DPM Operating Systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
+### <a name="operating-systems-at-end-of-support"></a>Sistemas operacionais no fim do suporte
+
+Os sistemas operacionais a seguir estão no final do suporte e é altamente recomendável atualizar o sistema operacional para continuar a permanecer protegido.
+
+Se os compromissos existentes impedirem a atualização do sistema operacional, considere migrar os servidores do Windows para as VMs do Azure e aproveitar os backups de VM do Azure para continuar mantendo a proteção. Visite a [página de migração aqui](https://azure.microsoft.com/migration/windows-server/) para obter mais informações sobre como migrar seu Windows Server.
+
+Para ambientes locais ou hospedados, em que você não pode atualizar o sistema operacional ou migrar para o Azure, ative as atualizações de segurança estendidas para os computadores para continuar a manter a proteção e o suporte. Observe que apenas edições específicas são elegíveis para atualizações de segurança estendidas. Visite a [página de perguntas frequentes](https://www.microsoft.com/cloud-platform/extended-security-updates) para saber mais.
+
+| **Sistema Operacional**                                       | **Arquivos/pastas** | **Estado do sistema** | **Requisitos de software/módulo**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Ultimate, Enterprise, pro, Home Premium/Basic, Starter) | Sim               | Não                 | Verificar a versão do servidor correspondente para os requisitos de software/módulo |
+| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim               | Sim                | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Microsoft VC + + redistribuível compatível <br>  -MMC (console de gerenciamento Microsoft) 3,0 <br>  -Gerenciamento e manutenção de imagens de implantação (DISM. exe) |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Sim               | Não                 | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Microsoft VC + + redistribuível compatível <br>  -MMC (console de gerenciamento Microsoft) 3,0 <br>  -Gerenciamento e manutenção de imagens de implantação (DISM. exe) <br>  -Servidor virtual 2005 base + KB KB948515 para O |
 
 ## <a name="backup-limits"></a>Limites do Backup
 

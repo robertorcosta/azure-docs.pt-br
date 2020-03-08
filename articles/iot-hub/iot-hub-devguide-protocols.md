@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626172"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668958"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referência – escolha um protocolo de comunicação
 
@@ -29,7 +29,7 @@ Para saber mais sobre como esses protocolos dão suporte a recursos específicos
 
 A tabela a seguir fornece as recomendações de alto nível para sua escolha de protocolo:
 
-| Protocol | Quando você deve escolher este protocolo |
+| Protocolo | Quando você deve escolher este protocolo |
 | --- | --- |
 | MQTT <br> MQTT sobre WebSocket |Use em todos os dispositivos que não exigem conectar vários dispositivos (cada um com suas próprias credenciais por dispositivo) sobre a mesma conexão TLS. |
 | AMQP <br> AMQP sobre WebSocket |Use em gateways de campo e de nuvem para tirar proveito da multiplexação de conexão entre dispositivos. |
@@ -48,13 +48,13 @@ Considere os seguintes pontos ao escolher seu protocolo de comunicação do lado
 * **Tamanho da carga**. O MQTT e o AMQP são protocolos binários, que resultam em cargas mais compactas que o HTTPS.
 
 > [!WARNING]
-> Ao usar o HTTPS, cada dispositivo deverá sondar se há mensagens da nuvem para o dispositivo a cada 25 minutos ou mais. No entanto, durante o desenvolvimento, é aceitável sondar com mais frequência do que a cada 25 minutos.
+> Ao usar HTTPS, cada dispositivo deve sondar mensagens da nuvem para o dispositivo não mais do que uma vez a cada 25 minutos. No desenvolvimento, cada dispositivo pode sondar com mais frequência, se desejado.
 
 ## <a name="port-numbers"></a>Números de porta
 
 Os dispositivos podem se comunicar com o Hub IoT no Azure usando uma variedade de protocolos. Normalmente, a opção de protocolo é orientada por requisitos específicos da solução. A tabela a seguir lista as portas de saída que devem ser abertas para um dispositivo para poder usar um protocolo específico:
 
-| Protocol | Port |
+| Protocolo | Porta |
 | --- | --- |
 | MQTT |8883 |
 | MQTT sobre WebSockets |443 |

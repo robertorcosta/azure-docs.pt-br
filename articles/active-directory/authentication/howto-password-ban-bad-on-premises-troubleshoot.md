@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas de proteção de senha-Azure Active Directory
-description: Entender a solução de problemas comuns da proteção por senha do Azure AD
+title: Solucionar problemas de proteção de senha do Azure AD local
+description: Saiba como solucionar problemas de proteção de senha do Azure AD para um ambiente de Active Directory Domain Services local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd609eb1f289c0a104bddaa08a60e7dc6202acee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847653"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671697"
 ---
-# <a name="azure-ad-password-protection-troubleshooting"></a>Solução de problemas de Proteção de Senha do Azure AD
+# <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solução de problemas: proteção de senha do Azure AD local
 
 Após a implantação da Proteção de Senha do Azure AD, a solução de problemas pode ser necessária. Este artigo apresenta detalhes para ajudá-lo a entender algumas etapas de solução de problemas comuns.
 
@@ -82,9 +82,9 @@ Esse problema pode ter várias causas.
 
 1. Seus agentes de DC não podem baixar uma política ou não é possível descriptografar políticas existentes. Verifique as possíveis causas nos tópicos acima.
 
-1. O modo de Imposição de política de senha ainda está definido para Auditoria. Se essa configuração estiver em vigor, reconfigure-a para impor usando o portal de proteção de senha do Azure AD. Consulte [habilitar a proteção por senha](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. O modo de Imposição de política de senha ainda está definido para Auditoria. Se essa configuração estiver em vigor, reconfigure-a para impor usando o portal de proteção de senha do Azure AD. Para obter mais informações, consulte [modos de operação](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
-1. A política de senha foi desabilitada. Se essa configuração estiver em vigor, reconfigure-a para habilitada usando o portal de proteção de senha do Azure AD. Consulte [habilitar a proteção por senha](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. A política de senha foi desabilitada. Se essa configuração estiver em vigor, reconfigure-a para habilitada usando o portal de proteção de senha do Azure AD. Para obter mais informações, consulte [modos de operação](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 1. Você não instalou o software do agente DC em todos os controladores de domínio no domínio. Nessa situação, é difícil garantir que os clientes remotos do Windows tenham como destino um determinado controlador de domínio durante uma operação de alteração de senha. Se você acredita que tenha direcionado com êxito um determinado controlador de domínio em que o software do agente do DC está instalado, você pode verificar verificando novamente o log de eventos do administrador do agente de DC: independentemente do resultado, haverá pelo menos um evento para documentar o resultado da senha confirmação. Se não houver nenhum evento presente para o usuário cuja senha seja alterada, a alteração de senha provavelmente será processada por um controlador de domínio diferente.
 
@@ -189,13 +189,13 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 O software de proxy de proteção de senha do Azure AD não é limitado por tempo em nenhuma versão. A Microsoft ainda recomenda que ambos os agentes de DC e proxy sejam atualizados para as versões mais recentes à medida que são lançados. O cmdlet `Get-AzureADPasswordProtectionProxy` pode ser usado para localizar agentes de proxy que exigem atualizações, semelhante ao exemplo acima para agentes de DC.
 
-Consulte [atualizando o agente de DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) e [atualizando o agente de proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) para obter mais detalhes sobre os procedimentos de atualização específicos.
+Consulte [atualizando o agente de DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) e [atualizando o serviço de proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) para obter mais detalhes sobre os procedimentos de atualização específicos.
 
 ## <a name="emergency-remediation"></a>Correção de emergência
 
 Se ocorrer uma situação em que o serviço do agente DC esteja causando problemas, o serviço do agente DC poderá ser encerrado imediatamente. O dll do filtro de senha do agente DC ainda tentará chamar o serviço que não está em execução e registrará eventos de aviso (10012, 10013), mas todas as senhas de entrada serão aceitas durante esse período. O serviço do agente DC poderá, então, também ser configurado através do Gerenciador de Controle de Serviço do Windows com um tipo de inicialização “Desabilitado”, conforme necessário.
 
-Outra medida de correção seria definir para o modo Habilitar para Não no portal de Proteção de Senha do Azure AD. Depois que a política atualizada tiver sido baixada, cada serviço do agente do DC entrará no modo inativo em que todas as senhas são aceitas no estado em que se encontram. Para mais informações, consulte [Impor o modo](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Outra medida de correção seria definir para o modo Habilitar para Não no portal de Proteção de Senha do Azure AD. Depois que a política atualizada tiver sido baixada, cada serviço do agente do DC entrará no modo inativo em que todas as senhas são aceitas no estado em que se encontram. Para obter mais informações, consulte [modos de operação](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 ## <a name="removal"></a>Remoção
 
@@ -247,7 +247,7 @@ Se for decidido desinstalar o software de proteção de senha do Azure AD e limp
 
    Esse caminho será diferente se o compartilhamento sysvol foi configurado em um local não padrão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Perguntas frequentes sobre a Proteção de Senha do Azure AD](howto-password-ban-bad-on-premises-faq.md)
 
