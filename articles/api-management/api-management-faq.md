@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967454"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375397"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="contact-us"></a>Contate-nos
+## <a name="contact-us"></a>Fale conosco
 * [Como fazer uma pergunta à equipe de Gerenciamento de API do Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -73,7 +73,7 @@ Você tem várias opções para copiar uma instância de Gerenciamento de API pa
 * Criar seu próprio recurso de backup e restauração usando a [API REST de Gerenciamento de API](/rest/api/apimanagement/). Use a API REST para salvar e restaurar as entidades da instância do serviço que você deseja.
 * Baixe a configuração de serviço usando o Git e carregue-a em uma nova instância. Para obter mais informações, confira [Saiba como salvar e definir a configuração do seu serviço de Gerenciamento de API usando o Git](api-management-configuration-repository-git.md).
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>É possível gerenciar minha instância de Gerenciamento de API programaticamente?
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Posso gerenciar minha instância de Gerenciamento de API por meio de programação?
 Sim, você pode gerenciar o Gerenciamento de API de forma programática, usando:
 
 * A [API REST de Gerenciamento de API](/rest/api/apimanagement/)
@@ -103,7 +103,7 @@ Para configurar vários ambientes, por exemplo, um ambiente de teste e um ambien
 * Hospede APIs diferentes no mesmo locatário.
 * Hospede as mesmas APIs em locatários diferentes.
 
-### <a name="can-i-use-soap-with-api-management"></a>É possível usar SOAP com o Gerenciamento de API?
+### <a name="can-i-use-soap-with-api-management"></a>Pode usar SOAP com Gerenciamento de API?
 O suporte a [Passagem SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) agora está disponível. Os administradores podem importar o WSDL do serviço SOAP e o Gerenciamento de API do Azure criará um front-end SOAP. Documentação do portal de desenvolvedor, console de teste, políticas e análise estão disponíveis para serviços SOAP.
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>Posso configurar um servidor de autorização OAUth 2.0 com segurança ADFS?

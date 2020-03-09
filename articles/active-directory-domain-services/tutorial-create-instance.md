@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: iainfou
 ms.openlocfilehash: 86097a8706956a768def107dd312c9a20c63c6ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612347"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378449"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância do Azure Active Directory Domain Services
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: criar e configurar uma instância de Azure Active Directory Domain Services
 
 O Azure AD DS (Azure Active Directory Domain Services) fornece serviços de domínio gerenciado, como ingresso no domínio, Política de Grupo, LDAP e autenticação Kerberos/NTLM, que são totalmente compatíveis com o Active Directory do Windows Server. Você consome esses serviços de domínio sem implantar, gerenciar e aplicar patches aos controladores de domínio por conta própria. O Azure AD DS integra-se com o seu locatário existente do Azure AD. Essa integração permite que os usuários entrem usando suas credenciais corporativas e você pode usar os grupos e as contas de usuário existentes para proteger o acesso aos recursos.
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -45,7 +45,7 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
 Embora não seja obrigatório para o Azure AD DS, é recomendável [configurar a SSPR (redefinição de senha por autoatendimento)][configure-sspr] para o locatário do Azure AD. Os usuários podem alterar sua senha sem a SSPR, mas a SSPR ajudará se eles esquecerem sua senha e precisarem redefini-la.
 
 > [!IMPORTANT]
-> Depois de criar um domínio gerenciado do Azure AD DS, você não poderá mover a instância para outro grupo de recursos, outra rede virtual, outra assinatura etc. Tome cuidado ao selecionar a assinatura, o grupo de recursos, a região e a rede virtual mais apropriados ao implantar a instância do Azure AD DS.
+> Depois de criar um domínio gerenciado do Azure AD DS, você não poderá mover a instância para um grupo de recursos, rede virtual, assinatura etc. diferentes. Tome cuidado para selecionar a assinatura, o grupo de recursos, a região e a rede virtual mais apropriados ao implantar a instância de AD DS do Azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -63,23 +63,23 @@ Para iniciar o assistente **Habilitar Azure AD Domain Services**, conclua as seg
 
 Ao criar uma instância do Azure AD DS, você especifica um nome DNS. Eis algumas considerações a serem feitas ao escolher o nome DNS:
 
-* **Nome de domínio interno:** Por padrão, o nome de domínio interno do diretório é usado (com sufixo *.onmicrosoft.com*). Se quiser habilitar o acesso LDAP seguro ao domínio gerenciado pela Internet, você não poderá criar um certificado digital para proteger a conexão com esse domínio padrão. A Microsoft é proprietária do domínio *.onmicrosoft.com*, portanto, nenhuma AC (Autoridade de Certificação) emitirá um certificado.
-* **Nomes de domínio personalizados:** A abordagem mais comum é especificar um nome de domínio personalizado, normalmente um que você já tenha e seja roteável. Quando você usa um domínio roteável personalizado, o tráfego pode fluir corretamente conforme necessário para dar suporte aos seus aplicativos.
-* **Sufixos de domínio não roteáveis:** De modo geral, recomendamos que você evite sufixos de nome de domínio não roteáveis, tal como *contoso.local*. O sufixo *.local* não é roteável e pode causar problemas com a resolução do DNS.
+* **Nome de domínio interno:** Por padrão, o nome de domínio interno do diretório é usado (sufixo *. onmicrosoft.com* ). Se quiser habilitar o acesso LDAP seguro ao domínio gerenciado pela Internet, você não poderá criar um certificado digital para proteger a conexão com esse domínio padrão. A Microsoft é proprietária do domínio *.onmicrosoft.com*, portanto, nenhuma AC (Autoridade de Certificação) emitirá um certificado.
+* **Nomes de domínio personalizados:** A abordagem mais comum é especificar um nome de domínio personalizado, normalmente um que você já possui e é roteável. Quando você usa um domínio roteável personalizado, o tráfego pode fluir corretamente conforme necessário para dar suporte aos seus aplicativos.
+* **Sufixos de domínio não roteáveis:** Geralmente, recomendamos que você evite um sufixo de nome de domínio não roteável, como *contoso. local*. O sufixo *.local* não é roteável e pode causar problemas com a resolução do DNS.
 
 > [!TIP]
-> Se você criar um nome de domínio personalizado, tome cuidado com os namespaces DNS existentes. Recomendamos usar um nome de domínio separado de qualquer namespace DNS local ou do Azure existente.
+> Se você criar um nome de domínio personalizado, tome cuidado com os namespaces DNS existentes. É recomendável usar um nome de domínio separado de qualquer espaço de nome DNS local ou do Azure existente.
 >
-> Por exemplo, se você tiver um namespace DNS existente *contoso.com*, crie um domínio gerenciado do Azure AD DS com o nome de domínio personalizado *aaddscontoso.com*. Caso precise usar o LDAP Seguro, registre e seja o proprietário desse nome de domínio personalizado para gerar os certificados necessários.
+> Por exemplo, se você tiver um espaço de nome DNS existente de *contoso.com*, crie um domínio gerenciado do Azure AD DS com o nome de domínio personalizado *aaddscontoso.com*. Se você precisar usar o LDAP seguro, deverá registrar e possuir esse nome de domínio personalizado para gerar os certificados necessários.
 >
-> Talvez seja necessário criar alguns registros DNS adicionais para outros serviços no ambiente ou encaminhadores DNS condicionais entre os namespaces DNS existentes no ambiente. Por exemplo, se você executar um servidor Web que hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
+> Talvez seja necessário criar alguns registros DNS adicionais para outros serviços em seu ambiente ou encaminhadores DNS condicionais entre os espaços de nome DNS existentes em seu ambiente. Por exemplo, se você executar um servidor Web que hospeda um site usando o nome DNS raiz, poderá haver conflitos de nomenclatura que exigem entradas DNS adicionais.
 >
-> Nestes tutoriais e nestes artigos de instruções, o domínio personalizado *aaddscontoso.com* é usado como um breve exemplo. Em todos os comandos, especifique o próprio nome de domínio.
+> Nesses tutoriais e artigos de instruções, o domínio personalizado do *aaddscontoso.com* é usado como um breve exemplo. Em todos os comandos, especifique seu próprio nome de domínio.
 
 As seguintes restrições de nome DNS também se aplicam:
 
-* **Restrições do prefixo do domínio:** Você não pode criar um domínio gerenciado com um prefixo de mais de 15 caracteres. O prefixo do nome de domínio especificado (como *aaddscontoso* no nome de domínio *aaddscontoso.com*) precisa conter até 15 caracteres.
-* **Conflitos de nome de rede:** O nome de domínio DNS para seu domínio gerenciado não deve já existir na rede virtual. Especificamente, verifique os seguintes cenários que podem resultar em conflitos de nome:
+* **Restrições de prefixo de domínio:** Você não pode criar um domínio gerenciado com um prefixo com mais de 15 caracteres. O prefixo do nome de domínio especificado (como *aaddscontoso* no nome de domínio *aaddscontoso.com* ) deve conter 15 caracteres ou menos.
+* **Conflitos de nome de rede:** O nome de domínio DNS para seu domínio gerenciado já não deve existir na rede virtual. Especificamente, verifique os seguintes cenários que podem resultar em conflitos de nome:
     * Se você já tiver um domínio do Active Directory com o mesmo nome de domínio DNS na rede virtual do Azure.
     * Se a rede virtual em que você planeja habilitar o domínio gerenciado tiver uma conexão VPN com sua rede local. Nesse cenário, verifique se você não tem um domínio com o mesmo nome de domínio DNS na rede local.
     * Se você tiver um serviço de nuvem existente do Azure com esse mesmo nome na rede virtual do Azure.
@@ -120,7 +120,7 @@ Na página **Resumo** do assistente, examine as definições de configuração d
     ![Notificação no portal do Azure da implantação em andamento](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. A página será carregada com atualizações no processo de implantação, incluindo a criação de novos recursos em seu diretório.
-1. Selecione o grupo de recursos, como *myResourceGroup* e, em seguida, escolha a instância do Azure AD DS na lista de recursos do Azure, como *aaddscontoso.com*. A guia **Visão Geral** mostra que o domínio gerenciado está sendo *implantado* no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado.
+1. Selecione seu grupo de recursos, como *MyResource*Group e, em seguida, escolha sua instância de AD DS do Azure na lista de recursos do Azure, como *aaddscontoso.com*. A guia **Visão Geral** mostra que o domínio gerenciado está sendo *implantado* no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado.
 
     ![Status do Domain Services durante o estado de provisionamento](./media/tutorial-create-instance/provisioning-in-progress.png)
 
@@ -174,7 +174,7 @@ Para alterar a senha de um usuário somente de nuvem, o usuário deve concluir a
 
 Leva alguns minutos após você ter alterado sua senha para que a nova senha possa ser usada no Azure AD DS e para que seja possível se conectar com êxito a computadores ingressados no domínio gerenciado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste tutorial, você aprendeu a:
 

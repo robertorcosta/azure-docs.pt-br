@@ -15,13 +15,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933952"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387809"
 ---
-# <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidade e recuperação de desastres para o SQL Server nas máquinas virtuais do Azure
+# <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure
 
 VMs (Máquinas virtuais) do Microsoft Azure com SQL Server podem ajudar a reduzir o custo de uma solução de banco de dados HADR (Alta Disponibilidade e Recuperação de Desastre). A maioria das soluções HADR do SQL Server tem suporte em máquinas virtuais do Azure, tanto como somente Azure ou como soluções híbridas. Em uma solução somente Azure, todo o sistema HADR é executado no Azure. Em uma configuração híbrida, parte da solução é executada no Azure e a outra parte é executada localmente em sua organização. A flexibilidade do ambiente do Azure permite que você se mova parcial ou completamente para o Azure para atender aos requisitos de orçamento e HADR de seus sistemas de banco de dados do SQL Server.
 
@@ -149,7 +149,7 @@ Você deve implantar sua solução HADR com a suposição de que pode haver per�
 ### <a name="geo-replication-support"></a>Suporte para replicação geográfica
 A replicação geográfica em discos do Azure não dá suporte ao arquivo de dados e ao arquivo de log do mesmo banco de dados a ser armazenado em discos separados. GRS replica as alterações em cada disco, de forma independente e assíncrona. Esse mecanismo garante a ordem de gravação em um único disco na cópia replicada geograficamente, mas não em cópias replicadas geograficamente de vários discos. Se você configurar um banco de dados para armazenar arquivo de dados e arquivo de log em discos separados, os discos recuperados após um desastre poderão conter uma cópia mais recente do arquivo de dados do que o arquivo de log, interrompendo o log write-ahead no SQL Server e as propriedades ACID das transações. Se você não tiver a opção de desabilitar a replicação geográfica na conta de armazenamento, deverá manter todos os dados e arquivos de log em determinado banco de dados no mesmo disco. Se você precisar usar mais de um disco devido ao tamanho do banco de dados, terá de implantar uma das soluções de recuperação de desastres listadas anteriormente para garantir a redundância dos dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Se você precisar criar uma máquina virtual do Azure com SQL Server, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Para obter o melhor desempenho do SQL Server em execução em uma VM do Azure, consulte as diretrizes em [Práticas Recomentadas para o Desempenho do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).

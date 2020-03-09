@@ -6,11 +6,11 @@ ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352341"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397269"
 ---
 # <a name="state-management-with-service-fabric"></a>Gerenciamento de estado com o Service Fabric
 
@@ -32,7 +32,7 @@ O Reliable Volume do Service Fabric é um driver de volume do Docker usado para 
 
 Volume de Armazenamento de Arquivos é um driver de volume do Docker usado para montar Arquivos do Azure para compartilhar em um contêiner. O Armazenamento de Arquivos usa o armazenamento de rede, então, a leitura e a gravação acontecem na rede. Em comparação com o Volume Reliable do Service Fabric, o Armazenamento de Arquivos é menos importante, mas fornece um opção de dados mais baratos e completamente confiáveis. Por exemplo, consulte [Como implantar um aplicativo com o Volume de Armazenamento de Arquivos](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter informações sobre o modelo de aplicativo, consulte [recursos de Service Fabric](service-fabric-mesh-service-fabric-resources.md)
 

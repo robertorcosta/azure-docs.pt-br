@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 12/29/2019
 ms.custom: mvc
 ms.openlocfilehash: c336b2f95a17896edcc7eaad2b2586c6859804f9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772186"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361752"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -17,14 +17,14 @@ Este artigo fornece uma visão geral rápida do serviço de Migrações para Azu
 
 Use Migrações para Azure para migrar para o Azure. As Migrações para Azure oferecem um hub centralizado para avaliar e migrar a infraestrutura local, os aplicativos e os dados para o Azure com os seguintes recursos:
 
-- **Plataforma de migração unificada**: Um único portal para iniciar, executar e acompanhar sua jornada de migração para o Azure.
-- **Variedade de ferramentas**: Uma variedade de ferramentas para avaliação e migração. O hub inclui Migrações para Azure: Avaliação de Servidor e Migrações para Azure: Migração de Servidor. Ele integra-se a outros serviços do Azure e a outras ferramentas e ofertas de ISVs (fornecedores independentes de software).
-- **Avaliação e de migração**: no hub de Migrações para Azure, você pode avaliar e migrar:
-    - **Servidores**: Avaliar e migrar servidores locais para VMs do Azure.
-    - **Bancos de dados**: Avalie e migre bancos de dados locais para o BD SQL do Azure ou para a Instância Gerenciada do Azure SQL.
-    - **Aplicativos Web**: Avalie e migre aplicativos Web locais para o Serviço de Aplicativo do Azure usando o Assistente do Serviço de Aplicativo do Azure.
-    - **Áreas de trabalho virtual**: Avalie e migre o Virtual Desktop Infrastructure (VDI) local para a Área de Trabalho Virtual do Windows no Azure.
-    - **Dados**: Migre grandes quantidades de dados para o Azure de forma rápida e econômica usando os produtos Azure Data Box. 
+- **Plataforma de migração unificada**: um único portal para iniciar, executar e acompanhar sua jornada de migração para o Azure.
+- **Variedade de ferramentas**: uma variedade de ferramentas para avaliação e migração. O Hub inclui migrações para Azure: avaliação de servidor e migrações para Azure: migração de servidor. Ele integra-se a outros serviços do Azure e a outras ferramentas e ofertas de ISVs (fornecedores independentes de software).
+- **Avaliação e migração**: no Hub migrações para Azure, você pode avaliar e migrar:
+    - **Servidores**: avaliar e migrar servidores locais para VMs do Azure.
+    - **Bancos de dados**: avaliar e migrar bancos de dados locais para o BD SQL do Azure ou para o azure SQL instância gerenciada.
+    - **Aplicativos Web**: avalie e migre aplicativos Web locais para Azure app serviço, usando o assistente de serviço do Azure app.
+    - **Áreas de trabalho virtuais**: avalie e MIGRE sua VDI (infraestrutura de área de trabalho virtual) local para a área de trabalho virtual do Windows no Azure.
+    - **Dados**: migre grandes quantidades de dados para o Azure de forma rápida e econômica, usando Azure data Box produtos. 
 
 
 ## <a name="integrated-tools"></a>Ferramentas integradas
@@ -33,8 +33,8 @@ O hub de Migrações para Azure fornece as ferramentas a seguir.
 
 **Ferramenta** | **Avaliar/Migrar** | **Detalhes**
 --- | --- | ---
-**Migrações para Azure: Avaliação de Servidor** | Avaliar servidores | Descubra e avalie as VMs do VMware locais, as VMs do Hyper-V e os servidores físicos para descobrir se estão prontos para a migração para o Azure.
-**Migrações para Azure: Migração de Servidor** | Migrar servidores | Migre VMs do VMware, VMs do Hyper-V, servidores físicos, bem como outras máquinas virtualizadas e VMs de nuvem pública, para o Azure. 
+**Migrações para Azure: avaliação do servidor** | Avaliar servidores | Descubra e avalie as VMs do VMware locais, as VMs do Hyper-V e os servidores físicos para descobrir se estão prontos para a migração para o Azure.
+**Migrações para Azure: migração de servidor** | Migrar servidores | Migre VMs do VMware, VMs do Hyper-V, servidores físicos, bem como outras máquinas virtualizadas e VMs de nuvem pública, para o Azure. 
 **Assistente de migração do banco de dados (DMA)** | Avalie os bancos de dados SQL Server locais para migração para o BD SQL do Azure, Instância Gerenciada SQL do Azure ou VMs do Azure que executam o SQL Server. | O AMD fornece informações sobre possíveis problemas de bloqueio para a migração. Ele identifica recursos não compatíveis e também novos recursos dos quais você pode se beneficiar após a migração, além de ajudar a identificar o caminho certo para a migração de banco de dados. [Saiba mais](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 **DMS (Serviço de Migração de Banco de Dados)** | Migre bancos de dados locais para VMs do Azure executando SQL, BD SQL do Azure e Instâncias Gerenciadas do SQL do Azure. | [Saiba mais](https://docs.microsoft.com/azure/dms/dms-overview) sobre DMS.
 **Movere** | Avaliar servidores | [Saiba mais](#movere) sobre o Movere.
@@ -57,14 +57,14 @@ O recurso Migrações para Azure integra-se a várias ofertas de ISV.
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Avaliar servidores e bancos de dados
 
 
-## <a name="azure-migrate-server-assessment-tool"></a>Migrações para Azure: Ferramenta de Avaliação de Servidor
+## <a name="azure-migrate-server-assessment-tool"></a>Migrações para Azure: ferramenta de avaliação do servidor
 
-As Migrações para Azure: A ferramenta de avaliação de servidor descobre e avalia VMs do VMware, Hyper-V locais e servidores físicos para migração para o Azure. Ela ajuda a identificar o seguinte:
+A ferramenta migrações para Azure: Server Assessment descobre e avalia as VMs VMware locais, VMs do Hyper-V e servidores físicos para migração para o Azure. Ela ajuda a identificar o seguinte:
 
-- **Preparação para o Azure:** Avalie se os computadores locais estão prontos para a migração para o Azure.
+- **Preparação do Azure:** Avalie se os computadores locais estão prontos para a migração para o Azure.
 - **Dimensionamento do Azure:** O tamanho estimado das VMs do Azure após a migração.
-- **Estimativa de custo do Azure:** Os custos estimados para a execução de computadores locais no Azure.
-- **Visualização de dependências:** Se você usar a Avaliação do Servidor com a visualização de dependência, poderá identificar efetivamente as dependências entre servidores e as maneiras ideais de mover os servidores dependentes para o Azure.
+- **Estimativa de custo do Azure:** Custos estimados para execução de servidores locais no Azure.
+- **Visualização de dependência:** Se você usar a avaliação do servidor com a visualização de dependência, poderá identificar efetivamente as dependências entre servidores e as maneiras ideais de mover os servidores dependentes para o Azure.
 
 A Avaliação do Servidor usa um dispositivo leve que você implanta localmente e registra na Avaliação do Servidor.
 
@@ -74,9 +74,9 @@ A Avaliação do Servidor usa um dispositivo leve que você implanta localmente 
 - Após a descoberta, você coleta computadores descobertos em grupos e avalia os grupos para migração.
 
 
-## <a name="azure-migrate-server-migration-tool"></a>Migrações para Azure: Ferramenta Migração de Servidor
+## <a name="azure-migrate-server-migration-tool"></a>Migrações para Azure: ferramenta de migração de servidor
 
-As Migrações para Azure: A ferramenta de Migração de Servidor ajuda você a migrar VMs do VMware e Hyper-V locais, servidores físicos, outros computadores virtualizados e VMs de nuvem pública para o Azure. Você pode migrar computadores depois de avaliá-los ou migrá-los sem uma avaliação.
+A ferramenta migrações para Azure: Server Migration ajuda a migrar VMs VMware locais, VMs do Hyper-V, servidores físicos, outros computadores virtualizados e VMs de nuvem pública para o Azure. Você pode migrar computadores depois de avaliá-los ou migrá-los sem uma avaliação.
 
 
 ## <a name="select-a-tool"></a>Selecionar uma ferramenta
@@ -99,12 +99,12 @@ Incentivamos você a examinar também as Migrações para Azure – nosso servi�
 
 Há duas versões do serviço de Migrações para Azure:
 
-- **Versão atual**: use esta versão para criar projetos de Migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: se você usou a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Não é mais possível criar projetos das Migrações para Azure usando a versão anterior e recomendamos que você não realize novas descobertas. Para acessar projetos existentes, no portal do Azure, pesquise e selecione **Migrações para Azure**. No painel **Migrações para Azure**, há uma notificação e um link para acessar projetos antigos das Migrações para Azure.
+- **Versão atual**: Use esta versão para criar projetos de migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
+- **Versão anterior**: se você usou a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Não é mais possível criar projetos das Migrações para Azure usando a versão anterior e recomendamos que você não realize novas descobertas. Para acessar projetos existentes, no portal do Azure, pesquise e selecione **Migrações para Azure**. No painel **Migrações para Azure**, há uma notificação e um link para acessar projetos antigos das Migrações para Azure.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Experimente nossos tutoriais para avaliar [VMs da VMware](tutorial-prepare-vmware.md), [VMs do Hyper-V](tutorial-prepare-hyper-v.md) e [servidores físicos](tutorial-prepare-physical.md).
 - [Reveja as perguntas frequentes](resources-faq.md) sobre Migrações para Azure.

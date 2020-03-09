@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756153"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359073"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação aprimora a eficiência por meio da multiplexação de recursos entre diferentes clientes por custos baixos. Infelizmente, ela também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura a fim de executar seus aplicativos confidenciais e VMs que possam pertencer a um usuário aleatório e possivelmente malicioso.
@@ -142,7 +142,7 @@ No Azure, a VM raiz é especial: ela executa um sistema operacional protegido ch
 
 A coleção de hipervisor do Azure, SO raiz/FA e VMs de cliente/GAs forma um nó de computação. Os FAs são gerenciados por um controlador de malha (FC), que existe fora dos nós de computação e de armazenamento (clusters de computação e de armazenamento são gerenciados por FCs separados). Se um cliente atualiza o arquivo de configuração de seu aplicativo enquanto ele está em execução, o FC se comunica com o FA, que então contata os GAs, que notificam o aplicativo sobre a alteração na configuração. No caso de falha de hardware, o FC localizará automaticamente o hardware disponível e reiniciará a VM no local.
 
-![Recursos de infraestrutura do Azure](./media/isolation-choices/azure-isolation-fig6.jpg)
+![Controlador de malha do Azure](./media/isolation-choices/azure-isolation-fig6.jpg)
 
 A comunicação de um controlador de malha com um agente é unidirecional. O agente implementa um serviço protegido por SSL que só responde às solicitações do controlador. Ele não pode iniciar conexões com o controlador ou com outros nós internos privilegiados. O FC trata todas as respostas como se fossem não confiáveis.
 

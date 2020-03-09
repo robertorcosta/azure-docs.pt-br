@@ -1,67 +1,74 @@
 ---
-title: Operações e relatórios de proteção por senha-Azure Active Directory
-description: Operações de pós-implantação e relatórios de proteção de senha do Azure AD
+title: Habilitar a proteção de senha do Azure AD local
+description: Saiba como habilitar a proteção de senha do Azure AD para um ambiente de Active Directory Domain Services local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2440d373b726b4f97cd5d9ba162daaa0714f79e0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 4d4c0b0c6ec68c818f107c7e3e3241e4acc0edb7
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155036"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671763"
 ---
-# <a name="azure-ad-password-protection-operational-procedures"></a>Procedimentos operacionais de proteção por senha do Azure AD
+# <a name="enable-on-premises-azure-active-password-protection"></a>Habilitar a proteção de senha ativa do Azure local
 
-Após concluir a [instalação da proteção por senha do Azure AD](howto-password-ban-bad-on-premises-deploy.md) no local, há alguns itens que devem ser configurados no portal do Azure.
+Os usuários geralmente criam senhas que usam palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa. Essas senhas são fáceis de adivinhar e fracas contra ataques baseados em dicionário. Para impor senhas fortes em sua organização, a proteção de senha do Azure Active Directory (Azure AD) fornece uma lista de senhas excluídas global e personalizada. Uma solicitação de alteração de senha falhará se houver uma correspondência nessa lista de senhas banidas.
 
-## <a name="configure-the-custom-banned-password-list"></a>Configurar a lista de senhas banidas personalizada
+Para proteger seu ambiente de Active Directory Domain Services (AD DS) local, você pode instalar e configurar a proteção de senha do Azure AD para trabalhar com seu DC local. Este artigo mostra como habilitar a proteção de senha do Azure AD para seu ambiente local.
 
-Siga as orientações no artigo [Configurar a lista de senhas banidas personalizada](howto-password-ban-bad-configure.md) para ver as etapas para personalizar a lista de senhas banidas da sua organização.
+Para obter mais informações sobre como a proteção de senha do Azure AD funciona em um ambiente local, consulte [como impor a proteção de senha do Azure ad para o Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="enable-password-protection"></a>Habilitar proteção por senha
+## <a name="before-you-begin"></a>Antes de começar
+
+Este artigo mostra como habilitar a proteção de senha do Azure AD para seu ambiente local. Antes de concluir este artigo, [Instale e registre o serviço proxy de proteção de senha do Azure AD e os agentes de DC](howto-password-ban-bad-on-premises-deploy.md) em seu ambiente de AD DS local.
+
+## <a name="enable-on-premises-password-protection"></a>Habilitar a proteção de senha local
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory** > **métodos de autenticação** > de **segurança** > **proteção por senha**.
-1. Configure **Habilitar proteção por senha no Windows Server Active Directory** para **Sim**
-1. Conforme mencionado na [Guia de implantação](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), é recomendável configurar inicialmente o **Modo** para **Auditoria**
-   * Depois que estiver familiarizado com o recurso, você pode alternar a **Modo** para **Imposto**
-1. Clique em **Salvar**
+1. Defina a opção para **habilitar a proteção por senha no Windows Server Active Directory** como *Sim*.
 
-![Habilitar os componentes de proteção por senha do Azure AD no portal do Azure](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
+    Quando essa configuração é definida como *não*, todos os agentes de DC de proteção de senha do Azure ad implantados entram em um modo inativo onde todas as senhas são aceitas no estado em que se encontram. Nenhuma atividade de validação é executada e eventos de auditoria não são gerados.
 
-## <a name="audit-mode"></a>Modo de auditoria
+1. É recomendável definir inicialmente o **modo** como *auditoria*. Depois que estiver familiarizado com o recurso e o impacto sobre os usuários em sua organização, você poderá alternar o **modo** para *imposto*. Para obter mais informações, consulte a seção a seguir sobre [modos de operação](#modes-of-operation).
+1. Quando estiver pronto, selecione **Salvar**.
 
-O modo de auditoria foi desenvolvido como uma maneira de executar o software em um modo "what if". Cada serviço do agente DC avalia uma senha de entrada conforme a política ativa no momento. Se a política atual estiver configurada no modo de auditoria, senhas "incorretas" resultam em mensagens do log de eventos, mas são aceitas. Essa é a única diferença entre o modo de auditoria e de imposição; todas as outras operações executam o mesmo.
+    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
-> [!NOTE]
-> A Microsoft recomenda que a implantação e testes iniciais sempre sejam comecem no modo de auditoria. Em seguida, os eventos no log de eventos devem ser monitorados para tentar prever se todos os processos operacionais existentes seriam afetados quando o modo de imposição for habilitado.
+## <a name="modes-of-operation"></a>Modos de operação
 
-## <a name="enforce-mode"></a>Modo de imposição
+Ao habilitar a proteção de senha do Azure AD local, você pode usar o modo de *auditoria* ou o modo *impor* . Recomendamos que a implantação inicial e o teste sempre sejam iniciados no modo de auditoria. As entradas no log de eventos devem ser monitoradas para antecipar se os processos operacionais existentes seriam incomodados depois que o modo *imposição* for habilitado.
 
-O modo de imposição serve como a configuração final. Como no modo de auditoria acima, cada serviço do agente DC avalia senhas de entrada de acordo com a política ativa no momento. No entanto, se o modo de imposição estiver habilitado, uma senha que for considerada não segura, conforme a política, será rejeitada.
+### <a name="audit-mode"></a>Modo de auditoria
 
-Quando uma senha é rejeitada no modo de imposição pelo Agente DC de proteção por senha do Azure AD, o impacto visível observado por um usuário final será idêntico ao que ele veria se a senha fosse rejeitada pela tradicional imposição de complexidade da senha local. Por exemplo, um usuário pode ver a seguinte mensagem de erro tradicional na tela de logon do Windows \ change password:
+O modo de *auditoria* é projetado como uma maneira de executar o software em um modo "e se". Cada serviço de agente de DC de proteção de senha do Azure AD avalia uma senha de entrada de acordo com a política ativa no momento.
 
-`Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
+Se a política atual estiver configurada para estar no modo de auditoria, as senhas "incorretas" resultarão em mensagens de log de eventos, mas serão processadas e atualizadas. Esse comportamento é a única diferença entre o modo de auditoria e de aplicação. Todas as outras operações são executadas da mesma.
 
-Essa mensagem é apenas um exemplo dos vários resultados possíveis. A mensagem de erro específica pode variar, dependendo do software ou cenário real que está tentando definir uma senha não segura.
+### <a name="enforced-mode"></a>Modo imposto
 
-Os usuário finais afetados talvez precisem trabalhar com a equipe de TI para entender os requisitos novos e serem mais capazes de escolher senhas seguras.
+O modo *imposto* destina-se à configuração final. Assim como no modo de auditoria, cada serviço de agente de DC de proteção de senha do Azure AD avalia as senhas de entrada de acordo com a política ativa no momento. No entanto, quando o modo imposto está habilitado, uma senha considerada insegura de acordo com a política é rejeitada.
+
+Quando uma senha é rejeitada no modo imposto pelo agente de DC da proteção de senha do Azure AD, um usuário final vê um erro semelhante, como verá se a senha foi rejeitada pela imposição de complexidade de senha local tradicional. Por exemplo, um usuário pode ver a seguinte mensagem de erro tradicional na tela de logon ou alterar senha do Windows:
+
+*"Não é possível atualizar a senha. O valor fornecido para a nova senha não atende aos requisitos de comprimento, complexidade ou histórico do domínio. "*
+
+Essa mensagem é apenas um exemplo dos vários resultados possíveis. A mensagem de erro específica pode variar dependendo do software real ou do cenário que está tentando definir uma senha insegura.
+
+Os usuários finais afetados podem precisar trabalhar com a equipe de ti para entender os novos requisitos e escolher senhas seguras.
 
 > [!NOTE]
 > A proteção por senha do Azure AD não tem controle sobre a mensagem de erro específica exibida pelo computador cliente quando uma senha fraca é rejeitada.
 
-## <a name="enable-mode"></a>Ativar modo
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Essa configuração deve ser deixada em seu estado padrão habilitado (Sim). A definição dessa configuração como desabilitada (Não) fará com que todos os agentes DC de proteção de senha do Azure AD implantados entrem em um modo quiescente em que todas as senhas sejam aceitas como estão e nenhuma atividade de validação seja executada (nem mesmo eventos de auditoria serão executados, por exemplo).
+Para personalizar a lista de senhas banidas para sua organização, consulte [Configurar a lista de senhas banidas personalizadas da proteção de senha do Azure ad](tutorial-configure-custom-password-protection.md).
 
-## <a name="next-steps"></a>Próximos passos
-
-[Monitoramento para proteção de senha do Azure AD](howto-password-ban-bad-on-premises-monitor.md)
+Para monitorar eventos locais, consulte [monitorando a proteção de senha do Azure ad local](howto-password-ban-bad-on-premises-monitor.md).

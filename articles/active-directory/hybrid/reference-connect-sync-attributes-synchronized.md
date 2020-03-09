@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766082"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376052"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Active Directory do Azure
 Este tópico lista os atributos que são sincronizados pela sincronização do Azure AD Connect.  
@@ -64,7 +64,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| Descrição | | |X | |
+| descrição | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -185,7 +185,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| Descrição |X |X |X | |
+| descrição |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -250,7 +250,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
 | unauthOrig |X |X |X | |
-| URL |X |X | | |
+| url |X |X | | |
 | usageLocation |X | | |propriedade mecânica. O país/região do usuário
 . Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
@@ -265,7 +265,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | co |X |X | | |
 | company |X |X | | |
 | department |X |X | | |
-| Descrição |X |X |X | |
+| descrição |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -325,7 +325,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
 | cn |X | |X | |
-| Descrição |X |X |X | |
+| descrição |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
@@ -346,7 +346,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| Descrição |X |X |X | |
+| descrição |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -466,11 +466,11 @@ Os objetos do dispositivo são criados no Active Directory. Esses objetos podem 
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>Notas
+## <a name="notes"></a>Observações
 * Ao usar uma ID Alternativa, o atributo local userPrincipalName é sincronizado com o atributo do Azure AD onPremisesUserPrincipalName. O atributo de ID Alternativa, por exemplo, email, é sincronizado com o atributo do Azure AD userPrincipalName.
 * Nas listas acima, o tipo de objeto **User** também se aplica ao tipo de objeto **iNetOrgPerson**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

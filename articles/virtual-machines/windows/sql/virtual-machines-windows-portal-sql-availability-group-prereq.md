@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224760"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388776"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para a criação de grupos de disponibilidade Always On em SQL Server em máquinas virtuais do Azure
 
@@ -30,7 +30,7 @@ Este tutorial mostra como concluir os pré-requisitos para criar um [grupo de di
 
 O diagrama a seguir ilustra o que você cria no tutorial.
 
-![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
+![grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 ## <a name="review-availability-group-documentation"></a>Leia a documentação do grupo de disponibilidade
 
@@ -41,14 +41,14 @@ Este tutorial supõe que você tem uma compreensão básica dos grupos de dispon
 Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou [ativar os benefícios de assinante do Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Clique em **+** para criar um novo objeto no portal.
 
    ![Novo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
 3. Digite **grupo de recursos** na janela de pesquisa do **Marketplace**.
 
-   ![Grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Clique em **Grupo de recursos**.
 5. Clique em **Criar**.
 6. Na caixa **Nome do grupo de recursos**, digite um nome para o grupo de recursos. Por exemplo, digite **sql-ha-rg**.
@@ -56,7 +56,7 @@ Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azu
 8. Selecione um local. A localização é a região do Azure onde você deseja criar o grupo de disponibilidade. Este artigo compila todos os recursos em um local do Azure.
 9. Verifique se a opção **Fixar no painel** está marcada. Essa configuração opcional coloca um atalho para o grupo de recursos no painel do Portal do Azure.
 
-   ![Grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
 10. Clique em **Criar** para criar o grupo de recursos.
 
@@ -84,7 +84,7 @@ Para criar a rede virtual:
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Espaço de endereço** |10.33.0.0/24 |
-   | **Nome da sub-rede** |Administrador |
+   | **Nome da sub-rede** |Admin |
    | **Intervalo de endereços da sub-rede** |10.33.0.0/29 |
    | **Assinatura** |Especifique a assinatura que você pretende usar. **Assinatura** estará em branco se você tiver apenas uma assinatura. |
    | **Grupo de recursos** |Escolha **Usar existente** e escolha o nome do grupo de recursos. |
@@ -183,13 +183,13 @@ A tabela a seguir mostra as configurações para esses dois computadores:
 | **Grupo de recursos** |SQL-HA-RG |
 | **Localidade** |*Seu local* |
 | **Tamanho** |DS1_V2 |
-| **Armazenamento** | **Usar discos gerenciados** - **Sim** |
+| **Storage** | **Usar discos gerenciados** - **Sim** |
 | **Rede virtual** |autoHAVNET |
-| **Sub-rede** |admin |
+| **Sub-rede** |administrador |
 | **Endereço IP público** |*Mesmo nome que a VM* |
 | **Grupo de segurança de rede** |*Mesmo nome que a VM* |
 | **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de falha**: 2 </br>**Domínio de atualização**: 2|
-| **Diagnostics** |Habilitado |
+| **Diagnóstico** |habilitado |
 | **Conta de armazenamento de diagnóstico** |*Criada automaticamente* |
 
    >[!IMPORTANT]
@@ -261,7 +261,7 @@ Depois de criar o primeiro controlador de domínio e habilitar o DNS no primeiro
 
 3. Clique em **Personalizado** e digite o endereço IP privado do controlador de domínio primário.
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ### <a name="configure-the-second-domain-controller"></a>Configurar o segundo controlador de domínio
 Após a reinicialização do controlador de domínio primário, você pode configurar o segundo controlador de domínio. Esta etapa opcional é para alta disponibilidade. Siga estas etapas para configurar o segundo controlador de domínio:
@@ -313,7 +313,7 @@ Nas próximas etapas, você configurará as contas do Active Directory. A tabela
 
 | |Conta de instalação<br/> |sqlserver-0 <br/>Conta do SQL Server e do serviço SQL Agent |sqlserver-1<br/>Conta do SQL Server e do serviço SQL Agent
 | --- | --- | --- | ---
-|**Nome** |Instalar |SQLSvc1 | SQLSvc2
+|**First Name** |Instalar |SQLSvc1 | SQLSvc2
 |**SamAccountName do usuário** |Instalar |SQLSvc1 | SQLSvc2
 
 Use as etapas a seguir para criar cada conta.
@@ -342,7 +342,7 @@ Use as etapas a seguir para criar cada conta.
 6. Marque a caixa de seleção **Criar objetos de computador**.
 
      ![Permissões de usuário corp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/33-addpermissions.png)
-7. Clique em **OK** e em **OK** novamente. Feche a janela de propriedades **corporativas**.
+7. Clique em **OK** e, em seguida, em **OK** novamente. Feche a janela de propriedades **corporativas**.
 
 Agora que você concluiu a configuração do Active Directory e dos objetos de usuário, crie duas VMs do SQL Server, uma VM de servidor testemunha. Em seguida, faça com que todas as três ingressem no domínio.
 
@@ -425,7 +425,7 @@ Para grupos de disponibilidade do SQL Server, cada VM do SQL Server precisa ser 
 
 Use a conta de instalação (CORP\install) para configurar o grupo de disponibilidade. Essa conta precisa ser membro da função de servidor fixa **sysadmin** de cada VM do SQL Server. As seguintes etapas criam uma entrada para a conta de instalação:
 
-1. Conectar-se ao servidor por meio do protocolo RDP usando a conta  *\<MachineName\>\DomainAdmin*.
+1. Conectar-se ao servidor por meio do protocolo RDP usando a conta *\<MachineName\>\DomainAdmin*.
 
 1. Abra o SQL Server Management Studio e conecte-se ao SQL Server da instância local.
 
@@ -486,11 +486,11 @@ O método de abrir as portas depende da solução de firewall usada. A próxima 
 1. Na tela **Iniciar** do primeiro SQL Server, inicialize **Firewall do Windows com Segurança Avançada**.
 2. No painel esquerdo, selecione **Regras de Entrada**. No painel direito, clique em **Nova Regra**.
 3. Para **Tipo de Regra**, escolha **Porta**.
-4. Para a porta, especifique **TCP** e digite os números de porta apropriados. Veja os exemplos a seguir:
+4. Para a porta, especifique **TCP** e digite os números de porta apropriados. Consulte o seguinte exemplo:
 
    ![Firewall do SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 6. Na página **Ação**, mantenha selecionado **Permitir a conexão** e, em seguida, clique em **Avançar**.
 7. Na página **Perfil**, aceite as configurações padrão e, em seguida, clique em **Avançar**.
 8. Na página **Nome**, especifique um nome de regra, como **Investigação do Azure LB** na caixa de texto **Nome** e clique em **Concluir**.
