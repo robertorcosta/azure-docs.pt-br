@@ -11,11 +11,11 @@ ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189219"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365220"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Políticas personalizadas são arquivos de configuração que definem o comporta
 |-|-------------------|-----------------|
 | Usuários de destino | Todos os desenvolvedores de aplicativos, com ou sem experiência em identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipes internas de identidade. Eles se sentem confortáveis com os fluxos do OpenID Connect e entendem os provedores de identidade e a autenticação baseada em declarações. |
 | Método de configuração | Portal do Azure com uma UI (interface do usuário) amigável ao usuário. | Editando arquivos XML diretamente e carregando-os no portal do Azure. |
-| Personalização da interface do usuário | Personalização completa da interface do usuário, incluindo HTML, CSS e JavaScript.<br><br>Suporte a várias linguagens com cadeias de caracteres Personalizadas. | Idêntico |
+| personalização da interface do usuário | Personalização completa da interface do usuário, incluindo HTML, CSS e JavaScript.<br><br>Suporte a várias linguagens com cadeias de caracteres Personalizadas. | Idêntico |
 | Personalização de atributos | Atributos padrão e personalizados. | Idêntico |
 | Gerenciamento de tokens e sessões | Token personalizado e opções de várias sessões. | Idêntico |
 | Provedores de Identidade | Provedor local ou social predefinido e provedores de identidade mais OIDC, como Federação com locatários Azure Active Directory. | SAML, OAUTH e OIDC baseado em padrões.  A autenticação também é possível usando a integração com APIs REST. |
@@ -63,7 +63,7 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 
 Quando um aplicativo chama o arquivo de política RP, a Estrutura de Experiência de Identidade no Azure AD B2C adiciona todos os elementos do arquivo base, do arquivo de extensões e, em seguida, do arquivo de política de RP para montar a política atual em vigor.  Elementos do mesmo tipo e nome no arquivo RP substituirão aqueles nas extensões e as extensões substituem a base.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Introdução às políticas personalizadas](custom-policy-get-started.md)
