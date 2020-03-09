@@ -4,11 +4,11 @@ description: Neste artigo, saiba como o serviço de backup do Azure faz backup d
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597245"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363669"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -54,7 +54,7 @@ Os BEKs (segredos) e KEKs (chaves) com backup são criptografados. Eles podem se
 
 Também é feito backup de BEKs. Portanto, se os BEKs forem perdidos, os usuários autorizados poderão restaurar o BEKs para o cofre de chaves e recuperar as VMs criptografadas. Somente os usuários com o nível necessário de permissões podem fazer backup e restaurar VMs criptografadas ou chaves e segredos.
 
-## <a name="snapshot-creation"></a>Criação de instantâneos
+## <a name="snapshot-creation"></a>Criação de instantâneo
 
 O backup do Azure faz instantâneos de acordo com o agendamento de backup.
 
@@ -129,6 +129,6 @@ Disco de dados 2 | 32 TB | 0 GB
 
 O tamanho real da VM neste caso é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora, [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).

@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659223"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394707"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -51,7 +51,7 @@ O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema
 * *Dados personalizados*: o Log Analytics permite a coleção em uma variedade de métodos: logs personalizados e campos personalizados, a [API do coletor de dados HTTP](../../azure-monitor/platform/data-collector-api.md) e dados personalizados coletados como parte dos logs de eventos do sistema. Todos são suscetíveis a conter dados privados e devem ser examinados para verificar se esses dados existem.
 * *Dados capturados pela solução*: como o mecanismo da solução é aberto, é recomendável revisar todas as tabelas geradas pelas soluções para garantir a conformidade.
 
-### <a name="application-data"></a>Dados do aplicativo
+### <a name="application-data"></a>Dados de aplicativos
 
 * *Endereços IP*: enquanto o Application Insights ofuscará, por padrão, todos os campos de endereço IP para "0.0.0.0", é um padrão bastante comum substituir esse valor pelo IP do usuário atual para manter as informações de sessão. A consulta de análise abaixo pode ser usada para encontrar qualquer tabela que contém os valores na coluna de endereço IP diferentes de "0.0.0.0" nas últimas 24 horas:
     ```
@@ -111,7 +111,7 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 > [!IMPORTANT]
 >  Embora esperemos que a grande maioria das operações de limpeza seja concluída muito mais rapidamente do que o SLA, devido ao grande impacto na plataforma de dados usada pelo Log Analytics, **o SLA formal para a conclusão das operações de limpeza é definido em 30 dias**. 
 
-#### <a name="application-data"></a>Dados do aplicativo
+#### <a name="application-data"></a>Dados de aplicativos
 
 * [Limpeza POST](https://docs.microsoft.com/rest/api/application-insights/components/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência
 * Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo:
@@ -123,6 +123,6 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 > [!IMPORTANT]
 >  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, devido a seu grande impacto na plataforma de dados usada pelo Application Insights,  **o SLA formal para a conclusão das operações de limpeza é definido como 30 dias**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](../../azure-monitor/platform/data-security.md).
 - Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../../azure-monitor/app/data-retention-privacy.md).
