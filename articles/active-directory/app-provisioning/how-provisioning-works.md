@@ -16,11 +16,11 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 892cdeea20780c90ce325e8be9b7b91fee0d9fad
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522519"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378371"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -62,7 +62,7 @@ Você pode personalizar mapeamentos de atributo padrão de acordo com suas neces
 
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Para esses mapeamentos, você deve escrever uma expressão do tipo script que permite transformar os dados dos usuários em formatos que são mais aceitáveis para o aplicativo SaaS. Para obter detalhes, consulte [escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md).
 
-## <a name="scoping"></a>Scoping 
+## <a name="scoping"></a>Escopo 
 ### <a name="assignment-based-scoping"></a>Escopo baseado em atribuição
 
 Para o provisionamento de saída do Azure AD para um aplicativo SaaS, depender de [atribuições de usuário ou de grupo](../manage-apps/assign-user-or-group-access-portal.md) é a maneira mais comum de determinar quais usuários estão no escopo do provisionamento. Como as atribuições de usuário também são usadas para habilitar o logon único, o mesmo método pode ser usado para gerenciar o acesso e o provisionamento. O escopo baseado em atribuição não se aplica a cenários de provisionamento de entrada como workday e Successfactors.
@@ -190,7 +190,7 @@ Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer s
 
 Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele será usado para determinar o estado do usuário e se deseja enviar uma solicitação de atualização com Active = false para excluir a exclusão reversível do usuário. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Planejar uma implantação de provisionamento de usuário automático](../app-provisioning/plan-auto-user-provisioning.md)
 

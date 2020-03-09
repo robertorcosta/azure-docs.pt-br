@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: fa9dba62b3b58687ec6a2bfc29e8722f7016b679
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443407"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360994"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurar contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contêiner para tipos de laboratório gerenciados, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório no Azure Lab Services e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. 
@@ -52,7 +52,7 @@ Essa configuração se aplica a todos os laboratórios criados na conta do labor
 
 Para saber mais sobre como um proprietário de laboratório pode definir essa configuração no nível de laboratório, consulte [Este artigo](how-to-enable-shutdown-disconnect.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja os artigos a seguir:
 
 - [Permitir que o criador de laboratório escolha o local do laboratório](allow-lab-creator-pick-lab-location.md)

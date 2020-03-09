@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895000"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391163"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma conexão Site a Site no portal do Azure
 
@@ -51,7 +51,7 @@ Os exemplos neste artigo usam os seguintes valores. Você pode usar esses valore
 * **Sub-rede**: Front-end: 10.1.0.0/24, Back-end: 10.1.1.0/24 (opcional para este exercício)
 * **Intervalo de endereços da sub-rede do gateway:** 10.1.255.0/27
 * **Nome do gateway de rede virtual:** VNet1GW
-* **Nome do endereço IP público:** VNet1GWIP
+* **Endereço IP público:** VNet1GWpip
 * **Tipo de VPN:** baseada em rota
 * **Tipo de conexão:** Site a site (IPsec)
 * **Tipo de gateway:** VPN
@@ -61,7 +61,7 @@ Os exemplos neste artigo usam os seguintes valores. Você pode usar esses valore
 
 ## <a name="CreatVNet"></a>1. criar uma rede virtual
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>2. criar o gateway de VPN
 
@@ -77,7 +77,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 * **Detalhes da instância > tipo de gateway:** VPNS
 * **Detalhes da instância > tipo de VPN:** Baseado em rota
 * **Intervalo de endereços de sub-rede do gateway de > de rede virtual:** 10.1.255.0/27
-* **Endereço IP público > nome do endereço IP público:** VNet1GWIP
+* **Endereço IP público > nome do endereço IP público:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -137,7 +137,7 @@ Você pode inserir conexões adicionais desde que nenhum dos espaços de endere�
 3. Se você estiver se conectando usando o Site a site e ainda não criou um gateway de rede local para o site ao qual deseja se conectar, é possível criar um novo.
 4. Especifique a chave compartilhada que deseja usar e depois clique em **OK** para criar a conexão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Para obter mais informações sobre túneis forçados, consulte [Sobre o túnel forçado](vpn-gateway-forced-tunneling-rm.md).

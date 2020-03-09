@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148302"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344518"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)* , configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)* . Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -262,7 +262,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Onde as variáveis são definidas da seguinte maneira:
 
-| Variável | Valor |
+| Variável | {1&gt;Valor&lt;1} |
 | --- | --- |
 | \[DirectoryName\] |O subdiretório no diretório do projeto raiz que contém o arquivo .csdef do projeto do Azure. |
 | \[ServiceDefinition\] |O nome do arquivo de definição de serviço. Por padrão, esse arquivo é chamado de ServiceDefinition.csdef. |
@@ -273,7 +273,7 @@ Onde as variáveis são definidas da seguinte maneira:
 | \[PhysicalPath\] |Os diretórios físicos do conteúdo de cada caminho virtual definido no nó de site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do arquivo binário para a função. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Estou criando um pacote de serviço de nuvem e desejo...
 
 * [Configurar a área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]

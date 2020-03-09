@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/19/2019
 ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444495"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395951"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 
@@ -35,7 +35,7 @@ A tela de fluxo de dados é separada em três partes: a barra superior, o grafo 
 
 ![Tela](media/data-flow/canvas1.png "Tela")
 
-### <a name="graph"></a>Graph
+### <a name="graph"></a>Grafo
 
 O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente.
 
@@ -43,7 +43,7 @@ O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de ori
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados do Azure Integration Runtime
 
-![Botão de depuração](media/data-flow/debugbutton.png "Botão depurar")
+![Botão de depuração](media/data-flow/debugbutton.png "Botão de depuração")
 
 Ao começar a trabalhar com fluxos de dados no ADF, você desejará ativar a opção de "depuração" para fluxos de dados na parte superior da interface do usuário do navegador. Isso fará com que um cluster de Azure Databricks seja girado para uso para depuração interativa, visualizações de dados e execuções de depuração de pipeline. Você pode definir o tamanho do cluster que está sendo utilizado escolhendo um [Azure Integration Runtime](concepts-integration-runtime.md)personalizado. A sessão de depuração permanecerá ativa por até 60 minutos após a última visualização de dados ou a última execução do pipeline de depuração.
 
@@ -87,11 +87,11 @@ A primeira guia em cada painel de configuração de transformação contém as c
 
 ![Guia Configurações de origem](media/data-flow/source1.png "Guia Configurações de origem")
 
-#### <a name="optimize"></a>Otimize
+#### <a name="optimize"></a>Otimizar
 
 A guia **otimizar** contém configurações para configurar esquemas de particionamento.
 
-![Otimizar](media/data-flow/optimize1.png "Otimize")
+![Otimizar](media/data-flow/optimize1.png "Otimizar")
 
 A configuração padrão é **usar particionamento atual**, o que instrui Azure data Factory a usar o esquema de particionamento nativo para fluxos de dados em execução no Spark. Na maioria dos cenários, recomendamos essa configuração.
 
@@ -129,7 +129,7 @@ Se você tiver uma boa compreensão da cardinalidade de seus dados, o particiona
 
 A guia **inspecionar** fornece uma exibição dos metadados do fluxo de dados que você está transformando. Você pode ver as contagens de colunas, as colunas alteradas, as colunas adicionadas, os tipos de dados, a ordenação de colunas e as referências de coluna. **Inspecionar** é uma exibição somente leitura de seus metadados. Você não precisa ter o modo de depuração habilitado para ver os metadados no painel **inspecionar** .
 
-![Inspect](media/data-flow/inspect1.png "Inspecionar")
+![Quanto](media/data-flow/inspect1.png "Inspecionar")
 
 Ao alterar a forma de seus dados por meio de transformações, você verá o fluxo de alterações de metadados no painel **inspecionar** . Se não houver um esquema definido em sua transformação de origem, os metadados não estarão visíveis no painel **inspecionar** . A falta de metadados é comum em cenários de descompasso de esquema.
 
@@ -147,7 +147,7 @@ Se você ocultar o grafo, poderá navegar pelos nós de transformação posterio
 
 ![Botões anterior e próximo](media/data-flow/showhide.png "botões anterior e próximo")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba como criar uma [transformação de origem](data-flow-source.md).
 * Saiba como criar fluxos de dados no [modo de depuração](concepts-data-flow-debug-mode.md).

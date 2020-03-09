@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705693"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366869"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurar uma política de autorização de chave de conteúdo
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
  É possível usar os Serviços de Mídia do Azure para entregar MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com a criptografia AES por meio do uso de chaves de criptografia de 128 bits ou do [DRM (Gerenciamento de Direitos Digitais) do PlayReady](https://www.microsoft.com/playready/overview/). Com os Serviços de Mídia, também é possível distribuir streams DASH criptografados com o DRM do Widevine. O PlayReady e o Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC).
 
 Os Serviços de Mídia também fornecem um serviço de entrega de chaves/licenças por meio do qual os clientes podem obter chaves AES ou licenças do PlayReady/Widevine para reproduzir o conteúdo criptografado.
@@ -437,6 +437,6 @@ Para obter um token de teste com base na restrição de token que foi usada para
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Agora que você configurou a política de autorização da chave de conteúdo, consulte [Configurar uma política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 

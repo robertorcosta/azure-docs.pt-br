@@ -12,11 +12,11 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997268"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359841"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bancos de dados individuais e em pool do Banco de Dados SQL
 
@@ -106,12 +106,12 @@ As opções a seguir não têm suporte para assinaturas de Banco de Dados SQL do
 
 ## <a name="examples"></a>Exemplos
 
-Crie uma publicação e uma assinatura push. Para obter mais informações, veja:
+Crie uma publicação e uma assinatura push. Para obter mais informações, consulte:
   
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Criar uma Assinatura Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do Banco de Dados SQL do Azure como assinante (por exemplo **N'azuresqldbdns.database.windows.net'** ) e o nome do Banco de Dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**).  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Consulte Também  
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Entrada do usuário | Microsoft Docs'
+title: 'Azure AD Connect: Conexão do usuário | Microsoft Docs'
 description: Conexão do usuário do Azure AD Connect para configurações personalizadas.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607674"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376239"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -60,7 +60,7 @@ Além disso, você também pode habilitar o [SSO contínuo](how-to-connect-sso.m
 
 Para obter mais informações, consulte o artigo [Sincronização de hash de senha](how-to-connect-password-hash-synchronization.md).
 
-### <a name="pass-through-authentication"></a>Autenticação pass-through
+### <a name="pass-through-authentication"></a>Autenticação de passagem
 Com a autenticação de passagem, a senha do usuário é validada no controlador do Active Directory local. A senha não precisa estar presente no Azure AD em nenhum formato. Isso permite que as políticas locais, como restrições de horário de conexão, sejam avaliadas durante a autenticação em serviços de nuvem.
 
 A autenticação de passagem usa um agente simples em um computador ingressado em domínio do Windows Server 2012 R2 no ambiente local. Esse agente escuta as solicitações de validação de senha. Ele não exige que nenhuma porta de entrada seja aberta para a Internet.
@@ -179,17 +179,17 @@ Se você selecionou a opção de conexão do usuário **Federação com o AD FS*
 
 Na próxima página, você deverá fornecer as credenciais do Azure AD.
 
-![Conectar ao Azure AD](./media/plan-connect-user-signin/changeusersignin2.png)
+![Conectar ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2.png)
 
 Na página **Entrada de usuário**, selecione a entrada do usuário desejada.
 
-![Conectar ao Azure AD](./media/plan-connect-user-signin/changeusersignin2a.png)
+![Conectar ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
 > Se estiver fazendo apenas uma mudança temporária para a sincronização de hash de senha, marque a caixa de seleção **Não converter contas de usuário**. Não marcar a opção converterá cada usuário em federado, o que pode levar várias horas.
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
 - Saiba mais sobre os [conceitos de design do Azure AD Connect](plan-connect-design-concepts.md).

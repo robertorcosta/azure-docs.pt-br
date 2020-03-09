@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578620"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365968"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substituir um controlador EBOD em seu dispositivo StorSimple
 
@@ -54,7 +54,7 @@ Antes de substituir o módulo do controlador EBOD com falha em seu dispositivo S
    
      **Figura 1** Parte posterior do módulo EBOD
    
-   | Rotular | DESCRIÇÃO |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |LED de falha |
    | 2 |LED de energia |
@@ -86,7 +86,7 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
    
     **Figura 4**. Reconectando os cabos
    
-   | Rotular | DESCRIÇÃO |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Compartimento principal |
    | 2 |PCM 0 |
@@ -98,6 +98,6 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
    | 8 |Compartimento EBOD |
    | 9 |Unidades de distribuição de energia |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
 

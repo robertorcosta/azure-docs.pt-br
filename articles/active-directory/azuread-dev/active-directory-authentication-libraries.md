@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: fd880c98878f1f778047cd2d60b115b857ad0809
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251644"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377461"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de Autenticação do Active Directory do Azure
 
@@ -37,7 +37,7 @@ A Biblioteca de Autenticação do Azure Active Directory (ADAL) v1.0 permite que
 
 ## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de cliente com suporte da Microsoft
 
-| Plataforma | Biblioteca | Baixar | Código-fonte | Amostra | Referência
+| Platform | Biblioteca | {1&gt;{2&gt;Baixar&lt;2}&lt;1} | Código-fonte | Amostra | Referência
 | --- | --- | --- | --- | --- | --- |
 | Cliente .NET, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplicativo da área de trabalho](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referência](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicativo de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
@@ -49,7 +49,7 @@ A Biblioteca de Autenticação do Azure Active Directory (ADAL) v1.0 permite que
 
 ## <a name="microsoft-supported-server-libraries"></a>Bibliotecas de servidor com suporte da Microsoft
 
-| Plataforma | Biblioteca | Baixar | Código-fonte | Amostra | Referência
+| Platform | Biblioteca | {1&gt;{2&gt;Baixar&lt;2}&lt;1} | Código-fonte | Amostra | Referência
 | --- | --- | --- | --- | --- | --- |
 | .NET |OWIN para AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[Aplicativo MVC](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
 | .NET |OWIN para OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Aplicativo Web](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
