@@ -15,13 +15,13 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035209"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372568"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do Linux no portal do Azure
 
 As máquinas virtuais (VM) do Azure podem ser criadas por meio do Portal do Azure. O portal do Azure é uma interface de usuário baseada em navegador para criar recursos do Azure. Este início rápido mostra como usar o portal do Azure para implantar uma máquina virtual (VM) Linux que executa o Ubuntu 18.04 LTS. Para ver a VM em ação, você também habilita o SSH na VM e instala o servidor Web do NGINX.
 
@@ -34,7 +34,7 @@ Você precisa de um par de chaves SSH para concluir este início rápido. Se voc
 Abra um shell bash e use [ssh-keygen](https://www.ssh.com/ssh/keygen/) para criar um par de chaves SSH. Se você não tiver um shell bash no seu computador local, você pode usar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. No menu na parte superior da página, escolha o ícone `>_` para abrir o Cloud Shell.
 1. Verifique se o CloudShell diz **Bash** no canto superior esquerdo. Se ele disser PowerShell, use a lista suspensa para selecionar **Bash** e selecione **Confirmar** para alternar para o shell Bash.
 1. Digite `ssh-keygen -t rsa -b 2048` para criar a chave SSH. 
@@ -89,7 +89,7 @@ Crie uma conexão SSH com a VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Usando o mesmo shell bash que você usou para criar seu par de chaves SSH (você pode reabrir o Cloud Shell selecionando `>_` novamente ou indo para https://shell.azure.com/bash) ), cole o comando de conexão SSH no shell para criar uma sessão SSH.
+3. Usando o mesmo shell bash que você usou para criar seu par de chaves SSH (você pode reabrir o Cloud Shell selecionando `>_` novamente ou indo para https://shell.azure.com/bash)), cole o comando de conexão SSH no shell para criar uma sessão SSH.
 
 ## <a name="install-web-server"></a>Instalar servidor Web
 
@@ -109,7 +109,7 @@ Use um navegador da Web de sua escolha para exibir a página inicial padrão do 
 
 ![Site padrão NGINX](./media/quick-create-portal/nginx.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da máquina virtual, selecione **Excluir**, em seguida, confirme o nome do grupo de recursos para excluir.
 

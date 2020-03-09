@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c94b2a755d85bdf425980574b63d8fd74a232b19
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 97c5bf0c7bdf036a0555e8d536b5421d739327ad
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195984"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669290"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gerenciamento de carga de trabalho com classes de recursos no Azure Synapse Analytics
 
@@ -67,13 +67,13 @@ As classes de recursos dinâmicos são implementadas com essas funções de banc
 
 A alocação de memória para cada classe de recurso é a seguinte. 
 
-| Nível de serviço  | smallrc           | mediumrc               | largerc                | xlargerc               |
+| Nível de Serviço  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
 | DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
 | DW200c         | 12,5%             | 12,5%                  | 22%                    | 70%                    |
 | DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
 | DW400c         | 6,25%             | 10%                    | 22%                    | 70%                    |
-| DW500c         | 20%               | 10%                    | 22%                    | 70%                    |
+| DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
 | DW1000c para<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
 
 
@@ -592,7 +592,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados na análise de SQL](./sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Otimizações de memória para compressão de columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

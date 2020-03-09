@@ -16,11 +16,11 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466936"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365665"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
 
@@ -39,7 +39,7 @@ Você pode escolher se deseja ser notificado por email das condições de alerta
 > [!NOTE]
 > Você pode inserir um máximo de 20 endereços de email por matriz virtual.
 
-Depois de habilitar a notificação por email para uma matriz virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-Alerts-noreply\@mail.WindowsAzure.com* e descreverá a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
+Depois de habilitar a notificação por email para uma matriz virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-Alerts-noreply\@mail.WindowsAzure.com* e descreverá a condição de alerta. Os destinatários podem clicar em **Cancelar assinatura** para sair da lista de notificação de email.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Para habilitar a notificação por email para alertas
 
@@ -64,7 +64,7 @@ Depois de habilitar a notificação por email para uma matriz virtual, os membro
       > Se a mensagem de notificação de teste não pode ser enviada, o serviço Gerenciador de Dispositivo do StorSimple exibirá uma mensagem apropriada. Clique em **OK**, aguarde alguns minutos e, em seguida, tente enviar a mensagem de notificação de teste novamente.
       >
       >
-   5. Na parte inferior da página, clique em **Salvar** para salvar sua configuração. Quando solicitado a confirmar, clique em **Sim**.
+   5. Na parte inferior da página, clique em **Salvar** para salvar sua configuração. Quando solicitada a confirmação, clique em **Sim**.
       
       ![Email de notificação de teste de alertas enviado](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
@@ -101,7 +101,7 @@ Clique em um alerta na lista para obter detalhes adicionais sobre o mesmo, inclu
 
 Você pode copiar os detalhes do alerta para um arquivo de texto se precisar enviar as informações ao Suporte da Microsoft. Depois de seguir a recomendação e resolver a condição do alerta local, limpe o alerta da lista. Selecione o alerta na lista e clique em **Limpar**. Para limpar vários alertas, selecione cada alerta, clique em qualquer coluna exceto na coluna **Alerta** e clique em **Limpar** após ter selecionado todos os alertas a serem limpos.
 
-Ao clicar em **Limpar**, você terá a oportunidade de fornecer comentários sobre o alerta e as etapas que você seguiu para resolver o problema.
+Ao clicar em **Apagar**, você terá a oportunidade de fornecer comentários sobre o alerta e as etapas realizadas para resolver o problema.
 
 ![comentários de alerta](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
@@ -128,43 +128,43 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividade de nuvem
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
+| Texto de alerta | {1&gt;Evento&lt;1} | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | O dispositivo <*nome do dispositivo*> não está conectado à nuvem. |O dispositivo nomeado não pode se conectar à nuvem. |Não foi possível conectar-se à nuvem. Isso pode ser devido a um dos seguintes:<ul><li>Pode haver um problema com as configurações de rede no seu dispositivo.</li><li>Pode haver um problema com as credenciais da conta de armazenamento.</li></ul>Para obter mais informações sobre como solucionar problemas de conectividade, vá para a [interface do usuário da web local](storsimple-ova-web-ui-admin.md) do dispositivo. |
 
 ### <a name="configuration-alerts"></a>Alertas de configuração
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
+| Texto de alerta | {1&gt;Evento&lt;1} | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Configuração do dispositivo virtual local sem suporte. |Desempenho lento. |A configuração atual pode resultar em degradação de desempenho. Certifique-se de que o servidor atenda aos requisitos mínimos de configuração. Para saber mais, acesse os [requisitos do StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
 | Você está com pouco espaço em disco provisionado em <*nome do dispositivo*\>. |Aviso de espaço em disco. |Você está com pouco espaço em disco provisionado. Para liberar espaço, considere mover cargas de trabalho para outro volume ou compartilhar ou excluir dados. |
 
 ### <a name="job-failure-alerts"></a>Alertas de falha nos trabalhos
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
+| Texto de alerta | {1&gt;Evento&lt;1} | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| O backup de <*nome do dispositivo*\> não pôde ser concluído. |Falha no trabalho de backup. |Não foi possível criar um backup. Considere o seguinte:<ul><li>Problemas de conectividade podem estar impedindo a operação de backup de ser concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade. Para obter mais informações sobre solução de problemas de conectividade, vá para a [interface do usuário da Web local](storsimple-ova-web-ui-admin.md) do seu dispositivo virtual.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul> Resolva os problemas, limpe o alerta e repita a operação. |
-| A clonagem de <*nome do dispositivo*\> não pôde ser concluída. |Falha no trabalho de clonagem. |Não foi possível criar um clone. Considere o seguinte:<ul><li>sua lista de backup pode não ser válida. Atualize a lista para verificar se ela ainda é válida.</li><li>Problemas de conectividade podem estar impedindo que a operação de clonagem seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul>Resolva os problemas, limpe o alerta e repita a operação. |
+| O backup de <*nome do dispositivo*\> não pôde ser concluído. |Falha no trabalho de backup. |Não foi possível criar um backup. Considere o seguinte:<ul><li>Problemas de conectividade podem estar impedindo a operação de backup de ser concluída com êxito. Verifique se não há problemas de conectividade. Para obter mais informações sobre solução de problemas de conectividade, vá para a [interface do usuário da Web local](storsimple-ova-web-ui-admin.md) do seu dispositivo virtual.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul> Resolva os problemas, limpe o alerta e repita a operação. |
+| A clonagem de <*nome do dispositivo*\> não pôde ser concluída. |Falha no trabalho de clonagem. |Não foi possível criar um clone. Considere o seguinte:<ul><li>sua lista de backup pode não ser válida. Atualize a lista para verificar se ela ainda é válida.</li><li>Problemas de conectividade podem estar impedindo que a operação de clonagem seja concluída com êxito. Verifique se não há problemas de conectividade.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul>Resolva os problemas, limpe o alerta e repita a operação. |
 
 ### <a name="networking-alerts"></a>Alertas de rede
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
+| Texto de alerta | {1&gt;Evento&lt;1} | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticação não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre os padrões de URL no portal do Azure, vá para [Requisitos de rede da Matriz Virtual do StorSimple](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
+| Texto de alerta | {1&gt;Evento&lt;1} | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Você está sofrendo atrasos inesperados na transferência de dados. |Transferência de dados lenta. |Erros de limitação acontecem quando você excede os alvos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou locatário possa usar o serviço a custos de outros. Para saber mais sobre a solução de problemas de sua conta de armazenamento do Azure, vá para [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
 | Há pouco espaço em disco de reserva local em <*nome do dispositivo*\>. |Tempo de resposta lento. |Dez por cento do tamanho total provisionado para <*nome do dispositivo*\> está reservado no dispositivo local e agora está acabando o espaço reservado. A carga de trabalho em <*nome do dispositivo*\> está gerando uma taxa maior de variação ou você pode ter migrado recentemente uma grande quantidade de dados. Isso pode resultar em desempenho reduzido. Considere uma das ações a seguir para resolver esse problema:<ul><li>Aumentar a largura de banda de nuvem para este dispositivo.</li><li>Reduzir ou mover cargas de trabalho para outro volume ou compartilhamento.</li></ul> |
 
 ### <a name="security-alerts"></a>Alertas de segurança
 
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
+| Texto de alerta | {1&gt;Evento&lt;1} | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | A senha de <*nome do dispositivo*\> vai expirar em <*número*\> dias. |Aviso de senha. |A sua senha vai expirar em <*número*\> dias. Considere alterar sua senha. Para saber mais, vá para [Alterar a senha de administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Saiba mais sobre o StorSimple Virtual Array](storsimple-ova-overview.md).
