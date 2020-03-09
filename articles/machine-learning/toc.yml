@@ -75,10 +75,10 @@
       href: samples-notebooks.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: Conjuntos de dados de designer
+      href: sample-designer-datasets.md
     - name: Exemplos de MLOps de ponta a ponta
       href: 'https://github.com/microsoft/MLOps'
-    - name: Exemplos de conjuntos de dados de designer
-      href: designer-sample-datasets.md
 - name: Conceitos
   items:
     - name: Workspace

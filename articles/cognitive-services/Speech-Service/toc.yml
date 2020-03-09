@@ -193,10 +193,8 @@
           items:
             - name: API REST conversão de texto em fala
               href: rest-text-to-speech.md
-        - name: Uso do conjunto de telefones
-          items:
-            - name: Uso do conjunto de telefones da SAPI (Speech API)
-              href: sapi-phoneset-usage.md
+        - name: Conjuntos fonéticos de SSML
+          href: speech-ssml-phonetic-sets.md
     - name: Recursos
       items:
         - name: Perguntas frequentes sobre conversão de texto em fala
@@ -494,19 +492,14 @@
           href: speech-devices-sdk.md
         - name: Obter SDK dos dispositivos de fala
           href: get-speech-devices-sdk.md
-        - name: Notas de versão
-          href: devices-sdk-release-notes.md
-        - name: Detalhes do Roobo v1
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Detalhes do Roobo v2
-          href: speech-devices-sdk-roobo-v2.md
-        - name: Especificação de microfone
     - name: Hardware
       items:
         - name: Recomendações de matriz de microfone
           href: speech-devices-sdk-microphone.md
-        - name: Kit do Roobo v1
+        - name: Detalhes do Roobo v1
           href: speech-devices-sdk-roobo-v1.md
+        - name: Detalhes do Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
     - name: Guia de Início Rápido
       items:
         - name: Usar o SDK dos dispositivos de fala

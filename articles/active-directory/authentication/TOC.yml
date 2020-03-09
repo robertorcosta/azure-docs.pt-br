@@ -110,20 +110,18 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Proteção de senha do Azure AD
       items:
-        - name: Integração local
-          items:
-            - name: Implantar proteção de senha do Azure AD
-              href: howto-password-ban-bad-on-premises-deploy.md
-            - name: Configurar proteção de senha do Azure AD
-              href: howto-password-ban-bad-on-premises-operations.md
-            - name: Monitorar proteção de senha do Azure AD
-              href: howto-password-ban-bad-on-premises-monitor.md
-            - name: Solucionar problemas de proteção de senha do Azure AD
-              href: howto-password-ban-bad-on-premises-troubleshoot.md
-            - name: Perguntas frequentes
-              href: howto-password-ban-bad-on-premises-faq.md
-            - name: Histórico de versões do agente local
-              href: howto-password-ban-bad-on-premises-agent-versions.md
+        - name: Planejar e implantar locais
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: Habilitar e configurar locais
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: Monitorar implantações locais
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: Solucionar problemas de implantações locais
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: Perguntas frequentes locais
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: Histórico de versões do agente local
+          href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Bloqueio inteligente do Azure AD
       href: howto-password-smart-lockout.md
     - name: Sem senha

@@ -81,8 +81,12 @@
           href: batch-aad-auth-management.md
         - name: Acessar com segurança o Key Vault com o Lote
           href: credential-access-key-vault.md
-    - name: Como usar pacotes de aplicativos
-      href: batch-application-packages.md
+    - name: Copiar arquivos e aplicativos para nós de pool
+      items:
+        - name: Como usar pacotes de aplicativos
+          href: batch-application-packages.md
+        - name: Criar arquivos de recurso
+          href: resource-files.md
     - name: Criar e gerenciar pools
       items:
         - name: Dimensionar nós de computação automaticamente
@@ -123,12 +127,12 @@
           href: batch-user-accounts.md
         - name: Enviar muitas tarefas
           href: large-number-tasks.md
+        - name: Agendar trabalhos para eficiência
+          href: batch-job-schedule.md
         - name: Verificar se há erros de trabalho e tarefa
           href: batch-job-task-error-checking.md
         - name: Detectar e manipular erros do serviço de Lote
           href: batch-retry-after-errors.md
-    - name: Criar arquivos de recurso
-      href: resource-files.md
     - name: Persistir saída de tarefa e de trabalho
       href: batch-task-output.md
       items:
