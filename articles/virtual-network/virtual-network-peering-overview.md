@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
 ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918352"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390230"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -76,7 +76,7 @@ Há suporte para o tráfego de gateway entre redes virtuais criadas por meio de 
 
 Quando você emparelha redes virtuais que compartilham uma única conexão do Azure ExpressRoute, o tráfego entre elas passa pela relação de emparelhamento. Esse tráfego usa a rede de backbone do Azure. Você ainda pode usar gateways locais em cada rede virtual para se conectar ao circuito local. Caso contrário, você pode usar um gateway compartilhado e configurar o trânsito para conectividade local.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Para confirmar se as redes virtuais estão emparelhadas, você pode verificar as rotas efetivas. Verifique as rotas para uma interface de rede em qualquer sub-rede em uma rede virtual. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada. Para obter mais informações, consulte [diagnosticar um problema de roteamento de máquina virtual](diagnose-network-routing-problem.md).
 
@@ -106,11 +106,11 @@ O tráfego de gateway é uma propriedade de emparelhamento que permite que uma r
 >[!NOTE]
 > Uma versão anterior deste documento declarava que os encargos de emparelhamento de rede virtual não se aplicariam à VNet do spoke (ou VNet que não é de gateway) com trânsito de gateway. Agora, ele reflete os preços precisos de acordo com a página de preços.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Você pode criar um emparelhamento entre duas redes virtuais. As redes podem pertencer à mesma assinatura, a modelos de implantação diferentes na mesma assinatura ou a assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-    |Modelo de implantação do Azure             | Assinatura  |
+    |Modelo de implantação do Azure             | Subscription  |
     |---------                          |---------|
     |Ambos Resource Manager              |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|

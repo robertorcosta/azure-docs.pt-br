@@ -15,11 +15,11 @@ ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abd6b13dc56f8f948d50e2b3564712ed8f5b1476
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443343"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376441"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir usuários e grupos a um aplicativo no Azure Active Directory
 Este artigo mostra como atribuir usuários ou grupos a um aplicativo no Azure AD (Azure Active Directory). Primeiro os usuários devem ser atribuídos a um aplicativo para que um administrador possa conceder a eles acesso para fazer o seguinte:
@@ -168,5 +168,5 @@ Após você concluir a configuração do aplicativo de autoatendimento, os usuá
 
 Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o que significa que, se você especificar vários aprovadores, qualquer aprovador individual poderá aprovar o acesso ao aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)

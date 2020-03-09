@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226088"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394230"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
 
@@ -27,9 +27,9 @@ O Azure Data Lake Storage Gen1 implementa um modelo de controle de acesso que de
 
 Há dois tipos de listas de controle de acesso (ACLs), **ACLs de Acesso** e **ACLs Padrão**.
 
-* **ACLs de Acesso**: Estas listas controlam o acesso a um objeto. Os arquivos e as pastas têm ACLs de Acesso.
+* **ACLs de Acesso**: controlam o acesso a um objeto. Os arquivos e as pastas têm ACLs de Acesso.
 
-* **ACLs padrão**: Um "modelo" de ACLs associado a uma pasta que determina as ACLs de Acesso para quaisquer itens derivados criados sob essa pasta. Os Arquivos não têm ACLs Padrão.
+* **ACLs Padrão**: um "modelo" de ACLs associadas a uma pasta que determinam as ACLs de Acesso para todos os itens filhos criados nessa pasta. Os Arquivos não têm ACLs Padrão.
 
 
 As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
@@ -132,8 +132,8 @@ Como não há "grupo primário" associado a usuários no Data Lake Storage Gen1,
 
 **Atribuindo o grupo proprietário de um novo arquivo ou pasta**
 
-* **Caso 1**: A pasta raiz "/". Essa pasta é criada quando uma conta do Data Lake Storage Gen1 é criada. Nesse caso, o grupo proprietário é definido como um GUID de zeros.  Este valor não permite acesso.  Ele será um espaço reservado até ao momento em que um grupo for atribuído.
-* **Caso 2** (Todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
+* **Caso 1**: a pasta raiz "/". Essa pasta é criada quando uma conta do Data Lake Storage Gen1 é criada. Nesse caso, o grupo proprietário é definido como um GUID de zeros.  Este valor não permite acesso.  Ele será um espaço reservado até ao momento em que um grupo for atribuído.
+* **Caso 2** (todos os outros casos): quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
 
 **Alterando o grupo proprietário**
 
@@ -250,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário habilitar o suporte para ACLs?
 
-Nº O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Storage Gen1.
+Não. O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Storage Gen1.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente uma pasta e seu conteúdo?
 
@@ -297,6 +297,6 @@ Não, mas ACLs padrão pode ser usado para definir as ACLs de arquivos filho e r
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
