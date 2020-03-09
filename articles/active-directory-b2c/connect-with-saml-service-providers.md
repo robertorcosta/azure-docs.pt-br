@@ -12,12 +12,12 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4cf572b09f1e44faca002528fd00fe5be0b51bc5
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189643"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933009"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -43,7 +43,7 @@ Resumindo os dois cenários de núcleo não exclusivos com SAML:
 | Meu aplicativo espera que uma Asserção SAML conclua uma autenticação. | **Azure AD B2C atua como o IdP (provedor de identidade)**<br />Azure AD B2C atua como um IdP do SAML para os aplicativos. | Este artigo. |
 | Meus usuários precisam de logon único com um provedor de identidade compatível com SAML, como ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C atua como o provedor de serviços (SP)**<br />Azure AD B2C atua como um provedor de serviços ao se conectar ao provedor de identidade SAML. É um proxy de federação entre seu aplicativo e o provedor de identidade SAML.  | <ul><li>[Configurar a entrada com o ADFS como um IdP do SAML usando políticas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configurar a entrada com um provedor SAML do Salesforce usando políticas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Conclua as etapas em introdução [às políticas personalizadas no Azure ad B2C](custom-policy-get-started.md). Você precisa da política personalizada *SocialAndLocalAccounts* do pacote de início de política personalizada abordado no artigo.
 * Noções básicas sobre o protocolo SAML (Security Assertion Markup Language).
@@ -113,7 +113,7 @@ Em seguida, carregue a declaração SAML e o certificado de assinatura de respos
 
 ### <a name="21-create-the-saml-token-issuer"></a>2,1 criar o emissor do token SAML
 
-Agora, adicione a capacidade do seu locatário para emitir tokens SAML.
+Agora, adicione a capacidade do seu locatário para emitir tokens SAML, usando o [emissor do token SAML](saml-issuer-technical-profile.md) e perfis técnicos do [provedor de sessão SAML](custom-policy-reference-sso.md#samlssosessionprovider) .
 
 Abra `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** no pacote de início de política personalizada.
 
@@ -297,7 +297,7 @@ Os metadados são informações usadas no protocolo SAML para expor a configura�
 
 Se houver propriedades *especificadas na URL* de metadados SAML e no manifesto do registro do aplicativo, elas serão **mescladas**. As propriedades especificadas na URL de metadados são processadas primeiro e têm precedência.
 
-Para este tutorial que usa o aplicativo de teste do SAML, use o seguinte valor para `samlMetadataUrl`:
+Para este tutorial, que usa o aplicativo de teste do SAML, use o seguinte valor para `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -324,7 +324,7 @@ Para este tutorial, no qual você usa o aplicativo de teste do SAML, defina a pr
 
 Essa propriedade opcional representa a URL de `Logout` (`SingleLogoutService` URL nos metadados de terceira parte confiável) e o `BindingType` para isso é considerado `Http-Redirect`.
 
-Para este tutorial que usa o aplicativo de teste do SAML, deixe `logoutUrl` definido como `https://samltestapp2.azurewebsites.net/logout`:
+Para este tutorial, que usa o aplicativo de teste do SAML, deixe `logoutUrl` definido como `https://samltestapp2.azurewebsites.net/logout`:
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
@@ -373,7 +373,7 @@ Os seguintes cenários de RP (terceira parte confiável) do SAML têm suporte po
 * Especifique a chave de criptografia de token no objeto de aplicativo/entidade de serviço.
 * Atualmente, não há suporte para logons iniciados pelo provedor de identidade na versão de visualização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você pode encontrar mais informações sobre o [protocolo SAML no site da Oasis](https://www.oasis-open.org/).
 

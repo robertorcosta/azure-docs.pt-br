@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/06/2019
-ms.openlocfilehash: bbc62aa153e6ecb5d9ae65c37392c2697b9beaa2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/06/2020
+ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979716"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927560"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Machine Learning
 
@@ -27,7 +27,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputejobevents-table"></a>Tabela AmlComputeJobEvents
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:---|
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -56,7 +56,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputeclusterevents-table"></a>Tabela AmlComputeClusterEvents
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -75,8 +75,8 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | NodeDeallocationOption | Como o nó deve ser desalocado |
 | Publicador | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
-| SKU | SKU do nó/VM criado dentro do cluster |
-| Versão | Versão da imagem usada enquanto o nó/VM é criado |
+| Sku | SKU do nó/VM criado dentro do cluster |
+| {1&gt;Version&lt;1} | Versão da imagem usada enquanto o nó/VM é criado |
 | SubnetId | Sub-redeid do cluster |
 | AllocationState | Estado de alocação do cluster |
 | CurrentNodeCount | Contagem de nós atual do cluster |
@@ -99,7 +99,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputeclusternodeevents-table"></a>Tabela AmlComputeClusterNodeEvents
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 |:--- |:--- |
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -111,8 +111,8 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
 | Publicador | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
-| SKU | SKU do nó/VM criado |
-| Versão | Versão da imagem usada enquanto o nó/VM é criado |
+| Sku | SKU do nó/VM criado |
+| {1&gt;Version&lt;1} | Versão da imagem usada enquanto o nó/VM é criado |
 | ClusterCreationTime | Hora em que o cluster foi criado |
 | ResizeStartTime | Hora em que o cluster foi iniciado verticalmente |
 | ResizeEndTime | Tempo durante o aumento/redução do cluster concluído |
@@ -128,39 +128,39 @@ As tabelas a seguir listam as métricas de plataforma coletadas para Azure Machi
 
 **Modelo**
 
-| Métrica | Unidade | Description |
+| Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| Falha na implantação do modelo | Contagem | O número de implantações de modelo que falharam. |
-| Implantação de modelo iniciada | Contagem | O número de implantações de modelo iniciadas. |
-| Implantação de modelo bem-sucedida | Contagem | O número de implantações de modelo que tiveram êxito. |
-| Falha no registro do modelo | Contagem | O número de registros de modelo que falharam. |
-| Registro de modelo bem-sucedido | Contagem | O número de registros de modelo que foram bem-sucedidos. |
+| Falha na implantação do modelo | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de implantações de modelo que falharam. |
+| Implantação de modelo iniciada | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de implantações de modelo iniciadas. |
+| Implantação de modelo bem-sucedida | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de implantações de modelo que tiveram êxito. |
+| Falha no registro do modelo | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de registros de modelo que falharam. |
+| Registro de modelo bem-sucedido | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de registros de modelo que foram bem-sucedidos. |
 
 **Cota**
 
 As informações de cota são apenas para Azure Machine Learning computação.
 
-| Métrica | Unidade | Description |
+| Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| Núcleos ativos | Contagem | O número de núcleos de computação ativos. |
-| Nós ativos | Contagem | O número de nós ativos. |
-| Núcleos ociosos | Contagem | O número de núcleos de computação ociosos. |
-| Nós ociosos | Contagem | O número de nós de computação ociosos. |
-| Deixando núcleos | Contagem | O número de cores de saída. |
-| Saindo de nós | Contagem | O número de nós de saída. |
-| Núcleos preempçãos | Contagem | O número de núcleos admitidos. |
-| Nós admitidos | Contagem | O número de nós admitidos. |
+| Núcleos ativos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de núcleos de computação ativos. |
+| Nós ativos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de nós ativos. |
+| Núcleos ociosos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de núcleos de computação ociosos. |
+| Nós ociosos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de nós de computação ociosos. |
+| Deixando núcleos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de cores de saída. |
+| Saindo de nós | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de nós de saída. |
+| Núcleos preempçãos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de núcleos admitidos. |
+| Nós admitidos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de nós admitidos. |
 | Porcentagem de utilização de cota | Porcentagem | A porcentagem da cota usada. |
-| Total de núcleos | Contagem | O total de núcleos. |
-| Total de nós | Contagem | O total de nós. |
-| Núcleos inutilizáveis | Contagem | O número de núcleos inutilizáveis. |
-| Nós inutilizáveis | Contagem | O número de nós inutilizáveis. |
+| Total de núcleos | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O total de núcleos. |
+| Total de nós | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O total de nós. |
+| Núcleos inutilizáveis | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de núcleos inutilizáveis. |
+| Nós inutilizáveis | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de nós inutilizáveis. |
 
 Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de cota:
 
-| Dimensão | Métricas disponíveis com | Description |
+| Dimensão | Métricas disponíveis com | Descrição |
 | ---- | ---- | ---- |
-| Nome do cluster | Todas as métricas de cota | O nome da instância de computação. |
+| Nome do Cluster | Todas as métricas de cota | O nome da instância de computação. |
 | Nome da família de VMs | Porcentagem de utilização de cota | O nome da família de VMs usada pelo cluster. |
 | Prioridade da VM | Porcentagem de utilização de cota | A prioridade da VM.
 
@@ -168,15 +168,15 @@ Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de co
 
 Informações sobre execuções de treinamento.
 
-| Métrica | Unidade | Description |
+| Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| Execuções concluídas | Contagem | O número de execuções concluídas. |
-| Execuções com falha | Contagem | O número de execuções com falha. |
-| Execuções iniciadas | Contagem | O número de execuções iniciadas. |
+| Execuções concluídas | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de execuções concluídas. |
+| Execuções com falha | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de execuções com falha. |
+| Execuções iniciadas | {1&gt;{2&gt;Contagem&lt;2}&lt;1} | O número de execuções iniciadas. |
 
 Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de execução:
 
-| Dimensão | Description |
+| Dimensão | Descrição |
 | ---- | ---- |
 | Computatype | O tipo de computação usado pela execução. |
 | PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) usado na execução. |
@@ -185,7 +185,7 @@ Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de ex
 
 Os valores válidos para a dimensão RunType são:
 
-| Valor | Description |
+| {1&gt;Valor&lt;1} | Descrição |
 | ----- | ----- |
 | Experimento | Execuções sem pipeline. |
 | PipelineRun | Uma execução de pipeline, que é o pai de um StepRun. |

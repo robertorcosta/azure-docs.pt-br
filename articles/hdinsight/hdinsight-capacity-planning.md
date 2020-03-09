@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389802"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932795"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -56,7 +56,7 @@ Um cluster pode acessar uma combinação de contas de armazenamento diferentes. 
 * Quando desejar tornar os dados, você já carregou em um contêiner de blob disponível para o cluster.
 * Quando você quiser isolar diferentes partes do armazenamento por questões de segurança ou para simplificar a administração.
 
-Para um cluster de 48 nós, recomendamos de quatro a oito contas de armazenamento. Embora já possa haver um armazenamento total suficiente, cada conta de armazenamento fornece largura de banda de rede adicional para os nós de computação. Quando você tiver várias contas de armazenamento, use um nome aleatório para cada conta de armazenamento, sem um prefixo. A finalidade da nomeação aleatória é a redução da chance de gargalos (limitações) de armazenamento ou falhas de modo comum em todas as contas. Para obter melhor desempenho, use apenas um contêiner por conta de armazenamento.
+Para obter melhor desempenho, use apenas um contêiner por conta de armazenamento.
 
 ## <a name="choose-a-cluster-type"></a>Escolher um tipo de cluster
 

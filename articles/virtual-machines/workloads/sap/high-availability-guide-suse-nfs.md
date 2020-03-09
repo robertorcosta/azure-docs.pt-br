@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 03/06/2020
 ms.author: radeltch
-ms.openlocfilehash: efba617f9aeefa2e9374f5a7551338e003e70f56
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 58e7eea487c5d00a33338a592dd064072bef3c64
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598724"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926686"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do NFSVMs do Azure no SUSE Linux Enterprise Server
 
@@ -143,7 +143,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
             1. Digite o nome do novo pool de IPs de front-end (por exemplo **nw1-frontend**)
             1. Defina a Atribuição ao Estático e digite o endereço IP (por exemplo **10.0.0.4**)
-            1. Clique em OK
+            1. Clique em OK.
          1. Endereço IP 10.0.0.5 para NW2
             * Repita as etapas acima para a porta NW2
       1. Criar os pools de back-end
@@ -161,7 +161,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
             1. Digite o nome da nova investigação de integridade (por exemplo, **nw1-hp**)
             1. Escolha TCP como protocolo, porta 610**00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
-            1. Clique em OK
+            1. Clique em OK.
          1. Porta 61001 para NW2
             * Repita as etapas acima para criar uma investigação de integridade para NW2
       1. Regras de balanceamento de carga
@@ -171,7 +171,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
          1. Selecione **portas de alta disponibilidade**.
          1. Aumente o tempo limite de ociosidade para 30 minutos
          1. **Habilite o IP Flutuante**
-         1. Clique em OK
+         1. Clique em OK.
          * Repita as etapas acima para criar a regra de balanceamento de carga para NW2
    1. Como alternativa, se seu cenário exigir o Load Balancer básico, siga estas instruções:
       1. Criar os endereços IP de front-end
@@ -179,7 +179,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             1. Abra o balanceador de carga, selecione o pool de IPs de front-end e clique em Adicionar
             1. Digite o nome do novo pool de IPs de front-end (por exemplo **nw1-frontend**)
             1. Defina a Atribuição ao Estático e digite o endereço IP (por exemplo **10.0.0.4**)
-            1. Clique em OK
+            1. Clique em OK.
          1. Endereço IP 10.0.0.5 para NW2
             * Repita as etapas acima para a porta NW2
       1. Criar os pools de back-end
@@ -189,7 +189,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             1. Clique em Adicionar uma máquina virtual
             1. Selecione o Conjunto de Disponibilidade criado anteriormente
             1. Selecione as máquinas virtuais do cluster NFS
-            1. Clique em OK
+            1. Clique em OK.
          1. Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster NFS para NW2
             * Repita as etapas acima para criar um pool de back-end para NW2
       1. Crie as investigações de integridade
@@ -197,7 +197,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
             1. Digite o nome da nova investigação de integridade (por exemplo, **nw1-hp**)
             1. Escolha TCP como protocolo, porta 610**00**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
-            1. Clique em OK
+            1. Clique em OK.
          1. Porta 61001 para NW2
             * Repita as etapas acima para criar uma investigação de integridade para NW2
       1. Regras de balanceamento de carga
@@ -208,7 +208,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
             1. Mantenha o protocolo **TCP**, insira a porta **2049**
             1. Aumente o tempo limite de ociosidade para 30 minutos
             1. **Habilite o IP Flutuante**
-            1. Clique em OK
+            1. Clique em OK.
          1. UDP 2049 para NW1
             * Repita as etapas acima para a porta 2049 e UDP para NW1
          1. TCP 2049 para NW2
@@ -478,7 +478,12 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
    > [!IMPORTANT]
    > Testes recentes revelaram situações em que o netcat para de responder às solicitações devido à pendência e sua limitação de manipular apenas uma conexão. O recurso netcat para de escutar as solicitações do Azure Load Balancer e o IP flutuante fica indisponível.  
-   > Para clusters pacemaker existentes, é recomendável substituir netcat por socat, seguindo as instruções em [proteção de detecção do balanceador de carga do Azure](https://www.suse.com/support/kb/doc/?id=7024128). Observe que a alteração exigirá um breve tempo de inatividade.  
+   > Para os clusters pacemaker existentes, recomendamos a substituição de netcat por socat. No momento, é recomendável usar o agente de recursos do Azure-lb, que faz parte do pacote Resource-Agents, com os seguintes requisitos de versão do pacote:
+   > - Para o SLES 12 SP4/SP5, a versão deve ser pelo menos Resource-Agents-4.3.018. a7fb5035-3.30.1.  
+   > - Para o SLES 15/15 SP1, a versão deve ser pelo menos Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
+   >
+   > Observe que a alteração exigirá um breve tempo de inatividade.  
+   > Para clusters pacemaker existentes, se a configuração já tiver sido alterada para usar o socat, conforme descrito em [proteção de detecção do balanceador de carga do Azure](https://www.suse.com/support/kb/doc/?id=7024128), não há necessidade de alternar imediatamente para o agente de recursos do Azure-lb.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -515,9 +520,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
      IPaddr2 \
      params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_nfs \
-     anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61000</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b>
    
    sudo crm configure group g-<b>NW1</b>_nfs \
      fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
@@ -554,15 +557,13 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo crm configure primitive exportfs_<b>NW2</b> \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/<b>NW2</b>" \
-     options="rw,no_root_squash" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
+     options="rw,no_root_squash,crossmnt" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
    sudo crm configure primitive vip_<b>NW2</b>_nfs \
      IPaddr2 \
      params ip=<b>10.0.0.5</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW2</b>_nfs \
-     anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61001</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b>
    
    sudo crm configure group g-<b>NW2</b>_nfs \
      fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
@@ -579,11 +580,10 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo crm configure property maintenance-mode=false
    </code></pre>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Instale o SAP ASCS e o banco de dados](high-availability-guide-suse.md)
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
 * Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]

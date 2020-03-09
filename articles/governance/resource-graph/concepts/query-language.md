@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas de gráfico de recursos e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o grafo de recursos do Azure.
-ms.date: 12/05/2019
+ms.date: 03/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851206"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927492"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -26,10 +26,14 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 
 |Tabelas do grafo de recursos |Descrição |
 |---|---|
-|Implante |A tabela padrão se nenhuma for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
+|Recursos |A tabela padrão se nenhuma for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
 |ResourceContainers |Inclui a assinatura (em visualização `Microsoft.Resources/subscriptions`) e os tipos de recurso e os dados do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AdvisorResources |Inclui recursos _relacionados_ a `Microsoft.Advisor`. |
 |AlertsManagementResources |Inclui recursos _relacionados_ a `Microsoft.AlertsManagement`. |
+|MaintenanceResources |Inclui recursos _relacionados_ a `Microsoft.Maintenance`. |
 |SecurityResources |Inclui recursos _relacionados_ a `Microsoft.Security`. |
+
+Para obter uma lista completa, incluindo tipos de recursos, consulte [referência: tabelas e tipos de recursos com suporte](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Recursos_ é a tabela padrão. Ao consultar a tabela de _recursos_ , não é necessário fornecer o nome da tabela, a menos que `join` ou `union` sejam usados. No entanto, a prática recomendada é sempre incluir a tabela inicial na consulta.
@@ -65,9 +69,9 @@ O grafo de recursos dá suporte a todos os [tipos de dados](/azure/kusto/query/s
 
 Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos com exemplos específicos:
 
-|KQL |Consulta de exemplo de grafo de recursos |Notas |
+|KQL |Consulta de exemplo de grafo de recursos |{1&gt;Observações&lt;1} |
 |---|---|---|
-|[count](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
+|[contagem](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
@@ -98,7 +102,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
 - `$`-escape o caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
-  - **bash** - `\`
+  - `\` **bash** - 
 
     Exemplo de consulta que escapa a propriedade _\$tipo_ no bash:
 
@@ -116,7 +120,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).

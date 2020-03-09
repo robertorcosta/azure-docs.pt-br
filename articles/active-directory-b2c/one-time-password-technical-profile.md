@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a4732d780bb241a18e0738c99603799c31c2102f
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184019"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933043"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico de senha de uso único em uma política personalizada de Azure AD B2C
 
@@ -51,7 +51,7 @@ O primeiro modo deste perfil técnico é gerar um código. Abaixo estão as opç
 
 O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | identificador | Sim | O identificador para identificar o usuário que precisa verificar o código posteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
 
@@ -61,7 +61,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 O elemento **OutputClaims** contém uma lista de declarações geradas pelo provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | otpGenerated | Sim | O código gerado cuja sessão é gerenciada pelo Azure AD B2C. |
 
@@ -69,43 +69,43 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 ### <a name="metadata"></a>Metadados
 
-As configurações a seguir podem ser usadas para configurar a geração e a manutenção de código:
+As configurações a seguir podem ser usadas para configurar o modo de geração de código:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60`; Máximo: `1200`; Padrão: `600`. |
 | CodeLength | Não | Comprimento do código. O valor padrão é `6`. |
 | CharacterSet | Não | O conjunto de caracteres para o código formatado para uso em uma expressão regular. Por exemplo, `a-z0-9A-Z`. O valor padrão é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
 | NumRetryAttempts | Não | O número de tentativas de verificação antes de o código ser considerado inválido. O valor padrão é `5`. |
-| Operação | Sim | A operação a ser executada. Valores possíveis: `GenerateCode`ou `VerifyCode`. |
+| Operação | Sim | A operação a ser executada. Valor possível: `GenerateCode`. |
 | ReuseSameCode | Não | Se um código duplicado deve ser fornecido em vez de gerar um novo código quando determinado código não tiver expirado e ainda for válido. O valor padrão é `false`. |
 
 ### <a name="returning-error-message"></a>Mensagem de erro retornada
 
 Não há nenhuma mensagem de erro retornada para o modo de geração de código.
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 O `TechnicalProfile` de exemplo a seguir é usado para gerar um código:
 
 ```XML
 <TechnicalProfile Id="GenerateCode">
-    <DisplayName>Generate Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">600</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="NumRetryAttempts">5</Item>
-        <Item Key="ReuseSameCode">false</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-    </InputClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
-    </OutputClaims>
+  <DisplayName>Generate Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">GenerateCode</Item>
+    <Item Key="CodeExpirationInSeconds">600</Item>
+    <Item Key="CodeLength">6</Item>
+    <Item Key="CharacterSet">0-9</Item>
+    <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="ReuseSameCode">false</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
@@ -117,7 +117,7 @@ O segundo modo desse perfil técnico é verificar um código. Abaixo estão as o
 
 O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | DESCRIÇÃO |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | identificador | Sim | O identificador para identificar o usuário que gerou um código anteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
 | otpToVerify | Sim | O código de verificação fornecido pelo usuário. |
@@ -132,46 +132,45 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 ### <a name="metadata"></a>Metadados
 
-As configurações a seguir podem ser usadas para configurar a mensagem de erro exibida após a falha de verificação de código:
+As configurações a seguir podem ser usadas para o modo de verificação de código:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| Operação | Sim | A operação a ser executada. Valor possível: `VerifyCode`. |
+
+
+### <a name="error-messages"></a>Mensagens de erro
+
+As configurações a seguir podem ser usadas para configurar as mensagens de erro exibidas na falha de verificação de código. Os metadados devem ser configurados no perfil técnico [autodeclarado](self-asserted-technical-profile.md) . As mensagens de erro podem ser [localizadas](localization-string-ids.md#one-time-password-error-messages).
+
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Não | A mensagem a ser exibida para o usuário se a sessão de verificação de código tiver expirado. O código expirou ou o código nunca foi gerado para um determinado identificador. |
 | UserMessageIfMaxRetryAttempted | Não | A mensagem a ser exibida para o usuário se ele tiver excedido o máximo de tentativas de verificação permitidas. |
 | UserMessageIfInvalidCode | Não | A mensagem a ser exibida para o usuário se ele tiver fornecido um código inválido. |
+|UserMessageIfSessionConflict|Não| A mensagem a ser exibida para o usuário se o código não puder ser verificado.|
 
-### <a name="returning-error-message"></a>Mensagem de erro retornada
-
-Conforme descrito em [metadados](#metadata), você pode personalizar a mensagem de erro mostrada para o usuário para casos de erro diferentes. Você pode localizar mais essas mensagens prefixando a localidade, por exemplo:
-
-```XML
-<Item Key="en.UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-```
-
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 O `TechnicalProfile` de exemplo a seguir é usado para verificar um código:
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
-    <DisplayName>Verify Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-        <Item Key="UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-        <Item Key="UserMessageIfSessionDoesNotExist">Code has expired.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You've tried too many times.</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
-    </InputClaims>
+  <DisplayName>Verify Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">VerifyCode</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+    <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
+  </InputClaims>
 </TechnicalProfile>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Consulte o seguinte artigo para obter um exemplo de como usar o perfil de técnicos de senha de uso único com a verificação de email personalizada:
+Consulte o seguinte artigo para obter um exemplo de como usar o perfil técnico de senha de uso único com a verificação de email personalizada:
 
 - [Verificação de email personalizada no Azure Active Directory B2C](custom-email.md)
 

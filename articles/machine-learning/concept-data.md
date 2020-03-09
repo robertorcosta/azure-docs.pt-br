@@ -11,11 +11,11 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
 ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541875"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396183"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Acesso a dados no Azure Machine Learning
 
@@ -44,7 +44,7 @@ Para acessar seus dados em sua conta de armazenamento, o Azure Machine Learning 
 
 Os conjuntos de dados respondem à pergunta: como posso obter arquivos de dado específicos em meu repositório? Os conjuntos de valores apontam para o arquivo ou arquivos específicos no armazenamento subjacente que você deseja usar para o experimento do Machine Learning. Juntos, os conjuntos de dados e os datastores oferecem um fluxo de trabalho de entrega de dado seguro, escalonável e reproduzível para suas tarefas de aprendizado de máquina.
 
-### <a name="datastores"></a>Armazenamentos de dados
+### <a name="datastores"></a>Armazenamentos
 
 Um armazenamento de dataAzure Machine Learning é uma abstração de armazenamento em seus serviços de armazenamento do Azure. [Registre e crie um armazenamento](how-to-access-data.md) de dados para se conectar facilmente à sua conta de armazenamento do Azure e acessar os dados em seus serviços de armazenamento do Azure subjacentes.
 
@@ -53,7 +53,7 @@ Serviços de armazenamento do Azure com suporte que podem ser registrados como r
 + Compartilhamento de arquivos do Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Banco de dados SQL do Azure
++ Banco de Dados SQL do Azure
 + Banco de Dados do Azure para PostgreSQL
 + Sistema de arquivos do Databricks
 + Banco de Dados do Azure para MySQL
@@ -91,7 +91,7 @@ Com conjuntos de informações, você pode realizar várias tarefas de aprendiza
 
 <a name="open"></a>
 
-## <a name="azure-open-datasets"></a>Conjuntos de dados em aberto no Azure
+## <a name="azure-open-datasets"></a>Azure Open Datasets
 
 Os [Conjuntos de dados abertos do Azure](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Os conjuntos de itens abertos estão na nuvem em Microsoft Azure e são integrados ao Azure Machine Learning. Você também pode acessar os conjuntos de dados por meio de APIs e usá-los em outros produtos, como o Power BI e o Azure Data Factory.
 
@@ -114,7 +114,7 @@ O Azure Machine Learning oferece uma localização central para criar, gerenciar
 No contexto do Machine Learning, a descompasso de dados é a alteração nos dados de entrada do modelo que leva à degradação do desempenho do modelo. É um dos principais motivos pelos quais a precisão do modelo diminui ao longo do tempo, o que monitora a descompasso de dados ajuda a detectar problemas de desempenho do modelo.
 Consulte o artigo [criar um conjunto de](how-to-monitor-datasets.md) dados para saber mais sobre como detectar e alertar a descompasso de dados em novos dados em um DataSet.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1} 
 
 + Crie um conjunto de Azure Machine Learning Studio ou com o SDK do Python, [Use estas etapas.](how-to-create-register-datasets.md)
 + Experimente exemplos de treinamento de conjunto de [anotações com nossos notebooks de exemplo](https://aka.ms/dataset-tutorial).

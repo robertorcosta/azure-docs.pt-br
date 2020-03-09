@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515064"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391310"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
 
@@ -25,7 +25,7 @@ Um dos princípios de design de chave da API v3 é tornar a API mais segura. as 
 
 O exemplo neste artigo mostra como usar o .NET para obter uma chave de assinatura da política existente. 
  
-## <a name="download"></a>Baixar 
+## <a name="download"></a>{1&gt;{2&gt;Baixar&lt;2}&lt;1} 
 
 Clone um repositório do GitHub que contém o exemplo do .NET Core completo em seu computador usando o comando a seguir:  
 
@@ -41,6 +41,6 @@ Para obter a chave, use **GetPolicyPropertiesWithSecretsAsync**, conforme mostra
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso](design-multi-drm-system-with-access-control.md) 

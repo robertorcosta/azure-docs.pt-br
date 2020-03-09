@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 42fc10c1e7e88e36e4d2174671702e043fb96538
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208705"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78926839"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure Active Directory (Azure AD)
 
@@ -33,7 +33,7 @@ SCIM é uma definição padronizada de dois pontos de extremidade: a/Users EndPo
 
 O esquema de objeto de usuário padrão e as APIs REST para gerenciamento definidos no SCIM 2,0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) permitem que provedores de identidade e aplicativos sejam integrados com mais facilidade entre si. Os desenvolvedores de aplicativos que criam um ponto de extremidade SCIM podem se integrar a qualquer cliente compatível com SCIM sem precisar fazer trabalho personalizado.
 
-Automatizar o provisionamento para um aplicativo requer a criação e a integração de um ponto de extremidade SCIM com o SCIM do Azure AD em conformidade. Execute as etapas a seguir para iniciar o provisionamento de usuários e grupos em seu aplicativo. 
+Automatizar o provisionamento para um aplicativo requer a criação e a integração de um ponto de extremidade SCIM com o cliente SCIM do Azure AD. Execute as etapas a seguir para iniciar o provisionamento de usuários e grupos em seu aplicativo. 
     
   * **[Etapa 1: criar seu esquema de usuário e grupo.](#step-1-design-your-user-and-group-schema)** Identifique os objetos e atributos de que seu aplicativo precisa e determine como eles são mapeados para o esquema de usuário e grupo com suporte pela implementação de SCIM do Azure AD.
 
@@ -752,7 +752,7 @@ Barra mínima dos pacotes de criptografia TLS 1,2:
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Etapa 3: criar um ponto de extremidade SCIM
 
-Agora que você desidned seu esquema e entendeu a implementação do SCIM do Azure AD, você pode começar a desenvolver seu ponto de extremidade do SCIM. Em vez de começar do zero e criar a implementação completamente por conta própria, você pode contar com várias bibliotecas de SCIM de software livre publicadas pelo commuinty SCIM.  
+Agora que você criou seu esquema e entendeu a implementação do Azure AD SCIM, você pode começar a desenvolver seu ponto de extremidade do SCIM. Em vez de começar do zero e criar a implementação completamente por conta própria, você pode contar com várias bibliotecas de SCIM de software livre publicadas pelo commuinty SCIM.  
 O [código de referência](https://aka.ms/SCIMReferenceCode) do .NET Core de código-fonte aberto publicado pela equipe de provisionamento do Azure AD é um recurso que pode começar a desenvolver. Depois de criar seu ponto de extremidade SCIM, você desejará testá-lo. Você pode usar a coleção de [testes de postmaster](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou executar as solicitações/respostas de exemplo fornecidas [acima](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
 
 Observação: o código de referência destina-se a ajudá-lo a começar a criar seu ponto de extremidade SCIM e é fornecido "no estado em que se encontra". As contribuições da Comunidade são boas-vindas para ajudar a criar e manter o código. 

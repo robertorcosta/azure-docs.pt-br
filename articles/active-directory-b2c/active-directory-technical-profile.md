@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78397821"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78932967"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C
 
@@ -58,13 +58,13 @@ O exemplo a seguir mostra o perfil técnico **AAD-Common**:
 
 ## <a name="input-claims"></a>Declarações de entrada
 
-Os perfis técnicos a seguir incluem **InputClaims** para contas locais e sociais:
+O elemento InputClaims contém uma declaração, que é usada para pesquisar uma conta no diretório ou criar uma nova. Deve haver exatamente um elemento InputClaim na coleção de declarações de entrada para todos os perfis técnicos do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory.
 
-- Os perfis técnicos de conta social **AAD-UserReadUsingAlternativeSecurityId** e **AAD UserWriteUsingAlternativeSecurityId** incluem a declaração **AlternativeSecurityId**. Essa declaração contém o identificador de usuário de conta social.
-- Os perfis técnicos de conta local **AAD-UserReadUsingEmailAddress** e **AAD-UserWriteUsingLogonEmail** incluem a declaração **email**. Essa declaração contém o nome de entrada da conta local.
-- Os perfis técnicos (locais e sociais) unificados **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId** e **AAD-UserWritePhoneNumberUsingObjectId** incluem a declaração **objectId**. O identificador exclusivo de uma conta.
+Para ler, atualizar ou excluir uma conta de usuário existente, a declaração de entrada é uma chave que identifica exclusivamente a conta no diretório do AD do Azure. Por exemplo, **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username**ou **alternativeSecurityId**. 
 
-O elemento **InputClaimsTransformations** elemento pode conter uma coleção de elementos **InputClaimsTransformation** elementos usados para modificar as declarações de entrada ou gerar novas.
+Para criar uma nova conta de usuário, a declaração de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames. EmailAddress**ou **signInNames. username**. Para uma conta federada: o **alternativeSecurityId**.
+
+O elemento InputClaimsTransformations pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
 
 ## <a name="output-claims"></a>Declarações de saída
 

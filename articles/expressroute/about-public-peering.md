@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: bae44f67a485546ba29148a114d88df198f7c3e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483083"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361529"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Criar e gerenciar o emparelhamento público do ExpressRoute
 
@@ -49,7 +49,7 @@ Esta seção mostra os serviços disponíveis em emparelhamento público. Como o
 
 **Sem suporte:**
   * CDN
-  * Azure Front Door
+  * Porta da frente do Azure
   * Servidor de autenticação multifator (Herdado)
   * Gerenciador de Tráfego
 
@@ -296,7 +296,7 @@ Selecione a linha para emparelhamento e, em seguida, modifique as propriedades d
 
 Remova a configuração de emparelhamento selecionando o ícone Excluir.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Próxima etapa, [vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md).
 

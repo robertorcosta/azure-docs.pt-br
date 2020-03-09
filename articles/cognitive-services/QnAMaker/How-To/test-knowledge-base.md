@@ -1,22 +1,14 @@
 ---
 title: Como testar uma base de dados de conhecimento – QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Testar a base de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão sendo retornadas. É possível testar a base de dados de conhecimento por meio de uma interface de chat avançada que também permite fazer edições.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.date: 03/05/2020
+ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091761"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927272"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste sua base de dados de conhecimento no QnA Maker
 
@@ -61,11 +53,11 @@ Se a resposta de pontuação mais alta estiver incorreta, selecione a resposta c
 
 ### <a name="add-a-new-answer"></a>Adicionar uma nova resposta
 
-Você poderá adicionar uma nova resposta, se alguma das respostas existentes que foram correspondidas estiver incorreta ou a resposta não existir na base de dados de conhecimento (nenhuma boa correspondência encontrada na base de dados de conhecimento). 
+Você poderá adicionar uma nova resposta, se alguma das respostas existentes que foram correspondidas estiver incorreta ou a resposta não existir na base de dados de conhecimento (nenhuma boa correspondência encontrada na base de dados de conhecimento).
 
-Na parte inferior da lista de respostas, use a caixa de texto para inserir uma nova resposta e pressione ENTER para adicioná-la. 
+Na parte inferior da lista de respostas, use a caixa de texto para inserir uma nova resposta e pressione ENTER para adicioná-la.
 
-Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perguntas e respostas foi adicionado à base de dados de conhecimento. 
+Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perguntas e respostas foi adicionado à base de dados de conhecimento.
 
 > [!NOTE]
 > Todas as edições da base de dados de conhecimento somente serão salvas quando você pressionar o botão **Salvar e Treinar**.
@@ -83,14 +75,16 @@ Use a ferramenta de teste do lote quando desejar:
 * determinar a resposta principal e a pontuação de um conjunto de perguntas
 * validar a resposta esperada para o conjunto de perguntas
 
-Os testes em lote são fornecidos com a ferramenta de teste em lote. Essa ferramenta está disponível como um [executável compactado](https://aka.ms/qnamakerbatchtestingtool) para download ou como [ C# código-fonte](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Leia o [tutorial](../Quickstarts/batch-testing.md) de teste em lotes para obter instruções passo a passo.
+
+Os testes em lote são fornecidos com a ferramenta de teste em lote. Essa ferramenta está disponível como um [executável compactado](https://aka.ms/qnamakerbatchtestingtool) para download ou como [ C# código-fonte](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
 [A documentação de referência sobre a ferramenta](../reference-tsv-format-batch-testing.md) inclui:
 
 * o exemplo de linha de comando da ferramenta
-* o formato para arquivos de entrada TSV e de outfile 
+* o formato para arquivos de entrada TSV e de outfile
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Publicar uma base de dados de conhecimento](./publish-knowledge-base.md)
