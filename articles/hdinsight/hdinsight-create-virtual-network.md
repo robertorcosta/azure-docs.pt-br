@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073626"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359988"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters do Azure HDInsight
 
@@ -45,10 +45,10 @@ O modelo de Gerenciamento de Recursos a seguir cria uma rede virtual que restrin
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use o script do PowerShell a seguir para criar uma rede virtual que restrinja o tráfego de entrada e permita o tráfego dos endereços IP para a região Europa Setentrional.
+Use o script do PowerShell a seguir para criar uma rede virtual que restrinja o tráfego de entrada e permita o tráfego dos endereços IP para a região Norte da Europa.
 
 > [!IMPORTANT]  
-> Altere os endereços IP para `hdirule1` e `hdirule2` , neste exemplo, para corresponder à região do Azure que você está usando. Você pode encontrar essas informações [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
+> Altere os endereços IP para `hdirule1` e `hdirule2` neste exemplo para corresponder à região do Azure que você está usando. Você pode encontrar essas informações [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -162,7 +162,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 Use as etapas a seguir para criar uma rede virtual que restringe o tráfego de entrada, mas permite o tráfego dos endereços IP necessários para o HDInsight.
 
-1. Use o seguinte comando para criar um novo grupo de segurança de rede chamado `hdisecure`. Substitua `RESOURCEGROUP` pelo grupo de recursos que contém a rede virtual do Azure. Substituir `LOCATION` pelo local (região) em que o grupo foi criado.
+1. Use o seguinte comando para criar um novo grupo de segurança de rede chamado `hdisecure`. Substitua `RESOURCEGROUP` pelo grupo de recursos que contém a rede virtual do Azure. Substitua `LOCATION` pelo local (região) em que o grupo foi criado.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
@@ -173,7 +173,7 @@ Use as etapas a seguir para criar uma rede virtual que restringe o tráfego de e
 2. Use o seguinte para adicionar regras ao novo grupo de segurança de rede que permitem a comunicação de entrada na porta 443 por meio do serviço de integridade e gerenciamento do Azure HDInsight. Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual do Azure.
 
     > [!IMPORTANT]  
-    > Altere os endereços IP para `hdirule1` e `hdirule2` , neste exemplo, para corresponder à região do Azure que você está usando. Você pode encontrar essas informações em [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
+    > Altere os endereços IP para `hdirule1` e `hdirule2` neste exemplo para corresponder à região do Azure que você está usando. Você pode encontrar essas informações em [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -194,7 +194,7 @@ Use as etapas a seguir para criar uma rede virtual que restringe o tráfego de e
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-4. Use o comando a seguir para aplicar o grupo de segurança de rede a uma sub-rede. Substitua os `GUID` valores `RESOURCEGROUP` e por aqueles retornados da etapa anterior. Substitua `VNETNAME` e`SUBNETNAME` pelo nome da rede virtual e nome da sub-rede que você deseja criar.
+4. Use o comando a seguir para aplicar o grupo de segurança de rede a uma sub-rede. Substitua os valores `GUID` e `RESOURCEGROUP` com aqueles retornados da etapa anterior. Substitua `VNETNAME` e `SUBNETNAME` pelo nome da rede virtual e nome da sub-rede que você deseja criar.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -211,7 +211,7 @@ O código a seguir demonstra como habilitar o acesso SSH da Internet:
 az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 ```
 
-## <a id="example-dns"></a> Exemplo: Configuração de DNS
+## <a id="example-dns"></a> Exemplo: configuração de DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Resolução de nomes entre uma rede virtual e uma rede local conectada
 
@@ -288,7 +288,7 @@ No servidor DNS personalizado da rede virtual:
     
     * Substitua o valor `192.168.0.1` pelo endereço IP do servidor DNS local. Essa entrada encaminha todas as outras solicitações DNS para o servidor DNS local.
 
-3. Para usar a configuração, reinicie o Bind. Por exemplo: `sudo service bind9 restart`.
+3. Para usar a configuração, reinicie o Bind. Por exemplo, `sudo service bind9 restart`.
 
 4. Adicione um encaminhador condicional ao servidor DNS local. Configure o encaminhador condicional para enviar solicitações para o sufixo DNS da etapa 1 para o servidor DNS personalizado.
 

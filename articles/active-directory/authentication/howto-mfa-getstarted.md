@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155139"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378094"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -24,7 +24,7 @@ As pessoas estão se conectando a recursos organizacionais em cenários cada vez
 
 A [autenticação multifator do Azure (MFA)](concept-mfa-howitworks.md) ajuda a proteger o acesso a dados e aplicativos. Ele fornece uma camada adicional de segurança usando uma segunda forma de autenticação. As organizações podem usar o [acesso condicional](../conditional-access/overview.md) para fazer com que a solução atenda às suas necessidades específicas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar uma implantação da autenticação multifator do Azure, há itens de pré-requisito que devem ser considerados.
 
@@ -85,7 +85,7 @@ Recomendamos que as organizações usem o acesso condicional para definir sua re
 ### <a name="configuring-a-named-location"></a>Configurando um local nomeado
 
 1. Abrir **Azure Active Directory** no portal do Azure
-2. Selecionar **segurança**
+2. selecione **Segurança**
 3. Em **gerenciar**, escolha **locais nomeados**
 4. Selecionar **novo local**
 5. No campo **nome** , forneça um nome significativo
@@ -218,10 +218,10 @@ Para planejar sua estratégia de política de acesso condicional, que determinar
 
 É importante que você impeça o bloqueio inadvertidamente do seu locatário do Azure AD. Você pode mitigar o impacto dessa falta inadvertida de acesso administrativo [criando duas ou mais contas de acesso de emergência em seu locatário](../users-groups-roles/directory-emergency-access.md) e excluindo-as da sua política de acesso condicional.
 
-### <a name="create-conditional-access-policy"></a>Criar política de Acesso Condicional
+### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
    ![criar uma política de acesso condicional para habilitar a MFA para portal do Azure usuários no grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. .Forneça um nome significativo para a política.
@@ -288,7 +288,7 @@ A finalidade dessa configuração é determinar o que fazer quando um usuário n
 | A chave não existe | Não registrado | O desafio de MFA não foi bem-sucedido |
 | Valor definido como True/not set | Não registrado | O desafio de MFA não foi bem-sucedido |
 | Chave definida como False | Não registrado | Autenticação sem MFA |
-| Chave definida como Falsa ou True | Registrado | Deve autenticar com MFA |
+| Chave definida como Falsa ou True | Registrados | Deve autenticar com MFA |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Integrar com o Serviços de Federação do Active Directory (AD FS)
 
@@ -347,7 +347,7 @@ Relatórios para o Azure MFA
 
 A autenticação multifator do Azure fornece relatórios por meio do portal do Azure:
 
-| Relate | Local | Description |
+| Relatório | Location | DESCRIÇÃO |
 | --- | --- | --- |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 
@@ -355,7 +355,7 @@ A autenticação multifator do Azure fornece relatórios por meio do portal do A
 
 Encontre soluções para problemas comuns com o Azure MFA no [artigo solução de problemas da autenticação multifator do Azure](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) no centro de suporte da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Quais são os métodos de autenticação?](concept-authentication-methods.md)
 * [Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)

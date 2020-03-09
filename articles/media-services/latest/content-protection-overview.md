@@ -16,11 +16,11 @@ ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313796"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393470"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteger seu conteúdo com a criptografia dinâmica dos serviços de mídia
 
@@ -159,7 +159,7 @@ O protocolo Smooth Streaming dá suporte aos seguintes formatos de contêiner e 
 
 Os navegadores comuns dão suporte aos seguintes clientes DRM:
 
-|Navegador|Criptografia|
+|Navegador.|Criptografia|
 |---|---|
 |Chrome|Widevine|
 |Microsoft Edge, Internet Explorer 11|PlayReady|
@@ -249,7 +249,7 @@ Para obter exemplos de REST que usam URLs de licença/chave personalizadas, cons
 > [!NOTE]
 > O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você receber o erro de `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, certifique-se de especificar a política de streaming apropriada.
 
@@ -259,7 +259,7 @@ Se você receber erros que terminem com `_NOT_SPECIFIED_IN_URL`, certifique-se d
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Proteger com criptografia AES](protect-with-aes128.md)
 * [Proteger com DRM](protect-with-drm.md)

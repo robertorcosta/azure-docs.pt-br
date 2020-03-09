@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 514de1435519282335124bfd67bac82669240b78
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616509"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373018"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -123,7 +123,7 @@ Usando incidentes, a central de segurança fornece uma única exibição de uma 
 
 Além de estar disponível no portal do Azure ou programaticamente, os alertas de segurança e os incidentes são auditados como eventos no [log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para obter mais informações sobre o esquema de eventos, consulte [alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, consulte:
 

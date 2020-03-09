@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838899"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360095"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
@@ -281,7 +281,7 @@ Para definir essa propriedade, o adaptador de rede deve existir. Portanto, é ne
 
 Vários elementos de perfil são usados ao definir um recurso de máquina virtual. Alguns são obrigatórios e alguns são opcionais. Por exemplo, os elementos hardwareProfile, osProfile, storageProfile e networkProfile são obrigatórios, mas diagnosticsProfile é opcional. Esses perfis definem configurações como:
    
-- [tamanho](sizes.md)
+- [size](sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenciais
 - disco e [configurações do sistema operacional](cli-ps-findimage.md)
 - [adaptador de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 

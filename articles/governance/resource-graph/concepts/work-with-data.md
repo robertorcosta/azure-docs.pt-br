@@ -4,11 +4,11 @@ description: Entenda como obter, Formatar, paginar e ignorar registros em grande
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304014"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388609"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recurso do Azure
 
@@ -60,7 +60,7 @@ Na [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/res
 
 ## <a name="paging-results"></a>Resultados da paginação
 
-Quando for necessário interromper um conjunto de resultados em conjuntos menores de registros para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registros retornados, use paginação. O [QueryResponse](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) da **API REST** fornece valores para indicar se um conjunto de resultados foi subdividido: **resultTruncated** e **$skipToken**.
+Quando for necessário interromper um conjunto de resultados em conjuntos menores de registros para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registros retornados, use paginação. O **QueryResponse** da [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) fornece valores para indicar que um conjunto de resultados foi dividido: **resultTruncated** e **$skipToken**.
 **resultTruncated** é um valor booliano que informa ao consumidor se existem registros adicionais não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **count** é menor do que a propriedade **totalRecords**. **totalRecords** define quantos registros correspondem à consulta.
 
 Quando **resultTruncated** é **true**, a propriedade **$skipToken** é definida na resposta. Esse valor é usado com os mesmos valores de consulta e de assinatura para obter o próximo conjunto de registros que correspondeu à consulta.

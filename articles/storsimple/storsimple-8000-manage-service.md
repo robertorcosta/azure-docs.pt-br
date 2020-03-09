@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965453"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384882"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
 
@@ -57,7 +57,7 @@ Execute as etapas a seguir para criar um serviço.
 
 Os atributos a seguir existem para cada serviço do Gerenciador de Dispositivos do StorSimple:
 
-* **Nome** – O nome que foi atribuído ao serviço do Gerenciador de Dispositivos do StorSimple quando ele foi criado. **O nome do serviço não pode ser alterado depois que o serviço é criado. O mesmo ocorre para outras entidades como dispositivos, volumes, contêineres de volume e políticas de backup, os quais não podem ser renomeados no Portal do Azure.**
+* **Nome** – O nome que foi atribuído ao serviço do Gerenciador de Dispositivos do StorSimple quando ele foi criado. **O nome do serviço não pode ser alterado depois que o serviço é criado. Isso também é verdadeiro para outras entidades, como dispositivos, volumes, contêineres de volume e políticas de backup que não podem ser renomeadas no portal do Azure.**
 * **Status**: o status do serviço, que pode ser **Ativo**, **Criando** ou **Online**.
 * **Local** : a localização geográfica em que o dispositivo StorSimple será implantado.
 * **Assinatura** : a assinatura de cobrança associada ao seu serviço.
@@ -81,7 +81,7 @@ Execute as etapas a seguir para excluir um serviço.
 
     ![Excluir serviço](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Clique em **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
+3. Clique **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
 
     ![Confirmar exclusão](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
@@ -95,7 +95,7 @@ Execute as etapas a seguir para obter a chave de registro do serviço.
 
 Mantenha a chave de registro do serviço em local seguro. Você precisará dessa chave, bem como da chave de criptografia dos dados de serviço, para registrar dispositivos adicionais nesse serviço. Depois de obter a chave de registro do serviço, você deverá configurar o dispositivo usando a Interface do Windows PowerShell para StorSimple.
 
-Para saber mais sobre como usar essa chave de registro, consulte a [Etapa 3: configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Para obter detalhes sobre como usar essa chave de registro, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## <a name="regenerate-the-service-registration-key"></a>Regenerar a chave de registro do serviço
 Você precisará regenerar uma chave de registro do serviço se for necessário realizar a rotação de chave ou se a lista de administradores de serviço tiver mudado. Quando você regenera a chave, a nova chave é usada somente para registrar dispositivos subsequentes. Os dispositivos que já foram registrados não serão afetados por esse processo.
@@ -103,7 +103,7 @@ Você precisará regenerar uma chave de registro do serviço se for necessário 
 Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
-1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
+1. Na folha **Device Manager do StorSimple** , vá para **Gerenciamento &gt;** **chaves**.
     
     ![Folha Chaves](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -129,7 +129,7 @@ A alteração da chave de criptografia de dados de serviço é um processo de tr
 2. Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço.
 3. Se você tiver mais de um dispositivo StorSimple, atualize a chave de criptografia de dados de serviço nos outros dispositivos.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Etapa 1: usar um script do Windows PowerShell para autorizar um dispositivo a alterar a chave de criptografia de dados de serviço
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Etapa 1: use um script do Windows PowerShell para autorizar um dispositivo a alterar a chave de criptografia de dados de serviço
 Normalmente, o administrador do dispositivo solicita que o administrador do serviço autorize um dispositivo a alterar as chaves de criptografia de dados de serviço. O administrador do serviço então autoriza o dispositivo a alterar a chave.
 
 Esta etapa é executada usando o script baseado no Azure Resource Manager. O administrador de serviços pode selecionar um dispositivo qualificado para receber a autorização. O dispositivo é então autorizado a iniciar o processo de alteração da chave de criptografia de dados de serviço. 
@@ -145,7 +145,7 @@ Um dispositivo deve atender aos seguintes critérios para que possa ser autoriza
 * Não é possível autorizar um dispositivo enquanto a substituição da chave de criptografia de dados de serviço estiver em andamento.
 * Você pode autorizar um dispositivo quando alguns dos dispositivos registrados no serviço tiverem substituído a criptografia, enquanto outros não. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Etapa 2: usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço
 Essa etapa é executada na interface do Windows PowerShell para StorSimple no dispositivo StorSimple autorizado.
 
 > [!NOTE]
@@ -170,7 +170,7 @@ Se você estiver usando o console serial do dispositivo para se conectar à inte
    
    Se você tiver um único dispositivo registrado no serviço, o processo de substituição agora está concluído e a próxima etapa poderá ser ignorada. Se você tiver vários dispositivos registrados em seu serviço, passe para a etapa 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: atualizar a chave de criptografia de dados de serviço em outros dispositivos StorSimple
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Etapa 3: Atualizar a chave de criptografia de dados de serviço em outros dispositivos StorSimple
 Essas etapas devem ser executadas na interface do Windows PowerShell de seu dispositivo StorSimple, caso você tenha vários dispositivos registrados no serviço StorSimple Manager. A chave que você obteve na Etapa 2 deve ser usada para atualizar todos os demais dispositivos StorSimple registrados com o serviço do StorSimple Manager.
 
 Execute as etapas a seguir para atualizar a criptografia de dados de serviço no seu dispositivo.
@@ -178,7 +178,7 @@ Execute as etapas a seguir para atualizar a criptografia de dados de serviço no
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Para atualizar a chave de criptografia de dados de serviço em dispositivos físicos
 1. Use o Windows PowerShell para StorSimple para se conectar ao console. Selecione a Opção 1 para fazer logon com acesso completo.
 2. No prompt de comando, digite: `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Forneça a chave de criptografia de dados de serviço obtida na [Etapa 2: usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#to-initiate-the-service-data-encryption-key-change).
+3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Para atualizar a chave de criptografia de dados de serviço em todos os dispositivos de nuvem 8010/8020
 1. Baixe e instale o script do PowerShell [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1). 
@@ -189,7 +189,7 @@ Esse script garantirá que essa chave de criptografia de dados de serviço seja 
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Suporte para operações em dispositivos que executam versões anteriores à atualização 5.0
 No Portal do Azure, há suporte apenas para dispositivos StorSimple que executam a Atualização 5.0 ou superior. Os dispositivos que executam versões mais antigas têm suporte limitado. Após você ter migrado para o Portal do Azure, cheque a tabela a seguir para conferir quais operações têm suporte para dispositivos que executam versões anteriores à Atualização 5.0.
 
-| Operação                                                                                                                       | Com suporte      |
+| Operação                                                                                                                       | Suportado      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Registrar um dispositivo                                                                                                               | Sim            |
 | Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | Sim            |
@@ -211,7 +211,7 @@ No Portal do Azure, há suporte apenas para dispositivos StorSimple que executam
 | Ativar e desativar controladores de dispositivo                                                                                              | Sim            |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre o [processo de implantação do StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-8000-manage-storage-accounts.md).
 * Saiba mais sobre como [usar o serviço StorSimple Device Manager para administrar dispositivos StorSimple](storsimple-8000-manager-service-administration.md).
