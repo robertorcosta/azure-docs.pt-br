@@ -10,13 +10,13 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950701"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384743"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com o Azure Data Box Edge para o fluxo de implantação avançada
+# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Tutorial: transformar dados com Azure Data Box Edge para o fluxo de implantação avançada
 
 Este tutorial descreve como configurar uma função de computação para um fluxo de implantação avançada no dispositivo do Azure Data Box Edge. Depois de configurar a função de computação, o Data Box Edge pode transformar os dados antes de enviar para o Azure.
 
@@ -25,7 +25,7 @@ Computação pode ser configurada para o fluxo de implantação simples ou avan�
 |                  | Implantação simples                                | Implantação avançada                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Destinado a     | Administradores de TI                                | Desenvolvedores                            |
-| Type             | Usar o serviço Data Box Edge para implantar módulos      | Usar o serviço de Hub IoT para implantar módulos |
+| Tipo             | Usar o serviço Data Box Edge para implantar módulos      | Usar o serviço de Hub IoT para implantar módulos |
 | Módulos implantados | Single                                           | Módulos múltiplos ou encadeados           |
 
 
@@ -41,7 +41,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar a transformação e a transferência de dados
 
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de configurar uma função de computação em seu dispositivo do Data Box Edge, certifique-se de que:
 
@@ -63,10 +63,10 @@ Para configurar a computação no Data Box Edge, você criará um recurso do Hub
 3. Na folha **Configurar computação de borda**, insira o seguinte:
 
    
-    |Campo  |Valor  |
+    |Campo  |{1&gt;Valor&lt;1}  |
     |---------|---------|
     |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Data Box Edge.     |
-    |NOME     |Insira um nome para o recurso do Hub IoT.         |
+    |{1&gt;Nome&lt;1}     |Insira um nome para o recurso do Hub IoT.         |
 
     ![Introdução à computação](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
@@ -83,15 +83,15 @@ Para configurar a computação no Data Box Edge, você criará um recurso do Hub
 
 Para a implantação avançada neste tutorial, você precisará de dois compartilhamentos: um compartilhamento do Edge e outro compartilhamento local do Edge.
 
-1. Adicione um compartilhamento do Edge no dispositivo seguindo as seguintes etapas:
+1. Adicione um compartilhamento do Microsoft Edge no dispositivo seguindo as seguintes etapas:
 
     1. No recurso do Data Box Edge, acesse **Computação de borda > Introdução**.
     2. No bloco **Adicionar compartilhamentos**, selecione **Adicionar**.
     3. Na folha **Adicionar compartilhamento**, forneça o nome do compartilhamento e selecione o tipo de compartilhamento.
-    4. Para montar o compartilhamento do Edge, marque a caixa de seleção **Usar o compartilhamento com a computação de borda**.
+    4. Para montar o compartilhamento do Microsoft Edge, marque a caixa de seleção **Usar o compartilhamento com a computação de borda**.
     5. Selecione a **Conta de armazenamento**, o **Serviço de armazenamento**, um usuário existente e, em seguida, selecione **Criar**.
 
-        ![Adicionar um compartilhamento do Edge](./media/data-box-edge-deploy-configure-compute-advanced/add-edge-share-1.png)
+        ![Adicionar um compartilhamento do Microsoft Edge](./media/data-box-edge-deploy-configure-compute-advanced/add-edge-share-1.png)
 
     <!--If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
 
@@ -101,9 +101,9 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
     Após o compartilhamento do Edge ser criado, você receberá uma notificação de êxito na criação. A lista de compartilhamentos é atualizada para refletir o novo compartilhamento.
 
-2. Adicione um compartilhamento local do Edge no dispositivo do Edge repetindo todas as etapas da etapa anterior e marcando a caixa de seleção **Configurar como o compartilhamento local do Edge**. Os dados no compartilhamento local permanecem no dispositivo.
+2. Adicione um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge repetindo todas as etapas da etapa anterior e marcando a caixa de seleção **Configurar como o compartilhamento local do Microsoft Edge**. Os dados no compartilhamento local permanecem no dispositivo.
 
-    ![Adicionar um compartilhamento local do Edge](./media/data-box-edge-deploy-configure-compute-advanced/add-edge-share-2.png)
+    ![Adicionar um compartilhamento local do Microsoft Edge](./media/data-box-edge-deploy-configure-compute-advanced/add-edge-share-2.png)
 
 3. Na folha **Compartilhamentos**, você vê a lista de compartilhamentos atualizada.
 
@@ -130,11 +130,11 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
 2. Na folha **Adicionar gatilho**, adicione os valores de entrada a seguir.
 
-    |Campo  |Valor  |
+    |Campo  |{1&gt;Valor&lt;1}  |
     |---------|---------|
     |Nome do gatilho     | Um nome exclusivo para o gatilho.         |
     |Tipo de gatilho     | Selecione o gatilho **Arquivo**. Um gatilho de arquivo é acionado sempre que ocorre um evento de arquivo, como uma gravação de arquivo no compartilhamento de entrada. Um gatilho agendado, por sua vez, é acionado de acordo com um agendamento definido por você. Neste exemplo, precisamos de um gatilho de arquivo.    |
-    |Compartilhamento de entrada     | Selecione um compartilhamento de entrada. O compartilhamento local do Edge é o compartilhamento de entrada, nesse caso. O módulo usado aqui move os arquivos do compartilhamento local do Edge para um compartilhamento do Edge, em que são carregados para a nuvem.        |
+    |Compartilhamento de entrada     | Selecione um compartilhamento de entrada. O compartilhamento local do Microsoft Edge é o compartilhamento de entrada, nesse caso. O módulo usado aqui move os arquivos do compartilhamento local do Microsoft Edge para um compartilhamento do Microsoft Edge, em que são carregados para a nuvem.        |
 
     ![Adicionar gatilho](./media/data-box-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
@@ -152,7 +152,7 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
 Não há módulos personalizados neste dispositivo do Edge. Você pode adicionar um módulo personalizado ou pré-criado. Para saber como criar um módulo personalizado, acesse [Desenvolver um módulo em C# para o dispositivo Data Box Edge](data-box-edge-create-iot-edge-module.md).
 
-Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Data Box Edge](data-box-edge-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Edge no dispositivo do Edge e move-os para um compartilhamento do Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
+Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Data Box Edge](data-box-edge-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge e move-os para um compartilhamento do Microsoft Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
 
 1. Acesse **Computação de borda > Introdução**. No bloco **Adicionar módulos**, selecione o tipo de cenário como **avançado**. Selecione **Ir para o Hub IoT**.
 
@@ -181,9 +181,9 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
  
     2. Especifique as configurações para o módulo personalizado do IoT Edge. Insira os valores a seguir.
      
-        |Campo  |Valor  |
+        |Campo  |{1&gt;Valor&lt;1}  |
         |---------|---------|
-        |NOME     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Data Box Edge.        |
+        |{1&gt;Nome&lt;1}     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Data Box Edge.        |
         |URI da imagem     | O URI da imagem para a imagem de contêiner correspondente ao módulo.        |
         |Credenciais necessárias     | Se essa opção for marcada, o nome de usuário e a senha serão usados para recuperar os módulos com uma URL correspondente.        |
     
@@ -241,7 +241,7 @@ A etapa final é garantir que o módulo esteja conectado e funcionando como espe
 
 Execute as etapas a seguir para verificar a transformação e transferência de dados para o Azure.
  
-1.  No Explorador de Arquivos, conecte-se aos compartilhamentos do Edge e local do Edge criados anteriormente.
+1.  No Explorador de Arquivos, conecte-se aos compartilhamentos do Microsoft Edge e local do Microsoft Edge criados anteriormente.
 
     ![Verifique a transformação de dados](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
@@ -259,9 +259,9 @@ Execute as etapas a seguir para verificar a transformação e transferência de 
  
 Você concluiu o processo de validação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a computação

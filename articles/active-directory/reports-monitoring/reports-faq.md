@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre os relatórios do Azure Active Directory | Microsoft Docs
-description: Perguntas frequentes sobre os relatórios do Azure Active Directory.
+description: Perguntas frequentes sobre Azure Active Directory relatórios.
 services: active-directory
 documentationcenter: ''
 author: cawrites
@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbaf7d4e5a0dee82edf9b6b6bd65b91309e1344d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007686"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668804"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes sobre os relatórios do Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: atualmente uso o `https://graph.windows.net/<tenant-name>/reports/` as APIs de ponto de extremidade para efetuar pull de relatórios de segurança do Azure AD (tipos específicos de detecções, como credenciais vazadas ou entradas de endereços IP anônimos) em nossos sistemas de relatórios programaticamente. O que devo mudar?**
 
-**R:** Você pode usar a [API de detecções de risco de proteção de identidade](../identity-protection/graph-get-started.md) para acessar as detecções de segurança por meio de Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como O365 ou Azure AD. Para que o trabalho necessário possa estender seus investimentos atuais no MS Graph ou ajudá-lo a começar a fazer a transição para essa nova plataforma padrão.
+**R:** Você pode usar a [API de detecções de risco de proteção de identidade](../identity-protection/graph-get-started.md) para acessar as detecções de segurança por meio de Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como O365 ou Azure AD. Portanto, o trabalho necessário pode estender seus investimentos atuais de Microsoft Graph ou ajudá-lo a começar sua transição para essa nova plataforma padrão.
 
 ---
 
@@ -76,7 +76,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 | Relatório                 | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Logs de auditoria             | 7 dias        | 30 dias             | 30 dias             |
-| Entradas               | N/D           | 30 dias             | 30 dias             |
+| Entradas               | {1&gt;N/A&lt;1}           | 30 dias             | 30 dias             |
 | Uso do MFA do Azure        | 30 dias       | 30 dias             | 30 dias             |
 
 ---
@@ -131,7 +131,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-## <a name="conditional-access"></a>Acesso Condicional
+## <a name="conditional-access"></a>Acesso condicional
 
 **P: quais são as novidades com esse recurso?**
 

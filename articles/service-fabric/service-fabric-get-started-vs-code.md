@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251627"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946021"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -21,7 +21,7 @@ Este artigo fornece uma visão geral dos requisitos e instalação da extensão,
 > [!IMPORTANT]
 > Aplicativos do Java do Microsoft Service Fabric podem ser desenvolvidos em máquinas Windows, mas podem ser implantados nos clusters do Linux do Azure apenas. Não há suporte para a depuração de aplicativos Java no Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
@@ -48,14 +48,14 @@ Os pré-requisitos a seguir devem ser instalados em todos os ambientes:
 Os pré-requisitos a seguir devem ser instalados para o desenvolvimento .NET Core/C#:
 
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) versão 2.0.0 ou posterior
-* [C# para extensão do Visual Studio Code (fornecido por OmniSharp) VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) necessários para depurar serviços de linguagem C#. Você pode instalar clicando no ícone de extensões na **Barra de Atividade** no Visual Studio Code e pesquisa para a extensão ou do Marketplace do Visual Studio Code.
+* [C# para extensão do Visual Studio Code (fornecido por OmniSharp) VS Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) necessários para depurar serviços de linguagem C#. Você pode instalar clicando no ícone de extensões na **Barra de Atividade** no Visual Studio Code e pesquisa para a extensão ou do Marketplace do Visual Studio Code.
 
 ## <a name="setup"></a>Instalação
 
 1. Abra o VS Code.
 2. Clique no ícone Extensões na **Barra de Atividades** no lado do Visual Studio Code. Pesquisar “Service Fabric”. Clique em **Instalar** para a extensão do Service Fabric Reliable Services.
 
-## <a name="commands"></a>Comandos
+## <a name="commands"></a>Commands
 A extensão de serviços confiáveis do Service Fabric para VS Code fornece muitos comandos para ajudar os desenvolvedores a criar e implantar projetos do Service Fabric. Você pode chamar comandos da **paleta de comandos** pressionando `(Ctrl + Shift + p)`, digitando o nome do comando na barra de entrada e selecionando o comando desejado da lista de avisos. 
 
 * Microsoft Azure Service Fabric: Criar aplicativo 
@@ -124,7 +124,7 @@ O comando **Microsoft Azure Service Fabric: limpar aplicativo** exclui todos os 
 2.  Selecione o comando **Microsoft Azure Service Fabric: Limpar aplicativo**.
 3.  A saída do processo de compilação é enviada para o terminal integrado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba como [Desenvolver aplicativos Service Fabric do C# com Visual Studio Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Saiba como [desenvolver aplicativos Microsoft Azure Service Fabric Java com Visual Studio Code](./service-fabric-develop-java-applications-with-vs-code.md).

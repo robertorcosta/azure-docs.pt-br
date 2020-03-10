@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058170"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389539"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -34,7 +34,7 @@ O PerfInsights pode coletar e analisar vários tipos de informações. As seçõ
 
 Este cenário coleta a configuração do disco e outras informações importantes, incluindo:
 
--   Logs de evento
+-   Logs de eventos
 
 -   Status da rede para todas as conexões de entrada e saída
 
@@ -79,15 +79,15 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | Latência      | Média de solicitação de dados/s         |
 |              | Média de leitura/s                 |
 |              | Média de gravação/s                |
-| Tamanho de E/S      | Média Bytes/solicitação de dados       |
-|              | Média Bytes/leitura               |
-|              | Média Bytes/gravação              |
-| Taxa de transferência   | Bytes de dados/s                |
+| Tamanho de E/S      | Média de bytes/solicitação de dados       |
+|              | Média de bytes/leitura               |
+|              | Média de bytes/gravação              |
+| Produtividade   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
-| Comprimento da fila | Média Tamanho da fila de leitura        |
-|              | Média Tamanho da fila de gravação       |
-|              | Média Comprimento da fila de dados        |
+| Comprimento da Fila | Comprimento médio da fila de leitura        |
+|              | Comprimento médio da fila de gravação       |
+|              | Comprimento médio da fila de dados        |
 
 ### <a name="advanced-performance-analysis"></a>Análise de desempenho avançado
 
@@ -108,7 +108,7 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 | Informações do sistema                | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Mapa de volume                        | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Mapa do disco                          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Executando tarefas                     | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
+| Tarefas em execução                     | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Contadores de confiabilidade do armazenamento      | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Informações de armazenamento               | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Saída do fsutil                     | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
@@ -131,10 +131,10 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 
 Executa um mecanismo baseado em regras no segundo plano para coletar dados e diagnosticar problemas de desempenho em andamento. No momento, há suporte para regras a seguir:
 
-- Regra HighCpuUsage: Detecta períodos altos de uso da CPU e mostra os principais consumidores de uso da CPU durante esses períodos.
-- Regra HighDiskUsage: Detecta períodos de alto uso do disco em discos físicos e mostra os principais consumidores de uso do disco durante esses períodos.
-- Regra HighResolutionDiskMetric: Mostra IOPS, taxa de transferência e métricas de latência de e/s por 50 milissegundos para cada disco físico. Isso ajuda a identificar rapidamente os períodos de limitação de disco.
-- Regra HighMemoryUsage: Detecta períodos de alto uso de memória e mostra os principais consumidores de uso de memória durante esses períodos.
+- Regra de HighCpuUsage: detecta períodos de uso elevado de CPU e mostra os principais consumidores de uso da CPU durante esses períodos.
+- Regra de HighDiskUsage: detecta períodos de uso elevado de disco em discos físicos e mostra os principais consumidores de uso de disco durante esses períodos.
+- Regra de HighResolutionDiskMetric: mostra IOPS, taxa de transferência e métricas de latência de E/S por 50 milissegundos para cada disco físico. Isso ajuda a identificar rapidamente os períodos de limitação de disco.
+- Regra de HighMemoryUsage: detecta os períodos de uso elevado de memória e mostra os principais consumidores de uso de memória durante esses períodos.
 
 > [!NOTE] 
 > Atualmente, há suporte para versões do Windows que incluem .NET Framework 4.5 ou versões posteriores.
@@ -166,7 +166,7 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 -  Esta ferramenta deve ser executada na VM que tem o problema de desempenho. 
 
--  Há suporte para os seguintes sistemas operacionais: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016; Windows 8.1 e Windows 10.
+-  Há suporte para os seguintes sistemas operacionais: Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2, Windows Server 2016; Windows 8.1 e Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas ao executar a ferramenta em VMs de produção
 
@@ -303,7 +303,7 @@ Diskspd é um gerador de carga de armazenamento e ferramenta de teste de desempe
 
 XPerf é uma ferramenta de linha de comando para capturar rastreamentos do Kit de Ferramentas de Desempenho do Windows. Para obter mais informações, consulte [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você pode carregar relatórios e logs de diagnóstico para o Suporte da Microsoft para análise. O Suporte poderá solicitar que você transmita a saída que é gerada pelo PerfInsights para auxiliar no processo de solução de problemas.
 

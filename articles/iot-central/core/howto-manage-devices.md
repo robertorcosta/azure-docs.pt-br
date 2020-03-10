@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: dfbfd65223ddad5e8a20958d62ef86b5aa16af43
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023473"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391648"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerenciar dispositivos no aplicativo Azure IoT Central
 
@@ -124,7 +124,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 1. Selecione os dispositivos que você deseja exportar e, em seguida, selecione a ação **Exportar** .
 
-    ![Exportar](./media/howto-manage-devices/export1a.png)
+    ![Exportação](./media/howto-manage-devices/export1a.png)
 
 
 1. O processo de exportação tem início. Você pode acompanhar o status usando o painel de operações do dispositivo.
@@ -174,7 +174,7 @@ As propriedades de nuvem são os metadados de dispositivo associados ao disposit
 1. Escolha **Salvar**. Se você salvou as propriedades graváveis, os valores serão enviados ao seu dispositivo. Quando o dispositivo confirma a alteração da propriedade Writeable, o status retorna de volta para **sincronizado**. Se você salvou uma propriedade de nuvem, o valor será atualizado.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você aprendeu como gerenciar dispositivos no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
 

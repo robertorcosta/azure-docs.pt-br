@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749672"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382673"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
 
@@ -283,7 +283,7 @@ Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois c
 
 **Exemplos de parâmetros**
 
-| parâmetros  | Exemplo de valor  |Comentários   |
+| Parâmetros  | Exemplo de valor  |Comments   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | O nome do cofre de chaves que armazena a chave |
 |$kekName   |MyKey   | O nome da chave usada para criptografar a VM|

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
 ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023650"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393668"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -35,7 +35,7 @@ A camada Standard do Hub IoT permite todos os recursos e é necessária para qua
 
 Somente um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hub/) em uma camada pode ser escolhido por Hub IoT. Por exemplo, você pode criar um hub IoT com várias unidades S1, mas não com uma combinação de unidades de diferentes edições, como S1 e S2.
 
-| Funcionalidade | Camada básica | Camada gratuita/Standard |
+| Capability | Camada básica | Camada gratuita/Standard |
 | ---------- | ---------- | ------------- |
 | [Telemetria de dispositivo para nuvem](iot-hub-devguide-messaging.md) | Sim | Sim |
 | [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | Sim | Sim |
@@ -134,7 +134,7 @@ Consulte [Cotas e limites do Hub IoT](iot-hub-devguide-quotas-throttling.md)para
 
 Se estiver se aproximando do limite de mensagens permitido em seu hub IoT, você poderá usar estas [etapas para dimensionar automaticamente](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) para incrementar uma unidade do Hub IOT na mesma camada do Hub IOT.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter mais informações sobre os recursos do Hub IoT e detalhes de desempenho, consulte [preços do Hub IOT](https://azure.microsoft.com/pricing/details/iot-hub) ou [cotas e restrições do Hub IOT](iot-hub-devguide-quotas-throttling.md).
 

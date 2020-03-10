@@ -8,11 +8,11 @@ ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
 ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506053"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392398"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure cosmos com Azure Key Vault
 
@@ -233,7 +233,7 @@ Como alternativa, para revogar todas as chaves de uma instância de Azure Key Va
 
 A única operação possível quando a chave de criptografia foi revogada é a exclusão da conta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre a [criptografia de dados em Azure Cosmos DB](./database-encryption-at-rest.md).
 - Obtenha uma visão geral de [acesso seguro aos dados no cosmos DB](secure-access-to-data.md).

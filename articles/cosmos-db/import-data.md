@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Ferramenta de migração de banco de dados do Azure Cosmos DB'
-description: 'Tutorial: Saiba como usar as ferramentas de migração de dados de software livre do Azure Cosmos DB para importar dados para o Azure Cosmos DB de várias fontes, incluindo MongoDB, SQL Server, Armazenamento de tabelas, Amazon DynamoDB, CSV e arquivos JSON. Conversão de CSV para JSON.'
+title: 'Tutorial: ferramenta de migração de banco de dados para Azure Cosmos DB'
+description: 'Tutorial: saiba como usar as ferramentas de migração de dados de software livre Azure Cosmos DB para importar dados para o Azure Cosmos DB de várias fontes, incluindo MongoDB, SQL Server, armazenamento de tabelas, Amazon DynamoDB, CSV e arquivos JSON. Conversão de CSV para JSON.'
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: dech
 ms.openlocfilehash: 1d25a2c9a3fda48c2f7de01563e01dd0c7de7762
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721150"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387955"
 ---
-# <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Usar a ferramenta de migração de dados para migrar seus dados para o Azure Cosmos DB
+# <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: usar a ferramenta de migração de dados para migrar seus dados para Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como usar a ferramenta Migração de Dados do Azure Cosmos DB, que pode importar dados de várias fontes para contêineres e tabelas do Azure Cosmos. Você pode importar de arquivos JSON, arquivos CSV, SQL, MongoDB, Armazenamento de Tabelas do Azure, Amazon DynamoDB e até mesmo coleções da API de SQL do Azure Cosmos DB. Migre dados para coleções e tabelas para uso com o Azure Cosmos DB. A ferramenta de Migração de Dados também pode ser usada ao migrar de uma coleção de partição única para uma coleção de várias partições na API do SQL.
 
@@ -35,11 +35,11 @@ Este tutorial cobre as seguintes tarefas:
 
 Antes de seguir as instruções deste artigo, realize as seguintes etapas:
 
-* **Instale** o [Microsoft .NET Framework 4.51 ou superior](https://www.microsoft.com/download/developer-tools.aspx).
+* **Instale** o [Microsoft .NET Framework 4,51](https://www.microsoft.com/download/developer-tools.aspx) ou superior.
 
-* **Aumentar a taxa de transferência:** A duração da sua migração de dados depende da taxa de transferência que você configurar para uma coleção individual ou um conjunto de coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, confira [níveis de desempenho](performance-levels.md) e [tipos de preço](https://azure.microsoft.com/pricing/details/cosmos-db/) no Azure Cosmos DB.
+* **Aumentar a taxa de transferência:** a duração da sua migração de dados depende da taxa de transferência que você configurar para uma coleção individual ou um conjunto de coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, confira [níveis de desempenho](performance-levels.md) e [tipos de preço](https://azure.microsoft.com/pricing/details/cosmos-db/) no Azure Cosmos DB.
 
-* **Criar recursos do Azure Cosmos DB:** Antes de começar a migrar dados, crie previamente todas as suas coleções no portal do Azure. Para migrar para uma conta do Azure Cosmos DB que tenha produtividade de nível de banco de dados, forneça uma chave de partição ao criar os contêineres do Azure Cosmos.
+* **Criar recursos do Azure Cosmos DB:** antes de iniciar a migração de dados, crie previamente todas as suas coleções do portal do Azure. Para migrar para uma conta do Azure Cosmos DB que tenha produtividade de nível de banco de dados, forneça uma chave de partição ao criar os contêineres do Azure Cosmos.
 
 ## <a id="Overviewl"></a>Visão geral
 
@@ -48,7 +48,7 @@ A ferramenta de Migração de Dados é uma solução de software livre que impor
 * Arquivos JSON
 * MongoDB
 * SQL Server
-* Arquivos CSV
+* arquivos CSV
 * Armazenamento da tabela do Azure
 * Amazon DynamoDB
 * HBase
@@ -208,7 +208,7 @@ De forma semelhante à origem de SQL, a propriedade de separador de aninhamento 
 
 Observe os aliases como DomainInfo.Domain_Name e RedirectInfo.Redirecting. Especificando um separador de aninhamento de '.', a ferramenta de importação cria os sub-documentos DomainInfo e RedirectInfo durante a importação. Este é um exemplo de um documento resultante no Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https:\//www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{"DomainInfo": {"Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https:\//www.ACUS.GOV"}, "Federal Agency": "Conferência administrativa do Estados Unidos", "RedirectInfo": {"redirecionando": "0", "Redirect_Destination": ""}, "ID": "9cc565c5-EBCD-1c03-ebd3-cc3e2ecd814d"}*
 
 A ferramenta de importação tenta deduzir informações de tipo para valores sem aspas em arquivos CSV (valores entre aspas são tratados sempre como cadeias de caracteres).  Os tipos são identificados na seguinte ordem: número, datetime, booliano.  
 
@@ -312,9 +312,9 @@ Para importar de um único contêiner do Azure Cosmos, insira o nome da coleçã
 
 A opção de importador de origem do Azure Cosmos DB tem as seguintes opções avançadas:
 
-1. Incluir Campos Internos: Especifica se as propriedades do sistema de documentos do Azure Cosmos DB devem ou não ser incluídas na exportação (por exemplo, _rid, _ts).
-2. Número de repetições em caso de falha: Especifica o número de vezes para tentar a conexão novamente com o Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
-3. Intervalo de Repetição: Especifica o tempo de espera para tentar a conexão novamente com o Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
+1. Incluir campos internos: especifica se as propriedades do sistema de documentos do Azure Cosmos DB devem ser incluídas na exportação (por exemplo, _rid, _ts).
+2. Número de repetições em caso de falha: especifica o número de vezes para tentar a conexão novamente com o Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
+3. Intervalo de repetição: especifica o tempo de espera para tentar a conexão novamente com o Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
 4. Modo de Conexão: especifica o modo de conexão a ser usado com o Azure Cosmos DB. As opções disponíveis são DirectTcp, DirectHttps e Gateway. Os modos de conexão direta são mais rápidos, enquanto que o modo de gateway é mais amigável ao firewall, uma vez que só usa a porta 443.
 
 ![Captura de tela das opções avançadas de fonte do Azure Cosmos DB](./media/import-data/documentdbsourceoptions.png)
@@ -399,18 +399,18 @@ Além disso, ao importar tipos de dados (por exemplo, do SQL Server ou do MongoD
 
  ![Captura de tela das opções de importação de data e hora do Azure Cosmos DB](./media/import-data/datetimeoptions.png)
 
-* Cadeia de caracteres: persistir como um valor de cadeia de caracteres
-* Época: persistir como um valor de número de época
-* Ambos: persistir com os valores de número de cadeia de caracteres e de época. Esta opção cria um subdocumento, por exemplo: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+* Cadeia de caracteres: Persistir como um valor de cadeia de caracteres
+* Época: Persistir como um valor de número de época
+* Ambos: Persistir com os valores de número de cadeia de caracteres e de época. Essa opção cria um subdocumento, por exemplo: "date_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245}
 
 O importador em Massa do Azure Cosmos DB tem as seguintes opções avançadas adicionais:
 
-1. Tamanho do Lote: A ferramenta usa como padrão um tamanho de lote de 50.  Se os documentos a serem importados forem grandes, considere reduzir o tamanho do lote. Da mesma forma, se os documentos a serem importados forem pequenos, considere aumentar o tamanho do lote.
-2. Tamanho Máximo de Script (bytes): A ferramenta usa como padrão um tamanho máximo de script de 512 KB.
-3. Desabilitar a Geração Automática de ID: Se todos os documentos a serem importados tiverem um campo de ID, selecionar essa opção poderá aumentar o desempenho. Documentos que não tenham um campo de ID exclusiva não são importados.
-4. Atualizar documentos existentes: a ferramenta usa como padrão não substituir os documentos existentes com conflitos de ID. Essa opção permite substituir documentos existentes por IDs correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
-5. Número de repetições em caso de falha: Especifica quantas vezes se tenta refazer a conexão com o Azure Cosmos DB durante falhas transitórias (por exemplo, interrupção da conectividade de rede).
-6. Intervalo de Repetição: Especifica o tempo de espera para tentar a conexão novamente com o Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
+1. Tamanho do lote: A ferramenta usa como padrão um tamanho de lote de 50.  Se os documentos a serem importados forem grandes, considere reduzir o tamanho do lote. Da mesma forma, se os documentos a serem importados forem pequenos, considere aumentar o tamanho do lote.
+2. Tamanho máximo de script (bytes): a ferramenta usa como padrão um tamanho máximo de script de 512 KB.
+3. Desabilitar a geração automática de ID: se todos os documentos a serem importados tiverem um campo de ID, selecionar essa opção pode aumentar o desempenho. Documentos que não tenham um campo de ID exclusiva não são importados.
+4. Atualizar documentos existentes: a ferramenta, por padrão, não substitui os documentos existentes com conflitos de ID. Essa opção permite substituir documentos existentes por IDs correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
+5. Quantidade de repetições em caso de falha: especifica quantas vezes se tenta refazer a conexão com o Azure Cosmos DB durante falhas transitórias (por exemplo, interrupção da conectividade de rede).
+6. Intervalo de repetição: especifica o tempo de espera para tentar a conexão novamente com o Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção da conectividade de rede).
 7. Modo de Conexão: especifica o modo de conexão a ser usado com o Azure Cosmos DB. As opções disponíveis são DirectTcp, DirectHttps e Gateway. Os modos de conexão direta são mais rápidos, enquanto que o modo de gateway é mais amigável ao firewall, uma vez que só usa a porta 443.
 
 ![Captura de tela das opções avançadas de importação em massa do Azure Cosmos DB](./media/import-data/docdbbulkoptions.png)
@@ -454,17 +454,17 @@ Há uma série de opções avançadas disponíveis durante a importação. Prime
 
  ![Captura de tela das opções de importação de data e hora do Azure Cosmos DB](./media/import-data/datetimeoptions.png)
 
-* Cadeia de caracteres: persistir como um valor de cadeia de caracteres
-* Época: persistir como um valor de número de época
-* Ambos: persistir com os valores de número de cadeia de caracteres e de época. Esta opção cria um subdocumento, por exemplo: "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+* Cadeia de caracteres: Persistir como um valor de cadeia de caracteres
+* Época: Persistir como um valor de número de época
+* Ambos: Persistir com os valores de número de cadeia de caracteres e de época. Essa opção cria um subdocumento, por exemplo: "date_joined": {"Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245}
 
 O importador de Registro sequencial do Azure Cosmos DB tem as seguintes opções avançadas adicionais:
 
-1. Número de Solicitações Paralelas: A ferramenta usa como padrão duas solicitações paralelas. Se os documentos a serem importados forem pequenos, considere aumentar o número de solicitações paralelas. Se este número for muito elevado, a importação poderá sofrer limitação.
-2. Desabilitar a Geração Automática de ID: Se todos os documentos a serem importados tiverem um campo de ID, selecionar essa opção poderá aumentar o desempenho. Documentos que não tenham um campo de ID exclusiva não são importados.
-3. Atualizar documentos existentes: a ferramenta usa como padrão não substituir os documentos existentes com conflitos de ID. Essa opção permite substituir documentos existentes por IDs correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
-4. Número de repetições em caso de falha: Especifica quantas vezes se tenta refazer a conexão com o Azure Cosmos DB durante falhas transitórias (por exemplo, interrupção da conectividade de rede).
-5. Intervalo de Repetição: Especifica o tempo de espera para tentar a conexão novamente com o Azure Cosmos DB durante falhas transitórias (por exemplo, interrupção da conectividade de rede).
+1. Número de solicitações paralelas: a ferramenta usa duas solicitações paralelas como padrão. Se os documentos a serem importados forem pequenos, considere aumentar o número de solicitações paralelas. Se este número for muito elevado, a importação poderá sofrer limitação.
+2. Desabilitar a geração automática de ID: se todos os documentos a serem importados tiverem um campo de ID, selecionar essa opção pode aumentar o desempenho. Documentos que não tenham um campo de ID exclusiva não são importados.
+3. Atualizar documentos existentes: a ferramenta, por padrão, não substitui os documentos existentes com conflitos de ID. Essa opção permite substituir documentos existentes por IDs correspondentes. Esse recurso é útil para migrações de dados agendadas que atualizam documentos existentes.
+4. Quantidade de repetições em caso de falha: especifica quantas vezes se tenta refazer a conexão com o Azure Cosmos DB durante falhas transitórias (por exemplo, interrupção da conectividade de rede).
+5. Intervalo de repetição: especifica o tempo de espera para tentar a conexão novamente com o Azure Cosmos DB durante falhas transitórias (por exemplo, interrupção da conectividade de rede).
 6. Modo de Conexão: especifica o modo de conexão a ser usado com o Azure Cosmos DB. As opções disponíveis são DirectTcp, DirectHttps e Gateway. Os modos de conexão direta são mais rápidos, enquanto que o modo de gateway é mais amigável ao firewall, uma vez que só usa a porta 443.
 
 ![Captura de tela das opções avançadas de importação de registro sequencial do Azure Cosmos DB](./media/import-data/documentdbsequentialoptions.png)
@@ -482,7 +482,7 @@ Usando a opção avançada de política de indexação, você pode selecionar um
 
 Os modelos de política que a ferramenta fornece são:
 
-* Padrão. Essa política é a melhor ao executar consultas de igualdade em cadeias de caracteres. Ela também funciona se você usar consultas de ORDER BY, intervalo e igualdade para números. Essa política tem uma sobrecarga de armazenamento de índice menor que Intervalo.
+* Default. Essa política é a melhor ao executar consultas de igualdade em cadeias de caracteres. Ela também funciona se você usar consultas de ORDER BY, intervalo e igualdade para números. Essa política tem uma sobrecarga de armazenamento de índice menor que Intervalo.
 * Intervalo. Essa política será mais útil ao usar consultas de ORDER BY, intervalo e igualdade em números e cadeias de caracteres. Essa política tem uma sobrecarga de armazenamento de índice maior do que Padrão ou Hash.
 
 ![Captura de tela das opções avançadas de Política de indexação do Azure Cosmos DB](./media/import-data/indexingpolicy2.png)
@@ -571,9 +571,9 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
     ![Captura de tela da opção de exportação de JSON do Azure Cosmos DB](./media/import-data/newimport.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Neste tutorial, você fez as seguintes tarefas:
+Neste tutorial, você executou as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Instalou a ferramenta de Migração de Dados

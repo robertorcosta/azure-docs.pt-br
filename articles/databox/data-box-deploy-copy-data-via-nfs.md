@@ -9,28 +9,28 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443144"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380217"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio do NFS
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: copiar dados para Azure Data Box via NFS
 
 Este tutorial descreve como conectar-se e copiar dados do computador host usando a IU da Web local.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * {1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
+1. Você concluiu o [Tutorial: Configurar a Caixa de Dados do Azure](data-box-deploy-set-up.md).
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**.
 3. Você tem um computador host que tem os dados que você deseja copiar para o Data Box. O computador host deve
     - Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
@@ -89,8 +89,8 @@ Quando você estiver conectado aos compartilhamentos de caixa de dados, a próxi
 - Recomendamos que você não use o SMB e o NFS simultaneamente ou copie os mesmos dados para o mesmo destino final no Azure. Em tais casos, o resultado final não pode ser determinado.
 - **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
 - Em caso de ingestão de diretório e nomes de arquivos que diferenciam maiúsculas de minúsculas de um compartilhamento NFS para NFS em Data Box: 
-    - O diferença entre maiúsculas e minúsculas é preservada no nome.
-    - Os arquivo não diferenciam maiúsculas de minúsculas.
+    - O uso de maiúsculas e minúsculas é preservado no nome.
+    - Os arquivos não diferenciam maiúsculas de minúsculas.
     
     Por exemplo, ao copiar `SampleFile.txt` e `Samplefile.Txt`, a diferença será preservada no nome quando copiada para a Data Box, mas o segundo arquivo substituirá o primeiro, pois são considerados o mesmo arquivo.
 
@@ -143,12 +143,12 @@ Para garantir a integridade dos dados, a soma de verificação é computada em l
    ![Verificar o espaço livre e usado no painel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * {1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 

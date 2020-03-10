@@ -13,11 +13,11 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997030"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375696"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -31,7 +31,7 @@ Conectores são agentes leves que ficam no local e facilitam a conexão de saíd
 
 Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instale o conector em um computador que executa o Windows Server 2012 R2 ou posterior. O conector precisa se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar.
 
-### <a name="windows-server"></a>Servidor do Windows
+### <a name="windows-server"></a>Windows Server
 Você precisa de um servidor executando o Windows Server 2012 R2 ou posterior no qual possa instalar o conector do Proxy de Aplicativo. O servidor precisa se conectar aos serviços de Proxy de Aplicativo no Azure e aos aplicativos locais que você está publicando.
 
 O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector do Proxy de Aplicativo. Para habilitar o TLS 1,2 no servidor:
@@ -114,7 +114,7 @@ Os conectores só enviam solicitações de saída. O tráfego de saída é envia
 
 Para saber mais sobre como configurar regras de firewall de saída, confira [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md).
 
-## <a name="performance-and-scalability"></a>Performance e escalabilidade
+## <a name="performance-and-scalability"></a>Desempenho e escala
 
 A escala para o serviço Proxy de Aplicativo é transparente, mas a escala é uma questão para conectores. Você precisa ter conectores suficientes para tratar do pico de tráfego. Como os conectores não têm estado, eles não são afetados pelo número de usuários ou sessões. Em vez disso, eles respondem ao número de solicitações e a seu tamanho do conteúdo. Com o tráfego padrão da Web, um computador médio pode manipular milhares de solicitações por segundo. A capacidade específica depende das características exatas do computador.
 
@@ -178,7 +178,7 @@ Você pode examinar o estado do serviço na janela Serviços. O conector é comp
 
  ![Exemplo: janela de serviços mostrando serviços do Azure AD local](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Publicar aplicativos em redes e locais separados usando grupos de conectores](application-proxy-connector-groups.md)
 - [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)

@@ -1,5 +1,5 @@
 ---
-title: O que é um workspace e projeto? - Tradutor personalizado
+title: O que é um workspace e projeto? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Este artigo explicará as diferenças entre um espaço de trabalho e um projeto, bem como categorias e rótulos de projeto para o serviço de Tradutor personalizado.
 services: cognitive-services
@@ -11,11 +11,11 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647309"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391441"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um workspace do Tradutor Personalizado?
 
@@ -45,6 +45,6 @@ Por exemplo, se eu quisesse habilitar traduções no domínio de Tecnologia de i
 
 Se você é um provedor de serviços de linguagem e deseja atender a vários clientes com modelos diferentes que mantenham a mesma categoria e par de idiomas, usar um rótulo de projeto para diferenciar os clientes é a decisão acertada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Leia sobre [Treinamento e modelo](training-and-model.md) para saber como criar um modelo de tradução com eficiência.

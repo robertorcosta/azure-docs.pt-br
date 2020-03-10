@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: charwen
 ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926228"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374133"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar as conexões coexistentes do ExpressRoute e do Site a Site (clássico)
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Este artigo descreve como configurar as conexões VPN site a site e de ExpressRo
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 > [!IMPORTANT]
-> Os circuitos do ExpressRoute devem ser previamente configurados antes de você seguir as instruções abaixo. Verifique se você seguiu as guias para [criar um circuito de ExpressRoute](expressroute-howto-circuit-classic.md) e [configurar o roteamento](expressroute-howto-routing-classic.md) antes de seguir as etapas abaixo.
+> Os circuitos de ExpressRoute devem ser previamente configurados antes de você seguir as instruções abaixo. Verifique se você seguiu as guias para [criar um circuito de ExpressRoute](expressroute-howto-circuit-classic.md) e [configurar o roteamento](expressroute-howto-routing-classic.md) antes de seguir as etapas abaixo.
 > 
 > 
 
@@ -73,7 +73,7 @@ Há dois conjuntos de procedimentos diferentes para configurar as conexões de m
     Se você ainda não tiver uma rede virtual, esse procedimento explicará isso criando uma nova rede virtual usando o modelo de implantação clássico e criando novas conexões de VPN Site a Site e de ExpressRoute. Para configurar, siga as etapas na seção do artigo [Para criar uma nova rede virtual e conexões coexistentes](#new).
 * Eu já tenho uma VNet do modelo de implantação clássico
   
-    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão do ExpressRoute existente. A seção do artigo [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e criar novas conexões de VPN Site a Site e de ExpressRoute. Observe que, ao criar novas conexões, as etapas devem ser concluídas em uma ordem muito específica. Não use as instruções de outros artigos para criar seus gateways e conexões.
+    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão de ExpressRoute existente. A seção do artigo [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e criar novas conexões de VPN Site a Site e de ExpressRoute. Observe que, ao criar novas conexões, as etapas devem ser concluídas em uma ordem muito específica. Não use as instruções de outros artigos para criar seus gateways e conexões.
   
     Neste procedimento, a criação de conexões que possam coexistir exigirá que você exclua seu gateway e então configure novos gateways. Isso significa que haverá tempo de inatividade nas suas conexões entre locais durante o processo de exclusão e recriação de seu gateway e conexões, mas você não precisará migrar nenhuma das suas VMs ou serviços para uma nova rede virtual. Suas VMs e serviços ainda poderão se comunicar por meio do balanceador de carga enquanto você configura o seu gateway, se estiverem configurados para fazer isso.
 
@@ -117,7 +117,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
     Use o cmdlet a seguir para carregar seu arquivo, substituindo o valor existente pelo seu.
    
         Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
-4. <a name="gw"></a>Crie um gateway do ExpressRoute. Especifique o Gateway SKU como *Standard*, *HighPerformance* ou *UltraPerformance* e o Tipo de Gateway como *DynamicRouting*.
+4. <a name="gw"></a>Crie um gateway de ExpressRoute. Especifique o Gateway SKU como *Standard*, *HighPerformance* ou *UltraPerformance* e o Tipo de Gateway como *DynamicRouting*.
    
     Use o exemplo a seguir, substituindo os valores existentes pelos seus.
    
@@ -190,7 +190,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
 ## <a name="add"></a>Para configurar conexões coexistentes para uma VNet já existente
 Se você tiver uma rede virtual existente, verifique o tamanho da sub-rede do gateway. Se a sub-rede do gateway é /28 ou /29, você deve primeiro excluir o gateway da rede virtual e aumentar o tamanho de sub-rede do gateway. As etapas nesta seção mostram como fazer isso.
 
-Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada via ExpressRoute, você pode ignorar as etapas abaixo e ir para a ["Etapa 6: criar um gateway de VPN Site a Site"](#vpngw) na seção anterior.
+Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada vio ExpressRoute, você pode ignorar as etapas abaixo e ir para a ["Etapa 6: criar um gateway de VPN Site a Site"](#vpngw) na seção anterior.
 
 > [!NOTE]
 > Quando você exclui o gateway existente, suas instalações locais perdem a conexão à sua rede virtual enquanto você está trabalhando nessa configuração.
@@ -225,6 +225,6 @@ Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada via Ex
                 </Gateway>
 6. Neste ponto, você terá uma VNet sem nenhum gateway. Para criar novos gateways e concluir suas conexões, você pode prosseguir com a [Etapa 4: criar um gateway de ExpressRoute](#gw), encontrada no conjunto de etapas anterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para saber mais sobre o ExpressRoute, confira [Perguntas frequentes sobre ExpressRoute](expressroute-faqs.md)
 

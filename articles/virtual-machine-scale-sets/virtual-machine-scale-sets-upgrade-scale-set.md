@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: manayar
 ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274444"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390428"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -339,7 +339,7 @@ Há um tipo de modificação das propriedades globais do conjunto de dimensionam
 ### <a name="create-time-properties"></a>Propriedades do momento da criação
 Algumas propriedades só podem ser definidas ao criar o conjunto de dimensionamento. Essas propriedades incluem:
 
-- Zonas de disponibilidade
+- Zonas de Disponibilidades
 - Publicador de referência de imagem
 - Oferta de referência de imagem
 - Tipo de conta de armazenamento em disco de SO gerenciado
@@ -357,7 +357,7 @@ Algumas propriedades só podem ser alteradas para determinados valores se as VMs
 
 
 ## <a name="vm-specific-updates"></a>Atualizações específicas da VM
-Algumas modificações podem ser aplicadas a VMs específicas em vez das propriedades globais do conjunto de dimensionamento. Atualmente, a única atualização específica de VM compatível é anexação/desanexação de discos de dados para/de VMs no pacote de atualização. Esse recurso está em versão prévia. Para saber mais, confira a [documentação de versão prévia](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+Algumas modificações podem ser aplicadas a VMs específicas em vez das propriedades globais do conjunto de dimensionamento. Atualmente, a única atualização específica de VM compatível é anexação/desanexação de discos de dados para/de VMs no pacote de atualização. Esse recurso está em visualização. Para saber mais, confira a [documentação de versão prévia](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
 
 ## <a name="scenarios"></a>Cenários
@@ -449,5 +449,5 @@ Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balance
 > Esses comandos pressupõem que há apenas um balanceador de carga e uma configuração de IP no conjunto de dimensionamento. Se houver vários, você precisará usar um índice de lista diferente de *0*.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Também é possível executar tarefas comuns de gerenciamento em conjuntos de dimensionamento com a [CLI do Azure](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

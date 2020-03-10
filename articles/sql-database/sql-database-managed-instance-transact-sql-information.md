@@ -12,11 +12,11 @@ ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 02/10/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462574"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360075"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -36,7 +36,7 @@ A maioria desses recursos são restrições de arquitetura e representam recurso
 
 Esta página também explica os [problemas temporários conhecidos](#Issues) que são descobertos na instância gerenciada, que serão resolvidos no futuro.
 
-## <a name="availability"></a>Disponibilidade
+## <a name="availability"></a>Availability
 
 ### <a name="always-on-availability-groups"></a>Always On grupos de disponibilidade
 
@@ -192,7 +192,7 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
 - Não há suporte para a [extensão do pool de buffers](/sql/database-engine/configure-windows/buffer-pool-extension) .
 - Não há suporte para `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`. Consulte [ALTERAR CONFIGURAÇÃO DO SERVIDOR](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>Ordenação
 
 A ordenação de instância padrão é `SQL_Latin1_General_CP1_CI_AS` e pode ser especificada como um parâmetro de criação. Consulte [Ordenações](/sql/t-sql/statements/collations).
 
@@ -236,7 +236,7 @@ As seguintes limitações se aplicam a `CREATE DATABASE`:
 
 Para saber mais, confira [CRIAR BANCO DE DADOS](/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
-#### <a name="alter-database-statement"></a>instrução ALTER DATABASE
+#### <a name="alter-database-statement"></a>Instrução ALTER DATABASE
 
 Algumas propriedades de arquivo não podem ser definidas ou alteradas:
 
@@ -414,7 +414,7 @@ Para obter mais informações sobre como configurar a replicação transacional,
 - [Replicação entre um Publicador e um assinante MI](replication-with-sql-database-managed-instance.md)
 - [Replicação entre um Publicador de MI, um distribuidor de MI e um assinante de SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 
-### <a name="restore-statement"></a>Instrução RESTAURAR 
+### <a name="restore-statement"></a>instrução RESTORE 
 
 - Sintaxe com suporte:
   - `RESTORE DATABASE`
@@ -704,7 +704,7 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 
 **Solução alternativa:** Use conexões de contexto em um módulo CLR, se possível.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter mais informações sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e comparação, consulte comparação de recursos [do banco de dados SQL do Azure](sql-database-features.md).

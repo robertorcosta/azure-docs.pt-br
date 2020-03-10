@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: cea1664a0418dbe6269c22cffc70e0979dea41f0
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892768"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946427"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
 
@@ -36,6 +36,7 @@ Esta página responde a perguntas frequentes sobre Azure Active Directory Domain
 * [Posso adicionar controladores de domínio a um domínio gerenciado Azure AD Domain Services?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Os usuários convidados podem ser convidados para o meu diretório usar Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [Posso mover um domínio gerenciado Azure AD Domain Services existente para uma assinatura, um grupo de recursos, uma região ou uma rede virtual diferente?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Azure AD Domain Services inclui opções de alta disponibilidade?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios gerenciados para um único diretório do Azure AD?
 Não. Você pode criar apenas um único domínio atendido pelo Azure AD Domain Services para um único diretório do Azure AD.
@@ -74,6 +75,10 @@ Não. Os usuários convidados para o seu diretório AD Azure usando o processo d
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Posso mover um domínio gerenciado Azure AD Domain Services existente para uma assinatura, um grupo de recursos, uma região ou uma rede virtual diferente?
 Não. Depois de criar um Azure AD Domain Services domínio gerenciado, você não poderá mover a instância para um grupo de recursos diferente, rede virtual, assinatura, etc. Tome cuidado para selecionar a assinatura, o grupo de recursos, a região e a rede virtual mais apropriados ao implantar a instância de AD DS do Azure.
+
+### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Azure AD Domain Services inclui opções de alta disponibilidade?
+
+Sim. Cada domínio gerenciado Azure AD Domain Services inclui dois controladores de domínio. Você não gerencia ou se conecta a esses controladores de domínio, eles fazem parte do serviço gerenciado. Se você implantar Azure AD Domain Services em uma região que dá suporte a Zonas de Disponibilidade, os controladores de domínio serão distribuídos entre zonas. Em regiões que não dão suporte a Zonas de Disponibilidade, os controladores de domínio são distribuídos entre conjuntos de disponibilidade. Você não tem opções de configuração ou controle de gerenciamento sobre esta distribuição. Para obter mais informações, consulte [Opções de disponibilidade para máquinas virtuais no Azure](../virtual-machines/windows/availability.md).
 
 ## <a name="administration-and-operations"></a>Administração e operações
 
@@ -141,11 +146,11 @@ Não. Azure AD Domain Services é um serviço pago conforme o uso do Azure e nã
 ### <a name="what-azure-regions-is-the-service-available-in"></a>Em quais regiões do Azure o serviço está disponível?
 Consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para conhecer as regiões do Azure nas quais os Serviços de Domínio do Azure AD estão disponíveis.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Confira o [Guia de solução de problemas](troubleshoot.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Azure AD Domain Services.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre Azure AD Domain Services, confira [o que é Azure Active Directory Domain Services?](overview.md).
 

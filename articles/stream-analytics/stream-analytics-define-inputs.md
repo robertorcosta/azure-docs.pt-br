@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314786"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392526"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -47,7 +47,7 @@ Cada entrada do trabalho do Hub de Eventos do Stream Analytics deve ser configur
 
 A tabela a seguir explica cada propriedade na página **Nova entrada** no portal do Azure para transmitir entrada de dados de um hub de eventos:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | **Alias de entrada** |Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada. |
 | **Assinatura** | Escolha a assinatura na qual existem os recursos de hub de Eventos. | 
@@ -62,7 +62,7 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 
 Quando seus dados forem provenientes de uma entrada de fluxo de Hub de Eventos, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | **EventProcessedUtcTime** |A data e a hora em que o evento foi processado pelo Stream Analytics. |
 | **EventEnqueuedUtcTime** |A data e a hora em que o evento foi recebido pelos Hubs de eventos. |
@@ -96,7 +96,7 @@ Cada entrada do Hub IoT do Stream Analytics deve ser configurada para ter seu pr
 
 A tabela a seguir explica cada propriedade na página **Nova entrada** no portal do Azure, quando você configura um Hub IoT como entrada de fluxo.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | **Alias de entrada** | Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada.|
 | **Assinatura** | Escolha a assinatura na qual existem os recursos de Hub IoT existentes. | 
@@ -113,7 +113,7 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 
 Ao usar dados de fluxo provenientes de um Hub IoT, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | **EventProcessedUtcTime** | A data e a hora em que o evento foi processado. |
 | **EventEnqueuedUtcTime** | A data e a hora em que o evento foi recebido pelo Hub IoT. |
@@ -149,7 +149,7 @@ Carregar um número muito grande de blobs de uma vez pode fazer com que Stream A
 
 A tabela a seguir explica cada propriedade na página **Nova entrada** no portal do Azure, quando você configura o Armazenamento de Blobs como uma entrada de fluxo.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | **Alias de entrada** | Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada. |
 | **Assinatura** | Escolha a assinatura na qual existem os recursos de Hub IoT existentes. | 
@@ -166,7 +166,7 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 
 Quando seus dados forem provenientes de uma fonte de Armazenamento de Blobs, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 | **BlobName** |O nome do blob de entrada de onde o evento veio. |
 | **EventProcessedUtcTime** |A data e a hora em que o evento foi processado pelo Stream Analytics. |
@@ -183,7 +183,7 @@ SELECT
 FROM Input
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 > [!div class="nextstepaction"]
 > [Início Rápido: criar um trabalho do Stream Analytics usando o Portal do Azure](stream-analytics-quick-create-portal.md)
 

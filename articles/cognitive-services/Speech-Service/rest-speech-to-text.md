@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: erhopf
 ms.openlocfilehash: 873898ce321100edbaa800d2436d0413c06ce175
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255667"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390818"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -49,18 +49,18 @@ Substitua `<REGION_IDENTIFIER>` pelo identificador correspondente à região da 
 
 Esses parâmetros podem ser incluídos na string de consulta da solicitação REST.
 
-| Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
+| Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `language` | Identifica a linguagem falada que está sendo reconhecida. Confira os [Idiomas compatíveis](language-support.md#speech-to-text). | Obrigatório |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem vários resultados com valores de confiança e quatro representações diferentes. A configuração padrão é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked`, que substitui a profanação por asteriscos, `removed`, que remove toda a profanação do resultado, ou `raw`, que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
 | `cid` | Ao usar o [portal de fala personalizada](how-to-custom-speech.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
 
-## <a name="request-headers"></a>Cabeçalhos da solicitação
+## <a name="request-headers"></a>Cabeçalhos de solicitações
 
 Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
 
-|Cabeçalho| DESCRIÇÃO | Obrigatório/Opcional |
+|Cabeçalho| Descrição | Obrigatório/Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
@@ -73,7 +73,7 @@ Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de f
 
 O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um dos formatos nesta tabela:
 
-| Formatar | Codec | Bitrate | Taxa de amostragem  |
+| Formato | Codec | Bitrate | Taxa de amostragem  |
 |--------|-------|---------|--------------|
 | WAV    | PCM   | 16-bit  | 16 kHz, mono |
 | OGG    | OPUS  | 16-bit  | 16 kHz, mono |
@@ -99,12 +99,12 @@ Expect: 100-continue
 
 O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 
-| Código de status HTTP | DESCRIÇÃO | Possível motivo |
+| Código de status HTTP | Descrição | Possível motivo |
 |------------------|-------------|-----------------|
-| `100` | Continue | A solicitação inicial foi aceita. Continue enviando o restante dos dados. (Usado com transferência em partes) |
+| `100` | Continuar | A solicitação inicial foi aceita. Continue enviando o restante dos dados. (Usado com transferência em partes) |
 | `200` | OK | A solicitação foi bem-sucedida. O corpo da resposta é um objeto JSON. |
 | `400` | Solicitação incorreta | Código de idioma não fornecido, não um idioma com suporte, arquivo de áudio inválido, etc. |
-| `401` | Não Autorizado | Chave de assinatura ou token de autorização inválido na região especificada, ou ponto de extremidade inválido. |
+| `401` | Não Autorizada | Chave de assinatura ou token de autorização inválido na região especificada, ou ponto de extremidade inválido. |
 | `403` | Proibido | Chave de assinatura ou token de autorização ausente. |
 
 ## <a name="chunked-transfer"></a>Transferência em partes
@@ -147,7 +147,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 Os resultados são fornecidos como JSON. O `simple` formato inclui esses campos de nível superior.
 
-| Parâmetro | DESCRIÇÃO  |
+| Parâmetro | Descrição  |
 |-----------|--------------|
 |`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte a próxima tabela.|
 |`DisplayText`|O texto reconhecido após a capitalização, a pontuação, a normalização inversa de texto (conversão de texto falado em formas mais curtas, como 200 para "200" ou "Dr. Smith" para "médico Smith") e mascaramento de profanação. Apresentar somente em caso de êxito.|
@@ -156,7 +156,7 @@ Os resultados são fornecidos como JSON. O `simple` formato inclui esses campos 
 
 O `RecognitionStatus` campo pode conter estes valores:
 
-| Status | DESCRIÇÃO |
+| Status | Descrição |
 |--------|-------------|
 | `Success` | O reconhecimento foi bem-sucedido e o campo `DisplayText` está presente. |
 | `NoMatch` | A fala foi detectada no fluxo de áudio, mas nenhuma palavra do idioma de destino foi combinada. Normalmente, isso significa que o idioma do reconhecimento é um idioma diferente daquele que o usuário está falando. |
@@ -171,7 +171,7 @@ O formato de `detailed` inclui os mesmos dados que o formato de `simple`, juntam
 
 Cada objeto no `NBest` lista inclui:
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |-----------|-------------|
 | `Confidence` | A pontuação de confiança da entrada de 0,0 (nenhuma confiança) a 1,0 (confiança total) |
 | `Lexical` | O formato lexical do texto reconhecido: as palavras reais reconhecidas. |
@@ -218,7 +218,7 @@ Uma resposta típica para o reconhecimento de `detailed`:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)

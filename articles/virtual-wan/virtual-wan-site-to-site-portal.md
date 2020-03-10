@@ -1,5 +1,5 @@
 ---
-title: 'WAN Virtual do Azure: Criar conexões site a site'
+title: 'WAN virtual do Azure: criar conexões site a site'
 description: Neste tutorial, saiba como usar a WAN Virtual do Azure para criar uma conexão VPN site a site para o Azure.
 services: virtual-wan
 author: cherylmc
@@ -9,11 +9,11 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775337"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391164"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure
 
@@ -63,7 +63,7 @@ Em um navegador, acesse o portal do Azure e entre com sua conta do Azure.
    * **Grupo de recursos**: crie um novo ou use um existente.
    * **Localização do grupo de recursos**: escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
    * **Nome**: digite o nome que você quer dar à sua WAN.
-   * **Tipo:** Básico ou Padrão. Se você criar uma WAN básica, poderá criar apenas um hub básico. Os hubs básicos são capazes somente de conectividade VPN site a site.
+   * **Tipo:** Básico ou Standard. Se você criar uma WAN básica, poderá criar apenas um hub básico. Os hubs básicos são capazes somente de conectividade VPN site a site.
 4. Quando terminar de preencher os campos, selecione **Examinar + Criar**.
 5. Depois que a validação for aprovada, selecione **Criar** para criar a WAN Virtual.
 
@@ -104,7 +104,7 @@ Nesta etapa, você pode criar a conexão entre uma VNET e seu hub. Repita as eta
 Use a configuração do dispositivo VPN para configurar seu dispositivo VPN local.
 
 1. Na página de sua WAN virtual, clique em **Visão Geral**.
-2. Na parte superior da página **Hub ->VPNSite**, clique em **Baixar a Configuração de VPN**. O Azure cria uma conta de armazenamento no grupo de recursos 'microsoft-network-[local]', em que local é o local da rede remota. Depois de aplicar a configuração a seus dispositivos VPN, você poderá excluir essa conta de armazenamento.
+2. Na parte superior da página **Hub-> VPNSite** , clique em **baixar configuração de VPN**. O Azure cria uma conta de armazenamento no grupo de recursos ' Microsoft-Network-[Location] ', em que Location é o local da WAN. Depois de aplicar a configuração a seus dispositivos VPN, você poderá excluir essa conta de armazenamento.
 3. Depois que o arquivo foi criado, você pode clicar no link para baixá-lo.
 4. Aplique a configuração ao dispositivo de VPN local.
 
@@ -131,7 +131,7 @@ O arquivo de configuração do dispositivo contém as configurações a serem us
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Detalhes da configuração da conexão do Vpngateway** como BGP, chave pré-compartilhada, etc. O PSK é a chave pré-compartilhada gerada automaticamente para você. Você sempre pode editar a conexão na página Visão Geral de um PSK personalizado.
+    * **Detalhes de configuração de conexão Vpngateway** , como BGP, chave pré-compartilhada, etc. A PSK é a chave pré-compartilhada que é gerada automaticamente para você. Você sempre pode editar a conexão na página Visão Geral de um PSK personalizado.
   
 ### <a name="example-device-configuration-file"></a>Exemplo de arquivo de configuração de dispositivo
 
@@ -255,8 +255,8 @@ Se você precisar de instruções para configurar o dispositivo, poderá usar as
 
 1. Navegue até a WAN virtual.
 2. Na página **Visão Geral**, cada ponto no mapa representa um hub. Passe o mouse sobre qualquer ponto para exibir o resumo de integridade do hub, o status da conexão e a entrada e saída de bytes.
-3. Na seção Hubs e conexões, você pode exibir o status do hub, sites VPN, etc. Clique em um nome de hub específico e navegue até o site VPN para saber mais.
+3. Na seção hubs e conexões, você pode exibir o status do Hub, sites VPN, etc. Você pode clicar em um nome de Hub específico e navegar até o site VPN para obter detalhes adicionais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre a WAN Virtual, consulte a página [Visão geral de WAN Virtual](virtual-wan-about.md).

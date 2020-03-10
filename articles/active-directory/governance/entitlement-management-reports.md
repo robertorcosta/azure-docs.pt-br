@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c98a583e2aa8ac679842e16d1c0cc36811db90de
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190578"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376760"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Exibir relatórios e logs no gerenciamento de direitos do Azure AD
 
@@ -107,7 +107,7 @@ Se o acesso não tiver sido atribuído, o Azure AD gravará um registro de audit
 
 Quando a atribuição de pacote de acesso do usuário expira, é cancelada pelo usuário ou removida por um administrador, o Azure AD grava um registro de auditoria para a categoria de `EntitlementManagement` com a **atividade** de `Remove access package assignment`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Arquivar relatórios e logs](entitlement-management-logs-and-reporting.md)
 - [Solucionar problemas de gerenciamento de direitos do Azure AD](entitlement-management-troubleshoot.md)

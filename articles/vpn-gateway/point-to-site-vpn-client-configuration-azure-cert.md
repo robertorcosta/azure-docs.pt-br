@@ -6,20 +6,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/15/2020
+ms.date: 03/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18a9578cc454ea5259b9564d64dcd4308ee5ef87
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d15efee635e131d658cd650b7f80eb9e670a0dea
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148960"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392101"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações P2S da autenticação de certificado nativa do Azure
 
-Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. Os arquivos de configuração fornecem as configurações necessárias para um cliente VPN nativo do Windows, Mac IKEv2 ou Linux para conectar-se a uma rede virtual Ponto a Site que usa a autenticação de certificado nativa do Azure.
+Os arquivos de configuração de cliente VPN estão contidos em um arquivo zip. Os arquivos de configuração fornecem as configurações necessárias para que os clientes nativos do Windows, Mac IKEv2 VPN ou Linux se conectem a uma rede virtual em conexões ponto a site que usam a autenticação de certificado nativa do Azure.
 
-Os arquivos de configuração do cliente são específicos para a configuração de VPN da VNet. Se houver alterações na configuração de VPN Ponto a Site depois de gerar os arquivos de configuração de cliente VPN, tais como o tipo de protocolo VPN ou o tipo de autenticação, gere e instale novos arquivos de configuração de cliente VPN nos dispositivos do usuário. 
+Os arquivos de configuração do cliente são específicos para a configuração de VPN para a rede virtual. Se houver alterações na configuração de VPN Ponto a Site depois de gerar os arquivos de configuração de cliente VPN, tais como o tipo de protocolo VPN ou o tipo de autenticação, gere e instale novos arquivos de configuração de cliente VPN nos dispositivos do usuário. 
 
 * Para saber mais sobre conexões Ponto a Site, confira [Sobre VPN Ponto a Site](point-to-site-about.md).
 * Para obter instruções sobre o OpenVPN, confira [Configurar o OpenVPN para P2S](vpn-gateway-howto-openvpn.md) e [Configurar clientes do OpenVPN](vpn-gateway-howto-openvpn-clients.md).
@@ -41,6 +41,8 @@ Antes de começar, verifique se todos os usuários conectados têm um certificad
 
 1. No Portal do Azure, navegue até o gateway de rede virtual para a rede virtual à qual você deseja se conectar.
 2. Na página de gateway de rede virtual, clique em **Configuração Ponto a Site**.
+
+   ![baixar o portal do cliente](./media/point-to-site-vpn-client-configuration-azure-cert/client-configuration-portal.png)
 3. Na parte superior da página da configuração ponto a site, clique em **Baixar cliente VPN**. Levará alguns minutos para o pacote de configuração do cliente ser gerado.
 4. Seu navegador indica que um arquivo zip de configuração do cliente está disponível. Ele terá o mesmo nome do seu gateway. Descompacte o arquivo para exibir as pastas.
 
@@ -90,7 +92,7 @@ Use as seguintes etapas para configurar o cliente VPN nativo do Mac para autenti
     >
   
 2. Verifique se você instalou um certificado do cliente emitido pelo certificado raiz que você carregou no Azure quando definiu as configurações de P2S. Ele é diferente do VPNServerRoot que você instalou na etapa anterior. O certificado do cliente é usado para autenticação e é necessário. Para obter mais informações sobre como gerar certificados, consulte [Gerar Certificados](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Para obter mais informações sobre como instalar um certificado do cliente, consulte [Instalar um certificado do cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
-3. Abra a caixa de diálogo **Rede** em **Preferências de rede** e clique em **'+'** para criar um novo perfil de conexão de cliente VPN para uma conexão de P2S para a rede virtual do Azure.
+3. Abra a caixa de diálogo **rede** em **preferências de rede** e clique em **' + '** para criar um novo perfil de conexão de cliente VPN para uma conexão P2S com a rede virtual do Azure.
 
    O valor da **Interface** 'VPN' e o valor do **Tipo de VPN** 'IKEv2'. Especifique um nome para o perfil no campo **Nome do serviço** e, em seguida, clique em **Criar** para criar o perfil de conexão de cliente VPN.
 
@@ -115,7 +117,7 @@ Use as seguintes etapas para configurar o cliente VPN nativo do Mac para autenti
 8. No campo **ID local**, especifique o nome do certificado (da Etapa 6). Neste exemplo, é "ikev2Client.com". Em seguida, clique no botão **Aplicar** para salvar as alterações.
 
    ![aplicar](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-9. Na caixa de diálogo **Rede**, clique em **Aplicar** para salvar todas as alterações. Em seguida, clique em **Conectar** para iniciar a conexão de P2S para a rede virtual do Azure.
+9. Na caixa de diálogo **Rede**, clique em **Aplicar** para salvar todas as alterações. Em seguida, clique em **conectar** para iniciar a conexão P2S com a rede virtual do Azure.
 
 ## <a name="linuxgui"></a>Linux (GUI strongSwan)
 
@@ -138,7 +140,7 @@ As instruções a seguir foram criadas no Ubuntu 18.0.4. O Ubuntu 16.0.10 não d
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Selecione **configurações** e, em seguida, selecione **rede**.
+2. Selecione **configurações**e, em seguida, selecione **rede**.
 
    ![editar conexões](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
 3. Clique no botão **+** para criar uma nova conexão.
@@ -204,7 +206,7 @@ Se você ainda não gerou certificados, use as seguintes etapas:
    # ipsec up azure
    ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Retornar para o artigo [concluir a configuração de P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61230181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385433"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
 
@@ -30,7 +30,7 @@ Este tópico mostra como personalizar as predefinições do Media Encoder Standa
 Se você estiver usando uma predefinição XML, lembre-se de preservar a ordem dos elementos, conforme mostrado nas amostras de XML abaixo (por exemplo, KeyFrameInterval deve preceder SceneChangeDetection).
 
 > [!NOTE] 
-> Muitos dos recursos avançados de v2 de serviços de mídia do Media Encoder Standard no momento, não estão disponíveis na v3. Para obter mais informações, consulte [lacunas de recursos](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
+> Muitos dos recursos do Advanced Media Services v2 do Media Encoder Standard não estão disponíveis atualmente na v3. Para obter mais informações, consulte [lacunas de recursos](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Suporte para tamanhos relativos
 
@@ -237,14 +237,14 @@ As seguintes considerações se aplicam:
 * O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
 * Elementos Jpg/Png/BmpImage têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
 
-  * Número de quadro se eles forem números inteiros não negativos, por exemplo, “Início”: "120",
-  * Relativos à duração da origem se expressos com o sufixo %, por exemplo, “Início”: “15%”, OU
-  * Carimbo de data/hora se expresso no formato HH:MM:SS… formato, por exemplo “Início” : "00:01:00"
+  * Número de quadro se eles forem números inteiros não negativos, por exemplo, "Início": "120",
+  * Relativos à duração da origem se expressos com sufixo %, por exemplo, "Início": "15%", OU
+  * Carimbo de data/hora se expresso no formato HH:MM:SS… formato, por exemplo "Start" : "00:01:00"
 
     Você pode combinar as notações como desejar.
 
-    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro “interessante” da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
-  * Padrões: Início:{Best}
+    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
+  * Padrões: Start:{Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
 ## <a id="trim_video"></a>Cortar um vídeo (recorte)
@@ -722,7 +722,7 @@ Você pode usar qualquer uma das predefinições de MES documentadas [nesta](med
 ## <a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
 Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
-Você pode desativar o desentrelaçamento automático. No entanto, isso não é recomendado.
+Você pode desativar o desentrelaçamento automático. Essa opção não é recomendada.
 
 ### <a name="json-preset"></a>Predefinição JSON
     "Sources": [
@@ -748,7 +748,7 @@ Você pode desativar o desentrelaçamento automático. No entanto, isso não é 
 
 
 ## <a id="audio_only"></a>Predefinições somente de áudio
-Esta seção demonstra duas predefinições MES somente de áudio: Áudio AAC e Áudio de Boa Qualidade AAC.
+Esta seção demonstra duas predefinições MES somente de áudio: áudio AAC e Áudio de Boa Qualidade AAC.
 
 ### <a name="aac-audio"></a>Áudio AAC
     {
@@ -1037,5 +1037,5 @@ Você pode usar o valor "0" para indicar para o codificador ignorar os metadados
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte Também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)

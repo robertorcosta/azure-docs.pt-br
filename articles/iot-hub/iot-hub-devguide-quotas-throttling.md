@@ -8,17 +8,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906991"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396515"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
 Este artigo explica as cotas de um hub IoT e fornece informações para ajudá-lo a entender como a limitação funciona.
 
-## <a name="quotas-and-throttling"></a>Cotas e limitações
+## <a name="quotas-and-throttling"></a>Cotas e limitação
 
 Cada assinatura do Azure pode ter no máximo 50 hubs IoT e pelo menos um hub Gratuito.
 
@@ -36,7 +36,7 @@ As restrições de operação são limitações de taxa que são aplicadas em in
 
 A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hub individual.
 
-| Restrição | Gratuito, B1 e S1 | B2 e S2 | B3 e S3 | 
+| Limitação | Gratuito, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operações de registro de identidade](#identity-registry-operations-throttle) (criar, recuperar, listar, atualizar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
 | [Novas conexões de dispositivo](#device-connections-throttle) (esse limite se aplica à taxa de _novas conexões_, não ao número total de conexões) | Máximo de 100/s ou 12/s/unidade <br/> Por exemplo, duas unidades de S1 são 2\*12 = 24 novas conexões/s, mas você tem pelo menos 100 novas conexões s em suas unidades. Com nove unidades S1 você tem 108/s novas conexões/s (9\*12) em suas uniddes. | 120 novas conexões/s/unidade | 6\.000 novas conexões/s/unidade |
@@ -127,7 +127,7 @@ Várias unidades de Hub IoT afetam limitação, conforme descrito anteriormente,
 
 No caso de aumentos inesperados na latência da operação, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para uma discussão aprofundada do comportamento de limitação do Hub IoT, confira a postagem do blog [A limitação do Hub IoT e você](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 

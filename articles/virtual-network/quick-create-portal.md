@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
 ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488488"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393111"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: Criar uma Rede Virtual usando o portal do Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início Rápido: criar uma rede virtual usando o Portal do Azure
 
 Uma rede virtual é o bloco de construção fundamental de sua rede privada no Azure. Ela permite que recursos do Azure, como VMs (máquinas virtuais), comuniquem-se de forma segura uns com os outros e usando a Internet. Neste Início Rápido, você aprenderá a criar uma rede virtual usando o portal do Azure. Em seguida, você poderá implantar duas VMs na rede virtual, comunicar-se com segurança entre as duas VMs e conectar-se às VMs da Internet.
 
@@ -30,7 +30,7 @@ Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -40,13 +40,13 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
 3. Em **Criar rede virtual**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | {1&gt;Valor&lt;1} |
     | ------- | ----- |
-    | NOME | Insira *myVirtualNetwork*. |
+    | {1&gt;Nome&lt;1} | Insira *myVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
-    | Subscription | Selecione sua assinatura.|
-    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Location | Selecione **Leste dos EUA**.|
+    | Assinatura | Selecione sua assinatura.|
+    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Local | Selecione **Leste dos EUA**.|
     | Sub-rede – Nome | Insira *myVirtualSubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
 
@@ -64,33 +64,33 @@ Crie duas VMs na rede virtual:
 
 3. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | {1&gt;Valor&lt;1} |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
-    | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior. |
+    | Assinatura | Selecione sua assinatura. |
+    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior. |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVm1*. |
     | Região | Selecione **Leste dos EUA**. |
     | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária**. |
     | Imagem | Deixe o padrão **Datacenter do Windows Server 2019**. |
-    | Tamanho | Deixe o padrão **Standard DS1 v2**. |
+    | Size | Deixe o padrão **Standard DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de Usuário | Insira um nome de usuário de sua escolha. |
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar Senha | Reinsira a senha. |
+    | Confirme a senha | Reinsira a senha. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
     | Porta de entrada públicas | Deixar o padrão **Nenhum**. |
     | **ECONOMIZE DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o padrão **Não**. |
 
-4. Selecione **Avançar: Discos**.
+4. Selecione **Avançar: discos**.
 
-5. Em **Criar uma máquina virtual – Discos**, mantenha os padrões e selecione **Avançar: Rede**.
+5. Em **criar uma máquina virtual-discos**, deixe os padrões e selecione **Avançar: rede**.
 
 6. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | {1&gt;Valor&lt;1} |
     | ------- | ----- |
     | Rede virtual | Deixe o padrão **myVirtualNetwork**. |
     | Sub-rede | Deixe o padrão **myVirtualSubnet (10.1.0.0/24)** . |
@@ -98,15 +98,15 @@ Crie duas VMs na rede virtual:
     | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
     | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.
 
-7. Selecione **Avançar: Gerenciamento**.
+7. Selecione **Avançar: gerenciamento**.
 
 8. Em **Criar uma máquina virtual – Gerenciamento**, para **Conta de armazenamento de diagnóstico**, selecione **Criar novo**.
 
 9. Em **Criar conta de armazenamento**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Configuração | {1&gt;Valor&lt;1} |
     | ------- | ----- |
-    | NOME | Insira *myvmstorageaccount*. Se esse nome já estiver sendo usado, crie um nome exclusivo.|
+    | {1&gt;Nome&lt;1} | Insira *myvmstorageaccount*. Se esse nome já estiver sendo usado, crie um nome exclusivo.|
     | Tipo de conta | Deixe o padrão **Armazenamento (uso geral v1)** . |
     | Desempenho | Deixe o padrão **Standard**. |
     | Replicação | Deixe o padrão **LRS (Armazenamento com redundância local)** . |
@@ -213,7 +213,7 @@ Depois de criar *myVm1*, conecte-se à Internet.
 
 7. Feche a conexão da área de trabalho remota para *myVm2*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar de usar a rede virtual e as VMs, exclua o grupo de recursos e todos os recursos que ele contém:
 
@@ -223,7 +223,7 @@ Quando terminar de usar a rede virtual e as VMs, exclua o grupo de recursos e to
 
 3. Insira *myResourceGroup* para **DIGITAR O NOME DO GRUPO DE RECURSOS:** e selecione **Excluir**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste Início Rápido, você criou uma rede virtual padrão e duas VMs. Você se conectou a uma VM pela Internet e executou uma comunicação entre duas VMs de maneira segura. Para saber mais sobre configurações de rede virtual, consulte [Gerenciar uma rede virtual](manage-virtual-network.md).
 

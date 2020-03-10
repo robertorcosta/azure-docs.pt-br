@@ -16,13 +16,13 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064794"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372809"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar alterações e atualizar uma máquina virtual do Windows no Azure
+# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: monitorar alterações e atualizar uma máquina virtual do Windows no Azure
 
 Com o [Controle de Alterações](../../automation/change-tracking.md) e o [Gerenciamento de Atualizações](../../automation/automation-update-management.md) do Azure, você pode identificar com facilidade as alterações em suas máquinas virtuais do Windows no Azure e gerenciar as atualizações do sistema operacional para essas VMs.
 
@@ -115,7 +115,7 @@ Para instalar atualizações, agende uma implantação que siga o agendamento de
 
 Para agendar uma nova implantação de atualizações para a VM, selecione **Agendar implantação de atualizações** na parte superior da janela **Gerenciamento de Atualizações**. Na janela **Nova implantação de atualização**, especifique as seguintes informações:
 
-| Opção | DESCRIÇÃO |
+| {1&gt;Opção&lt;1} | Descrição |
 | --- | --- |
 | **Nome** |Insira um nome exclusivo para identificar a implantação de atualizações. |
 |**Sistema operacional**| Selecione **Linux** ou **Windows**.|
@@ -144,9 +144,9 @@ Selecione a implantação de atualizações concluída para ver o painel dessa i
 
 O bloco **Resultados da atualização** mostra um resumo do número total de atualizações e os resultados da implantação na VM. A tabela à direita mostra um detalhamento de cada atualização e os resultados da instalação. Cada resultado tem um dos seguintes valores:
 
-* **Nenhuma tentativa**: A atualização não está instalada. Não houve tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Êxito**: A atualização foi bem-sucedida.
-* **Falha**: falha na atualização.
+* **Sem tentativa**: a atualização não está instalada. Não houve tempo suficiente disponível com base na duração da janela de manutenção definida.
+* **Êxito**: a atualização foi bem-sucedida.
+* **Falha**: a atualização falhou.
 
 Selecione **Todos os logs** para ver todas as entradas de log que a implantação criou.
 
@@ -206,9 +206,9 @@ O gráfico anterior mostra as alterações que ocorreram ao longo do tempo. Depo
 
 Cada linha de grafos de barras representa um tipo de alteração controlável diferente. Esses tipos são daemons do Linux, arquivos, chaves do Registro do Windows, software e serviços Windows. A guia **Alteração** mostra os detalhes da alteração. As alterações são exibidas na ordem de cada ocorrência, com a alteração mais recente mostrada primeiro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-Neste tutorial, você configurou e revisou o Controle de Alterações e o Gerenciamento de Atualizações de sua VM. Você aprendeu como:
+Neste tutorial, você configurou e revisou o Controle de Alterações e o Gerenciamento de Atualizações de sua VM. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um grupo de recursos e uma VM.

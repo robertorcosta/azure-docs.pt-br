@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462918"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388432"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico para Reliable Services com monitoração de estado
 A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o runtime está funcionando e ajudar a solucionar problemas.
@@ -27,7 +27,7 @@ Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou exibir eventos E
 | StatefulRunAsyncCancellation |2 |Informativo |Emitido quando a tarefa RunAsync do serviço é cancelada |
 | StatefulRunAsyncCompletion |3 |Informativo |Emitido quando a tarefa RunAsync do serviço é concluída |
 | StatefulRunAsyncSlowCancellation |4 |Aviso |Emitido quando a tarefa RunAsync do serviço leva muito tempo para concluir o cancelamento |
-| StatefulRunAsyncFailure |5 |Erro |Emitido quando a tarefa RunAsync do serviço lança uma exceção |
+| StatefulRunAsyncFailure |5 |Error |Emitido quando a tarefa RunAsync do serviço lança uma exceção |
 
 ## <a name="interpret-events"></a>Interpretar eventos
 Os eventos StatefulRunAsyncInvocation, StatefulRunAsyncCompletion e StatefulRunAsyncCancellation são úteis para o gravador de serviço para entender o ciclo de vida de um serviço, bem como o tempo em que um serviço é iniciado, cancelado ou concluído. Essas informações podem ser úteis ao depurar problemas de serviço ou entender o ciclo de vida do serviço.
@@ -41,7 +41,7 @@ StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de canc
 ## <a name="performance-counters"></a>Contadores de desempenho
 O runtime dos Reliable Services define as categorias de contador de desempenho a seguir:
 
-| Categoria | Description |
+| Categoria | Descrição |
 | --- | --- |
 | Replicador Transacional do Service Fabric |Contadores específicos para o Replicador Transacional do Azure Service Fabric |
 | Service Fabric TStore |Contadores específicos para o Replicador Transacional |
@@ -95,7 +95,7 @@ No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação
 
 O runtime de Serviços Confiáveis emite os eventos a seguir na `Service Fabric Transactional Replicator` categoria
 
- Nome do contador | Description |
+ Nome do contador | Descrição |
 | --- | --- |
 | Operações de Início de Trans./s | Número de novas transações de gravação criadas por segundo.|
 | Operações de Transação/s | O número de operações de adicionar/atualizar/excluir executadas em coleções confiáveis por segundo.|
@@ -108,12 +108,12 @@ O runtime de Serviços Confiáveis emite os eventos a seguir na `Service Fabric 
 
 O runtime de Serviços Confiáveis emite os eventos a seguir na `Service Fabric TStore` categoria
 
- Nome do contador | Description |
+ Nome do contador | Descrição |
 | --- | --- |
 | Contagem de Itens | O número de itens no repositório.|
-| Tamanho do disco | Tamanho total do disco, em bytes, dos arquivos de ponto de verificação para o repositório.|
+| Tamanho do Disco | Tamanho total do disco, em bytes, dos arquivos de ponto de verificação para o repositório.|
 | Bytes de gravação de arquivo de ponto de verificação por segundo | O número de bytes gravados por segundo para o arquivo de ponto de verificação mais recente.|
 | Bytes de transferência de disco de cópia por segundo | O número de bytes de disco lidos (na réplica primária) ou gravados (em uma réplica secundária) por segundo durante uma cópia do repositório.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

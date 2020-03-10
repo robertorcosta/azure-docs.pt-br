@@ -16,11 +16,11 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350900"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389074"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -64,7 +64,7 @@ Na folha **Informações Básicas**, forneça as seguintes informações:
 * Em **detalhes do projeto**, verifique se a assinatura correta está selecionada. 
 *  Na seção **grupo de recursos** , selecione um grupo de recursos existente na lista ou escolha **criar novo** para criar um novo grupo de recursos. Um grupo de recursos é uma coleção de recursos relacionados no Azure (máquinas virtuais, contas de armazenamento, redes virtuais etc.). 
 
-    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Assinatura](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
   > O uso de um novo grupo de recursos é útil se você estiver apenas testando ou aprendendo sobre implantações do SQL Server no Azure. Após concluir o teste, exclua o grupo de recursos para excluir automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
@@ -185,7 +185,7 @@ Para armazenar segredos de segurança no Azure para criptografia, selecione **co
 
 A tabela a seguir lista os parâmetros necessários para configurar a integração do Cofre da Chave do Azure.
 
-| PARÂMETRO | DESCRIPTION | EXEMPLO |
+| PARÂMETRO | DESCRIÇÃO | EXEMPLO |
 | --- | --- | --- |
 | **URL do cofre da chave** |O local do cofre da chave. |https:\//contosokeyvault.vault.azure.net/ |
 | **Nome de entidade** |Nome de entidade de serviço do Active Directory do Azure Ele também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -242,7 +242,7 @@ Para criptografar o backup, clique em **Habilitar**. Em seguida, especifique a *
 Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
 
 
-### <a name="machine-learning-services"></a>Serviços do Machine Learning
+### <a name="machine-learning-services"></a>Serviços de Machine Learning
 
 Você tem a opção de habilitar [serviços de Machine Learning](/sql/advanced-analytics/). Essa opção permite que você use o Machine Learning com Python e R no SQL Server 2017. Selecione **habilitar** na janela **configurações de SQL Server** .
 
@@ -281,6 +281,6 @@ As seções a seguir mostram como se conectar à sua instância de VM do SQL Ser
   > Este exemplo usa a porta comum 1433. No entanto, esse valor precisará ser modificado se uma porta diferente (como 1401) tiver sido especificada durante a implantação da VM de SQL Server. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre como usar o SQL Server no Azure, consulte [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md) e as [Perguntas Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).

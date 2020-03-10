@@ -10,20 +10,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892914"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
 
 O portal do desenvolvedor é um site da Web, totalmente personalizado e gerado com a documentação de suas APIs. É aí que os consumidores de API podem descobrir suas APIs, aprender a usá-las e solicitar acesso.
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Acessar a versão gerenciada do portal do desenvolvedor
@@ -36,7 +36,7 @@ Você pode encontrar mais detalhes no portal do desenvolvedor na [visão geral d
 
 ![Portal do desenvolvedor do gerenciamento de API – modo admin](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
 - Importar e publicar uma instância de gerenciamento de API do Azure. Para obter mais informações, consulte [importar e publicar](import-and-publish.md)
@@ -91,7 +91,7 @@ Sempre que você fizer uma alteração no portal, precisará salvá-lo manualmen
 Antes de disponibilizar seu portal para os visitantes, você deve personalizar o conteúdo gerado automaticamente. As alterações recomendadas incluem layouts, estilos e o conteúdo do home page.
 
 > [!NOTE]
-> Devido a considerações de integração, as seguintes páginas não podem ser removidas ou movidas em uma URL diferente: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`e `/publish`, `/signin`, `/signin-sso`, `/signup`.
+> Devido a considerações de integração, as seguintes páginas não podem ser removidas ou movidas em uma URL diferente: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
 
 ### <a name="home-page"></a>Página inicial
 
@@ -101,7 +101,7 @@ A **Home** Page padrão é preenchida com conteúdo fictício. Você pode remove
 
 Substitua o logotipo gerado automaticamente na barra de navegação pela sua própria imagem.
 
-### <a name="styling"></a>Estiliza
+### <a name="styling"></a>{1&gt;Estilo&lt;1}
 
 Embora não seja necessário ajustar nenhum estilo, você pode considerar o ajuste de determinados elementos. Por exemplo, altere a cor primária para corresponder à cor da sua marca.
 
@@ -126,7 +126,11 @@ Para tornar seu portal e suas alterações mais recentes disponíveis para os vi
 
 Depois de publicar o portal, você pode acessá-lo na mesma URL do painel administrativo, por exemplo `https://contoso-api.developer.azure-api.net`. Exiba-o em uma sessão de navegador separada (modo de navegação Incognito/privada) como um visitante externo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="apply-the-cors-policy-on-apis"></a>Aplicar a política CORS em APIs
+
+Você precisa habilitar o CORS (compartilhamento de recursos entre origens) em suas APIs para permitir que os visitantes do seu portal testem as APIs por meio do console interativo interno. Consulte [Este artigo de documentação](api-management-howto-developer-portal.md#cors) para obter mais detalhes.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre o portal do desenvolvedor:
 

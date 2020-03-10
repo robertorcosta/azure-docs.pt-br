@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812913"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394823"
 ---
 # <a name="about-voice-assistants"></a>Sobre assistentes de voz
 
@@ -31,7 +31,7 @@ Os aplicativos se conectam ao serviço assistente de voz com o kit de desenvolvi
 
 A primeira etapa para criar um assistente de voz é decidir o que ele deve fazer. O serviço de fala fornece várias soluções complementares para a criação de interações com o assistente. Se você quiser a flexibilidade e a versatilidade que o canal de [fala de linha direta](direct-line-speech.md) da estrutura de bot fornece ou a simplicidade de [comandos personalizados (versão prévia)](custom-commands.md) para cenários simples, selecionar as ferramentas certas o ajudará a começar.
 
-| Se você desejar... | Em seguida, considere... | Por exemplo,... |
+| Se você quiser... | Em seguida, considere... | Por exemplo,... |
 |-------------------|------------------|----------------|
 |Conversa aberta com integração de habilidades robusta e controle de implantação completo | O canal de [fala de linha direta](direct-line-speech.md) da estrutura de bot | <ul><li>"Preciso ir para Seattle"</li><li>"Que tipo de pizza posso encomendar?"</li></ul>
 |Comando e controle ou conversa orientada a tarefas com criação simplificada e Hospedagem | [Comandos personalizados (versão prévia)](custom-commands.md) | <ul><li>"Ativar a luz de sobrecarga"</li><li>"Torná-lo 5 graus mais quente"</ul>
@@ -56,11 +56,11 @@ Se você escolher comandos de [fala de linha direta](direct-line-speech.md) ou [
 
 Oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido do assistente de voz, organizadas por idioma.
 
-| Início Rápido | Plataforma | Referência da API |
+| Guia de Início Rápido | Platform | Referência de API |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Portal | [Procurar](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Procurar](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Procurar](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -80,12 +80,12 @@ Os assistentes de voz criados com o uso do serviço de fala podem usar a gama co
 > [!NOTE]
 > As opções de personalização variam por idioma/localidade (consulte [idiomas com suporte](supported-languages.md)).
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Documentos de Referência
 
 * [SDK da fala](speech-sdk-reference.md)
 * [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)

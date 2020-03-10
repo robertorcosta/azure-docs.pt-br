@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381173"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure
 
 Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a [referência do conector dos hubs de eventos do Azure](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
@@ -74,7 +74,7 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
 
    ![Propriedades do gatilho](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Propriedade | Obrigatório | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do Hub de Eventos** | Sim | O nome do hub de eventos que você deseja monitorar |
    | **Tipo de conteúdo** | Não | O tipo de conteúdo do evento. O padrão é `application/octet-stream`. |
@@ -86,7 +86,7 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
 
    **Propriedades adicionais**
 
-   | Propriedade | Obrigatório | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Esquema de conteúdo** | Não | O esquema de conteúdo JSON para os eventos a serem lidos do hub de eventos. Por exemplo, se você especificar o esquema de conteúdo, poderá disparar o aplicativo lógico somente para os eventos que correspondam ao esquema. |
    | **Chave de partição mínima** | Não | Insira a ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para leitura. Por padrão, todas as partições são lidas. |
@@ -130,7 +130,7 @@ Na lista ações, selecione esta ação: **enviar evento-hubs de eventos**
 
    ![Selecione o nome do Hub de Eventos e forneça o conteúdo do evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Propriedade | Obrigatório | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do Hub de Eventos** | Sim | O Hub de eventos para o qual você deseja enviar o evento |
    | **Conteúdo** | Não | O conteúdo do evento que você quer enviar |
@@ -152,7 +152,7 @@ Na lista ações, selecione esta ação: **enviar evento-hubs de eventos**
 
 1. Quando for solicitado a fornecer informações de conexão, forneça estes detalhes:
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | {1&gt;Valor&lt;1} | Descrição |
    |----------|----------|-------|-------------|
    | **Nome da conexão** | Sim | <*connection-name*> | O nome a criar para a conexão |
    | **Namespace de hubs de eventos** | Sim | <*event-hubs-namespace*> | Selecione o namespace do Hubs de Eventos que você quer usar. |
@@ -178,6 +178,6 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

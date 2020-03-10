@@ -4,11 +4,11 @@ description: Saiba como habilitar o monitoramento para um novo cluster do AKS (s
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405441"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385491"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar o monitoramento de um novo cluster do AKS (serviço kubernetes do Azure)
 
@@ -16,7 +16,7 @@ Este artigo descreve como configurar Azure Monitor para contêineres para monito
 
 Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos com suporte:
 
-* Azure CLI
+* CLI do Azure
 * Terraform
 
 ## <a name="enable-using-azure-cli"></a>Habilitar usando a CLI do Azure
@@ -112,7 +112,7 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
   }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
 

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482407"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385182"
 ---
 # <a name="manage-farms"></a>Gerenciar farms
 
@@ -25,7 +25,7 @@ Use as seguintes etapas:
 
     Aqui está a imagem de exemplo:
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Selecione **criar farm** e forneça o **nome**, os **aparas** e o **endereço**.
@@ -35,12 +35,12 @@ Aqui estão as duas maneiras de definir um limite de farm:
 
 1. **Marcar no mapa**: Use a ferramenta de controle de mapa para desenhar e marcar o limite do farm. Para marcar os limites, ![farm de projeto vence](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) e marque os limites exatos.
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Colar código geojson**: o geojson é um formato para codificar estruturas de dados geográficos, usando JavaScript Object Notation (JSON). Esta opção exibe uma caixa de texto em que uma cadeia de caracteres geojson pode ser inserida para marcar os limites do farm. Você também pode criar código geojson a partir de GeoJSON.io.
 Use as dicas de ferramenta para ajudar a preencher as informações.
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  Selecione **Enviar** para criar um farm. Um novo farm é criado e exibido na página **farms** .
 
@@ -60,7 +60,7 @@ A página **farms** exibe uma lista de farms criados.
 1.  Selecione um farm para exibir e editar o farm.
 2.  Selecione **Editar farm** para editar as informações do farm. Na janela **detalhes do farm** , você pode editar **nomes**, **aparas**, **endereços**e definir campos de **limite do farm** .
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
+    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 
 3. Selecione **Enviar** para salvar os detalhes editados.
 
@@ -71,12 +71,12 @@ A página **farms** exibe uma lista de farms criados. Use as seguintes etapas pa
 1.  Selecione um farm na lista para excluir os detalhes do farm.
 2.  Selecione **excluir farm** para excluir o farm.
 
-    ![Batidas no farm de projetos](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > Quando você exclui um farm, os dispositivos e mapas associados ao farm não são excluídos. Todas as informações de farm associadas ao dispositivo e aos mapas não serão relevantes. Você pode continuar a exibir dispositivos, telemetria e mapas do serviço FarmBeats.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você criou seu farm, saiba como [obter dados de sensor](get-sensor-data-from-sensor-partner.md) que fluem para seu farm.

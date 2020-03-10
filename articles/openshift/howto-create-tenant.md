@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270460"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381451"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Criar um locatário do Azure AD para o Azure Red Hat OpenShift
 
@@ -37,11 +37,11 @@ Para criar um locatário:
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 
 Confira [Azure Active Directory documentação](https://docs.microsoft.com/azure/active-directory/) para obter mais informações sobre [locatários do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como criar uma entidade de serviço, gerar um segredo do cliente e uma URL de retorno de chamada de autenticação e criar um novo usuário Active Directory para testar aplicativos no cluster do Azure Red Hat OpenShift.
 

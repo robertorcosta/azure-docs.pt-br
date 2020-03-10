@@ -12,23 +12,23 @@ manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
 ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293837"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360282"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de Dados Avançada para Banco de Dados SQL do Azure
 
 A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades avançadas de segurança do SQL. Ele inclui a funcionalidade para descobrir e classificar dados confidenciais, identificando e atenuante banco de dados vulnerabilidades potenciais e detectar atividades anormais que podem indicar uma ameaça para seu banco de dados. Fornece um local único para habilitar e gerenciar esses recursos.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O ADS (Advanced Data Security) fornece um conjunto de recursos avançados de segurança do SQL, incluindo a descoberta de dados & classificação, avaliação de vulnerabilidade e proteção avançada contra ameaças.
 
 - A [classificação de & de descoberta de dados](sql-database-data-discovery-and-classification.md) fornece recursos incorporados ao banco de dado SQL do Azure para descobrir, classificar, rotular & proteger os dados confidenciais em seus bancos. Pode ser usada para fornecer visibilidade em seu estado de classificação do banco de dados e para controlar o acesso a dados confidenciais no banco de dados e, além de suas bordas.
 - A [Avaliação de vulnerabilidade ](sql-vulnerability-assessment.md) é um serviço fácil de ser configurado que pode descobrir, acompanhar e ajudar a corrigir possíveis vulnerabilidades do banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas acionáveis para resolver problemas de segurança e aperfeiçoar as fprtificações do banco de dados.
-- A [Proteção Avançada contra Ameaças](sql-database-threat-detection-overview.md) detecta atividades anômalas, indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar seus bancos de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediata sobre vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Os alertas da Proteção Avançada contra Ameaças fornecem detalhes de atividades suspeitas e recomendam ações para investigar e atenuar a ameaça.
+- A [proteção avançada contra ameaças](sql-database-threat-detection-overview.md) detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar seu banco de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediata sobre vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Alertas de proteção avançada contra ameaças fornecem detalhes da atividade suspeita e recomendam a ação de como investigar e mitigar a ameaça.
 
 Habilite a ADS do SQL uma vez para habilitar todos esses recursos incluídos. Com um clique, você pode habilitar a ADS para todos os bancos de dados em seu servidor do Banco de Dados SQL ou instância gerenciada. A habilitação ou o gerenciamento das configurações da ADS requer a função de [Gerenciador de Segurança de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), a função de administrador do banco de dados SQL ou a função de administrador do servidor SQL. 
 
@@ -72,7 +72,7 @@ As configurações de Segurança de Dados Avançada para seu servidor de banco d
 
 ![Configurações de banco de dados](./media/sql-advanced-protection/database_settings.png) 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1} 
 
 - Saiba mais sobre [descoberta e classificação de dados](sql-database-data-discovery-and-classification.md) 
 - Saiba mais sobre [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) 

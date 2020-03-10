@@ -4,17 +4,17 @@ description: Este artigo descreve as tarefas comuns para gerenciar e monitorar o
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936025"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382525"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gerenciar backups de compartilhamento de arquivos do Azure
 
 Este artigo descreve as tarefas comuns para gerenciar e monitorar os compartilhamentos de arquivos do Azure cujo backup é feito pelo [backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview). Você aprenderá como realizar tarefas de gerenciamento no cofre dos serviços de recuperação.
 
-## <a name="monitor-jobs"></a>Monitorar os trabalhos
+## <a name="monitor-jobs"></a>Monitorar trabalhos
 
 Quando você dispara uma operação de backup ou restauração, o serviço de backup cria um trabalho para acompanhamento. Você pode monitorar o progresso de todos os trabalhos na página **Trabalhos de Backup**.
 
@@ -163,6 +163,6 @@ Para cancelar o registro da conta de armazenamento:
 
    ![Selecione cancelar registro](./media/manage-afs-backup/select-unregister.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações, consulte [Troubleshoot Azure File shares backup](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).

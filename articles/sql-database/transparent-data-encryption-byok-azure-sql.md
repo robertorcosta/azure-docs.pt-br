@@ -12,11 +12,11 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/12/2020
 ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192737"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360301"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do SQL do Azure com chave gerenciada pelo cliente
 
@@ -193,7 +193,7 @@ Para evitar problemas ao estabelecer ou durante a replicação geográfica devid
 
 Para testar um failover, siga as etapas em [visão geral da replicação geográfica ativa](sql-database-geo-replication-overview.md). Isso deve ser feito regularmente para confirmar se as permissões de acesso do SQL para os dois cofres de chaves foram mantidas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você também pode querer verificar os seguintes scripts de exemplo do PowerShell para as operações comuns com o TDE gerenciado pelo cliente:
 

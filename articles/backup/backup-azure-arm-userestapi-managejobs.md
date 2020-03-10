@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173405"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395582"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe as tarefas de backup e restauração usando a API REST
 
@@ -43,9 +43,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o status atual do trabalho. Uma vez que é "Completed" ou "CompletedWithWarnings", a seção "extendedInfo" revela mais detalhes sobre o trabalho.
 
-### <a name="response"></a>resposta
+### <a name="response"></a>Resposta
 
-|NOME  |Digite  |DESCRIÇÃO  |
+|{1&gt;Nome&lt;1}  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

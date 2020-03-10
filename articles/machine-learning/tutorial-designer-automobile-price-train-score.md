@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Prever preço de automóvel com o designer'
+title: 'Tutorial: prever o preço do automóvel com o designer'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar, pontuar e implantar um modelo de machine learning usando uma interface do tipo "arrastar e soltar". Este tutorial é a primeira parte de uma série de duas partes sobre a previsão de preços de automóveis usando a regressão linear.
 author: peterclu
@@ -8,15 +8,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
-ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.date: 03/04/2020
+ms.openlocfilehash: ed3667ada834437e81ffdcb9161c2a726fe6a6dc
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623626"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933295"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
+# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: prever o preço do automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste tutorial de duas partes, você aprenderá a usar o designer do Azure Machine Learning para treinar e implantar um modelo de machine learning que prevê o preço de qualquer carro. O designer é uma ferramenta do tipo "arrastar e soltar" que permite criar modelos de machine learning sem nenhuma linha de código.
@@ -35,7 +35,7 @@ Na [segunda parte](tutorial-designer-automobile-price-deploy.md) do tutorial, vo
 > [!NOTE]
 >Uma versão concluída deste tutorial está disponível como um pipeline de exemplo.
 >
->Para encontrá-lo, acesse o designer em seu workspace. Na seção **Novo pipeline**, selecione **Amostra 1 – Regressão: Previsão de Preços de Automóveis (Básica)** .
+>Para encontrá-lo, acesse o designer em seu workspace. Na seção **novo pipeline** , selecione **amostra 1-regressão: Previsão de preço de automóvel (básica)** .
 
 ## <a name="create-a-new-pipeline"></a>Criar um novo pipeline
 
@@ -80,7 +80,7 @@ Você pode definir um **Destino de computação padrão** para o pipeline inteir
 
 1. Insira um nome para o recurso de computação.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     > [!NOTE]
     > A criação de um recurso de computação demora aproximadamente cinco minutos. Depois que o recurso for criado, você poderá reutilizá-lo e ignorar esse tempo de espera para execuções futuras.
@@ -260,18 +260,18 @@ Use o módulo **Avaliar Modelo** para avaliar a o desempenho do modelo na pontua
 
 ## <a name="run-the-pipeline"></a>Executar o pipeline
 
-Agora que o pipeline está configurado, você poderá enviar uma execução de pipeline para treinar seu modelo de machine learning. Você poderá enviar uma execução de pipeline a qualquer momento ao criar pipelines no designer. Faça isso para verificar o andamento do seu trabalho e se o pipeline funciona conforme o esperado.
+Agora que o pipeline está configurado, você pode enviar uma execução de pipeline para treinar seu modelo de aprendizado de máquina. Você pode enviar uma execução de pipeline a qualquer momento ao criar pipelines no designer. Você pode fazer isso para verificar seu trabalho conforme o uso e verificar suas funções de pipeline conforme o esperado.
 
-1. Na parte superior da tela, selecione **Executar**.
+1. Na parte superior da tela, selecione **Enviar**.
 
-1. Na caixa de diálogo **Configurar execução de pipeline**, selecione **+Novo experimento** para o **Experimento**.
+1. Na caixa de diálogo **configurar execução de pipeline** , selecione **criar novo**.
 
     > [!NOTE]
     > Pipelines semelhantes no grupo de experimentos são executados juntos. Se executar um pipeline várias vezes, você poderá selecionar o mesmo experimento para execuções sucessivas.
 
-    1. Insira um nome descritivo para o **Nome do Experimento**.
+    1. Insira um nome descritivo para o **novo nome do experimento**.
 
-    1. Selecione **Executar**.
+    1. Selecione **Enviar**.
     
     Você pode exibir o status e os detalhes da execução no canto superior direito da tela.
 
@@ -297,11 +297,11 @@ Use **Avaliar Modelo** para ver como o desempenho do modelo treinado no conjunto
 
 As seguintes estatísticas são mostradas para o modelo:
 
-* **MAE (Média de Erros Absolutos)** : A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
-* **RMSE (Raiz Quadrada da Média de Erros Quadrados)** : a raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados de teste.
-* **Erro absoluto relativo**: a média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
-* **Erro ao quadrado relativo**: a média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
-* **Coeficiente de determinação**: Também conhecida como o valor de R-quadrado, essa métrica estatística indica se o modelo se ajusta bem aos dados.
+* **Erro de média absoluta (Mae)** : a média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
+* **Erro de quadrado médio de raiz (RMSE)** : a raiz quadrada da média de erros quadrados de previsões feitas no conjunto de testes.
+* **Erro absoluto relativo**- A média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de valores reais.
+* **Erro ao quadrado relativo**- A média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
+* **Coeficiente de determinação**: também conhecido como o valor de R quadrado, essa métrica estatística indica o quão bem um modelo se ajusta aos dados.
 
 Para cada estatística de erro, menos é melhor. Um valor menor indica que as previsões estão mais próximas dos valores reais. Quanto ao coeficiente de determinação, quanto mais próximo o valor estiver de um (1), melhores serão as previsões.
 
@@ -311,7 +311,7 @@ Ignore esta seção se desejar prosseguir com a parte 2 do tutorial, [implantar 
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Na segunda parte, você aprenderá a implantar seu modelo como um ponto de extremidade em tempo real.
 

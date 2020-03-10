@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774487"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389185"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um Cluster Service Fabric usando o Gerenciador de recursos de cluster
 O recurso Gerenciador de recursos de cluster do Azure Service Fabric fornece vários mecanismos para descrever um cluster:
@@ -237,7 +237,7 @@ No layout anterior, se o valor de **TargetReplicaSetSize** for cinco e N1 for re
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |N/D |N/D |N/D |N/D |N/D |N/D |
+| **UD0** |{1&gt;N/A&lt;1} |{1&gt;N/A&lt;1} |{1&gt;N/A&lt;1} |{1&gt;N/A&lt;1} |{1&gt;N/A&lt;1} |{1&gt;N/A&lt;1} |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -375,7 +375,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Verificações condicionais para a criação de instruções específicas:
 
-  | de | Sintaxe |
+  | Instrução | Sintaxe |
   | --- |:---:|
   | "igual a" | "==" |
   | "diferente de" | "!=" |
@@ -386,7 +386,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Instruções booleanas para Agrupamento e operações lógicas:
 
-  | de | Sintaxe |
+  | Instrução | Sintaxe |
   | --- |:---:|
   | "e" | "&&" |
   | "ou" | "&#124;&#124;" |
@@ -478,7 +478,7 @@ As métricas são diferentes das restrições de posicionamento e das propriedad
 
 Assim como as restrições de posicionamento e as propriedades de nó, Service Fabric Gerenciador de recursos de cluster não entende o que significam os nomes das métricas. Os nomes de métrica são apenas cadeias de caracteres. É uma boa prática declarar unidades como parte dos nomes de métrica que você cria quando elas podem ser ambíguas.
 
-## <a name="capacity"></a>Capacidade
+## <a name="capacity"></a>Capacity
 Se você desativou todo o *balanceamento*de recursos, Service Fabric Gerenciador de recursos de cluster ainda garantiria que nenhum nó ultrapassa sua capacidade. É possível gerenciar saturações de capacidade, a menos que o cluster esteja muito cheio ou que a carga de trabalho seja maior do que qualquer nó. A capacidade é outra *restrição* que o Gerenciador de recursos de cluster usa para entender a quantidade de um recurso de um nó. A capacidade restante também é rastreada para o cluster como um todo. 
 
 A capacidade e o consumo no nível de serviço são expressos em termos de métricas. Por exemplo, a métrica pode ser "ClientConnections" e um nó pode ter uma capacidade para "ClientConnections" de 32.768. Outros nós podem ter outros limites. Um serviço em execução nesse nó pode dizer que está consumindo, no momento, o 32.256 da métrica "ClientConnections".
@@ -615,7 +615,7 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Para obter informações sobre a arquitetura e o fluxo de informações no Gerenciador de recursos de cluster, consulte [visão geral da arquitetura do Gerenciador de recursos de cluster](service-fabric-cluster-resource-manager-architecture.md).
 * A definição de métricas de desfragmentação é uma maneira de consolidar a carga em nós em vez de difundir. Para saber como configurar a desfragmentação, consulte [desfragmentação de métricas e carga em Service Fabric](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
 * Comece desde o início e [obtenha uma introdução ao Service Fabric cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md).

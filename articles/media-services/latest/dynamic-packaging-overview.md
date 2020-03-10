@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/23/2020
 ms.author: juliako
-ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dac5f75216a8addcaa65407d945a06363e4cbf9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719663"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359501"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empacotamento dinâmico nos Serviços de Mídia v3
 
@@ -44,7 +44,7 @@ Se você planeja proteger seu conteúdo usando a criptografia dinâmica dos Serv
 
 O cliente de streaming pode especificar os seguintes formatos de HLS:
 
-|Protocolo|Exemplo|
+|Protocolo|{1&gt;Exemplo&lt;1}|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
@@ -54,7 +54,7 @@ O cliente de streaming pode especificar os seguintes formatos de HLS:
 
 O cliente de streaming pode especificar os seguintes formatos de MPEG-DASH:
 
-|Protocolo|Exemplo|
+|Protocolo|{1&gt;Exemplo&lt;1}|
 |---|---|
 |MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
@@ -93,7 +93,7 @@ Confira a lista de [codecs e formatos](media-encoder-standard-formats.md) do Med
 
 ## <a name="live-streaming-workflow"></a>Fluxo de trabalho de streaming ao vivo
 
-Um evento ao vivo pode ser de dois tipos: passagem ou codificação ativa. 
+Um evento ao vivo pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de várias taxas de bits) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). 
 
 Aqui está um fluxo de trabalho comum para transmissão ao vivo com Empacotamento Dinâmico:
 
@@ -240,7 +240,7 @@ Aqui está um exemplo de um arquivo de manifesto de Smooth Streaming:
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>Nomenclatura de faixas no manifesto
 
-Se um nome de faixa de áudio estiver especificado no arquivo .ism, os Serviços de Mídia adicionarão um elemento `Label` dentro de um `AdaptationSet` para especificar as informações textuais da faixa de áudio específica. Um exemplo do manifesto DASH de saída:
+Se um nome de faixa de áudio for especificado no arquivo. ISM, os serviços de mídia adicionarão um elemento `Label` dentro de um `AdaptationSet` para especificar as informações de textural para a faixa de áudio específica. Um exemplo do manifesto de traço de saída:
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -262,7 +262,7 @@ Para obter mais informações, confira o exemplo [Como sinalizar uma faixa de á
 
 #### <a name="smooth-streaming-manifest"></a>Manifesto Smooth Streaming
 
-Se você estivesse executando um fluxo de Smooth Streaming, o manifesto transportaria valores nos atributos `Accessibility` e `Role` para essa faixa de áudio. Por exemplo, `Role="alternate" Accessibility="description"` seria adicionado no elemento `StreamIndex` para indicar que é uma descrição de áudio.
+Se você estiver executando um fluxo de Smooth Streaming, o manifesto transportaria valores em `Accessibility` e `Role` atributos para essa faixa de áudio. Por exemplo, `Role="alternate" Accessibility="description"` seria adicionado no elemento `StreamIndex` para indicar que é uma descrição de áudio.
 
 #### <a name="dash-manifest"></a>Manifesto DASH
 
@@ -277,7 +277,7 @@ Para o manifesto DASH, os dois elementos a seguir seriam adicionados para sinali
 
 Para HLS v7 e superior `(format=m3u8-cmaf)`, sua playlist transportaria `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` quando a faixa de descrição de áudio fosse sinalizada.
 
-#### <a name="example"></a>Exemplo
+#### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 Para obter mais informações, confira [Como sinalizar faixas de descrição de áudio](signal-descriptive-audio-howto.md).
 
@@ -287,7 +287,7 @@ Para controlar o número de faixas, formatos, taxas de bits e janelas de tempo d
 
 ## <a name="dynamic-encryption"></a>Criptografia dinâmica
 
-Você pode usar *criptografia dinâmica* para criptografar dinamicamente seu conteúdo ao vivo ou sob demanda com o AES-128 ou qualquer um dos três sistemas principais de gerenciamento de direitos digitais (DRM): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Serviços de Mídia também fornecem um serviço para entrega de chaves AES e licenças DRM a clientes autorizados. Para saber mais, confira [criptografia dinâmica](content-protection-overview.md).
+Você pode usar a *criptografia dinâmica* para criptografar dinamicamente seu conteúdo em tempo real ou sob demanda com o AES-128 ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple Fairplay. Os Serviços de Mídia também fornecem um serviço para entrega de chaves AES e licenças DRM a clientes autorizados. Para saber mais, confira [criptografia dinâmica](content-protection-overview.md).
 
 > [!NOTE]
 > O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
@@ -300,7 +300,7 @@ Confira a [comunidade dos Serviços de Mídia do Azure](media-services-community
 
 Para abrir um tíquete de suporte, navegue até [Nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!NOTE]
 > Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.

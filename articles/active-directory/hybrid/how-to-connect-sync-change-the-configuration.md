@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919062"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376320"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: como fazer uma alteração na configuração padrão
 A finalidade deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
@@ -104,7 +104,7 @@ Abra o **Serviço de Sincronização** no menu **Iniciar**. As etapas nesta seç
 1. Escolha alguns objetos de exemplo para verificar se o valor é o esperado e se a regra foi aplicada. 
 2. Selecione **Pesquisar Metaverso** na parte superior. Adicione qualquer filtro necessário para localizar os objetos relevantes. 
 3. No resultado da pesquisa, abra um objeto. Veja os valores do atributo e verifique também na coluna **Regras de Sincronização** se a regra aplicada está conforme o esperado.  
-![Metaverse search](./media/how-to-connect-sync-change-the-configuration/mvsearch.png)  
+![Pesquisa de metaverso](./media/how-to-connect-sync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Habilitar o agendador
 Se tudo estiver como o esperado, você poderá habilitar o agendador novamente. No PowerShell, execute `Set-ADSyncScheduler -SyncCycleEnabled $true`.
@@ -262,19 +262,19 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 3. Clique no botão **Adicionar nova regra** para criar uma nova regra de entrada.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Value | Detalhes |
+    | Atributo | {1&gt;Valor&lt;1} | Detalhes |
     | --- | --- | --- |
-    | name | *Fornecer um nome* | Por exemplo, *Entrada do AD – UserType Usuário* |
+    | {1&gt;Nome&lt;1} | *Fornecer um nome* | Por exemplo, *Entrada do AD – UserType Usuário* |
     | Descrição | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Selecionar o AD connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
-    | Tipo de Objeto de Metaverso | **Pessoa** |  |
+    | Tipo de Objeto de Metaverso | **Person** |  |
     | Tipo de link | **Join** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Acesse a guia **Filtro de escopo** e adicione um **único grupo de filtro de escopo** com a seguinte cláusula:
 
-    | Atributo | operador | Value |
+    | Atributo | Operador | {1&gt;Valor&lt;1} |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Usuário\_ |
 
@@ -284,13 +284,13 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | extensionAttribute1 | Desmarcado | Atualizar |
+    | Direto | UserType | extensionAttribute1 | Desmarcado | Atualizar |
 
     Em outro exemplo, você deseja derivar o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como convidados se seu atributo userPrincipalName do AD local termina com a parte de domínio <em>@partners.fabrikam123.org</em>. Você pode implementar uma expressão como esta:
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar UserType")) | Desmarcado | Atualizar |
+    | Expressão | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar UserType")) | Desmarcado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de entrada.
 
@@ -304,19 +304,19 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 3. Clique no botão **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Value | Detalhes |
+    | Atributo | {1&gt;Valor&lt;1} | Detalhes |
     | ----- | ------ | --- |
-    | name | *Fornecer um nome* | Por exemplo, *Saída para AAD – UserType Usuário* |
+    | {1&gt;Nome&lt;1} | *Fornecer um nome* | Por exemplo, *Saída para AAD – UserType Usuário* |
     | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o AAD connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
-    | Tipo de Objeto de Metaverso | **Pessoa** ||
+    | Tipo de Objeto de Metaverso | **Person** ||
     | Tipo de link | **Join** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
 5. Acesse a guia **Filtro de escopo** e adicione um **único grupo de filtro de escopo** com as duas cláusulas a seguir:
 
-    | Atributo | operador | Value |
+    | Atributo | Operador | {1&gt;Valor&lt;1} |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuário |
     | cloudMastered | NOTEQUAL | True |
@@ -327,7 +327,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | UserType | Desmarcado | Atualizar |
+    | Direto | UserType | UserType | Desmarcado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de saída.
 
@@ -392,7 +392,7 @@ Reabilite o agendador de sincronização interno:
 2. Reabilite a sincronização agendada executando o cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md).
 * Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 

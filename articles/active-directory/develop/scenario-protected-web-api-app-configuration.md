@@ -17,11 +17,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605337"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377217"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -154,7 +154,7 @@ As etapas de validação são capturadas em validadores, que são fornecidas pel
 
 Esta tabela descreve os validadores:
 
-| Validator | DESCRIÇÃO |
+| Validator | Descrição |
 |---------|---------|
 | **ValidateAudience** | Garante que o token seja para o aplicativo que valida o token para você. |
 | **ValidateIssuer** | Garante que o token foi emitido por um STS confiável, o que significa que ele é de alguém em que você confia. |
@@ -171,7 +171,7 @@ Na maioria dos casos, você não precisa alterar os parâmetros. Aplicativos que
 
 Você também pode validar tokens de acesso de entrada no Azure Functions. Você pode encontrar exemplos de tal validação em [Microsoft .net](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Verificar escopos e funções de aplicativo em seu código](scenario-protected-web-api-verification-scope-app-roles.md)

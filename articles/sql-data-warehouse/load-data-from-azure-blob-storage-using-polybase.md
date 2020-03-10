@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 5e7a4eff57841fdcf3bab87eda4e9771d9742bc5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190357"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386758"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: carregar o conjunto de dos táxis de Nova York
 
@@ -57,7 +57,7 @@ Siga estas etapas para criar um banco de dados em branco.
 
 3. Preencha o formulário com as seguintes informações: 
 
-   | Configuração            | Valor sugerido       | DESCRIÇÃO                                                  |
+   | Configuração            | Valor sugerido       | Descrição                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
    | *Nome**            | meuDataWarehouseDeExemplo | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers). |
    | **Assinatura**   | Sua assinatura     | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +68,7 @@ Siga estas etapas para criar um banco de dados em branco.
 
 4. Selecione **servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
 
-    | Configuração                | Valor sugerido          | DESCRIÇÃO                                                  |
+    | Configuração                | Valor sugerido          | Descrição                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
     | **Nome do servidor**        | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
     | **Logon de administrador do servidor** | Qualquer nome válido           | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
@@ -92,7 +92,7 @@ Siga estas etapas para criar um banco de dados em branco.
 
 12. Na barra de ferramentas, selecione **notificações** para monitorar o processo de implantação.
   
-     ![notificação](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![(notificação)](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
@@ -117,7 +117,7 @@ Um firewall no nível de servidor que impede que aplicativos e ferramentas exter
 
 4. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-5. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+5. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
 6. Selecione **OK** e, em seguida, feche a página **Configurações do Firewall**.
 
@@ -144,12 +144,12 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
-    | Configuração        | Valor sugerido                            | DESCRIÇÃO                                                  |
+    | Configuração        | Valor sugerido                            | Descrição                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Tipo de servidor    | Mecanismo de banco de dados                            | Esse valor é obrigatório                                       |
     | Nome do servidor    | O nome do servidor totalmente qualificado            | O nome deve ser semelhante a este: **mynewserver-20180430.database.windows.net**. |
     | Autenticação | Autenticação do SQL Server                  | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
-    | Logon          | A conta do administrador do servidor                   | Esta é a conta que você especificou quando criou o servidor. |
+    | Login          | A conta do administrador do servidor                   | Esta é a conta que você especificou quando criou o servidor. |
     | Senha       | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 
     ![conectar-se ao servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -561,7 +561,7 @@ O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/stat
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autenticar usando identidades gerenciadas para carregar (opcional)
 O carregamento usando o polybase e a autenticação por meio de identidades gerenciadas é o mecanismo mais seguro e permite que você aproveite os pontos de extremidade de serviço de rede virtual com o armazenamento do Azure. 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 1.  Instalar o Azure PowerShell usando este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário primeiro atualizar para uso geral v2 usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  É necessário ativar **Permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** no menu de configurações **Firewalls e redes virtuais** da conta do Armazenamento do Azure. Confira este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para saber mais.
@@ -624,7 +624,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 5. Para remover o grupo de recursos, selecione **myResourceGroup** e, em seguida, **Excluir grupo de recursos**.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1} 
 Neste tutorial, você aprendeu como criar um data warehouse e um usuário para carregar dados. Você criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e depois usou a instrução CREATE TABLE AS SELECT do PolyBase para carregar dados em seu data warehouse. 
 
 Você fez essas coisas:

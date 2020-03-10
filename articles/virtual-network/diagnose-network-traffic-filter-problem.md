@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712675"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388863"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquina virtual
 
@@ -44,8 +44,8 @@ As etapas a seguir supõem que você tenha uma VM existente para visualizar as r
 
    As regras que você consulte listadas na figura anterior são para uma interface de rede denominada **myVMVMNic**. É possível ver que há **REGRAS DE PORTA DE ENTRADA** para o adaptador de rede de dois grupos de segurança de rede diferentes:
    
-   - **mySubnetNSG**: Associado à sub-rede que contém o adaptador de rede.
-   - **myVMNSG**: Associado ao adaptador de rede na VM chamada **myVMVMNic**.
+   - **mySubnetNSG**: associado à sub-rede na qual o adaptador de rede está.
+   - **myVMNSG**: associado ao adaptador de rede na VM nomeada **myVMVMNic**.
 
    A regra nomeada **DenyAllInBound** é o que está impedindo a comunicação de entrada para a máquina virtual pela porta 80, da internet, conforme descrito no [cenário](#scenario). As listas de regra *0.0.0.0/0* para **fonte**, que inclui a internet. Nenhuma outra regra com uma prioridade mais alta (número menor) permite que a porta 80 entrada. Para permitir que a porta 80 para a máquina virtual de entrada da internet, consulte [resolver um problema](#resolve-a-problem). Para saber mais sobre as regras de segurança e como o Azure aplica-las, consulte [grupos de segurança de rede](security-overview.md).
 
@@ -72,16 +72,16 @@ As etapas a seguir supõem que você tenha uma VM existente para visualizar as r
    Ao contrário de **myVMVMNic** interface de rede, o **myVMVMNic2** interface de rede não tem um grupo de segurança de rede associado a ele. Cada interface de rede e sub-rede podem ter zero ou um NSG associado a ele. O NSG associado a cada interface de rede ou sub-rede pode ser o mesmo ou diferente. Você pode associar o mesmo grupo de segurança de rede a quantas interfaces de rede e sub-redes desejar.
 
 Embora as regras de segurança eficazes tenham sido visualizadas na VM, também é possível exibir regras de segurança efetivas por meio de um:
-- **Adaptador de rede**: Saiba como [exibir um adaptador de rede](virtual-network-network-interface.md#view-network-interface-settings).
+- **Adaptador de rede**: Saiba como[exibir um adaptador de rede](virtual-network-network-interface.md#view-network-interface-settings).
 - **NSG**: Saiba como [exibir um NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnosticar usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell no seu computador, você precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Obter as regras de segurança em vigor para um adaptador de rede com [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo a seguir obtém as regras de segurança efetivas para uma interface de rede denominada *myVMVMNic*, que está em um grupo de recursos denominado *myResourceGroup*:
+Obtenha as regras de segurança efetivas para uma interface de rede com [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo a seguir obtém as regras de segurança efetivas para uma interface de rede denominada *myVMVMNic*, que está em um grupo de recursos denominado *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -156,9 +156,9 @@ Na saída anterior, o nome da interface de rede é *myVMVMNic interface*.
 
 Independentemente de se você usou o [PowerShell](#diagnose-using-powershell), ou o [CLI do Azure](#diagnose-using-azure-cli) para diagnosticar o problema, você recebe uma resposta que contém as seguintes informações:
 
-- **NetworkSecurityGroup**: A ID do grupo de segurança de rede.
-- **Associação**: Indica se o grupo de segurança de rede está associado a um *NetworkInterface* ou uma *Subnet*. Se um NSG está associado a ambos, a saída é retornada com **NetworkSecurityGroup**, **associação**, e **EffectiveSecurityRules**, para cada NSG. Se o NSG estiver associado ou desassociado imediatamente antes de executar o comando para visualizar as regras de segurança efetivas, talvez seja necessário aguardar alguns segundos para que a alteração reflita na saída do comando.
-- **EffectiveSecurityRules**: Uma explicação de cada propriedade é detalhada em [Criar uma regra de segurança](manage-network-security-group.md#create-a-security-rule). Regra nomes precedidos de *defaultSecurityRules /* são padrão regras de segurança que existem em cada NSG. Regra nomes precedidos de *securityRules /* são regras que você criou. Regras que especificam um [serviço marca](security-overview.md#service-tags), como **Internet**, **VirtualNetwork**, e **AzureLoadBalancer** para o  **destinationAddressPrefix** ou **sourceAddressPrefix** propriedades, também têm valores para o **expandedDestinationAddressPrefix** propriedade. O **expandedDestinationAddressPrefix** listas de propriedades de todos os prefixos de endereço representados pela marca de serviço.
+- **NetworkSecurityGroup**: o ID do grupo de segurança de rede.
+- **Associação**: se o grupo de segurança de rede está associado a um *NetworkInterface* ou *sub-rede*. Se um NSG está associado a ambos, a saída é retornada com **NetworkSecurityGroup**, **associação**, e **EffectiveSecurityRules**, para cada NSG. Se o NSG estiver associado ou desassociado imediatamente antes de executar o comando para visualizar as regras de segurança efetivas, talvez seja necessário aguardar alguns segundos para que a alteração reflita na saída do comando.
+- **EffectiveSecurityRules**: obter uma explicação de cada propriedade é detalhada na [criar uma regra de segurança](manage-network-security-group.md#create-a-security-rule). Regra nomes precedidos de *defaultSecurityRules /* são padrão regras de segurança que existem em cada NSG. Regra nomes precedidos de *securityRules /* são regras que você criou. Regras que especificam um [serviço marca](security-overview.md#service-tags), como **Internet**, **VirtualNetwork**, e **AzureLoadBalancer** para o  **destinationAddressPrefix** ou **sourceAddressPrefix** propriedades, também têm valores para o **expandedDestinationAddressPrefix** propriedade. O **expandedDestinationAddressPrefix** listas de propriedades de todos os prefixos de endereço representados pela marca de serviço.
 
 Se você vir regras duplicadas listadas na saída, é porque um NSG está associado à interface de rede e a sub-rede. Ambos os NSGs têm as mesmas regras padrão e podem ter regras duplicadas adicionais, se você tiver criado suas próprias regras que são os mesmos em ambos os NSGs.
 
@@ -168,16 +168,16 @@ A regra denominada **defaultSecurityRules / DenyAllInBound** é o que está impe
 
 Se você usar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), ou o [CLI do Azure](#diagnose-using-azure-cli) para diagnosticar o problema apresentado a [cenário](#scenario) neste artigo, a solução é criar uma regra de segurança de rede com as seguintes propriedades:
 
-| Propriedade                | Value                                                                              |
+| Propriedade                | {1&gt;Valor&lt;1}                                                                              |
 |---------                |---------                                                                           |
-| source                  | Qualquer                                                                                |
+| Origem                  | Qualquer                                                                                |
 | Intervalos de portas de origem      | Qualquer                                                                                |
 | Destino             | O endereço IP da VM, um intervalo de endereços IP ou todos os endereços na sub-rede. |
 | Intervalos de portas de destino | 80                                                                                 |
-| Protocol                | TCP                                                                                |
-| Ação                  | PERMITIR                                                                              |
+| Protocolo                | TCP                                                                                |
+| Ação                  | Permitir                                                                              |
 | Prioridade                | 100                                                                                |
-| NOME                    | Permitir-HTTP-All                                                                     |
+| {1&gt;Nome&lt;1}                    | Permitir-HTTP-All                                                                     |
 
 Depois de criar a regra, a porta 80 é permitida de entrada da internet, como a prioridade da regra é maior do que a regra de segurança padrão chamada *DenyAllInBound*, que impede que o tráfego. Saiba como [ criar uma regra de segurança ](manage-network-security-group.md#create-a-security-rule). Se os NSGs diferentes estão associados a interface de rede e a sub-rede, você deve criar a mesma regra em ambos os NSGs.
 
@@ -201,7 +201,7 @@ Considere os seguintes pontos ao solucionar problemas de conectividade:
   * Software de firewall em execução no sistema operacional da VM
   * Rotas configuradas para soluções de virtualização ou tráfego local. O tráfego da Internet pode ser redirecionado para sua rede local por meio de [ encapsulamento forçado ](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você forçar o tráfego de internet de túnel em um dispositivo virtual ou no local, você não poderá se conectar à VM da internet. Para saber como diagnosticar problemas de rota que podem impedir o fluxo de tráfego de VM, consulte [diagnosticar um problema de roteamento do tráfego de rede de máquina virtual](diagnose-network-routing-problem.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre todas as tarefas, propriedades e configurações para um [grupo de segurança de rede](manage-network-security-group.md#work-with-network-security-groups) e [as regras de segurança](manage-network-security-group.md#work-with-security-rules).
 - Saiba mais sobre [padrão de regras de segurança](security-overview.md#default-security-rules), [serviço marcas](security-overview.md#service-tags), e [como o Azure processa as regras de segurança para o tráfego de entrada e saída](security-overview.md#network-security-groups) para uma máquina virtual.

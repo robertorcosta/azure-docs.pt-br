@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464109"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364949"
 ---
-# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar seu cluster com o Service Fabric Explorer
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
 
 Service Fabric Explorer (SFX) é uma ferramenta de código-fonte aberto para inspecionar e gerenciar clusters do Azure Service Fabric. O Service Fabric Explorer é um aplicativo da área de trabalho para Windows, macOS e Linux.
 
@@ -20,7 +20,7 @@ Service Fabric Explorer (SFX) é uma ferramenta de código-fonte aberto para ins
 
 Use os links a seguir para fazer o download do Service Fabric Explorer como um aplicativo de área de trabalho:
 
-- Windows
+- Portal
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -49,7 +49,7 @@ Para a instalação da estação de trabalho de desenvolvedor, você pode inicia
 ## <a name="connect-to-a-service-fabric-cluster"></a>Conectar a um cluster do Service Fabric
 Para se conectar a um cluster do Service Fabric, você precisará do ponto de extremidade de gerenciamento de clusters (IP/FQDN) e a porta do ponto de extremidade de gerenciamento de HTTP (19080 por padrão). Por exemplo, https\://mysfcluster.westus.cloudapp.azure.com:19080. Use a caixa de seleção "Conectar ao localhost" para se conectar a um cluster local em sua estação de trabalho.
 
-### <a name="connect-to-a-secure-cluster"></a>Conectar-se a um cluster seguro
+### <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
 Você pode controlar o acesso do cliente ao cluster do Service Fabric com certificados ou usando o AAD (Azure Active Directory).
 
 Se você tentar se conectar a um cluster seguro, dependendo da configuração do cluster, será necessário apresentar um certificado de cliente ou entrar usando o AAD.
@@ -133,7 +133,7 @@ As seguintes operações são possíveis:
 * Disparar e rastrear a restauração de uma partição.
 
 Para obter mais informações sobre o serviço de backup e restauração, consulte a [referência da API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Gerenciando aplicativos da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implantação de aplicativos de Malha do Serviço usando o PowerShell](service-fabric-deploy-remove-applications.md)
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736217"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382091"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de roteamento do Front Door
 
@@ -26,8 +26,8 @@ Há quatro conceitos principais para roteamento de tráfego disponíveis no Fron
 
 * **[Latência](#latency):** o roteamento baseado em latência garante que as solicitações sejam enviadas para os back-ends de latência mais baixos aceitáveis dentro de um intervalo de sensibilidade. Basicamente, as solicitações do usuário são enviadas para o conjunto de back-ends “mais próximo” com relação à latência de rede.
 * **[Prioridade](#priority):** você pode atribuir prioridades para seus diferentes back-ends quando desejar usar um back-end de serviço primário para todo o tráfego e fornecer backups caso os back-ends primários ou de backup não estejam disponíveis.
-* **[Ponderado](#weighted):** você pode atribuir pesos para seus diferentes back-ends quando desejar distribuir o tráfego entre um conjunto de back-ends, seja uniformemente ou de acordo com os coeficientes de peso.
-* **Afinidade de sessão:** configure a afinidade de sessão para seus hosts de front-end ou domínios quando desejar que as solicitações subsequentes de um usuário sejam enviadas para o mesmo back-end, desde que a sessão do usuário ainda esteja ativa e a instância de back-end ainda seja relatada como íntegra nas investigações de integridade. 
+* **[Ponderado](#weighted):** atribua pesos aos diferentes back-ends quando desejar distribuir tráfego entre um conjunto de back-ends, seja uniformemente ou de acordo com os coeficientes de ponderação.
+* **Afinidade de sessão:** Você pode configurar a afinidade de sessão para seus hosts front-end ou domínios quando desejar que as solicitações subsequentes de um usuário sejam enviadas para o mesmo back-end, desde que a sessão do usuário ainda esteja ativa e a instância de back-end ainda relate a integridade com base nas investigações de integridade. 
 
 Todas as configurações do Front Door incluem monitoramento de integridade de back-end e failover global instantâneo automatizado. Para obter mais informações, confira [Monitoramento de back-end do Front Door](front-door-health-probes.md). Seu Front Door pode ser configurado para funcionar com base em um único método de roteamento e, dependendo das necessidades do seu aplicativo, é possível usar vários ou todos esses métodos de roteamento juntos para criar uma topologia de roteamento ideal.
 
@@ -66,8 +66,8 @@ O tráfego é distribuído por meio de um mecanismo round robin na proporção d
 
 O método ponderado permite alguns cenários úteis:
 
-* **Atualização gradual do aplicativo**: aloque um percentual do tráfego para roteá-lo para um novo back-end e aumente gradualmente o tráfego com o passar do tempo até que ele esteja no mesmo nível dos demais back-ends.
-* **Migração de aplicativos para o Azure**: crie um pool de back-end com back-ends externos e do Azure. Ajuste o peso dos back-ends para dar preferência aos novos back-ends. Você pode definir isso gradualmente começando com os novos back-ends desabilitados e atribuindo a eles pesos mais baixos, aumentando lentamente até alcançar os níveis em que eles receberão a maior parte do tráfego. Por fim, basta desabilitar os back-end menos preferenciais e removê-los do pool.  
+* **Atualização gradual de aplicativo**: aloque um percentual do tráfego para roteá-lo para um novo back-end e aumente gradualmente o tráfego com o passar do tempo até que ele esteja no mesmo nível dos demais back-ends.
+* **Migração de aplicativo para o Azure**: crie um pool de back-end com back-ends externos e do Azure. Ajuste o peso dos back-ends para dar preferência aos novos back-ends. Você pode definir isso gradualmente começando com os novos back-ends desabilitados e atribuindo a eles pesos mais baixos, aumentando lentamente até alcançar os níveis em que eles receberão a maior parte do tráfego. Por fim, basta desabilitar os back-end menos preferenciais e removê-los do pool.  
 * **Estouro de nuvem para capacidade adicional**: expanda rapidamente uma implantação local na nuvem colocando-a atrás do Front Door. Quando você precisar de capacidade extra na nuvem, poderá adicionar ou habilitar mais back-ends e especificar qual parte do tráfego vai para cada back-end.
 
 ## <a name = "affinity"></a>Afinidade de sessão
@@ -84,7 +84,7 @@ O tempo de vida do cookie é o mesmo que a sessão do usuário, visto que o Fron
 > - A resposta contém um cabeçalho ```Authorization``` que não expirou.
 > - A resposta tem um código de status HTTP 302.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como o Front Door funciona](front-door-routing-architecture.md).

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887075"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390515"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para processamento de conteúdo de streaming ao vivo. Um canal recebe fluxos de entrada ao vivo de uma das duas maneiras a seguir:
 
 * Um codificador ativo local envia um fluxo RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o canal que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam pelos canais sem qualquer processamento adicional. Esse método é chamado *passagem*. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, não recomendamos isso. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
@@ -119,7 +119,7 @@ Quando você usa um codificador ativo local para gerar um fluxo com múltiplas t
 
 A tabela a seguir mostra como a duração do segmento é calculada:
 
-| Intervalo de quadro-chave | Taxa de empacotamento de segmento HLS (FragmentsPerSegment) | Exemplo |
+| Intervalo de quadro-chave | Taxa de empacotamento de segmento HLS (FragmentsPerSegment) | {1&gt;Exemplo&lt;1} |
 | --- | --- | --- |
 | Menor ou igual a três segundos |3:1 |Se KeyFrameInterval (ou GOP) for de dois segundos, a proporção de empacotamento de segmento HLS padrão será de três para um. Isso cria um segmento HLS de seis segundos. |
 | 3 a 5 segundos |2:1 |Se KeyFrameInterval (ou GOP) for de quatro segundos, a proporção de empacotamento de segmento HLS padrão será de dois para um. Isso cria um segmento HLS de oito segundos. |
@@ -176,25 +176,25 @@ Mesmo após a interrupção e exclusão do programa, os usuários poderão trans
 ## <a id="states"></a>Estados de canal e cobrança
 Os valores possíveis para o estado atual de um canal incluem:
 
-* **Parado**: este é o estado inicial do canal após sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas o streaming não é permitido.
-* **Iniciando**: o canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante este estado. Se ocorrer um erro, o canal retornará ao estado **Parado**.
+* **Parado**: este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
+* **Iniciando**: o canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retornará ao estado **Parado**.
 * **Executando**: o canal pode processar fluxos ao vivo.
-* **Parando**: o canal está sendo interrompido. Nenhuma atualização ou streaming é permitido durante este estado.
-* **Excluindo**: o canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante este estado.
+* **Parando**: o canal está sendo interrompido. Nenhuma atualização ou streaming é permitido durante esse estado.
+* **Excluindo**: o canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante esse estado.
 
-A tabela a seguir mostra como é o mapeamento dos estados do canal para o modo de cobrança.
+A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
 
-| Estado do Canal | Indicadores de interface do usuário do portal | Cobrado? |
+| Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
-| **Iniciando** |**Iniciando** |Não (estado transitório) |
-| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |SIM |
-| **Parando** |**Parando** |Não (estado transitório) |
-| **Interrompido** |**Interrompido** |Não |
+| **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
+| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |Sim |
+| **Parando** |**Parando** |Nenhum (estado transitório) |
+| **Stopped (parado)** |**Stopped (parado)** |Não |
 
 ## <a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-| Standard | Notas |
+| Standard | {1&gt;Observações&lt;1} |
 | --- | --- |
 | CEA-708 e EIA-608 (708/608) |CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ativo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregam o conteúdo com legendas inseridas a seus usuários. |
 | TTML em ismt (faixas de texto de Smooth Streaming) |O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você pode entregar o fluxo apenas a clientes de Smooth Streaming. |

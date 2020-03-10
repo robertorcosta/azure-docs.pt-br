@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Descreve os requisitos de rede para executar o Azure Dev Spaces nos serviços Kubernetess do Azure
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, CNI, kubenet, SDN, rede
 ms.openlocfilehash: 9e32e3b65451dceefaeeaf7faed7c8337797e0b8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044981"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389646"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configurar a rede para Azure Dev Spaces em topologias de rede diferentes
 
@@ -28,7 +28,7 @@ Azure Dev Spaces tem determinados requisitos de tráfego de rede de *entrada e s
 
 Azure Dev Spaces precisa de tráfego de entrada e saída para os seguintes FQDNs:
 
-| FQDN                       | Port       | Uso      |
+| FQDN                       | Porta       | Use      |
 |----------------------------|------------|----------|
 | cloudflare.docker.com      | HTTPS: 443 | Para extrair imagens do Docker para Azure Dev Spaces |
 | gcr.io                     | HTTPS: 443 | Para efetuar pull de imagens Helm para Azure Dev Spaces |
@@ -69,7 +69,7 @@ Neste momento, não há suporte para Azure Dev Spaces com [clusters privados AKs
 
 Azure Dev Spaces usa ferramentas do lado do cliente, como a extensão da CLI do Azure Dev Spaces, a extensão Visual Studio Code e a extensão do Visual Studio, para se comunicar com o cluster AKS para depuração. Para usar a Azure Dev Spaces ferramentas do lado do cliente, permita o tráfego das máquinas de desenvolvimento para o domínio *azds-\*. azds.Io* . Consulte *dataplaneFqdn* em `USERPROFILE\.azds\settings.json` para obter o FQDN exato. Se estiver usando [intervalos de IP autorizados do servidor de API][auth-range-section], você também precisará permitir o endereço IP de qualquer computador de desenvolvimento que se conecta ao cluster AKs para depuração para se conectar ao servidor de API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como o Azure Dev Spaces ajuda você a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com versões diferentes ou branches do seu código em diferentes espaços.
 

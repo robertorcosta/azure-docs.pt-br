@@ -17,37 +17,37 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422486"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376581"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
 Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solucionar problemas de gerenciamento de direitos do Azure Active Directory (AD do Azure).
 
-## <a name="administration"></a>Administração
+## <a name="administration"></a>{1&gt;Administração&lt;1}
 
 * Se você receber uma mensagem de acesso negado ao configurar o gerenciamento de direitos e for um administrador global, verifique se o diretório tem uma [licença Azure ad Premium P2 (ou EMS E5)](entitlement-management-overview.md#license-requirements).
 
 * Se você receber uma mensagem de acesso negado ao criar ou exibir pacotes de acesso e for membro de um grupo de criador de catálogo, deverá [criar um catálogo](entitlement-management-catalog-create.md) antes de criar seu primeiro pacote de acesso.
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 
 * As funções para aplicativos são definidas pelo próprio aplicativo e são gerenciadas no Azure AD. Se um aplicativo não tiver nenhuma função de recurso, o gerenciamento de direitos atribuirá usuários a uma função de **acesso padrão** .
 
-    Observe que o portal do Azure também pode mostrar entidades de serviço para serviços que não podem ser selecionados como aplicativos.  Em particular, o **Exchange Online** e o **SharePoint Online** são serviços, não aplicativos que têm funções de recurso no diretório, para que não possam ser incluídos em um pacote de acesso.  Em vez disso, use o licenciamento baseado em grupo para estabelecer uma licença apropriada para um usuário que precisa acessar esses serviços.
+    Observe que o portal do Azure também pode mostrar entidades de serviço para serviços que não podem ser selecionados como aplicativos.  Em particular, o **Exchange Online** e o **SharePoint Online** são serviços, não aplicativos que têm funções de recurso no diretório, para que não possam ser incluídos em um pacote de acesso.  Em vez disso, use o licenciamento baseado em grupo para estabelecer uma licença apropriada para um usuário que precise acessar esses serviços.
 
-* Para que um grupo seja um recurso em um pacote do Access, ele deve ser possível modificá-lo no Azure AD.  Os grupos que se originam em um Active Directory local não podem ser atribuídos como recursos porque seus atributos de proprietário ou membro não podem ser alterados no Azure AD.   Os grupos que se originam no Exchange Online como grupos de distribuição também não podem ser modificados no Azure AD. 
+* Para que um grupo seja um recurso em um pacote de acesso, ele deve poder ser modificável no Azure AD.  Grupos que se originem em um Active Directory local não podem ser atribuídos como recursos porque seus atributos de proprietário ou membro não podem ser alterados no Azure AD.   Grupos que se originem no Exchange Online como Grupos de distribuição também não podem ser modificados no Azure AD. 
 
 * As bibliotecas de documentos do SharePoint Online e os documentos individuais não podem ser adicionados como recursos.  Em vez disso, crie um [grupo de segurança do Azure ad](../fundamentals/active-directory-groups-create-azure-portal.md), inclua esse grupo e uma função de site no pacote de acesso e, no SharePoint Online, use esse grupo para controlar o acesso à biblioteca de documentos ou ao documento.
 
-* Se houver usuários que já foram atribuídos a um recurso que você deseja gerenciar com um pacote do Access, certifique-se de que os usuários sejam atribuídos ao pacote do Access com uma política apropriada. Por exemplo, talvez você queira incluir um grupo em um pacote de acesso que já tenha usuários no grupo. Se esses usuários no grupo exigirem acesso contínuo, eles deverão ter uma política apropriada para os pacotes de acesso para que não percam seu acesso ao grupo. Você pode atribuir o pacote de acesso solicitando que os usuários solicitem o pacote de acesso que contém esse recurso ou atribuindo-os diretamente ao pacote de acesso. Para obter mais informações, consulte [alterar as configurações de solicitação e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md).
+* Se houver usuários que já tenham sido atribuídos a um recurso que você deseja gerenciar com um pacote de acesso, verifique se os usuários estão atribuídos ao pacote de acesso com uma política apropriada. Por exemplo, talvez você queira incluir um grupo em um pacote de acesso que já tenha usuários no grupo. Se esses usuários no grupo exigirem acesso contínuo, eles deverão ter uma política apropriada para os pacotes de acesso para que não percam seu acesso ao grupo. Você pode atribuir o pacote de acesso tanto pedindo que os usuários solicitem o pacote de acesso que contém esse recurso quanto atribuindo-os diretamente ao pacote de acesso. Para obter mais informações, consulte [alterar as configurações de solicitação e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md).
 
-* Quando você remove um membro de uma equipe, eles são removidos do grupo do Office 365 também. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* Quando você remove um membro de uma equipe, ele também é removido do grupo do Office 365. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
-* Verifique se o diretório não está configurado para várias regiões geográficas. O gerenciamento de direitos atualmente não dá suporte a locais de várias regiões geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão a ser governada com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Verifique se o diretório não está configurado para várias áreas geográficas. No momento, o gerenciamento de direitos não dá suporte a locais de várias áreas geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão para serem governados com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="external-users"></a>Usuários externos
 
@@ -55,19 +55,19 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Se um usuário externo não puder solicitar acesso a um pacote de acesso ou não puder acessar recursos, certifique-se de verificar suas [configurações para usuários externos](entitlement-management-external-users.md#settings-for-external-users).
 
-* Se um novo usuário externo, que não tenha sido assinado anteriormente no seu diretório, receber um pacote de acesso, incluindo um site do SharePoint Online, seu pacote de acesso será exibido como não totalmente entregue até que sua conta seja provisionada no SharePoint Online. Para obter mais informações sobre configurações de compartilhamento, consulte [examinar suas configurações de compartilhamento externo do SharePoint Online](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
+* Se um novo usuário externo, que não tenha entrado anteriormente no seu diretório, receber um pacote de acesso com um site do SharePoint Online, o pacote de acesso dele será exibido como não totalmente entregue até que a conta seja provisionada no SharePoint Online. Para obter mais informações sobre configurações de compartilhamento, consulte [examinar suas configurações de compartilhamento externo do SharePoint Online](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
 
 ## <a name="requests"></a>Solicitações
 
 * Quando um usuário quiser solicitar acesso a um pacote do Access, verifique se ele está usando o **link meu portal de acesso** para o pacote de acesso. Para obter mais informações, consulte [compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md).
 
-* Se você abrir o portal meu acesso com seu navegador definido como modo in-private ou Incognito, isso poderá entrar em conflito com o comportamento de entrada. Recomendamos que você não use o modo em particular ou Incognito para o navegador ao visitar o portal meu acesso.
+* Se você abrir o portal Meus Acessos com seu navegador definido como modo privado ou anônimo, isso poderá entrar em conflito com o comportamento de entrada. Recomendamos que você não use o modo privado ou anônimo do seu navegador ao visitar o portal Meus Acessos.
 
-* Quando um usuário que ainda não está no seu diretório entra no portal do meu acesso para solicitar um pacote de acesso, certifique-se de autenticar usando sua conta institucional. A conta institucional pode ser uma conta no diretório de recursos ou em um diretório que está incluído em uma das políticas do pacote de acesso. Se a conta do usuário não for uma conta organizacional ou o diretório em que ele se autenticar não estiver incluído na política, o usuário não verá o pacote de acesso. Para obter mais informações, consulte [solicitar acesso a um pacote de acesso](entitlement-management-request-access.md).
+* Quando um usuário que ainda não está no seu diretório entrar no portal Meus Acessos para solicitar um pacote de acesso, verifique se ele se autenticou usando uma conta organizacional. A conta organizacional pode ser uma conta tanto no diretório de recursos quanto em um diretório incluído em uma das políticas do pacote de acesso. Se a conta do usuário não for uma conta organizacional ou se o diretório em que ele se autenticar não estiver incluído na política, o usuário não verá o pacote de acesso. Para obter mais informações, consulte [solicitar acesso a um pacote de acesso](entitlement-management-request-access.md).
 
-* Se um usuário estiver impedido de entrar no diretório de recursos, ele não poderá solicitar acesso no meu portal de acesso. Antes que o usuário possa solicitar acesso, você deve remover o bloco de entrada do perfil do usuário. Para remover o bloco de entrada, na portal do Azure, clique em **Azure Active Directory**, clique em **usuários**, clique no usuário e, em seguida, clique em **perfil**. Edite a seção **configurações** e altere a **entrada de bloco** para **não**. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Você também pode verificar se o usuário foi bloqueado devido a uma [política de proteção de identidade](../identity-protection/howto-unblock-user.md).
+* Se um usuário estiver impedido de entrar no diretório de recursos, ele não poderá solicitar acesso no portal Meus Acessos. Antes que o usuário possa solicitar acesso, você deve remover o bloco de entrada do perfil do usuário. Para remover o bloco de entrada, na portal do Azure, clique em **Azure Active Directory**, clique em **usuários**, clique no usuário e, em seguida, clique em **perfil**. Edite a seção **configurações** e altere a **entrada de bloco** para **não**. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Você também pode verificar se o usuário foi bloqueado devido a uma [política de proteção de identidade](../identity-protection/howto-unblock-user.md).
 
-* No portal meu acesso, se um usuário for um solicitante e um aprovador, ele não verá a solicitação de um pacote de acesso na página **aprovações** . Esse comportamento é intencional: um usuário não pode aprovar sua própria solicitação. Verifique se o pacote de acesso que eles estão solicitando tem aprovadores adicionais configurados na política. Para obter mais informações, consulte [alterar as configurações de solicitação e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md).
+* No portal meu acesso, se um usuário for um solicitante e um aprovador, ele não verá a solicitação de um pacote de acesso na página **aprovações** . Esse comportamento é intencional: um usuário não pode aprovar a própria solicitação. Verifique se o pacote de acesso sendo solicitado tem aprovadores adicionais configurados na política. Para obter mais informações, consulte [alterar as configurações de solicitação e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md).
 
 ### <a name="view-a-requests-delivery-errors"></a>Exibir os erros de entrega de uma solicitação
 
@@ -138,7 +138,7 @@ Você só pode cancelar uma solicitação pendente que ainda não foi entregue o
     
     Se alguma política estiver em uma categoria de prioridade mais alta, as categorias de prioridade mais baixa serão ignoradas. Para obter um exemplo de como várias políticas com a mesma prioridade são exibidas para o solicitante, consulte [selecionar uma política](entitlement-management-request-access.md#select-a-policy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Controlar o acesso para usuários externos](entitlement-management-external-users.md)
 - [Exibir relatórios de como os usuários têm acesso no gerenciamento de direitos](entitlement-management-reports.md)

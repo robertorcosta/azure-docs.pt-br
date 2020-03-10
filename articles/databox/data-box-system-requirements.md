@@ -1,6 +1,6 @@
 ---
 title: Requisitos de sistema do Microsoft Azure Data Box | Microsoft Docs
-description: Aprenda sobre os requisitos de software e de rede para seu Azure Data Box
+description: Saiba mais sobre os requisitos de software e de rede para seu Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839765"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380584"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 
@@ -55,11 +55,11 @@ Seu datacenter deve ter uma rede de alta velocidade. É altamente recomendável 
 
 ### <a name="port-requirements"></a>Requisitos de porta
 
-A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego SMB ou NFS. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *-Out* ou *saída* refere-se à direção na qual o dispositivo Data Box envia dados externamente, além da implantação: por exemplo, saída à Internet.
+A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego SMB ou NFS. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *Saída* ou *saída* refere-se à direção na qual o dispositivo de data Box envia dados externamente, além da implantação: por exemplo, de saída para a Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Implante seu Azure Data Box](data-box-deploy-ordered.md)

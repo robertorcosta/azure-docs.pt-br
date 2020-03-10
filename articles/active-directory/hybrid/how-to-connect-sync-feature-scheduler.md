@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: Agendador | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: agendador | Microsoft Docs'
 description: Este tópico descreve o recurso Agendador interno na sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65139283"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378129"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Agendador
-Este tópico descreve o agendador interno na sincronização do Azure AD Connect (mecanismo de sincronização).
+# <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
+Este tópico descreve o Agendador interno no Azure AD Connect sincronização (mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
@@ -50,7 +50,7 @@ Se você vir **O comando de sincronização ou o cmdlet não está disponível**
 * **AllowedSyncCycleInterval**. O intervalo de tempo mais curto entre os ciclos de sincronização permitido pelo Azure AD. Você não pode sincronizar com maior frequência do que a permitida por essa configuração e ainda ter suporte.
 * **CurrentlyEffectiveSyncCycleInterval**. O agendamento atualmente em vigor. Ele terá o mesmo valor de CustomizedSyncInterval (se definido) se não for mais frequente do que AllowedSyncInterval. Se você usar uma versão anterior à 1.1.281 e alterar o CustomizedSyncCycleInterval, essa alteração entrará em vigor após o próximo ciclo de sincronização. Desde o build 1.1.281, a alteração entra em vigor imediatamente.
 * **CustomizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir essa configuração como um valor menor do que AllowedSyncInterval, a última opção será usada.
-* **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve apenas processar alterações delta ou se a próxima execução deve fazer importação e sincronização completas. O última opção também reprocessaria regras novas ou alteradas.
+* **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve processar apenas alterações delta ou se a próxima execução deve fazer uma importação e sincronização completas. O último também reprocessaria todas as regras novas ou alteradas.
 * **NextSyncCycleStartTimeInUTC**. Da próxima vez, o agendador iniciará o próximo ciclo de sincronização.
 * **PurgeRunHistoryInterval**. Os logs de operação de tempo devem ser mantidos. Esses logs podem ser analisados no gerenciador do serviço de sincronização. O padrão é manter os logs por sete dias.
 * **SyncCycleEnabled**. Indica se o agendador está executando os processos de exportação, importação e sincronização como parte de sua operação.
@@ -92,7 +92,7 @@ Quando você fizer as alterações, não se esqueça de habilitar o agendador no
 ## <a name="start-the-scheduler"></a>Iniciar o agendador
 Por padrão, o agendador é executado a cada 30 minutos. Em alguns casos, é bom executar um ciclo de sincronização entre os ciclos agendados ou terá que executar um tipo diferente.
 
-### <a name="delta-sync-cycle"></a>Ciclo de sincronização delta
+### <a name="delta-sync-cycle"></a>Ciclo de sincronização Delta
 Um ciclo de sincronização delta inclui as seguintes etapas:
 
 
@@ -100,7 +100,7 @@ Um ciclo de sincronização delta inclui as seguintes etapas:
 - Sincronização delta em todos os conectores
 - Exportação em todos os conectores
 
-### <a name="full-sync-cycle"></a>Ciclo de sincronização completa
+### <a name="full-sync-cycle"></a>Ciclo de sincronização completo
 Um ciclo de sincronização completa inclui as seguintes etapas:
 
 - Importação completa de todos os conectores
@@ -109,24 +109,24 @@ Um ciclo de sincronização completa inclui as seguintes etapas:
 
 É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. 
 
-Se você precisar executar manualmente um ciclo de sincronização, em seguida, do PowerShell para executar `Start-ADSyncSyncCycle -PolicyType Delta`.
+Se você precisar executar um ciclo de sincronização manualmente, no PowerShell, execute `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell.   
 
-Executar um ciclo de sincronização completa pode consumir muito tempo, leia a próxima seção e leia sobre como otimizar esse processo.
+Executar um ciclo de sincronização completo pode ser muito demorado, leia a próxima seção para ler como otimizar esse processo.
 
-### <a name="sync-steps-required-for-different-configuration-changes"></a>Etapas necessárias para que as alterações de configuração diferente de sincronização
-Alterações de configuração diferentes exigem etapas de sincronização diferentes para garantir que as alterações são aplicadas corretamente a todos os objetos.
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Etapas de sincronização necessárias para diferentes alterações de configuração
+Alterações de configuração diferentes exigem etapas de sincronização diferentes para garantir que as alterações sejam aplicadas corretamente a todos os objetos.
 
-- Adicionou mais objetos ou atributos a serem importados de um diretório de origem (ao Adicionar/modificar as regras de sincronização)
+- Adição de mais objetos ou atributos a serem importados de um diretório de origem (adicionando/modificando as regras de sincronização)
     - Uma importação completa é necessária no conector para esse diretório de origem
 - Realizou alterações nas regras de sincronização
     - Uma sincronização completa é necessária no conector para as regras de sincronização alteradas
 - Alterou a [filtragem](how-to-connect-sync-configure-filtering.md) para incluir um número diferente de objetos
-    - Uma importação completa é necessária no conector para cada conector do AD, a menos que você estiver usando a filtragem baseada em atributo com base em atributos que já estão sendo importados para o mecanismo de sincronização
+    - Uma importação completa é necessária no conector para cada conector do AD, a menos que você esteja usando a filtragem baseada em atributo com base em atributos que já estão sendo importados para o mecanismo de sincronização
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personalizando um ciclo de sincronização execute a combinação certa de etapas de sincronização Delta e completo
-Para evitar a execução de um ciclo de sincronização completa, você pode marcar os conectores específicos para executar uma etapa completa usando os cmdlets a seguir.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personalizando um ciclo de sincronização, execute a combinação certa de Delta e etapas completas de sincronização
+Para evitar a execução de um ciclo de sincronização completo, você pode marcar conectores específicos para executar uma etapa completa usando os cmdlets a seguir.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +134,13 @@ Para evitar a execução de um ciclo de sincronização completa, você pode mar
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Exemplo:  Se você fez alterações para as regras de sincronização para o conector "AD floresta A" que não exigem qualquer novos atributos a ser importado, você executaria as seguintes cmdlets para executar uma sincronização delta ciclo que também uma sincronização completa etapa desse conector.
+Exemplo: se você fez alterações nas regras de sincronização do conector "floresta do AD A" que não exigem nenhum novo atributo a ser importado, execute os cmdlets a seguir para executar um ciclo de sincronização Delta que também fez uma etapa de sincronização completa para esse conector.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Exemplo:  Se você alterou as regras de sincronização para o conector "A de floresta do AD" para que eles agora exigem um novo atributo a ser importado, você executaria os seguintes cmdlets para executar um ciclo de sincronização delta que também fez uma importação completa, a etapa de sincronização completa para esse conector.
+Exemplo: se você fez alterações nas regras de sincronização para o conector "floresta do AD A" para que agora eles exijam que um novo atributo seja importado, você executaria os seguintes cmdlets para executar um ciclo de sincronização Delta que também fez uma importação completa, etapa de sincronização completa para esse conector.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -157,7 +157,7 @@ Se o agendador estiver executando um ciclo de sincronização, talvez seja neces
 Se um ciclo de sincronização estiver em execução, você não poderá alterar a configuração. Você pode aguardar até que o agendador conclua o processo ou pode interrompê-lo para realizar suas alterações logo em seguida. Parar o ciclo atual não é prejudicial e as alterações serão processadas na próxima execução.
 
 1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle`do PowerShell.
-2. Se você usar uma versão anterior à 1.1.281, parando em seguida, o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações:  ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Se você usar uma versão anterior à 1.1.281, parando em seguida, o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** em Ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
@@ -204,7 +204,7 @@ Na imagem acima, a primeira linha é de um estado em que o mecanismo de sincroni
 ## <a name="scheduler-and-installation-wizard"></a>Agendador e o assistente de instalação
 Se você iniciar o assistente de instalação, o agendador será temporariamente suspenso. Esse comportamento ocorre porque ele pressupõe que você fará alterações na configuração e as definições não poderão ser aplicadas se o mecanismo de sincronização estiver ativamente em execução. Por esse motivo, não deixe o assistente de instalação aberto, já que ele impede que o mecanismo de sincronização execute ações de sincronização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60755671"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384584"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Data Box Gateway 
 
@@ -23,7 +23,7 @@ Este artigo descreve como gerenciar compartilhamentos em seu Azure Data Box Gate
 
 Para transferir dados para o Azure, você precisa criar compartilhamentos em seu Azure Data Box Gateway. Os compartilhamentos que você adiciona ao dispositivo do Data Box Gateway compartilhamentos em nuvem. Os dados nesses compartilhamentos são carregados automaticamente para a nuvem. Todas as funções de nuvem, como Atualizar e Sincronizar as chaves de armazenamento se aplicam a esses compartilhamentos. Use os compartilhamentos de nuvem quando você desejar que os dados de dispositivo sejam enviados automaticamente para sua conta de armazenamento na nuvem.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Adicionar um compartilhamento
@@ -73,7 +73,7 @@ Para excluir um compartilhamento, siga estas etapas no portal do Azure.
 
     ![Clique em Excluir](media/data-box-gateway-manage-shares/delete-2.png)
 
-3. Quando solicitado a confirmar, clique em **Sim**.
+3. Quando solicitada a confirmação, clique em **Sim**.
 
     ![Confirmar exclusão](media/data-box-gateway-manage-shares/delete-3.png)
 
@@ -97,7 +97,7 @@ Para atualizar um compartilhamento, siga estas etapas no portal do Azure.
 
     ![Clique em atualizar](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.  Quando solicitado a confirmar, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local. 
+3.  Quando solicitada a confirmação, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local. 
 
     ![Confirmar atualização](media/data-box-gateway-manage-shares/refresh-3.png)
  
@@ -119,11 +119,11 @@ Se tiver sido feita a rotação das chaves da conta de armazenamento, você prec
 Execute as seguintes etapas no portal do Azure para sincronizar sua chave de acesso de armazenamento.
 
 1. Vá para **Visão Geral** em seu recurso. 
-2. Na lista de compartilhamentos, escolha e clique em um compartilhamento associado com a conta de armazenamento que você precisa sincronizar. Clique em **Sincronizar chave de armazenamento**. 
+2. Na lista de compartilhamentos, escolha e clique em um compartilhamento associado à conta de armazenamento que você precisa sincronizar. Clique em **sincronizar chave de armazenamento**. 
 
      ![Sincronizar chave de armazenamento 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
-3. Clique em **Sim** quando solicitada a confirmação. Saia da caixa de diálogo depois que a sincronização tiver sido concluída.
+3. Clique em **Sim** quando for solicitada a confirmação. Saia da caixa de diálogo depois que a sincronização tiver sido concluída.
 
      ![Sincronizar chave de armazenamento 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
@@ -131,6 +131,6 @@ Execute as seguintes etapas no portal do Azure para sincronizar sua chave de ace
 > Você precisa fazer isso apenas uma vez para uma conta de armazenamento específica. Você não precisa repetir essa ação para todos os compartilhamentos associados com a mesma conta de armazenamento.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba como [Gerenciar usuários usando o portal do Azure](data-box-gateway-manage-users.md).

@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277166"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384888"
 ---
-# <a name="contact-microsoft-support"></a>Contate o Suporte da Microsoft
+# <a name="contact-microsoft-support"></a>Entre em contato com o Suporte da Microsoft.
 
 O Gerenciador de Dispositivos StorSimple fornece a capacidade de **fazer uma nova solicitação de suporte** na folha de resumo de serviço. Se tiver problemas com sua solução StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez você precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo orienta você sobre:
 
@@ -37,7 +37,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
    1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
    2. O tipo de **Assinatura**, **Serviço** e o **Recurso** (serviço de Gerenciador de Dispositivos StorSimple) atuais são automaticamente escolhidos. 
    3. Selecione um **Plano de suporte** na lista suspensa se você tiver vários planos associados à sua assinatura. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
-   4. Clique em **Próximo**.
+   4. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
@@ -49,7 +49,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
     4. Forneça a data de início e a hora para o problema.
     5. Em **Upload do arquivo**, clique no ícone de pasta para procurar o pacote de suporte.
     6. Marque **Compartilhar informações de diagnóstico**.
-    7. Clique em **Próximo**.
+    7. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
@@ -92,7 +92,7 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, execute as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. Na sessão que será aberta, pressione a tecla **Enter** para obter um prompt de comando.
-3. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
+3. No menu do console serial, selecione a opção 1, **Log in com acesso completo**.
 4. No prompt, digite a seguinte senha:
    
     `Password1`
@@ -106,6 +106,6 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 > Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como [diagnosticar e resolver problemas relacionados ao dispositivo StorSimple da série 8000](storsimple-8000-troubleshoot-deployment.md)

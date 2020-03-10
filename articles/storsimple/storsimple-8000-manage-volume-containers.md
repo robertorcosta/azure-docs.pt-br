@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
 ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467021"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394576"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar contêineres de volume do StorSimple
 
@@ -33,7 +33,7 @@ Um contêiner de volume apresenta os seguintes atributos:
 * **Volumes** – os volumes do StorSimple em camadas ou fixados localmente que estão contidos no contêiner do volume. 
 * **Criptografia** – uma chave de criptografia que pode ser definida para cada contêiner de volume. Essa chave é usada para criptografar os dados enviados do seu dispositivo StorSimple para a nuvem. Uma chave de bits AES-256 de nível militar é usada com a chave inserida pelo usuário. Para proteger seus dados, é recomendável sempre habilitar a criptografia de armazenamento na nuvem.
 * **Conta de armazenamento** – a conta de armazenamento do Azure usada para armazenar os dados. Todos os volumes que residem em um contêiner de volume compartilham essa conta de armazenamento. Você pode escolher uma conta de armazenamento em uma lista existente ou criar uma nova conta quando criar o contêiner de volume e especificar as credenciais de acesso para essa conta.
-* **Largura de banda da nuvem** – a largura de banda consumida pelo dispositivo quando os dados do dispositivo estão sendo enviados para a nuvem. Imponha um controle de largura de banda especificando um valor entre 1 e 1.000 Mbps ao criar esse contêiner. Se desejar que o dispositivo consuma toda a largura de banda disponível, defina esse campo como **Ilimitado**. Também é possível criar e aplicar um modelo de largura de banda para alocar a largura de banda com base no agendamento.
+* **Largura de banda da nuvem** – a largura de banda consumida pelo dispositivo quando os dados do dispositivo estão sendo enviados para a nuvem. Imponha um controle de largura de banda especificando um valor entre 1 e 1.000 Mbps ao criar esse contêiner. Se deseja que o dispositivo consuma toda a largura de banda disponível, defina este campo para **Ilimitado**. Também é possível criar e aplicar um modelo de largura de banda para alocar a largura de banda com base no agendamento.
 
 Os seguintes procedimentos explicam como usar a folha **Contêineres de volume** do StorSimple para concluir as seguintes operações comuns:
 
@@ -56,7 +56,7 @@ Um contêiner de volume possui volumes dentro dele. Ele poderá ser excluído so
 
 [!INCLUDE [storsimple-8000-delete-volume-container](../../includes/storsimple-8000-delete-volume-container.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-8000-manage-volumes-u2.md). 
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

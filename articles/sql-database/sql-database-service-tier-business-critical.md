@@ -12,11 +12,11 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: fc328c34c1543a75fdc885087d44b28e24c0850a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380051"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Camada Comercialmente Crítico - Banco de Dados SQL do Azure
 
@@ -53,11 +53,11 @@ Os principais motivos pelos quais você deve escolher Comercialmente Crítico ca
 -   Transações de longa execução que modificam dados. As transações que são abertas por um tempo maior impedem o truncamento do arquivo de log que pode aumentar o tamanho do log e o número de [arquivos de log virtuais (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). O alto número de VLF pode retardar a recuperação do banco de dados após o failover.
 -   Carga de trabalho com consultas analíticas e de relatório que podem ser redirecionadas para a réplica somente leitura secundária de liberação de custo.
 - Maior resiliência e recuperação mais rápida a partir das falhas. Em caso de falha do sistema, o banco de dados na instância primária será desabilitado e uma das réplicas secundárias se tornará imediatamente o novo banco de dados primário de leitura/gravação que está pronto para processar as consultas. O mecanismo de banco de dados não precisa analisar e refazer transações do arquivo de log e carregar todos os dados no buffer de memória.
-- Proteção de corrupção de dados avançada-a camada de Comercialmente Crítico aproveita as réplicas de banco de dado nos bastidores para fins de continuidade dos negócios e, portanto, o serviço também utiliza o reparo automático de página, que é a mesma tecnologia usada para SQL Server banco de dados [espelhamento e grupos de disponibilidade](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). Caso uma réplica não possa ler uma página devido a um problema de integridade de dados, uma cópia nova da página será recuperada de outra réplica, substituindo a página ilegível sem perda de dados ou tempo de inatividade do cliente. Essa funcionalidade será aplicável na camada Uso Geral se o banco de dados tiver uma réplica geográfica-secundária.
+- Proteção de corrupção de dados avançada-a camada de Comercialmente Crítico aproveita as réplicas de banco de dado nos bastidores para fins de continuidade dos negócios e, portanto, o serviço também aproveita o reparo automático de página, que é a mesma tecnologia usada para SQL Server espelhamento de banco de dados [e grupos de disponibilidade](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). Caso uma réplica não possa ler uma página devido a um problema de integridade de dados, uma cópia nova da página será recuperada de outra réplica, substituindo a página ilegível sem perda de dados ou tempo de inatividade do cliente. Essa funcionalidade será aplicável na camada Uso Geral se o banco de dados tiver uma réplica geográfica-secundária.
 - Maior disponibilidade-a camada de Comercialmente Crítico na configuração multi-AZ garante 99,995% de disponibilidade, em comparação com 99,99% da camada Uso Geral.
 - A Comercialmente Crítico camada de recuperação geográfica rápida configurada com replicação geográfica tem um RPO (objetivo de ponto de recuperação) garantido de 5 s e RTO (objetivo de tempo de recuperação) de 30 segundos para 100% de horas implantadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Encontre características de recursos (número de núcleos, e/s, memória) da camada de Comercialmente Crítico em [instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), banco de dados individual no modelo de [VCORE](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) ou [modelo de DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)ou pool elástico no modelo de [VCORE](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) e [modelo de DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Saiba mais sobre as camadas [Uso Geral](sql-database-service-tier-general-purpose.md) e [Hiperescala](sql-database-service-tier-hyperscale.md).

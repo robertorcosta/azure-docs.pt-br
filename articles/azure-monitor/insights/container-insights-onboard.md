@@ -4,11 +4,11 @@ description: Este artigo descreve como habilitar e configurar Azure Monitor para
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.openlocfilehash: 7aad7e7dd5ec2569377f9276c2e4793c7afd631a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198064"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395380"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Como habilitar o Azure Monitor para contêineres
 
@@ -30,7 +30,7 @@ Azure Monitor para contêineres podem ser habilitados para novas ou uma ou mais 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de começar, verifique se você tem o seguinte:
 
@@ -71,7 +71,7 @@ As informações na tabela a seguir listam as informações de configuração de
 
 As informações na tabela a seguir listam as informações de configuração de proxy e firewall para o Azure China.
 
-|Recurso de agente|Portas |DESCRIÇÃO | 
+|Recurso de agente|Portas |Descrição | 
 |--------------|------|-------------|
 | *. ods.opinsights.azure.cn | 443 | Ingestão de dados |
 | *. oms.opinsights.azure.cn | 443 | Integração do OMS |
@@ -81,7 +81,7 @@ As informações na tabela a seguir listam as informações de configuração de
 
 As informações na tabela a seguir listam as informações de configuração de proxy e firewall para o governo dos EUA do Azure.
 
-|Recurso de agente|Portas |DESCRIÇÃO | 
+|Recurso de agente|Portas |Descrição | 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Ingestão de dados |
 | *.oms.opinsights.azure.us | 443 | Integração do OMS |
@@ -105,7 +105,7 @@ Quando uma nova versão do agente é lançada, ele é atualizado automaticamente
 
 Habilite Azure Monitor para contêineres usando um dos seguintes métodos descritos na tabela a seguir.
 
-| Estado da implantação | Método | DESCRIÇÃO |
+| Estado da implantação | Método | Descrição |
 |------------------|--------|-------------|
 | Novo cluster AKS kubernetes | [Criar cluster AKS usando o CLI do Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Você pode habilitar o monitoramento de um novo cluster AKS criado com CLI do Azure. |
 | | [Criar cluster AKS usando Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Você pode habilitar o monitoramento de um novo cluster AKS que você cria usando a ferramenta de código-fonte aberto Terraform. |
@@ -120,6 +120,6 @@ Habilite Azure Monitor para contêineres usando um dos seguintes métodos descri
 | | [Habilitar para o cluster OpenShift usando um modelo de Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Você pode habilitar o monitoramento de um cluster OpenShift existente com um modelo de Azure Resource Manager pré-configurado. |
 | | [Habilitar para o cluster OpenShift de Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Você pode habilitar o monitoramento de um ou mais clusters OpenShift já implantados na página de vários clusters no Azure Monitor. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Com o monitoramento habilitado, você pode começar a analisar o desempenho dos clusters kubernetes hospedados no AKS (serviço kubernetes do Azure), Azure Stack ou em outro ambiente. Para saber como usar Azure Monitor para contêineres, consulte [Exibir o desempenho do cluster kubernetes](container-insights-analyze.md).

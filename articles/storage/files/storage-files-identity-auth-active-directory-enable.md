@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: rogarana
 ms.openlocfilehash: 223906343c2391d03d8526026d3daad3174791ed
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256071"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361862"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Habilitar a autenticação de Active Directory sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -34,7 +34,7 @@ Quando você habilita o AD para compartilhamentos de arquivos do Azure via SMB, 
 
 As identidades do AD usadas para acessar compartilhamentos de arquivos do Azure devem ser sincronizadas com o Azure AD para impor permissões de arquivo de nível de compartilhamento por meio do modelo [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) padrão. As [DACLs de estilo do Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) em arquivos/diretórios transferidos de servidores de arquivos existentes serão preservadas e impostas. Esse recurso oferece integração direta com sua infraestrutura de domínio do AD corporativo. Ao substituir servidores de arquivos locais por compartilhamentos de arquivos do Azure, os usuários existentes podem acessar compartilhamentos de arquivos do Azure de seus clientes atuais com uma experiência de logon único, sem nenhuma alteração nas credenciais em uso.  
  
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1} 
 
 Antes de habilitar a autenticação do AD para compartilhamentos de arquivos do Azure, verifique se você concluiu os seguintes pré-requisitos: 
 
@@ -195,7 +195,7 @@ Para disparar a rotação de senha, você pode executar o comando `Update-AzStor
 Update-AzStorageAccountADObjectPassword -RotateToKerbKey kerb2 -ResourceGroupName "your-resource-group-name-here" -StorageAccountName "your-storage-account-name-here"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre os arquivos do Azure e como usar o AD sobre SMB, consulte estes recursos:
 

@@ -4,11 +4,11 @@ description: Saiba mais sobre as avaliações nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 0cf933dd1c8c61edfcea20ea954c5813f3848b28
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425690"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392863"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Sobre avaliações em migrações para Azure
 
@@ -250,6 +250,6 @@ Após a conclusão das recomendações de dimensionamento, as migrações para A
 Os custos são exibidos na moeda especificada nas configurações de avaliação.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Examine](best-practices-assessment.md) as práticas recomendadas para a criação de avaliações. 

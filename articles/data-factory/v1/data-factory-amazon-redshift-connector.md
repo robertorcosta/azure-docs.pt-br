@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894204"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78382645"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -34,7 +34,7 @@ Atualmente, o Data Factory dá suporte apenas à movimentação de dados do Amaz
 > [!TIP]
 > Para obter o melhor desempenho ao copiar grandes quantidades de dados do Amazon Redshift, considere o uso de comando **UNLOAD** do Redshift interno por meio do Amazon S3 (Serviço de Armazenamento Simples). Para obter detalhes, consulte [Usar UNLOAD para copiar dados do Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 * Se estiver movendo dados para um repositório de dados local, instale o [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) em um computador local. Conceder acesso a um gateway para o cluster do Amazon Redshift usando o endereço IP do computador local. Para obter instruções, consulte [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorizar acesso ao cluster).
 * Para mover dados para um armazenamento de dados do Azure, consulte o [Endereço IP de computação e intervalos do SQL que são usados pelos datacenters do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -59,14 +59,14 @@ As seções que se seguem descrevem as propriedades de JSON que são usadas para
 
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Amazon Redshift.
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
 | **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
 | **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
 | **database** |O nome do banco de dados do Amazon Redshift. |Sim |
 | **username** |O nome de usuário que tem acesso ao banco de dados. |Sim |
-| **password** |A senha para a conta de usuário. |Sim |
+| **password** |A senha da conta do usuário. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -74,7 +74,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório. **A seção typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do Amazon Redshift, tem as propriedades a seguir:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela no banco de dados do Amazon Redshift ao qual o serviço vinculado se refere. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -84,7 +84,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **query** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 | **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | Não |
@@ -93,7 +93,7 @@ Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**,
 
 Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amazon Redshift, com a propriedade a seguir na seção **typeProperties**. Observe que esse tipo de origem não dá suporte para o comando **UNLOAD** do Redshift.
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **query** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
@@ -333,13 +333,13 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | INTEGER |Int32 |
 | bigint |Int64 |
 | DECIMAL |Decimal |
-| real |Individual |
-| DOUBLE PRECISION |Double |
+| real |Single |
+| DOUBLE PRECISION |Duplo |
 | BOOLEAN |String |
 | CHAR |String |
 | VARCHAR |String |
-| DATE |DateTime |
-| timestamp |DateTime |
+| DATE |Datetime |
+| timestamp |Datetime |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
@@ -351,5 +351,5 @@ Ao copiar dados de um armazenamento de dados relacional, lembre-se da capacidade
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
 Saiba mais sobre os principais fatores que afetam o desempenho da Atividade de Cópia e maneiras de otimizar o desempenho no [Guia de Desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter instruções passo a passo para criar um pipeline com a atividade de cópia, consulte o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

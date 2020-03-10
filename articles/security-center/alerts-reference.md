@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c62af3ddf8b2c2dc8082dc4f4870ecfcdc175ab8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661952"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380727"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança-um guia de referência
 
@@ -243,7 +243,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 |Alert|Descrição|Intenção ([saiba mais](#intentions))|
 |----|----|:----:|
 |**VISUALIZAÇÃO – Associação de função ao cluster-função de administrador detectada**|A análise do log de auditoria do kubernetes detectou uma nova associação à função de administrador do cluster, resultando em privilégios de administrador. O fornecimento desnecessariamente de privilégios de administrador pode resultar em problemas de escalonamento de privilégio no cluster.|Persistência|
-|**VISUALIZAÇÃO – painel kubernetes exposto detectado**|A análise do log de auditoria do kubernetes detectou a exposição do painel do kubernetes por um serviço Balancer. Os painéis expostos permitem acesso não autenticado ao gerenciamento de cluster e representam uma ameaça à segurança.|Persistência|
+|**VISUALIZAÇÃO – painel kubernetes exposto detectado**|A análise do log de auditoria do kubernetes detectou a exposição do painel do kubernetes por um serviço Balancer. Os painéis expostos permitem acesso não autenticado ao gerenciamento de cluster e representam uma ameaça à segurança.|Acesso inicial|
 |**VISUALIZAÇÃO – nova função de privilégios altos detectada**|A análise do log de auditoria do kubernetes detectou uma nova função com privilégios altos. Uma associação a uma função com altos privilégios concede ao usuário/grupo privilégios elevados no cluster. O fornecimento desnecessariamente de privilégios elevados pode resultar em problemas de escalonamento de privilégios no cluster.|Persistência|
 |**VISUALIZAÇÃO-novo contêiner no Kube-namespace do sistema detectado**|A análise do log de auditoria do kubernetes detectou um novo contêiner no namespace do sistema Kube que não está entre os contêineres que normalmente são executados nesse namespace. Os namespaces do sistema Kube não devem conter recursos do usuário. Os invasores podem usar esse namespace para ocultar componentes mal-intencionados.|Persistência|
 |**VISUALIZAÇÃO-contêiner de mineração de moeda digital detectado**|A análise do log de auditoria do kubernetes detectou um contêiner que tem uma imagem associada a uma ferramenta de mineração de moedas digitais.|Execução|
@@ -263,7 +263,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 |**O servidor SSH está em execução dentro de um contêiner**|Os logs de computador indicam que um servidor SSH está sendo executado dentro de um contêiner do Docker. Embora esse comportamento possa ser intencional, com frequência ele indica que um contêiner está configurado incorretamente ou foi violado.|Execução|
 |**Contêiner com uma imagem Miner detectada**|Os logs de computador indicam a execução de um contêiner do Docker que executa uma imagem associada à mineração de moedas digitais. Esse comportamento pode, possivelmente, indicar que seus recursos estão sendo abusos.|Execução|
 |**Solicitação suspeita para a API kubernetes**|Os logs de computador indicam que uma solicitação suspeita foi feita à API kubernetes. A solicitação foi enviada de um nó kubernetes, possivelmente de um dos contêineres em execução no nó. Embora esse comportamento possa ser intencional, isso pode indicar que o nó está executando um contêiner comprometido.|Execução|
-|**Solicitação suspeita para o painel do kubernetes**|Os logs de computador indicam que uma solicitação suspeita foi feita no painel do kubernetes. A solicitação foi enviada de um nó kubernetes, possivelmente de um dos contêineres em execução no nó. Embora esse comportamento possa ser intencional, isso pode indicar que o nó está executando um contêiner comprometido.|-|
+|**Solicitação suspeita para o painel do kubernetes**|Os logs de computador indicam que uma solicitação suspeita foi feita no painel do kubernetes. A solicitação foi enviada de um nó kubernetes, possivelmente de um dos contêineres em execução no nó. Embora esse comportamento possa ser intencional, isso pode indicar que o nó está executando um contêiner comprometido.|Movimento lateral|
 ||||
 
 
@@ -395,7 +395,7 @@ Entender a intenção de um ataque pode ajudá-lo a investigar e relatar o event
 
 A série de etapas que descrevem a progressão de um cyberattack de reconhecimento para os dados vazamento é geralmente conhecida como "Kill Chain". 
 
-As tentativas de cadeia de Kill chain com suporte da central de segurança são baseadas na [estrutura Mitre ATT &AMP; CK™](https://attack.mitre.org/matrices/enterprise) e descritas na tabela a seguir.
+As tentativas de cadeia de Kill chain com suporte da central de segurança são baseadas na [estrutura Mitre ATT &AMP; CK&trade;](https://attack.mitre.org/matrices/enterprise) e descritas na tabela a seguir.
 
 |Intencional|Descrição|
 |------|-------|

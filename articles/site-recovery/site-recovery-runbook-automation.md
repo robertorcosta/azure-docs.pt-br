@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173491"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390490"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automação do Azure aos planos de recuperação
 
@@ -189,7 +189,7 @@ Para obter um script completo de ponta a ponta para esse cenário, examine [este
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Usar uma variável complexa para armazenar mais informações
 
-Em alguns cenários, talvez você não possa criar variáveis separadas para cada plano de recuperação. Considere um cenário no qual você deseja que um único script atribua um endereço IP público em VMs específicas. Em outro cenário, talvez você deseje aplicar NSGs diferentes a VMs diferentes (não em todas as VMs). Observe que:
+Em alguns cenários, talvez você não possa criar variáveis separadas para cada plano de recuperação. Considere um cenário no qual você deseja que um único script atribua um endereço IP público em VMs específicas. Em outro cenário, talvez você deseje aplicar NSGs diferentes a VMs diferentes (não em todas as VMs). {1&gt;Observe que:&lt;1}
 
 - Você pode criar um script que é reutilizável para qualquer plano de recuperação.
 - Cada plano de recuperação pode ter um número variável de VMs.
@@ -247,7 +247,7 @@ Fazemos isso especificando vários valores, usando Azure PowerShell.
 
 Use o mesmo script para planos de recuperação diferentes. Insira parâmetros diferentes armazenando o valor que corresponde a um plano de recuperação em variáveis diferentes.
 
-## <a name="sample-scripts"></a>Exemplos de scripts
+## <a name="sample-scripts"></a>Scripts de exemplo
 
 Para implantar scripts de exemplo em sua conta de Automação, clique no botão **Implantar no Azure**.
 
@@ -259,7 +259,7 @@ Este vídeo fornece outro exemplo. Ele demonstra como recuperar um aplicativo do
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre uma [conta Executar como da automação do Azure](../automation/automation-create-runas-account.md)
 - Examine os [scripts de exemplo da automação do Azure](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).

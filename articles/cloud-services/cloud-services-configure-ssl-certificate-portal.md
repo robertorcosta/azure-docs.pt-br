@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386758"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385376"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
 
-A criptografia SSL é o método mais comumente usado para proteger dados enviados pela Internet. Esta tarefa comum discute como especificar um ponto de extremidade HTTPS para uma função web e como carregar um certificado SSL para proteger seu aplicativo.
+A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
 > [!NOTE]
 > Os procedimentos descritos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, veja [isto](../app-service/configure-ssl-bindings.md).
@@ -76,7 +76,7 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
 
    As permissões (atributo `permissionLevel`) podem ser definidas como um dos seguintes valores:
 
-   | Valor da permissão | Description |
+   | Valor da permissão | Descrição |
    | --- | --- |
    | limitedOrElevated |**(Padrão)** Todos os processos de função podem acessar a chave privada. |
    | elevado |Somente processos elevados podem acessar a chave privada. |
@@ -171,7 +171,7 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
    > Criar um certificado com o nome comum (CN) igual à URL baseada em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use o portal para adicionar o certificado ao serviço de nuvem preparado. Em seguida, adicione as informações de certificado aos arquivos CSDEF e CSCFG, reempacote seu aplicativo e atualize a implantação preparada usando o novo pacote.
    >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).

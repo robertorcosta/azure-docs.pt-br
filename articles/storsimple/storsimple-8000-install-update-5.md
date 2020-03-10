@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126742"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394212"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalar a Atualização 5 em seu dispositivo StorSimple
 
@@ -61,7 +61,7 @@ As versões de software que podem ser atualizadas usando o método de hotfix sã
 * Atualização 1, 1.1, 1.2
 * Atualização 2, 2.1, 2.2
 * Atualização 3, 3.1
-* Atualização 4
+* {1&gt;Atualização 4&lt;1}
 
 > [!NOTE] 
 > O método recomendado para instalar a Atualização 5 é por meio do portal do Azure ao tentar atualizar da Atualização 3 e versões posteriores. Ao atualizar um dispositivo executando versões anteriores à Atualização 3, use este procedimento. Você também pode usar este procedimento se a verificação de gateway falhar ao tentar instalar as atualizações por meio do portal do Azure. A verificação falha quando você tem um gateway atribuído a um adaptador de rede diferente de DATA 0 e o dispositivo está executando uma versão de software anterior à Atualização 1.
@@ -76,19 +76,19 @@ O método de hotfix envolve as três etapas a seguir:
 
 Você deve baixar e instalar os seguintes hotfixes na ordem descrita e as pastas sugeridas:
 
-| Classificar | KB | DESCRIÇÃO | Tipo de atualização | Hora da instalação |Instalar na pasta|
+| Order | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Atualização de software<br> Faça o download do _HcsSoftwareUpdate.exe_ e do _CisMSDAgent.exe_ |Regular <br></br>Não interruptiva |Aproxim. 25 minutos |FirstOrderUpdate|
 
 Se estiver atualizando de um dispositivo que executa a Atualização 4, você só precisará instalar as atualizações cumulativas do SO como atualizações de segunda ordem.
 
-| Classificar | KB | DESCRIÇÃO | Tipo de atualização | Hora da instalação |Instalar na pasta|
+| Order | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |Pacote de atualizações cumulativas do SO <br> Baixar a versão Windows Server 2012 R2 |Regular <br></br>Não interruptiva |- |SecondOrderUpdate|
 
 Se estiver instalando de um dispositivo que executa a Atualização 3 ou anterior, instale o seguinte, além das atualizações cumulativas.
 
-| Classificar | KB | DESCRIÇÃO | Tipo de atualização | Hora da instalação |Instalar na pasta|
+| Order | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |Atualizações de firmware e driver LSI <br> Atualização de firmware USM (versão 3.38) |Regular <br></br>Não interruptiva |Aproxim. 3 horas <br> (inclui 2A. + 2B. + 2C.)|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacote de atualizações de segurança do SO <br> Baixar a versão Windows Server 2012 R2 |Regular <br></br>Não interruptiva |- |SecondOrderUpdate|
@@ -97,7 +97,7 @@ Se estiver instalando de um dispositivo que executa a Atualização 3 ou anterio
 
 Você também precisa instalar as atualizações de firmware de disco além de todas as atualizações mostradas nas tabelas anteriores. Você pode verificar se precisa de atualizações de firmware de disco executando o cmdlet `Get-HcsFirmwareVersion` . Se estiver executando as versões de firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, você não precisará instalar essas atualizações.
 
-| Classificar | KB | DESCRIÇÃO | Tipo de atualização | Hora da instalação | Instalar na pasta|
+| Order | KB | Descrição | Tipo de atualização | Hora da instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware de disco |Manutenção <br></br>Interruptiva |~ 30 Min. | ThirdOrderUpdate |
 
@@ -113,6 +113,6 @@ Execute as seguintes etapas para baixar e instalar os hotfixes.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Saiba mais sobre a [versão da Atualização 5](storsimple-update5-release-notes.md).
 
