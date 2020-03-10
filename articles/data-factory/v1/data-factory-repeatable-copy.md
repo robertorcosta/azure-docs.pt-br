@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929023"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361403"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetida no Azure Data Factory
 
@@ -147,9 +147,9 @@ A Azure Data Factory popula essa coluna para garantir que a origem e destino per
 
 Semelhante ao mecanismo 1, os dados da fatia fornecida da tabela SQL de destino são limpos automaticamente pela Atividade de Cópia. A Atividade de Cópia então insere dados da origem na tabela de destino. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Examine os artigos sobre conector a seguir para obter exemplos de JSON completos: 
 
 - [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)
-- [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)
