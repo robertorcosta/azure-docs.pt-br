@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/26/2020
 ms.author: victorh
 ms.openlocfilehash: 69c0c13c7027707cdadb2f1f1de9cc1655c9c625
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621902"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396042"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regra do Firewall do Azure
 Você pode configurar regras de NAT, regras de rede e regras de aplicativos no firewall do Azure. As regras são processadas de acordo com o tipo de regra. 
@@ -47,7 +47,7 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 - Ação: permitir
 
 
-|name  |Protocolo  |Tipo de fonte  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|{1&gt;name&lt;1}  |Protocolo  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Permitir-Web     |TCP|Endereço IP|*|Endereço IP|*|80.443
 
@@ -55,7 +55,7 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 
 - Ação: negar
 
-|name  |Tipo de fonte  |Fonte  |Protocolo: porta|FQDNs de destino|
+|{1&gt;name&lt;1}  |Tipo de fonte  |Origem  |Protocolo: porta|FQDNs de destino|
 |---------|---------|---------|---------|----------|----------|
 |Negar-Google     |Endereço IP|*|http: 80, https: 443|google.com
 
@@ -73,7 +73,7 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 - Prioridade: 200
 - Ação: permitir
 
-|name  |Protocolo  |Tipo de fonte  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|{1&gt;name&lt;1}  |Protocolo  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Allow-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -83,7 +83,7 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 - Prioridade: 100
 - Ação: negar
 
-|name  |Protocolo  |Tipo de fonte  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
+|{1&gt;name&lt;1}  |Protocolo  |Tipo de fonte  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
 |Negar-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
@@ -91,6 +91,6 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 
 As conexões SSH são negadas porque uma coleção de regras de rede de prioridade mais alta a bloqueia. O processamento da regra é interrompido neste ponto.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Aprenda a [Implantar e configurar um Firewall do Azure](tutorial-firewall-deploy-portal.md).

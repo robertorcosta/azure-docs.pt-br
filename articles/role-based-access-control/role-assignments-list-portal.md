@@ -15,11 +15,11 @@ ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598061"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393992"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Listar atribuições de função usando o RBAC do Azure e o portal do Azure
 
@@ -136,7 +136,7 @@ Se estiver ficando próximo do número máximo e tentar adicionar mais atribuiç
 
 ![Controle de acesso-Adicionar aviso de atribuição de função](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](role-assignments-portal.md)
 - [Solução de problemas com o RBAC para recursos do Azure](troubleshooting.md)

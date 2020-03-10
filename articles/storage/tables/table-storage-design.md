@@ -5,17 +5,17 @@ services: storage
 author: SnehaGunda
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351171"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946083"
 ---
-# <a name="design-scalable-and-performant-tables"></a>Tabelas de projeto escalável e de alto desempenho
+# <a name="design-scalable-and-performant-tables"></a>Projetar tabelas escalonáveis e de alto desempenho
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -47,9 +47,9 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 <td>
 <table>
 <tr>
-<th>Nome</th>
+<th>FirstName</th>
 <th>LastName</th>
-<th>Idade</th>
+<th>Duração</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -67,9 +67,9 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 <td>
 <table>
 <tr>
-<th>Nome</th>
+<th>FirstName</th>
 <th>LastName</th>
-<th>Idade</th>
+<th>Duração</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -98,15 +98,15 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 </td>
 </tr>
 <tr>
-<td>Vendas</td>
+<td>Sales</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
 <table>
 <tr>
-<th>Nome</th>
+<th>FirstName</th>
 <th>LastName</th>
-<th>Idade</th>
+<th>Duração</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -137,27 +137,16 @@ Para obter mais informações sobre os detalhes internos do serviço Tabela e, e
 ## <a name="entity-group-transactions"></a>Transações de Grupo de Entidades
 No serviço Tabela, EGTs (Transações de Grupo de Entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs são, às vezes, também conhecidas como *transações de lote*. EGTs só podem operar em entidades armazenadas na mesma partição (ou seja, compartilham a mesma chave de partição em uma determinada tabela). Portanto, sempre que você precisar de comportamento transacional atômico entre várias entidades, certifique-se de que as entidades estejam na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs; caso contrário, o processamento pode ser retardado.
 
-EGTs também apresentam uma desvantagem potencial para avaliar em seu design. Ou seja, usar mais partições aumenta a escalabilidade do seu aplicativo, porque o Azure tem mais oportunidades para solicitações de balanceamento de carga entre nós. Mas o uso de mais partições pode limitar a capacidade de seu aplicativo para executar transações atômicas e manter a consistência sólida para seus dados. Além disso, existem destinos de escalabilidade específica no nível de uma partição que pode limitar a taxa de transferência de transações que você pode esperar para um único nó. Para obter mais informações sobre metas de escalabilidade para contas de armazenamento standard do Azure, consulte [metas de escalabilidade para contas de armazenamento padrão](../common/scalability-targets-standard-account.md). Para obter mais informações sobre metas de escalabilidade para o serviço tabela, consulte [escalabilidade e metas de desempenho para o armazenamento de tabelas](scalability-targets.md).
+EGTs também apresentam uma desvantagem potencial para avaliar em seu design. Ou seja, usar mais partições aumenta a escalabilidade do seu aplicativo, porque o Azure tem mais oportunidades para solicitações de balanceamento de carga entre nós. Mas o uso de mais partições pode limitar a capacidade de seu aplicativo para executar transações atômicas e manter a consistência sólida para seus dados. Além disso, existem destinos de escalabilidade específica no nível de uma partição que pode limitar a taxa de transferência de transações que você pode esperar para um único nó. Para obter mais informações sobre metas de escalabilidade para contas de armazenamento standard do Azure, consulte [metas de escalabilidade para contas de armazenamento padrão](../common/scalability-targets-standard-account.md). Para obter mais informações sobre as metas de escalabilidade do serviço Tabela, confira [Metas de escalabilidade e desempenho do Armazenamento de Tabelas](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Considerações sobre a capacidade
-A tabela a seguir descreve alguns dos valores de chave a serem consideradas quando você estiver criando uma solução de serviço Tabela:  
 
-| Capacidade total de uma conta de armazenamento do Azure | 500 TB |
-| --- | --- |
-| Número de tabelas em uma conta de armazenamento do Azure |Limitado apenas pela capacidade da conta de armazenamento |
-| Número de partições em uma tabela |Limitado apenas pela capacidade da conta de armazenamento |
-| Número de entidades em uma partição |Limitado apenas pela capacidade da conta de armazenamento |
-| Tamanho de uma entidade individual |Até 1 MB com um máximo de 255 propriedades (incluindo **PartitionKey**, **RowKey** e **Timestamp**) |
-| Tamanho do **PartitionKey** |Uma cadeia de caracteres até 1 KB |
-| Tamanho do **RowKey** |Uma cadeia de caracteres até 1 KB |
-| Tamanho de uma Transação de Grupo de Entidades |Uma transação pode incluir no máximo 100 entidades e a carga deve ser menor que 4 MB. Uma EGT só pode atualizar uma entidade uma vez. |
-
-Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="cost-considerations"></a>Considerações de custo
 Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução do serviço Tabela. No entanto, em muitos cenários, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Padrões de design de tabela](table-storage-design-patterns.md)
 - [Relações de modelagem](table-storage-design-modeling.md)

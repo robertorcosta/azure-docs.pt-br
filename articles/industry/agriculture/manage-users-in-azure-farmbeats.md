@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482290"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392734"
 ---
 # <a name="manage-users"></a>Gerenciar usuários
 
 O Azure FarmBeats inclui gerenciamento de usuário para pessoas que fazem parte da sua instância do Azure Active Directory (Azure AD). Você pode adicionar usuários à instância do FarmBeats do Azure para acessar as APIs, exibir os mapas gerados e telemetria do sensor de acesso do farm.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Uma instalação do FarmBeats do Azure é necessária. Para obter mais informações, consulte [instalar o Azure FarmBeats](install-azure-farmbeats.md).
 - As IDs de email dos usuários que você deseja adicionar ou remover da instância FarmBeats do Azure.
@@ -82,6 +82,6 @@ Para adicionar usuários ao Azure AD, faça o seguinte:
 
 Para obter informações sobre como gerenciar usuários do Azure AD, consulte [Adicionar ou excluir usuários no Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Você adicionou usuários com êxito à instância do Azure FarmBeats. Agora, saiba como [criar e gerenciar farms](manage-farms-in-azure-farmbeats.md#create-farms).

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 1a3651f82d7818ad105c0a8a7b5fd9fcf073b4a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982559"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387855"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure usando o PowerShell
 
@@ -57,7 +57,7 @@ Aqui estão as etapas importantes ao criar essa solução:
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -190,14 +190,14 @@ Observe os seguintes pontos:
     ```
 
 * Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções colaborador ou proprietário, ou um administrador da assinatura do Azure.
-* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento, Banco de Dados SQL, etc.) e serviços de computação (Azure HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento, Banco de Dados SQL, etc.) e serviços de computação (Azure HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Nesta seção, você cria serviços vinculados para sua conta de armazenamento e banco de dados SQL.
 
 ### <a name="create-a-storage-linked-service"></a>Criar um serviço vinculado do Armazenamento
-1. Crie um arquivo JSON denominado AzureStorageLinkedService.json na pasta C:\ADF, com o conteúdo a seguir. (Crie a pasta ADF se ela não existir). Substitua `<accountName>` e `<accountKey>` pelo nome e a chave da sua conta de armazenamento antes de salvar o arquivo.
+1. Crie um arquivo JSON denominado AzureStorageLinkedService.json na pasta C:\ADF, com o conteúdo a seguir. (Crie a pasta ADF se ela ainda não existir.) Substitua `<accountName>` e `<accountKey>` pelo nome e chave da sua conta de armazenamento antes de salvar o arquivo.
 
     ```json
     {
@@ -228,7 +228,7 @@ Os serviços vinculados são criados em um data factory para vincular seus armaz
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Criar um serviço vinculado para o banco de dados SQL
-1. Crie um arquivo JSON denominado AzureSQLDatabaseLinkedService.json na pasta C:\ADF, com o conteúdo a seguir. (Crie a pasta ADF se ela não existir). Substitua &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; e &lt;password&gt; pelo nome do seu servidor, banco de dados, ID do usuário e senha antes de salvar o arquivo.
+1. Crie um arquivo JSON denominado AzureSQLDatabaseLinkedService.json na pasta C:\ADF, com o conteúdo a seguir. (Crie a pasta ADF se ela ainda não existir.) Substitua &lt;Server&gt;, &lt;&gt;de banco de dados, &lt;ID de usuário&gt;e &lt;senha&gt; pelo nome do seu servidor, banco de dados, ID de usuário e senha antes de salvar o arquivo.
 
     ```json
     {
@@ -718,7 +718,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     data_source_table | 2017-09-07 09:01:00.000
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]

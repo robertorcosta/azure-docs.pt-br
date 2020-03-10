@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a9de9435c0e2fb2b67733a995ff412978ea02d89
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250303"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898783"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
 Este artigo fornece detalhes sobre palavras-chave que podem ser usadas em Azure Cosmos DB consultas SQL.
@@ -38,7 +38,7 @@ Na API do SQL, ao contrário do SQL ANSI, você pode expressar consultas de inte
 > [!TIP]
 > Para tempos de execução de consulta mais rápidos, crie uma política de indexação que usa um tipo de índice de intervalo em qualquer propriedade numérica ou caminho que a cláusula BETWEEN filtra.
 
-## <a name="distinct"></a>DISTINTO
+## <a name="distinct"></a>DISTINCT
 
 A palavra-chave DISTINCT elimina duplicatas na projeção da consulta.
 
@@ -108,7 +108,7 @@ Não há suporte para consultas com uma função de sistema agregada e uma subco
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
 
-## <a name="in"></a>NO
+## <a name="in"></a>IN
 
 Use a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor em uma lista. Por exemplo, a consulta a seguir retorna todos os itens da família em que a `id` é `WakefieldFamily` ou `AndersenFamily`.
 
@@ -126,9 +126,11 @@ O exemplo a seguir retorna todos os itens em que o estado é qualquer um dos val
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-A API do SQL fornece suporte para [iteração em matrizes JSON](sql-query-object-array.md#Iteration), com uma nova construção adicionada por meio da palavra-chave in na fonte from. 
+A API do SQL fornece suporte para [iteração em matrizes JSON](sql-query-object-array.md#Iteration), com uma nova construção adicionada por meio da palavra-chave in na fonte from.
 
-## <a name="top"></a>INÍCIO
+Se você incluir sua chave de partição no filtro de `IN`, sua consulta será filtrada automaticamente somente para as partições relevantes.
+
+## <a name="top"></a>TOP
 
 A palavra-chave TOP retorna o primeiro `N` número de resultados da consulta em uma ordem indefinida. Como prática recomendada, use TOP com a cláusula ORDER BY para limitar os resultados ao primeiro `N` número de valores ordenados. Combinar essas duas cláusulas é a única maneira de indicar de forma previsível quais linhas afetam os principais.
 
@@ -161,7 +163,7 @@ Os resultados são:
     }]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Guia de Introdução](sql-query-getting-started.md)
 - [Junções](sql-query-join.md)

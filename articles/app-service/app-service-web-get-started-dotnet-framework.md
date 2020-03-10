@@ -1,16 +1,16 @@
 ---
-title: 'Início Rápido: Criar um aplicativo ASP.NET C#'
+title: 'Início rápido: criar C# um aplicativo ASP.net'
 description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure implantando o modelo de aplicativo Web ASP.NET C# padrão por meio do Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: f2e31723dc2761007994f652d9d6c28ab3f7d47d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671398"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388213"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar um aplicativo Web do ASP.NET Framework no Azure
 
@@ -20,7 +20,7 @@ Este início rápido mostra como implantar seu primeiro aplicativo Web ASP.NET n
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir este tutorial, instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> com a carga de trabalho do **ASP.NET e de desenvolvimento para a Web**.
 
@@ -80,11 +80,11 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. Na caixa de diálogo **Configurar Plano de Hospedagem**, insira os valores da tabela a seguir e selecione **OK**.
 
-   | Configuração | Valor sugerido | DESCRIÇÃO |
+   | Configuração | Valor sugerido | Descrição |
    |-|-|-|
    |Plano do Serviço de Aplicativo| myAppServicePlan | O nome do plano do Serviço de Aplicativo. |
-   | Location | Europa Ocidental | O datacenter onde o aplicativo Web está hospedado. |
-   | Tamanho | Grátis | O [Tipo de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina os recursos de hospedagem. |
+   | Local | Europa Ocidental | O datacenter onde o aplicativo Web está hospedado. |
+   | Size | Grátis | O [Tipo de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina os recursos de hospedagem. |
 
    ![Criar plano de Serviço de Aplicativo](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
 
@@ -137,7 +137,7 @@ Quando a publicação está concluída, o Visual Studio inicia um navegador para
 
    O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [ASP.NET com o Banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)

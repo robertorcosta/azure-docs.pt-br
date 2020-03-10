@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
 ms.openlocfilehash: 15a94a9724fac29d36f6bb88ee4810b3bc7ca607
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603489"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394643"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar sua pontuação segura na central de segurança do Azure
 
@@ -80,7 +80,7 @@ A recomendação mostra quais ameaças sua carga de trabalho está exposta se as
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Este artigo mostrou como melhorar sua postura de segurança usando a **Pontuação segura** na central de segurança do Azure. Para saber mais sobre a Central de Segurança, confira:
 
 * [Perguntas frequentes da central de segurança do Azure](faq-general.md)– encontre as perguntas frequentes sobre o serviço e a pontuação segura.

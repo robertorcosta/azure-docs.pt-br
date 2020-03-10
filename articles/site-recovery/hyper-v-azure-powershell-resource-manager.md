@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773428"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391721"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para máquinas virtuais do Hyper-V usando o PowerShell e o Azure Resource Manager
 
@@ -263,6 +263,6 @@ Antes de começar, a conta de armazenamento especificada deve estar na mesma reg
    $TFjob = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -ReplicationProtectedItem $rpi -Comment "TFO done"
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Saiba mais](/powershell/module/az.recoveryservices) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.

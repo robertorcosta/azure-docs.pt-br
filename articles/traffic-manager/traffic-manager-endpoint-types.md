@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
 ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938652"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392634"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos de extremidade do Gerenciador de Tráfego
 
@@ -103,7 +103,7 @@ Se todos os pontos de extremidade em um perfil estiverem desabilitados ou se o p
 
 * [Como fazer mover os pontos de extremidade do Azure do meu perfil do Gerenciador de tráfego para um grupo de recursos diferente?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-how-it-works.md).
 * Saiba mais sobre [o monitoramento de ponto de extremidade e failover automático](traffic-manager-monitoring.md)do Gerenciador de Tráfego.

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 01f2644874da032b95162f3f5721ab9dbea74265
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974709"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393445"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um runtime de integração auto-hospedada, o qual move dados entre locais e armazenamentos de dados da nuvem.
@@ -35,7 +35,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Iniciar uma execução de pipeline.
 > * Monitorar a execução de pipeline.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
@@ -70,7 +70,7 @@ Neste tutorial, você usa um banco de dados do SQL Server local como um armazena
     GO
    ```
 
-### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
+### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
 Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de uso geral do Azure, consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md). O pipeline no data factory que você cria neste tutorial copia dados do banco de dados do SQL Server local (origem) para este armazenamento de Blobs do Azure (coletor). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
@@ -227,7 +227,7 @@ Selecione **Adicionar Gatilho** na barra de ferramentas do pipeline e selecione 
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
-1. Vá para a guia **Monitorar**. Você vê o pipeline que disparou manualmente na etapa anterior.
+1. Vá para a guia **Monitor** . Você verá o pipeline que você disparou manualmente na etapa anterior.
 
     ![Monitorar execuções de pipeline](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
 1. Para exibir as execuções de atividade associadas à execução do pipeline, clique no link **Exibir Execuções de Atividade** na coluna **Ações**. Você vê somente as execuções de atividade, já que há apenas uma atividade no pipeline. Para ver detalhes sobre a operação de cópia, selecione o link **Detalhes** (ícone de óculos) na coluna **Ações**. Para voltar à exibição Execuções de Pipeline, selecione **Execuções de Pipeline** na parte superior.
@@ -236,7 +236,7 @@ Selecione **Adicionar Gatilho** na barra de ferramentas do pipeline e selecione 
 O pipeline cria automaticamente a pasta de saída chamada *fromonprem* no contêiner de blobs `adftutorial`. Confirme que você vê o arquivo *[pipeline().RunId].txt* na pasta de saída.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 O pipeline neste exemplo copia dados de um local para outro no Armazenamento de blobs. Você aprendeu a:
 
 > [!div class="checklist"]

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 179a6181efdc6c31d50d3b5b3f708fd9149dadd3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438676"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384721"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Preparar para implantar o Azure Data Box Edge  
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: preparar para implantar Azure Data Box Edge  
 
 Este é o primeiro tutorial da série de tutoriais de implantação necessários para implantar completamente seu Azure Data Box Edge. Este tutorial descreve como preparar o portal do Azure para implantar um recurso do Data Box Edge.
 
@@ -44,7 +44,7 @@ Veja os tutoriais a seguir na sequência indicada para implantar o Data Box Edge
 
 Agora, você pode começar a configurar o portal do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 A seguir estão os pré-requisitos de configuração para o recurso do Data Box Edge, o dispositivo do Data Box Edge e a rede do datacenter.
 
@@ -66,7 +66,7 @@ Antes de começar, verifique se:
 Antes de implantar um dispositivo físico, verifique se:
 
 - Você examinou as informações de segurança que foram incluídas no pacote de remessa.
-- Você tem um slot de 1U disponível em um rack padrão de 19” no datacenter para montar o dispositivo em rack.
+- Você tem um slot de 1U disponível em um rack padrão de 19 em seu datacenter para montar o dispositivo no rack.
 - Você tem acesso a uma superfície de trabalho plana, estável e nivelada na qual o dispositivo pode apoiar-se com segurança.
 - O local em que você pretende instalar o dispositivo tem alimentação CA padrão de uma fonte independente ou uma PDU (unidade de distribuição de energia) no rack com um no-break.
 - Você tem acesso a um dispositivo físico.
@@ -95,9 +95,9 @@ Para criar um recurso do Data Box Edge, execute as seguintes etapas no portal do
     - Ou no portal do Azure Governamental nesta URL: [https://portal.azure.us](https://portal.azure.us). Para obter mais detalhes, acesse [Conectar-se ao Azure Governamental usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. No painel esquerdo, selecione **+ Criar um recurso**. Pesquise **Data Box Edge / Data Box Gateway**. Selecione **Data Box Edge / Data Box Gateway**. Selecione **Criar**.
-3. Escolha a assinatura que deseja usar para o dispositivo do Data Box Edge. Selecione a região em que você deseja implantar o recurso do Data Box Edge. Para esta versão, o Leste dos EUA, o Sudeste Asiático e o Oeste da Europa estão disponíveis. 
+3. Escolha a assinatura que deseja usar para o dispositivo do Data Box Edge. Selecione a região em que você deseja implantar o recurso do Data Box Edge. Para obter uma lista de todas as regiões em que o recurso do Azure Stack Edge está disponível, confira [produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-    Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo. A região armazena apenas os metadados para o gerenciamento de dispositivos. Os dados reais podem ser armazenados em qualquer conta de armazenamento. 
+    Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo. A região armazena apenas os metadados para o gerenciamento de dispositivos. Os dados reais podem ser armazenados em qualquer conta de armazenamento.
     
     Na opção **Data Box Edge**, selecione **Criar**.
 
@@ -105,28 +105,28 @@ Para criar um recurso do Data Box Edge, execute as seguintes etapas no portal do
 
 3. Na guia **Informações Básicas**, insira ou selecione os **Detalhes do projeto** a seguir.
     
-    |Configuração  |Valor  |
+    |Configuração  |{1&gt;Valor&lt;1}  |
     |---------|---------|
-    |Subscription    |Isso é preenchido automaticamente de acordo com a seleção anterior. A assinatura está vinculada à sua conta de faturamento. |
-    |Resource group  |Selecione um grupo existente ou crie um novo grupo.<br>Saiba mais sobre [grupos de recursos do Azure](../azure-resource-manager/management/overview.md).     |
+    |Assinatura    |Isso é preenchido automaticamente de acordo com a seleção anterior. A assinatura está vinculada à sua conta de faturamento. |
+    |Grupo de recursos  |Selecione um grupo existente ou crie um novo grupo.<br>Saiba mais sobre [grupos de recursos do Azure](../azure-resource-manager/management/overview.md).     |
 
 4. Insira ou selecione os **Detalhes da instância** a seguir.
 
-    |Configuração  |Valor  |
+    |Configuração  |{1&gt;Valor&lt;1}  |
     |---------|---------|
-    |Nome   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 caracteres contendo letras, números e hifens.<br> Nome começa e termina com uma letra ou um número.        |
-    |Região     |Para esta versão, Leste dos EUA, Sudeste da Ásia e Oeste da Europa estão disponíveis para implantação do recurso. Se você estiver usando o Azure Governamental, todas as regiões do governo estarão disponíveis, conforme mostrado nas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo.|
+    |{1&gt;Nome&lt;1}   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 caracteres contendo letras, números e hifens.<br> Nome começa e termina com uma letra ou um número.        |
+    |Região     |Para obter uma lista de todas as regiões em que o recurso do Azure Stack Edge está disponível, confira [produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se você estiver usando o Azure Governamental, todas as regiões do governo estarão disponíveis, conforme mostrado nas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo.|
 
     ![Detalhes do projeto e da instância](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 
-5. Selecione **Avançar: Endereço para entrega**.
+5. Selecione **Avançar: endereço de envio**.
 
     - Caso já tenha um dispositivo, marque a caixa de combinação **Tenho um dispositivo do Data Box Edge**.
     - Se esse for o novo dispositivo solicitado, insira o nome de contato, a empresa, o endereço para entrega do dispositivo e informações de contato.
 
     ![Endereço para entrega do novo dispositivo](media/data-box-edge-deploy-prep/data-box-edge-resource1.png)
 
-6. Selecione **Avançar: Revisar + criar**.
+6. Selecione **Avançar: revisar + criar**.
 
 7. Na guia **Examinar + criar**, examine os **Detalhes de preço**, os **Termos de uso** e os detalhes do recurso. Marque a caixa de combinação **Li os termos de privacidade**.
 
@@ -158,7 +158,7 @@ Depois que o recurso do Data Box Edge estiver em execução, será necessário o
 > - A chave de ativação expira três dias depois de ser gerada.
 > - Se a chave expirou, gere uma nova. A chave antiga não é válida.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste tutorial, você aprendeu sobre os tópicos do Data Box Edge, como:
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278095"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390433"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de dimensionamento
 Este artigo discute considerações de design para Conjuntos de Dimensionamento de Máquinas Virtuais. Para obter informações sobre o que são Conjuntos de Escala de Máquina Virtual, confira [Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral](virtual-machine-scale-sets-overview.md).
@@ -60,7 +60,7 @@ Embora o provisionamento em excesso melhore as taxas de sucesso do provisionamen
 
 Se o seu conjunto de dimensionamento usa armazenamento gerenciado pelo usuário, e você desativar o provisionamento em excesso, você poderá ter mais de 20 VMs por conta de armazenamento, mas não é recomendável ultrapassar 40 VMs para não prejudicar o desempenho do E/S. 
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 Um conjunto de dimensionamento criado em uma imagem do Marketplace (também conhecido como uma imagem de plataforma) e configurado para usar Azure Managed Disks oferece suporte a uma capacidade de até 1.000 VMs. Se você configurar seu conjunto de dimensionamento para suportar mais de 100 VMs, nem todos os cenários funcionam da mesma maneira, o balanceamento de carga é um exemplo. Para obter mais informações, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). 
 
 Um conjunto de dimensionamento configurado com contas de armazenamento gerenciadas pelo usuário é atualmente limitada a 100 VMs (e são recomendadas 5 contas de armazenamento para essa escala).

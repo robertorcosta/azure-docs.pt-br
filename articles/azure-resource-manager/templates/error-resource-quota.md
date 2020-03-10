@@ -3,12 +3,12 @@ title: Erros de cota
 description: Descreve como resolver erros de cota de recursos ao implantar recursos com Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 9b5cce3258a29b6ac6a3db50f880e3242c4d5e8c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250149"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945720"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolva erros de cota de recursos
 
@@ -40,7 +40,7 @@ please delete some resources of this type before creating a new one.
 As cotas são aplicadas por grupo de recursos, assinaturas, contas e outros escopos. Por exemplo, sua assinatura pode estar configurada para limitar o número de núcleos de uma região. Se tentar implantar uma máquina virtual com mais núcleos do que o valor permitido, você receberá um erro informando que a cota foi excedida.
 Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -76,7 +76,7 @@ Get-AzVMUsage -Location "South Central US"
 
 Que retorna:
 
-```powershell
+```output
 Name                             Current Value Limit  Unit
 ----                             ------------- -----  ----
 Availability Sets                            0  2000 Count

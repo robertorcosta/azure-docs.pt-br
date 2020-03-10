@@ -15,16 +15,16 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/14/2019
 ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926492"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388554"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade Executar pacote SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote SQL Server Integration Services (SSIS) em um pipeline Azure Data Factory usando a atividade executar pacote do SSIS. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,7 +141,7 @@ Nesta etapa, você dispara uma execução de pipeline.
 
 ### <a name="monitor-the-pipeline"></a>Monitorar o Pipeline
 
-1. Alterne para a guia **Monitor** à esquerda. Você vê a execução do pipeline e seu status junto com outras informações, como a hora de **início da execução** . Para atualizar a exibição, selecione **Atualizar**.
+1. Alterne para a guia **Monitorar** à esquerda. Você vê a execução do pipeline e seu status junto com outras informações, como a hora de **início da execução** . Para atualizar a exibição, selecione **Atualizar**.
 
    ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
@@ -513,6 +513,6 @@ Na etapa anterior, você executou o pipeline sob demanda. Você também pode cri
    select * from catalog.executions
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Consulte a postagem blog a seguir:
 - [Modernizar e estender seus fluxos de trabalho ETL/ELT com atividades do SSIS em pipelines de Azure Data Factory](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

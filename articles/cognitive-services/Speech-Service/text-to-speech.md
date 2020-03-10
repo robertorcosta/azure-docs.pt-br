@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: erhopf
 ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394786"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
@@ -37,7 +37,7 @@ A conversão de texto em fala do serviço de fala permite que seus aplicativos, 
 
 * Linguagem de marcação de síntese de fala (SSML) – uma linguagem de marcação baseada em XML usada para personalizar saídas de fala para texto. Com o SSML, você pode ajustar o timbre, adicionar pausas, melhorar a pronúncia, acelerar ou diminuir a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Consulte [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 O serviço de conversão de texto em fala está disponível por meio do [SDK de fala](speech-sdk.md). Há vários cenários comuns disponíveis como guias de início rápido, em várias linguagens e plataformas:
 
@@ -72,12 +72,12 @@ Para obter informações detalhadas, consulte [preços](https://azure.microsoft.
 > [!IMPORTANT]
 > Cada caractere de idioma chinês, japonês e coreano é contado como dois caracteres para cobrança.
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Documentos de Referência
 
 - [SDK da fala](speech-sdk.md)
 - [API REST: conversão de texto em fala](rest-text-to-speech.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Obtenha uma assinatura gratuita do serviço de fala](get-started.md)
 - [Obtenha o SDK de fala](speech-sdk.md)

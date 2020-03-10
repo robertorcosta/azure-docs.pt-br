@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931410"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389495"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -21,7 +21,7 @@ Os scripts de Bootstrap permitem que você instale e configure componentes no Az
 
 Há três abordagens para definir as configurações do arquivo de configuração à medida que seu cluster HDInsight é criado:
 
-* Usar o Azure PowerShell
+* Usar PowerShell do Azure
 * Usar o SDK do .NET
 * Usar o modelo do Azure Resource Manager
 
@@ -46,11 +46,11 @@ Por exemplo, usando esses métodos programáticos, você pode configurar opçõe
 
 Para obter informações sobre como instalar componentes adicionais no cluster HDInsight durante o tempo de criação, consulte [Personalizar clusters hdinsight usando a ação de script (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Se estiver usando o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
 O seguinte código do PowerShell personaliza uma configuração de [Apache Hive](https://hive.apache.org/):
 

@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f0ad8d503b5280b8cba89d940b99dcd81da71ffc
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593340"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892958"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -192,7 +192,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.2 ou posterior |
 | 1.11 | 1.11.0 ou posterior |
-| 1,12 e posterior | N/D |
+| 1,12 e posterior | {1&gt;N/A&lt;1} |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Falha ao definir UID e GID em mountoptions para disco do Azure
 
@@ -266,7 +266,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1.11 | 1.11.5 ou posterior |
 | 1,12 | 1.12.3 ou posterior |
 | 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/D |
+| 1,14 e posterior | {1&gt;N/A&lt;1} |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema aguardando vários minutos e tentando novamente.
 
@@ -287,7 +287,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1.11 | 1.11.6 ou posterior |
 | 1,12 | 1.12.4 ou posterior |
 | 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/D |
+| 1,14 e posterior | {1&gt;N/A&lt;1} |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema experimentando o seguinte:
 
@@ -308,7 +308,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1.11 | 1.11.9 ou posterior |
 | 1,12 | 1.12.7 ou posterior |
 | 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/D |
+| 1,14 e posterior | {1&gt;N/A&lt;1} |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema desanexando manualmente o disco.
 
@@ -323,7 +323,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1,12 | 1.12.9 ou posterior |
 | 1,13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
-| 1,15 e posterior | N/D |
+| 1,15 e posterior | {1&gt;N/A&lt;1} |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó tiver uma lista de discos obsoletos, você poderá mitigar o problema desanexando todos os discos não existentes da VM como uma única operação em massa. **O desanexação individual de discos não existentes pode falhar.**
 
@@ -343,7 +343,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | 1,12 | 1.12.10 ou posterior |
 | 1,13 | 1.13.8 ou posterior |
 | 1,14 | 1.14.4 ou posterior |
-| 1,15 e posterior | N/D |
+| 1,15 e posterior | {1&gt;N/A&lt;1} |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó estiver em um estado de falha, você poderá mitigar o problema atualizando manualmente o status da VM usando um dos seguintes:
 
@@ -384,7 +384,7 @@ Configurações recomendadas:
 | 1.12.0-1.12.1 | 0755 |
 | 1.12.2 e posterior | 0777 |
 
-Se estiver usando um cluster com Kuberetes versão 1.8.5 ou superior e criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem poderão ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
+Se estiver usando um cluster com kubernetes versão 1.8.5 ou superior e criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem poderão ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
 
 ```yaml
 kind: StorageClass
@@ -460,7 +460,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,12 | 1.12.6 ou posterior |
 | 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/D |
+| 1,14 e posterior | {1&gt;N/A&lt;1} |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Falha na montagem de arquivos do Azure devido à chave de conta de armazenamento alterada
 
@@ -491,6 +491,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 Esse erro ocorre devido a uma condição de corrida de autoescalar de cluster upstream em que o dimensionamento de cluster é encerrado com um valor diferente daquele que realmente está no cluster. Para sair desse Estado, basta desabilitar e reabilitar o [dimensionador do cluster][cluster-autoscaler].
+
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Anexo de disco lento, o GetAzureDiskLun leva de 10 a 15 minutos e você recebe um erro
+
+Em versões do kubernetes **anteriores ao 1.15.0** , você pode receber um erro, como o **erro WaitForAttach não pode localizar o LUN para o disco**.  A solução alternativa para isso é aguardar aproximadamente 15 minutos e tentar novamente.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

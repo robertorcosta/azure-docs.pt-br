@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459561"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392529"
 ---
-# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analisar os dados de uma chamada telefônica com o Stream Analytics e visualizar os resultados em um dashboard do Power BI
+# <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: analisar dados de chamada telefônica com Stream Analytics e Visualizar resultados no painel Power BI
 
 Este tutorial ensina como analisar dados de chamadas telefônicas usando o Azure Stream Analytics. Os dados de chamadas telefônicas, gerados por um aplicativo cliente, contêm algumas chamadas fraudulentas que serão filtradas pelo trabalho do Stream Analytics.
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Testar e iniciar o trabalho
 > * Visualizar os resultados no Power BI
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de começar, execute as seguintes ações:
 
@@ -51,17 +51,17 @@ Use as seguintes etapas para criar um Hub de Eventos e enviar dados de chamada p
 
    |**Configuração**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
-   |Nome     | myEventHubsNS        |  Um nome exclusivo para identificar o namespace de hub de eventos.       |
-   |Subscription     |   \<Sua assinatura\>      |   Selecione uma assinatura do Azure em que deseja criar o hub de eventos.      |
-   |Resource group     |   MyASADemoRG      |  Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta.       |
-   |Location     |   Oeste dos EUA 2      |    Local onde o namespace do hub de eventos pode ser implantado.     |
+   |{1&gt;Nome&lt;1}     | myEventHubsNS        |  Um nome exclusivo para identificar o namespace de hub de eventos.       |
+   |Assinatura     |   \<Sua assinatura\>      |   Selecione uma assinatura do Azure em que deseja criar o hub de eventos.      |
+   |Grupo de recursos     |   MyASADemoRG      |  Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta.       |
+   |Local     |   Oeste dos EUA 2      |    Local onde o namespace do hub de eventos pode ser implantado.     |
 
 4. Use as opções padrão nas configurações restantes e selecione **Criar**.
 
    ![Criar um namespace do hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
 5. Quando o namespace concluir a implantação, vá para **Todos os recursos** e localize *myEventHubsNS* na lista de recursos do Azure. Escolha *myEventHubsNS* para abri-lo.
-6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome** *MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
+6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome***MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
 
    ![Configuração do Hub de Eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
@@ -85,7 +85,7 @@ Antes que um processo possa enviar dados aos Hubs de Eventos do Azure, o hub de 
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>`
 
-   A cadeia de conexão contém vários pares chave-valor separados por ponto e vírgula: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** e **EntityPath**.
+   Observe que a cadeia de conexão contém vários pares de chave-valor separados por ponto e vírgula: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** e **EntityPath**.
 
 ## <a name="start-the-event-generator-application"></a>Iniciar o aplicativo gerador de evento
 
@@ -135,9 +135,9 @@ Agora que você tem um fluxo de eventos de chamada, pode criar um trabalho do St
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Nome do trabalho     |  ASATutorial       |   Um nome exclusivo para identificar o namespace de hub de eventos.      |
-   |Subscription    |  \<Sua assinatura\>   |   Selecione uma assinatura do Azure em que deseja criar o trabalho.       |
-   |Resource group   |   MyASADemoRG      |   Selecione **Usar existente** e insira um novo nome de grupo de recursos para sua conta.      |
-   |Location   |    Oeste dos EUA 2     |      Local onde o trabalho pode ser implantado. É recomendável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.      |
+   |Assinatura    |  \<Sua assinatura\>   |   Selecione uma assinatura do Azure em que deseja criar o trabalho.       |
+   |Grupo de recursos   |   MyASADemoRG      |   Selecione **Usar existente** e insira um novo nome de grupo de recursos para sua conta.      |
+   |Local   |    Oeste dos EUA 2     |      Local onde o trabalho pode ser implantado. É recomendável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.      |
    |Ambiente de hospedagem    | Nuvem        |     Os trabalhos do Stream Analytics podem ser implantados na nuvem ou na borda. O Cloud permite que você implante no Azure Cloud e o Edge permite que você implante em um dispositivo IoT Edge.    |
    |Unidades de transmissão     |    1       |      As unidades de streaming representam os recursos de computação necessários para executar um trabalho. Por padrão, esse valor é definido como 1. Para saber mais sobre como dimensionar unidades de streaming, confira o artigo [Entendendo e ajustando as unidades de streaming](stream-analytics-streaming-unit-consumption.md).      |
 
@@ -158,7 +158,7 @@ A próxima etapa é definir uma fonte de entrada para o trabalho ler os dados us
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada     |  CallStream       |  Forneça um nome amigável para identificar a entrada. O alias de entrada pode conter somente caracteres alfanuméricos, hifens e sublinhados e deve ter entre 3 e 63 caracteres.       |
-   |Subscription    |   \<Sua assinatura\>      |   Selecione a assinatura do Azure em que você criou o hub de eventos. O hub de eventos pode estar na mesma assinatura ou em uma diferente da do trabalho do Stream Analytics.       |
+   |Assinatura    |   \<Sua assinatura\>      |   Selecione a assinatura do Azure em que você criou o hub de eventos. O hub de eventos pode estar na mesma assinatura ou em uma diferente da do trabalho do Stream Analytics.       |
    |Namespace do Hub de Eventos    |  myEventHubsNS       |  Selecione o namespace do hub de eventos criado na seção anterior. Todos os namespaces de hub de eventos disponíveis na sua assinatura atual aparecem na lista suspensa.       |
    |Nome do Hub de Eventos    |   MyEventHub      |  Selecione o hub de eventos criado na seção anterior. Todos os hubs de eventos disponíveis na sua assinatura atual aparecem na lista suspensa.       |
    |Nome da política do Hub de Eventos   |  MyPolicy       |  Selecione a política de acesso compartilhado de hub de eventos criada na seção anterior. Todas as políticas de hubs de eventos disponíveis na sua assinatura atual aparecem na lista suspensa.       |
@@ -273,7 +273,7 @@ Quando o aplicativo estiver em execução no seu navegador, siga estas etapas pa
 
 3. Por fim, cole a **EmbedUrl** no campo de texto correspondente e selecione **Inserir Painel**. Agora você pode exibir o mesmo painel inserido em um aplicativo Web.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste tutorial, você criou um trabalho simples do Stream Analytics, analisou os dados de entrada e apresentou resultados em um painel do Power BI. Para saber mais sobre trabalhos do Stream Analytics, prossiga para o seguinte tutorial:
 

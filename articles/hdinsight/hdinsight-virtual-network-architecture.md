@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389792"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
 
@@ -22,9 +22,9 @@ Este artigo explica os recursos que estão presentes quando você implanta um cl
 
 Os clusters do Azure HDInsight têm diferentes tipos de máquinas virtuais ou nós. Cada tipo de nó desempenha uma função na operação do sistema. A tabela a seguir resume esses tipos de nó e suas funções no cluster.
 
-| Tipo | Description |
+| Tipo | Descrição |
 | --- | --- |
-| Nó de cabeçalho |  Para todos os tipos de cluster, exceto Apache Storm, os nós de cabeçalho hospedam os processos que gerenciam a execução do aplicativo distribuído. O nó de cabeçalho também é o nó no qual você pode realizar SSH e executar aplicativos que são coordenados para serem executados nos recursos do cluster. O número de nós de cabeçalho é corrigido em dois para todos os tipos de cluster. |
+| nó principal |  Para todos os tipos de cluster, exceto Apache Storm, os nós de cabeçalho hospedam os processos que gerenciam a execução do aplicativo distribuído. O nó de cabeçalho também é o nó no qual você pode realizar SSH e executar aplicativos que são coordenados para serem executados nos recursos do cluster. O número de nós de cabeçalho é corrigido em dois para todos os tipos de cluster. |
 | Nó ZooKeeper | O Zookeeper coordena as tarefas entre os nós que estão fazendo o processamento de dados. Ele também faz eleição de líder do nó principal e controla qual nó principal está executando um serviço mestre específico. O número de nós ZooKeeper é corrigido em três. |
 | Nó de trabalho | Representa os nós que dão suporte à funcionalidade de processamento de dados. Os nós de trabalho podem ser adicionados ou removidos do cluster para dimensionar a capacidade de computação e gerenciar os custos. |
 | Nó de borda do servidor R | O nó de borda do servidor R representa o nó em que você pode realizar SSH e executar aplicativos que são coordenados para execução nos recursos do cluster. Um nó de borda não participa da análise de dados no cluster. Esse nó também hospeda o servidor do R Studio, permitindo que você execute o aplicativo R usando um navegador. |
@@ -54,7 +54,7 @@ A tabela a seguir resume os nove nós de cluster que são criados quando o HDIns
 
 | Tipo de recurso | Número presente | Detalhes |
 | --- | --- | --- |
-|Nó de cabeçalho | dois |    |
+|nó principal | dois |    |
 |Nó do ZooKeeper | três | |
 |Nó de trabalho | dois | Esse número pode variar com base na configuração e no dimensionamento do cluster. Um mínimo de três nós de trabalho é necessário para Apache Kafka.  |
 |Nó de gateway | dois | Os nós de gateway são máquinas virtuais do Azure que são criadas no Azure, mas não são visíveis em sua assinatura. Contate o suporte se você precisar reinicializar esses nós. |
@@ -63,7 +63,7 @@ Os seguintes recursos de rede presentes são criados automaticamente dentro da r
 
 | Recurso de rede | Número presente | Detalhes |
 | --- | --- | --- |
-|Load Balancer | três | |
+|Balanceador de carga | três | |
 |Interfaces de Rede | alto | Esse valor se baseia em um cluster normal, em que cada nó tem sua própria interface de rede. As nove interfaces são para os dois nós de cabeçalho, três nós Zookeeper, dois nós de trabalho e dois nós de gateway mencionados na tabela anterior. |
 |Endereços IP públicos | dois |    |
 
@@ -82,6 +82,6 @@ Os endereços IP públicos também são fornecidos para os dois pontos de extrem
 1. Um IP público é atribuído ao balanceador de carga para o FQDN (nome de domínio totalmente qualificado) a ser usado ao se conectar ao cluster por meio da Internet `CLUSTERNAME.azurehdinsight.net`.
 1. O segundo endereço IP público é usado para o nome de domínio somente SSH `CLUSTERNAME-ssh.azurehdinsight.net`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Proteger o tráfego de entrada para clusters HDInsight em uma rede virtual com ponto de extremidade privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
