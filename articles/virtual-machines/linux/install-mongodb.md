@@ -1,25 +1,22 @@
 ---
 title: Instalar o MongoDB em uma VM Linux com o CLI do Azure
 description: Aprenda a instalar e configurar o MongoDB em uma máquina virtual Linux usando a CLI do Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 643d4b918dd8677e8ed02a7def383efa77e71fce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430285"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944884"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB em uma VM Linux
 
@@ -210,7 +207,7 @@ az group deployment show \
     --output tsv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Nesses exemplos, você se conecta à instância do MongoDB localmente da VM. Se você desejar conectar-se à instância do MongoDB de outra VM ou de rede, certifique-se de que as devidas [regras de Grupo de Segurança de Rede tenham sido criadas](nsg-quickstart.md).
 
 Esses exemplos implantam o ambiente do MongoDB principal para fins de desenvolvimento. Aplique as opções de configuração de segurança necessárias para o seu ambiente. Para obter mais informações, consulte os [documentos de segurança do MongoDB](https://docs.mongodb.com/manual/security/).

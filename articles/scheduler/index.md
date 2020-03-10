@@ -1,24 +1,28 @@
 ---
-title: Documentação do Agendador do Azure - Tutoriais, Referência de API | Microsoft Docs
-description: Saiba como usar o Agendador para agendar e invocar trabalhos, como ações recorrentes de aplicativo e manutenção de rotina. Tutoriais, referências de API e muito mais.
+title: Documentação do Agendador do Azure
+description: Criar, agendar e executar trabalhos automatizados na nuvem, como ações recorrentes de aplicativo e manutenção de rotina
 services: scheduler
-author: carmonmills
-manager: carmonm
-layout: LandingPage
 ms.service: scheduler
+author: derek1ee
+ms.author: estfan
+layout: LandingPage
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carmonm
-ms.openlocfilehash: ddf335d0c2b165ae98feab0b42e60527f87de59c
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 02/23/2020
+ms.openlocfilehash: 026d4590160d8292fed5e1a678715ac65fdbd859
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610342"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898618"
 ---
 # <a name="scheduler-documentation"></a>Documentação do Agendador
 
-Saiba como usar o Agendador para agendar e invocar automaticamente os trabalhos recorrentes na nuvem. Tutoriais, referências de API e outras documentações mostram como agendar e monitorar trabalhos como ações recorrentes de aplicativo e manutenção de rotina.
+> [!IMPORTANT]
+> Os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) estão substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar com os trabalhos que você já configurou no Agendador, [migre para os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rápido possível. 
+>
+> O Agendador não está mais disponível no portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e suas coleções de trabalhos.
+
+Saiba mais sobre como criar, agendar, executar, gerenciar e atualizar trabalhos recorrentes automatizados na nuvem. Tutoriais, referências de API e outras documentações mostram como agendar e monitorar trabalhos como ações recorrentes de aplicativo e manutenção de rotina.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -40,6 +44,24 @@ Saiba como usar o Agendador para agendar e invocar automaticamente os trabalhos 
         </a>
     </li>
     <li>
+        <a href="/azure/scheduler/migrate-from-scheduler-to-logic-apps">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Migrar do Agendador do Azure para Aplicativos Lógicos do Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
@@ -51,24 +73,6 @@ Saiba como usar o Agendador para agendar e invocar automaticamente os trabalhos 
                     </div>
                     <div class="cardText">
                         <h3>Biblioteca de vídeos do Agendador do Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/scheduler/scheduler-get-started-portal">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introdução ao Agendador do Azure</h3>
                     </div>
                 </div>
             </div>

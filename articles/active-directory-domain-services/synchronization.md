@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378498"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944428"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Como os objetos e as credenciais são sincronizados em um domínio gerenciado Azure AD Domain Services
 
@@ -38,7 +38,7 @@ O processo de sincronização é de uma forma/unidirecional por design. Não há
 
 A tabela a seguir lista alguns atributos comuns e como eles são sincronizados com o Azure AD DS.
 
-| Atributo no Azure AD DS | Origem | {1&gt;Observações&lt;1} |
+| Atributo no Azure AD DS | Fonte | Observações |
 |:--- |:--- |:--- |
 | UPN | Atributo *UPN* do usuário no locatário do Azure AD | O atributo UPN do locatário do Azure AD é sincronizado no estado em que se encontra para o Azure AD DS. A maneira mais confiável de entrar em um domínio gerenciado do Azure AD DS está usando o UPN. |
 | SAMAccountName | Atributo *mailNickname* do usuário no locatário do Azure ad ou gerado automaticamente | O atributo *sAMAccountName* é originado do atributo *mailNickname* no locatário do Azure AD. Se várias contas de usuário tiverem o mesmo atributo *mailNickname* , o *sAMAccountName* será gerado automaticamente. Se o prefixo de *mailNickname* ou *UPN* do usuário tiver mais de 20 caracteres, o *sAMAccountName* será gerado automaticamente para atender ao limite de 20 caracteres em atributos *sAMAccountName* . |
@@ -65,7 +65,7 @@ A tabela a seguir ilustra como os atributos específicos para objetos de usuári
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |título |
-| email |email |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (às vezes pode ser gerado automaticamente) |
 | Serviço Móvel |Serviço Móvel |
@@ -89,7 +89,7 @@ A tabela a seguir ilustra como os atributos específicos para objetos de grupo n
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName (às vezes pode ser gerado automaticamente) |
-| email |email |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
@@ -138,7 +138,7 @@ Para ambientes do Azure AD somente na nuvem, [os usuários devem redefinir/alter
 
 Para contas de usuário híbridos sincronizadas do ambiente de AD DS local usando Azure AD Connect, você deve [configurar Azure ad Connect para sincronizar hashes de senha nos formatos compatíveis com NTLM e Kerberos](tutorial-configure-password-hash-sync.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre as especificidades de sincronização de senha, consulte [como funciona a sincronização de hash de senha com Azure ad Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 

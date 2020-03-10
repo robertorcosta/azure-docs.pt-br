@@ -31,7 +31,7 @@ Este artigo mostra como usar a rede *CNI do Azure* para criar e usar uma sub-red
 
 Os clusters configurados com a rede CNI do Azure exigem planejamento adicional. O tamanho da rede virtual e da sub-rede deve acomodar o número de pods que você planeja executar e o número de nós do cluster.
 
-Endereços IP para os pods e os nós do cluster são atribuídos a partir da sub-rede especificada na rede virtual. Cada nó é configurado com um endereço IP primário. Por padrão, 30 endereços IP adicionais são pré-configurados pelo CNI do Azure e atribuídos a pods programados no nó. Quando você expandir o cluster, cada nó está configurado da mesma forma com endereços IP da sub-rede. Você também pode ver o [máximo de pods por nó](#maximum-pods-per-node).
+Endereços IP para os pods e os nós do cluster são atribuídos a partir da sub-rede especificada na rede virtual. Cada nó é configurado com um endereço IP primário. Por padrão, 30 endereços IP adicionais são pré-configurados pelo CNI do Azure e atribuídos a pods programados no nó. Quando você escalar horizontalmente o cluster, cada nó está configurado da mesma forma com endereços IP da sub-rede. Você também pode ver o [máximo de pods por nó](#maximum-pods-per-node).
 
 > [!IMPORTANT]
 > O número de endereços IP necessários deve incluir considerações para operações de atualização e dimensionamento. Se você definir o intervalo de endereços IP para dar suporte a apenas um número fixo de nós, você não pode atualizar ou dimensionar o cluster.

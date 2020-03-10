@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6f4457397f358d893a5735cc7401394adda8d62b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: ed51fb7589247b1a52930931ed297d4292b07ea6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605508"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921123"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando Python
 
@@ -22,7 +22,7 @@ ms.locfileid: "77605508"
 
 Neste início rápido, você usará o Python para criar de maneira programática um grupo de registro que usa certificados X.509 intermediários ou de AC raiz. Um grupo de registros controla o acesso ao serviço de provisionamento para dispositivos que compartilham um certificado de autenticação comum em sua cadeia de certificados. O grupo de registro é criado com o SDK do Serviço de Provisionamento do Python e um aplicativo Python de exemplo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 - Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -31,7 +31,7 @@ Neste início rápido, você usará o Python para criar de maneira programática
 - [Git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
-> Este artigo aplica-se apenas ao SDK do Python V1 preterido. Os clientes de dispositivo e serviço para o Serviço de Provisionamento de Dispositivos no Hub IoT ainda não estão disponíveis na V2. Atualmente, a equipe está empenhada no trabalho de levar a V2 à paridade de recursos.
+> Este artigo aplica-se apenas ao SDK do Python V1 preterido. Os clientes de dispositivo e serviço do Serviço de Provisionamento de Dispositivos no Hub IoT ainda não estão disponíveis na V2. Atualmente, a equipe está empenhada no trabalho de levar a V2 à paridade de recursos.
 
 ## <a name="prepare-test-certificates"></a>Preparar certificados de teste
 

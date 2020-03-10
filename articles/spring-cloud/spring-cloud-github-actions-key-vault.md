@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: efe8c1a2726054c54934926f652e338797d4efa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776541"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945480"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticar o Azure Spring Cloud com Key Vault em ações do GitHub
 O Key Vault é um local seguro para armazenar chaves. Os usuários corporativos precisam armazenar credenciais para ambientes de CI/CD no escopo que controlam. A chave para obter credenciais no cofre de chaves deve ser limitada ao escopo do recurso.  Ele tem acesso apenas ao escopo do cofre de chaves, não ao escopo do Azure inteiro. É como uma chave que só pode abrir uma caixa forte, e não uma chave mestra, que pode abrir todas as portas em um edifício. É uma maneira de obter uma chave com outra chave, que é útil em um fluxo de trabalho CICD. 
@@ -32,7 +32,6 @@ Com resultados:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -69,7 +68,6 @@ Novamente, os resultados:
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -110,5 +108,5 @@ jobs:
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Ações do GitHub do Spring Cloud](./spring-cloud-howto-github-actions.md)

@@ -4,12 +4,12 @@ description: Saiba como executar uma migração sem agente de VMs VMware com as 
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 79ba3f17b225357267cbd114659851614279bb7f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 825d6ff16a1f51fa476541ee10fea5f8a1c2972e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989358"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304201"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMs VMware para o Azure (sem agente)
 
@@ -41,7 +41,7 @@ Para decidir se deseja usar a migração sem agente ou baseada em agente, leia e
 - [Saiba como](server-migrate-overview.md) funciona a migração sem agente e [compare os métodos de migração](server-migrate-overview.md#compare-migration-methods).
 - [Leia este artigo](tutorial-migrate-vmware-agent.md) se desejar usar o método baseado em agente.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deverá:
 
@@ -248,7 +248,7 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 ## <a name="complete-the-migration"></a>Concluir a migração
 
-1. Depois que a migração for concluída, clique com o botão direito do mouse na VM > **Interromper migração**. Isso interromperá a replicação para o computador local e limpará as informações de estado da replicação da VM.
+1. Depois que a migração for concluída, clique com o botão direito do mouse na VM > **Interromper Replicação**. Isso interromperá a replicação para o computador local e limpará as informações de estado da replicação da VM.
 2. Instale o agente do [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou do [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) da VM do Azure nos computadores migrados.
 3. Execute todos os ajustes no aplicativo após a migração, como atualizar as cadeias de conexão de banco de dados e as configurações do servidor Web.
 4. Execute o aplicativo final e o teste de aceitação da migração no aplicativo migrado que está sendo executado no Azure.

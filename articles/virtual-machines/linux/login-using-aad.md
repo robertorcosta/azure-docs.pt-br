@@ -1,25 +1,18 @@
 ---
 title: Fazer logon em uma VM do Linux com credenciais de Azure Active Directory
 description: Saiba como criar e configurar uma VM do Linux para entrar usando Azure Active Directory autenticação.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eb303ecb5657e9312445093841cfa6c501efda18
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544609"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944807"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -113,7 +106,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-O *provisioningState* de *Succeeded* é mostrado depois que a extensão é instalada com êxito na VM.
+O *provisioningState* de *Succeeded* é mostrado depois que a extensão é instalada com êxito na VM. A VM precisa de um agente de VM em execução para instalar a extensão. Para obter mais informações, consulte [visão geral do agente de VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de função para a VM
 
@@ -215,6 +208,6 @@ Atualmente, os usuários que herdam direitos de acesso por grupos aninhados ou a
 
 Compartilhe seus comentários sobre este recurso de visualização ou informe problemas usando-o no [Fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

@@ -3,16 +3,16 @@ title: Administração do Portal do EA do Azure
 description: Este artigo explica as tarefas comuns que um administrador realiza no Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 79225d4dfe9e53da6936f8647c9f5a1dff0b4909
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598384"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301465"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -24,7 +24,7 @@ Os administradores corporativos têm mais privilégios ao gerenciar um registro 
 
 ## <a name="update-user-state-from-pending-to-active"></a>Atualizar estado do usuário de pendente para ativo
 
-Quando novos AOs (proprietários de conta) são adicionados a um registro de EA do Azure pela primeira vez, o status deles aparece como _pendente_. Quando um novo proprietário da conta receber o email de ativação de boas-vindas, ele poderá entrar para ativar a própria conta. Assim que ele ativa a própria conta, o status da conta é atualizado de _pendente_ para _ativo_. O proprietário da conta precisa ler a mensagem de 'Aviso' e clicar em **Continuar**. Pode ser solicitado de novos usuários que insiram o nome e sobrenome deles para criar uma conta de comércio. Nesse caso, eles devem adicionar as informações necessárias para continuar e, em seguida, a conta é ativada.
+Quando novos AOs (proprietários de conta) são adicionados a um registro de EA do Azure pela primeira vez, o status deles aparece como _pendente_. Quando um novo proprietário da conta receber o email de ativação de boas-vindas, ele poderá entrar para ativar a própria conta. Assim que ele ativa a própria conta, o status da conta é atualizado de _pendente_ para _ativo_. O proprietário da conta precisa ler a mensagem de 'Aviso' e selecionar **Continuar**. Pode ser solicitado de novos usuários que insiram o nome e sobrenome deles para criar uma conta de comércio. Nesse caso, eles precisam adicionar as informações necessárias para continuar e, em seguida, a conta é ativada.
 
 ## <a name="add-a-department-admin"></a>Adicionar um administrador de departamento
 
@@ -39,28 +39,28 @@ Os administradores corporativos podem associar contas existentes a Departamentos
 ### <a name="to-associate-an-account-to-a-department"></a>Para associar uma conta a um departamento
 
 1. Entre no Portal do EA do Azure como um administrador corporativo.
-1. Clique em **Gerenciar** na área de navegação à esquerda.
-1. Clique em **Departamento**.
-1. Passe o cursor do mouse sobre a linha com a Conta desejada e clique no ícone de lápis à direita.
-1. Escolha o Departamento desejado na lista suspensa.
-1. Clique em **Save** (Salvar).
+1. Selecione **Gerenciar** na área de navegação à esquerda.
+1. Selecione **Departamento**.
+1. Posicione o cursor sobre a linha com a conta e selecione o ícone de lápis à direita.
+1. Escolha o departamento no menu suspenso.
+1. Clique em **Salvar**.
 
 ## <a name="department-spending-quotas"></a>Cotas de gastos do departamento
 
-Os clientes do EA podem definir ou alterar cotas de gastos para cada departamento em um registro. O valor da cota de gastos é definido para o termo do compromisso atual. No final do atual termo de compromisso, o sistema estenderá a cota de gastos existente para o próximo termo de compromisso, a não ser que os valores sejam atualizados.
+Os clientes do EA podem definir ou alterar as cotas de gastos para cada departamento em um registro. O valor da cota de gastos é definido para o termo do compromisso atual. No final do atual termo de compromisso, o sistema estenderá a cota de gastos existente para o próximo termo de compromisso, a não ser que os valores sejam atualizados.
 
 O administrador do departamento pode exibir a cota de gastos, mas somente o administrador corporativo pode atualizar o valor da cota. O administrador corporativo e o administrador do departamento receberão notificações assim que a cota atingir 50%, 75%, 90% e 100%.
 
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Para o administrador corporativo definir a cota:
 
  1. Abra o Portal do EA do Azure.
- 1. Clique em **Gerenciar** na área de navegação à esquerda.
- 1. Clique na guia **Departamento**.
- 1. Clique no Departamento desejado.
- 1. Clique no ícone de lápis na seção Detalhes do Departamento ou clique no botão **+ Adicionar Departamento** para adicionar uma cota de gastos juntamente com um novo departamento.
- 1. Em Detalhes do Departamento, insira um valor para a cota de gastos na moeda do registro na caixa $ da Cota de Gastos (o valor deve ser maior do que 0).
+ 1. Selecione **Gerenciar** na área de navegação à esquerda.
+ 1. Selecione a guia **Departamento**.
+ 1. Selecione o Departamento.
+ 1. Selecione o símbolo de lápis na seção Detalhes do Departamento ou o símbolo **+ Adicionar Departamento** para adicionar uma cota de gastos juntamente com um novo departamento.
+ 1. Em Detalhes do Departamento, insira um valor para a cota de gastos na moeda do registro na caixa $ da Cota de Gastos (o valor precisa ser maior que 0).
     - As propriedades Nome do Departamento e Centro de Custo também podem ser editadas nesse momento.
- 1. Pressione **Salvar**.
+ 1. Clique em **Salvar**.
 
 A cota de gastos do departamento agora estará visível no modo de exibição Lista de Departamentos na guia Departamento. No final do compromisso atual, o Portal do EA do Azure manterá as cotas de gastos para o próximo termo de compromisso.
 
@@ -69,8 +69,8 @@ O valor da cota de departamento é independente do compromisso monetário atual 
 ### <a name="department-administrator-to-view-the-quota"></a>Para o administrador do departamento exibir a cota:
 
 1. Abra o Portal do EA do Azure.
-1. Clique em **Gerenciar** na área de navegação à esquerda.
-1. Clique na guia **Departamento** e mostre o modo de exibição Lista de departamentos com cotas de gastos.
+1. Selecione **Gerenciar** na área de navegação à esquerda.
+1. Selecione a guia **Departamento** e veja a exibição Lista de Departamentos com as cotas de gastos.
 
 Se você for um cliente indireto, os recursos de custos deverão ser habilitados pelo seu parceiro de canal.
 
@@ -88,44 +88,44 @@ Para saber mais sobre as funções de usuário, confira [Funções de usuário c
 
 ## <a name="add-an-azure-ea-account"></a>Adicionar uma conta de EA do Azure
 
-A conta de EA do Azure é uma unidade organizacional no Portal do EA do Azure que é usada para administrar assinaturas e também é usada para fazer relatórios. Para acessar e usar os serviços do Azure, é necessário que você crie uma conta ou que uma seja criada para você.
+A conta do EA do Azure é uma unidade organizacional no Portal do EA do Azure. Ela é usada para administrar assinaturas e também é usada para relatórios. Para acessar e usar os serviços do Azure, é necessário que você crie uma conta ou que uma seja criada para você.
 
 Para obter mais informações sobre as contas do Azure, confira Adicionar uma conta.
 
 ## <a name="enterprise-devtest-offer"></a>Oferta de Desenvolvimento/Teste Enterprise
 
-Como administrador corporativo do Azure, agora você pode permitir que os proprietários da conta na organização criem assinaturas com base na oferta Desenvolvimento/Teste do EA. Para fazer isso, marque a caixa Desenvolvimento/Teste desse proprietário no Portal do EA do Azure.
+Como administrador corporativo do Azure, agora você pode permitir que os proprietários da conta na sua organização criem assinaturas com base na oferta Desenvolvimento/Teste do EA. Para fazer isso, marque a caixa Desenvolvimento/Teste do proprietário da conta no Portal do EA do Azure.
 
-Depois de marcar a caixa Desenvolvimento/Teste, informe o proprietário da conta para que ele possa configurar as assinaturas de Desenvolvimento/Teste do EA necessárias para suas equipes de assinantes de Desenvolvimento/Teste.
+Depois de marcar a caixa Desenvolvimento/Teste, informe o proprietário da conta, de modo que ele possa configurar as assinaturas de Desenvolvimento/Teste do EA necessárias para as respectivas equipes de assinantes de Desenvolvimento/Teste.
 
-Essa oferta permite que assinantes ativos do Visual Studio executem cargas de trabalho de desenvolvimento e teste no Azure em taxas especiais de Desenvolvimento/Teste, com acesso à galeria completa de imagens de Desenvolvimento/Teste, incluindo Windows 8.1 e Windows 10.
+Essa oferta permite que os assinantes do Visual Studio executem cargas de trabalho de desenvolvimento e teste no Azure com taxas especiais de Desenvolvimento/Teste. Ela fornece acesso à galeria completa de imagens de Desenvolvimento/Teste, incluindo Windows 8.1 e Windows 10.
 
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Para configurar a oferta de Desenvolvimento/Teste Enterprise:
 
 1. Entre como administrador corporativo.
-1. Clique em **Gerenciar** na área de navegação à esquerda.
-1. Clique na guia **Conta**.
-1. Clique na linha da conta em que você gostaria de habilitar o acesso ao Desenvolvimento/Teste.
-1. Clique no ícone de lápis à direita da linha.
+1. Selecione **Gerenciar** na área de navegação à esquerda.
+1. Selecione a guia **Conta**.
+1. Selecione a linha da conta em que deseja habilitar o acesso ao Desenvolvimento/Teste.
+1. Selecione o símbolo de lápis à direita da linha.
 1. Marque a caixa de seleção Desenvolvimento/Teste.
-1. Pressione **Salvar**.
+1. Clique em **Salvar**.
 
 Quando um usuário é adicionado como um proprietário de conta por meio do Portal do EA do Azure, todas as assinaturas do Azure associadas ao proprietário da conta que se baseiam na oferta de Desenvolvimento/Teste do PAYG ou as ofertas de crédito mensal para assinantes do Visual Studio serão convertidas na oferta de Desenvolvimento/Teste do EA. As assinaturas baseadas em outros tipos de oferta, como PAYG, associadas ao Proprietário da Conta serão convertidas em ofertas do Microsoft Azure Enterprise.
 
-No momento, a oferta de Desenvolvimento/Teste não se aplica aos clientes do Azure Gov.
+No momento, a oferta de Desenvolvimento/Teste não é aplicável aos clientes do Azure Gov.
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferir uma conta empresarial para um novo registro
 
-Uma transferência de conta move um proprietário da conta de um registro para outro. Todas as assinaturas relacionadas no proprietário da conta serão movidas para o registro de destino. Isso é feito quando você tem vários registros ativos e só deseja mover os proprietários da conta selecionados.
+Uma transferência de conta move um proprietário da conta de um registro para outro. Todas as assinaturas relacionadas no proprietário da conta serão movidas para o registro de destino. Use uma transferência de conta quando tiver vários registros ativos e só desejar mover os proprietários da conta selecionados.
 
 Esta seção destina-se apenas a fins informativos, pois a ação não pode ser executada por um administrador corporativo. Uma solicitação de suporte é necessária para transferir uma conta empresarial para um novo registro.
 
 Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um novo registro:
 
 - Somente as contas especificadas na solicitação são transferidas. Se todas as contas forem escolhidas, elas serão todas transferidas.
-- O registro de origem retém o próprio status como ativo ou estendido. Você poderá continuar usando o registro até que ele expire.
+- O registro de origem mantém o status como ativo ou estendido. Você poderá continuar usando o registro até que ele expire.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 Ao solicitar uma transferência de conta, forneça as seguintes informações:
 
@@ -139,7 +139,7 @@ Outros pontos para ter em mente antes de uma transferência de conta:
 - A transferência de conta transfere todos os serviços e assinaturas relacionados às contas específicas.
 - Depois que a transferência for concluída, a conta transferida aparecerá inativa no registro de origem e aparecerá ativa no registro de destino.
 - A conta mostra a data de término correspondente à data de transferência efetiva no registro de origem e como uma data de início no registro de destino.
-- Qualquer uso ocorrido para a conta antes da data de transferência efetiva permanece sob o registro de origem.
+- Qualquer uso ocorrido para a conta antes da data de transferência efetiva permanece no registro de origem.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferir Registro Enterprise para um novo registro
@@ -148,7 +148,7 @@ Uma transferência de registro é considerada quando:
 
 - O termo de compromisso de um registro atual chegou ao fim.
 - Um registro está no status expirado/estendido e um novo contrato é negociado.
-- Se você tiver vários registros e desejar consolidar todas as contas e a cobrança em um só registro.
+- Você tem vários registros e deseja combinar todas as contas e a cobrança em um só registro.
 
 Esta seção destina-se apenas a fins informativos, pois a ação não pode ser executada por um administrador corporativo. Uma solicitação de suporte é necessária para transferir um Registro Enterprise para um novo.
 
@@ -158,8 +158,8 @@ Quando você solicita a transferência de um Registro Enterprise inteiro para um
 - O status do registro é definido como _Transferido_. O registro transferido está disponível apenas para fins de relatório de uso histórico.
 - Você não pode adicionar funções nem assinaturas a um registro transferido. O status de transferido impede o uso adicional em relação ao registro.
 - Qualquer saldo de compromisso monetário restante no contrato é perdido, incluindo termos futuros.
--   Se o registro do qual você está transferindo tiver compras de RI, o valor de compra de RI permanecerá no registro de origem, no entanto, todos os benefícios de RI serão transferidos para serem utilizados no novo registro.
--   O valor avulso de compra do Marketplace e todos os valores fixos mensais já incorridos no registro antigo não serão transferidos para o novo registro. As cobranças do Marketplace baseadas no consumo serão transferidas.
+-    Se o registro do qual você está fazendo a transferência tiver compras de RI, o valor de compra de RI permanecerá no registro de origem. No entanto, todos os benefícios de RI serão transferidos para serem utilizados no novo registro.
+-    O valor avulso de compra do Marketplace e todos os valores fixos mensais já incorridos no registro antigo não serão transferidos para o novo registro. As cobranças do Marketplace baseadas no consumo serão transferidas.
 
 ### <a name="effective-transfer-date"></a>Data de início de vigência da transferência
 
@@ -167,7 +167,7 @@ A data de efetivação da transferência pode ser a data de início do registro 
 
 O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 Ao solicitar uma transferência de registro, forneça as seguintes informações:
 
@@ -195,7 +195,7 @@ O Portal do EA do Azure pode transferir assinaturas de um proprietário de conta
 
 ## <a name="subscription-transfer-effects"></a>Efeitos da transferência de assinatura
 
-Quando uma assinatura do Azure é transferida para uma conta no mesmo locatário do Azure Active Directory, todos os usuários, grupos e entidades de serviço que tinham [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos na assinatura retêm os respectivos acessos.
+Quando uma assinatura do Azure é transferida para uma conta no mesmo locatário do Azure Active Directory, todos os usuários, os grupos e as entidades de serviço que tinham o [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos mantêm o respectivo acesso.
 
 Para exibir os usuários com acesso RBAC à assinatura:
 
@@ -209,33 +209,35 @@ Se a assinatura for transferida para uma conta em um locatário diferente do Azu
 - Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
 - Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
-Se o destinatário precisar restringir o acesso a seus recursos do Azure, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
+Se o destinatário precisar restringir o acesso aos respectivos recursos do Azure, ele deverá considerar a possibilidade de atualizar os segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, selecione **Todos os recursos**.
 3. Selecione o recurso.
-4. Na página de recursos, clique em **Configurações** para exibir e atualizar os segredos existentes.
+4. Na página de recursos, selecione **Configurações** para ver e atualizar os segredos existentes.
 
 ## <a name="delete-subscription"></a>Excluir assinatura
 
-Para excluir uma assinatura em que você é o proprietário da conta:
+Para excluir uma assinatura na qual você seja o proprietário da conta:
 
 1. Entre no portal do Azure com as credenciais associadas a sua conta.
 1. No menu Hub, selecione **Assinaturas**.
-1. Na guia de assinaturas no canto superior esquerdo da página, escolha a assinatura que você deseja cancelar e clique em **Cancelar Assinatura** para iniciar a guia de cancelamento.
-1. Insira o nome da assinatura, escolha um motivo para o cancelamento e clique no botão **Cancelar Assinatura**.
+1. Na guia de assinaturas no canto superior esquerdo da página, escolha a assinatura que deseja cancelar e selecione **Cancelar Assinatura** para iniciar a guia de cancelamento.
+1. Insira o nome da assinatura, escolha um motivo para o cancelamento e selecione o botão **Cancelar Assinatura**.
 
-Observe que somente administradores das contas podem cancelar assinaturas.
+Só os administradores das contas podem cancelar assinaturas.
+
+Para obter mais informações, confira [O que acontecerá depois que eu cancelar minha assinatura?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
 
 ## <a name="delete-an-account"></a>Excluir uma conta
 
 A remoção da conta só poderá ser concluída para contas ativas sem assinaturas ativas.
 
-1. No Enterprise Portal, escolha **Gerenciar** na área de navegação à esquerda.
-1. Clique na guia **Conta**.
+1. No Enterprise Portal, escolha **Gerenciar** no painel de navegação à esquerda.
+1. Selecione a guia **Conta**.
 1. Na tabela Contas, escolha a conta que você deseja excluir.
-1. Clique no ícone X à direita da linha Conta.
-1. Quando não houver assinaturas ativas na conta, clique no botão **Sim** na linha Conta para confirmar a remoção da Conta.
+1. Selecione o símbolo X à direita da linha Conta.
+1. Quando não houver assinaturas ativas na conta, selecione **Sim** na linha Conta para confirmar a remoção da Conta.
 
 ## <a name="update-notification-settings"></a>Atualizar configurações de notificação
 
@@ -251,37 +253,37 @@ Para exibir as configurações de notificações atuais:
 
 Para adicionar um contato:
 
-1. Clique em **+ Adicionar Contato**.
+1. Selecione **+Adicionar Contato**.
 2. Insira o endereço de email e depois confirme-o.
-3. Clique em **Save** (Salvar).
+3. Clique em **Salvar**.
 
-O novo contato de notificação é exibido na seção **Contato de Notificação**. Para alterar a frequência de notificação, selecione o contato de notificação e clique no símbolo de lápis à direita da linha selecionada. Defina a frequência como **diária**, **semanal**, **mensal** ou **nenhuma**.
+O novo contato de notificação é exibido na seção **Contato de Notificação**. Para alterar a frequência de notificação, selecione o contato de notificação e selecione o símbolo de lápis à direita da linha selecionada. Defina a frequência como **diária**, **semanal**, **mensal** ou **nenhuma**.
 
 Você pode suprimir a _data de término do período de cobertura_ e _desabilitar e desprovisionar as notificações de data de término do ciclo de vida se aproximando_. Desabilitar as notificações de ciclo de vida suprime as notificações sobre o período de cobertura e a data de término do contrato.
 
 ## <a name="manage-partner-administrators"></a>Gerenciar administradores parceiros
 
-Cada administrador parceiro no Portal do EA do Azure tem a capacidade de adicionar ou remover outros administradores parceiros. Os administradores parceiros estão associados às organizações parceiras de registros indiretos e não estão associados diretamente aos registros.
+Cada administrador parceiro no Portal do EA do Azure tem a capacidade de adicionar ou remover outros administradores parceiros. Os administradores de parceiros estão associados às organizações de parceiros de registros indiretos e não estão associados diretamente aos registros.
 
 ### <a name="add-a-partner-administrator"></a>Adicionar um administrador parceiro
 
-Para exibir uma lista de todos os registros associados à mesma organização parceira como o usuário atual, clique na guia **Registro** e marque a caixa de registro desejada.
+Para ver uma lista de todos os registros associados à mesma organização de parceiro do usuário atual, selecione a guia **Registro** e marque a caixa de registro desejada.
 
 1. Entre como um administrador parceiro.
-1. Clique em **Gerenciar** na área de navegação à esquerda.
-1. Clique na guia **Parceiro**.
-1. Clique em **+ Adicionar Administrador** e preencha o endereço de email, o contato da notificação e os detalhes da notificação.
-1. Pressione **Adicionar**.
+1. Selecione **Gerenciar** na área de navegação à esquerda.
+1. Selecione a guia **Parceiro**.
+1. Selecione **+ Adicionar Administrador** e preencha o endereço de email, o contato da notificação e os detalhes da notificação.
+1. Selecione **Adicionar**.
 
 ### <a name="remove-a-partner-administrator"></a>Remover um administrador parceiro
 
-Para exibir uma lista de todos os registros associados à mesma organização parceira como o usuário atual, clique na guia **Registro** e marque a caixa de registro desejada.
+Para ver uma lista de todos os registros associados à mesma organização de parceiro do usuário atual, selecione a guia **Registro** e marque a caixa de registro desejada.
 
 1. Entre como um administrador parceiro.
-1. Clique em **Gerenciar** na área de navegação à esquerda.
-1. Clique na guia **Parceiro**.
+1. Selecione **Gerenciar** na área de navegação à esquerda.
+1. Selecione a guia **Parceiro**.
 1. Na seção Administrador, escolha a linha apropriada para o administrador que você deseja remover.
-1. Pressione o ícone X à direita.
+1. Selecione o símbolo X à direita.
 1. Confirme se você deseja excluir.
 
 ## <a name="manage-partner-notifications"></a>Gerenciar notificações de parceiro
@@ -291,12 +293,12 @@ Os administradores parceiros podem gerenciar a frequência com que recebem notif
 Se uma notificação não tiver sido recebida por um usuário, verifique se as configurações de notificação do usuário estão corretas com as etapas a seguir.
 
 1. Entrar no Portal do EA do Azure como um administrador parceiro.
-2. Clique em **Gerenciar** e, em seguida, clique na guia **Parceiro**.
+2. Selecione **Gerenciar** e, em seguida, selecione a guia **Parceiro**.
 3. Exiba a lista de administradores na seção Administrador.
-4. Para editar as preferências de notificação, passe o mouse sobre o administrador apropriado e clique no símbolo de lápis.
+4. Para editar as preferências de notificação, posicione o cursor sobre o administrador apropriado e selecione o símbolo de lápis.
 5. Aumente a frequência de notificação e as notificações de ciclo de vida conforme necessário.
-6. Adicione um contato se necessário e clique em **Adicionar**.
-7. Clique em **Save** (Salvar).
+6. Adicione um contato, se necessário, e selecione **Adicionar**.
+7. Clique em **Salvar**.
 
 ![Exemplo mostrando a caixa Adicionar Contato ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
 
@@ -307,15 +309,15 @@ Os administradores parceiros podem ver um modo de exibição de lista de todos o
 ### <a name="view-a-list-of-enrollments"></a>Exibir uma Lista de registros
 
 1. Entre como um administrador parceiro.
-1. Clique em **Gerenciar** no painel de navegação no lado esquerdo da página.
-1. Clique na guia **Registro**.
-1. Marque a caixa com o registro desejado.
+1. Selecione **Gerenciar** no painel de navegação no lado esquerdo da página.
+1. Selecione a guia **Registro**.
+1. Marque a caixa do registro.
 
-Uma exibição de todos os registros é mantida na parte superior da página e apresenta caixas para cada registro. Além disso, você pode navegar pelos registros clicando no número de registro atual na navegação do lado esquerdo da página. Um pop-out será exibido permitindo que você pesquise registros ou escolha um registro diferente clicando na caixa apropriada.
+Uma exibição de todos os registros é mantida na parte superior da página e apresenta caixas para cada registro. Além disso, você pode navegar pelos registros selecionando o número de registro atual na navegação do lado esquerdo da página. Um pop-up será exibido, permitindo que você pesquise registros ou escolha outro registro marcando a caixa apropriada.
 
 ## <a name="azure-sponsorship-offer"></a>Oferta do Azure Sponsorship
 
-A oferta do Azure Sponsorship é uma conta Microsoft Azure limitada patrocinada. Ela está disponível via convite por email, somente para clientes limitados selecionados pela Microsoft. Se estiver qualificado para a oferta do Microsoft Azure Sponsorship, você receberá um convite por email para aceitar a oferta para sua ID de conta.
+A oferta do Azure Sponsorship é uma conta Microsoft Azure limitada patrocinada. Ela está disponível como um convite por email, somente para clientes limitados selecionados pela Microsoft. Se estiver qualificado para a oferta do Microsoft Azure Sponsorship, você receberá um convite por email para aceitar a oferta para sua ID de conta.
 
 Para saber mais, crie uma [solicitação de suporte para a ativação do patrocínio](https://aka.ms/azrsponsorship).
 
@@ -326,7 +328,7 @@ Os usuários do Azure Enterprise podem converter de um tipo de autenticação de
 Para começar:
 
 1. adicione a conta corporativa ou de estudante ao Portal do EA do Azure na função necessária.
-1. Se receber erros, é possível que a conta não seja válida no Active Directory.  O Azure usa o UPN (nome principal do usuário), que nem sempre é idêntico ao endereço de email.
+1. Se receber erros, é possível que a conta não seja válida no Active Directory.  O Azure usa o nome UPN, que nem sempre é idêntico ao endereço de email.
 1. Autentique-se no portal do EA do Azure usando a conta corporativa ou de estudante.
 
 ### <a name="to-convert-subscriptions-from-microsoft-accounts-to-work-or-school-accounts"></a>Para converter subscrições de contas Microsoft em contas corporativas ou de estudante:
@@ -346,7 +348,7 @@ Somente um proprietário de conta é permitido por assinatura.  Mais funções p
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Um proprietário de conta do Azure pode ser listado em mais de um departamento?
 
-Um proprietário de conta só pode estar associado a um único departamento.  A intenção é garantir o monitoramento preciso e a repartição dos custos/gastos associados ao departamento ao qual o proprietário está alinhado no registro do EA no Portal do EA do Azure
+Não. Um proprietário da conta só pode estar associado a um departamento individual. A política ajuda a garantir o monitoramento preciso e a repartição dos custos e dos gastos associados ao departamento ao qual o proprietário está alinhado no registro do EA no Portal do EA do Azure.
 
 ### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Um proprietário de conta do Azure pode ser listado como um grupo de segurança?
 
@@ -356,13 +358,13 @@ Não, um proprietário de assinatura deve ser uma autenticação exclusiva da co
 
 Um proprietário de conta do Azure pode criar e gerenciar um número ilimitado de assinaturas.
 
-### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Como posso acessar/exibir todas as assinaturas da minha organização?
+### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Como posso acessar/ver todas as assinaturas da minha organização?
 
 Atualmente, isso deve ser feito pela política, ou seja, você precisará exigir que, para cada assinatura criada, sua conta seja adicionada a uma função de assinatura por meio do acesso baseado em função.
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Onde posso criar uma assinatura?
 
-Antes de criar uma assinatura de oferta do Azure Enterprise (EA), sua conta deve ser adicionada à função de proprietário da conta pelo administrador do registro do EA no Portal do EA do Azure. Em seguida, você precisará entrar no Portal do EA do Azure para obter o direito de criar assinaturas do tipo de oferta do EA. Recomendamos que sua primeira assinatura do EA seja criada a partir do link '+ Adicionar Assinatura' na guia de assinaturas no Portal do EA.  No entanto, depois que a conta estiver autorizada, é provável que fique mais fácil criar assinaturas em portal.azure.com na guia de assinaturas no canto superior esquerdo da página. Lá, você poderá criar e renomear sua assinatura em uma única etapa.
+Antes de criar uma assinatura de oferta do Azure Enterprise (EA), sua conta precisará ser adicionada à função de proprietário da conta pelo administrador do registro do EA no Portal do EA do Azure. Em seguida, você precisará entrar no Portal do EA do Azure para obter o direito de criar assinaturas do tipo de oferta do EA. Recomendamos que a sua primeira assinatura do EA seja criada por meio do link '+ Adicionar Assinatura' na guia de assinaturas no Portal do EA.  No entanto, depois que a conta estiver autorizada, é provável que fique mais fácil criar assinaturas em portal.azure.com na guia de assinaturas no canto superior esquerdo da página. Lá, você poderá criar e renomear sua assinatura em uma única etapa.
 
 ### <a name="who-can-create-a-subscription"></a>Quem pode criar uma assinatura?
 

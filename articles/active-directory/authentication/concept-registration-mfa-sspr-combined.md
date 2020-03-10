@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/06/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425337"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942885"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinadas (versão prévia)
 
@@ -57,7 +57,8 @@ O registro combinado dá suporte aos seguintes métodos e ações de autenticaç
 | Telefone comercial | Não | Não | Não |
 | Email | Sim | Sim | Sim |
 | Perguntas de segurança | Sim | Não | Sim |
-| Senhas do aplicativo | Sim | Não | Sim |
+| Senhas de aplicativo | Sim | Não | Sim |
+| Chaves de segurança do FIDO2<br />*Modo gerenciado somente da página [informações de segurança](https://mysignins.microsoft.com/security-info)*| Sim | Sim | Sim |
 
 > [!NOTE]
 > As senhas de aplicativo estão disponíveis somente para usuários que foram impostos para a autenticação multifator. As senhas de aplicativo não estão disponíveis para usuários que estão habilitados para autenticação multifator por meio de uma política de acesso condicional.
@@ -136,7 +137,7 @@ Um usuário que configurou anteriormente pelo menos um método navega para [http
 
 Um usuário que configurou anteriormente pelo menos um método que pode ser usado para a autenticação multifator navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O usuário altera o método padrão atual para um método padrão diferente. Quando terminar, o usuário verá o novo método padrão na página informações de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Forçar os usuários a registrar novamente os métodos de autenticação](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 

@@ -4,12 +4,12 @@ description: Saiba como usar o plugin Jenkins do Serviço de Aplicativo do Azure
 keywords: jenkins, azure, devops, serviço de aplicativo
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158524"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251453"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins 
 
@@ -67,7 +67,7 @@ Para implantar seu projeto em Aplicativos Web, você pode carregar seus artefato
 Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço de Aplicativo do Azure e de um aplicativo Web para executar o aplicativo Java.
 
 
-1. Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando o [ `az appservice plan create`comando de CLI do Azure](/cli/azure/appservice/plan#az-appservice-plan-create). O plano do Serviço de Aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um Plano do Serviço de Aplicativo compartilham esses recursos. Recursos compartilhados o ajudam a economizar nos custos ao hospedar vários aplicativos.
+1. Crie um Plano do Serviço de Aplicativo do Azure com o tipo de preço **GRATUITO** usando o [comando da CLI do Azure](/cli/azure/appservice/plan#az-appservice-plan-create) `az appservice plan create`. O plano do Serviço de Aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um Plano do Serviço de Aplicativo compartilham esses recursos. Recursos compartilhados o ajudam a economizar nos custos ao hospedar vários aplicativos.
 2. Crie um aplicativo Web. Você pode usar o [portal do Azure](/azure/app-service/configure-common) ou o seguinte comando da CLI do Azure `az`:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -207,10 +207,13 @@ Para o valor de **URL de registro de Docker**, forneça a URL usando o formato h
 ### <a name="for-azure-app-service-on-linux"></a>Para Serviço de Aplicativo do Azure no Linux
 
 1. Para verificar seu aplicativo web, execute o seguinte comando na CLI do Azure:
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     A seguinte mensagem é exibida:
+    
     ```CLI
     ["calculator"]
     ```
@@ -231,7 +234,7 @@ Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIR
 
 Neste tutorial, você usou o plugin do Jenkins do Serviço de Aplicativo do Azure para implantar no Azure.
 
-Você aprendeu como:
+Você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar Jenkins para implantar o Serviço de Aplicativo do Azure por meio de upload de arquivo 

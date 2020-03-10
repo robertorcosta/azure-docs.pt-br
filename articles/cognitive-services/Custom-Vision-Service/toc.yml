@@ -57,6 +57,8 @@
       href: test-your-model.md
     - name: Melhorar o seu classificador
       href: getting-started-improving-your-classifier.md
+    - name: Selecionar um domínio
+      href: select-domain.md
     - name: Use a API de previsão
       href: use-prediction-api.md
     - name: Usar o Rotulador Inteligente

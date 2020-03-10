@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 3aa1190fb713c2fbdedcb1ce84a65d4263693827
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315826"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942542"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desenvolver um C# módulo IOT Edge para mover arquivos em data Box Edge
 
@@ -21,7 +21,7 @@ Este artigo instrui sobre a criação de um módulo do IoT Edge para implantaç�
 
 Você pode usar os módulos do Azure IoT Edge com seu Data Box Edge para transformar os dados conforme eles são transferidos para o Azure. O módulo usado neste artigo implementa a lógica para copiar um arquivo de um compartilhamento local para um compartilhamento na nuvem em seu dispositivo Data Box Edge.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um registro de contêiner para armazenar e gerenciar seus módulos (imagens do Docker).
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="about-the-iot-edge-module"></a>Sobre o módulo do IoT Edge
 
-Seu dispositivo Data Box Edge pode implantar e executar módulos do IoT Edge. Os módulos do Microsoft Edge são, essencialmente, contêineres do Microsoft Docker que executam uma tarefa específica, por exemplo, ingerir uma mensagem de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, você criará um módulo que copia arquivos de um compartilhamento local para um compartilhamento na nuvem em seu dispositivo do Data Box Edge.
+Seu dispositivo Data Box Edge pode implantar e executar módulos do IoT Edge. Os módulos do Edge são, essencialmente, contêineres do Docker que executam uma tarefa específica, por exemplo, ingerir uma mensagem de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, você criará um módulo que copia arquivos de um compartilhamento local para um compartilhamento na nuvem em seu dispositivo do Data Box Edge.
 
 1. Os arquivos são gravados no compartilhamento local em seu dispositivo Data Box Edge.
 2. O gerador de evento de arquivo cria um evento de arquivo para cada arquivo gravado no compartilhamento local. Os eventos de arquivo também são gerados quando um arquivo é modificado. Depois, os eventos de arquivo são enviados ao Hub IoT Edge (no runtime do IoT Edge).
@@ -53,7 +53,7 @@ Antes de começar, verifique se você tem:
 - Os seguintes recursos de desenvolvimento:
 
     - [Visual Studio Code](https://code.visualstudio.com/).
-    - [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+    - [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Extensão do Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
     - [SDK do .NET Core 2.1](https://www.microsoft.com/net/download).
     - [CE do Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows). Talvez você precise criar uma conta para baixar e instalar o software.
@@ -92,8 +92,8 @@ As etapas a seguir criam um projeto de módulo do IoT Edge com base no SDK do .N
 Crie um modelo de solução de C# que possa ser personalizado com seu próprio código.
 
 1. No Visual Studio Code, selecione **Exibir > Paleta de Comandos** para abrir a paleta de comandos do VS Code.
-2. Na paleta de comandos, insira e execute o comando **Azure: Entrar** e siga as instruções para entrar na conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
-3. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução:
+2. Na paleta de comandos, insira e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
+3. Na paleta de comandos, insira e execute o comando **Azure IoT Edge: nova solução IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução:
 
     1. Selecione a pasta na qual deseja criar a solução.
     2. Forneça um nome para a solução ou aceite o padrão **EdgeSolution**.
@@ -270,7 +270,7 @@ Na seção anterior, você criou uma solução do IoT Edge e adicionou o código
 
     Talvez você veja o seguinte aviso, mas pode ignorá-lo:
 
-    *Program.cs(77,44): aviso CS1998: O método assíncrono não possui operadores 'await' e será executado de forma síncrona. É recomendável o uso do operador "await" para aguardar chamadas à API desbloqueadas ou do operador "await Task.Run(...)" para realizar um trabalho associado à CPU em um thread em segundo plano.*
+    *Program. cs (77, 44): aviso CS1998: esse método assíncrono não tem operadores ' Await ' e será executado de forma síncrona. Considere o uso do operador ' Await ' para aguardar chamadas de API que não sejam de bloqueio ou ' aguardar tarefa. executar (...) ' para fazer o trabalho associado à CPU em um thread em segundo plano.*
 
 4. Você pode conferir o endereço de imagem de contêiner completo com marca no terminal integrado do VS Code. O endereço da imagem é criado a partir de informações que estão no arquivo module.json com o formato `<repository>:<version>-<platform>`. Para este artigo, ele deve se parecer com `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 

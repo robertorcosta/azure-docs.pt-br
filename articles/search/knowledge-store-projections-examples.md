@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: daaedf346bed78a93e0762a37687b623d25ef753
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77441962"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943673"
 ---
 # <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Projeções da loja de conhecimento: como formatar e exportar aprimoramentos
 
@@ -671,7 +671,13 @@ Ao definir uma projeção, há alguns problemas comuns que podem causar resultad
 
 Os exemplos neste artigo demonstram padrões comuns de como criar projeções. Agora que você tem uma boa compreensão dos conceitos, está mais bem equipado para criar projeções para seu cenário específico.
 
-À medida que você itera as definições da loja de conhecimento, considere o enriquecimento incremental como a próxima etapa. O aprimoramento incremental se baseia no cache, o que permite reutilizar os aprimoramentos que não são afetados de outra forma por uma modificação do Configurador de habilidades. Isso é especialmente útil para pipelines que incluem a análise de OCR e imagem.
+Ao explorar novos recursos, considere o aprimoramento incremental como a próxima etapa. O aprimoramento incremental se baseia no cache, o que permite reutilizar os aprimoramentos que não são afetados de outra forma por uma modificação do Configurador de habilidades. Isso é especialmente útil para pipelines que incluem a análise de OCR e imagem.
 
 > [!div class="nextstepaction"]
 > [Introdução ao Caching e enriquecimento incremental](cognitive-search-incremental-indexing-conceptual.md)
+
+Para obter uma visão geral das projeções, saiba mais sobre os recursos como grupos e fatias e como [defini-los em um](knowledge-store-projection-overview.md) tipo de habilidade
+
+> [!div class="nextstepaction"]
+> [Projeções em uma loja de conhecimento](knowledge-store-projection-overview.md)
+

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1b52d9b7eb60483da91f87435ace1994d91b1039
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7018100c830f22c3ed5e924b5096911b1f8135cb
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665834"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942317"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -154,7 +154,7 @@ Alguns exemplos incluem:
         task='classification',
         primary_metric='AUC_weighted',
         experiment_timeout_minutes=30,
-        blacklist_models='XGBoostClassifier',
+        blacklist_models=['XGBoostClassifier'],
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
@@ -165,7 +165,7 @@ Alguns exemplos incluem:
     automl_regressor = AutoMLConfig(
         task='regression',
         experiment_timeout_minutes=60,
-        whitelist_models='kNN regressor'
+        whitelist_models=['kNN regressor'],
         primary_metric='r2_score',
         training_data=train_data,
         label_column_name=label,
@@ -195,7 +195,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 Ao configurar seus experimentos, você pode habilitar a configuração avançada `featurization`. A tabela a seguir mostra as configurações aceitas para personalização na [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
-|Configuração do personalização | Descrição |
+|Configuração do personalização | DESCRIÇÃO |
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que a etapa personalização personalizada deve ser usada. [Saiba como personalizar o personalização](how-to-configure-auto-train.md#customize-feature-engineering).|
 |`"featurization": 'off'`| Indica que a etapa personalização não deve ser feita automaticamente.|
@@ -521,7 +521,7 @@ Consulte o [instruções](how-to-machine-learning-interpretability-automl.md) pa
 
 Para obter informações gerais sobre como as explicações de modelo e a importância dos recursos podem ser habilitadas em outras áreas do SDK fora do aprendizado de máquina automatizado, consulte o artigo [conceito](how-to-machine-learning-interpretability.md) sobre interpretação.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [como e onde implantar um modelo](how-to-deploy-and-where.md).
 

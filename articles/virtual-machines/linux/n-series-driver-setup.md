@@ -2,25 +2,19 @@
 title: Instalação do driver de GPU da série N do Azure para Linux
 description: Como configurar drivers NVIDIA GPU para VMs da série N que executam o Linux no Azure
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035618"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944569"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -359,7 +353,7 @@ fi
 
 Em seguida, crie uma entrada para o seu script de atualização em `/etc/rc.d/rc3.d` para que o script seja invocado como raiz na inicialização.
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 * Você pode definir o modo de persistência usando `nvidia-smi`, de modo que o resultado do comando seja mais rápido quando você precisar consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que, se a VM for reiniciada, a configuração do modo desaparecerá. Você sempre pode gerar um script da configuração de modo para ser executada na inicialização.
 * Se você tiver atualizado os drivers NVIDIA CUDA para a versão mais recente e encontrar o RDMA connectivcity não estiver mais funcionando, [reinstale os drivers RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) em reistablish com conectividade. 

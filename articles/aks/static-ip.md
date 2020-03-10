@@ -3,13 +3,13 @@ title: Usar um endereço IP estático e um rótulo DNS com o balanceador de carg
 description: Saiba como criar e usar um endereço IP estático com o balanceador de carga do AKS (Serviço de Kubernetes do Azure).
 services: container-service
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: d5177494ecdd112342b2cd719e9305bfab97902c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/09/2020
+ms.openlocfilehash: 32889dbbcafd9510f8d04cb9c602d4802c6d1a1a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593590"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943577"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar um endereço IP público estático e um rótulo DNS com o balanceador de carga do AKS (serviço de kubernetes do Azure)
 
@@ -67,7 +67,7 @@ Antes de criar um serviço, verifique se a entidade de serviço usada pelo clust
 ```azurecli-interactive
 az role assignment create \
     --assignee <SP Client ID> \
-    --role "Contributor" \
+    --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 

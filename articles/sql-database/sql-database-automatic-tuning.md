@@ -34,7 +34,7 @@ O ajuste automático de Banco de Dados SQL do Azure pode ser um dos recursos mai
 - Histórico de ajuste
 - Ajuste dos scripts do T-SQL de ação para implantações manuais
 - Monitoramento do desempenho de carga de trabalho proativa
-- Capacidade de expansão em centenas de milhares de bancos de dados
+- Capacidade de escala horizontal em centenas de milhares de bancos de dados
 - Impacto positivo nos recursos de DevOps e no custo total de propriedade
 
 ## <a name="safe-reliable-and-proven"></a>Seguro, confiável e comprovado

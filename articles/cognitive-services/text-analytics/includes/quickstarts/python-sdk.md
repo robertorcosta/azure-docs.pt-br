@@ -2,14 +2,14 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/14/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: b553cd2bed68bc8df7241f4f843b32ec13b1a08a
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 8e3f08be70a2a6b932b849ff28dd762828abf229
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77372204"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155475"
 ---
 <a name="HOLTop"></a>
 
@@ -23,12 +23,13 @@ ms.locfileid: "77372204"
 
 ---
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. 
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Você fará isso posteriormente no início rápido.
+    * Você pode usar o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configurando
 

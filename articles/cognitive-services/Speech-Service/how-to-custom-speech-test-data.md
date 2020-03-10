@@ -3,19 +3,19 @@ title: Preparar dados de teste para o serviço de Fala Personalizada-fala
 titleSuffix: Azure Cognitive Services
 description: Ao testar a precisão do reconhecimento de fala da Microsoft ou treinar seus modelos personalizados, você precisará de dados de áudio e texto. Nesta página, abordamos os tipos de dados, como usá-los e gerenciá-los.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: 6100ac6a6b01a7d0eac74b0e83539bf4e671cb89
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 03/09/2020
+ms.author: dapine
+ms.openlocfilehash: 969c1450966d2754e6e8f00126da52a1e88181fc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660402"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942699"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -55,22 +55,24 @@ Os dados de áudio são ideais para testar a precisão do modelo de fala-para-te
 
 Use esta tabela para garantir que os arquivos de áudio estejam formatados corretamente para uso com Fala Personalizada:
 
-| Propriedade | Valor |
-|----------|-------|
-| Formato de arquivo | RIFF (WAV) |
-| Taxa de amostragem | 8\.000 Hz ou 16.000 Hz |
-| Canais | 1 (mono) |
-| Comprimento máximo por áudio | 2 horas |
-| Formato de exemplo | PCM, 16 bits |
-| Formato de arquivo | .zip |
-| Tamanho máximo de arquivo | 2 GB |
+| Propriedade                 | Valor                 |
+|--------------------------|-----------------------|
+| Formato de arquivo              | RIFF (WAV)            |
+| Taxa de amostragem              | 8\.000 Hz ou 16.000 Hz |
+| Canais                 | 1 (mono)              |
+| Comprimento máximo por áudio | 2 horas               |
+| Formato de exemplo            | PCM, 16 bits           |
+| Formato de arquivo           | .zip                  |
+| Tamanho máximo de arquivo     | 2 GB                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
 > Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Se você precisar de mais dados para treinamento, divida-os em vários arquivos. zip e carregue-os separadamente. Posteriormente, você pode optar por treinar a partir de *vários* conjuntos de valores. No entanto, você só pode testar a partir de um *único* conjunto de uma.
 
 Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> Sox</a> para verificar as propriedades de áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando SoX:
 
-| Atividade | Description | Comando SoX |
+| Atividade | DESCRIÇÃO | Comando SoX |
 |----------|-------------|-------------|
 | Verificar o formato de áudio | Use este comando para verificar<br>o formato do arquivo de áudio. | `sox --i <filename>` |
 | Converter formato de áudio | Use este comando para converter<br>o arquivo de áudio para um único canal, 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -79,18 +81,20 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span 
 
 Para medir a precisão da precisão de fala para texto da Microsoft ao processar seus arquivos de áudio, você deve fornecer transcrições com rótulo humano (palavra por palavra) para comparação. Embora a transcrição com rótulo humano sempre seja demorada, é necessário avaliar a precisão e treinar o modelo para seus casos de uso. Tenha em mente que os aprimoramentos no reconhecimento serão tão bons quanto os dados fornecidos. Por esse motivo, é importante que apenas transcrições de alta qualidade sejam carregadas.
 
-| Propriedade | Valor |
-|----------|-------|
-| Formato de arquivo | RIFF (WAV) |
-| Taxa de amostragem | 8\.000 Hz ou 16.000 Hz |
-| Canais | 1 (mono) |
+| Propriedade                 | Valor                               |
+|--------------------------|-------------------------------------|
+| Formato de arquivo              | RIFF (WAV)                          |
+| Taxa de amostragem              | 8\.000 Hz ou 16.000 Hz               |
+| Canais                 | 1 (mono)                            |
 | Comprimento máximo por áudio | 2 horas (teste)/60 s (treinamento) |
-| Formato de exemplo | PCM, 16 bits |
-| Formato de arquivo | .zip |
-| Tamanho máximo do zip | 2 GB |
+| Formato de exemplo            | PCM, 16 bits                         |
+| Formato de arquivo           | .zip                                |
+| Tamanho máximo do zip         | 2 GB                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Você só pode testar a partir de um *único* conjunto de uma, certifique-se de mantê-lo dentro do tamanho apropriado do arquivo.
+> Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Você só pode testar a partir de um *único* conjunto de um, certifique-se de mantê-lo dentro do tamanho apropriado do arquivo. Além disso, cada arquivo de treinamento não pode exceder 60 segundos, caso contrário, ocorrerá um erro.
 
 Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
 
@@ -161,7 +165,7 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês (`en-US`) e alemão (`de-DE`). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Idioma | Localidade | Caracteres |
+| Linguagem | Local | Caracteres |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
@@ -174,7 +178,7 @@ Use a tabela a seguir para garantir que o arquivo de dados relacionado para pron
 | número de pronúncias por linha | 1 |
 | Tamanho máximo do arquivo | 1 MB (1 KB para camada gratuita) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 * [Avalie seus dados](how-to-custom-speech-evaluate-data.md)

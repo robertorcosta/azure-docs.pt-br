@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar um classificador de carga de trabalho – T-SQL '
+title: 'Início Rápido: criar um classificador de carga de trabalho – T-SQL'
 description: Use o T-SQL para criar um classificador de carga de trabalho com alta importância.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1375605b6dab385b53af9212023767003e686e60
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.custom: azure-synapse
+ms.openlocfilehash: 9f15317141e56614cf6fe04f46ff478a73266775
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646300"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200491"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Início Rápido: Criar um classificador de carga de trabalho usando o T-SQL
 
@@ -24,17 +25,17 @@ Neste início rápido, você criará rapidamente um classificador de carga de tr
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!NOTE]
-> A criação de um SQL Data Warehouse pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de uma instância de Análise de SQL no Azure Synapse Analytics pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido pressupõe que você já tem um SQL Data Warehouse e que você tem permissões CONTROL DATABASE. Se precisar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Criar logon para TheCEO
 
@@ -78,7 +79,7 @@ WITH (WORKLOAD_GROUP = 'xlargerc'
 SELECT * FROM sys.workload_management_workload_classifiers
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO]
@@ -95,7 +96,7 @@ Siga estas etapas para limpar os recursos.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione seu data warehouse.
 
-    ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para pausar a computação, selecione o botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
 
@@ -108,5 +109,5 @@ Siga estas etapas para limpar os recursos.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Agora você criou um classificador de carga de trabalho. Execute algumas consultas como TheCEO para ver o desempenho delas. Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.
-- Para saber mais sobre o gerenciamento de carga de trabalho do SQL Data Warehouse do Azure, confira [Importância da carga de trabalho](sql-data-warehouse-workload-importance.md) e [Classificação da carga de trabalho](sql-data-warehouse-workload-classification.md).
+- Para saber mais sobre o gerenciamento de carga de trabalho de Análise de SQL, confira [Importância da carga de trabalho](sql-data-warehouse-workload-importance.md) e [Classificação da carga de trabalho](sql-data-warehouse-workload-classification.md).
 - Confira os artigos de instruções [Configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como [Gerenciar e monitorar o gerenciamento de carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

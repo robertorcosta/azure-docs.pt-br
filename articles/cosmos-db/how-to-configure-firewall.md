@@ -76,7 +76,7 @@ Você pode recuperar endereços IP de seus serviços de nuvem no Portal do Azure
 
 ![Captura de tela mostrando o endereço IP público de um serviço de nuvem exibido no Portal do Azure](./media/how-to-configure-firewall/public-ip-addresses.png)
 
-Quando você dimensiona seu serviço de nuvem adicionando instâncias de função, essas novas instâncias automaticamente terão acesso à conta do Azure Cosmos DB, pois fazem parte do mesmo serviço de nuvem.
+Quando você escala horizontalmente o seu serviço de nuvem adicionando instâncias de função, essas novas instâncias automaticamente terão acesso à conta do Azure Cosmos DB, pois fazem parte do mesmo serviço de nuvem.
 
 ### <a name="requests-from-virtual-machines"></a>Solicitações de máquinas virtuais
 

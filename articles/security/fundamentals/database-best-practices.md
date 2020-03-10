@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927997"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943654"
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
 Este artigo descreve as práticas recomendadas para segurança de banco de dados.
@@ -41,7 +41,7 @@ Os firewalls impedem todo acesso ao seu servidor de banco de dados até que voc�
 
 A figura a seguir mostra em que local você defini um firewall de servidor no Banco de Dados SQL:
 
-![Regras de Firewall](./media/database-best-practices/azure-database-security-best-practices-Fig1.png)
+![Regras de firewall](./media/database-best-practices/azure-database-security-best-practices-Fig1.png)
 
 O serviço Banco de dados SQL do Azure só está disponível na porta TCP 1433. Para acessar um banco de dados SQL do seu computador, certifique-se de que o firewall do computador cliente permita a comunicação TCP de saída na porta TCP 1433. Bloqueie conexões de entrada na porta TCP 1433 usando regras de firewall se você não precisar dessas conexões para outros aplicativos.
 
@@ -72,7 +72,7 @@ Se você usar a autenticação do SQL Server, deverá:
 
 - Gerenciar você mesmo as credenciais de alta segurança.
 - Proteger as credenciais na cadeia de conexão.
-- (Possivelmente) proteger as credenciais passadas pela rede do servidor Web para o banco de dados. Para obter mais informações, consulte [Como: Conectar-se ao SQL Server usando Autenticação do SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- (Possivelmente) proteger as credenciais passadas pela rede do servidor Web para o banco de dados. Para saber mais, confira [Como conectar-se ao SQL Server usando Autenticação do SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticação do Azure AD (Active Directory)*
 A autenticação do Azure AD é um mecanismo de conexão com o Banco de Dados SQL do Azure e o [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD. Com a autenticação do Azure AD, é possível gerenciar as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões.
@@ -148,15 +148,15 @@ Proteção contra ameaças vai além da detecção. A proteção contra ameaças
 **Melhor prática**: descobrir, classificar e rotular os dados confidenciais em seus bancos de dados.   
 **Detalhe**: classificar os dados no Banco de Dados SQL, habilitando [Dados de Descoberta e Classificação](/azure/sql-database/sql-database-data-discovery-and-classification) no Banco de Dados SQL do Azure. Você pode monitorar o acesso aos seus dados confidenciais no painel do Azure ou baixar relatórios.
 
-**Melhor prática**: acompanhar vulnerabilidades de banco de dados para que você possa melhorar a segurança do banco de dados de maneira proativa.   
+**Prática recomendada**: acompanhar vulnerabilidades de banco de dados para que você possa melhorar a segurança do banco de dados de maneira proativa.   
 **Detalhe**: use o serviço de [Avaliação de Vulnerabilidade](/azure/sql-database/sql-vulnerability-assessment) do Banco de Dados SQL do Azure, que verifica a existência de possíveis vulnerabilidades de banco de dados. O serviço emprega uma base de dados de conhecimento de regras que mostra vulnerabilidades de segurança e destaca desvios das práticas recomendadas, como configurações incorretas, excesso de permissões e dados confidenciais sem proteção.
 
 As regras se baseiam nas melhores práticas da Microsoft e enfocam os problemas de segurança que apresentam os maiores riscos para o banco de dados e seus dados importantes. Elas abordam problemas no nível do banco de dados e problemas de segurança no nível do servidor, como configurações de firewall do servidor e permissões no nível do servidor. Essas regras também podem representar muitos dos requisitos de agências reguladoras para atender aos seus padrões de conformidade.
 
-**Melhor prática**: Habilitar a detecção de ameaças.  
-**Detalhe**:  habilite a [Detecção de Ameaças](/azure/sql-database/sql-database-threat-detection) do Banco de Dados SQL do Azure para obter alertas de segurança e recomendações sobre como investigar e atenuar as ameaças. Você recebe alertas sobre atividades suspeitas no banco de dados possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de consultas e acesso a banco de dados.
+**Prática recomendada**: habilitar a detecção de ameaças.  
+**Detalhe**: habilite a [Detecção de Ameaças](/azure/sql-database/sql-database-threat-detection) do Banco de Dados SQL do Azure para obter alertas de segurança e recomendações sobre como investigar e atenuar as ameaças. Você recebe alertas sobre atividades suspeitas no banco de dados possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de consultas e acesso a banco de dados.
 
-[Proteção Avançada contra Ameaças](/azure/sql-database/sql-advanced-threat-protection) é um pacote unificado para recursos de segurança avançados do SQL. Ele inclui os serviços mencionados anteriormente: Descoberta e Classificação de Dados, Avaliação de Vulnerabilidades e Detecção de Ameaças. Fornece um local único para habilitar e gerenciar essas funcionalidades.
+[Proteção Avançada contra Ameaças](/azure/sql-database/sql-advanced-threat-protection) é um pacote unificado para recursos de segurança avançados do SQL. Inclui os serviços mencionados anteriormente: Descoberta e Classificação de Dados, Avaliação de Vulnerabilidade e Detecção de Ameaças. Fornece um local único para habilitar e gerenciar essas funcionalidades.
 
 Habilitar essas funcionalidades ajuda você a:
 
@@ -166,10 +166,6 @@ Habilitar essas funcionalidades ajuda você a:
 - Detectar e responder a possíveis ameaças.
 
 Além disso, a Detecção de Ameaças integra alertas com a Central de Segurança do Azure para uma exibição central do estado de segurança de todos os seus recursos do Azure.
-
-## <a name="enable-feature-restrictions"></a>Habilitar restrições de recurso
-
-Os dados contidos em seus bancos podem ser expostos a invasores usando vetores de ataque que aproveitam erros de banco de dados e tempos de execução de consulta. O banco de dados SQL do Azure fornece vários mecanismos de restrição de recursos para proteger seu banco de dados. Para saber mais, consulte [restrições de recursos do banco de dados SQL](/azure/sql-database/sql-database-feature-restrictions).
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.

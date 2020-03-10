@@ -1,21 +1,18 @@
 ---
 title: Migre suas VMs do Linux para o armazenamento Premium do Azure com Azure Site Recovery
 description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
-services: virtual-machines-linux,storage
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: b8c299869da003d8dc4e9ac111ba8c5e8bb27345
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035821"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944841"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -65,7 +62,7 @@ Estes são os requisitos do Azure para esse cenário de migração:
 * Uma rede virtual do Azure à qual as VMs serão conectadas quando forem criadas no failover. A rede virtual do Azure tem que estar na mesma região em que o Site Recovery é executado.
 * Uma conta de armazenamento Standard do Azure para armazenar logs de replicação. Ela pode ser a mesma conta de armazenamento dos discos de VM que estão sendo migrados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Compreenda os componentes relevantes do cenário de migração na seção anterior.
 * Planeje o tempo de inatividade sabendo mais sobre o [Failover no Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -203,7 +200,7 @@ O Site Recovery vai criar uma instância VM cujo tipo é igual ou semelhante ou 
 
 3. **Limpe a infraestrutura do Azure Site Recovery**. Se o Site Recovery não for mais necessário, você poderá limpar a infraestrutura dele. Exclua itens duplicados, o servidor de configuração e a política de recuperação, então exclua o cofre do Azure Site Recovery.
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 * [Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Fórum do Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)

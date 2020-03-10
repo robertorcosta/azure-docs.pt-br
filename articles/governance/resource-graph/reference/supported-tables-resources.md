@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Resource Manager com suporte
 description: Forneça uma lista dos tipos de recursos do Resource Manager com suporte do grafo de recursos do Azure e do histórico de alterações.
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.topic: reference
-ms.openlocfilehash: 597e1c2f7e04a7861099763d809ac09978e09805
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 9844b2fe7f1cbaf069789a4083229b4a6f37f38f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399595"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943988"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referência de tipo de recurso e tabela do grafo de recursos do Azure
 
@@ -122,6 +122,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. Compute/virtualmachinescalesets
 - Microsoft. containerinstance/containergroups
 - Microsoft. containerregistry/registros
+- Microsoft. containerregistry/registros/agentpools
 - Microsoft. containerregistry/registros/BuildTasks
 - Microsoft. containerregistry/registros/replicações
 - Microsoft. containerregistry/registros/taskruns
@@ -152,6 +153,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. dbforpostgresql/ServerGroups
 - Microsoft. dbforpostgresql/servidores
 - Microsoft. dbforpostgresql/serversv2
+- Microsoft. dbforpostgresql/singleservers
 - Microsoft. DeploymentManager/artifactsources
 - Microsoft. DeploymentManager/distribuições
 - Microsoft. DeploymentManager/pertopologias
@@ -413,6 +415,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - microsoft.web/connections
 - Microsoft. Web/customapis
 - Microsoft. Web/hostingenvironments
+- Microsoft. Web/kubeenvironments
 - Microsoft. Web/serverfarms
 - microsoft.web/sites
 - Microsoft. Web/sites/premieraddons
@@ -458,7 +461,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. Security/securitystatuses/VirtualMachines
 - Microsoft. Security/securitystatusessummaries
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [linguagem de consulta](../concepts/query-language.md).
 - Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).

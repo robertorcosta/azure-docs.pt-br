@@ -1,25 +1,18 @@
 ---
 title: Criar e usar um par de chaves SSH para VMs do Linux no Azure
 description: Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure para melhorar a segurança do processo de autenticação.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 2da8264b7a1d0ad2ec485f106457cef18f233261
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: MT
+ms.openlocfilehash: 9faa47e615217d62eade50a0c181dfda9ec9cd0a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843898"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944787"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
 
@@ -93,7 +86,7 @@ Se você tiver especificado uma frase secreta quando criou o par de chaves, insi
 
 Se a VM estiver usando a política de acesso Just-In-Time, você precisará solicitar acesso antes que possa se conectar à VM. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações de como trabalhar com pares de chaves SSH, confira [Etapas detalhadas para criar e gerenciar pares de chaves SSH](create-ssh-keys-detailed.md).
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6dda01543a6a7f447adefcc6cc3cfa3ea5da5492
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048857"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249873"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: configurar o encaminhamento de porta no Azure Load Balancer usando o portal
 
@@ -51,7 +51,7 @@ Primeiro, crie um Standard Load Balancer público que pode balancear a carga do 
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
     | SKU           | Selecione **Padrão**.                          |
@@ -68,19 +68,20 @@ Primeiro, crie um Standard Load Balancer público que pode balancear a carga do 
 
 Crie uma rede virtual com duas máquinas virtuais e adicione as VMs ao pool de back-end do balanceador de carga. 
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Rede** > **Rede virtual**.
-   
-1. No painel **Criar rede virtual**, insira ou selecione estes valores:
-   
-   - **Nome**: digite *MyVNet*.
-   - **ResourceGroup**: abra a lista suspensa **Selecionar existente** e selecione **MyResourceGroupLB**. 
-   - **Sub-rede** > **Nome**: digite *MyBackendSubnet*.
-   
-1. Selecione **Criar**.
+Nesta seção, você precisará substituir os seguintes parâmetros nas etapas pelas informações abaixo:
 
-   ![Criar uma rede virtual](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB (selecione o grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa Ocidental      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Crie VMs e adicione-as ao pool de back-end do balanceador de carga
 
@@ -149,7 +150,7 @@ Crie uma regra do NSG (Grupo de Segurança de Rede) para as VMs para permitir co
    - **Protocolo**: selecione **TCP**. 
    - **Ação**: selecione **Permitir**.  
    - **Prioridade**: digite *100*. 
-   - **Nome**: digite *MyHTTPRule*. 
+   - **Name**: digite *MyHTTPRule*. 
    - **Descrição**: digite *Permitir HTTP*. 
    
 1. Selecione **Adicionar**. 
@@ -188,7 +189,7 @@ Para permitir que o balanceador de carga monitore o status da VM, use uma invest
    
 1. Na página **Adicionar investigação de integridade**, digite ou selecione os seguintes valores:
    
-   - **Nome**: insira *MyHealthProbe*.
+   - **Name**: insira *MyHealthProbe*.
    - **Protocolo**: abra a lista suspensa e selecione **HTTP**. 
    - **Porta**: digite *80*. 
    - **Caminho**: aceite */* como o URI padrão. Você pode substituir esse valor por qualquer outro URI. 
@@ -211,7 +212,7 @@ A regra de balanceador de carga chamada **MyLoadBalancerRule** escuta a porta 80
    
 1. Na página **Adicionar regra de balanceamento de carga**, insira ou selecione os seguintes valores:
    
-   - **Nome**: digite *MyLoadBalancerRule*.
+   - **Name**: digite *MyLoadBalancerRule*.
    - **Protocolo**: selecione **TCP**.
    - **Porta**: digite *80*.
    - **Porta de back-end**: digite *80*.
@@ -232,7 +233,7 @@ Crie uma regra NAT (conversão de endereços de rede) de entrada do balanceador 
    
 1. Na página **Adicionar regra NAT de entrada**, digite ou selecione os seguintes valores:
    
-   - **Nome**: digite *MyNATRuleVM1*.
+   - **Name**: digite *MyNATRuleVM1*.
    - **Porta**: digite *4221*.
    - **Máquina virtual de destino**: selecione **MyVM1** na lista suspensa.
    - **Configuração de IP de rede**: Selecione **ipconfig1** na lista suspensa.
@@ -328,7 +329,7 @@ Com o encaminhamento de porta, você pode usar a área de trabalho remota em uma
 
 A conexão RDP é feita com êxito porque a regra NAT de entrada **MyNATRuleVM2** direciona o tráfego da porta de front-end do balanceador de carga 4222 à porta do MyVM2 3389 (a porta RDP).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir o balanceador de carga e todos os recursos relacionados quando não precisar mais deles, abra o grupo de recursos **MyResourceGroupLB** e selecione **Excluir grupo de recursos**.
 

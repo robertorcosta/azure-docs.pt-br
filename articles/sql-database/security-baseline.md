@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300903"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943649"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Linha de base de segurança do Azure para banco de dados SQL do Azure
 
@@ -812,10 +812,10 @@ Entender a pontuação segura da central de segurança do Azure: https://docs.mi
 **Orientação**: Use o grafo de recursos do Azure para consultar e descobrir todos os recursos (incluindo instâncias de SQL Server do Azure) em suas assinaturas.  Verifique se você tem permissões apropriadas (leitura) em seu locatário e se é capaz de enumerar todas as assinaturas do Azure, bem como recursos em suas assinaturas.
 
 
-Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo de recursos, é altamente recomendável criar e usar Azure Resource Manager recursos no futuro.
+Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo de recursos do Azure, é altamente recomendável criar e usar Azure Resource Manager recursos no futuro.
 
 
-Como criar consultas com o grafo do Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o grafo de recursos do Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
@@ -886,7 +886,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 Como configurar e gerenciar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Como criar consultas com o grafo do Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o grafo de recursos do Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 

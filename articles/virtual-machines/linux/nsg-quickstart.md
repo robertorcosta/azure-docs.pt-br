@@ -1,27 +1,22 @@
 ---
-title: Abrir portas para uma VM Linux com CLI do Azure
-description: Saiba como abrir uma porta/criar um ponto de extremidade à sua VM Linux usando o modelo de implantação do Azure Resource Manager e a CLI do Azure
-services: virtual-machines-linux
-documentationcenter: ''
+title: Abrir portas para uma VM com CLI do Azure
+description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM usando o CLI do Azure.
 author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
-ms.service: virtual-machines-linux
-ms.devlang: azurecli
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354043"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944536"
 ---
-# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e pontos de extremidade para uma VM Linux com a CLI do Azure
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir portas e pontos de extremidade para uma VM com o CLI do Azure
 
 No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM usando a CLI do Azure. 
 
@@ -89,7 +84,7 @@ Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o
 
 Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás de um balanceador de carga do Azure. O balanceador de carga distribui o tráfego para VMs, com um Grupo de Segurança de rede que fornece filtragem. Para saber mais, veja [Como balancear a carga de máquinas virtuais Linux no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
 * [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)

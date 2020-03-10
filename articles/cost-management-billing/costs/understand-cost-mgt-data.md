@@ -4,23 +4,25 @@ description: Este artigo ajuda você a entender melhor os dados incluídos em se
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560602"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245367"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
 Este artigo ajuda você a entender melhor os dados de uso e custos incluídos no Gerenciamento de Custos do Azure. Ele explica a frequência com que esses dados são processados, coletados, mostrados e fechados. Você é cobrado mensalmente pelo uso do Azure. Embora os ciclos de cobrança sejam períodos mensais, as datas de início e término do ciclo variam por tipo de assinatura. A frequência com que o Gerenciamento de Custos recebe dados de uso varia com base em diferentes fatores. Esses fatores incluem o tempo necessário para processar os dados e a frequência com que os serviços do Azure transmitem o uso para o sistema de cobrança.
 
 O Gerenciamento de Custos inclui todo o uso e as compras, incluindo reservas e ofertas de terceiros para contas de EA (Contrato Enterprise). As contas de Contrato de Cliente da Microsoft e as assinaturas individuais com tarifas pagas conforme o uso incluem apenas os serviços do Azure e do Marketplace. O suporte e outros custos não estão incluídos. Os custos são estimados até que uma fatura seja gerada e não são fatorados em créditos.
+
+Se você tiver uma nova assinatura, não poderá usar imediatamente os recursos do Gerenciamento de Custos. Poderá levar até 48 horas para você poder usar todos os recursos do Gerenciamento de Custos.
 
 ## <a name="supported-microsoft-azure-offers"></a>Ofertas compatíveis do Microsoft Azure
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 82daf447270fc0413284e3e7a908a8b5237a4f9c
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2020
-ms.locfileid: "78932967"
+ms.locfileid: "78944222"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ O exemplo a seguir mostra o perfil técnico **AAD-Common**:
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Declarações de entrada
+## <a name="inputclaims"></a>InputClaims
 
 O elemento InputClaims contém uma declaração, que é usada para pesquisar uma conta no diretório ou criar uma nova. Deve haver exatamente um elemento InputClaim na coleção de declarações de entrada para todos os perfis técnicos do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory.
 
@@ -66,7 +66,7 @@ Para criar uma nova conta de usuário, a declaração de entrada é uma chave qu
 
 O elemento InputClaimsTransformations pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
 
-## <a name="output-claims"></a>Declarações de saída
+## <a name="outputclaims"></a>OutputClaims
 
 O elemento **OutputClaims** contém uma lista de declarações retornadas pelo perfil técnico do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory. Você também pode incluir declarações que não são retornadas pelo Azure Active Directory, desde que defina o atributo `DefaultValue`.
 
@@ -153,7 +153,7 @@ O perfil técnico a seguir lê os dados sobre uma conta de usuário usando o obj
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Gravação
+### <a name="write"></a>Gravar
 
 A operação **Gravar** cria ou atualiza uma conta de usuário único. Para gravar uma conta de usuário, você precisa fornecer uma chave como uma declaração de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.
 
@@ -253,7 +253,7 @@ O perfil técnico a seguir exclui uma conta de usuário social usando **alternat
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Operação | Sim | A operação a ser executada. Valores possíveis: `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Gere um erro se o objeto de usuário não existe no diretório. Valores possíveis: `true` ou `false`. |

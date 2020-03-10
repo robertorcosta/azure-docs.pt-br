@@ -11,23 +11,22 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: bbaaf4b26beec56cd8608abc8a2f9cdd3a4cda3f
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: a184b035e3296f82ecdacf74a99ea7148d99bd49
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084535"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271107"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
 
-Este início rápido usa um exemplo de código para demonstrar como um aplicativo Android pode conectar contas pessoais, corporativas ou de estudante usando a plataforma de identidade da Microsoft e, em seguida, obter um token de acesso e chamar a API do Microsoft Graph.
+Este início rápido usa um exemplo de código para demonstrar como um aplicativo Android pode conectar contas pessoais, corporativas ou de estudante usando a plataforma de identidade da Microsoft e, em seguida, obter um token de acesso e chamar a API do Microsoft Graph. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
 
-Os aplicativos devem ser representados por um objeto de aplicativo no Azure Active Directory para que a plataforma de identidade da Microsoft possa compartilhar tokens com seu aplicativo.
+Os aplicativos precisam ser representados por um objeto de aplicativo no Azure Active Directory, de modo que a plataforma de identidade da Microsoft possa fornecer tokens ao aplicativo.
 
 > [!div renderon="docs"]
 > Por conveniência, o exemplo de código vem com um padrão `redirect_uri`pré-configurado no arquivo `AndroidManifest.xml`, para que você não precise primeiro registrar seu próprio objeto de aplicativo. O `redirect_uri` é parcialmente baseado na chave de assinatura do seu aplicativo. O projeto de exemplo é pré-configurado com uma chave de assinatura para que o `redirect_uri` fornecido funcione. Para saber mais sobre como registrar um objeto de aplicativo e integrá-lo ao seu aplicativo, confira o tutorial [Conectar usuários e chamar o Microsoft Graph em um aplicativo Android](tutorial-v2-android.md).
 
-![Captura de tela do aplicativo de exemplo](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Pré-requisitos**
@@ -44,73 +43,14 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 > > ![Já configurado](media/quickstart-v2-android/green-check.png) Seu aplicativo já está configurado com esses atributos
 >
 > ### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto 
-> * [Baixe o exemplo de código](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
+> [!div class="sxs-lookup" renderon="portal"]
+> Execute o projeto usando o Android Studio.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Baixe o exemplo de código](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
-> ### <a name="step-3-configure-your-project"></a>Etapa 3: Configurar seu projeto
-> 1. Extraia e abra o projeto no Android Studio.
-> 2. Dentro de **app** > **src** > **main** > **res** > **raw**, abra **auth_config_multiple_account. JSON** e substitua-o pelo código a seguir:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "MULTIPLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. Dentro de **app** > **src** > **main** > **res** > **raw**, abra **auth_config_single_account. JSON** e substitua-o pelo código a seguir:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "SINGLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
-> [!div class="sxs-lookup" renderon="portal"]
-> 4. Dentro de **app** > **src** > **main**, abra  **AndroidManifest.xml**.
-> 5. No nó **manifest\application**, substitua o nó **activity android:name="com.microsoft.identity.client.BrowserTabActivity"** com o seguinte:    
-> ```xml
-> <!--Intent filter to catch Microsoft's callback after Sign In-->
-> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
->     <intent-filter>
->         <action android:name="android.intent.action.VIEW" />
->         <category android:name="android.intent.category.DEFAULT" />
->         <category android:name="android.intent.category.BROWSABLE" />
->         <!--
->             Add in your scheme/host from registered redirect URI 
->             note that the leading "/" is required for android:path
->         -->
->         <data 
->             android:host="Enter_the_Package_Name"
->             android:path="/Enter_the_Signature_Hash"
->             android:scheme= "msauth" />
->     </intent-filter>
-> </activity>
-> ```
-> 6. Execute o aplicativo.   
+> ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
+> Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado. 
 > O aplicativo de exemplo é iniciado na tela **Modo de Conta Único**. Um escopo padrão, **user.read**, é fornecido por padrão, usado ao ler seus próprios dados de perfil durante a chamada à API do Microsoft Graph. A URL da chamada à API do Microsoft Graph é fornecida por padrão. Se desejar, você poderá alterar as duas.
 >
 > ![Aplicativo de exemplo MSAL mostrando o uso de conta única e múltipla](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -126,7 +66,7 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 > ## <a name="step-1-get-the-sample-app"></a>Etapa 1: Obter o aplicativo de exemplo
@@ -151,6 +91,8 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 > No modo de conta múltipla, você pode repetir as mesmas etapas.  Além disso, você pode remover a conta conectada, que também remove os tokens armazenados em cache dessa conta.
 
 ## <a name="how-the-sample-works"></a>Como o exemplo funciona
+![Captura de tela do aplicativo de exemplo](media/quickstart-v2-android/android-intro.svg)
+
 
 O código é organizado em fragmentos que mostram como escrever um aplicativo MSAL de contas únicas e múltiplas. Os arquivos de código são organizados da seguinte maneira:
 
@@ -171,7 +113,7 @@ Agora examinaremos esses arquivos mais detalhadamente e chamaremos o código esp
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft. O Gradle 3.0+ instala a biblioteca quando você adiciona o seguinte aos **Scripts do Gradle** > **build.gradle (Módulo: aplicativo)** em **Dependências**:
 
 ```gradle  
-implementation 'com.microsoft.identity.client:msal:1.0.0'
+implementation 'com.microsoft.identity.client:msal:1.+'
 ```
 
 É possível ver isso no projeto de exemplo em build.gradle (Módulo: aplicativo):
@@ -179,7 +121,7 @@ implementation 'com.microsoft.identity.client:msal:1.0.0'
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:1.+'
     ...
 }
 ```

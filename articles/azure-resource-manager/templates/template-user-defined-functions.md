@@ -2,13 +2,13 @@
 title: Funções definidas pelo usuário em modelos
 description: Descreve como definir e usar funções definidas pelo usuário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 58b9ba7b162736329cf775e2be5a47bfcae0a4ca
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122467"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943212"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo usuário no modelo Azure Resource Manager
 
@@ -18,7 +18,7 @@ Este artigo descreve como adicionar funções definidas pelo usuário em seu mod
 
 ## <a name="define-the-function"></a>Definir a função
 
-As suas funções exigem um valor de namespace para evitar conflitos de nomenclatura com funções de modelo. O exemplo a seguir mostra uma função que retorna um nome de conta de armazenamento:
+As suas funções exigem um valor de namespace para evitar conflitos de nomenclatura com funções de modelo. O exemplo a seguir mostra uma função que retorna um nome exclusivo:
 
 ```json
 "functions": [
@@ -44,23 +44,53 @@ As suas funções exigem um valor de namespace para evitar conflitos de nomencla
 
 ## <a name="use-the-function"></a>Usar a função
 
-O exemplo a seguir mostra como chamar sua função.
+O exemplo a seguir mostra um modelo que inclui uma função definida pelo usuário. Ele usa essa função para obter um nome exclusivo para uma conta de armazenamento. O modelo tem um parâmetro chamado **storageNamePrefix** que ele passa como um parâmetro para a função.
 
 ```json
-"resources": [
+{
+ "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ "contentVersion": "1.0.0.0",
+ "parameters": {
+   "storageNamePrefix": {
+     "type": "string",
+     "maxLength": 11
+   }
+ },
+ "functions": [
   {
-    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "apiVersion": "2016-01-01",
-    "type": "Microsoft.Storage/storageAccounts",
-    "location": "South Central US",
-    "tags": {},
-    "sku": {
-      "name": "Standard_LRS"
-    },
-    "kind": "Storage",
-    "properties": {}
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
   }
-]
+],
+ "resources": [
+   {
+     "type": "Microsoft.Storage/storageAccounts",
+     "apiVersion": "2019-04-01",
+     "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+     "location": "South Central US",
+     "sku": {
+       "name": "Standard_LRS"
+     },
+     "kind": "StorageV2",
+     "properties": {
+       "supportsHttpsTrafficOnly": true
+     }
+   }
+ ]
+}
 ```
 
 ## <a name="limitations"></a>Limitações
@@ -74,7 +104,7 @@ Ao definir uma função de usuário, há algumas restrições:
 * Os parâmetros para a função não podem ter valores padrão.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre as propriedades disponíveis para funções definidas pelo usuário, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
 * Para obter uma lista das funções de modelo disponíveis, consulte [Azure Resource Manager funções de modelo](template-functions.md).

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443849"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944085"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -180,6 +180,10 @@ Estas são as regras para determinar qual contêiner está acessível – na ord
 Você será cobrado pela quantidade de horas em que o aplicativo é executado, com o preço normal do Serviço de Aplicativo do Azure.
 
 ## <a name="other-questions"></a>Outras perguntas
+
+**O que significa "o recurso solicitado não está disponível no grupo de recursos"?**
+
+Você poderá ver esta mensagem ao criar o aplicativo Web usando o Azure Resource Manager (ARM). Com base em uma limitação atual, para o mesmo grupo de recursos, você não pode misturar aplicativos Windows e Linux na mesma região.
 
 **Quais são os caracteres com suporte em nomes de configurações do aplicativo?**
 

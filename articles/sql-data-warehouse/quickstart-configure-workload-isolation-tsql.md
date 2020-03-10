@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 11/21/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2a6c5ca9f7d2ceaef08b28e78b38b94a459548f5
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.custom: azure-synapse
+ms.openlocfilehash: bd3ad98116b18a77a77e8f6f327689d0ebb7dd21
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304757"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200508"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Início Rápido: Configurar isolamento da carga de trabalho com o T-SQL
 
@@ -25,17 +25,17 @@ Neste guia de início rápido, você criará rapidamente um classificador e um g
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!NOTE]
-> A criação de um SQL Data Warehouse pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de uma instância de Análise de SQL no Azure Synapse Analytics pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
  
-Este início rápido pressupõe que você já tem um SQL Data Warehouse e que você tem permissões CONTROL DATABASE. Se precisar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**.
+Este início rápido pressupõe que você já tem uma instância de Análise de SQL no Azure Synapse e que você tem permissões CONTROL DATABASE. Se precisar, use [Criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-login-for-dataloads"></a>Criar logon para carregamento de dados
 
@@ -98,7 +98,7 @@ SELECT * FROM
 sys.dm_workload_management_workload_groups_stats
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcELTLogin]
@@ -109,14 +109,14 @@ DROP USER [ELTLogin]
 
 Você está sendo cobrado por unidades de data warehouse e pelos dados armazenados em seu data warehouse. Esses recursos de computação e armazenamento são cobrados separadamente.
 
-- Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o data warehouse. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
+- Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o pool de SQL. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
 - Se desejar remover encargos futuros, será possível excluir o data warehouse.
 
 Siga estas etapas para limpar os recursos.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione seu data warehouse.
 
-    ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para pausar a computação, selecione o botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
 
@@ -129,4 +129,4 @@ Siga estas etapas para limpar os recursos.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Você acabou de criar um grupo de cargas de trabalho. Execute algumas consultas como ELTLogin para ver o desempenho delas. Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir as consultas e o grupo de cargas de trabalho atribuído.
-- Para saber mais sobre o gerenciamento de cargas de trabalho do SQL Data Warehouse, confira [Gerenciamento de Cargas de Trabalho](sql-data-warehouse-workload-management.md) e [Isolamento de Cargas de Trabalho](sql-data-warehouse-workload-isolation.md).
+- Para saber mais sobre o gerenciamento de cargas de trabalho de Análise de SQL, confira [Gerenciamento de Cargas de Trabalho](sql-data-warehouse-workload-management.md) e [Isolamento de Cargas de Trabalho](sql-data-warehouse-workload-isolation.md).

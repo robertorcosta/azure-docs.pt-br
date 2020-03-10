@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827311"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251323"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
-A API de Análise de Texto é um serviço baseado em nuvem que fornece um processamento de idioma natural avançado sobre texto bruto e inclui quatro funções principais: análise de sentimento, extração de frases-chave, detecção de idioma e reconhecimento de entidade.
+A API de Análise de Texto é um serviço baseado em nuvem que fornece um processamento em idioma natural avançado de texto bruto e inclui quatro funções principais: análise de sentimento, extração de frases-chave, detecção de idioma e reconhecimento de entidade nomeada.
 
 A API faz parte dos [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/), uma coleção de algoritmos de IA e aprendizado de máquina na nuvem para seus projetos de desenvolvimento.
 
@@ -51,7 +51,7 @@ O fluxo de trabalho é simples: você envia dados para análise e manipula as sa
 
 2. [Formular uma solicitação](how-tos/text-analytics-how-to-call-api.md#json-schema) contendo seus dados como texto bruto não estruturado, em JSON.
 
-3. Publique a solicitação para o ponto de extremidade estabelecido durante a inscrição, acrescentando o recurso desejado: análise de sentimento, extração de frases-chave, detecção de idioma ou identificação da entidade.
+3. Poste a solicitação no ponto de extremidade estabelecido durante a inscrição, acrescentando o recurso desejado: análise de sentimento, extração de frases-chave, detecção de idioma ou reconhecimento de entidade nomeada.
 
 4. Transmita por streaming ou armazene a resposta localmente. Dependendo da solicitação, os resultados são uma pontuação de sentimento, uma coleção de frases-chave extraídas ou um código de idioma.
 

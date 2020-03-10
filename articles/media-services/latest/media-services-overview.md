@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 559050d11b6b85a9842c679b94e0e5b2fd5dd0f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987706"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299254"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
 
@@ -34,13 +34,13 @@ Os SDKs dos Serviços de Mídia v3 são baseados na [Especificação de OpenAPI 
 > Atualmente, não é possível usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
+
+Como um lembrete importante, você precisará respeitar todas as leis aplicáveis em seu uso dos Serviços de Mídia do Azure e não poderá usar os Serviços de Mídia ou qualquer serviço do Azure de maneira que viole os direitos de outras pessoas ou que possa ser prejudicial a outras pessoas.
+
+Antes de carregar qualquer vídeo/imagem nos Serviços de Mídia, você precisará ter todos os direitos adequados para usar o vídeo/a imagem, incluindo, quando exigido por lei, todos os consentimentos necessários de indivíduos (se houver) no vídeo/na imagem, para uso, processamento e armazenamento dos respectivos dados nos Serviços de Mídia e no Azure. Algumas jurisdições podem impor requisitos legais especiais para a coleta, o processamento online e o armazenamento de determinadas categorias de dados, como dados biométricos. Antes de usar os Serviços de Mídia e o Azure para o processamento e o armazenamento de dados sujeitos a requisitos legais especiais, você precisará garantir a conformidade com os requisitos legais que possam se aplicar a você.
+
+Para saber mais sobre conformidade, privacidade e segurança nos Serviços de Mídia, acesse a [Central de Confiabilidade](https://www.microsoft.com/trust-center/?rtc=1) da Microsoft. Para saber mais sobre as obrigações de privacidade, as práticas de tratamento e retenção de dados pela Microsoft, incluindo como excluir seus dados, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement), o “OST” [(Termos do Online Services)](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) e o “DPA” [(Adendo de Processamento de Dados)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) da Microsoft. Ao usar os Serviços de Mídia, você concorda em vincular-se ao OST, ao DPA e à política de privacidade.
  
-Como um lembrete importante, você precisará respeitar todas as leis aplicáveis em seu uso dos Serviços de Mídia do Azure e não poderá usar os Serviços de Mídia do Azure ou qualquer outro serviço do Azure de uma maneira que viole os direitos de outras pessoas ou que possa ser prejudicial a outras pessoas. 
-
-Antes de carregar qualquer vídeo/imagem, incluindo dados biométricos, nos Serviços de Mídia para processamento e armazenamento, você precisará (1) ter todos os direitos adequados para vídeos/imagens; e (2) ter todos os consentimentos apropriados dos indivíduos mostrados nos vídeos, permitindo o uso e o armazenamento dos respectivos dados biométricos nos Serviços de Mídia. 
-
-Para saber mais sobre conformidade, privacidade e como a Microsoft protege seus dados nos Serviços de Mídia do Azure, visite a [Central de Confiabilidade](https://www.microsoft.com/trust-center/?rtc=1) do Azure. Para saber mais sobre as obrigações de privacidade e o tratamento de seus dados pela Microsoft, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement), o “OST” [(Termos do Online Services)](https://www.microsoft.com/licensing/product-licensing/products) e o “DPA” [(Adendo de Processamento de Dados)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) da Microsoft. As informações sobre retenção e exclusão de dados do cliente estão disponíveis no DPA. Ao usar os Serviços de Mídia do Azure, você concorda em vincular-se ao OST, ao DPA e à política de privacidade.
-
 ## <a name="what-can-i-do-with-media-services"></a>O que posso fazer com os Serviços de Mídia?
 
 Os Serviços de Mídia permitem criar diversos fluxos de trabalho de mídia na nuvem. Entre os exemplos do que você pode fazer com os Serviços de Mídia estão:
@@ -51,8 +51,8 @@ Os Serviços de Mídia permitem criar diversos fluxos de trabalho de mídia na n
 * Analise o conteúdo do áudio ou vídeo gravado. Por exemplo, para alcançar maior satisfação dos clientes, as organizações podem extrair a conversão de fala em texto e criar índices de pesquisa e painéis. Em seguida, elas podem extrair dados inteligentes sobre reclamações comuns, fontes de reclamações e outros dados relevantes.
 * Crie um serviço de assinatura de vídeo e transmita conteúdo protegido por DRM quando um cliente (por exemplo, um estúdio de cinema) precisar restringir o acesso e uso de um trabalho protegido por direitos autorais.
 * Forneça conteúdo offline para reprodução em aviões, trens e automóveis. Talvez um cliente precise baixar o conteúdo no telefone ou tablet para reprodução quando ele estiver desconectado da rede.
-* Implemente uma plataforma de vídeo educacional de E-Learning com os Serviços de Mídia do Microsoft Azure e a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para fazer a conversão de fala em texto de legenda, traduzir para vários idiomas, e muito mais.
-* Use os Serviços de Mídia do Azure junto com a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para adicionar subtítulos e legendas a vídeos para abranger um público mais amplo (por exemplo, pessoas com deficiência auditiva ou que desejam acompanhar a leitura em um idioma diferente).
+* Implemente uma plataforma de vídeo educacional de E-Learning com os Serviços de Mídia do Microsoft Azure e a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para fazer a conversão de fala em texto de legenda, traduzir para vários idiomas, e muito mais.
+* Use os Serviços de Mídia do Azure junto com a [API de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para adicionar subtítulos e legendas a vídeos para abranger um público mais amplo (por exemplo, pessoas com deficiência auditiva ou que desejam acompanhar a leitura em um idioma diferente).
 * Habilite a CDN do Azure para conseguir um dimensionamento grande para lidar melhor com altas cargas instantâneas (por exemplo, o início de um evento de lançamento de produto).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a v3? 
@@ -106,4 +106,3 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 ## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais sobre conceitos fundamentais](concepts-overview.md)
-

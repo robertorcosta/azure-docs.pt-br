@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/29/2020
+ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: f34d4e50042f0fd05a224ff096c2b472224248f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992295"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919661"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto para o Ruby
 
@@ -35,16 +35,15 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Ruby](https://www.ruby-lang.org/)
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. 
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Você fará isso posteriormente no início rápido.
+    * Você pode usar o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configurando
-
-### <a name="create-a-text-analytics-azure-resource"></a>Criar um recurso de Análise de Texto do Azure 
-
-[!INCLUDE [text-analytics-resource-creation](../includes/quickstarts/resource-creation.md)]
 
 ### <a name="create-a-new-ruby-application"></a>Criar um novo aplicativo em Ruby
 

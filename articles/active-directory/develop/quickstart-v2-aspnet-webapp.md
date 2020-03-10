@@ -12,19 +12,15 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 503cfb1e299c4e96e4e87107ce25af273848ca8f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: eae26df61af203f9c3d09606ef96b5506f2e8701
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160620"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249116"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
-
-Neste início rápido, você habilitará um aplicativo Web ASP.NET para entrar em contas pessoais (hotmail.com, outlook.com, outros) e contas corporativas e de estudante de qualquer instância do Azure AD (Azure Active Directory).
-
-![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
-
+Neste início rápido, você usará um exemplo de código para saber como um aplicativo Web ASP.NET pode entrar em contas pessoais (hotmail.com, outlook.com e outras) e contas corporativas e de estudante em qualquer instância do Azure AD (Azure Active Directory).  (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
 > Você tem duas opções para iniciar o aplicativo de início rápido:
@@ -64,26 +60,33 @@ Neste início rápido, você habilitará um aplicativo Web ASP.NET para entrar e
 
 #### <a name="step-2-download-your-project"></a>Etapa 2: Baixar o seu projeto
 
-[Baixar a solução do Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+> [!div renderon="docs"]
+> [Baixar a solução do Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
+> [!div renderon="portal"]
+> Execute o projeto usando o Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Baixe o exemplo de código]()
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
+> Configuramos seu projeto com os valores das propriedades do seu aplicativo. 
+
+> [!div renderon="docs"]
+> #### <a name="step-3-run-your-visual-studio-project"></a>Etapa 3: Executar o projeto do Visual Studio
 
 1. Extraia o arquivo zip para uma pasta local mais próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Dependendo da versão do Visual Studio, pode ser necessário clicar com o botão direito do mouse no projeto `AppModelv2-WebApp-OpenIDConnect-DotNet` e **Restaurar os pacotes do NuGet**
 1. Abra o Console do Gerenciador de Pacotes (Exibir -> Outras Janelas -> Console do Gerenciador de Pacotes) e execute `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
-1. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
-
-    ```xml
-    <add key="ClientId" value="Enter_the_Application_Id_here" />
-    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
-    ```
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
-> Em que:
+> 5. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
+>    ```xml
+>    <add key="ClientId" value="Enter_the_Application_Id_here" />
+>    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
+>    ```
+>    Em que:
 > - `Enter_the_Application_Id_here`: é a ID do aplicativo que você registrou.
 > - `Enter_the_Tenant_Info_Here`: é uma das opções abaixo:
 >   - Se seu aplicativo dá suporte a **Somente minha organização**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.onmicrosoft.com)
@@ -94,9 +97,16 @@ Neste início rápido, você habilitará um aplicativo Web ASP.NET para entrar e
 > > - Para encontrar os valores de *ID do aplicativo*, *ID de diretório (locatário)* e *Tipos de conta com suporte*, vá para a página **Visão Geral**
 > > - Verifique se o valor de `redirectUri` no **Web.config** corresponde ao **URI de Redirecionamento** definido para o Registro do Aplicativo no Azure AD (caso contrário, navegue até o menu **Autenticação** do Registro do Aplicativo e atualize o **URI DE REDIRECIONAMENTO** para que ele seja correspondente)
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Enter_the_Supported_Account_Info_Here
+
 ## <a name="more-information"></a>Mais informações
 
 Esta seção apresenta uma visão geral do código necessário para a entrada de usuários. Esta visão geral pode ser útil para entender como o código funciona, os argumentos principais e também caso você queira adicionar entrada a um aplicativo ASP.NET existente.
+
+### <a name="how-the-sample-works"></a>Como o exemplo funciona
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 ### <a name="owin-middleware-nuget-packages"></a>Pacotes do NuGet de middleware OWIN
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 395b7bc31377fd771549a399032bad9d951ec804
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: b5d9df7a0afa9b4270f0eff643e083e5bccfceb8
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384930"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933643"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Bancos de dados distribuídos que dependem de replicação para alta disponibili
 
 O Azure Cosmos DB aborda a coerência de dados como um espectro de opções, em vez dos dois extremos. A consistência forte e a consistência eventual estão nas extremidades do espectro, mas há muitas opções de consistência ao longo do espectro. Os desenvolvedores podem usar essas opções para fazer compensações granulares e completas em relação à alta disponibilidade e ao desempenho. 
 
-Com o Azure Cosmos DB, os desenvolvedores pode escolher a partir de cinco modelos de consistência bem definidos no espectro de consistência. Do mais forte para o mais relaxado, os modelos incluem *forte*, desatualização *limitada*, *sessão*, *prefixo consistente*e consistência *eventual* . Os modelos são bem definidos e intuitivos e podem ser usados para cenários do mundo real específicos. Cada modelo fornece compensações de [desempenho e disponibilidade](consistency-levels-tradeoffs.md) e é apoiado pelos SLAs. A imagem a seguir mostra os diferentes níveis de consistência como um espectro.
+Com o Azure Cosmos DB, os desenvolvedores pode escolher a partir de cinco modelos de consistência bem definidos no espectro de consistência. Do mais forte para o mais relaxado, os modelos incluem *forte*, desatualização *limitada*, *sessão*, *prefixo consistente*e consistência *eventual* . Os modelos são bem definidos e intuitivos e podem ser usados para cenários do mundo real específicos. Cada modelo fornece [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) e é apoiado pelos SLAs. A imagem a seguir mostra os diferentes níveis de consistência como um espectro.
 
 ![Consistência como um espectro](./media/consistency-levels/five-consistency-levels.png)
 
@@ -39,39 +39,39 @@ Os SLAs abrangentes fornecidos pelo Azure Cosmos DB garantem que 100% de solicit
 
 A semântica dos cinco níveis de coerência é descrita aqui:
 
-- **Strong**: A consistência forte oferece uma garantia transação atômica. Transação atômica refere-se ao fornecimento de solicitações simultaneamente. As leituras são garantidas para retornar a versão mais recente de um item. Um cliente nunca vê uma gravação não comprometida ou parcial. Os usuários sempre terão a garantia de ler a última gravação confirmada.
+- **Forte**: a consistência forte oferece uma garantia transação atômica. Transação atômica refere-se ao fornecimento de solicitações simultaneamente. As leituras são garantidas para retornar a versão mais recente de um item. Um cliente nunca vê uma gravação não comprometida ou parcial. Os usuários sempre terão a garantia de ler a última gravação confirmada.
 
-- **Bounded staleness**: As leituras têm a garantia de honrar a garantia de prefixo consistente. As leituras podem atrasar por trás das gravações por no máximo *"K"* versões (ou seja, "Atualizações") de um item ou por um intervalo de tempo *"T"* . Em outras palavras, quando você escolhe a desatualização limitada, a "desatualização" pode ser configurada de duas maneiras: 
+  O gráfico a seguir ilustra a forte consistência com notas musicais. Depois que os dados são gravados na região "leste dos EUA", quando você lê os dados de outras regiões, obtém o valor mais recente:
+
+  ![video](media/consistency-levels/strong-consistency.gif)
+
+- Desatualização **limitada**: as leituras têm a garantia de honrar a garantia de prefixo consistente. As leituras podem atrasar por trás das gravações por no máximo *"K"* versões (ou seja, "Atualizações") de um item ou por um intervalo de tempo *"T"* . Em outras palavras, quando você escolhe a desatualização limitada, a "desatualização" pode ser configurada de duas maneiras: 
 
   * O número de versões (*K*) do item
   * O intervalo de tempo (*T*) pelo qual as leituras podem atrasar por trás das gravações 
 
   A desatualização limitada oferece ordem global total, exceto na "janela de desatualização". Há garantias de leitura monotônica em uma região tanto dentro quanto fora da janela de desatualização. A consistência forte tem a mesma semântica que aquela oferecida pela desatualização limitada. A janela de desatualização limitada é igual a zero. A desatualização limitada também é referida como linearização retardada no tempo. Quando um cliente executa operações de leitura em uma região que aceita gravações, as garantias fornecidas pela consistência de desatualização limitada são idênticas às garantias pela consistência forte.
 
-- **Session**:  Em uma única sessão de cliente, as leituras têm a garantia de honrar o prefixo consistente (supondo uma única sessão de "gravador"), leituras de monotônico, gravações de monotônico, leitura-gravação-gravações e garantias de gravação a seguir-leituras. Os clientes fora da sessão que executam gravações verão a consistência eventual.
+  A desatualização limitada é frequentemente escolhida por aplicativos distribuídos globalmente que esperam latências de baixa gravação, mas exigem garantia de ordem global total. A desatualização limitada é excelente para aplicativos que apresentam colaboração e compartilhamento de grupos, cotação de ações, publicação/assinatura/enfileiramento, etc. O gráfico a seguir ilustra a consistência de desatualização limitada com notas musicais. Depois que os dados são gravados na região "leste dos EUA", as regiões "oeste dos EUA" e "leste da Austrália" lêem o valor escrito com base no tempo de retardo máximo configurado ou no máximo de operações:
 
-- **Prefixo Coerente**: Atualizações que são retornadas contêm algum prefixo de todas as atualizações, sem intervalos. O nível de consistência de prefixo consistente garante que as leituras nunca vejam gravações fora de ordem.
+  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
 
-- **Eventual**: Não há nenhuma garantia de ordenação para leituras. Na ausência de qualquer gravação adicional, as réplicas eventualmente convergem.
+- **Sessão**: em uma única sessão de cliente, as leituras têm a garantia de honrar o prefixo consistente (supondo uma única sessão de "gravador"), leituras monotônico, gravações de monotônico, leitura-gravação-gravações e garantias de gravação a seguir-leituras. Os clientes fora da sessão que executam gravações verão a consistência eventual.
 
-## <a name="consistency-levels-explained-through-baseball"></a>Níveis de consistência explicados através do beisebol
+  A consistência da sessão é o nível de consistência amplamente usado para uma única região, bem como para aplicativos distribuídos globalmente. Ele fornece latências de gravação, disponibilidade e taxa de transferência de leitura comparável à de consistência eventual, mas também fornece as garantias de consistência que atendem às necessidades dos aplicativos escritos para operar no contexto de um usuário. O gráfico a seguir ilustra a consistência da sessão com notas musicais. A região "oeste dos EUA" e as regiões "leste dos EUA" estão usando a mesma sessão (sessão A) para que ambos leiam os dados ao mesmo tempo. Enquanto a região "leste da Austrália" está usando a "sessão B", ela recebe dados mais tarde, mas na mesma ordem que as gravações.
 
-Vejamos um cenário de jogo de beisebol como exemplo. Imagine uma sequência de gravações que representam a pontuação de um jogo de beisebol. A pontuação da linha entrada-por-entrada é descrita no papel de [Consistência de dados replicados através do beisebol](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf). Este jogo de beisebol hipotético está atualmente no meio da sétima entrada. É a transferência de sétima entrada. Os visitantes estão por trás com uma pontuação de 2 a 5, conforme mostrado abaixo:
+  ![video](media/consistency-levels/session-consistency.gif)
 
-| | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Execuções** |
-| - | - | - | - | - | - | - | - | - | - | - |
-| **Visitantes** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
-| **Início** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
+- **Prefixo consistente**: as atualizações que são retornadas contêm algum prefixo de todas as atualizações, sem intervalos. O nível de consistência de prefixo consistente garante que a leitura nunca veja gravações fora de ordem.
 
-Um contêiner Cosmos do Azure contém os totais de execução para os visitantes e as equipes residenciais. Enquanto o jogo estiver em andamento, diferentes garantias de leitura podem resultar em clientes lerem diferentes pontuações. A tabela a seguir lista o conjunto completo de pontuações que podem ser retornadas ao ler as pontuações do visitante e da casa com cada uma das cinco garantias de coerência. A pontuação dos visitantes é listada primeiro. Diferentes valores retornados possíveis são separados por vírgulas.
+  Se as gravações tiverem sido realizadas na ordem `A, B, C`, o cliente verá `A`, `A,B` ou `A,B,C`, mas nunca fora de ordem, como `A,C` ou `B,A,C`. O prefixo consistente fornece latências de gravação, disponibilidade e taxa de transferência de leitura comparáveis à de consistência eventual, mas também fornece as garantias de ordem que atendem às necessidades dos cenários em que a ordem é importante. O gráfico a seguir ilustra a consistência do prefixo de consistência com notas musicais. Em todas as regiões, as leituras nunca veem gravações fora de ordem:
 
-| **Nível de coerência** | **Pontuações (visitantes, início)** |
-| - | - |
-| **Forte** | 2 a 5 |
-| **Desatualização Limitada** | As pontuações são no máximo uma entrada de data: 2-3, 2-4, 2-5 |
-| **Sessão** | <ul><li>Para o gravador: 2 a 5</li><li> Para qualquer outra pessoa que não seja o gravador: 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>Depois de ler 1-3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
-| **Prefixo coerente** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
-| **Eventual** | 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
+  ![video](media/consistency-levels/consistent-prefix.gif)
+
+- **Eventual**: não há garantia de classificação para leituras. Na ausência de qualquer gravação adicional, as réplicas eventualmente convergem.  
+A consistência eventual é a forma mais fraca de consistência, pois um cliente pode ler os valores mais antigos do que aqueles que tinha lido anteriormente. A consistência eventual é ideal quando o aplicativo não requer nenhuma garantia de ordenação. Os exemplos incluem a contagem de retweets, curtidos ou comentários não-threaded. O gráfico a seguir ilustra a consistência eventual com notas musicais.
+
+  ![video](media/consistency-levels/eventual-consistency.gif)
 
 ## <a name="additional-reading"></a>Leitura adicional
 
@@ -81,7 +81,7 @@ Para saber mais sobre conceitos de coerência, leia os artigos a seguir:
 - [Explicação de Coerência de Dados Replicados por meio do beisebol (vídeo) por Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Explicação de Coerência de Dados Replicados por meio do beisebol (whitepaper) por Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Session Guarantees for Weakly Consistent Replicated Data](https://dl.acm.org/citation.cfm?id=383631)
-- [Consistency tradeoffs in modern distributed database systems design: (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos): CAP é apenas parte da história](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Equilíbrio de coerência no design do banco de dados distribuído moderno: CAP é só uma parte da história](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (PBS (Probabilistic Bounded Staleness) para quóruns parciais práticos)
 - [Eventualmente Coerente – Revisado](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

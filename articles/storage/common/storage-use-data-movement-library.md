@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76508995"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942900"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca de Movimentação de Dados
 
@@ -32,7 +32,7 @@ Este documento demonstra como criar um aplicativo de console .NET Core que é ex
 - Copiar o arquivo da URL para o Armazenamento de Blobs.
 - Copiar do Armazenamento de Blobs para o Armazenamento de Blobs.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Uma conta do Armazenamento do Azure](storage-account-create.md)
@@ -42,7 +42,7 @@ Este documento demonstra como criar um aplicativo de console .NET Core que é ex
 1. Visite o [.NET Core Installation Guide](https://www.microsoft.com/net/core) (Guia de Instalação do .NET Core) para instalar o .NET Core. Ao selecionar o seu ambiente, escolha a opção de linha de comando.
 2. Na linha de comando, crie um diretório para seu projeto. Navegue nesse diretório, digite `dotnet new console -o <sample-project-name>` para criar um projeto de console C#.
 3. Abra esse diretório no Visual Studio Code. Esta etapa pode ser feita rapidamente por meio da linha de comando digitando `code .` no Windows.
-4. Instale a [extensão do C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) do Marketplace do Visual Studio Code. Reinicie o Visual Studio Code.
+4. Instale a [extensão do C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) do Marketplace do Visual Studio Code. Reinicie o Visual Studio Code.
 5. Neste ponto, você deve ver dois prompts. Uma é para adicionar os "ativos necessários para criar e depurar". Clique em “sim”. Outro prompt é para restaurar dependências não resolvidas. Clique em “restaurar”.
 6. Modificar `launch.json` em `.vscode` para usar o terminal externo como um console. Essa configuração deve ser lida como `"console": "externalTerminal"`
 7. O Visual Studio Code permite que você depure aplicativos do .NET Core. Pressione `F5` para executar o aplicativo e verificar se a configuração está funcionando. Você deve ver o "Hello World!" impresso no console.
@@ -564,7 +564,7 @@ Neste exemplo, definimos o parâmetro booliano em `TransferManager.CopyAsync` co
 
 O aplicativo de movimentação de dados agora está concluído. [O exemplo de código completo está disponível no GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Documentação de referência da biblioteca de movimentação de dados do armazenamento do Azure](https://azure.github.io/azure-storage-net-data-movement).
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225162"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251901"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: balancear carga de VMs em uma zona de disponibilidade com Standard Load Balancer usando o portal do Azure
 
@@ -54,7 +54,7 @@ O Standard Load Balancer dá suporte somente a um endereço IP público padrão.
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite *myResourceGroupZLB* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
     | SKU           | Selecione **Padrão**.                          |
@@ -63,18 +63,24 @@ O Standard Load Balancer dá suporte somente a um endereço IP público padrão.
     |Zona de disponibilidade| Selecione **1**.    |
 3. Na guia **Revisar + criar**, clique em **Criar**.   
 
-   ## <a name="create-backend-servers"></a>Criar servidores de back-end
+## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Nesta seção, você criará uma rede virtual. Além disso, criará duas máquinas virtuais na mesma zona (ou seja, zona 1) para a região adicionar ao pool de back-end do balanceador de carga. Em seguida, instalará o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância de zona. Se uma VM falhar, a investigação de integridade da VM na mesma zona falhará. O tráfego continua sendo atendido por outras VMs na mesma zona.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Rede virtual**.  Insira estes valores para a rede virtual:
-    - **myVnet**, para o nome da rede virtual.
-    - **myResourceGroupZLB**, para o nome do grupo de recursos existente.
-    - **myBackendSubnet**, para o nome da sub-rede.
-2. Selecione **Criar** para criar uma rede virtual.
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-    ![Criar uma rede virtual](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+Nesta seção, você precisará substituir os seguintes parâmetros nas etapas pelas informações abaixo:
+
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupZLB (selecione o grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa Ocidental      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -216,7 +222,7 @@ Uma regra do balanceador de carga define como o tráfego é distribuído para as
       ![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 3. Para ver o balanceador de carga em ação, force a parada da VM exibida. Atualize o navegador para ver o outro nome do servidor exibido no navegador.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Selecione o grupo de recursos que contém o balanceador de carga. Em seguida, selecione **Excluir**.
 

@@ -78,7 +78,7 @@ Escalar dimensionalmente unidades de data warehouse afeta os seguintes aspectos 
 Recomendações para quando escalar horizontalmente unidades de data warehouse:
 
 - Antes de executar uma operação de transformação ou carregamento de dados pesados, escale horizontalmente para tornar os dados disponíveis mais rapidamente.
-- Durante o horário comercial de pico, escale dimensionalmente para acomodar um número de consultas simultâneas maior. 
+- Durante o horário comercial de pico, escale horizontalmente para acomodar um número de consultas simultâneas maior. 
 
 ## <a name="what-if-scaling-out-does-not-improve-performance"></a>E se escalar verticalmente não melhorar o desempenho?
 

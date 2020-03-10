@@ -1,5 +1,5 @@
 ---
-title: Migrar de DTU para vCore
+title: Migrar do DTU para o vCore
 description: Migre do modelo de DTU para o modelo vCore. A migração para o vCore é semelhante à atualização ou ao downgrade entre as camadas Standard e Premium.
 services: sql-database
 ms.service: sql-database
@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: f34439b7750ca1858e71d4a36121eb65001fff50
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/09/2020
+ms.openlocfilehash: 693065046f92e0e9eade14c43e9942772440937d
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811265"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945410"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar do modelo baseado em DTU para o modelo baseado em vCore
 
@@ -45,7 +45,7 @@ A tabela a seguir fornece orientação para cenários de migração específicos
 |Propósito geral|Comercialmente crítico|Atualizar|Deve migrar primeiro o secundário|
 ||||
 
-\* a cada 100 DTUs na camada Standard exigem pelo menos 1 vCore e cada 125 DTUs na camada Premium requer pelo menos 1 vCore.
+\* como regra geral, a cada 100 DTUs na camada Standard exigem pelo menos 1 vCore, e cada 125 DTUs na camada Premium requer pelo menos 1 vCore. Para saber mais, confira [Modelo de compra baseado em vCore](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
 
 ## <a name="migrate-failover-groups"></a>Migrar grupos de failover
 
@@ -55,7 +55,7 @@ A migração de grupos de failover com vários bancos de dados requer a migraç�
 
 Você pode criar um banco de dados secundário de replicação geográfica (um secundário geográfico) somente usando a mesma camada de serviço usada para o banco de dados primário. Para bancos de dados com uma alta taxa de geração de logs, é recomendável criar o secundário geográfico com o mesmo tamanho de computação que o primário.
 
-Se você estiver criando um secundário geográfico no pool elástico para um único banco de dados primário, verifique se a configuração `maxVCore` para o pool corresponde ao tamanho de computação do banco de dados primário. Se você estiver criando um secundário geográfico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações `maxVCore`.
+Se você estiver criando um secundário geográfico no pool elástico para um único banco de dados primário, verifique se a configuração de `maxVCore` para o pool corresponde ao tamanho de computação do banco de dados primário. Se você estiver criando um secundário geográfico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações de `maxVCore`.
 
 ## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Use a cópia do banco de dados para converter um banco de dados baseado em DTU em um banco de dados baseado em vCore
 

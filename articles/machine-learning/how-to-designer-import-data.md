@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138162"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942283"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importar seus dados para o designer de Azure Machine Learning (versão prévia)
 
@@ -56,6 +56,8 @@ Embora seja recomendável usar os conjuntos de dados para importar, você també
 
 Para obter informações detalhadas sobre como usar o módulo importar dados, consulte a [página Importar dados referência](algorithm-module-reference/import-data.md).
 
+[!NOTE]
+> Se os dados tiverem muitas colunas, você poderá encontrar "falha na validação devido à limitação de tamanho" no módulo importar dados. Isso ocorre porque as colunas excluem o comprimento do parâmetro do módulo máximo após a codificação. Nesse caso, é recomendável [registrar o conjunto de registros na interface do usuário dos conjuntos de valores](how-to-create-register-datasets.md#use-the-ui), o que pode evitar o erro.  
 
 ## <a name="supported-sources"></a>Fontes com suporte
 
@@ -70,17 +72,17 @@ O designer dá suporte a conjuntos de tabelas de tabela criados a partir das seg
  * Arquivos delimitados
  * Arquivos JSON
  * Arquivos Parquet
- * consultas SQL
+ * Consultas SQL
 
 ## <a name="data-types"></a>Tipos de dados
 
 O designer reconhece internamente os seguintes tipos de dados:
 
 * String
-* Inteiro
+* Integer
 * Decimal
 * Boolean
-* Date
+* Data
 
 O designer usa um tipo de dados interno para passar dados entre módulos. Você pode converter explicitamente seus dados em formato de tabela de dados usando o módulo [converter para conjunto de](algorithm-module-reference/convert-to-dataset.md) dados. Qualquer módulo que aceite formatos diferentes do formato interno converterá os dados silenciosamente antes de passá-los para o próximo módulo.
 
@@ -88,6 +90,6 @@ O designer usa um tipo de dados interno para passar dados entre módulos. Você 
 
 Os módulos no designer são limitados pelo tamanho do destino de computação. Para conjuntos de grandes maiores, você deve usar um recurso de computação Azure Machine Learning maior. Para obter mais informações sobre Azure Machine Learning computação, consulte [o que são destinos de computação no Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Aprenda as noções básicas do designer com [o tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md).

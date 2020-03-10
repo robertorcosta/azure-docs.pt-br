@@ -8,12 +8,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 359f78cabbe0372e6892695c092ae49b62df7bfa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227465"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944194"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
@@ -217,16 +217,19 @@ Esse problema pode ocorrer por um dos seguintes motivos:
 
 ### <a name="resolution"></a>Resolução
 
-Quando aplicável, use [grupos dinâmicos](../automation-update-management-groups.md) para suas implantações de atualização. Além disso:
+Quando aplicável, use [grupos dinâmicos](../automation-update-management-groups.md) para suas implantações de atualização. Adicionalmente:
 
-* Verifique se o computador ainda existe e acessível. Se ele não existir, edite a implantação e remova o computador.
+* Verifique se o computador ainda existe e acessível. 
+* Se o computador não existir, edite a implantação e remova o computador.
 * Consulte a seção [planejamento de rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços necessários para gerenciamento de atualizações e, em seguida, verifique se o computador atende a esses requisitos.
-* Execute a consulta a seguir em Log Analytics para localizar computadores em seu ambiente cujo `SourceComputerId` foi alterado. Procure computadores que tenham o mesmo valor de `Computer`, mas um valor diferente de `SourceComputerId`. 
+* Verifique a conectividade com o Hybrid Runbook Worker usando a solução de problemas do agente de Hybrid Runbook Worker. Para saber mais sobre a solução de problemas, consulte [solucionar problemas do agente de atualização](update-agent-issues.md).
+* Execute a consulta a seguir em Log Analytics para localizar computadores em seu ambiente para os quais `SourceComputerId` foi alterado. Procure computadores que tenham o mesmo valor de `Computer`, mas um valor diferente de `SourceComputerId`.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   Depois de encontrar as máquinas afetadas, edite as implantações de atualização direcionadas a essas máquinas e, em seguida, remova-as e adicione-as novamente para que `SourceComputerId` reflita o valor correto.
+
+* Depois de encontrar as máquinas afetadas, edite as implantações de atualização direcionadas a essas máquinas e, em seguida, remova-as e adicione-as novamente para que `SourceComputerId` reflita o valor correto.
 
 ## <a name="updates-nodeployment"></a>Cenário: as atualizações são instaladas sem uma implantação
 
@@ -250,7 +253,7 @@ Para obter mais informações, consulte [Configurando atualizações automática
 
 ### <a name="issue"></a>Problema
 
-Você receberá a seguinte mensagem de erro:
+Você vê a seguinte mensagem de erro:
 
 ```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
@@ -426,7 +429,7 @@ Se você não puder resolver um problema de aplicação de patch, faça uma cóp
 
 * KB2267602 é a [atualização de definição do Windows Defender](https://www.microsoft.com/wdsi/definitions). Ele é atualizado diariamente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não tiver visto o problema ou não conseguir resolver o problema, tente um dos seguintes canais para obter suporte adicional:
 

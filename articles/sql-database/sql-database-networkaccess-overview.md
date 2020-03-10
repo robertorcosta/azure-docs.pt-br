@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/09/2020
+ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251899"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945390"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do data warehouse
 
@@ -27,19 +27,28 @@ ms.locfileid: "77251899"
 > [!IMPORTANT]
 > Este artigo faz *não* se aplica à **Instância Gerenciada do Banco de Dados SQL do Azure**. para obter mais informações sobre a configuração de rede, consulte [conectando-se a um instância gerenciada](sql-database-managed-instance-connect-app.md) .
 
-Quando você cria uma nova SQL Server [do Azure do portal do Azure](sql-database-single-database-get-started.md), o resultado é um ponto de extremidade público no formato *yourservername.Database.Windows.net*. Por design, todo o acesso ao ponto de extremidade público é negado. Você pode usar os seguintes controles de acesso à rede para permitir seletivamente o acesso ao banco de dados SQl por meio do ponto de extremidade público
-- Permitir serviços do Azure:-quando definido como ativado, outros recursos dentro do limite do Azure, por exemplo, uma máquina virtual do Azure, podem acessar o banco de dados SQL
+Quando você cria uma nova SQL Server do Azure no [portal do Azure](sql-database-single-database-get-started.md), o resultado é um ponto de extremidade público no formato *yourservername.Database.Windows.net*.
 
-- Regras de firewall de IP:-Use esse recurso para permitir explicitamente conexões de um endereço IP específico, por exemplo, de computadores locais.
+Você pode usar os seguintes controles de acesso à rede para permitir seletivamente o acesso ao banco de dados SQl por meio do ponto de extremidade público:
+- Permitir serviços do Azure: quando definido como ativado, outros recursos dentro do limite do Azure, por exemplo, uma máquina virtual do Azure, podem acessar o banco de dados SQL
 
-- Regras de firewall de rede virtual:-Use esse recurso para permitir o tráfego de uma rede virtual específica dentro do limite do Azure
+- Regras de firewall de IP: Use esse recurso para permitir explicitamente conexões de um endereço IP específico, por exemplo, de computadores locais
 
+Você também pode permitir o acesso privado ao banco de dados SQL de [redes virtuais](../virtual-network/virtual-networks-overview.md) por meio de:
+- Regras de firewall de rede virtual: Use esse recurso para permitir o tráfego de uma rede virtual específica dentro do limite do Azure
+
+- Link privado: Use este recurso para criar um ponto de extremidade privado para o Azure SQL Server em uma rede virtual específica
+
+
+
+Veja o vídeo abaixo para obter uma explicação de alto nível desses controles de acesso e o que eles fazem:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+
 
 ## <a name="allow-azure-services"></a>Permitir serviços do Azure 
 Durante a criação de uma nova SQL Server do Azure [do portal do Azure](sql-database-single-database-get-started.md), essa configuração é deixada desmarcada.
 
- ![Captura de tela da nova criação do servidor][1]
+
 
 Você também pode alterar essa configuração por meio do painel Firewall depois que a SQL Server do Azure for criada da seguinte maneira.
   
@@ -129,6 +138,9 @@ As regras de rede virtual são uma alternativa mais fácil de estabelecer e gere
 > [!NOTE]
 > Ainda não é possível ter o Banco de Dados SQL em uma sub-rede. Se seu servidor do banco de dados SQL do Azure for um nó em uma sub-rede em sua rede virtual, todos os nós dentro da rede virtual podem se comunicar com seu banco de dados SQL. Nesse caso, suas VMs podem se comunicar com o Banco de Dados SQL sem a necessidade de nenhuma regra da rede virtual ou regras de IP.
 
+## <a name="private-link"></a>Link Privado 
+O link privado permite que você se conecte ao Azure SQL Server por meio de um **ponto de extremidade privado**. Um ponto de extremidade privado é um endereço IP privado em uma [rede virtual](../virtual-network/virtual-networks-overview.md) e sub-rede específica.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter um guia de início rápido sobre como criar uma regra de firewall de IP no nível de servidor, consulte [criar um banco de dados SQL do Azure](sql-database-single-database-get-started.md).
@@ -146,3 +158,4 @@ As regras de rede virtual são uma alternativa mais fácil de estabelecer e gere
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png
 [2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+

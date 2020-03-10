@@ -2,23 +2,17 @@
 title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: d63697f3c140b5ad374607f1ecb00dad20e697de
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
-ms.translationtype: MT
+ms.date: 03/09/2020
+ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899133"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942735"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
-Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar recursos no:
-
-* [nível de assinatura](deploy-to-subscription.md)
-* [nível do grupo de gerenciamento](deploy-to-management-group.md)
-* nível de locatário (abordado neste artigo)
-
-Você usa implantações em nível de locatário para executar ações que fazem sentido nesse nível, como a atribuição [de controle de acesso baseado em função](../../role-based-access-control/overview.md) ou aplicação de [políticas](../../governance/policy/overview.md).
+À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseados em função](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
 
 ## <a name="supported-resources"></a>Recursos compatíveis
 
@@ -41,10 +35,10 @@ Para modelos, use:
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
 ```
 
-Para arquivos de parâmetro, use:
+O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetro, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="required-access"></a>Acesso necessário
@@ -181,5 +175,4 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md).
-* Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](template-functions.md).
+* Você também pode implantar modelos no nível da [assinatura](deploy-to-subscription.md) ou do [grupo de gerenciamento](deploy-to-management-group.md).

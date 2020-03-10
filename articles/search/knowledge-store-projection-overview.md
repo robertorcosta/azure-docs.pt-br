@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754533"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942983"
 ---
 # <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projeções em uma loja de conhecimento no Azure Pesquisa Cognitiva
 
@@ -205,9 +205,14 @@ Como alternativa, se você precisar usar os dados aprimorados em um pipeline de 
 
 Por fim, se você precisar exportar seus dados da loja de conhecimento, Azure Data Factory terá conectores para exportar os dados e esterrará no banco de dado de sua escolha. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Como uma próxima etapa, crie sua primeira loja de conhecimento usando dados de exemplo e instruções.
 
 > [!div class="nextstepaction"]
 > [Crie um repositório de conhecimento em REST](knowledge-store-create-rest.md).
+
+Para obter um tutorial que aborda conceitos de projeções avançadas como divisão, modelagem embutida e relações, comece com [definir projeções em uma loja de conhecimento](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Definir projeções em uma loja de conhecimento](knowledge-store-projections-examples.md)

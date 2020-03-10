@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a31894719863b16cc92f7e5bf4d7c85944c8850e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8fa8ca50a8d8cae7543c6aacb84fa57bc2f9c3a4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721295"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945213"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Key Vault para Linux
 
@@ -67,17 +67,17 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| {1&gt;Nome&lt;1} | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault | string |
+| publicador | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.0 | INT |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
-| linkOnRenewal | false | boolean |
+| linkOnRenewal | false | booleano |
 | certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | boolean |
+| requiredInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
 
 
@@ -102,6 +102,7 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+          "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,

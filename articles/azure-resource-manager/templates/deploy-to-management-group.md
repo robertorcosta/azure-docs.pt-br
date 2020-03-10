@@ -2,23 +2,17 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: dc46762755718c798b4a7eed6f2dc6b8afce9b98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894888"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942764"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gerenciamento
 
-Normalmente, você implanta recursos do Azure em um grupo de recursos em sua assinatura do Azure. No entanto, você também pode criar recursos no:
-
-* [nível de assinatura](deploy-to-subscription.md)
-* nível do grupo de gerenciamento (abordado neste artigo)
-* [nível de locatário](deploy-to-tenant.md)
-
-Você usa implantações no nível do grupo de gerenciamento para executar ações que fazem sentido nesse nível, como a atribuição [de controle de acesso baseado em função](../../role-based-access-control/overview.md) ou aplicação de [políticas](../../governance/policy/overview.md).
+À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseado em função](../../role-based-access-control/overview.md) para um grupo de gerenciamento. Com os modelos de nível de grupo de gerenciamento, você pode aplicar políticas declarativamente e atribuir funções no nível do grupo de gerenciamento.
 
 ## <a name="supported-resources"></a>Recursos compatíveis
 
@@ -41,10 +35,10 @@ Para modelos, use:
 https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
 ```
 
-Para arquivos de parâmetro, use:
+O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetro, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandos de implantação
@@ -169,5 +163,4 @@ O exemplo a seguir atribui uma definição de política existente ao grupo de ge
 
 * Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para obter um exemplo de implantação de configurações de workspace para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md).
-* Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](template-functions.md).
+* Você também pode implantar modelos no nível de [assinatura](deploy-to-subscription.md) e [nível de locatário](deploy-to-tenant.md).

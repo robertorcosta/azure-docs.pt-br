@@ -4,17 +4,17 @@ description: Este artigo explica como os parceiros usam os recursos do Gerenciam
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117594"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245466"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
@@ -41,7 +41,7 @@ Veja um exemplo que mostra os custos de um só cliente.
 
 Todas as funcionalidades disponíveis no Gerenciamento de Custos do Azure também estão disponíveis nas APIs REST. Use as APIs para automatizar as tarefas de gerenciamento de custos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Como parceiro, o Gerenciamento de Custos do Azure está disponível nativamente apenas para as assinaturas que estão no plano do Azure.
 
@@ -140,18 +140,14 @@ Quando a política de custo é definida como **Sim**, os usuários da assinatura
 
 Quando a política de visibilidade de custo é habilitada, todos os serviços que tenham o uso da assinatura mostram os custos com base nas taxas pagas conforme o uso. O uso de reserva é exibido com preços sem nenhum valor para os custos reais e amortizados. As compras e os direitos não estão associados a uma assinatura específica. Portanto, as compras não são exibidas no escopo da assinatura.
 
-Para ver os custos no locatário do cliente, abra **Gerenciamento de Custos + Cobrança** e selecione a conta de cobrança relevante do Contrato de Parceiro da Microsoft.
 
-![Selecionar uma conta de cobrança](./media/get-started-partners/select-billing-account.png)
+### <a name="view-customer-costs"></a>Exibir custos do cliente
 
-Em **Cobrança**, selecione **Assinaturas do Azure** e, em seguida, selecione um cliente.
-
-![Selecionar um cliente da assinatura do Azure](./media/get-started-partners/subscriptions-select-customer.png)
-
-Selecione **Análise de custo** e comece a examinar os custos.
-A análise de custo, os orçamentos e os alertas estão disponíveis para os escopos do RBAC do grupo de recursos e da assinatura em custos com base em taxas pagas conforme o uso.
+Para exibir os custos do locatário do cliente, abra **Gerenciamento de Custos + Cobrança**. Selecione **Análise de custo** e, em seguida, altere o escopo para a assinatura do locatário do cliente para começar a examinar os custos.
 
 ![Ver a análise de custo como um cliente ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+A análise de custo, os orçamentos e os alertas estão disponíveis para os escopos do RBAC do grupo de recursos e da assinatura em custos com base em taxas pagas conforme o uso.
 
 As exibições amortizadas e os custos reais das instâncias reservadas nos escopos do RBAC mostram preços sem nenhum valor. Os custos de instância reservada são mostrados apenas nos escopos de cobrança em que as compras foram feitas.
 

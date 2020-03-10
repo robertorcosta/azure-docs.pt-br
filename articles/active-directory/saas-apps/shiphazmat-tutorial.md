@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2258f74268ed858d46d8faf2fec7bc404e836808
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9a08b247a6c1b2f954f66aa4b853532142d3aaba
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599679"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205799"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shiphazmat"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ShipHazmat
 
@@ -31,9 +30,9 @@ Neste tutorial, você aprenderá a integrar o ShipHazmat ao Azure AD (Azure Acti
 * Permitir que os usuários sejam conectados automaticamente ao ShipHazmat com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -46,6 +45,8 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O ShipHazmat dá suporte ao SSO iniciado por **IDP**
 * O ShipHazmat dá suporte ao Provisionamento de Usuário **just-in-time**
+* Após configurar o ShipHazmat, você poderá impor controles de sessão, que protegem contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
 
 ## <a name="adding-shiphazmat-from-the-gallery"></a>Como adicionar o ShipHazmat por meio da galeria
 
@@ -90,6 +91,17 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do cliente do ShipHazmat](mailto:support@bureaudg.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+
+1. Seu aplicativo ShipHazmat espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![image](common/default-attributes.png)
+
+1. Além do indicado acima, o aplicativo ShipHazmat espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+
+    | Nome | Atributo de Origem|
+    | ------------ | --------- |
+    | city | user.city |
+    | state | user.state |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
@@ -143,8 +155,10 @@ Ao clicar no bloco do ShipHazmat no Painel de Acesso, você deverá ser conectad
 
 - [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimentar o ShipHazmat com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

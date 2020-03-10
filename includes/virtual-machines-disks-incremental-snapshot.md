@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 2316b52115cc23d11dfb26d951a7f1820f2737cc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77520735"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946106"
 ---
 Instantâneos incrementais (visualização) são backups pontuais para discos gerenciados que, quando tirados, consistem apenas em todas as alterações desde o último instantâneo. Quando você tenta baixar ou, de outra forma, usa um instantâneo incremental, o VHD completo é usado. Essa nova funcionalidade para instantâneos de disco gerenciado pode potencialmente permitir que eles sejam mais econômicos, já que você não precisa mais armazenar todo o disco com cada instantâneo individual, a menos que você escolha. Assim como instantâneos regulares, instantâneos incrementais podem ser usados para criar um disco gerenciado completo ou para criar um instantâneo normal.
 
@@ -25,8 +25,7 @@ Os instantâneos incrementais também oferecem um recurso diferencial, que está
 
 No momento, há suporte apenas para as seguintes regiões:
 
-- Disponível como uma oferta GA nas regiões EUA Central ocidental, leste do Canadá e centro-Canadá.
-- Disponível como uma visualização pública nas regiões leste dos EUA, leste dos EUA 2, EUA Central, Europa Setentrional, Sul Ásia Oriental.
+- Disponível como uma oferta de GA nas EUA Central do oeste, leste dos EUA, leste dos EUA 2, EUA Central, leste do Canadá, centro-Canadá, Europa Setentrional, regiões de Ásia Oriental do Sul.
 
 ## <a name="restrictions"></a>Restrições
 - Não é possível criar instantâneos incrementais no momento depois de alterar o tamanho de um disco (somente durante a visualização).

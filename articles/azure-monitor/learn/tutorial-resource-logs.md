@@ -1,18 +1,17 @@
 ---
 title: Coletar logs de recursos de um Recurso do Azure e analisá-los com Azure Monitor
 description: Tutorial para definir as configurações de diagnóstico para coletar logs de recurso de um recurso do Azure para um workspace do Log Analytics em que eles podem ser analisados com uma consulta de log.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 90b2a9bc9e3e8aa6297f02a46163717a2bf58a22
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532609"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269201"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Coletar e analisar logs de recursos de um recurso do Azure
 
@@ -26,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma consulta de log simples para analisar logs
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa de um recurso do Azure para monitorar. Você poderá usar qualquer recurso da sua assinatura do Azure que seja compatível com configurações de diagnóstico. Para determinar se um recurso é compatível com configurações de diagnóstico, acesse seu menu no portal do Azure e verifique se há a opção **Configurações de diagnóstico** na seção **Monitoramento** do menu.
 
@@ -47,7 +46,7 @@ Um workspace do Log Analytics no Azure Monitor coleta e indexa dados de log de u
    - **Assinatura**: Selecione a assinatura para armazenar o workspace. Essa assinatura não precisa ser igual à do recurso que está sendo monitorado.
    - **Grupo de Recursos**: Selecione um grupo de recursos ou clique em **Criar** para criar um. Esse grupo de recursos não precisa ser igual ao do recurso que está sendo monitorado.
    - **Localização**: Selecione uma região do Azure ou crie uma. Essa localização não precisa ser igual à do recurso que está sendo monitorado.
-   - **Tipo de preço**: Selecione *Gratuito*, que reterá sete dias de dados. Você pode alterar esse tipo de preço mais tarde. Clique no link **preço do Log Analytics** para saber mais sobre diferentes tipos de preço.
+   - **Tipo de preço**: selecione *Pagamento Conforme o Uso* como o tipo de preço. Você pode alterar esse tipo de preço mais tarde. Clique no link **preço do Log Analytics** para saber mais sobre diferentes tipos de preço.
 
     ![Novo workspace](media/tutorial-resource-logs/new-workspace.png)
 

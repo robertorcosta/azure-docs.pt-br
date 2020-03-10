@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/08/2020
+ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930238"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934170"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mapeando fluxo de dados selecionar transformação
 
@@ -56,5 +56,10 @@ Ao escolher o mapeamento baseado em regras, você está instruindo o ADF a avali
 
 Mais detalhes sobre a correspondência de padrões estão disponíveis na [documentação do padrão de coluna](concepts-data-flow-column-pattern.md).
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>Usar o mapeamento baseado em regras para parametrizar a transformação Select
+Você pode parametrizar o mapeamento de campo na transformação selecionar usando o mapeamento baseado em regra. Use a palavra-chave ```name``` para verificar os nomes de coluna de entrada em um parâmetro. Por exemplo, se você tiver um parâmetro de fluxo de dados chamado ```mycolumn``` você pode criar uma única regra de transformação de seleção que sempre mapeia qualquer nome de coluna definido ```mycolumn``` como um nome de campo dessa forma:
+
+```name == $mycolumn```
+
+## <a name="next-steps"></a>Próximas etapas
 * Depois de usar Select para renomear, reordenar e alias de colunas, use a [transformação do coletor](data-flow-sink.md) para colocar seus dados em um repositório de dados.

@@ -29,7 +29,7 @@ A janela será exibida conforme mostrado:
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para o Stream Analytics
 | Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
-| Eventos de Entrada Acumulados       | Número de eventos de entrada com lista de pendências. Um valor diferente de zero nessa métrica indica que seu trabalho não consegue acompanhar o número de eventos de entrada. Se esse valor for aumentando lentamente ou for consistentemente diferente de zero, expanda seu trabalho. Você pode aprender mais visitando [Compreender e ajustar as Unidades de Streaming](stream-analytics-streaming-unit-consumption.md). |
+| Eventos de Entrada Acumulados       | Número de eventos de entrada com lista de pendências. Um valor diferente de zero nessa métrica indica que seu trabalho não consegue acompanhar o número de eventos de entrada. Se esse valor for aumentando lentamente ou for consistentemente diferente de zero, escale horizontalmente seu trabalho. Você pode aprender mais visitando [Compreender e ajustar as Unidades de Streaming](stream-analytics-streaming-unit-consumption.md). |
 | Erros de conversão de dados | Número de eventos de saída que não pôde ser convertido para o esquema de saída esperado. A política de erro pode ser alterada para 'Remover' a fim de remover os eventos que encontram esse cenário. |
 | Eventos de Entrada Antecipados       | Eventos cujos carimbos de data/hora do aplicativo sejam anteriores à hora de chegada por mais de cinco minutos. |
 | Solicitações de função com falha | Número de chamadas à função Azure Machine Learning com falha (se presente). |

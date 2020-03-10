@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613574"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946416"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure AD Domain Services gerenciado
 
@@ -42,7 +42,11 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
 * Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
 
 > [!NOTE]
-> Como não há [acesso aos controladores de domínio no Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), você não pode criar e usar um repositório central para modelos administrativos de diretiva de grupo em um domínio gerenciado. O [SYSVOL não está incluído na sincronização de Azure ad Connect local](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), portanto, você também não pode criar um repositório central local e sincronizá-lo para o Azure AD DS por meio do Azure AD.
+> Você pode usar Política de Grupo Modelos Administrativos copiando os novos modelos para a estação de trabalho de gerenciamento. Copie os arquivos *. admx* em `%SYSTEMROOT%\PolicyDefinitions` e copie os arquivos *. adml* específicos da localidade para `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, em que `Language-CountryRegion` corresponde ao idioma e à região dos arquivos *. adml* .
+>
+> Por exemplo, copie a versão em inglês, Estados Unidos dos arquivos *. adml* para a pasta `\en-us`.
+>
+> Como alternativa, você pode armazenar centralmente seu modelo administrativo de Política de Grupo nos controladores de domínio que fazem parte do domínio gerenciado do Azure AD DS. Para obter mais informações, consulte [como criar e gerenciar o armazenamento central para Política de Grupo modelos administrativos no Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="install-group-policy-management-tools"></a>Instalar ferramentas de gerenciamento de Política de Grupo
 

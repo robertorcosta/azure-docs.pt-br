@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 08441a98d9104109b4cfc130ab6adb31dc4fce45
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.subservice: imaging
+ms.openlocfilehash: bf1dca61ec6b39e52d4f76c1c77cd3def6973ab8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260507"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945006"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: criar uma imagem do Linux e distribuí-la para uma galeria de imagens compartilhadas 
 
@@ -186,7 +186,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Faça SSH na VM.
+SSH na VM.
 
 ```azurecli-interactive
 ssh aibuser@<publicIpAddress>
@@ -259,6 +259,6 @@ Exclua o grupo de recursos.
 az group delete -n $sigResourceGroup -y
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as [galerias de imagens compartilhadas do Azure](shared-image-galleries.md).

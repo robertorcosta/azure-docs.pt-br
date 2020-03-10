@@ -1,25 +1,26 @@
 ---
 title: Integração e implantação contínuas
-description: Experiência de DevOps de banco de dados de classe empresarial para o SQL Data Warehouse com suporte interno para integração e implantação contínuas usando o Azure Pipelines.
+description: Experiência de DevOps de banco de dados de classe empresarial para armazenamento de dados com suporte interno para integração e implantação contínuas usando o Azure Pipelines.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8178e5ff9ff4816ddd422d3c45cfc0e1e0b3d41
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: cb28afc84c423c5c5321a8f948e82f82031888a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712987"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195933"
 ---
-# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínuas para o SQL Data Warehouse do Azure
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para armazenamento de dados
 
-Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) ao Azure DevOps e aproveitar o Azure Pipelines para configurar a integração e a implantação contínuas. Este tutorial é a segunda etapa na criação de seu pipeline de implantação e integração contínua com o SQL Data Warehouse. 
+Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) ao Azure DevOps e aproveitar o Azure Pipelines para configurar a integração e a implantação contínuas. Este tutorial é a segunda etapa na criação de seu pipeline de implantação e integração contínua para armazenamento de dados. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -61,7 +62,7 @@ Neste momento, você tem um ambiente simples no qual qualquer check-in em seu br
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Explore [Arquitetura do SQL Data Warehouse do Azure](massively-parallel-processing-mpp-architecture.md)
-- [Criar rapidamente um SQL Data Warehouse](create-data-warehouse-portal.md)
+- Explore a [arquitetura MPP de Análise de SQL](massively-parallel-processing-mpp-architecture.md)
+- [Criar rapidamente um pool de SQL](create-data-warehouse-portal.md)
 - [Carregar dados de amostra](sql-data-warehouse-load-sample-databases.md)
 - Explore os [Vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos)

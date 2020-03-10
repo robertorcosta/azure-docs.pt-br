@@ -1,18 +1,18 @@
 ---
 title: Visão geral do status do Azure | Microsoft Docs
 description: Uma exibição global da integridade dos serviços do Azure
-ms.topic: article
+ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 1257476234709380de3452015313e3a3bf71e04d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463998"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654147"
 ---
 # <a name="azure-status-overview"></a>Visão geral do status do Azure
 
-O [status do Azure](https://status.azure.com/status/) fornece uma exibição global da integridade dos serviços e regiões do Azure. Com o status do Azure, você pode obter informações sobre a disponibilidade do serviço. O status do Azure está disponível para todas as pessoas e exibe todos os serviços que relatam sua integridade de serviço, além de incidentes com impacto abrangente. Se você for um usuário do Azure atual, no entanto, recomendamos fortemente que você use a experiência personalizada da [Integridade do Serviço do Azure](https://aka.ms/azureservicehealth). A Integridade do Serviço do Azure inclui todas as interrupções, atividades de manutenção planejada futura e comunicados de serviços.
+O [status do Azure](https://status.azure.com/status/) fornece uma exibição global da integridade dos serviços e regiões do Azure. Com o status do Azure, você pode receber informações sobre a disponibilidade do serviço. O status do Azure está disponível para todas as pessoas e exibe todos os serviços que relatam sua integridade de serviço, além de incidentes com impacto abrangente. Se você for um usuário do Azure atual, no entanto, recomendamos fortemente que você use a experiência personalizada da [Integridade do Serviço do Azure](https://aka.ms/azureservicehealth). A Integridade do Serviço do Azure inclui todas as interrupções, atividades de manutenção planejada futura e comunicados de serviços.
 
 ![Página de status do Azure](./media/azure-status-overview/azure-status.PNG)
 
@@ -22,7 +22,7 @@ A página de status do Azure é atualizada em tempo real conforme a integridade 
 
 ![Atualização do status do Azure](./media/azure-status-overview/update.PNG)
 
-## <a name="azure-status-history"></a>Histórico do status do Azure
+## <a name="azure-status-history"></a>Histórico de status do Azure
 
 Enquanto a página de status do Azure sempre mostra as informações de integridade mais recentes, você pode exibir os eventos mais antigos usando a [página de histórico de status do Azure](https://status.azure.com/status/history/).
 

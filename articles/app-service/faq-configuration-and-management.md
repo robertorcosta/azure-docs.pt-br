@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649271"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942944"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -105,7 +105,7 @@ Uma causa comum de falha de backup é que alguns arquivos estão em uso pelo apl
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como remover um cabeçalho de resposta HTTP?
 
-Para remover os cabeçalhos de resposta HTTP, atualize o arquivo web.config do seu site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Para remover os cabeçalhos da resposta HTTP, atualize o arquivo Web. config do seu site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>O Serviço de Aplicativo é compatível com o PCI Standard 3.0 e 3.1?
 
@@ -183,7 +183,7 @@ Você tem duas opções para capturar um rastreamento F12:
 ### <a name="f12-console-output"></a>Saída do console F12
 
 1. Selecione a guia **Console**.
-2. Para cada guia que contém itens de maior que zero, selecione a guia (**Erro**, **Aviso**, ou **Informações**). Se a guia não estiver selecionada, o ícone de guia é cinza ou preto quando você move o cursor para longe dela.
+2. Para cada guia que contém itens de maior que zero, selecione a guia (**Erro**, **Aviso**, ou **Informações**). Se a guia não estiver selecionada, o ícone de guia ficará cinza ou preto quando você mover o cursor para longe dele.
 3. Clique com o botão direito na área de mensagem do painel e, em seguida, selecione **Copiar tudo**.
 4. Cole o texto copiado em um arquivo e, em seguida, salve o arquivo.
 
@@ -212,7 +212,7 @@ Para obter mais informações, consulte [Como criar um Ambiente do Serviço de A
 Às vezes, a criação de um Ambiente do Serviço de Aplicativo falhará. Nesse caso, você pode ver o seguinte erro nos logs de atividade:
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 Para resolver esse problema, certifique-se de que nenhuma das seguintes condições é verdadeira:
@@ -248,7 +248,7 @@ Para executar o teste de penetração, [enviar uma solicitação](https://portal
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo usando o Gerenciador de Tráfego?
 
-Para saber como usar um nome de domínio personalizado com um aplicativo de Serviço de Aplicativo que usa o Azure Traffic Manager para balanceamento de carga, consulte [Configurar um nome de domínio personalizado para um aplicativo web do Azure com o Gerenciador de Tráfego](web-sites-traffic-manager-custom-domain-name.md).
+Para saber como usar um nome de domínio personalizado com um aplicativo de Serviço de Aplicativo que usa o Azure Traffic Manager para balanceamento de carga, consulte [Configurar um nome de domínio personalizado para um aplicativo web do Azure com o Gerenciador de Tráfego](configure-domain-traffic-manager.md).
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Meu certificado de Serviço de Aplicativo está sinalizado para fraude. Como resolver isso?
 
@@ -256,7 +256,7 @@ Para saber como usar um nome de domínio personalizado com um aplicativo de Serv
 
 Durante a verificação de domínio de uma compra de certificado de Serviço de Aplicativo, você poderá ver a seguinte mensagem:
 
-"Seu certificado foi sinalizado para uma possível fraude. A solicitação está sendo examinada. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.”
+"Seu certificado foi sinalizado para uma possível fraude. A solicitação está sendo examinada. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure."
 
 Como a mensagem indica, esse processo de verificação de fraude pode levar até 24 horas para ser concluído. Durante esse tempo, você continuará vendo a mensagem.
 
@@ -282,7 +282,7 @@ Para obter documentação detalhada para autenticação e autorização no Servi
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o domínio padrão *. azurewebsites.net para o domínio personalizado do meu aplicativo web do Azure?
 
-Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome do host personalizado para seu site e não deseja que os usuários possam acessar seu padrão domínio *. azurewebsites.net, você pode redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *. azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como determinar qual versão do .NET versão está instalada no Serviço de Aplicativo?
 

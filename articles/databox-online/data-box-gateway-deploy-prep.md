@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438653"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303198"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway
 
@@ -42,7 +42,7 @@ Consulte os tutoriais a seguir na sequência prescrita para implantar o Data Box
 
 Agora, você pode começar a configurar o portal do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Aqui você encontra os pré-requisitos de configuração para o recurso Data Box Gateway, o dispositivo Data Box Gateway e a rede do datacenter.
 
@@ -94,7 +94,7 @@ Para criar um recurso do Data Box Gateway, execute as seguintes etapas no portal
     - Ou no portal do Azure Governamental nesta URL: [https://portal.azure.us](https://portal.azure.us). Para obter mais detalhes, acesse [Conectar-se ao Azure Governamental usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. No painel esquerdo, selecione **+ Criar um recurso**. Pesquise **Data Box Edge / Data Box Gateway**. Selecione Data Box Edge / Data Box Gateway. Selecione **Criar**.
-3. Escolha a assinatura que deseja usar para o dispositivo do Data Box Gateway. Selecione a região na qual você deseja implantar o recurso Data Box Gateway. Para esta versão, o Leste dos EUA, o Sudeste Asiático e o Oeste da Europa estão disponíveis. Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo. Na opção **Data Box Gateway**, selecione **Criar**.
+3. Escolha a assinatura que deseja usar para o dispositivo do Data Box Gateway. Selecione a região na qual você deseja implantar o recurso Data Box Gateway. Para obter uma lista de todas as regiões em que o recurso Azure Stack Edge está disponível, confira [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo. Na opção **Data Box Gateway**, selecione **Criar**.
 
     ![Serviço de Data Box Gateway de pesquisa](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
@@ -110,7 +110,7 @@ Para criar um recurso do Data Box Gateway, execute as seguintes etapas no portal
     |Configuração  |Valor  |
     |---------|---------|
     |Nome   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 caracteres contendo letras, números e hifens.<br> Nome começa e termina com uma letra ou um número.        |   
-    |Região     |Para esta versão, Leste dos EUA, Sudeste da Ásia e Oeste da Europa estão disponíveis para implantação do recurso. Para o Azure Governamental, todas as regiões do governo listadas em [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/) estão disponíveis. <br> Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo.|
+    |Região     |Para obter uma lista de todas as regiões em que o recurso Azure Stack Edge está disponível, confira [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Para o Azure Governamental, todas as regiões do governo listadas em [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/) estão disponíveis. <br> Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo.|
     
     ![Criar recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

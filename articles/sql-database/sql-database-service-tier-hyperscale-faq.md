@@ -236,7 +236,7 @@ A recuperação simples ou o modelo de log em massa não é suportada na Hiperes
 
 ### <a name="does-hyperscale-allow-provisioning-multiple-nodes-for-parallel-ingesting-of-large-amounts-of-data"></a>O hiperscale permite o provisionamento de vários nós para a ingestão paralela de grandes quantidades de dados
 
-Não. O hiperscale é uma arquitetura de multi-processamento simétrico (SMP) e não é um processamento paralelo maciço (MPP) ou uma arquitetura de vários mestres. Você só pode criar várias réplicas para dimensionar cargas de trabalho somente leitura.
+Não. O hiperscale é uma arquitetura de multi-processamento simétrico (SMP) e não é um processamento paralelo maciço (MPP) ou uma arquitetura de vários mestres. Você só pode criar várias réplicas para escalar horizontalmente cargas de trabalho somente leitura.
 
 ### <a name="what-is-the-oldest-sql-server-version-supported-for-migration-to-hyperscale"></a>Qual é a versão mais antiga do SQL Server com suporte para migração para hiperescala
 

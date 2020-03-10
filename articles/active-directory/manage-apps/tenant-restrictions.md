@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f73dd8dbef3f08cd4ea5841e4ec21bac2f55bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70cdb4b42e835a9bfa03f4551ba25088ef8c5226
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276499"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942862"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso a aplicativos de nuvem SaaS
 
@@ -60,7 +60,7 @@ Para usar restrições de locatário, os clientes devem ser capazes de se conect
 
 A configuração a seguir é necessária para habilitar restrições de locatário por meio da sua infraestrutura de proxy. Essa diretriz é genérica, você deverá consultar a documentação do seu fornecedor de proxy para encontrar as etapas de implementação específicas.
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Prerequisites
 
 - O proxy deve ser capaz de realizar a interceptação de SSL, a inserção de cabeçalho HTTP e a filtragem de destinos usando FQDNs/URLs.
 
@@ -105,6 +105,9 @@ Embora a configuração de restrições de locatário seja feita na infraestrutu
 
 O administrador do locatário especificado como o locatário de contexto de acesso restrito pode usar esse relatório para ver as entradas bloqueadas devido à política de restrições de locatário, incluindo a identidade usada e a ID do diretório de destino. As entradas serão incluídas se o locatário que define a restrição for o locatário do usuário ou o locatário do recurso para a entrada.
 
+> [!NOTE]
+> O relatório pode conter informações limitadas, como a ID do diretório de destino, quando um usuário que está em um locatário diferente do locatário de contexto de acesso restrito entrar. Nesse caso, as informações de identificação do usuário, como nome e nome UPN, são mascaradas para proteger os dados do usuário em outros locatários.
+
 Como outros relatórios no Portal do Azure, você pode usar filtros para especificar o escopo do relatório. Você pode filtrar em um intervalo de tempo, usuário, aplicativo, cliente ou status específico. Se você selecionar o botão **colunas** , poderá optar por exibir os dados com qualquer combinação dos seguintes campos:
 
 - **Usuário**
@@ -117,7 +120,7 @@ Como outros relatórios no Portal do Azure, você pode usar filtros para especif
 - **Resultado da MFA**
 - **Endereço IP**
 - **Cliente**
-- **Nome de Usuário**
+- **Nome de usuário**
 - **Localidade**
 - **ID do locatário de destino**
 

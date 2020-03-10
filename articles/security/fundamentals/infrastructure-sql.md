@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727096"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942965"
 ---
 # <a name="azure-sql-database-security-features"></a>Recursos de segurança do Banco de Dados SQL do Azure    
 O Banco de Dados SQL do Azure fornece um serviço de banco de dados relacional no Azure. Para proteger os dados do cliente e fornecer recursos de segurança fortes que eles esperam de um serviço de banco de dados relacional, o Banco de Dados SQL tem seus próprios conjuntos de recursos de segurança. Esses recursos se baseiam nos controles que são herdados do Azure.
@@ -62,9 +62,9 @@ Como o controlador de malha (FC) é o orquestrador central da malha do Azure, co
 ### <a name="vlan-isolation"></a>Isolamento de VLAN
 A rede de produção do Azure é separada logicamente em três VLANs primárias:
 
-- VLAN principal: Interconecta nós de clientes não confiáveis.
-- VLAN do FC: Contém FCs confiáveis e sistemas de suporte.
-- VLAN do dispositivo: Contém uma rede confiável e outros dispositivos de infraestrutura.
+- A principal VLAN: Interconecta nós de clientes não confiáveis.
+- O FC VLAN: Contém FCs confiáveis e sistemas de suporte.
+- A VLAN do dispositivo: contém rede confiável e outros dispositivos de infraestrutura.
 
 ### <a name="packet-filtering"></a>Filtragem de pacotes
 O IPFilter e os firewalls de software que são implementados no sistema operacional raiz e sistema operacional convidado de nós impõem restrições de conectividade e impedir que o tráfego não autorizado entre as VMs.
@@ -75,7 +75,7 @@ O isolamento da raiz do sistema operacional de VMs convidadas e as VMs convidada
 ### <a name="types-of-rules-on-firewalls"></a>Tipos de regras de firewalls
 Uma regra é definida como:
 
-{IP do Security Response Center (Src), Porta do Src, IP de destino, Porta de destino, Protocolo de destino, Entrada/Saída, Com monitoração de estado/sem monitoração de estado, Tempo limite de fluxo com monitoração de estado}.
+{Src IP, porta src, IP de destino, porta de destino, protocolo de destino, entrada/saída, com estado/sem estado, tempo limite de fluxo com estado}.
 
 Os pacotes de caracteres ociosos síncronos (SYN) só são permitidos dentro ou fora se qualquer uma das regras permitir. Para TCP, o Azure usa regras sem estado em que o princípio é que ele permite que apenas todos os pacotes não-SYN entrem ou saiam da VM. A premissa de segurança é que qualquer pilha de host seja resiliente de ignorar um não SYN se ele não tiver sido visto como um pacote SYN anteriormente. O protocolo TCP em si é stateful e, em combinação com a regra baseada em SYN sem estado, atinge um comportamento geral de uma implementação com estado.
 
@@ -97,12 +97,10 @@ Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Az
 
 - [Recursos, local e segurança física do Azure](physical-security.md)
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
-- [Limites e componentes do sistema de informações do Azure](infrastructure-components.md)
+- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
 - [Proteção de dados do cliente do Microsoft Azure](protection-customer-data.md)
-
-

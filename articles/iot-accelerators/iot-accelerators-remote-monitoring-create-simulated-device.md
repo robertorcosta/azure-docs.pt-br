@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250245"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943064"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
@@ -82,7 +82,7 @@ Para seguir este guia de instruções, é necessário ter:
 
 * Visual Studio Code. Você pode [fazer o download do Visual Studio Code para Mac, Linux e Windows](https://code.visualstudio.com/download).
 * .NET Core. Você pode fazer o download do [NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
-* [C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * Postman. Você pode fazer o download do [Postman para Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Um [hub IoT implantado na assinatura do Azure](../../articles/iot-hub/iot-hub-create-through-portal.md). Você precisa da cadeia de conexão do hub IoT para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
 * Um banco de dados do Cosmos DB que usa a API SQL e que está configurado para [consistência forte](../../articles/cosmos-db/how-to-manage-database-account.md). Você precisa da cadeia de conexão do banco de dados do Cosmos DB para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.

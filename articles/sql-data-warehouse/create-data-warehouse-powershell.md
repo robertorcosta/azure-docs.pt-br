@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Criar um depósito – Azure Powershell'
-description: Criar rapidamente um servidor lógico do Banco de Dados SQL, uma regra de firewall de nível de servidor e data warehouse com o Azure PowerShell.
+title: 'Início Rápido: Criar um data warehouse (PowerShell)'
+description: Crie rapidamente uma análise do servidor lógico do data warehouse do Azure Synapse Analytics com uma regra de firewall no nível de servidor usando o Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,24 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 94dcc0dee5dd4fe81eb5ce067d7ace31edeca353
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461514"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199981"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure com o Azure PowerShell
+# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>Início Rápido: Criar e consultar um data warehouse com o Azure PowerShell
 
-Crie rapidamente um SQL Data Warehouse do Azure usando o Azure PowerShell.
+Crie um data warehouse do Azure Synapse Analytics provisionando um pool de SQL usando o Azure PowerShell.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!NOTE]
-> A criação de um SQL Data Warehouse pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de um warehouse pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +70,7 @@ $password = "ChangeYourAdminPassword1"
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
 # The database name
-$databasename = "mySampleDataWarehosue"
+$databasename = "mySampleDataWarehouse"
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -78,6 +80,7 @@ Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overvi
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
+
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
 Crie um [servidor lógico do SQL Azure](../sql-database/sql-database-logical-servers.md) usando o comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon do usuário administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
@@ -100,7 +103,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> Banco de Dados SQL e SQL Data Warehouse se comunicam pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá se conectar ao servidor do SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+> Os pontos de extremidade SQL comunicam-se pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá se conectar ao servidor do SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
 
@@ -121,10 +124,10 @@ New-AzSqlDatabase `
 Os parâmetros requeridos são:
 
 * **RequestedServiceObjectiveName**: A quantidade de [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) que você está solicitando. Aumentar esse valor aumenta os custos de computação. Para obter uma lista de valores com suporte, consulte [limites de memória e simultaneidade](memory-concurrency-limits.md).
-* **DatabaseName**: o nome do SQL Data Warehouse que você está criando.
+* **DatabaseName**: o nome do data warehouse que você está criando.
 * **ServerName**: o nome do servidor que você está usando para a criação.
 * **ResourceGroupName**: o grupo de recursos que você está usando. Para encontrar os grupos de recursos na sua assinatura, use Get-AzureResource.
-* **Edition**: deve ser "DataWarehouse" para criar um SQL Data Warehouse.
+* **Edition**: deve ser "DataWarehouse" para criar um data warehouse.
 
 Os parâmetros opcionais são:
 
@@ -148,6 +151,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você criou um data warehouse, criou uma regra de firewall, conectou-se ao data warehouse e executou algumas consultas. Para saber mais sobre o SQL Data Warehouse do Azure, prossiga para o tutorial de carregamento de dados.
+Agora você criou um data warehouse, criou uma regra de firewall, conectou-se ao data warehouse e executou algumas consultas. Para saber mais, prossiga para o tutorial de carregamento de dados.
 > [!div class="nextstepaction"]
->[Carregar dados em um SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregar dados em um data warehouse](load-data-from-azure-blob-storage-using-polybase.md)

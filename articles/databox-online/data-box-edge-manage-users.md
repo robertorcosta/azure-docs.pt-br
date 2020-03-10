@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 68f8ad903f967812c4a416c732b35fa1712404cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756588"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946135"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Usar o portal do Azure para gerenciar usuários no Azure Data Box Edge
 
 Este artigo descreve como gerenciar usuários no Azure Data Box Edge. Você pode gerenciar o Azure Data Box Edge por meio do portal do Azure ou da IU da Web local. Use o portal do Azure para adicionar, modificar ou excluir usuários.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Adicionar um usuário
@@ -33,8 +33,7 @@ Os usuários podem ter privilégio completo ou somente leitura. Como o nome indi
  - **Usuário com privilégios completo** – um usuário local com acesso completo.
  - **Usuário somente leitura** – um usuário local com acesso somente leitura. Esses usuários estão associados a compartilhamentos que permitem operações somente leitura.
 
-As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. Após as permissões associadas a um usuário serem definidas, elas podem ser modificadas usando o Explorador de Arquivos. 
-
+As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. No momento, não há suporte para a modificação de permissões de nível de compartilhamento.
 
 ## <a name="add-a-user"></a>Adicionar um usuário
 
@@ -49,7 +48,7 @@ Para adicionar um usuário, siga estas etapas no portal do Azure.
     ![Especificar nome de usuário e senha](media/data-box-edge-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > Estes usuários são reservados pelo sistema e não devem ser usados: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > Estes usuários são reservados pelo sistema e não devem ser usados: Administrador, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Convidado.  
 
 3. Uma notificação é mostrada quando a criação de usuário é iniciada e concluída. Após a criação do usuário, na barra de comandos, selecione **Atualizar** para exibir a lista atualizada de usuários.
 

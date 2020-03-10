@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f218c64d3ffe4955877516551a29376372144598
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526715"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933575"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -73,7 +73,8 @@ Para obter documentos de referência detalhados, consulte [cópia azcopy](storag
 Você também pode carregar um arquivo usando um símbolo curinga (*) em qualquer lugar no caminho do arquivo ou nome do arquivo. Por exemplo: `'C:\myDirectory\*.txt'`ou `C:\my*\*.txt`.
 
 > [!NOTE]
-> O AzCopy, por padrão, carrega os dados em blobs de bloco. Para carregar arquivos como BLOBs de acréscimo ou BLOBs de página, use o sinalizador `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> AzCopy, por padrão, carrega dados como BLOBs de blocos. Para carregar arquivos como BLOBs de acréscimo ou BLOBs de página, use o sinalizador `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> O AzCopy, por padrão, carrega seus dados para herdar a camada de acesso da conta. Para carregar arquivos para uma [camada de acesso](../blobs/storage-blob-storage-tiers.md)específica, use o sinalizador `--block-blob-tier=[Hot|Cool|Archive]`.
 
 ### <a name="upload-a-directory"></a>Carregar um diretório
 

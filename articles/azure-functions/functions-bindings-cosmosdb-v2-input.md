@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 4fe04d491525b8119ca21ff1118a2ea460cc0795
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: eabcf40e28927919215979ccc46fa029d19adbfe
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606601"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943415"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Azure Cosmos DB Associação de entrada para Azure Functions 2. x
 
@@ -1437,8 +1437,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
 |**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina as propriedades `id` e **SQLQuery** . Se você não definir uma ou outra, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade dá suporte a associações em tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina as propriedades `id` e `sqlQuery`. Se você não definir uma ou outra, toda a coleção é recuperada.|
-|**connectionStringSetting**     |**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
+|**connectionStringSetting**     |**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB. |
 |**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a pesquisa. Pode incluir parâmetros de associação. Ele é necessário para pesquisas em coleções [particionadas](../cosmos-db/partition-data.md#logical-partitions) .|
+|**preferredLocations**| **PreferredLocations**| Adicional Define os locais preferenciais (regiões) para contas de banco de dados replicadas geograficamente no serviço de Azure Cosmos DB. Os valores devem ser separados por vírgulas. Por exemplo, "leste dos EUA, EUA Central do Sul Europa Setentrional". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

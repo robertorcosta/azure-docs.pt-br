@@ -8,7 +8,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: API REST
       items:
@@ -16,7 +16,7 @@
           href: quickstarts/csharp.md
         - name: Usando Java
           href: quickstarts/java.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: quickstarts/nodejs.md
         - name: Usando o PHP
           href: quickstarts/php.md
@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: .
       items:
-        - name: 'Usando C#'
-          href: image-search-sdk-quickstart.md
-        - name: Usando o Node.js
-          href: image-search-sdk-node-quickstart.md
-        - name: Usando Python
-          href: image-sdk-python-quickstart.md
-        - name: Usando Java
-          href: image-sdk-java-quickstart.md
+        - name: Bibliotecas de cliente da Pesquisa de Imagem do Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: Criar um aplicativo Web de pesquisa de imagens

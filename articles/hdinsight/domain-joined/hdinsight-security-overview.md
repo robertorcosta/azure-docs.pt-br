@@ -1,18 +1,18 @@
 ---
 title: Visão geral da segurança empresarial no Azure HDInsight
 description: Conheça os vários métodos para garantir a segurança empresarial no Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 09/23/2019
-ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/03/2020
+ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122117"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267714"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança empresarial no Azure HDInsight
 
@@ -36,7 +36,7 @@ Todos os clusters implantados em uma VNET também terão um ponto de extremidade
 
 O [Enterprise Security Package](apache-domain-joined-architecture.md) do HDInsight fornece autenticação baseada no Active Directory, suporte multiusuário e controle de acesso baseado em função. A integração do Active Directory é obtida pelo uso do [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Com essas funcionalidades, você poderá criar um cluster HDInsight que ingressado em um domínio gerenciado do Active Directory. Em seguida, você poderá configurar uma lista de funcionários da empresa que podem se autenticar e entrar no cluster.
 
-Com essa configuração, funcionários da empresa podem entrar nos nós de cluster, usando as credenciais de domínio. Além disso, podem usar suas credenciais de domínio para autenticação com outros pontos de extremidade aprovados como Apache Ambari Views, ODBC, JDBC, PowerShell e API REST para interagir com o cluster. 
+Com essa configuração, funcionários da empresa podem entrar nos nós de cluster, usando as credenciais de domínio. Além disso, podem usar suas credenciais de domínio para autenticação com outros pontos de extremidade aprovados como Apache Ambari Views, ODBC, JDBC, PowerShell e API REST para interagir com o cluster.
 
 ### <a name="authorization"></a>Autorização
 
@@ -50,9 +50,9 @@ Por exemplo, o administrador pode configurar o [Apache Ranger](https://ranger.ap
 
 A auditoria de todo acesso aos recursos do cluster e aos dados é necessária para rastrear o acesso não autorizado ou não intencional dos recursos. É tão importante quanto proteger os recursos de cluster HDInsight de usuários não autorizados e proteger os dados.
 
-O administrador pode exibir e relatar todo o acesso aos recursos e dados de cluster do HDInsight. O administrador também pode exibir e relatar todas as alterações nas políticas de controle de acesso criadas nos pontos de extremidade com suporte pelo Apache Ranger. 
+O administrador pode exibir e relatar todo o acesso aos recursos e dados de cluster do HDInsight. O administrador também pode exibir e relatar todas as alterações nas políticas de controle de acesso criadas nos pontos de extremidade com suporte pelo Apache Ranger.
 
-Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs de acesso ao SSH, [habilite o Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) e exiba as tabelas que fornecem registros de auditoria.
+Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs de acesso ao SSH, [habilite o Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) e veja as tabelas que fornecem registros de auditoria.
 
 ### <a name="encryption"></a>Criptografia
 
@@ -62,7 +62,7 @@ Ambos os armazenamentos de dados para clusters HDInsight, Armazenamento de Blobs
 
 ### <a name="compliance"></a>Conformidade
 
-As ofertas de conformidade do Azure são baseadas em vários tipos de garantias, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria de terceiros independentes, bem como alterações contratuais, autoavaliações e documentos de diretrizes para o cliente produzidos pela Microsoft. Para obter informações sobre a conformidade do HDInsight, confira a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trust-center) e a [Visão geral da conformidade no Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+As ofertas de conformidade do Azure são baseadas em vários tipos de garantias, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria de terceiros independentes, alterações contratuais, autoavaliações e documentos de diretrizes para o cliente produzidos pela Microsoft. Para obter informações sobre a conformidade do HDInsight, confira a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trust-center) e a [Visão geral da conformidade no Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## <a name="shared-responsibility-model"></a>Modelo de responsabilidade compartilhada
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
 ms.openlocfilehash: 8ebb4f0d1a06a7bf29dc46cd696b6acfd2527095
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927390"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386676"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binário no Azure Data Factory
 
@@ -27,12 +27,12 @@ Você pode usar o conjunto de um DataSet binário na atividade de [cópia](copy-
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e binário.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e binário.
 
-| Propriedade         | Descrição                                                  | obrigatórios |
+| Propriedade         | DESCRIÇÃO                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Binary**. | SIM      |
-| location         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | SIM      |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Binary**. | Sim      |
+| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
 | compactação | Grupo de propriedades para configurar a compactação de arquivo. Configure esta seção quando desejar fazer compactação/descompactação durante a execução da atividade. | Não |
 | type | O codec de compactação usado para ler/gravar arquivos binários. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**. para usar ao salvar o arquivo.<br>Observação ao usar a atividade de cópia para descompactar arquivo (s) ZipDeflate e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos serão extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/`. | Não       |
 | level | A taxa de compactação. Aplicar quando o conjunto de um for usado no coletor da atividade de cópia.<br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **mais rápido:** a operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
@@ -73,21 +73,21 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
 
-| Propriedade      | Descrição                                                  | obrigatórios |
+| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **binaryname**. | SIM      |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **binaryname**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
 ### <a name="binary-as-sink"></a>Binário como coletor
 
 As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
 
-| Propriedade      | Descrição                                                  | obrigatórios |
+| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **BinarySink**. | SIM      |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **BinarySink**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)

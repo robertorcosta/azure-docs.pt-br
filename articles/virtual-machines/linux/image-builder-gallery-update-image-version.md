@@ -6,13 +6,14 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: d226a7b31dc9f8cf219c6d0d0f886fb5b21741a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4a3a9bd518b9bc695855ad2b0b659d3cf1834c05
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976325"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945038"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Visualização: criar uma nova versão de imagem de VM de uma versão de imagem existente usando o construtor de imagens do Azure
 
@@ -182,6 +183,6 @@ az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o t
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre os componentes do arquivo. JSON usado neste artigo, consulte referência de [modelo do Image Builder](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

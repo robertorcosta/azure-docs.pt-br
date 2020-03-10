@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: beb20518d1350335ceed285f4d5cd9da135132e5
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255742"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932710"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -50,10 +50,11 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 **Código de erro**: UserErrorVmProvisioningStateFailed<br>
 **Mensagem de erro**: a VM está em estado de provisionamento com falha<br>
 
-Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de falha no provisionamento.<br>**Abra portal do Azure > VM > configurações > extensões > status de extensões** e verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** .
+Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de falha no provisionamento.<br>**Abra portal do Azure > VM > configurações > extensões > status de extensões** e verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** . Para saber mais, confira [Estados de provisionamento](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states).
 
 - Se a extensão VMSnapshot estiver em um estado de falha, clique com o botão direito do mouse na extensão com falha e remova-a. Disparar um backup sob demanda. Essa ação reinstalará as extensões e executará o trabalho de backup.  <br>
-- Se qualquer outra extensão estiver em um estado de falha, ela poderá interferir no backup. Verifique se esses problemas de extensão foram resolvidos e repita a operação de backup.  
+- Se qualquer outra extensão estiver em um estado de falha, ela poderá interferir no backup. Verifique se esses problemas de extensão foram resolvidos e repita a operação de backup.
+- Se o estado de provisionamento da VM estiver em um estado de atualização, ele poderá interferir no backup. Verifique se ele está íntegro e repita a operação de backup.
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached – o limite máximo da coleção de pontos de restauração foi atingido
 
@@ -205,7 +206,7 @@ As seguintes condições podem causar falha na tarefa de instantâneo:
 
 | Causa | Solução |
 | --- | --- |
-| O status da VM foi informado incorretamente porque a VM foi desligada no protocolo RDP. | Se você desligar a VM no RDP, verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de **Desligar** no painel de VM. |
+| O status da VM foi informado incorretamente porque a VM foi desligada no protocolo RDP. | Se você desligar a VM no RDP, verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de **desligamento** no painel da VM. |
 | A VM não pode obter o endereço do host ou da malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione. Se a VM não puder obter o endereço do host ou da malha por meio da resposta 245 do DHCP, ela não poderá baixar ou executar nenhuma extensão. Se você precisar de um IP privado estático, deverá configurá-lo por meio do **portal do Azure** ou do **PowerShell** e certificar-se de que a opção DHCP dentro da VM esteja habilitada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos de ponto de recuperação

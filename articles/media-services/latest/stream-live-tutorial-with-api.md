@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 47d526ea410bc449c91ae4fb10913850c447f1b3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582638"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268168"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Transmissão ao vivo com os Serviços de Mídia
 
@@ -39,7 +39,7 @@ Este tutorial mostra como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os seguintes itens são necessários para concluir o tutorial:
 
@@ -47,7 +47,7 @@ Os seguintes itens são necessários para concluir o tutorial:
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
 - Siga as etapas em [Acessar API de Serviços de Mídia com a CLI do Azure](access-api-cli-how-to.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 - Uma câmera ou um dispositivo (como um laptop) usado para transmitir um evento.
-- Um codificador ao vivo local que converte sinais da câmera em fluxos enviados para o serviço de transmissão ao vivo dos Serviços de Mídia. O fluxo deve estar no formato **RTMP** ou **Smooth Streaming**.
+- Um codificador dinâmico local que converte sinais da câmera em fluxos enviados para o serviço de transmissão ao vivo dos Serviços de Mídia. Confira [Codificadores dinâmicos locais recomendados](recommended-on-premises-live-encoders.md). O fluxo deve estar no formato **RTMP** ou **Smooth Streaming**.
 
 > [!TIP]
 > Certifique-se de revisar [Transmissão ao vivo com Serviços de Mídia v3](live-streaming-overview.md) antes de continuar. 
@@ -171,7 +171,7 @@ Para assistir ao evento, copie a URL de streaming obtida quando você executou o
 
 O Evento ao Vivo é convertido automaticamente em conteúdo sob demanda quando é interrompido. Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que você criou neste tutorial, exclua o grupo de recursos criados anteriormente.
 

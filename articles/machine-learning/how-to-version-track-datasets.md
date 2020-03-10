@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834792"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939246"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de testes de versão e acompanhamento em experimentos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Cenários típicos de controle de versão:
 * Quando novos dados estão disponíveis para novo treinamento
 * Quando você estiver aplicando uma preparação de dados ou abordagens de engenharia de recursos diferentes
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para este tutorial, é necessário:
 
@@ -60,6 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
+Você também pode registrar uma nova versão de um conjunto de registros em 
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperar um conjunto de um DataSet por nome
 
@@ -120,7 +121,7 @@ dataset2.register(workspace = workspace,
 
 Você pode usar um conjunto de dados como entrada e saída de cada etapa Machine Learning pipeline. Quando você executa novamente os pipelines, a saída de cada etapa de pipeline é registrada como uma nova versão do conjunto de resultados.
 
-Como Machine Learning pipelines preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline é reproduzido, os conjuntos de resultados de saída com versão são reproduzíveis.
+Como Machine Learning pipelines preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline é reproduzido, os conjuntos de resultados de saída com versão são reproduzíveis. Saiba mais sobre [conjuntos de informações em pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -169,7 +170,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Você também pode encontrar o `input_datasets` de experimentos usando o [Azure Machine Learning Studio](https://ml.azure.com/). 
+Você também pode encontrar o `input_datasets` de experimentos usando https://ml.azure.com/. 
 
 A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento no Azure Machine Learning Studio. Para este exemplo, vá para o painel **experimentos** e abra a guia **Propriedades** para uma execução específica de seu experimento, `keras-mnist`.
 
@@ -183,11 +184,13 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando o Python ou o [Azure Machine Learning Studio](https://ml.azure.com/). A exibição a seguir é do painel **conjuntos de valores** em **ativos**. Selecione o conjunto de um e selecione a guia **modelos** para obter uma lista dos modelos registrados com o conjunto de um. 
+Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando Python ou vá para https://ml.azure.com/.
+
+A exibição a seguir é do painel **conjuntos de valores** em **ativos**. Selecione o conjunto de um e selecione a guia **modelos** para obter uma lista dos modelos registrados com o conjunto de um. 
 
 ![Modelos de conjuntos de dados de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Treinar com conjuntos de os](how-to-train-with-datasets.md)
 * [Mais notebooks de conjunto de anotações de exemplo](https://aka.ms/dataset-tutorial)

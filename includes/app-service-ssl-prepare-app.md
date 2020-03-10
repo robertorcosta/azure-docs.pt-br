@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 1c3f2009dc71df1a5496d585bdcba986a79ac0d0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768445"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300988"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar o aplicativo Web
 
-Para associar um certificado SSL personalizado (um certificado de terceiros ou certificado de Serviço de Aplicativo) ao aplicativo Web, o [Plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) deve estar na camada **Básico**, **Standard**, **Premium** ou **Isolado**. Nesta etapa, você precisa ter certeza de que seu aplicativo Web está no tipo de preço com suporte.
+Para criar associações de segurança personalizadas ou habilitar certificados do cliente para o aplicativo do Serviço de Aplicativo, o [Plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) precisa estar no nível **Básico**, **Standard**, **Premium** ou **Isolado**. Nesta etapa, você precisa ter certeza de que seu aplicativo Web está no tipo de preço com suporte.
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 

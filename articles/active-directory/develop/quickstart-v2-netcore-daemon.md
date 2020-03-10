@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f7e2380bff7d6d3e6fafd1b3d44b65de972e57d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e42be651de6fc70f5fe075a1bc1bee8010b886d7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703380"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274341"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph usando a identidade de aplicativo do console
 
-Neste início rápido, você aprenderá a escrever um aplicativo .NET Core que pode obter um token de acesso usando a identidade do aplicativo e, em seguida, chamar a API do Microsoft Graph para exibir uma [lista de usuários](https://docs.microsoft.com/graph/api/user-list) no diretório. Esse cenário é útil para situações em que o trabalho autônomo e sem periféricos, ou um serviço de janela, precisa ser executado com uma identidade do aplicativo em vez de uma identidade de usuário.
+Neste início rápido, você aprenderá a escrever um aplicativo .NET Core que pode obter um token de acesso usando a identidade do aplicativo e, em seguida, chamar a API do Microsoft Graph para exibir uma [lista de usuários](https://docs.microsoft.com/graph/api/user-list) no diretório. Esse cenário é útil para situações em que o trabalho autônomo e sem periféricos, ou um serviço de janela, precisa ser executado com uma identidade do aplicativo em vez de uma identidade de usuário. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
 
-![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
@@ -74,37 +72,44 @@ Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/down
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Etapa 2: Baixar seu projeto do Visual Studio
 
-[Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+> [!div renderon="docs"]
+> [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
+> [!div class="sxs-lookup" renderon="portal"]
+> Execute o projeto usando o Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Baixe o exemplo de código](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
-1. Abra a solução no Visual Studio – **1-Call-MSGraph\daemon-console.sln** (opcional).
-1. Edite **appsettings.json** e substitua os valores dos campos `ClientId`, `Tenant` e `ClientSecret` pelo seguinte:
-
-    ```json
-    "Tenant": "Enter_the_Tenant_Id_Here",
-    "ClientId": "Enter_the_Application_Id_Here",
-    "ClientSecret": "Enter_the_Client_Secret_Here"
-    ```
-    > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Gerar um novo segredo do cliente]()
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Enter_the_Supported_Account_Info_Here
     
-    > [!div class="sxs-lookup" renderon="portal"]
-    > > [!NOTE]
-    > > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
-    
-    > [!div renderon="docs"]
-    >> Em que:
-    >> * `Enter_the_Application_Id_Here` - é a **ID do aplicativo (cliente)** que você registrou.
-    >> * `Enter_the_Tenant_Id_Here` – substitua esse valor pela **ID do locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
-    >> * `Enter_the_Client_Secret_Here` – substitua esse valor pelo segredo do cliente criado na etapa 1.
+> [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
+> 
+> 1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
+> 1. Abra a solução no Visual Studio – **1-Call-MSGraph\daemon-console.sln** (opcional).
+> 1. Edite **appsettings.json** e substitua os valores dos campos `ClientId`, `Tenant` e `ClientSecret` pelo seguinte:
+> 
+>    ```json
+>    "Tenant": "Enter_the_Tenant_Id_Here",
+>    "ClientId": "Enter_the_Application_Id_Here",
+>    "ClientSecret": "Enter_the_Client_Secret_Here"
+>    ```
+>   Em que:
+>   - `Enter_the_Application_Id_Here` - é a **ID do aplicativo (cliente)** que você registrou.
+>   - `Enter_the_Tenant_Id_Here` – substitua esse valor pela **ID do locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+>   - `Enter_the_Client_Secret_Here` – substitua esse valor pelo segredo do cliente criado na etapa 1.
 
-    > [!div renderon="docs"]
-    > > [!TIP]
-    > > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** , acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
-    
-#### <a name="step-4-admin-consent"></a>Etapa 4: Consentimento do administrador
+> [!div renderon="docs"]
+> > [!TIP]
+> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** , acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-admin-consent"></a>Etapa 3: Consentimento do administrador
+
+> [!div renderon="docs"]
+> #### <a name="step-4-admin-consent"></a>Etapa 4: Consentimento do administrador
 
 Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403 – Proibido*: `Insufficient privileges to complete the operation`. Isso acontece porque qualquer *permissão somente do aplicativo* exige o consentimento do administrador, ou seja, um administrador global do seu diretório precisa dar consentimento ao seu aplicativo. Selecione uma das opções abaixo, dependendo de sua função:
 
@@ -134,7 +139,11 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!NOTE]
 > Você pode ver o erro *'AADSTS50011: nenhum endereço de resposta está registrado para o aplicativo'* após dar o consentimento ao aplicativo usando a URL anterior. Isso ocorre porque esse aplicativo e a URL não têm um URI de redirecionamento; ignore o erro.
 
-#### <a name="step-5-run-the-application"></a>Etapa 5: Executar o aplicativo
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-4-run-the-application"></a>Etapa 4: Executar o aplicativo
+
+> [!div renderon="docs"]
+> #### <a name="step-5-run-the-application"></a>Etapa 5: Executar o aplicativo
 
 Se você estiver usando o Visual Studio, pressione **F5** para executar o aplicativo. Caso contrário, execute o aplicativo por meio do prompt de comando ou console:
 
@@ -152,6 +161,9 @@ Você deverá ver uma lista de usuários em seu diretório do Azure AD como resu
 > Este aplicativo de início rápido usa um segredo do cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como texto sem formatação a seus arquivos de projeto, por motivos de segurança, é recomendável que você use um certificado, em vez de um segredo do cliente, antes de considerar o aplicativo como aplicativo de produção. Para obter mais informações sobre como usar um certificado, confira [estas instruções](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) no repositório do GitHub para este exemplo.
 
 ## <a name="more-information"></a>Mais informações
+
+### <a name="how-the-sample-works"></a>Como o exemplo funciona
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 3fd1405d8421d71f52d9cd215dd055ce1595abd0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.custom: hdinsightactive,mvc
+ms.date: 03/02/2020
+ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327269"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251945"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua o artigo [Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md).
 
@@ -128,51 +128,51 @@ O serviço do Power BI permite que você compartilhe os relatórios e painéis p
 
 1. Abra o Power BI Desktop.
 
-1. A partir da guia **Início**, clique em **Publicar**.
+1. Na guia **Página Inicial**, selecione **Publicar**.
 
     ![Publicar do Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publicar do Power BI Desktop")
 
-1. Selecione um workspace para o qual publicar seu conjunto de dados e para o qual fazer relatórios e, em seguida, clique em **Selecionar**. Na imagem a seguir, o **Meu Workspace** padrão está selecionado.
+1. Selecione um workspace no qual o conjunto de dados e o relatório serão publicados e, em seguida, escolha **Selecionar**. Na imagem a seguir, o **Meu Workspace** padrão está selecionado.
 
-    ![Selecione o workspace no qual publicar o conjunto de dados e o relatório](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selecione o workspace no qual publicar o conjunto de dados e o relatório") 
+    ![Selecione o workspace no qual publicar o conjunto de dados e o relatório](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Selecione o workspace no qual publicar o conjunto de dados e o relatório")
 
-1. Depois que a publicação for bem-sucedida, clique em **Abrir 'BuildingTemperature.pbix' no Power BI**.
+1. Depois que a publicação for bem-sucedida, selecione **Abrir 'BuildingTemperature.pbix' no Power BI**.
 
-    ![Publicação bem-sucedida, clique para inserir as credenciais](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicação bem-sucedida, clique para inserir as credenciais") 
+    ![Publicação bem-sucedida, clique para inserir as credenciais](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publicação bem-sucedida, clique para inserir as credenciais")
 
-1. No serviço do Power BI, clique em **Inserir credenciais**.
+1. No serviço do Power BI, selecione **Inserir credenciais**.
 
     ![Inserir as credenciais no serviço do Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Inserir as credenciais no serviço do Power BI")
 
-1. Clique em **Editar credenciais**.
+1. Selecione **Editar credenciais**.
 
     ![Editar as credenciais no serviço do Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Editar as credenciais no serviço do Power BI")
 
-1. Insira as informações de conta de logon do HDInsight e, em seguida, clique em **Entrar**. O nome da conta padrão é *admin*.
+1. Insira os dados da conta de logon do HDInsight e, em seguida, selecione **Entrar**. O nome da conta padrão é *admin*.
 
     ![Entrar no cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Entrar no cluster Spark")
 
-1. No painel esquerdo, acesse **Workspaces** > **Meu workspace** > **RELATÓRIOS** e, em seguida, clique em **BuildingTemperature**.
+1. No painel esquerdo, acesse **Workspaces** > **Meu Workspace** > **RELATÓRIOS** e, em seguida, selecione **BuildingTemperature**.
 
     ![Relatório listado em relatórios no painel esquerdo](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Relatório listado em relatórios no painel esquerdo")
 
     Você também verá a **BuildingTemperature** listada sob **DATASETS** no painel à esquerda.
 
-    O visual criado no Power BI Desktop agora está disponível no serviço do Power BI. 
+    O visual criado no Power BI Desktop agora está disponível no serviço do Power BI.
 
-1. Focalize o cursor sobre a visualização e, em seguida, clique no ícone de fixação no canto superior direito.
+1. Posicione o cursor sobre a visualização e, em seguida, selecione o ícone de pino no canto superior direito.
 
     ![Relatório no serviço do Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Relatório no serviço do Power BI")
 
-1. Selecione "Novo painel", digite o nome `Building temperature` e, em seguida, clique em **Fixar**.
+1. Selecione "Novo dashboard", insira o nome `Building temperature` e, em seguida, selecione **Fixar**.
 
     ![Fixar no novo painel](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Fixar no novo painel")
 
-1. No relatório, clique em **Ir para o painel**.
+1. No relatório, selecione **Ir para o dashboard**.
 
 O visual é fixado no painel – você pode adicionar outros elementos visuais no relatório e fixá-los no mesmo painel. Para saber mais sobre relatórios e painéis, confira [Relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) e [Painéis no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o tutorial, convém excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

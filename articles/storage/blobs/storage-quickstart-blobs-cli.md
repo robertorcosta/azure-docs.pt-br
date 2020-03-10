@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 57ab56fe3028da9011e86c589209e7505e69e719
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 58532c6eb6e01a993bce7d6e22a7b5274a465963
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650905"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298126"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Início Rápido: Criar, baixar e listar blobs com a CLI do Azure
 
@@ -22,11 +22,13 @@ A CLI do Azure é a experiência de linha de comando do Azure para gerenciar rec
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="install-the-azure-cli-locally"></a>Instalar a CLI do Azure localmente
 
 Se você optar por instalar e usar a CLI do Azure localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para determinar sua versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -36,11 +38,13 @@ Se você estiver executando a CLI do Azure localmente, precisará fazer logon e 
 az login
 ```
 
+Para obter mais informações sobre a autenticação com a CLI do Azure, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli).
+
 ## <a name="authorize-access-to-blob-storage"></a>Autorizar o acesso ao Armazenamento de Blobs
 
 Você pode autorizar o acesso ao Armazenamento de Blobs por meio da CLI do Azure com as credenciais do Azure AD ou usando a chave de acesso da conta de armazenamento. Recomendamos usar as credenciais do Azure AD. Este artigo mostra como autorizar operações do Armazenamento de Blobs usando o Azure AD.
 
-Os comandos da CLI do Azure para operações de dados no Armazenamento de Blobs dão suporte ao parâmetro `--auth-mode`, que permite especificar como autorizar determinada operação. Defina o parâmetro `--auth-mode` como `login` para autorização com as credenciais do Azure AD. Para obter mais informações, confira [Executar os comandos da CLI do Azure com as credenciais do Azure AD para acessar dados de blob ou fila](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Os comandos da CLI do Azure para operações de dados no Armazenamento de Blobs dão suporte ao parâmetro `--auth-mode`, que permite especificar como autorizar determinada operação. Defina o parâmetro `--auth-mode` como `login` para autorização com as credenciais do Azure AD. Para obter mais informações, confira [Autorizar o acesso a dados de blob ou de filas com a CLI do Azure](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Somente as operações de dados do Armazenamento de Blobs dão suporte ao parâmetro `--auth-mode`. As operações de gerenciamento, como a criação de um grupo de recursos ou uma conta de armazenamento, usam automaticamente as credenciais do Azure AD para autorização.
 
@@ -149,7 +153,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisar mais de qualquer um dos recursos no seu grupo de recursos, incluindo a conta de armazenamento que você criou neste guia de início rápido, exclua-o usando o comando [az group delete](/cli/azure/group). Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
+Caso deseje excluir os recursos criados como parte deste início rápido, incluindo a conta de armazenamento, exclua o grupo de recursos usando o comando [az group delete](/cli/azure/group). Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
 ```azurecli
 az group delete \

@@ -1,31 +1,27 @@
 ---
 title: IBM DB2 pureScale no Azure
 description: Neste artigo, mostramos uma arquitetura para executar um ambiente IBM DB2 pureScale no Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
 manager: edprice
 editor: edprice
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 4012048100bbed2229c45434ee4a27dfe9b952e7
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530061"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945049"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale no Azure
 
 O ambiente IBM DB2 pureScale fornece um cluster de banco de dados para o Azure com alta disponibilidade e escalabilidade nos sistemas operacionais Linux. Este artigo mostra uma arquitetura para executar o DB2 pureScale no Azure.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 As empresas têm muito usado as plataformas de RDBMS (sistema de gerenciamento de banco de dados relacional) tradicionais para atender às suas necessidades de OLTP (processamento de transações online). Atualmente, muitos estão migrando seus ambientes de banco de dados baseados em mainframe para o Azure como uma forma de expandir a capacidade, reduzir custos e manter uma estrutura de custo operacional estável. A migração é frequentemente o primeiro passo na modernização de uma plataforma legada. 
 
@@ -108,6 +104,6 @@ Use [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-netw
 
 No Azure, o DB2 pureScale precisa usar TCP/IP como a conexão de rede para armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 -   [Implemente esta arquitetura no Azure](deploy-ibm-db2-purescale-azure.md)

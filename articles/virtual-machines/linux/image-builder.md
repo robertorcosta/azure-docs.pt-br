@@ -6,15 +6,15 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 1bac04bbb67c7472de92c6da322121bafc20a560
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: imaging
+ms.openlocfilehash: 15a3b39b1466ffec87971b8f054ca916567d89d7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695444"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944948"
 ---
-# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Visualização: Criar uma VM do Linux com o construtor de imagens do Azure
+# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Versão prévia: criar uma VM do Linux com o construtor de imagens do Azure
 
 Este artigo mostra como você pode criar uma imagem personalizada do Linux usando o construtor de imagens do Azure e o CLI do Azure. O exemplo neste artigo usa três [personalizadores](image-builder-json.md#properties-customize) diferentes para personalizar a imagem:
 
@@ -91,7 +91,7 @@ az group create -n $imageResourceGroup -l $location
 ## <a name="set-permissions-on-the-resource-group"></a>Definir permissões no grupo de recursos
 Conceda à permissão ' colaborador ' do construtor de imagens para criar a imagem no grupo de recursos. Sem as permissões adequadas, a criação da imagem falhará. 
 
-O `--assignee` valor é a ID de registro do aplicativo para o serviço do construtor de imagem. 
+O valor de `--assignee` é a ID de registro do aplicativo para o serviço do construtor de imagem. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -114,14 +114,14 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-Você pode modificar este example. JSON conforme necessário. Por exemplo, você pode aumentar o valor de `buildTimeoutInMinutes` para permitir mais compilações em execução. Você pode editar o arquivo em Cloud Shell usando um editor de texto `vi`como.
+Você pode modificar este example. JSON conforme necessário. Por exemplo, você pode aumentar o valor de `buildTimeoutInMinutes` para permitir mais compilações em execução. Você pode editar o arquivo em Cloud Shell usando um editor de texto como `vi`.
 
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
 
 > [!NOTE]
-> Para a imagem de origem, você sempre deve [especificar uma versão](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), não `latest`pode usar.
+> Para a imagem de origem, você sempre deve [especificar uma versão](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), não pode usar `latest`.
 >
 > Se você adicionar ou alterar o grupo de recursos onde a imagem está sendo distribuída, precisará certificar-se de que as [permissões estão definidas para o grupo de recursos](#set-permissions-on-the-resource-group).
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988627"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942991"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução aos repositórios de conhecimento na Pesquisa Cognitiva do Azure
 
@@ -97,7 +97,7 @@ O [indexador](search-indexer-overview.md) é necessário. Um configurador de qua
 
 Para criar a loja de conhecimento, use o portal ou a API REST de visualização (`api-version=2019-05-06-Preview`).
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 O assistente de **importação de dados** inclui opções para criar uma loja de conhecimento. Para a exploração inicial, [crie seu primeiro armazenamento de conhecimento em quatro etapas](knowledge-store-connect-power-bi.md).
 
@@ -131,7 +131,7 @@ Após os enriquecimentos estarem no armazenamento, qualquer ferramenta ou tecnol
 
 <a name="kstore-rest-api"></a>
 
-## <a name="api-reference"></a>Referência da API
+## <a name="api-reference"></a>Referência de API
 
 A versão da API REST `2019-05-06-Preview` fornece a loja de conhecimento por meio de definições adicionais no habilidades. Além da referência, consulte [criar um repositório de conhecimento usando o postmaster](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
 
@@ -139,7 +139,7 @@ A versão da API REST `2019-05-06-Preview` fornece a loja de conhecimento por me
 + [Atualizar o Qualificable (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 O repositório de conhecimento oferece persistência de documentos enriquecidos, que é útil ao criar um conjunto de habilidades ou ao criar novas estruturas e conteúdo para consumo por qualquer aplicativo cliente capaz de acessar uma conta de Armazenamento do Azure.
 
@@ -147,3 +147,13 @@ A abordagem mais simples para a criação de documentos aprimorados é [por meio
 
 > [!div class="nextstepaction"]
 > [Criar uma loja de conhecimento usando o postmaster e o REST](knowledge-store-create-rest.md)
+
+Para saber mais sobre projeções, os recursos e como [defini-los em um](knowledge-store-projection-overview.md) degrau de habilidade
+
+> [!div class="nextstepaction"]
+> [Projeções em uma loja de conhecimento](knowledge-store-projection-overview.md)
+
+Para obter um tutorial que aborda conceitos de projeções avançadas como divisão, modelagem embutida e relações, comece com [definir projeções em uma loja de conhecimento](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Definir projeções em uma loja de conhecimento](knowledge-store-projections-examples.md)

@@ -1,41 +1,52 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação da Área de Trabalho Virtual do Windows
+summary: Forneça uma experiência de área de trabalho virtual e aplicativos remotos para qualquer dispositivo. Reúna o Microsoft 365 e o Azure para fornecer aos usuários uma experiência única de múltiplas sessões do Windows 10 – com escala excepcional e custos reduzidos de TI.
 metadata:
-  title: Documentação da Área de Trabalho Virtual do Windows | Microsoft Docs
+  title: Documentação da Área de Trabalho Virtual do Windows
   description: A Área de Trabalho Virtual do Windows para Azure é uma experiência multiusuário do Windows 10 Enterprise virtualizada na nuvem.
-  author: Heidilohr
-  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
-  ms.date: 02/20/2019
+  manager: lizross
+  author: Heidilohr
   ms.author: helohr
-abstract:
-  description: Forneça uma experiência de área de trabalho virtual e aplicativos remotos para qualquer dispositivo. Reúna o Microsoft 365 e o Azure para fornecer aos usuários uma experiência única de múltiplas sessões do Windows 10 – com escala excepcional e custos reduzidos de TI.
-sections:
-  - title: Visão geral
-    items:
-      - type: paragraph
-        text: 'Saiba mais sobre a Área de Trabalho Virtual do Windows e como usá-la. Tutoriais, guias de instruções, conteúdo de referência e muito mais mostram como configurar locatários e pools de host e atribuir funções aos usuários para o seu ambiente de Área de Trabalho Virtual do Windows.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/virtual-desktop/overview">O que é a Área de Trabalho Virtual do Windows?</a>
-  - title: Tutoriais passo a passo
-    items:
-      - type: paragraph
-        text: Saiba como instalar e configurar a Área de Trabalho Virtual do Windows e como se conectar ao cliente quando estiver pronto.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Criar um locatário na Área de Trabalho Virtual do Windows</a>
-          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Criar um pool de host com o Azure Marketplace</a>
-          - html: <a href="/azure/virtual-desktop/manage-app-groups">Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows</a>
-          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Criar entidades de serviço e atribuições de função com o PowerShell</a>
-  - title: Referência
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+  ms.date: 03/06/2020
+  ms.openlocfilehash: f37b0cd68c62813dd4c642d9e45a20a91d08c31c
+  ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 03/07/2020
+  ms.locfileid: "78898664"
+landingContent:
+- title: Sobre a Área de Trabalho Virtual do Windows
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a Área de Trabalho Virtual do Windows?
+      url: overview.md
+- title: Introdução
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar um locatário na Área de Trabalho Virtual do Windows
+      url: tenant-setup-azure-active-directory.md
+    - text: Criar um pool de host com o Azure Marketplace
+      url: create-host-pools-azure-marketplace.md
+    - text: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows
+      url: manage-app-groups.md
+    - text: Criar entidades de serviço e atribuições de função com o PowerShell
+      url: create-service-principal-role-powershell.md
+- title: Conectar-se à Área de Trabalho Virtual do Windows
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Cliente da Área de trabalho do Windows
+      url: connect-windows-7-and-10.md
+    - text: Cliente Web
+      url: connect-web.md
+    - text: Cliente Android
+      url: connect-android.md
+    - text: Cliente macOS
+      url: connect-macos.md
+    - text: Cliente iOS
+      url: connect-ios.md
