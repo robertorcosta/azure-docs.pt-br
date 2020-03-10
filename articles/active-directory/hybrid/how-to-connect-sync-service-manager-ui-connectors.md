@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60384052"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376370"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
 
@@ -34,15 +34,15 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 | Ação | Comentário |
 | --- | --- |
 | Criar |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
-| propriedades |Usado para filtragem de domínio e de UO. |
-| [Excluir](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
+| {1&gt;Propriedades&lt;1} |Usado para filtragem de domínio e de UO. |
+| [Delete (excluir)](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
 | [Configurar perfis de execução](#configure-run-profiles) |Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados. |
 | Executar |Usado para iniciar uma execução única de um perfil. |
-| Stop |Interrompe um Conector que, atualmente, executa um perfil. |
+| Parar |Interrompe um Conector que, atualmente, executa um perfil. |
 | Exportar Conector |Não use. |
 | Importar Conector |Não use. |
 | Atualizar Conector |Não use. |
-| Atualizar Esquema |Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualiza as regras de sincronização. |
+| Atualizar o esquema |Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualiza as regras de sincronização. |
 | [Pesquisar Espaço do Conector](#search-connector-space) |Usado para encontrar objetos e Seguir um objeto e seus dados por meio do sistema. |
 
 ### <a name="delete"></a>Excluir
@@ -86,14 +86,14 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 3. Selecione o Conector do AD que está configurado para usar a conta do AD DS.
 4. Em Ações, selecione **Propriedades**.
 5. Na caixa de diálogo pop-up, selecione Conectar-se à Floresta do Active Directory:
-6. O nome da floresta indica correspondente no AD local.
+6. O nome da floresta indica o AD local correspondente.
 7. O Nome de usuário indica a conta do AD DS usada para sincronização.
 8. Insira a nova senha da conta do AD DS na caixa de texto ![Utilitário de Chave de Criptografia de Sincronização do Azure AD Connect](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png) da Senha
 9. Clique em OK para salvar a nova senha e reinicie o Serviço de Sincronização para remover a senha antiga do cache de memória.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

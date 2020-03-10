@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375748"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
 
@@ -172,7 +172,7 @@ Você também pode considerar o uso de uma outra variante nessa situação. Se a
 
 ![Diagrama mostra usuários, proxy e conector nos EUA, aplicativo na UE](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Habilitar Proxy de aplicativo](application-proxy-add-on-premises-application.md)
 - [Habilitar o logon único](application-proxy-configure-single-sign-on-with-kcd.md)

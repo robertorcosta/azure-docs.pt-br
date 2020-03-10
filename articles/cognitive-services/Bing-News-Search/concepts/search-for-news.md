@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448556"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360118"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Pesquisar notícias com a API de Pesquisa de Notícias do Bing
 
@@ -261,7 +261,7 @@ Se houver outros artigos relacionados a um artigo de notícias, o artigo de not�
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Como paginar os resultados da Pesquisa de Notícias do Bing](../paging-news.md)

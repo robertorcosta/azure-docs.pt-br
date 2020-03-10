@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 9b31f3e68fbabc32f301fdcd8066a3bfbf1c2dbd
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028445"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380932"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de usuário para políticas específicas do laboratório
 ## <a name="overview"></a>Visão geral
@@ -30,7 +30,7 @@ Como discutido no artigo [Controle de acesso baseado em função do Azure](../ro
 
 Nos Laboratórios de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Cada política do laboratório é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
-Por exemplo, para conceder aos usuários permissão de leitura/gravação para a política de **tamanhos de VM permitidos** , você deve criar uma função personalizada que funcione com a ação **Microsoft. DevTestLab/Labs/policySets/Policies/** e, em seguida, atribuir os usuários apropriados ao Essa função personalizada no escopo de **Microsoft. DevTestLab/Labs/policySets/Policies/AllowedVmSizesInLab**.
+Por exemplo, para conceder aos usuários permissão de leitura/gravação para a política de **tamanhos de VM permitidos** , você deve criar uma função personalizada que funcione com a ação **Microsoft. DevTestLab/Labs/policySets/Policies/** e, em seguida, atribuir os usuários apropriados a essa função personalizada no escopo de **Microsoft. DevTestLab/Labs/PolicySets/Policies/AllowedVmSizesInLab**.
 
 Para saber mais sobre as funções personalizadas no RBAC, consulte o [Controle de acesso das funções personalizadas](../role-based-access-control/custom-roles.md).
 
@@ -85,7 +85,7 @@ No exemplo anterior, a política **AllowedVmSizesInLab** é usada. Você pode us
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Após você tiver concedido permissões de usuário para políticas específicas do laboratório, estas são algumas das próximas etapas a serem consideradas:
 
 * [Proteger o acesso a um laboratório](devtest-lab-add-devtest-user.md)

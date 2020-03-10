@@ -17,11 +17,11 @@ ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1745ca176fac18b4903686cb556670531ee40a1a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196606"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363666"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Criar uma máquina virtual com um endereço IP privado estático usando o PowerShell
 
@@ -98,7 +98,7 @@ Você pode concluir as etapas a seguir no seu computador local ou usando o Shell
 > [!IMPORTANT]
 > Para acessar a VM da Internet, você deve atribuir um endereço IP público à VM. Você também pode alterar uma atribuição de endereço IP privado dinâmico para uma atribuição estática. Para obter detalhes, consulte [Adicionar ou alterar endereços IP](virtual-network-network-interface-addresses.md). Além disso, é recomendável limitar o tráfego de rede à sua VM associando um grupo de segurança de rede ao adaptador de rede, a sub-rede na qual você criou o adaptador de rede ou ambos. Para obter detalhes, consulte [gerenciar grupos de segurança de rede](manage-network-security-group.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 
@@ -106,7 +106,7 @@ Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/p
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e atribuindo um [endereço IP privado estático](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual do Azure.
 - Saiba mais sobre como criar máquinas virtuais do [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e do [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .

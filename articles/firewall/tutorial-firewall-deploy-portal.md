@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure'
+title: 'Tutorial: implantar & configurar o Firewall do Azure usando o portal do Azure'
 description: Neste tutorial, você aprenderá a implantar e configurar o Firewall do Azure usando o portal do Azure.
 services: firewall
 author: vhorne
@@ -9,11 +9,11 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77558885"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359223"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -26,7 +26,7 @@ Uma maneira de controlar o acesso à saída de rede em uma sub-rede do Azure é 
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando o tráfego de rede para o firewall foi roteado como a sub-rede de gateway padrão.
 
-Para este tutorial, você criará uma única VNET simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). O firewall está na própria VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
+Para este tutorial, você criará uma única VNET simplificada com três sub-redes para facilitar a implantação. Para implantações de produção, é recomendado um [modelo de Hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . O firewall está em sua própria VNet. Os servidores de carga de trabalho estão em VNets emparelhadas na mesma região que uma ou mais sub-redes.
 
 * **AzureFirewallSubnet**: o firewall está nesta sub-rede.
 * **Workload-SN**: o servidor de carga de trabalho está nessa sub-rede. O tráfego de rede dessa sub-rede passa pelo firewall.
@@ -60,7 +60,7 @@ O grupo de recursos contém todos os recursos para o tutorial.
 2. No menu do portal do Azure, selecione **Grupos de recursos** ou pesquise e selecione *Grupos de recursos* em qualquer página. Em seguida, selecione**Adicionar**.
 3. Em **Nome do grupo de recursos**, insira *Test-FW-RG*.
 4. Em **Assinatura**, selecione sua assinatura.
-5. Em **Local do grupo de recursos**, selecione um local. Todos os demais recursos criados devem estar na mesma localização.
+5. Em **Local do grupo de recursos**, selecione um local. Todos os outros recursos que você criar devem estar no mesmo local.
 6. Selecione **Criar**.
 
 ### <a name="create-a-vnet"></a>Criar uma VNET
@@ -102,9 +102,9 @@ Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas su
 2. Clique em **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em Destaque.
 3. Insira esses valores para a máquina virtual:
 
-   |Configuração  |Valor  |
+   |Configuração  |{1&gt;Valor&lt;1}  |
    |---------|---------|
-   |Resource group     |**Test-FW-RG**|
+   |Grupo de recursos     |**Test-FW-RG**|
    |Nome da máquina virtual     |**Srv-Jump**|
    |Região     |Igual ao anterior|
    |Nome de usuário administrador     |**azureuser**|
@@ -113,17 +113,17 @@ Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas su
 4. Em **Regras de porta de entrada**, para **Portas de entrada públicas**, selecione **Permitir portas selecionadas**.
 5. Em **Selecionar portas de entrada**, selecione **RDP (3389)** .
 
-6. Aceite os outros padrões e selecione **Próximo: Discos**.
-7. Aceite os padrões de disco e selecione **Avançar: Rede**.
+6. Aceite os outros padrões e selecione **Avançar: discos**.
+7. Aceite os padrões de disco e selecione **Avançar: rede**.
 8. Verifique se **Test-FW-VN** está selecionado para a rede virtual e se a sub-rede é **Jump-SN**.
 9. Para **IP público**, aceite o novo nome de endereço IP público padrão (Srv-Jump-ip).
-11. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.
+11. Aceite os outros padrões e selecione **Avançar: gerenciamento**.
 12. Selecione **Desligar** para desabilitar o diagnóstico de inicialização. Aceite os outros padrões e selecione **Examinar + criar**.
 13. Examine as configurações na página de resumo e, em seguida, selecione **Criar**.
 
 Use as informações na tabela a seguir para definir outra máquina virtual chamada **Srv-Work**. O restante da configuração é o mesmo da máquina virtual Srv-Jump.
 
-|Configuração  |Valor  |
+|Configuração  |{1&gt;Valor&lt;1}  |
 |---------|---------|
 |Sub-rede|**Workload-SN**|
 |IP público|**Nenhuma**|
@@ -138,13 +138,13 @@ Implante o firewall na VNET.
 3. Selecione **Firewall** e, em seguida, selecione **Criar**.
 4. Na página **Criar um Firewall**, use a tabela abaixo para configurar o firewall:
 
-   |Configuração  |Valor  |
+   |Configuração  |{1&gt;Valor&lt;1}  |
    |---------|---------|
-   |Subscription     |\<sua assinatura\>|
-   |Resource group     |**Test-FW-RG** |
-   |Nome     |**Test-FW01**|
-   |Location     |Selecionar o mesmo local usado anteriormente|
-   |Escolher uma rede virtual     |**Usar existente**: **Test-FW-VN**|
+   |Assinatura     |\<sua assinatura\>|
+   |Grupo de recursos     |**Test-FW-RG** |
+   |{1&gt;Nome&lt;1}     |**Test-FW01**|
+   |Local     |Selecionar o mesmo local usado anteriormente|
+   |Escolher uma rede virtual     |**Usar existente**: **Test-FW-vn**|
    |Endereço IP público     |**Adicionar nova**. O endereço IP público deve ser do tipo SKU Standard.|
 
 5. Selecione **Examinar + criar**.
@@ -193,8 +193,8 @@ Essa é a regra de aplicativo que permite o acesso de saída para www.google.com
 6. Digite **200** em **Prioridade**.
 7. Em **Ação**, selecione **Permitir**.
 8. Em **Regras**, **FQDNs de Destino**, para **Nome**, digite **Allow-Google**.
-9. Em **Tipo de origem**, selecione **Endereço IP**.
-10. Em **Origem**, digite **10.0.2.0/24**.
+9. Para **tipo de origem**, selecione **endereço IP**.
+10. Para **origem**, digite **10.0.2.0/24**.
 11. Em **Protocol:port**, digite **http, https**.
 12. Para **FQDNS de destino**, digite **www.google.com**
 13. Selecione **Adicionar**.
@@ -210,11 +210,11 @@ Essa é a regra de rede que permite o acesso de saída para dois endereços IP n
 3. Em **Nome**, digite **Net-Coll01**.
 4. Digite **200** em **Prioridade**.
 5. Em **Ação**, selecione **Permitir**.
-6. Em **Regras**, **Endereços IP**, para de **Nome**, digite **Allow-DNS**.
+6. Em **regras**, **endereços IP**, para **nome**, digite **Allow-DNS**.
 7. Em **Protocolo**, selecione **UDP**.
-9. Em **Tipo de origem**, selecione **Endereço IP**.
-1. Em **Origem**, digite **10.0.2.0/24**.
-2. Em **Endereço de destino**, digite **209.244.0.3,209.244.0.4**
+9. Para **tipo de origem**, selecione **endereço IP**.
+1. Para **origem**, digite **10.0.2.0/24**.
+2. Para **endereço de destino**, digite **209.244.0.3, 209.244.0.4**
 
    Esses são servidores DNS públicos operados pelo CenturyLink.
 1. Em **Portas de Destino**, digite **53**.
@@ -229,7 +229,7 @@ Para fins de teste neste tutorial, você vai configurar os endereços DNS primá
 3. Em **Configurações**, selecione **Servidores DNS**.
 4. Em **Servidores DNS**, selecione **Personalizado**.
 5. Digite **209.244.0.3** na caixa de texto **Adicionar servidor DNS** e **209.244.0.4** na caixa de texto seguinte.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 7. Reinicie a máquina virtual **Srv-Work**.
 
 ## <a name="test-the-firewall"></a>Testar o firewall
@@ -256,7 +256,7 @@ Agora que você verificou se as regras de firewall estão funcionando:
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou, se não forem mais necessários, exclua o grupo de recursos **Test-FW-RG** para excluir todos os recursos relacionados ao firewall.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861907"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379223"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabalhar com SKUs de gateway de rede virtual (SKUs herdadas)
 
@@ -36,7 +36,7 @@ Você pode exibir os preços do gateway herdado na seção **gateways de rede vi
 
 Você pode redimensionar sua gateway para uma SKU de gateway dentro da mesma família de SKUs. Por exemplo, se você tiver uma SKU Standard, poderá redimensionar para uma SKU HighPerformance. No entanto, você não pode redimensionar seu gateway de VPN entre as SKUs antigas e as novas famílias de SKU. Por exemplo, você não pode ir de uma SKU padrão para uma SKU VpnGw2, ou de uma SKU Básica para VpnGw1.
 
-### <a name="resource-manager"></a>Resource Manager
+### <a name="resource-manager"></a>Gerenciador de Recursos
 
 Para redimensionar um gateway para o modelo de implantação do Gerenciador de Recursos usando o PowerShell, use o seguinte comando:
 
@@ -59,7 +59,7 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre as novas SKUs do Gateway, consulte [SKUs de Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 

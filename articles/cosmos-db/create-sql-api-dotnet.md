@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707909"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364426"
 ---
-# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Início Rápido: Criar um aplicativo de console .NET para gerenciar dados nos recursos da API do SQL do Azure Cosmos DB
+# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Início rápido: criar um aplicativo de console .NET para gerenciar Azure Cosmos DB recursos da API do SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -36,7 +36,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 [Documentação de referência da API](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/) ou você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso. 
 * [SDK do .NET Core 2.1 ou posterior](https://dotnet.microsoft.com/download/dotnet-core/2.1).
@@ -123,7 +123,7 @@ dotnet add package Microsoft.Azure.Cosmos
 
 O aplicativo de exemplo precisa autenticar sua conta do Azure Cosmos. Para autenticar, você deve passar as credenciais da conta do Azure Cosmos para o aplicativo. Obtenha suas credenciais da conta do Azure Cosmos seguindo estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Navegue até a conta do Azure Cosmos.
 
@@ -474,7 +474,7 @@ End of demo, press any key to exit.
 
 Você pode validar que os dados foram criados entrando no portal do Azure e olhando os itens necessários em sua conta do Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessária, você poderá usar o CLI do Azure ou o Azure PowerShell para remover a conta do Azure Cosmos e o grupo de recursos correspondente. O comando a seguir mostra como excluir o grupo de recursos usando o CLI do Azure:
 
@@ -482,7 +482,7 @@ Quando não for mais necessária, você poderá usar o CLI do Azure ou o Azure P
 az group delete -g "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste início rápido, você aprendeu a criar uma conta do Azure Cosmos, como criar um banco de dados e um contêiner usando o .NET Core. Agora você pode importar dados adicionais para sua conta do Azure Cosmos com as instruções no artigo a seguir. 
 

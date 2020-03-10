@@ -1,5 +1,5 @@
 ---
-title: Execute as tarefas em segundo plano com o WebJobs
+title: Executar tarefas em segundo plano com trabalhos Web
 description: Saiba como usar trabalhos Web para executar tarefas em segundo plano no serviço Azure App. Escolha entre uma variedade de formatos de script e execute-os com expressões CRON.
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -9,17 +9,17 @@ ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684205"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374163"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
 
 Este artigo mostra como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou um script. Para obter informações sobre como desenvolver e implantar o WebJobs usando o Visual Studio, consulte [Implantar o WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 WebJobs é um recurso do [Serviço de Aplicativo do Azure](index.yml) que permite executar um programa ou script no mesmo contexto de um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
 
 > [!IMPORTANT]

@@ -15,13 +15,13 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363478"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no Portal do Azure
+# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Crie uma máquina virtual do Windows no Portal do Azure
 
 As máquinas virtuais (VM) do Azure podem ser criadas por meio do Portal do Azure. Esse método fornece uma interface de usuário baseada em navegador para criar as VMS seus recursos relacionados. Este início rápido mostra como usar portal do Azure para implantar uma VM (máquina virtual) no Azure que executa o Windows Server 2019. Para ver a VM em ação, você habilita o protocolo RDP na VM e instala o servidor Web do IIS.
 
@@ -86,17 +86,17 @@ Quando terminar, feche a conexão RDP com a VM.
 
 ## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
 
-No portal, selecione a VM e na visão geral da VM, use o botão **Clique para copiar** à direita do endereço IP para copiá-lo e colá-lo em uma guia do navegador. A página de boas-vinda do IIS padrão será aberta e deve ter esta aparência:
+No portal, selecione a VM e, na visão geral da VM, use o botão **clique para copiar** à direita do endereço IP para copiá-lo e cole-o em uma guia do navegador. A página de boas-vindas do IIS padrão será aberta e deverá ter a seguinte aparência:
 
 ![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. 
 
 Selecione o grupo de recursos da máquina virtual e, em seguida, selecione **Excluir**. Confirme o nome do grupo de recursos terminar de excluir os recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste início rápido, você implantou uma máquina virtual simples, abriu uma porta de rede para o tráfego da Web e instalou um servidor Web básico. Para saber mais sobre máquinas virtuais do Azure, continue o tutorial para VMs do Windows.
 

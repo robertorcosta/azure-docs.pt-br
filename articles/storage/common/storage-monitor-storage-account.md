@@ -9,11 +9,11 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116261"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361028"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -55,7 +55,7 @@ Um conjunto de métricas padrão é exibido em gráficos na folha da conta de ar
 Você pode desabilitar a coleta de métricas e o registro em log definindo **Status** como **Desativado**.
 
 > [!NOTE]
-> O Armazenamento do Azure usa o [armazenamento de tabelas](storage-introduction.md#table-storage) para armazenar as métricas para sua conta de armazenamento e armazena as métricas em tabelas em sua conta. Para obter mais informações, consulte: [Como as métricas são armazenadas](storage-analytics-metrics.md#how-metrics-are-stored).
+> O Armazenamento do Azure usa o [armazenamento de tabelas](storage-introduction.md#table-storage) para armazenar as métricas para sua conta de armazenamento e armazena as métricas em tabelas em sua conta. Para obter mais informações, consulte . [Como as métricas são armazenadas](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalizar gráficos de métricas
@@ -138,12 +138,12 @@ Você pode instruir o Armazenamento do Azure a salvar logs de diagnóstico para 
 1. Verifique se **Status** está definido como **Ativado**e selecione os **Serviços** para os quais deseja habilitar os logs.
 
     ![Configure os logs no portal do Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado *$logs* em sua conta de armazenamento. Você pode exibir os dados de log usando um gerenciador de armazenamento como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com) ou de forma programática, usando a biblioteca de cliente de armazenamento ou o PowerShell.
 
 Para obter informações sobre como acessar o contêiner de $logs, consulte [log de análise de armazenamento](storage-analytics-logging.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Encontre mais detalhes sobre [métricas, logs e cobrança](storage-analytics.md) para Análise de Armazenamento.

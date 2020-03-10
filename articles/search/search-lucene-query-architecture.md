@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793565"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379772"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Como funciona a pesquisa de texto completo no Azure Pesquisa Cognitiva
 
-Este artigo é para os desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Pesquisa Cognitiva. Para consultas de texto, o Pesquisa Cognitiva do Azure fornecerá diretamente os resultados esperados na maioria dos cenários, mas ocasionalmente você poderá obter um resultado que parece "fora" de alguma forma. Nessas situações, ter experiência nos quatro estágios da execução da consulta do Lucene (análise léxica, análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas nos parâmetros de consulta ou na configuração de índice que proporcionarão o resultado desejado. 
+Este artigo é para os desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Pesquisa Cognitiva. Para consultas de texto, o Azure Cognitive Search produzirá facilmente os resultados esperados na maioria dos cenários, mas, ocasionalmente, você poderá obter um resultado que pode parecer "estranho". Nessas situações, ter experiência nos quatro estágios da execução da consulta do Lucene (análise léxica, análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas nos parâmetros de consulta ou na configuração de índice que proporcionarão o resultado desejado. 
 
 > [!Note] 
 > O Azure Pesquisa Cognitiva usa o Lucene para pesquisa de texto completo, mas a integração do Lucene não é exaustiva. Vamos expor seletivamente e estender a funcionalidade Lucene para habilitar os cenários importantes para o Azure Pesquisa Cognitiva. 
@@ -42,7 +42,7 @@ O diagrama a seguir ilustra os componentes usados para processar uma solicitaç�
 |----------------|------------------------|
 |**Analisadores de consulta** | Separam os termos de consulta de operadores de consulta e criam a estrutura da consulta (uma árvore de consulta) a ser enviada para o mecanismo de pesquisa. |
 |**Analisadores** | Executam a análise léxica dos termos de consulta. Esse processo pode envolver a transformação, remoção ou expansão dos termos de consulta. |
-|**Índice** | Uma estrutura de dados eficiente usada para armazenar e organizar termos pesquisáveis extraídos de documentos indexados. |
+|**Index** | Uma estrutura de dados eficiente usada para armazenar e organizar termos pesquisáveis extraídos de documentos indexados. |
 |**Mecanismo de pesquisa** | Recupera e atribui uma pontuação aos documentos correspondentes com base no conteúdo do índice invertido. |
 
 ## <a name="anatomy-of-a-search-request"></a>Anatomia de uma solicitação de pesquisa
@@ -251,7 +251,7 @@ Para produzir os termos de um índice invertido, o mecanismo de pesquisa executa
 
 Retornando ao nosso exemplo, para o campo **título**, o índice invertido tem esta aparência:
 
-| Prazo | Lista de documentos |
+| Termo | Lista de documentos |
 |------|---------------|
 | atman | 1 |
 | praia | 2 |
@@ -265,14 +265,14 @@ No campo título, apenas *hotel* aparece em dois documentos: 1, 3.
 
 Para o campo **descrição**, o índice é o seguinte:
 
-| Prazo | Lista de documentos |
+| Termo | Lista de documentos |
 |------|---------------|
-| ar | 3
-| e a | 4
+| aérea | 3
+| e | 4
 | praia | 1
 | condicionado | 3
 | confortável | 3
-| distância | 1
+| distance | 1
 | ilha | 2
 | kauaʻi | 2
 | local | 2
@@ -286,10 +286,10 @@ Para o campo **descrição**, o índice é o seguinte:
 | beira-mar | 2
 | espaçoso | 1
 | o | 1, 2
-| para | 1
-| exibir | 1, 2, 3
+| até | 1
+| modo de exibição | 1, 2, 3
 | a pé | 1
-| por: | 3
+| por | 3
 
 
 **Correspondência de termos de consulta com os termos indexados**
@@ -379,7 +379,7 @@ Do ponto de vista técnico, a pesquisa de texto completo é altamente complexa, 
 
 Este artigo explorou a pesquisa de texto completo no contexto do Azure Pesquisa Cognitiva. Esperamos que todas essas informações sejam o suficiente para você reconhecer possíveis causas e resoluções para resolver problemas comuns de consulta. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 + Criar o índice de exemplo, experimentar consultas diferentes e examinar os resultados. Para obter instruções, consulte [Criar e consultar um índice no portal](search-get-started-portal.md#query-index).
 
@@ -391,7 +391,7 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Pesquisa 
 
 + [Configurar analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para o mínimo de processamento ou processamento especializado em campos específicos.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 [API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430977"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375902"
 ---
 # <a name="how-to-investigate-risk"></a>Como investigar o risco
 
@@ -68,7 +68,7 @@ Com as informações fornecidas pelo relatório de entradas arriscadas, os admin
 - Detalhes da MFA
 - Informações do dispositivo
 - Informações do aplicativo
-- Informações de localização
+- Informações de local
 
 Os administradores podem optar por agir nesses eventos. Os administradores podem optar por:
 
@@ -88,7 +88,7 @@ Com as informações fornecidas pelo relatório de detecções de risco, os admi
 
 Os administradores podem, então, optar por retornar ao relatório de risco ou de entradas do usuário para executar ações com base nas informações coletadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 

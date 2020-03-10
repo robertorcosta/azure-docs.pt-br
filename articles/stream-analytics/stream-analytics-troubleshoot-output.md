@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980251"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364540"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solucionar problemas de saídas do Azure Stream Analytics
 
@@ -94,11 +94,11 @@ Observe as observações a seguir ao configurar IGNORE_DUP_KEY para vários tipo
 Ao usar o nível de compatibilidade original (1,0), Azure Stream Analytics usado para alterar nomes de coluna para letras minúsculas. Esse comportamento foi corrigido em níveis de compatibilidade posteriores. Para preservar o caso, aconselhamos os clientes a migrar para o nível de compatibilidade 1,1 e posterior. Você pode encontrar mais informações sobre o [nível de compatibilidade para trabalhos de Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 
-## <a name="get-help"></a>Obtenha ajuda
+## <a name="get-help"></a>Obter ajuda
 
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)

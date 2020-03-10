@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: fc108b9f49bc88c722ac2462ee82e27b6c6de5c9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163935"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377749"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso aos aplicativos Web usando o OpenID Connect e o Azure Active Directory
 
@@ -111,18 +111,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parâmetro |  | DESCRIÇÃO |
+| Parâmetro |  | Descrição |
 | --- | --- | --- |
 | locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independentes de locatário |
 | client_id |obrigatório |A ID do Aplicativo atribuída para o aplicativo ao registrá-lo no Azure Active Directory. Você pode encontrar isso no Portal do Azure. Clique em **Azure Active Directory**, clique em **registros do aplicativo**, escolha o aplicativo e localize a ID do aplicativo na página do aplicativo. |
 | response_type |obrigatório |Deve incluir `id_token` para conexão do OpenID Connect. Também pode incluir outros response_types, como `code` ou `token`. |
-| scope | recomendável | A especificação do OpenID Connect requer o `openid`de escopo, que se traduz com a permissão "entrar" na interface do usuário de consentimento. Esse e outros escopos OIDC são ignorados no ponto de extremidade v 1.0, mas ainda é uma prática recomendada para clientes em conformidade com os padrões. |
+| escopo | recomendável | A especificação do OpenID Connect requer o `openid`de escopo, que se traduz com a permissão "entrar" na interface do usuário de consentimento. Esse e outros escopos OIDC são ignorados no ponto de extremidade v 1.0, mas ainda é uma prática recomendada para clientes em conformidade com os padrões. |
 | nonce |obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que é incluído no `id_token` resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva ou um GUID que pode ser usado para identificar a origem da solicitação. |
 | redirect_uri | recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. Se estiver ausente, o agente do usuário será enviado de volta para um dos URIs de redirecionamento registrados para o aplicativo, aleatoriamente. O comprimento máximo é de 255 bytes |
-| response_mode |opcional |Especifica o método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Os valores suportados são `form_post` para *post do formulário HTTP* e `fragment` para o *fragmento de URL*. Em aplicativos Web, é recomendável usar `response_mode=form_post` a fim de garantir a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
+| response_mode |opcionais |Especifica o método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Os valores suportados são `form_post` para *post do formulário HTTP* e `fragment` para o *fragmento de URL*. Em aplicativos Web, é recomendável usar `response_mode=form_post` a fim de garantir a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
 | state |recomendável |Um valor incluído na solicitação que retorna na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-| prompt |opcional |Indica o tipo de interação do usuário que é necessário. Atualmente, os únicos valores válidos são "login", "none" e "consent". `prompt=login` força o usuário a inserir suas credenciais na solicitação, negando o logon único. `prompt=none` é o oposto — ele garante que nenhum prompt interativo seja apresentado ao usuário. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade retornará um erro. `prompt=consent` dispara a caixa de diálogo de consentimento do OAuth depois que o usuário se conecta, solicitando que ele conceda permissões ao aplicativo. |
-| login_hint |opcional |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência. Geralmente, os aplicativos usam esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
+| prompt |opcionais |Indica o tipo de interação do usuário que é necessário. Atualmente, os únicos valores válidos são "login", "none" e "consent". `prompt=login` força o usuário a inserir suas credenciais na solicitação, negando o logon único. `prompt=none` é o oposto — ele garante que nenhum prompt interativo seja apresentado ao usuário. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade retornará um erro. `prompt=consent` dispara a caixa de diálogo de consentimento do OAuth depois que o usuário se conecta, solicitando que ele conceda permissões ao aplicativo. |
+| login_hint |opcionais |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência. Geralmente, os aplicativos usam esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
 
 Nesse ponto, é solicitado que o usuário insira suas credenciais e conclua a autenticação.
 
@@ -138,7 +138,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | id_token |O `id_token` solicitado pelo aplicativo. Você pode usar o `id_token` para verificar a identidade do usuário e iniciar uma sessão com o usuário. |
 | state |Um valor incluído na solicitação que também retorna na resposta do token. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
@@ -155,7 +155,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | erro |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
@@ -164,7 +164,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 A tabela a seguir descreve os vários códigos de erro que podem ser retornados no parâmetro `error` da resposta de erro.
 
-| Código do Erro | DESCRIÇÃO | Ação do Cliente |
+| Código do Erro | Descrição | Ação do Cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro obrigatório ausente. |Corrija e reenvie a solicitação. Esse é um erro de desenvolvimento que, normalmente, é capturado durante os testes iniciais. |
 | unauthorized_client |O aplicativo cliente não tem permissão para solicitar um código de autorização. |Isso geralmente ocorre quando o aplicativo cliente não está registrado no Azure AD ou não é adicionado ao locatário do Azure AD do usuário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
@@ -200,7 +200,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parâmetro |  | DESCRIÇÃO |
+| Parâmetro |  | Descrição |
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendável |A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida.  Essa URL deve corresponder a um dos URIs de redirecionamento registrados para seu aplicativo no portal de registro de aplicativo.  Se *post_logout_redirect_uri* não for incluído, o usuário será exibido como uma mensagem genérica. |
 
@@ -247,7 +247,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | id_token |O `id_token` solicitado pelo aplicativo. Você pode usar o `id_token` para verificar a identidade do usuário e iniciar uma sessão com o usuário. |
 | código |O authorization_code que o aplicativo solicitou. O aplicativo pode usar o código de autorização para solicitar um token de acesso para o recurso de destino. Authorization_codes têm uma duração curta e, geralmente, expiram depois de aproximadamente 10 minutos. |
@@ -265,7 +265,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | erro |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
@@ -274,7 +274,7 @@ Para obter uma descrição dos possíveis códigos de erro e sua ação recomend
 
 Depois de conseguir uma autorização `code` e um `id_token`, você poderá conectar o usuário e obter [tokens de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) em nome dele. Para conectar o usuário, você deve validar o `id_token` exatamente como descrito acima. Para obter tokens de acesso, você pode seguir as etapas descritas na seção "Usar o código de autorização para solicitar um token de acesso" da nossa [documentação do fluxo de código OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre os [tokens de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * Saiba mais sobre o [`id_token` e as declarações](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

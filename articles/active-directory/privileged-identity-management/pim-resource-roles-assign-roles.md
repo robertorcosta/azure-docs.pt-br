@@ -16,11 +16,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895956"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375446"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Atribuir funções de recurso do Azure no Privileged Identity Management
 
@@ -28,7 +28,7 @@ O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pode ge
 
 - Proprietário
 - Administrador de Acesso do Usuário
-- Colaborador
+- Contribuinte
 - Administrador de Segurança
 - Gerenciador de Segurança
 
@@ -123,7 +123,7 @@ Siga estas etapas para atualizar ou remover uma atribuição de função existen
 
     Para obter informações sobre como estender uma atribuição de função, consulte [estender ou renovar funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-renew-extend.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Estender ou renovar funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)

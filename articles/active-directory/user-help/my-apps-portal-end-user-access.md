@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a5dae30c8b8f43602581b39005389211da83cb9e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022266"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375837"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Entrar e iniciar aplicativos no portal meus aplicativos
 
@@ -77,7 +77,7 @@ Um ícone é adicionado à direita da barra de **endereços** , permitindo que v
 
 Você pode escolher quantos aplicativos exibir na seção **usado recentemente** e decidir se deseja permitir que as URLs internas da sua organização redirecionem.
 
-1. Selecione o ícone de extensão do ![ícone](media/my-apps-portal/my-apps-portal-extension-icon.png) de extensão de **entrada segura de meus aplicativos** no lado direito da barra de **endereços** e selecione **entrar para começar**.
+1. Selecione o ícone de **extensão de entrada segura do novo aplicativo meus aplicativos** ![ícone de extensão](media/my-apps-portal/my-apps-portal-extension-icon.png) à direita da barra de **endereços** e, em seguida, selecione **entrar para começar**.
 
 2. Clique com o botão direito do mouse no ícone de **configurações** ![ícone de configurações](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)e selecione **configurações**.
 
@@ -97,7 +97,7 @@ Se você tiver permissão para acessar e usar os aplicativos baseados em nuvem d
 
 1. Entre em sua conta corporativa ou de estudante no seu computador.
 
-2. Em um navegador da Web com suporte, abra e vá para https://myapps.microsoft.com , ou use o link fornecido pela sua organização se o direcionar para uma página personalizada, como `https://myapps.microsoft.com/contoso.com`.
+2. Em um navegador da Web com suporte, abra e vá para https://myapps.microsoft.com, ou use o link fornecido pela sua organização se o direcionar para uma página personalizada, como `https://myapps.microsoft.com/contoso.com`.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização que estão disponíveis para uso.
 
@@ -111,7 +111,7 @@ Exiba e use os aplicativos da sua organização de um Intune Managed Browser em 
 
 1. Em seu dispositivo móvel, baixe e instale o aplicativo Intune Managed Browser da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e o [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Abra o aplicativo Intune Managed Browser, acesse https://myapps.microsoft.com ou use o link fornecido pela sua organização se o direcionar a uma página personalizada, como https://myapps.microsoft.com/contoso.com.
+2. Abra o aplicativo Intune Managed Browser, acesse https://myapps.microsoft.comou use o link fornecido pela sua organização se o direcionar a uma página personalizada, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -125,7 +125,7 @@ Exiba e use o portal **meus aplicativos** de um dispositivo iPhone ou iPad, exec
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Safari.
 
-2. Vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização se ele direcionar você para uma página personalizada, como https://myapps.microsoft.com/contoso.com.
+2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização se ele direcionar você para uma página personalizada, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização que estão disponíveis para uso.
 
@@ -139,7 +139,7 @@ Exibir e usar o portal **meus aplicativos** em um dispositivo Android.
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Google Chrome.
 
-2. Vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização se ele direcionar você para uma página personalizada, como https://myapps.microsoft.com/contoso.com.
+2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização se ele direcionar você para uma página personalizada, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -178,14 +178,14 @@ Você pode iniciar qualquer um dos aplicativos baseados em nuvem disponíveis no
 
 Depois de acessar o portal **meus aplicativos** , você pode:
 
-- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para obter mais informações, consulte [acessar e usar coleções no portal meus aplicativos](my-applications-portal-workspaces.md).
+- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para obter mais informações, confira [Acessar e usar coleções no portal Meus Aplicativos](my-applications-portal-workspaces.md).
 
-- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para obter mais informações, consulte [Editar ou revogar permissões de aplicativo no portal meus aplicativos](my-applications-portal-permissions-saved-accounts.md).
+- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para obter mais informações, confira [Editar ou revogar permissões de aplicativo no portal Meus Aplicativos](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
->Se você não vir nenhuma coleção ou categoria disponível, significa que o administrador não configurou nem compartilhou nenhum com você. Entre em contato com a assistência técnica da sua organização para obter assistência adicional ou permissões para ver coleções compartilhadas.
+>Se você não vê nenhuma coleção ou categoria disponível, isso significa que o administrador não configurou nem compartilhou nenhuma delas com você. Contate a assistência técnica da sua organização para obter assistência ou permissões adicionais para ver as coleções compartilhadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de acessar a página de **aplicativos** , você pode:
 

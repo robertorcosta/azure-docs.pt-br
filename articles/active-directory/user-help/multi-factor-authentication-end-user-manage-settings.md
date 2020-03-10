@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: curtand
 ms.openlocfilehash: 5949f04ecc28a88e340a9c2de530031793f193a0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191377"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377524"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Alterar o método e as configurações de verificação de dois fatores
 
@@ -75,7 +75,7 @@ Se você decidir que deseja alterar o método de verificação de segurança pad
 
     - **Usar código de verificação do aplicativo**: você usará seu aplicativo autenticador para obter um código de verificação que digitará no prompt de sua conta corporativa ou de estudante.
 
-2. Clique em **Salvar**.
+2. Selecione **Salvar**.
 
 ## <a name="add-or-change-your-phone-number"></a>Adicionar ou alterar seu número de telefone
 
@@ -90,7 +90,7 @@ Você pode adicionar novos números de telefone ou atualizar números existentes
 
 1. Selecione a caixa ao lado da opção **telefone de autenticação alternativo** e digite um número de telefone secundário no qual você poderá receber mensagens de texto ou chamadas telefônicas se não puder acessar o dispositivo primário.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>Adicionar uma nova conta ao aplicativo Microsoft Authenticator
 
@@ -106,7 +106,7 @@ Se você já tiver configurado sua conta corporativa ou de estudante no aplicati
 
     Você será solicitado a aprovar uma notificação por meio do aplicativo Microsoft Authenticator, para verificar suas informações.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="delete-your-account-or-device-from-the-microsoft-authenticator-app"></a>Excluir sua conta ou dispositivo do aplicativo Microsoft Authenticator
 
@@ -116,7 +116,7 @@ Você pode excluir sua conta do aplicativo Microsoft Authenticator e pode exclui
 
 1. Na seção **como você deseja responder?** da página de verificação de **segurança adicional** , selecione o botão **Configurar aplicativo autenticador** .
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="to-delete-your-account-from-the-microsoft-authenticator-app"></a>Para excluir sua conta do aplicativo Microsoft Authenticator
 
@@ -130,7 +130,7 @@ Dependendo das configurações da sua organização, você poderá ver uma caixa
 
 Na página [ **verificação de segurança adicional** ](#to-get-to-the-additional-security-verification-page), selecione **restaurar autenticação multifator em dispositivos confiáveis anteriormente**. Na próxima vez que você entrar em qualquer dispositivo, será solicitado que você execute a verificação de dois fatores.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Depois de adicionar ou atualizar suas configurações de verificação de dois fatores, você pode gerenciar suas senhas de aplicativo, entrar ou obter ajuda com alguns problemas comuns relacionados à verificação de dois fatores.
 

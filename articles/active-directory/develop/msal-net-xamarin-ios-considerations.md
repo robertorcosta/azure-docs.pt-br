@@ -15,11 +15,11 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132467"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377451"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerações sobre o uso do Xamarin iOS com MSAL.NET
 Ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET) no Xamarin iOS, você deve: 
@@ -32,7 +32,7 @@ Ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET) no Xama
 
 ## <a name="implement-openurl"></a>Implementar OpenUrl
 
-Substitua o método `OpenUrl` da classe derivada `FormsApplicationDelegate` e chame `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`. Veja um exemplo:
+Substitua o método `OpenUrl` da classe derivada `FormsApplicationDelegate` e chame `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`. Aqui está um exemplo:
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)

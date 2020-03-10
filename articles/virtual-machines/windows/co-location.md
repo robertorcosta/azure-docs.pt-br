@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171106"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374823"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>Co-localizar recurso para maior latência
 
@@ -27,7 +27,7 @@ Ao implantar seu aplicativo no Azure, a difusão de instâncias entre regiões o
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Implante uma VM em um [grupo de posicionamento de proximidade](proximity-placement-groups.md) usando Azure PowerShell.
 

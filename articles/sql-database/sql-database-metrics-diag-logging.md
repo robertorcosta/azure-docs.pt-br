@@ -12,11 +12,11 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/24/2020
 ms.openlocfilehash: dead8b95446009880c36f97a095aee4aaae0579d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587338"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365313"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico
 
@@ -116,7 +116,7 @@ Para habilitar o streaming de telemetria de diagnóstico para recursos de um poo
 7. Marque a caixa de seleção para telemetria de diagnóstico de pool elástico: métricas **básicas** .
    ![configurar o diagnóstico para pools elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 9. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados dentro do pool elástico que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
@@ -145,7 +145,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um banco de dados 
 8. Para uma experiência de monitoramento avançada, com base em um minuto, marque a caixa de seleção para métricas **básicas** .
 
    ![Configurar o diagnóstico de bancos de dados individuais, de instância ou em pool](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 10. Repita essas etapas para cada banco de dados que você deseja monitorar.
 
 > [!TIP]
@@ -181,7 +181,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de inst
 
    ![Configurar o diagnóstico para a instância gerenciada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 9. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados de instância dentro da instância gerenciada que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
@@ -209,7 +209,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um banco de dados 
 5. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 6. Marque as caixas de seleção para telemetria de diagnóstico de banco de dados: **Sqlsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**e **erros**.
    ![configurar o diagnóstico para bancos de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 8. Repita essas etapas para cada banco de dados de instância que você deseja monitorar.
 
 > [!TIP]
@@ -456,12 +456,12 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 
 #### <a name="resource-usage-stats-for-managed-instances"></a>Estatísticas de uso de recursos para instâncias gerenciadas
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: ResourceUsageStats |
 |Recurso|Nome do recurso |
@@ -481,12 +481,12 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 
 #### <a name="query-store-runtime-statistics"></a>Estatísticas de runtime do Repositório de consultas
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
@@ -532,12 +532,12 @@ Saiba mais sobre os [Dados de estatísticas de runtime do Repositório de Consul
 
 #### <a name="query-store-wait-statistics"></a>Estatísticas de espera do Repositório de consultas
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
@@ -570,12 +570,12 @@ Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consult
 
 #### <a name="errors-dataset"></a>Conjunto de dados de erros
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
@@ -599,12 +599,12 @@ Saiba mais sobre as [Mensagens de erro do SQL Server](https://docs.microsoft.com
 
 #### <a name="database-wait-statistics-dataset"></a>Conjunto de dados das estatísticas de espera do banco de dados
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
@@ -628,12 +628,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="time-outs-dataset"></a>Conjunto de dados de tempos limite
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
@@ -651,12 +651,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="blockings-dataset"></a>Conjunto de dados de boqueios
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
@@ -675,12 +675,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="deadlocks-dataset"></a>Conjunto de dados de deadlocks
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Deadlocks |
 |OperationName|Nome da operação. Sempre: Deadlocks |
@@ -696,12 +696,12 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="automatic-tuning-dataset"></a>Conjunto de dados de ajuste automático
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: AutomaticTuning |
 |Recurso|Nome do recurso |
@@ -728,7 +728,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 Saiba mais sobre o [formato de log do Insights Inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber como habilitar o registro em log e entender as categorias de métrica e log com suporte dos vários serviços do Azure, veja:
 

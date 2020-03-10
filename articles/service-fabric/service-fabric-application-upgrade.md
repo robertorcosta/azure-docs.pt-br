@@ -1,16 +1,16 @@
 ---
-title: Atualização do aplicativo do Service Fabric
+title: Atualização de aplicativos do Service Fabric
 description: Este artigo fornece uma introdução à atualização de um aplicativo do Service Fabric, incluindo a escolha de modos de atualização e execução de verificações de integridade.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426765"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366818"
 ---
-# <a name="service-fabric-application-upgrade"></a>Atualização do aplicativo do Service Fabric
+# <a name="service-fabric-application-upgrade"></a>Atualização de aplicativos do Service Fabric
 Um aplicativo do Azure Service Fabric é uma coleção de serviços. Durante uma atualização, a Malha do Serviço compara o novo [manifesto do aplicativo](service-fabric-application-and-service-manifests.md) com a versão anterior e determina quais serviços as atualizações do aplicativo exigem. O Service Fabric compara os números de versão nos manifestos de serviço com os números de versão na versão anterior. Se um serviço não foi alterado, ele não foi atualizado.
 
 ## <a name="rolling-upgrades-overview"></a>Visão geral das atualizações sem interrupção
@@ -60,7 +60,7 @@ O fluxograma após este parágrafo pode ajudar na compreensão do processo de at
 
 ![O processo de atualização de um aplicativo a Malha do Serviço][image]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
 [A atualização do seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você na atualização de um aplicativo usando o PowerShell.

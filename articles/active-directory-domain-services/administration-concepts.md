@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
 ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931578"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378480"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gerenciamento para contas de usuário, senhas e administração no Azure Active Directory Domain Services
 
@@ -23,7 +23,7 @@ Quando você cria e executa um domínio gerenciado Azure Active Directory Domain
 
 Este artigo conceitual fornece detalhes sobre como administrar um domínio gerenciado do Azure AD DS e o comportamento diferente de contas de usuário, dependendo da maneira como eles são criados.
 
-## <a name="domain-management"></a>Gerenciamento de domínio
+## <a name="domain-management"></a>Gerenciamento de domínios
 
 No Azure AD DS, os controladores de domínio (DCs) que contêm todos os recursos, como usuários e grupos, credenciais e políticas, fazem parte do serviço gerenciado. Para redundância, dois DCs são criados como parte de um domínio gerenciado do Azure AD DS. Você não pode entrar nesses DCs para executar tarefas de gerenciamento. Em vez disso, você cria uma VM de gerenciamento que é unida ao domínio gerenciado AD DS do Azure e, em seguida, instala suas ferramentas de gerenciamento de AD DS regulares. Você pode usar o Centro Administrativo do Active Directory ou snap-ins do MMC (console de gerenciamento Microsoft), como o DNS ou objetos Política de Grupo, por exemplo.
 
@@ -80,7 +80,7 @@ No Azure AD DS, o desempenho e os recursos disponíveis são baseados na SKU. Vo
 
 | Nome do SKU   | Contagem máxima de objetos | Frequência de backup | Número máximo de relações de confiança de floresta de saída |
 |------------|----------------------|------------------|----|
-| Padrão   | Ilimitado            | A cada 7 dias     | 0  |
+| Standard   | Ilimitado            | A cada 7 dias     | 0  |
 | Enterprise | Ilimitado            | A cada 3 dias     | 5  |
 | Premium    | Ilimitado            | Diário            | 10 |
 
@@ -104,7 +104,7 @@ A frequência de backup determina com que frequência um instantâneo do domíni
 
 A seção anterior detalha a floresta de saída unidirecional de um domínio gerenciado do Azure AD DS para um ambiente de AD DS local (atualmente em versão prévia). A SKU determina o número máximo de relações de confiança de floresta que você pode criar para um domínio gerenciado AD DS do Azure. Examine os requisitos de negócios e aplicativos para determinar quantas relações de confiança você realmente precisa e escolha o SKU de AD DS do Azure apropriado. Novamente, se os requisitos de negócios mudarem e você precisar criar relações de confiança de floresta adicionais, poderá alternar para um SKU diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para começar, [crie um domínio gerenciado do Azure AD DS][create-instance].
 

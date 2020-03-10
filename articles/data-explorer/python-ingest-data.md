@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77441996"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379830"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Ingerir dados usando a biblioteca Python do Azure Data Explorer
 
@@ -22,7 +22,7 @@ Primeiro, crie uma tabela e um mapeamento de dados em um cluster. Você, em segu
 
 Este artigo também está disponível como um [bloco de anotações do Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -183,6 +183,6 @@ Se você planeja seguir nossos outros artigos, mantenha os recursos que você cr
 .drop table StormEvents
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Consultar dados usando o Python](python-query-data.md)

@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 89af30788fe5129cddc6a3607b8c722549b610d1
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264043"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365540"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Criar contêineres e bancos de dados do Azure Cosmos no modo de piloto automático (versão prévia)
 
@@ -93,7 +93,7 @@ A tabela a seguir mostra o máximo em todo e os limites de armazenamento para di
 |100.000 RU/s    |  1 TB   |
 |500.000 RU/s    |  5 TB  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Examine as [perguntas frequentes do AutoPilot](autopilot-faq.md).
 * Saiba mais sobre [partições lógicas](partition-data.md).

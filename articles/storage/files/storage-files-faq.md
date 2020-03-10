@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5cbb819ef1300f16a40dbdd0da52a35bdf578e59
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598180"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361869"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -179,12 +179,12 @@ a autenticação do Azure Active Directory Domain Services do Azure **(azure AD 
 * <a id="ad-support-rest-apis"></a>
 **Existem APIs REST para dar suporte a Get/Set/copiar diretório/arquivo ACLs do NTFS?**
 
-    Sim, damos suporte a APIs REST que obtêm, definem ou copiam ACLs NTFS para diretórios ou arquivos ao usar a API REST [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (ou posterior).
+    Sim, damos suporte a APIs REST que obtêm, definem ou copiam ACLs NTFS para diretórios ou arquivos ao usar a API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior).
 
 * <a id="ad-vm-subscription"></a>
 **Pode acessar arquivos do Azure com credenciais do Azure AD de uma VM em uma assinatura diferente?**
 
-    Se a assinatura sob a qual o compartilhamento de arquivos foi implantado estiver associada ao mesmo locatário do Azure AD como a implantação do Azure AD Domain Services para o qual a VM ingressou no domínio, você poderá acessar os Arquivos do Azure usando as mesmas credenciais do Azure AD. A limitação é imposta não na assinatura, mas no locatário associado do Azure AD.    
+    Se a assinatura sob a qual o compartilhamento de arquivos foi implantado estiver associada ao mesmo locatário do Azure AD como a implantação do Azure AD Domain Services para o qual a VM ingressou no domínio, você poderá acessar os Arquivos do Azure usando as mesmas credenciais do Azure AD. A limitação é imposta não na assinatura, mas no locatário associado do Azure AD.
     
 * <a id="ad-support-subscription"></a>
 posso **habilitar os arquivos do azure AD DS ou a autenticação do AD com um locatário do Azure AD que seja diferente do locatário primário ao qual o compartilhamento de arquivos está associado?**
@@ -385,7 +385,7 @@ posso **configurar compartilhamentos aninhados? Em outras palavras, um compartil
 **Como posso usar os Arquivos do Azure com o IBM MQ?**  
     A IBM liberou um documento que ajuda clientes do IBM MQ a configurar o Arquivos do Azure juntamente com o serviço IBM. Para obter mais informações, consulte [Como configurar o gerenciador de filas com várias instâncias do IBM MQ com o serviço Arquivos do Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Solucionar problemas do Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas do Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

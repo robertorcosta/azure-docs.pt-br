@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas de erros encontrados 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1b82d43a58a25dc1c475180a4780106220e1ceeb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 8e29061becd9eb82dd04f3ed0db787542b29cbc7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597313"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363673"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -125,7 +125,7 @@ Se você vir as permissões no diretório **MachineKeys** que são diferentes do
    * Permissões de leitura
 2. Exclua todos os certificados em que **Emitido Para** é o modelo de implantação clássico ou **Gerador de Certificado CRP do Microsoft Azure**:
 
-   * [Abra os certificados em um console de computador local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * [Abra os certificados em um console de computador local](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * Em **Pessoal** > **Certificados**, exclua todos os certificados em que **Emitido Para** é o modelo de implantação clássico ou **Gerador de Certificado CRP do Microsoft Azure**.
 3. Dispare um trabalho de backup da VM.
 
@@ -200,7 +200,7 @@ Isso garantirá que os instantâneos são executados por meio do host em vez do 
 | Backup não pode cancelar o trabalho porque ele não está em andamento: <br>O cancelamento tem suporte somente para trabalhos em andamento. Tente cancelar um trabalho em andamento. |Esse erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
 | Falha de backup para cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
 
-## <a name="restore"></a>Restaurar
+## <a name="restore"></a>Restauração
 
 | Detalhes do erro | Solução alternativa |
 | --- | --- |

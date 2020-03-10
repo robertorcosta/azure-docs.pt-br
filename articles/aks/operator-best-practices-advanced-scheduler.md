@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594984"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375283"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -178,7 +178,7 @@ Um bom exemplo é um aplicativo web que também usa um Azure Cache para Redis. V
 
 Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação fornece a você o controle sobre os pods de agendas Kubernetes em nós e pode isolar os recursos logicamente. Para obter um exemplo completo deste aplicativo Web com o cache do Azure para Redis exemplo, consulte [co-localizar pods no mesmo nó][k8s-pod-affinity].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 

@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516787"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365664"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implantar o StorSimple Virtual Array - Provisionar no Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -40,7 +40,7 @@ Aqui você encontrará os pré-requisitos para provisionar uma matriz virtual em
 Antes de começar, verifique se:
 
 * Você concluiu todas as etapas em [Preparar o portal para o StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Você baixou a imagem da matriz virtual para o Hyper-V no portal do Azure. Para obter mais informações, confira a **Etapa 3: Baixe a imagem do dispositivo virtual** do [Guia Preparar o portal da Matriz Virtual StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
+* Você baixou a imagem da matriz virtual para o Hyper-V no portal do Azure. Para obter mais informações, consulte **Etapa 3: baixar a imagem do dispositivo virtual** do [guia Preparar o portal da Matriz Virtual StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
 
   > [!IMPORTANT]
   > O software em execução na matriz virtual StorSimple só pode ser usado com o serviço Gerenciador StorSimple.
@@ -88,7 +88,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
 #### <a name="to-provision-a-virtual-array"></a>Para provisionar uma matriz virtual
 1. No seu host do Windows Server, copie a imagem da matriz virtual em uma unidade local. Você baixou essa imagem (VHD ou VHDX) por meio do portal do Azure. Anote o local em que você copiou a imagem, pois ela será usada posteriormente no procedimento.
-2. Abra o **Gerenciador do Servidor**. No canto superior direito, clique em **Ferramentas** e selecione **Gerenciador do Hyper-V**.
+2. Abra o **Server Manager**. No canto superior direito, clique em **Ferramentas** e selecione **Gerenciador do Hyper-V**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
@@ -188,7 +188,7 @@ Execute as etapas a seguir para iniciar a matriz virtual e conectar-se a ela.
 7. Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em sua matriz virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
-8. Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Veja os exemplos a seguir:
+8. Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Consulte o seguinte exemplo:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
@@ -208,7 +208,7 @@ Execute as etapas a seguir para iniciar a matriz virtual e conectar-se a ela.
        >
        >
 
-Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá o erro a seguir no texto da faixa (mostrado abaixo). Modifique a configuração do dispositivo para que o computador tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na Etapa 1: verificar se o sistema de host cumpre os requisitos mínimos da matriz virtual.
+Se o dispositivo não cumprir os requisitos mínimos de configuração, você verá o erro a seguir no texto da faixa (mostrado abaixo). Modifique a configuração do dispositivo para que o computador tenha recursos adequados para cumprir os requisitos mínimos. Em seguida, você pode reiniciar e conectar-se ao dispositivo. Consulte os requisitos mínimos de configuração na etapa 1: garantir que o sistema host atenda aos requisitos mínimos de matriz virtual.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 
@@ -217,6 +217,6 @@ Caso observe algum outro erro durante a configuração inicial usando a interfac
 * Execute testes de diagnóstico para [solucionar problemas na configuração da interface do usuário da Web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Gere um pacote de log e exiba os arquivos de log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * [Configurar sua StorSimple Virtual Array como um servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)

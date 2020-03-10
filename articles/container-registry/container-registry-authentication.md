@@ -4,11 +4,11 @@ description: Opções de autenticação para um registro de contêiner do Azure 
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152936"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361504"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticar com um Registro de contêiner do Azure
 
@@ -89,7 +89,7 @@ Você pode habilitar o usuário administrador no Portal do Azure navegando em se
 
 ![Habilitar a interface do usuário administrador no Portal do Azure][auth-portal-01]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Enviar sua primeira imagem por push usando a CLI do Azure](container-registry-get-started-azure-cli.md)
 

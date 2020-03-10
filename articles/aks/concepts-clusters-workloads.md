@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596225"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374554"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
@@ -242,7 +242,7 @@ Para obter mais informações, consulte [kubernetes DaemonSets][kubernetes-daemo
 > [!NOTE]
 > Se você estiver usando o [complemento de nós virtuais](virtual-nodes-cli.md#enable-virtual-nodes-addon), o DaemonSets não criará pods no nó virtual.
 
-## <a name="namespaces"></a>Namespaces
+## <a name="namespaces"></a>{1&gt;Namespaces&lt;1}
 
 Os recursos do Kubernetes, como pods e Deployments, são logicamente agrupados em um *namespace*. Esses agrupamentos fornecem uma maneira de dividir logicamente um cluster AKS e restringir o acesso para criar, exibir ou gerenciar recursos. Você pode criar namespaces para separar grupos de negócios, por exemplo. Os usuários podem interagir apenas com recursos dentro de seus namespaces atribuídos.
 
@@ -256,7 +256,7 @@ Quando você cria um cluster do AKS, os namespaces a seguir estão disponíveis:
 
 Para obter mais informações, consulte [namespaces do kubernetes][kubernetes-namespaces].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Este artigo aborda alguns dos componentes principais do Kubernetes e como elas se aplicam aos clusters AKS. Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 

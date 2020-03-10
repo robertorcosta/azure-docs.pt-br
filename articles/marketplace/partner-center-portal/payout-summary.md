@@ -8,11 +8,11 @@ ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
 ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715439"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344060"
 ---
 # <a name="payout-reporting"></a>Relatório de pagamento
 
@@ -48,7 +48,7 @@ Se você vender ofertas no Azure Marketplace, também verá informações sobre 
 |---------|---------|---------|
 | Links | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) e [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navegação | Relatório de pagamento fornecido no pagamento de informações | Relatório de pagamento fornecido no Partner Center – ícone de pagamento |
-| Scope | <ul> <li>A transação por item de linha está visível para coleta em andamento, coletada e paga </li> <li>Relatório – mostra todos os itens de linha após a criação da ordem de compra, incluindo a coleta em andamento e a cobrança em andamento, bem como o status da coleta e os itens de linha que ainda não estão qualificados para serem pagos. </li> </ul> | <ul> <li>Mostra os itens de linha depois que eles são considerados ganhos qualificados.</li> <li>Os clientes pagam para a Microsoft primeiro e, em seguida, os ISVs podem ver o relatório de pagamento iniciando.</li> <li>O relatório de pagamento não mostrará a coleção em andamento e a cobrança em andamento.  </li> </ul>  |
+| Escopo | <ul> <li>A transação por item de linha está visível para coleta em andamento, coletada e paga </li> <li>Relatório – mostra todos os itens de linha após a criação da ordem de compra, incluindo a coleta em andamento e a cobrança em andamento, bem como o status da coleta e os itens de linha que ainda não estão qualificados para serem pagos. </li> </ul> | <ul> <li>Mostra os itens de linha depois que eles são considerados ganhos qualificados.</li> <li>Os clientes pagam para a Microsoft primeiro e, em seguida, os ISVs podem ver o relatório de pagamento iniciando.</li> <li>O relatório de pagamento não mostrará a coleção em andamento e a cobrança em andamento.  </li> </ul>  |
 | A transação não está pronta para pagamento | Cobrança em andamento | Próximo pagamento estimado: o status do pagamento está no estado não processado.  |
 | Status do pagamento |  | Não processados <br> A conquista está qualificada para pagamento. Ele permanece nesse estado por um período de resfriamento, conforme definido no guia do programa do programa de incentivo. <br> <br> Cerimônia <br> Ordem de pagamento-revisões internas pendentes geradas antes de o pagamento ser processado. <br> <br> Enviado: <br> O pagamento foi enviado ao seu banco. |
 
@@ -68,7 +68,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 ## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e uso
 
-|Descrição    |    Date  | Pedidos/uso  | Pagamento |
+|Descrição    |    Data  | Pedidos/uso  | Pagamento |
 |----------|----------|-----------|-------------|
 |Período de ordem   | 15 de agosto de 2019-30 de agosto de 2019 | **Pedidos de atributos de correlação** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Usage** <br> <ul> <li>CustomerId </li> <li>Nome do Cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Custo estendido estimado <br> Pagamento estimado (PC) </li> </ul> |  |
 |Prazo final (mês)   | 30 de agosto de 2019 | | |
@@ -82,7 +82,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contrato Enterprise (clientes trimestrais/mensais)
 
-| Descrição |    Date  | Uso | Pagamento |
+| Descrição |    Data  | Uso | Pagamento |
 |----------|----------|---------|-----------|
 |Período de ordem | 15 de agosto de 2019-30 de agosto de 2019 | **Pedidos de atributos de correlação** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Relatório de uso** <br> <ul> <li>CustomerId </li> <li>Nome do Cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Custo estendido estimado <br> Pagamento estimado (PC) </li> </ul> | |
 |Prazo final (trimestre) | 30 de setembro de 2019 | | |
@@ -162,7 +162,7 @@ Essa opção fornece um download de cada item de linha de produção que você v
 | taxZipCode       | Vendido para o zip do cliente                                                                                                                  |
 | LicensingProgramName       |                                                                                                                   |
 | Código do programa       | Cadeia de caracteres para mapear com o nome do programa                                                                                                                   |
-| EarningAmountInLastPaymentCurrency       | Conquistando valor na última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
+| earningAmountInLastPaymentCurrency       | Conquistando valor na última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
 | lastPaymentCurrency       | Última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
 | AssetId       | O identificador exclusivo para os pedidos do cliente para o serviço do Marketplace.  Ele representa os itens de linha de compra transacionados. Pode haver vários ativos.                                                                                                                   |
 | OrderId       | relacionado à fatura de um cliente                                                                                                                   |

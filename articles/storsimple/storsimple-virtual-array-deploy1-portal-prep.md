@@ -9,18 +9,18 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273847"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365595"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -30,7 +30,7 @@ Você precisará de privilégios de administrador para concluir o processo de in
 
 As informações publicadas neste artigo se aplicam à implantação de Matrizes Virtuais StorSimple no portal do Azure e na Nuvem do Microsoft Azure Governamental.
 
-### <a name="get-started"></a>Comece agora
+### <a name="get-started"></a>Introdução
 O fluxo de trabalho de implantação consiste em preparação do portal, provisionamento de uma matriz virtual no seu ambiente virtualizado e conclusão da instalação. Para começar com a implantação do StorSimple Virtual Array como um servidor de arquivos ou um servidor iSCSI, você precisará consultar os seguintes recursos tabulados.
 
 #### <a name="deployment-articles"></a>Artigos sobre implantação
@@ -52,7 +52,7 @@ A lista de verificação da configuração a seguir descreve as informações qu
 * Baixe a [Lista de verificação da configuração do servidor de arquivos do StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Baixe a [Lista de verificação da configuração do servidor iSCSI do StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Aqui você encontra os pré-requisitos de configuração para seu serviço Gerenciador de Dispositivos StorSimple, sua Matriz Virtual StorSimple e a rede de datacenter.
 

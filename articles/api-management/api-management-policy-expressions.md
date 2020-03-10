@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845282"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374347"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
-Este artigo discute a sintaxe de expressões de C# política em 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.
+Este artigo discute a sintaxe de expressões de C# política em 7. Toda expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.
 
-Para obter mais informações:
+Para mais informações:
 
 - Veja como fornecer informações de contexto ao serviço de back-end. Use as políticas [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e [Definir cabeçalho HTTP](api-management-transformation-policies.md#SetHTTPheader) para fornecer essas informações.
 - Como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token.
@@ -93,20 +93,20 @@ A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em 
 |System.Boolean|Tudo|
 |System.Byte|Tudo|
 |System.Char|Tudo|
-|System. Collections. Generic. Dictionary < TKey, TValue >|Tudo|
-|System.Collections.Generic.HashSet\<T>|Tudo|
-|System.Collections.Generic.ICollection\<T>|Tudo|
+|System.Collections.Generic.Dictionary<TKey, TValue>|Tudo|
+|System. Collections. Generic. HashSet\<T >|Tudo|
+|System. Collections. Generic. ICollection\<T >|Tudo|
 |System. Collections. Generic. IDictionary < TKey, TValue >|Tudo|
-|System.Collections.Generic.IEnumerable\<T>|Tudo|
-|System.Collections.Generic.IEnumerator\<T>|Tudo|
-|System.Collections.Generic.IList\<T>|Tudo|
-|System.Collections.Generic.IReadOnlyCollection\<T>|Tudo|
+|System. Collections. Generic. IEnumerable\<T >|Tudo|
+|System. Collections. Generic. IEnumerator\<T >|Tudo|
+|System. Collections. Generic. IList\<T >|Tudo|
+|System. Collections. Generic. IReadOnlyCollection\<T >|Tudo|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|Tudo|
-|System.Collections.Generic.ISet\<T>|Tudo|
+|System. Collections. Generic. ISet\<T >|Tudo|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|Tudo|
-|System.Collections.Generic.List\<T>|Tudo|
-|System.Collections.Generic.Queue\<T>|Tudo|
-|System.Collections.Generic.Stack\<T>|Tudo|
+|System. coleções. Generic. List\<T >|Tudo|
+|System. coleções. Generic. Queue\<T >|Tudo|
+|System. coleções. Generic. Stack\<T >|Tudo|
 |System.Convert|Tudo|
 |System.DateTime|(Construtor), adicionar, subdias, addhora, addmilésimos de segundo, addminutos, addmeses, adicionar, submarcações, AddYears, data, Day, DayOfWeek, DayOfYear, DaysInMonth, hora, IsDaylightSavingTime, IsLeapYear, MaxValue, milissegundo, minuto, MinValue, mês, agora , Análise, segundo, subtrair, tiques, TimeOfDay, hoje, ToString, UtcNow, year|
 |System.DateTimeKind|Utc|
@@ -156,7 +156,7 @@ A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em 
 |System.Security.Cryptography.SymmetricAlgorithm|Tudo|
 |System.Security.Cryptography.X509Certificates.PublicKey|Tudo|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Tudo|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nome|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|{1&gt;Nome&lt;1}|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Tudo|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Tudo|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Tudo|
@@ -206,20 +206,20 @@ A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em 
 |System.Xml.XmlNodeType|Tudo|
 
 ## <a name="ContextVariables"></a> Variável de contexto
-Uma variável chamada `context` está implicitamente disponível em toda [expressão](api-management-policy-expressions.md#Syntax) de política. Seus membros fornecem informações pertinentes para `\request`. Todos os membros de `context` são somente leitura.
+Uma variável chamada `context` está implicitamente disponível em cada [expressão](api-management-policy-expressions.md#Syntax) de política. Seus membros fornecem informações pertinentes para `\request`. Todos os membros de `context` são somente leitura.
 
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|
 |----------------------|-------------------------------------------------------|
 |contexto|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implantação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor de carimbo de data/hora e a hora atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [Solicitação](#ref-context-request)<br /><br /> RequestId: Guid - identificador exclusivo de solicitação<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Assinatura](#ref-context-subscription)<br /><br /> Carimbo de data/hora: DataHora - ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool - indica que se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): IReadOnlyDictionary < string, > de objeto<br /><br /> void Trace(message: string)|
-|<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
-|<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
-|<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|
+|<a id="ref-context-api"></a>noticioso. API|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
+|<a id="ref-context-deployment"></a>noticioso. Planta|Region: string<br /><br /> ServiceName: string<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>noticioso. LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|
 |<a id="ref-context-operation"></a>noticioso. Operacional|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
-|<a id="ref-context-product"></a>context.Product|APIs: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-product"></a>noticioso. Remessa|APIs: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
 |<a id="ref-context-request"></a>noticioso. Quest|Corpo: [IMessageBody](#ref-imessagebody) ou `null` se a solicitação não tiver um corpo.<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Cabeçalhos](#ref-context-request-headers): IReadOnlyDictionary < cadeia de caracteres, Cadeia de caracteres [] ><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
-|<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de solicitação separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
+|<a id="ref-context-request-headers"></a>contexto da cadeia de caracteres. Request. Headers. GetValueOrDefault (HeaderName: String, defaultValue: String)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de solicitação separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
 |<a id="ref-context-response"></a>noticioso. Responde|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary < cadeia de caracteres, Cadeia de caracteres [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
-|<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de resposta separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
+|<a id="ref-context-response-headers"></a>contexto da cadeia de caracteres. Response. Headers. GetValueOrDefault (HeaderName: String, defaultValue: String)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de resposta separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
 |<a id="ref-context-subscription"></a>noticioso. Scriçõe|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
 |<a id="ref-context-user"></a>noticioso. Usuário|Email: string<br /><br /> FirstName: string<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identidades: IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
@@ -228,7 +228,7 @@ Uma variável chamada `context` está implicitamente disponível em toda [expres
 |<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [Consulta](#ref-iurl-query): IReadOnlyDictionary < String, String [] ><br /><br /> QueryString: string<br /><br /> Scheme: string|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
-|<a id="ref-iurl-query"></a>string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de parâmetro de consulta separados por vírgula ou `defaultValue` se o parâmetro não for encontrado.|
+|<a id="ref-iurl-query"></a>String IUrl. Query. GetValueOrDefault (queryParameterName: String, defaultValue: String)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de parâmetro de consulta separados por vírgula ou `defaultValue` se o parâmetro não for encontrado.|
 |<a id="ref-context-variables"></a>Contexto T. Variables. GetValueOrDefault < T\>(VariableName: String, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Retorna o valor da variável convertida para o tipo `T` ou `defaultValue` se a variável não for encontrada.<br /><br /> Esse método gerará uma exceção se o tipo especificado não corresponder ao tipo real da variável retornada.|
 |BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> Se o parâmetro de entrada contiver um valor válido de cabeçalho de solicitação de autorização de Autenticação Básica HTTP, o método retornará um objeto do tipo `BasicAuthCredentials`, caso contrário, o método retornará nulo.|
 |bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Se o parâmetro de entrada contiver um valor de autorização de Autenticação Básica HTTP válido no cabeçalho de solicitação, o método retornará `true` e o parâmetro do resultado conterá um valor do tipo `BasicAuthCredentials`, caso contrário, o método retornará `false`.|
@@ -246,7 +246,7 @@ Uma variável chamada `context` está implicitamente disponível em toda [expres
 |bool VerifyNoRevocation (entrada: este System. Security. Cryptography. X509Certificates. X509Certificate2)|Executa uma validação de cadeia X. 509 sem verificar o status de revogação do certificado.<br /><br />objeto de entrada-certificado<br /><br />Retorna `true` se a validação for realizada com sucesso; `false` se a validação falhar.|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 

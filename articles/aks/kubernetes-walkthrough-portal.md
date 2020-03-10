@@ -5,14 +5,14 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: b73389a9b1dadfff287718abec1755007cbe859c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
-ms.translationtype: HT
+ms.openlocfilehash: f4885bea686267ce0397e9ca6f3e2c0ac8640971
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595109"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390314"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando o portal do Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: implantar um cluster do AKS (serviço kubernetes do Azure) usando o portal do Azure
 
 O AKS (Serviço de Kubernetes do Azure) é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Neste guia de início rápido, implante um cluster AKS usando o Portal do Azure. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância do Redis é executado no cluster. Em seguida, você verá como monitorar a integridade do cluster e dos pods que executam seu aplicativo.
 
@@ -35,16 +35,16 @@ Para criar um cluster do AKS, conclua as seguintes etapas:
 2. Selecione **contêineres** >  **Serviço Kubernetes**.
 
 3. Na página **Noções básicas**, configure as seguintes opções:
-    - **Detalhes do projeto**: Selecione uma **assinatura** do Azure e marque ou crie um **grupo de recursos** do Azure, por exemplo, *meuGrupodeRecursos*.
-    - **Detalhes do cluster**: Insira um **nome do cluster do Kubernetes**, como *myAKSCluster*. Selecione uma **Região**, a **versão do Kubernetes** e o **prefixo de nome DNS** para o cluster do AKS.
-    - **Pool de nós primários**: Selecione um **Tamanho de nó** de VM para os nós de AKS. O tamanho da VM *não pode* ser alterado após a implantação de um cluster AKS. 
+    - **Detalhes do projeto**: selecione uma **assinatura**do Azure e, em seguida, selecione ou crie um **grupo de recursos**do Azure, como *MyResource*Group.
+    - **Detalhes do cluster**: Insira um **nome de cluster kubernetes**, como *myAKSCluster*. Selecione uma **Região**, a **versão do Kubernetes** e o **prefixo de nome DNS** para o cluster do AKS.
+    - **Pool de nós primário**: selecione um **tamanho de nó** de VM para os nós AKs. O tamanho da VM *não pode* ser alterado após a implantação de um cluster AKS. 
             – Selecione o número de nós para implantação no cluster. Para este início rápido, defina **Contagem de nós** como *1*. A contagem de nós *pode* ser ajustada após a implantação do cluster.
     
     ![Criar cluster do AKS – fornecer informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selecione **Avançar: Escala** ao concluir.
+    Selecione **Avançar: dimensionar** ao concluir.
 
-4. Na página **Escala**, mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: Autenticação**.
+4. Na página **Escala**, mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: autenticação**.
     > [!CAUTION]
     > A criação de novas Entidades de Serviço do AAD pode levar vários minutos para ser propagada e disponibilizada, levando a erros de Entidade de Serviço não encontrada e a falhas de validação no portal do Azure. Se passar por isso, veja [aqui](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) as mitigações.
 
@@ -74,13 +74,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Para verificar a conexão com o cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista dos nós de cluster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 A saída de exemplo a seguir mostra o único nó criado nas etapas anteriores. Verifique se o status do nó é *Pronto*:
 
-```
+```output
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 ```
@@ -181,13 +181,13 @@ spec:
 
 Implante o aplicativo usando o comando [kubectl apply][kubectl-apply] e especifique o nome do manifesto YAML:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 A seguinte saída de exemplo mostra as Implantações e os Serviços criados com êxito:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -200,20 +200,20 @@ Quando o aplicativo é executado, um serviço de Kubernetes expõe o front-end d
 
 Para monitorar o andamento, use o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Inicialmente, o *EXTERNAL-IP* para o serviço *azure-vote-front* é mostrado como *pendente*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Quando o endereço *EXTERNAL-IP* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o processo de inspeção do `kubectl`. A seguinte saída de exemplo mostra um endereço IP público válido atribuído ao serviço:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -257,7 +257,7 @@ Neste início rápido, foram usadas imagens de contêiner pré-criadas para cria
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste início rápido, você implantou um cluster Kubernetes e um aplicativo de com vários contêineres nele.
 

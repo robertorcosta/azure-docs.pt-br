@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073714"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375079"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -41,7 +41,7 @@ Use a política `cross-domain` para tornar a API acessível por clientes baseado
 </cross-domain>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```xml
 <cross-domain>
@@ -53,7 +53,7 @@ Use a política `cross-domain` para tornar a API acessível por clientes baseado
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|{1&gt;Nome&lt;1}|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |cross-domain|Elemento raiz. Elementos filho devem estar de acordo com a [Especificação de arquivo de política entre domínios do Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
 
@@ -87,7 +87,7 @@ O CORS permite que um navegador e um servidor interajam e determina e solicitaç
 </cors>
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 Este exemplo demonstra como dar suporte a solicitações preliminares, como as com cabeçalhos personalizados ou métodos diferentes de GET e POST. Para oferecer suporte a cabeçalhos personalizados e verbos HTTP adicionais, use as seções `allowed-methods` e `allowed-headers` conforme mostrado no exemplo a seguir.
 
 ```xml
@@ -122,22 +122,22 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|Padrão|
+|{1&gt;Nome&lt;1}|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|cors|Elemento raiz.|Sim|N/D|
-|allowed-origins|Contém elementos `origin` que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins` pode conter um único elemento `origin` que especifica `*` para permitir qualquer origem, ou um ou mais elementos `origin` que contêm uma URI.|Sim|N/D|
+|cors|Elemento raiz.|Sim|{1&gt;N/A&lt;1}|
+|allowed-origins|Contém elementos `origin` que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins` pode conter um único elemento `origin` que especifica `*` para permitir qualquer origem, ou um ou mais elementos `origin` que contêm uma URI.|Sim|{1&gt;N/A&lt;1}|
 |origin|O valor pode ser `*` para permitir todas as origens ou um URI que especifica uma origem única. O URI deve incluir um esquema, um host e uma porta.|Sim|Se a porta for omitida em um URI, a porta 80 é usada para HTTP e a porta 443 é usada para HTTPS.|
 |allowed-methods|Esse elemento é necessário se métodos diferentes de GET ou POST forem permitidos. Contém elementos `method` que especificam os verbos HTTP compatíveis.|Não|Se esta seção não estiver presente, GET e POST são compatíveis.|
-|method|Especifica um verbo HTTP.|Pelo menos um elemento `method` é necessário se a seção `allowed-methods` estiver presente.|N/D|
-|allowed-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que podem ser incluídos na solicitação.|Não|N/D|
-|expose-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que ficarão acessíveis para o cliente.|Não|N/D|
-|cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um elemento `header` é necessário em `allowed-headers` ou `expose-headers` se a seção estiver presente.|N/D|
+|{1&gt;método&lt;1}|Especifica um verbo HTTP.|Pelo menos um elemento `method` é necessário se a seção `allowed-methods` estiver presente.|{1&gt;N/A&lt;1}|
+|allowed-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que podem ser incluídos na solicitação.|Não|{1&gt;N/A&lt;1}|
+|expose-headers|Esse elemento contém elementos `header` que especificam os nomes dos cabeçalhos que ficarão acessíveis para o cliente.|Não|{1&gt;N/A&lt;1}|
+|cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um elemento `header` é necessário em `allowed-headers` ou `expose-headers` se a seção estiver presente.|{1&gt;N/A&lt;1}|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Padrão|
+|{1&gt;Nome&lt;1}|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|O cabeçalho `Access-Control-Allow-Credentials` na resposta preliminar será definido com o valor desse atributo e afetará a capacidade do cliente para enviar credenciais nas solicitações entre domínios.|Não|false|
+|allow-credentials|O cabeçalho `Access-Control-Allow-Credentials` na resposta preliminar será definido com o valor desse atributo e afetará a capacidade do cliente para enviar credenciais nas solicitações entre domínios.|Não|{1&gt;false&lt;1}|
 |preflight-result-max-age|O cabeçalho `Access-Control-Max-Age` na resposta preliminar será definido com o valor desse atributo e afetará a capacidade do agente do usuário para colocar em cache a resposta preliminar.|Não|0|
 
 ### <a name="usage"></a>Uso
@@ -155,7 +155,7 @@ A política `jsonp` adiciona suporte a JSONP com padding (JSONP) a uma operaçã
 <jsonp callback-parameter-name="callback function name" />
 ```
 
-### <a name="example"></a>Exemplo
+### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```xml
 <jsonp callback-parameter-name="cb" />
@@ -167,15 +167,15 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|{1&gt;Nome&lt;1}|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |jsonp|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Padrão|
+|{1&gt;Nome&lt;1}|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|N/D|
+|callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|{1&gt;N/A&lt;1}|
 
 ### <a name="usage"></a>Uso
 Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
@@ -183,7 +183,7 @@ Essa política pode ser usada nas [seções](https://azure.microsoft.com/documen
 - **Seções de política:** saída
 - **Escopos da política:** todos os escopos
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 

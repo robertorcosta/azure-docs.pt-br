@@ -10,11 +10,11 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 767c1fddbc3d1f46d4341a70c990c2b57ad40e54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930409"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373521"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credenciais na Automação do Azure
 
@@ -29,7 +29,7 @@ Um ativo de credencial de automação contém um objeto, que contém credenciais
 
 Para Azure PowerShell módulo AZ, os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de credenciais de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo AzureAz. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), que está disponível para uso em Runbooks de automação e configurações DSC.
 
-| Cmdlets | Description |
+| Cmdlets | Descrição |
 |:--- |:--- |
 | [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Recupera informações sobre um ativo de credencial. Isso não retorna um objeto PSCredential.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Cria uma nova credencial de Automação. |
@@ -40,7 +40,7 @@ Para Azure PowerShell módulo AZ, os cmdlets na tabela a seguir são usados para
 
 As atividades na tabela a seguir são usadas para acessar credenciais em um runbook ou em uma configuração DSC.
 
-| Atividades | Description |
+| Atividades | Descrição |
 |:--- |:--- |
 | Get-AutomationPSCredential |Obtém uma credencial a ser usada em um runbook ou configuração DSC. Retorna um objeto [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) . |
 
@@ -51,7 +51,7 @@ As atividades na tabela a seguir são usadas para acessar credenciais em um runb
 
 A função na tabela a seguir é usada para acessar credenciais em um runbook em Python2.
 
-| Função | Description |
+| Função | Descrição |
 |:---|:---|
 | automationassets.get_automation_credential | Recupera informações sobre um ativo de credencial. |
 
@@ -82,7 +82,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Usando uma credencial do PowerShell
 
-Recupere um ativo de credencial em um runbook ou configuração DSC com a atividade **Get-AutomationPSCredential** . Isso retorna um [objeto PSCredential](/dotnet/api/system.management.automation.pscredential) que você pode usar com uma atividade ou cmdlet que exija um parâmetro PSCredential. Você também pode recuperar as propriedades do objeto de credencial para usar individualmente. O objeto tem uma propriedade para o nome de usuário e a senha segura, ou você pode usar o método **GetNetworkCredential** para retornar um objeto [NetworkCredential](/dotnet/api/system.net.networkcredential) que fornecerá uma versão sem segurança da senha.
+Recupere um ativo de credencial em um runbook ou configuração DSC com a atividade **Get-AutomationPSCredential** . Isso retorna um [objeto PSCredential](/dotnet/api/system.management.automation.pscredential) que você pode usar com uma atividade ou o cmdlet que requer um parâmetro PSCredential. Você também pode recuperar as propriedades do objeto de credencial para usar individualmente. O objeto tem uma propriedade para o nome de usuário e a senha segura, ou você pode usar o método **GetNetworkCredential** para retornar um objeto [NetworkCredential](/dotnet/api/system.net.networkcredential) que fornece uma versão sem segurança da senha.
 
 > [!NOTE]
 > **Get-AzAutomationCredential** não retorna um **PSCredential** que pode ser usado para autenticação. Ele fornece apenas informações sobre a credencial. Se você precisar usar uma credencial em um runbook, deverá usar o **Get-AutomationPSCredential** para recuperar o objeto **PSCredential** .
@@ -139,7 +139,7 @@ print cred["username"]
 print cred["password"]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre links na criação gráfica, veja [Links na criação gráfica](../automation-graphical-authoring-intro.md#links-and-workflow)
 * Para entender os diferentes métodos de autenticação com Automação, consulte [Segurança da Automação do Azure](../automation-security-overview.md)

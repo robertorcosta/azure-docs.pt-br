@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908846"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378125"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -35,7 +35,7 @@ O diagrama a seguir ilustra esse fluxo de solicitação de autenticação de alt
 
 ![Diagrama de fluxo de autenticação](./media/howto-mfa-nps-extension/auth-flow.png)
 
-## <a name="plan-your-deployment"></a>Planejar sua implantação
+## <a name="plan-your-deployment"></a>Planejar a implantação
 
 A extensão NPS controla automaticamente a redundância, de maneira que você não precisa de uma configuração especial.
 
@@ -43,7 +43,7 @@ Você pode criar quantos servidores NPS habilitados para o Azure MFA conforme ne
 
 Os servidores VPN encaminham as solicitações de autenticação, portanto precisam estar cientes dos novos servidores NPS habilitados para a MFA do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 A extensão do NPS deve trabalhar com sua infraestrutura existente. Verifique se você cumpre os seguintes pré-requisitos antes de iniciar.
 
@@ -64,7 +64,7 @@ Essas bibliotecas são instaladas automaticamente com a extensão.
 
 O Módulo Microsoft Azure Active Directory para Windows PowerShell é instalado, se ainda não estiver presente, por meio de um script de configuração que é executado como parte do processo de instalação. Não é necessário instalar este módulo antecipadamente, se ele ainda não estiver instalado.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Active Directory do Azure
 
 Todos que usam a extensão do NPS devem estar sincronizados com o Azure Active Directory usando o Azure AD Connect e devem estar registrados para MFA.
 
@@ -85,7 +85,7 @@ Além disso, a conectividade com as URLs a seguir é necessária para concluir a
 - https:\//provisioningapi.microsoftonline.com
 - https:\//aadcdn.msauth.net
 
-## <a name="prepare-your-environment"></a>Preparar seu ambiente
+## <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
 Antes de instalar a extensão NPS, convém preparar o ambiente para manipular o tráfego de autenticação.
 
@@ -173,7 +173,7 @@ O instalador cria um script do PowerShell neste local: `C:\Program Files\Microso
 
 A menos que você deseje usar seus próprios certificados (em vez dos certificados autoassinados gerados pelo script do PowerShell), execute o Script do PowerShell para concluir a instalação. Se você instalar a extensão em vários servidores, cada um deverá ter seu próprio certificado.
 
-1. Execute o Windows PowerShell como um administrador.
+1. Execute o Windows PowerShell como administrador.
 2. Altere os diretórios.
 
    `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
@@ -200,7 +200,7 @@ Para clientes que usam a nuvem do Azure governamental, as etapas de configuraç�
 1. Abra o **Editor do registro** no servidor NPS.
 1. Navegue até `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Defina os seguintes valores de chave:
 
-    | Chave do Registro       | Valor |
+    | Chave do Registro       | {1&gt;Valor&lt;1} |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
@@ -238,7 +238,7 @@ Depois que você habilita a MFA para um cliente RADIUS usando a extensão do NPS
 
 Se você tiver usuários que não são registrados na MFA, determine o que acontece quando eles tentam fazer a autenticação. Use a configuração de Registro *REQUIRE_USER_MATCH* no caminho do Registro *HKLM\Software\Microsoft\AzureMFA* para controlar o comportamento do recurso. Essa configuração tem uma opção de configuração única:
 
-| Chave | Valor | Padrão |
+| Chave | {1&gt;Valor&lt;1} | Padrão |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Não definido (equivalente a TRUE) |
 
@@ -333,7 +333,7 @@ Para verificar se você tem um certificado válido, verifique o repositório de 
 
 Diretrizes de solução de problemas adicionais e possíveis soluções podem ser encontradas no artigo [resolver mensagens de erro da extensão do NPS para a autenticação multifator do Azure](howto-mfa-nps-extension-errors.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Configurar IDs alternativos para logon ou configurar uma lista de exceções para IPs que não devem executar a verificação em duas etapas nas [Opções de configuração avançadas para a extensão do NPS para autenticação multifator](howto-mfa-nps-extension-advanced.md)
 

@@ -12,13 +12,13 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420471"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379795"
 ---
-# <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure Active Directory
+# <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início Rápido: Adicionar um aplicativo ao locatário do Azure Active Directory
 
 O Azure AD (Azure Active Directory) tem uma galeria que contém milhares de aplicativos pré-integrados. Alguns dos aplicativos que sua organização usa provavelmente estão na galeria. Este início rápido usa o portal do Azure para adicionar um aplicativo de galeria ao locatário do Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para adicionar um aplicativo de galeria ao locatário do Azure AD:
 
     ![Selecione Novo aplicativo para adicionar um aplicativo da galeria ao seu locatário](media/add-application-portal/new-application.png)
 
- 4. Mude para a nova experiência de versão prévia da galeria: Na faixa na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **Clique aqui para experimentar a galeria de aplicativos nova e aprimorada**.
+ 4. Mude para a nova experiência de visualização da Galeria: na faixa na parte superior da **página Adicionar um aplicativo**, selecione o link que diz **clique aqui para experimentar a Galeria de aplicativos nova e aprimorada**.
 
 5. O painel **Procurar na Galeria do Azure AD (versão prévia)** é aberto e exibe blocos de aplicativos para plataformas de nuvem, aplicativos locais e aplicativos em destaque. Observe que os aplicativos listados na seção **Aplicativos em destaque** têm ícones que indicam se eles dão suporte ao SSO (logon único) federado e ao provisionamento.
 
@@ -100,13 +100,13 @@ Para editar as propriedades do aplicativo:
        | Configurações de propriedade do aplicativo | | | Experiência do usuário atribuído | |
        |---|---|---|---|---|
        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários atribuídos podem entrar? | Os usuários atribuídos podem ver o aplicativo?* |
-       | Sim | Sim | Sim | Sim | Sim  |
-       | Sim | Sim | não  | Sim | não   |
-       | Sim | não  | Sim | Sim | Sim  |
-       | Sim | não  | não  | Sim | não   |
-       | não  | Sim | Sim | não  | não   |
-       | não  | Sim | não  | não  | não   |
-       | não  | não  | Sim | não  | não   |
+       | sim | sim | sim | sim | sim  |
+       | sim | sim | não  | sim | não   |
+       | sim | não  | sim | sim | sim  |
+       | sim | não  | não  | sim | não   |
+       | não  | sim | sim | não  | não   |
+       | não  | sim | não  | não  | não   |
+       | não  | não  | sim | não  | não   |
        | não  | não  | não  | não  | não   |
 
    - Comportamento de usuários **não atribuídos**:
@@ -114,13 +114,13 @@ Para editar as propriedades do aplicativo:
        | Configurações de propriedade do aplicativo | | | Experiência de usuário não atribuído | |
        |---|---|---|---|---|
        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários não atribuídos podem entrar? | Os usuários não atribuídos podem ver o aplicativo?* |
-       | Sim | Sim | Sim | não  | não   |
-       | Sim | Sim | não  | não  | não   |
-       | Sim | não  | Sim | Sim | não   |
-       | Sim | não  | não  | Sim | não   |
-       | não  | Sim | Sim | não  | não   |
-       | não  | Sim | não  | não  | não   |
-       | não  | não  | Sim | não  | não   |
+       | sim | sim | sim | não  | não   |
+       | sim | sim | não  | não  | não   |
+       | sim | não  | sim | sim | não   |
+       | sim | não  | não  | sim | não   |
+       | não  | sim | sim | não  | não   |
+       | não  | sim | não  | não  | não   |
+       | não  | não  | sim | não  | não   |
        | não  | não  | não  | não  | não   |
 
      *O usuário pode ver o aplicativo no painel de acesso e no iniciador de aplicativos do Office 365?
@@ -140,7 +140,7 @@ Para usar um logotipo personalizado:
    > [!NOTE]
    > A miniatura exibida neste painel de **Propriedades** não é atualizada imediatamente. Você pode fechar e reabrir as propriedades para ver o ícone atualizado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você adicionou o aplicativo à sua organização do Azure AD, [escolha um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que deseja usar e veja o artigo apropriado abaixo:
 

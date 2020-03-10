@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767732"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344101"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
@@ -324,17 +324,17 @@ SELECT <select_list>
   [GROUP BY <group_specification>]
 ```
 
-## <a name="from-clause"></a>Cláusula FROM
+## <a name="from-clause"></a>cláusula FROM
 
 A cláusula **from < from_specification >** pode assumir apenas três valores: **de dispositivos** para consultar dispositivos gêmeos, **de Devices. modules** para consultar o módulo gêmeos ou **de Devices.Jobs** para consultar os detalhes do trabalho por dispositivo.
 
-## <a name="where-clause"></a>cláusula WHERE
+## <a name="where-clause"></a>Cláusula WHERE
 
 A cláusula **WHERE <filter_condition>** é opcional. Ela especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
 
 As condições permitidas são descritas na seção [Expressões e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="select-clause"></a>Cláusula SELECT
+## <a name="select-clause"></a>cláusula SELECT
 
 A cláusula **SELECT <select_list>** é obrigatória e especifica quais valores são recuperados pela consulta. Ela especifica os valores JSON a serem usado para gerar novos objetos JSON.
 Para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON. Esse objeto é construído com os valores especificados na cláusula SELECT.
@@ -365,7 +365,7 @@ SELECT [TOP <max number>] <projection list>
 
 No momento, as cláusulas de seleção diferentes de **SELECT*** têm suporte apenas em consultas de agregação em dispositivos gêmeos.
 
-## <a name="group-by-clause"></a>Cláusula GROUP BY
+## <a name="group-by-clause"></a>cláusula GROUP BY
 
 A cláusula **GROUP BY <group_specification>** é uma etapa opcional que executa após o filtro especificado na cláusula WHERE e antes da projeção especificada no SELECT. Ela agrupa documentos com base no valor de um atributo. Esses grupos são usados para gerar valores agregados conforme especificado na cláusula SELECT.
 
@@ -450,20 +450,20 @@ Há suporte para os seguintes operadores:
 | Família | Operadores |
 | --- | --- |
 | Aritmético |+, -, *, /, % |
-| Lógico |AND, OR, NOT |
+| Lógica |AND, OR, NOT |
 | Comparação |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Funções
+### <a name="functions"></a>{1&gt;Funções&lt;1}
 
 Ao consultar gêmeos e trabalhos, a única função com suporte é:
 
-| Função | Description |
+| Função | Descrição |
 | -------- | ----------- |
 | IS_DEFINED(propriedade) | Retorna um valor booliano que indica se um valor foi atribuído à propriedade (incluindo `null`). |
 
 Em condições de rotas, há suporte para as seguintes funções matemáticas:
 
-| Função | Description |
+| Função | Descrição |
 | -------- | ----------- |
 | ABS(x) | Retorna o valor absoluto (positivo) da expressão numérica especificada. |
 | EXP(x) | Retorna o valor exponencial da expressão numérica especificada (e^x). |
@@ -476,7 +476,7 @@ Em condições de rotas, há suporte para as seguintes funções matemáticas:
 
 Em condições de rotas, há suporte para as seguintes funções de verificação de tipo e conversão de tipo:
 
-| Função | Description |
+| Função | Descrição |
 | -------- | ----------- |
 | AS_NUMBER | Converte a cadeia de caracteres de entrada em um número. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
 | IS_ARRAY | Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz. |
@@ -490,9 +490,9 @@ Em condições de rotas, há suporte para as seguintes funções de verificaçã
 
 Em condições de rotas, há suporte para as seguintes funções de cadeias de caracteres:
 
-| Função | Description |
+| Função | Descrição |
 | -------- | ----------- |
-| CONCAT(x, y, …) | Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
+| CONCAT(x, y, …) | Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores. |
 | LENGTH(x) | Retorna o número de caracteres da expressão de cadeia de caracteres especificada.|
 | LOWER(x) | Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos. |
 | UPPER(x) | Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos. |
@@ -502,6 +502,6 @@ Em condições de rotas, há suporte para as seguintes funções de cadeias de c
 | ENDS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
 | CONTAINS(x,y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure](iot-hub-devguide-sdks.md).

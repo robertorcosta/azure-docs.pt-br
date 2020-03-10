@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
 ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387166"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360723"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>O que são Tokens do Azure Blockchain?
 
@@ -49,6 +49,6 @@ Para obter acesso à versão prévia de Tokens de Blockchain do Azure, [entre em
 
 Para fornecer comentários sobre o produto ou solicitar novos recursos, poste um vote em uma ideia usando o [fórum de comentários do Azure para blockchain](https://aka.ms/blockchainuservoice).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre os [modelos disponíveis de Tokens de Blockchain do Azure](templates.md).

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963929"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377562"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
@@ -143,7 +143,7 @@ Considere migrar as políticas que você não tiver criado no Portal do Azure po
 
 Para obter mais informações, consulte [Migrar políticas clássicas no portal do Azure](policy-migration.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você quiser saber:
 

@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cddf2ab36b2372ce93ae8a2a6230ccb02ae30117
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721021"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375989"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roteiro de instalação do Azure AD Connect e do Azure AD Connect Health
 
@@ -32,7 +32,7 @@ Você pode encontrar o download para o Azure AD Connect no [Centro de Download d
 | Solução | Cenário |
 | --- | --- |
 | Antes de iniciar: [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) |<li>Etapas a serem concluídas antes de começar a instalar o Azure AD Connect.</li> |
-| [Configurações expressas](how-to-connect-install-express.md) |<li>Se você tiver uma única floresta do AD, então, essa será a opção recomendada para usar.</li> <li>Entrada do usuário com a mesma senha usando a sincronização de senha.</li> |
+| [Configurações Expressas](how-to-connect-install-express.md) |<li>Se você tiver uma única floresta do AD, então, essa será a opção recomendada para usar.</li> <li>Entrada do usuário com a mesma senha usando a sincronização de senha.</li> |
 | [Configurações personalizadas](how-to-connect-install-custom.md) |<li>Usadas quando você tem várias florestas. Dá suporte a várias [topologias](plan-connect-topologies.md) locais.</li> <li>Personalize sua opção de entrada, como a autenticação de passagem, o ADFS para federação ou use um provedor de identidade de terceiros.</li> <li>Personalize os recursos de sincronização, como filtragem e write-back.</li> |
 | [Atualização do DirSync](how-to-dirsync-upgrade-get-started.md) |<li>Usado quando você tem um servidor DirSync existente já em execução.</li> |
 | [Atualizar do Azure AD Sync ou do Azure AD Connect](how-to-upgrade-previous-version.md) |<li>Há vários métodos diferentes, dependendo de sua preferência.</li> |
@@ -80,7 +80,7 @@ O recurso para [impedir exclusões acidentais](how-to-connect-sync-feature-preve
 |Configurar a filtragem | [Sincronização do Azure AD Connect: configurar a filtragem](how-to-connect-sync-configure-filtering.md)|
 |Sincronização de hash de senha | [Sincronização de hash de senha](how-to-connect-password-hash-synchronization.md)|
 |Autenticação de Passagem | [Autenticação de passagem](how-to-connect-pta.md)
-|Write-back de senha | [Introdução ao gerenciamento de senhas](../authentication/quickstart-sspr.md)|
+|write-back de senha | [Introdução ao gerenciamento de senhas](../authentication/quickstart-sspr.md)|
 |Write-back de dispositivo | [Habilitando write-back de dispositivo no Azure AD Connect](how-to-connect-device-writeback.md)|
 |impedir exclusões acidentais | [Sincronização do Azure AD Connect: impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |Atualização automática | [Azure AD Connect: Atualização automática](how-to-connect-install-automatic-upgrade.md)|
@@ -169,10 +169,10 @@ O portal do Azure AD Connect Health mostra exibições de alertas, monitoramento
    - **Acesso a dados** da integridade de diretório do Azure ad pela Microsoft apenas para fins de solução de problemas: se essa opção estiver habilitada, a Microsoft poderá acessar os mesmos dados exibidos pelo usuário. Essas informações podem ser úteis para solução de problemas e para fornecer a assistência necessária. Esta opção está desabilitada por padrão
 * **Controle de acesso baseado em função (IAM)** é a seção para gerenciar o acesso aos dados do Connect Health na base de funções. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
-- [Configurações expressas](how-to-connect-install-express.md)
+- [Configurações Expressas](how-to-connect-install-express.md)
 - [Configurações personalizadas](how-to-connect-install-custom.md)
 - [Sincronização de hash de senha](how-to-connect-password-hash-synchronization.md)|
 - [Autenticação de passagem](how-to-connect-pta.md)

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084609"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367074"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -20,7 +20,7 @@ Você configura um servidor de configuração local quando você usa o serviço 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 A tabela resume os pré-requisitos para implantação do computador do servidor de configuração local.
 
@@ -33,7 +33,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | Espaço livre em disco (disco de retenção) | 600 GB|
 | Sistema operacional  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Localidade do sistema operacional | Inglês (EUA)|
-| Versão do VMware vSphere PowerCLI | Não requerido|
+| Versão do VMware vSphere PowerCLI | Não obrigatório|
 | Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
 | Políticas de grupo| Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | – Nenhum site da Web padrão já existente <br> - Habilitar [Autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
@@ -71,14 +71,14 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação pode ser executada. Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
 
-    ![pré-requisitos](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Em **Configuração do MySQL**, crie credenciais para fazer logon na instância do servidor MySQL instalada.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
 8. Em **Detalhes do Ambiente**, selecione se você replicará as VMs VMware. Se a resposta for positiva, a Instalação verificará se o PowerCLI 6.0 está instalado.
 9. Em **Localização de Instalação**, selecione a localização em que você deseja instalar os binários e armazenar o cache. A unidade selecionado deve ter ao menos 5 GB de espaço em disco disponível, mas é recomendável uma unidade de cache com ao menos 600 GB de espaço livre.
 
-    ![Localização de Instalação](./media/physical-manage-configuration-server/combined-wiz8.png)
+    ![Local de instalação](./media/physical-manage-configuration-server/combined-wiz8.png)
 10. Em **Seleção da Rede**, primeiro selecione a NIC usada pelo servidor de processo interno para descoberta e instalação por push do serviço de mobilidade em computadores de origem. Em seguida, selecione a NIC que o servidor de configuração usa para conectividade com o Azure. A porta 9443 é a porta padrão usada para enviar e receber o tráfego de replicação, mas você pode modificar esse número de porta para atender aos requisitos do seu ambiente. Além da porta 9443, também podemos abrir a porta 443, usada por um servidor Web para coordenar operações de replicação. Não use a porta 443 para enviar ou receber tráfego de replicação.
 
     ![Seleção da Rede](./media/physical-manage-configuration-server/combined-wiz9.png)
@@ -108,21 +108,21 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Digite | DESCRIÇÃO| Valores|
+|Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
-| /ServerMode|obrigatórios|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
-|/InstallLocation|obrigatórios|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|obrigatórios|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
-|/VaultCredsFilePath|obrigatórios|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
-|/EnvType|obrigatórios|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|obrigatórios|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|obrigatórios|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
-|/PassphraseFilePath|obrigatórios|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
+| /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
+|/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|Obrigatório|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
+|/VaultCredsFilePath|Obrigatório|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
+|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|Obrigatório|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|Obrigatório|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
+|/PassphraseFilePath|Obrigatório|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
 |/BypassProxy|Opcional|Especifica se o servidor de gerenciamento se conecta ao Azure sem um proxy|Para obter esse valor de Venu|
 |/ProxySettingsFilePath|Opcional|Configurações de proxy (o proxy padrão exige autenticação ou um proxy personalizado)|O arquivo deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|O número da porta no PSIP a ser usada para dados de replicação| Número da porta válido (o valor padrão é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar verificação de espaço do disco de cache| |
-|/AcceptThirdpartyEULA|obrigatórios|Sinalizar implica na aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|Obrigatório|Sinalizar implica na aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Exibe o EULA de terceiros. Se fornecido como entrada, todos os outros parâmetros serão ignorados| |
 
 
@@ -158,7 +158,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do novo proxy e clique no botão **Registrar**.
 6. Abra uma janela de comando do PowerShell do Administrador.
-7. Execute o seguinte comando:
+7. Execute o comando a seguir:
 
    ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -178,7 +178,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
       ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do servidor Proxy e clique no **registrar** botão.  
 6. Abra uma janela de comando do PowerShell do Administrador.
-7. Execute o comando a seguir
+7. Executar o seguinte comando
 
     ```powershell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -207,7 +207,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
 5. Faça o download de um novo arquivo de registro no portal e forneça-o como entrada para a ferramenta.
 6. Forneça os detalhes do servidor Proxy e clique no **registrar** botão.  
 7. Abra uma janela de comando do PowerShell do Administrador.
-8. Execute o comando a seguir
+8. Executar o seguinte comando
     ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
@@ -313,7 +313,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Analisar os tutoriais para configurar a recuperação após desastres de [servidores físicos](tutorial-physical-to-azure.md) no Azure.
 

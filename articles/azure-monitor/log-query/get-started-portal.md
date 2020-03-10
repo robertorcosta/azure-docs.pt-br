@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/19/2019
 ms.openlocfilehash: 1cf1695db50e6aee2a5dae24ed5231fdda7c12de
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670229"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360795"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introdução ao Log Analytics no Azure Monitor
 
@@ -41,9 +41,9 @@ Para usar o Log Analytics, seu navegador requer acesso aos seguintes endereços.
 
 | Uri | IP | Portas |
 |:---|:---|:---|
-| portal.loganalytics.io | Dinâmico | 80.443 |
-| api.loganalytics.io | Dinâmico | 80.443 |
-| docs.loganalytics.io | Dinâmico | 80.443 |
+| portal.loganalytics.io | Dynamic | 80.443 |
+| api.loganalytics.io | Dynamic | 80.443 |
+| docs.loganalytics.io | Dynamic | 80.443 |
 
 ## <a name="basic-queries"></a>Consultas básicas
 As consultas podem ser usadas para pesquisar termos, identificar tendências, analisar padrões e fornecer muitas outras informações com base em seus dados. Comece com uma consulta básica:
@@ -67,15 +67,15 @@ Neste exemplo, o escopo da **pesquisa** é a tabela _Evento_ e todos os registro
 ## <a name="running-a-query"></a>Executando uma consulta
 Executar uma consulta clicando o **executados** botão ou pressionando **Shift + Enter**. Considere os detalhes a seguir que determinam o código que será executado e os dados retornados:
 
-- Quebras de linha: Um único quebra facilita a leitura de sua consulta. Várias quebras de linha o dividiram em consultas separadas.
-- Cursor: coloque o cursor em algum lugar dentro da consulta para executá-la. A consulta atual é considerada como sendo o código até que uma linha em branco seja encontrada.
+- Quebras de linha: uma única quebra torna sua consulta mais fácil de ler. Várias quebras de linha o dividiram em consultas separadas.
+- Cursor: Coloque o cursor em algum lugar dentro da consulta para executá-lo. A consulta atual é considerada como sendo o código até que uma linha em branco seja encontrada.
 - Intervalo - um intervalo de tempo de tempo _últimas 24 horas_ é definido por padrão. Para usar um intervalo diferente, use o seletor de tempo ou adicione um filtro de intervalo de tempo explícito à sua consulta.
 
 
 ## <a name="understand-the-schema"></a>Entenda o esquema
 O esquema é uma coleção de tabelas agrupadas visualmente em uma categoria lógica. Várias das categorias são de soluções de monitoramento. A categoria _LogManagement_ contém dados comuns, como eventos do Windows e do Syslog, dados de desempenho e pulsações do agente.
 
-![Esquema](media/get-started-portal/schema.png)
+![Schema](media/get-started-portal/schema.png)
 
 Em cada tabela, os dados são organizados em colunas com diferentes tipos de dados, conforme indicado pelos ícones ao lado do nome da coluna. Por exemplo, a tabela _Evento_ mostrada na captura de tela contém colunas como _Computador_, que é texto, _EventCategory_, que é um número, e _TimeGenerated_ que é data/hora.
 
@@ -88,8 +88,8 @@ Event
 
 O Log Analytics define o escopo dos resultados automaticamente por:
 
-- Intervalo de tempo:  por padrão, consultas estão limitadas às últimas 24 horas.
-- Número de resultados: os resultados estão limitados a um máximo de 10.000 registros.
+- Intervalo de tempo: por padrão, consultas são limitadas ao último 24 horas.
+- Número de resultados: os resultados são limitados a um máximo de 10.000 registros.
 
 Essa consulta é muito geral e retorna muitos resultados para ser útil. Você pode filtrar os resultados através dos elementos da tabela ou adicionando explicitamente um filtro à consulta. Os resultados da filtragem por meio dos elementos da tabela se aplicam ao conjunto de resultados existente, enquanto um filtro para a consulta em si retornará um novo conjunto de resultados filtrados e, portanto, poderá produzir resultados mais precisos.
 
@@ -105,7 +105,7 @@ Agora vamos nos concentrar em eventos com severidade _erro_. Isso é especificad
 
 Clique no ícone Filtro ao lado do título da coluna e, na janela pop-up, selecione valores que _começa com_ o texto _erro_:
 
-![Filtrar](media/get-started-portal/filter.png)
+![Filtro](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>Ordenar e agrupar resultados
@@ -123,7 +123,7 @@ A tabela de resultados geralmente inclui muitas colunas. Você pode achar que al
 ![Selecionar colunas](media/get-started-portal/select-columns.png)
 
 
-## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
+## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
 Por padrão, o Log Analytics aplica o intervalo de tempo das _últimas 24 horas_. Para usar um intervalo diferente, selecione outro valor no seletor de tempo e clique em **Executar**. Além dos valores de predefinição, você pode usar o _intervalo de tempo personalizado_ opção para selecionar um intervalo absoluto para a sua consulta.
 
 ![Seletor de tempo](media/get-started-portal/time-picker.png)
@@ -169,7 +169,7 @@ Certas simplificações são aplicadas a um gráfico quando você o fixa em um p
 
 - Colunas e linhas da tabela: para fixar uma tabela no painel, ela deve ter quatro colunas ou menos. Somente as primeiras sete linhas são exibidas.
 - Restrição de tempo: as consultas são automaticamente limitadas aos últimos 14 dias.
-- Restrição de contagem do compartimento: se você exibir um gráfico que tenha muitos compartimentos discretos, os compartimentos menos preenchidos serão automaticamente agrupados em um único compartimento _outros_.
+- Restrição de contagem do escaninho: Se você exibir um gráfico que tenha muitos escaninhos discretos, os escaninhos menos povoados serão automaticamente agrupados em um único escaninho _outro_.
 
 ## <a name="save-queries"></a>Salvar consultas
 Depois de criar uma consulta útil, você poderá salvá-lo ou compartilhar com outras pessoas. O **salvar** ícone está na barra superior.
@@ -192,9 +192,9 @@ O ícone do Query Explorer está na área superior direita. Isso lista todas as 
 O Log Analytics dá suporte a vários métodos de exportação:
 
 - Excel: salve os resultados como um arquivo CSV.
-- Power BI: exporte os resultados para o Power BI. Para obter mais detalhes, confira [Importar dados de log do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md).
-- Compartilhar um link: a consulta em si pode ser compartilhada como um link, que pode ser enviado e executado por outros usuários que têm acesso ao mesmo workspace.
+- Power BI: exporte os resultados para Power BI. Para obter mais detalhes, confira [Importar dados de log do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md).
+- Compartilhar um link: a consulta em si pode ser compartilhada como um link que pode ser enviado e executado por outros usuários que tenham acesso ao mesmo workspace.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre [como escrever consultas de log do Azure Monitor](get-started-queries.md).

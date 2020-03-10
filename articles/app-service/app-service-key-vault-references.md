@@ -7,11 +7,11 @@ ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728745"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373827"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions
 
@@ -38,7 +38,7 @@ Para ler os segredos do Key Vault, você precisa criar um vault e conceder permi
 Uma referência do Key Vault é da forma `@Microsoft.KeyVault({referenceString})`, em que `{referenceString}` é substituído por uma das seguintes opções:
 
 > [!div class="mx-tdBreakAll"]
-> | Cadeia de caracteres de referência                                                            | Description                                                                                                                                                                                 |
+> | Cadeia de caracteres de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri = _secretUri_                                                       | O **SegredoUri** deve ser o URI do plano de dados completo de um segredo no Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName = _vaultName_; SecretName = _secretName_; SecretVersion = _secretVersion_ | O **VaultName** deve ser o nome do seu recurso Key Vault. O **SecretName** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
@@ -187,7 +187,7 @@ Você também pode usar um dos detectores internos para obter informações adic
 ### <a name="using-the-detector-for-app-service"></a>Usando o detector para o serviço de aplicativo
 
 1. No portal, navegue até seu aplicativo.
-2. Selecione **Diagnosticar e solucionar problemas**.
+2. Selecione **diagnosticar e resolver problemas**.
 3. Escolha **disponibilidade e desempenho** e selecione **aplicativo Web inativo.**
 4. Encontre **Key Vault diagnóstico de configurações do aplicativo** e clique em **mais informações**.
 
@@ -196,6 +196,6 @@ Você também pode usar um dos detectores internos para obter informações adic
 
 1. No portal, navegue até seu aplicativo.
 2. Navegue até **recursos da plataforma.**
-3. Selecione **Diagnosticar e solucionar problemas**.
+3. Selecione **diagnosticar e resolver problemas**.
 4. Escolha **disponibilidade e desempenho** e selecione **aplicativo de funções ou relatando erros.**
 5. Clique em **Key Vault configurações do aplicativo diagnósticos.**

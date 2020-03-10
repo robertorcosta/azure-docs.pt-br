@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: Considerações e tarefas operacionais | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: considerações e tarefas operacionais | Microsoft Docs'
 description: Este tópico descreve as tarefas operacionais para a sincronização do Azure Connect AD e como preparar para operar esse componente.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900052"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376208"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de preparo e recuperação de desastre
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: servidor de preparo e recuperação de desastre
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
 
 ## <a name="staging-mode"></a>Modo de preparo
@@ -64,7 +64,7 @@ Para aplicar esse método, siga estas etapas:
 Se você tiver feito alterações personalizadas no servidor primário e deseja comparar a configuração com o servidor de preparo, use o [documentador de configuração do Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importar e sincronizar
-1. Selecione **Conectores** e selecione o primeiro conector com o tipo **Active Directory Domain Services**. Clique em **Executar**, selecione **Importação completa** e **OK**. Siga estas etapas para todos os Conectores desse tipo.
+1. Selecione **Conectores** e selecione o primeiro Conector com o tipo **Serviços de Domínio Active Directory**. Clique em **Executar**, selecione **Importação completa** e **OK**. Siga estas etapas para todos os Conectores desse tipo.
 2. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)** . Clique em **Executar**, selecione **Importação completa** e **OK**.
 3. Verifique se a guia Conectores ainda está selecionada. Para cada Conector com tipo **Active Directory Domain Services**, clique em **Executar**, selecione **Sincronização Delta** e **OK**.
 4. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)** . Clique em **Executar**, selecione **Sincronização Delta** e **OK**.
@@ -73,8 +73,8 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 
 #### <a name="verify"></a>Verificar
 1. Inicie um prompt de comando e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do conector pode ser encontrado no Serviço de sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
-3. Execute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Você tem um arquivo em %temp% chamado export.csv que pode ser examinado no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportadas.
+2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` o nome do Conector pode ser encontrado no Serviço de Sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
+3. Executar: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Você tem um arquivo em %temp% chamado export.csv que pode ser examinado no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportadas.
 4. Faça as alterações necessárias na configuração ou nos dados e execute essas etapas novamente (importar, sincronizar e verificar) até o momento estimado para que as alterações a serem exportadas ocorram.
 
 **Noções básicas sobre o arquivo export.csv** A maior parte do arquivo é autoexplicativa. Algumas siglas para entender o conteúdo:
@@ -92,7 +92,7 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o **modo de preparo**.
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
-## <a name="disaster-recovery"></a>Recuperação de desastres
+## <a name="disaster-recovery"></a>Recuperação de desastre
 Parte do design de implementação é planejar o que fazer em caso de desastre, quando você perde o servidor de sincronização. Há modelos diferentes para uso e qual deles usar depende de vários fatores, incluindo:
 
 * Quão tolerável é para você não poder fazer alterações em objetos no Azure AD durante o tempo de inatividade?
@@ -267,8 +267,8 @@ Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 **Tópicos de visão geral**  
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)  
+* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)  
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)  

@@ -4,11 +4,11 @@ description: Saiba como os dados podem ser alterados antes das previsões no LUI
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148259"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361067"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
 O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos.
@@ -28,14 +28,14 @@ O LUIS usa a [API de Verificação Ortográfica do Bing V7](../Bing-Spell-Check/
 
 O ponto de extremidade requer dois parâmetros para as correções ortográfica funcionarem:
 
-|Param|Valor|
+|Param|{1&gt;Valor&lt;1}|
 |--|--|
 |`spellCheck`|booleano|
 |`bing-spell-check-subscription-key`|Chave de ponto de extremidade de [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
 Quando a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) detecta um erro, a declaração original e a declaração corrigida são retornadas junto com as previsões do ponto de extremidade.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +49,7 @@ Quando a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
 ```JSON
 {
@@ -78,14 +78,14 @@ Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-da
 ### <a name="endpoint-querystring-parameter"></a>Parâmetro querystring do ponto de extremidade
 O fuso horário é corrigido adicionando o fuso horário do usuário ao [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) usando o parâmetro `timezoneOffset`. O valor de `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar a hora.
 
-|Param|Valor|
+|Param|{1&gt;Valor&lt;1}|
 |--|--|
 |`timezoneOffset`|O número positivo ou negativo, em minutos|
 
 ### <a name="daylight-savings-example"></a>Exemplo de horário de verão
 Se você precisar que o datetimeV2 predefinido ajuste o horário de verão, deverá usar o parâmetro querystring `timezoneOffset` com um valor +/- em minutos para a consulta de [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356).
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Solicitação de ponto de extremidade de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[Solicitação de ponto de extremidade de previsão V2](#tab/V2)
 
 Adicionar 60 minutos:
 
@@ -95,7 +95,7 @@ Remover 60 minutos:
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Solicitação de ponto de extremidade de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[Solicitação de ponto de extremidade de previsão V3](#tab/V3)
 
 Adicionar 60 minutos:
 
@@ -126,7 +126,7 @@ DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Corrigir erros de ortografia com este tutorial](luis-tutorial-bing-spellcheck.md)
