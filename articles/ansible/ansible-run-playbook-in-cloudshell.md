@@ -4,18 +4,18 @@ description: Neste Início Rápido, saiba como realizar várias tarefas do Ansib
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 2a938179cf2e07a61749042db32ef9e1c9d843ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193643"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247887"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Início Rápido: Executar guias estratégicos do Ansible por meio do Bash no Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure. O Cloud Shell fornece permite que você use uma linha de comando do PowerShell ou do Bash. Neste artigo, você usará o Bash no Azure Cloud Shell para executar um guia estratégico do Ansible.
+O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure. O Cloud Shell permite que você use uma linha de comando do PowerShell ou do Bash. Neste artigo, você usará o Bash no Azure Cloud Shell para executar um guia estratégico do Ansible.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Configurar o Azure Cloud Shell** – se você não estiver familiarizado com o Azure Cloud Shell, confira [Início Rápido do Bash no Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -35,7 +35,7 @@ az account list
 
 Usando sua ID da assinatura do Azure, defina a `AZURE_SUBSCRIPTION_ID` da seguinte maneira:
 
-```azurecli-interactive
+```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 

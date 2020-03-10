@@ -30,7 +30,7 @@ Quando essas instâncias de VM forem criadas e os aplicativos implantados, o con
 
 
 ## <a name="use-host-based-metrics"></a>Usar métricas baseadas em host
-Você pode criar regras de dimensionamento automático que incorporam métricas de host disponíveis nas suas instâncias de VM. As métricas de host dão visibilidade ao desempenho das instâncias de VM em um conjunto de dimensionamento sem a necessidade de instalar ou configurar outros agentes e coletas de dados. As regras de dimensionamento automático que usam essas métricas podem expandir o número de instâncias de VM em resposta ao uso da CPU, à demanda por memória ou ao acesso ao disco.
+Você pode criar regras de dimensionamento automático que incorporam métricas de host disponíveis nas suas instâncias de VM. As métricas de host dão visibilidade ao desempenho das instâncias de VM em um conjunto de dimensionamento sem a necessidade de instalar ou configurar outros agentes e coletas de dados. As regras de dimensionamento automático que usam essas métricas podem escalar horizontalmente o número de instâncias de VM em resposta ao uso da CPU, à demanda por memória ou ao acesso ao disco.
 
 As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
@@ -124,7 +124,7 @@ Também é possível criar regras de dimensionamento automático baseadas em age
 
 Os exemplos a seguir são cenários que podem se beneficiar com o uso de regras de dimensionamento automático com base em agendamento:
 
-- Dimensione automaticamente o número de instâncias de VM no início do dia de trabalho, quando a demanda do cliente aumenta. No final do dia de trabalho, dimensione automaticamente o número de instâncias de VM para minimizar os custos de recursos durante a noite, quando o uso do aplicativo é baixo.
+- Escale horizontamente de modo automático o número de instâncias de VM no início do dia de trabalho, quando a demanda do cliente aumenta. No final do dia de trabalho, dimensione automaticamente o número de instâncias de VM para minimizar os custos de recursos durante a noite, quando o uso do aplicativo é baixo.
 - Se um departamento usa um aplicativo com frequência em determinadas épocas do mês ou ciclo fiscal, dimensione automaticamente o número de instâncias de VM para acomodar essas exigências adicionais.
 - Quando há um evento de marketing, uma promoção ou vendas em datas comemorativas, é possível dimensionar automaticamente o número de instâncias de VM para antecipar essa demanda. 
 

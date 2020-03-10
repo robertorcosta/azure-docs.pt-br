@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732308"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251888"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
@@ -69,16 +69,20 @@ Um balanceador de carga padrão só oferece suporte a um endereço IP público p
 
 Nesta seção, você cria uma rede virtual, máquinas virtuais em diferentes regiões para a região e, em seguida, instala o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância de zona. Portanto, se uma região falhar, a investigação de integridade da VM na mesma zona falhará e o tráfego continuará sendo atendido pelas VMs nas outras regiões.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma rede virtual para implantar os servidores back-end.
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-1. Na parte superior esquerda da tela, clique em **Criar um recurso** > **Rede** > **Rede virtual** e insira esses valores para a rede virtual:
-    - *myVNet* – para o nome da rede virtual.
-    - *myResourceGroupLBAZ* - para o nome do grupo de recursos existente
-    - *myBackendSubnet* – para o nome da sub-rede.
-2. Clique em **Criar** para criar a rede virtual.
+Nesta seção, você precisará substituir os seguintes parâmetros nas etapas pelas informações abaixo:
 
-    ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLBAZ (selecione o grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa Ocidental      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 

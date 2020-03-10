@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277841"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273369"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Balancear a carga de contêineres em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure
 
@@ -43,9 +43,11 @@ O **Balanceador de Carga Marathon** (marathon-lb) encaminha as solicitações de
 
 O Balanceador de Carga do Marathon reconfigura dinamicamente baseado nos contêineres que você implantou. Ele também é resistente à perda de um contêiner ou de um agente. Se isso ocorrer, o Apache Mesos reiniciará o contêiner em outro lugar e o marathon-lb se adaptará.
 
+Acesse [https://shell.azure.com](https://shell.azure.com) para abrir o Cloud Shell no navegador.
+
 Execute o seguinte comando para instalar o balanceador de carga Marathon no cluster do agente público.
 
-```azurecli-interactive
+```console
 dcos package install marathon-lb
 ```
 
@@ -97,7 +99,7 @@ Em seguida, crie um arquivo chamado *hello-web.json* e copie o seguinte conteúd
 
 Use a CLI do DC/SO para executar o aplicativo. Por padrão, o Marathon implanta o aplicativo no cluster particular. Isso significa que a implantação acima está acessível apenas por meio do balanceador de carga, que geralmente é o comportamento desejado.
 
-```azurecli-interactive
+```console
 dcos marathon app add hello-web.json
 ```
 

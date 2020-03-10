@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e28403d905a25e9e792b3b1f31b79c39cd7728b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 5b29f84931c169ffe1c2c81d5e32201cbc63fc88
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522077"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942869"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar entrada de chave de segurança sem senha para recursos locais com Azure Active Directory (versão prévia)
 
@@ -50,6 +50,7 @@ As organizações também devem atender aos seguintes requisitos de software.
 
 - Os dispositivos devem estar executando o Windows 10 Insider Build 18945 ou mais recente.
 - Você deve ter a versão 1.4.32.0 ou posterior do [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
+  - Para obter mais informações sobre as opções de autenticação híbrida do Azure AD disponíveis, consulte [escolher o método de autenticação correto para sua solução de identidade híbrida Azure Active Directory](../../security/fundamentals/choose-ad-authn.md) e [selecionar qual tipo de instalação usar para Azure ad Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Os controladores de domínio do Windows Server devem ter os seguintes patches instalados:
     - Para o Windows Server 2016- https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
     - Para o Windows Server 2019- https://support.microsoft.com/help/4534321/windows-10-update-kb4534321

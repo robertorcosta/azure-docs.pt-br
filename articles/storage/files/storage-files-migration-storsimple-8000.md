@@ -4,30 +4,26 @@ description: Saiba como migrar um dispositivo StorSimple 8100 ou 8600 para Sincr
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d04b38fac2b42d2d510902c7ba54ddebb8e3f410
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330303"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943596"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
-A série StorSimple 8000 é representada pelo dispositivo físico de 8100 ou do 8600, o Appliance local e seus componentes de serviço de nuvem. É possível migrar os dados de qualquer um desses dispositivos para um ambiente Sincronização de Arquivos do Azure. Este artigo fornece as etapas de conhecimento e migrações em segundo plano necessárias para uma migração bem-sucedida para o Sincronização de Arquivos do Azure.
+A série StorSimple 8000 é representada pelo 8100 ou pelo 8600 dispositivos físicos, locais e seus componentes de serviço de nuvem. É possível migrar os dados de qualquer um desses dispositivos para um ambiente Sincronização de Arquivos do Azure. Sincronização de Arquivos do Azure é o serviço do Azure de longo prazo padrão e estratégico para o qual os dispositivos StorSimple podem ser migrados.
 
-## <a name="storsimple"></a>StorSimple
+A série StorSimple 8000 atingirá o [fim da vida útil](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) em 2022 de dezembro. É importante começar a planejar sua migração assim que possível. Este artigo fornece as etapas de conhecimento e migrações em segundo plano necessárias para uma migração bem-sucedida para o Sincronização de Arquivos do Azure. 
 
-O StorSimple é um produto descontinuado da Microsoft. O suporte estendido para este produto e seu serviço de nuvem expira em dezembro de 31 2022. É importante começar a planejar uma migração do StorSimple imediatamente.
-
-Sincronização de Arquivos do Azure é o serviço do Azure de longo prazo padrão e estratégico para o qual os dispositivos StorSimple podem ser migrados.
+## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 
 > [!IMPORTANT]
 > A Microsoft está comprometida em auxiliar os clientes em sua migração. Envie um email AzureFilesMigration@microsoft. com para um plano de migração personalizado, bem como assistência durante a migração.
-
-## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 
 Sincronização de Arquivos do Azure é um serviço de nuvem da Microsoft, com base em dois componentes principais:
 
@@ -247,10 +243,10 @@ Durante esse processo de migração, você montará vários clones de volume em 
 > [!IMPORTANT]
 > Para que isso funcione, uma chave do registro deve ser definida no servidor antes que o Sincronização de Arquivos do Azure seja configurado.
 
-1. Crie um novo diretório na unidade do sistema da VM. Sincronização de Arquivos do Azure informações precisarão ser persistidas em vez de nos clones do volume montado. Por exemplo: `“C:\syncmetadata”`
+1. Crie um novo diretório na unidade do sistema da VM. Sincronização de Arquivos do Azure informações precisarão ser persistidas em vez de nos clones do volume montado. Por exemplo: `"C:\syncmetadata"`
 2. Abra regedit e localize o seguinte hive do registro: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Crie uma nova chave do tipo cadeia de caracteres chamada: ***MetadataRootPath***
-4. Defina o caminho completo para o diretório que você criou no volume do sistema, por exemplo: `C:\syncmetadata”`
+4. Defina o caminho completo para o diretório que você criou no volume do sistema, por exemplo: `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Configurar Sincronização de Arquivos do Azure na VM do Azure
 
@@ -346,7 +342,7 @@ Comando RoboCopy:
 Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
-Segundo plano:
+Plano de fundo:
 
 :::row:::
    :::column span="1":::
@@ -438,7 +434,7 @@ Quando estiver satisfeito e tiver observado sua implantação AFS por pelo menos
 
 A migração foi concluída.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Familiarize-se com o Sincronização de Arquivos do Azure. Especialmente com a flexibilidade das políticas de camadas de nuvem.
 

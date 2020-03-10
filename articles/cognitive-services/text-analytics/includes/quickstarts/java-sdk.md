@@ -6,27 +6,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/11/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi
-ms.openlocfilehash: eeaef4a9970609c43c03cd784436796a6f8af174
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 79b4063d6b65d6861dd7864c4225e91f4ea5bc6d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211433"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155423"
 ---
 <a name="HOLTop"></a>
 
 [Documentação de referência](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Pacote (Maven)](https://oss.sonatype.org/#nexus-search;quick~com.azure) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (Java Development Kit) com a versão 8 ou superior
-
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. 
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Você fará isso posteriormente no início rápido.
+    * Você pode usar o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configurando
 

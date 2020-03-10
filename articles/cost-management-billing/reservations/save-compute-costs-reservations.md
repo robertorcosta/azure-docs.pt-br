@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: c1cced862bee1ec4579f3e6e5145968dec7613e4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1c5dd5ebd5023b75aad5dabf6a721a1193a6224d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500566"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272199"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -42,6 +42,7 @@ Planos de serviço:
 - **Banco de Dados do Azure para PostgreSQL** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância dos servidores de Banco de Dados PostgreSQL.
 - **Banco de Dados do Azure para MariaDB** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância do servidor de banco de dados MariaDB.
 - **Azure Data Explorer** – uma reserva abrange os encargos de marcação. Uma reserva não abrange os encargos de computação, rede ou armazenamento associados aos clusters.
+- **Cache do Azure para Redis**: apenas os custos de computação são incluídos com uma reserva. Uma reserva não abrange os preços de rede ou armazenamento associados às instâncias de Cache Redis.
 - **Managed Disks SSD Premium** – uma reserva é feita para um SKU de disco especificado. 
 
 Planos de software:

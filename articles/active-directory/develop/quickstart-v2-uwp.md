@@ -11,18 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 86401e0a827d1941b2d183d8c17371ba915c81ae
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e78477b9c046bbdbcb67a3ff1a5420c0808a748e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063689"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274313"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
-Este início rápido contém um exemplo de código que demonstra como um aplicativo UWP (Plataforma Universal do Windows) pode conectar usuários com contas pessoais, corporativa ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph.
-
-![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-uwp/uwp-intro.svg)
+Este início rápido contém um exemplo de código que demonstra como um aplicativo UWP (Plataforma Universal do Windows) pode conectar usuários com contas pessoais, corporativa ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph. (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrar e baixar o aplicativo de início rápido
@@ -64,22 +62,32 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Etapa 2: Baixar seu projeto do Visual Studio
 
- - [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+> [!div renderon="docs"]
+> [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
+> [!div class="sxs-lookup" renderon="portal"]
+> Execute o projeto usando o Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Baixe o exemplo de código](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
-1. Abra o projeto no Visual Studio. Pode ser solicitado que você instale um SDK UWP. Nesse caso, aceite.
-1. Edite a **MainPage.Xaml.cs** e substitua os valores do campo `ClientId`:
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
+> Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado. 
 
-    ```csharp
-    private const string ClientId = "Enter_the_Application_Id_here";
-    ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.    
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
+> 
+> 1. Extraia o arquivo zip para uma pasta local mais próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
+> 1. Abra o projeto no Visual Studio. Pode ser solicitado que você instale um SDK UWP. Nesse caso, aceite.
+> 1. Edite a **MainPage.Xaml.cs** e substitua os valores do campo `ClientId`:
+>
+>    ```csharp
+>    private const string ClientId = "Enter_the_Application_Id_here";
+>    ```
 > Em que:
 > - `Enter_the_Application_Id_here`: é a ID do aplicativo que você registrou.
 >
@@ -90,13 +98,15 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 
 Se você quiser testar o guia de início rápido no seu computador Windows:
 
-1. Na barra de ferramentas do Visual Studio, escolha a plataforma certa (provavelmente **x64** ou **x86**, não ARM).
-   > Observe que o dispositivo de destino é alterado de *Dispositivo* para *Computador Local*
+1. Na barra de ferramentas do Visual Studio, escolha a plataforma certa (provavelmente **x64** ou **x86**, não ARM). Você observará que o dispositivo de destino é alterado de *Dispositivo* para *Computador Local*
 1. Selecione Depurar | **Iniciar Sem Depuração**
 
 ## <a name="more-information"></a>Mais informações
 
 Esta seção fornece mais informações sobre o início rápido.
+
+### <a name="how-the-sample-works"></a>Como o exemplo funciona
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 

@@ -4,12 +4,12 @@ description: Criar uma função do PowerShell sem servidor disparada por HTTP pa
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533368"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196528"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Usar uma função do Azure disparada por HTTP para criar um grupo de contêineres
 
@@ -28,9 +28,9 @@ Você aprenderá como:
 > [!IMPORTANT]
 > O PowerShell para o Azure Functions está atualmente em versão prévia. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Confira [Criar sua primeira função do PowerShell no Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) para obter os pré-requisitos para instalar e usar o Visual Studio Code com o Azure Functions no sistema operacional.
+Confira [Criar sua primeira função no Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment) para obter os pré-requisitos para instalar e usar o Visual Studio Code com o Azure Functions no sistema operacional.
 
 Algumas etapas deste artigo usam a CLI do Azure. Use o Azure Cloud Shell ou uma instalação localização da CLI do Azure para concluir essas etapas. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
@@ -177,13 +177,13 @@ Verifique se o contêiner foi executado com o comando [az container logs][az-con
 az container logs --resource-group myfunctionapp --name mycontainergroup
 ```
 
-Exemplo de saída:
+Saída de exemplo:
 
 ```console
 Hello from an Azure container instance triggered by an Azure function
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso não precise mais de nenhum dos recursos criados neste tutorial, execute o comando [az group delete][az-group-delete] para remover o grupo de recursos e todos os recursos que ele contém. Esse comando exclui o Registro de contêiner que você criou, bem como o contêiner em execução e todos os recursos relacionados.
 
@@ -193,7 +193,7 @@ az group delete --name myfunctionapp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou uma função do Azure que usa uma solicitação HTTP e dispara a implantação de um grupo de contêineres. Você aprendeu como:
+Neste tutorial, você criou uma função do Azure que usa uma solicitação HTTP e dispara a implantação de um grupo de contêineres. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o Visual Studio Code com a extensão Azure Functions para criar uma função básica do PowerShell disparada por HTTP.

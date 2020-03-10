@@ -1,26 +1,18 @@
 ---
 title: 'Tutorial: Teste do lote para encontrar problemas — LUIS'
-titleSuffix: Azure Cognitive Services
-description: Este tutorial demonstra como usar o teste em lotes para localizar problemas de previsão de enunciado em seu aplicativo e corrigi-los.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+description: Este tutorial demonstra como usar o teste em lotes para validar a qualidade do aplicativo LUIS (Reconhecimento vocal).
 ms.topic: tutorial
-ms.date: 12/19/2019
-ms.author: diberry
-ms.openlocfilehash: 54beb26554fd823c46f961b4cc7057f347ad343c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/02/2020
+ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447964"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250537"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: testar conjuntos de dados em lote
 
-Este tutorial demonstra como usar o teste em lotes para localizar problemas de previsão de enunciado em seu aplicativo e corrigi-los.
+Este tutorial demonstra como usar o teste em lotes para validar a qualidade do aplicativo LUIS (Reconhecimento vocal).
 
 O teste em lotes permite que você valide o estado do modelo ativo e treinado com um conjunto conhecido de entidades e enunciados rotulados. No arquivo em lotes em formato JSON, adicione os enunciados e defina os rótulos de entidade que você precisa prever dentro do enunciado.
 
@@ -28,11 +20,9 @@ Requisitos para o teste em lotes:
 
 * Máximo de 1000 enunciados por teste.
 * Sem duplicatas.
-* Tipos de entidades permitidas: apenas entidades de aprendizado de máquina simples e composta. Teste em lotes é útil apenas para intenções e entidades de aprendizado de máquina.
+* Tipos de entidade permitidos: somente entidades de aprendizado de máquina.
 
-Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exemplo já adicionados a uma intenção.
-
-
+Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exemplo já adicionados ao aplicativo.
 
 **Neste tutorial, você aprenderá a:**
 
@@ -42,33 +32,34 @@ Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exem
 > * Criar um arquivo de teste de lote
 > * Executar um teste de lote
 > * Examinar resultados de teste
-> * Corrigir erros
-> * Testar novamente o lote
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>Importar o aplicativo de exemplo
 
-Continue com o aplicativo criado no último tutorial, denominado **HumanResources**.
+Importe um aplicativo que recebe um pedido de pizza, como `1 pepperoni pizza on thin crust`.
 
-Use as seguintes etapas:
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json?raw=true).
+1. Na [versão prévia do portal do LUIS](https://preview.luis.ai/), importe o JSON para um novo aplicativo e nomeie o aplicativo `Pizza app`.
 
+1. Selecione **Treinar** no canto superior direito da navegação para treinar o aplicativo.
 
-2. Importe o JSON em um novo aplicativo.
+## <a name="what-should-the-batch-file-utterances-include"></a>O que está incluído nos enunciados do arquivo em lotes
 
-3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `batchtest`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+O arquivo em lotes deve incluir enunciados com as entidades de aprendizado de máquina de nível superior rotuladas, incluindo a posição inicial e final. Os enunciados não devem fazer parte dos exemplos já existentes no aplicativo. Eles devem ser enunciados dos quais você deseja prever positivamente a intenção e as entidades.
 
-4. Treine o aplicativo.
+Você pode separar os testes por intenção e/ou entidade ou ter todos os testes (até 1.000 enunciados) no mesmo arquivo.
 
 ## <a name="batch-file"></a>Arquivo em lotes
 
-1. Crie `HumanResources-jobs-batch.json` em um editor de texto ou [baixe-o](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json?raw=true).
+O JSON de exemplo inclui um enunciado com uma entidade rotulada para ilustrar a aparência de um arquivo de teste. Nos próprios testes, você deverá ter muitos enunciados com a intenção correta e a entidade de aprendizado de máquina rotulada.
 
-2. No arquivo em lotes em formato JSON, adicione enunciados com a **Intenção** que você quer que seja prevista no teste.
+1. Crie `pizza-with-machine-learned-entity-test.json` em um editor de texto ou [baixe-o](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true).
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+2. No arquivo em lotes formatado em JSON, adicione um enunciado com a **Intenção** que deseja prever no teste.
+
+   [!code-json[Add the intents to the batch test file](~/samples-cognitive-services-data-files/luis/batch-tests/pizza-with-machine-learned-entity-test.json "Add the intent to the batch test file")]
 
 ## <a name="run-the-batch"></a>Executar o lote
 
@@ -76,18 +67,17 @@ Use as seguintes etapas:
 
 2. Selecione **Painel de teste do lote** no painel direito.
 
-    [![Captura de tela do aplicativo de LUIS com painel de teste do Lote realçado](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
-
 3. Selecione **Importar conjunto de dados**.
 
     > [!div class="mx-imgBorder"]
-    > ![Captura de tela do aplicativo de LUIS com o conjunto de dados de importação realçado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)
+    > ![Captura de tela do aplicativo de LUIS com o conjunto de dados de importação realçado](./media/luis-tutorial-batch-testing/import-dataset-button.png)
 
-4. Escolha o local do arquivo do `HumanResources-jobs-batch.json`.
+4. Escolha o local do arquivo do `pizza-with-machine-learned-entity-test.json`.
 
-5. Nomeie o conjunto de dados `intents only` e selecione **Concluído**.
+5. Nomeie o conjunto de dados `pizza test` e selecione **Concluído**.
 
-    ![Escolher arquivo](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
+    > [!div class="mx-imgBorder"]
+    > ![Selecionar arquivo](./media/luis-tutorial-batch-testing/import-dataset-modal.png)
 
 6. Selecione o botão **Executar**.
 
@@ -95,147 +85,64 @@ Use as seguintes etapas:
 
 8. Examine os resultados no grafo e na legenda.
 
-    [![Captura de tela do aplicativo de LUIS com resultados de teste em lotes](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+## <a name="review-batch-results-for-intents"></a>Examinar as intenções dos resultados do lote
 
-## <a name="review-batch-results"></a>Examinar resultados do lote
+Os resultados de teste mostram graficamente como os enunciados de teste foram previstos em relação à versão ativa.
 
 O gráfico do lote exibe quatro quadrantes dos resultados. À direita do gráfico, há um filtro. O filtro contém intenções e entidades. Ao selecionar uma [seção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto dentro do gráfico, os enunciados associados são exibidos abaixo do gráfico.
 
 Ao passar o mouse sobre o gráfico, um botão de rolagem do mouse pode ampliar ou reduzir a exibição no gráfico. Isso é útil quando há muitos pontos no gráfico agrupados em conjunto.
 
-O gráfico está em quatro quadrantes, com duas das seções exibidas em vermelho. **Essas são as seções que devem ser privilegiadas**.
+O gráfico está em quatro quadrantes, com duas das seções exibidas em vermelho.
 
-### <a name="getjobinformation-test-results"></a>Resultados do teste de GetJobInformation
+1. Selecione a intenção **ModifyOrder** na lista de filtros.
 
-Os resultados do teste de **GetJobInformation** exibidos no filtro mostram que 2 das quatro previsões tiveram êxito. Selecione o nome **Falso negativo** no quadrante inferior esquerdo para ver os enunciados abaixo do gráfico.
+    > [!div class="mx-imgBorder"]
+    > ![Selecionar a intenção ModifyOrder na lista de filtros](./media/luis-tutorial-batch-testing/select-intent-from-filter-list.png)
 
-Use o teclado, CTRL+E, para alternar para o modo de exibição de rótulo e ver o texto exato do enunciado do usuário.
+    O enunciado é previsto como um **verdadeiro positivo**, o que significa que o enunciado correspondeu com êxito à previsão positiva listada no arquivo em lotes.
 
-O enunciado `Is there a database position open in Los Colinas?` é rotulado como _GetJobInformation_, mas o modelo atual previa o enunciado como _ApplyForJob_.
+    > [!div class="mx-imgBorder"]
+    > ![O enunciado correspondeu com êxito à previsão positiva](./media/luis-tutorial-batch-testing/intent-predicted-true-positive.png)
 
-Há quase três vezes mais exemplos para **ApplyForJob** do que para **GetJobInformation**. Esse desnível de exemplos de enunciado pesa a favor da intenção do **ApplyForJob**, causando a previsão incorreta.
+    As marcas de seleção verdes na lista de filtros também indicam o sucesso do teste para cada intenção. Todas as outras intenções são listadas com uma pontuação positiva de 1/1, porque o enunciado foi testado em relação a cada intenção, como um teste negativo para as intenções não listadas no teste em lotes.
 
-Observe que ambas as intenções possuem a mesma contagem de erros. Uma previsão incorreta em uma intenção também afeta a outra intenção. Ambos têm erros porque os enunciados foram incorretamente previstos para uma intenção e também incorretamente não previstos para outra intenção.
+1. Selecione a intenção **Confirmação**. Essa intenção não está listada no teste em lotes e, portanto, esse é um teste negativo do enunciado listado no teste em lotes.
 
-<a name="fix-the-app"></a>
+    > [!div class="mx-imgBorder"]
+    > ![Enunciado previsto negativo com êxito para a intenção não listada no arquivo em lotes](./media/luis-tutorial-batch-testing/true-negative-intent.png)
 
-## <a name="how-to-fix-the-app"></a>Como corrigir o aplicativo
+    O teste negativo foi bem-sucedido, conforme observado com o texto verde no filtro e na grade.
 
-O objetivo desta seção é ter todos os enunciados corretamente previstos para **GetJobInformation**, corrigindo o aplicativo.
+## <a name="review-batch-test-results-for-entities"></a>Examinar as entidades nos resultados de teste em lotes
 
-Uma correção aparentemente rápida seria adicionar esses enunciados de arquivos em lotes à intenção correta. Não é isso que você deseja fazer. Você quer que o LUIS preveja corretamente esses enunciados sem adicioná-los como exemplos.
+A entidade ModifyOrder, como uma entidade de computador com subentidades, é exibida se a entidade de nível superior é correspondida e exibe como as subentidades são previstas.
 
-Também há a possibilidade de pensar em remover enunciados da intenção **ApplyForJob** até que a quantidade de enunciados seja igual a da **GetJobInformation**. Isso corrigiria os resultados do teste, mas impediria o LUIS de prever essa intenção com precisão na próxima vez.
+1. Selecione a entidade **ModifyOrder** na lista de filtros e, em seguida, selecione o círculo na grade.
 
-A correção é adicionar mais enunciados ao **GetJobInformation**. Lembre-se de variar o comprimento do enunciado, bem como a escolha e a organização de palavras, ao mesmo tempo mirando na intenção de localizar informações de trabalho e _não_ se candidatar ao trabalho.
+1. A previsão de entidade é exibida abaixo do gráfico. A exibição inclui linhas sólidas para previsões que correspondem à expectativa e linhas pontilhadas para previsões que não correspondem à expectativa.
 
-### <a name="add-more-utterances"></a>Adicionar mais enunciados
+    > [!div class="mx-imgBorder"]
+    > ![Entidade pai prevista com êxito no arquivo em lotes](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
 
-1. Feche o painel de teste em lotes, selecionando o botão **Testar** no painel de navegação superior.
+## <a name="finding-errors-with-a-batch-test"></a>Como encontrar erros com um teste em lotes
 
-2. Selecione **GetJobInformation** na lista de intenções.
+Este tutorial mostrou como executar um teste e interpretar os resultados. Ele não abrangeu a filosofia do teste nem como responder a testes com falha.
 
-3. Adicione mais enunciados que sejam variados por tamanho, escolha de palavras e disposição de palavras, certificando-se de incluir os termos `resume`, `c.v.` e `apply`:
-
-    |Enunciados de exemplo para intenção **GetJobInformation**|
-    |--|
-    |Para concorrer à nova vaga de estoquista no depósito é necessário que eu me candidate com um currículo?|
-    |Onde estão as vagas para trabalhos em telhado hoje?|
-    |Ouvi dizer que há um trabalho de codificação médica que exige um currículo.|
-    |Eu gostaria de um trabalho para ajudar os universitários a elaborar CVs. |
-    |Aqui está o meu currículo, em busca por um novo cargo na faculdade comunitária e com experiência em computadores.|
-    |Quais cargos estão disponíveis na área de Home Care e Puericultura?|
-    |Há um suporte interno no jornal?|
-    |Meu CV mostra que sou bom em analisar aquisições, orçamentos e perdas financeiras. Há algo disponível para esse tipo de trabalho?|
-    |Como estão os trabalhos de perfuração de solo atualmente?|
-    |Eu trabalhei 8 anos como motorista do EMS. Algum novo trabalho?|
-    |Novos trabalhos de manipulação de alimentos exigem inscrição?|
-    |Quantos novos trabalhos de jardinagem estão disponíveis?|
-    |Há um novo cargo de RH para relações trabalhistas e negociações?|
-    |Eu tenho mestrado em gerenciamento de arquivo e biblioteca. Alguma nova vaga?|
-    |Há algum trabalho de babá para cuidar de crianças de 13 anos na cidade?|
-
-    Não rotule a entidade **Trabalho** nos enunciados. Esta seção do tutorial está focada apenas na previsão de intenção.
-
-4. Treine o aplicativo selecionando **Treinar** no canto superior direito da navegação.
-
-## <a name="verify-the-new-model"></a>Verificar o novo modelo
-
-Para verificar se os enunciados no teste em lotes estão previstos corretamente, execute o teste em lotes novamente.
-
-1. Selecione **Testar** na barra de navegação superior. Se os resultados do lote ainda estiverem abertos, selecione **Retornar à lista**.
-
-1. Selecione o botão de reticências (***...***), à direita do nome do lote e selecione **Executar**. Aguarde até que o teste de lote seja concluído. Observe que o botão **Consultar resultados** agora está verde. Isso significa que todo o lote foi executado com êxito.
-
-1. Selecione **Ver resultados**. Todas as tentativas devem ter ícones verdes à esquerda dos nomes da intenção.
-
-## <a name="create-batch-file-with-entities"></a>Criar arquivo em lotes com entidades
-
-Para verificar entidades em um teste em lotes, as entidades precisam ser rotuladas no arquivo JSON em lote.
-
-A variação de entidades para contagem total de palavras ([token](luis-glossary.md#token)) pode afetar a qualidade de previsão. Certifique-se de que os dados de treinamento fornecidos à intenção com enunciados rotulados incluem vários comprimentos de entidade.
-
-Ao gravar e testar arquivos em lotes pela primeira vez, é melhor começar com alguns enunciados e entidades que você sabe que funcionam, além de alguns que você acha que podem ter sido previstos incorretamente. Isso ajuda a concentrar-se nas áreas problemáticas rapidamente. Após testar as intenções **GetJobInformation** e **ApplyForJob** usando diversos nomes de Trabalho diferentes, que não foram previstos, esse arquivo de teste em lotes foi desenvolvido para verificar se há algum problema de previsão com determinados valores para a entidade **Trabalho**.
-
-O valor de uma entidade **Trabalho**, fornecido nos enunciados de teste, geralmente é uma ou duas palavras, com alguns exemplos sendo mais palavras. Se o _próprio_ aplicativo de recursos humanos normalmente tiver nomes de trabalho com muitas palavras, os enunciados de exemplo rotulados com a entidade **Trabalho** nesse aplicativo não funcionarão bem.
-
-1. Crie `HumanResources-entities-batch.json` em um editor de texto, como o [VSCode](https://code.visualstudio.com/), ou [baixe-o](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json?raw=true).
-
-2. No arquivo em lotes em formato JSON, adicione uma matriz de objetos que inclua enunciados com a **Intenção** que você quer prever no teste, bem como os locais de quaisquer entidades no enunciado. Como uma entidade é baseada em token, certifique-se de iniciar e parar cada entidade em um caractere. Não inicie nem termine o enunciado em um espaço. Isso causa um erro durante a importação do arquivo em lotes.
-
-   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
-
-
-## <a name="run-the-batch-with-entities"></a>Executa o lote com entidades
-
-1. Selecione **Testar** na barra de navegação superior.
-
-2. Selecione **Painel de teste do lote** no painel direito.
-
-3. Selecione **Importar conjunto de dados**.
-
-4. Escolha o local do sistema de arquivos do arquivo `HumanResources-entities-batch.json`.
-
-5. Nomeie o conjunto de dados `entities` e selecione **Concluído**.
-
-6. Selecione o botão **Executar**. Aguarde até que o teste seja concluído.
-
-7. Selecione **Ver resultados**.
-
-## <a name="review-entity-batch-results"></a>Examinar os resultados do lote da entidade
-
-O gráfico é aberto com todas as intenções corretamente previstas. Role para baixo no filtro do lado direito para localizar as previsões da entidade com erro.
-
-1. Selecione a entidade **Trabalho** no filtro.
-
-    ![Previsões de entidade com erro no filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
-
-    O gráfico é alterado para exibir as previsões de entidade.
-
-2. Selecione **Falso Negativo** no quadrante inferior esquerdo do gráfico. Em seguida, use o controle de combinação de teclas + E para alternar para a exibição de token.
-
-    [![Exibição do token das previsões de entidade](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
-
-    Analisar os enunciados abaixo do gráfico revela um erro consistente quando o nome do trabalho inclui `SQL`. Ao analisar os enunciados de exemplo e a lista de frases de Trabalho, o SQL é usado apenas uma vez e apenas como parte de um nome de trabalho maior, `sql/oracle database administrator`.
-
-## <a name="fix-the-app-based-on-entity-batch-results"></a>Corrigir o aplicativo com base nos resultados do lote de entidade
-
-Corrigir o aplicativo exige que o LUIS determine corretamente as variações de trabalhos do SQL. Há várias opções para essa correção.
-
-* Adicione explicitamente mais exemplos de expressões, que usam SQL e rotulem essas palavras como uma entidade Trabalho.
-* Adicionar explicitamente mais trabalhos do SQL à lista de frases
-
-Essas tarefas são deixadas para você fazer.
-
-Adicionar um [padrão](luis-concept-patterns.md) antes que a entidade seja corretamente prevista não corrigirá o problema. Isso ocorre porque o padrão não corresponderá até que todas as entidades no padrão sejam detectadas.
+* Não se esqueça de abranger enunciados positivos e negativos no teste, incluindo os enunciados que possam ser previstos para uma intenção diferente, mas relacionada.
+* Para os enunciados com falha, execute as seguintes tarefas e, em seguida, execute os testes novamente:
+    * Examine os exemplos atuais para ver se há intenções e entidades e confirme se os exemplos de enunciados da versão ativa estão corretos em relação à rotulagem de intenção e de entidade.
+    * Adicionar recursos que ajudam seu aplicativo a prever intenções e entidades
+    * Adicionar mais exemplos de enunciados positivos
+    * Examinar o equilíbrio de exemplos de enunciados entre as intenções
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](./includes/cleanup-resources-preview-portal.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-step"></a>Próxima etapa
 
-O tutorial usou um teste em lotes para encontrar problemas no modelo atual. O modelo foi corrigido e testado novamente com o arquivo em lotes para verificar se a alteração estava correta.
+O tutorial usou um teste em lotes para validar o modelo atual.
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre padrões](luis-tutorial-pattern.md)

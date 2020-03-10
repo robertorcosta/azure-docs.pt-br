@@ -16,7 +16,7 @@ ms.locfileid: "75442148"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Visão geral da biblioteca bulk executor do Azure Cosmos DB
  
-O Azure Cosmos DB é um serviço de banco de dados rápido, flexível e distribuído globalmente que foi projetado para elasticidade de expansão para dar suporte a: 
+O Azure Cosmos DB é um serviço de banco de dados rápido, flexível e distribuído globalmente que foi projetado para elasticidade de escalonamento horizontal para dar suporte a: 
 
 * Grandes taxas de transferência de leitura e gravação (em milhões de operações por segundo).  
 * Armazenamento de grandes volumes de transações e dados operacionais (centenas de terabytes ou mais) com latência previsível de milissegundo.  

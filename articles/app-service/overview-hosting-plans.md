@@ -26,7 +26,7 @@ Quando você cria um plano de serviço de aplicativo em uma determinada região 
 
 O _tipo de preço_ de um plano de serviço de aplicativo determina quais recursos do serviço de aplicativo que você obtém e quanto você paga pelo plano. Há algumas categorias de tipos de preços:
 
-- **Computação compartilhada**: **grátis** e **compartilhada**, os dois tipos base, executam um aplicativo na mesma máquina virtual do Azure como outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Esses tipos alocam cotas de CPU para cada aplicativo que é executado em recursos compartilhados, e não é possível expandir os recursos.
+- **Computação compartilhada**: **grátis** e **compartilhada**, os dois tipos base, executam um aplicativo na mesma máquina virtual do Azure como outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Esses tipos alocam cotas de CPU para cada aplicativo que é executado em recursos compartilhados, e não é possível escalar horizontalmente os recursos.
 - **Computação dedicada**: Os tipos **Básico**, **Standard**, **Premium**, e **PremiumV2** executam aplicativos em máquinas virtuais dedicadas do Azure. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior o nível, mais instâncias de máquina virtual estão disponíveis para a sua expansão.
 - **Isolado**: essa camada executa VMs do Azure dedicadas em redes virtuais do Azure dedicadas. Ele fornece isolamento de rede na parte superior do isolamento de computação para seus aplicativos. Ele fornece a capacidade máxima de expansão.
 

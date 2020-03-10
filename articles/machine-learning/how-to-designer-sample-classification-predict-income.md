@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/22/2020
+ms.openlocfilehash: 7fd51f587ff51e09254741615d3059d038e1205a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963353"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915903"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Crie um classificador e use a seleção de recursos para prever a receita com o designer do Azure Machine Learning
 
@@ -25,13 +25,13 @@ ms.locfileid: "76963353"
 
 Saiba como criar um classificador de aprendizado de máquina sem escrever uma só linha de código usando o designer (versão prévia). Esta amostra treina uma **árvore de decisão aumentada de duas classes** para prever a receita de censo de adultos (> = 50 mil ou < = 50 mil).
 
-Como a pergunta responde a "Qual deles?", isso é chamado de problema de classificação. No entanto, você pode aplicar o mesmo processo fundamental para resolver qualquer tipo de problema de aprendizado de máquina: regressão, classificação, clustering etc.
+Como a pergunta está respondendo "Qual?", isso é chamado de problema de classificação. No entanto, você pode aplicar o mesmo processo fundamental para resolver qualquer tipo de problema de aprendizado de máquina: regressão, classificação, clustering etc.
 
 Este é o grafo do pipeline final desta amostra:
 
 ![Grafo do pipeline](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -51,7 +51,7 @@ Siga estas etapas para criar o pipeline:
 
 1. Arraste o módulo do conjunto de dados Binário de Receita de Censo de Adultos para a tela do pipeline.
 1. Adicione um módulo **Dividir Dados** para criar os conjuntos de treinamento e teste. Defina a fração de linhas no primeiro conjunto de dados de saída como 0,7. Essa configuração especifica que 70% dos dados serão gerados na porta esquerda do módulo e o restante na porta direita. Usamos o conjunto de dados da esquerda para treinamento e o da direita para teste.
-1. Adicione o módulo **Seleção de Recursos Baseada em Filtro** para selecionar cinco recursos por PearsonCorreclation. 
+1. Adicione o módulo **Seleção de Recursos Baseada em Filtro** para selecionar cinco recursos por PearsonCorrelation. 
 1. Adicione um módulo **Árvore de Decisão Aumentada de Duas Classes** para inicializar um classificador de árvore de decisão aumentada.
 1. Adicione um módulo **Treinar Modelo**. Conecte o classificador da etapa anterior à porta de entrada esquerda do módulo **Treinar Modelo**. Conecte o conjunto de dados filtrado do módulo Seleção de Recursos Baseada em Filtro como o conjunto de dados de treinamento.  O módulo **Treinar Modelo** treinará o classificador.
 1. Adicione o módulo Selecionar Transformação de Colunas e Aplicar Transformação para aplicar a mesma transformação (seleção de recursos baseada em filtro) para testar o conjunto de dados.
@@ -77,9 +77,9 @@ Nos resultados da avaliação, você poderá ver as curvas, como ROC, precisão/
 
 Explore as outras amostras disponíveis para o designer:
 
-- [Amostra 1 – Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Amostra 2 – Regressão: Comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 1: regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 2: regressão: comparar algoritmos para a previsão de preços de automóveis](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
 - [Amostra 4: classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Amostra 5 – Classificação: Prever a rotatividade](how-to-designer-sample-classification-churn.md)
-- [Amostra 6 – Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
-- [Amostra 7 – Classificação de textos: Conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)
+- [Amostra 5: classificação: prever a rotatividade](how-to-designer-sample-classification-churn.md)
+- [Amostra 6: classificação: prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7: classificação de textos: conjunto de dados SP 500 da Wikipédia](how-to-designer-sample-text-classification.md)

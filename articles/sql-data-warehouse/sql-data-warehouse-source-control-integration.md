@@ -1,6 +1,6 @@
 ---
 title: Integração de controle do código-fonte
-description: Experiência de DevOps de banco de dados de classe empresarial para o SQL Data Warehouse com integração do controle do código-fonte nativo usando Azure Repos (Git e GitHub).
+description: Experiência de DevOps de banco de dados de classe empresarial para o pool de SQL com integração do controle do código-fonte nativo usando Azure Repos (Git e GitHub).
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1a4939e8c349f36fe745becb811717983caa95c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720020"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198194"
 ---
-# <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integração do controle do código-fonte para SQL Data Warehouse do Azure
+# <a name="source-control-integration-for-sql-pool"></a>Integração de controle do código-fonte para o pool de SQL
 
-Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) com controle do código-fonte.  A integração do controle do código-fonte é a primeira etapa na criação de seu pipeline de implantação e integração contínua com o SQL Data Warehouse. 
+Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) com controle do código-fonte.  A integração do controle do código-fonte é a primeira etapa na criação de seu pipeline de implantação e integração contínua com o recurso de pool de SQL no Azure Synapse Analytics. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -81,4 +81,4 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Desenvolvendo para o SQL Data Warehouse do Azure](sql-data-warehouse-overview-develop.md)
+- [Como desenvolvedor para o pool de SQL](sql-data-warehouse-overview-develop.md)

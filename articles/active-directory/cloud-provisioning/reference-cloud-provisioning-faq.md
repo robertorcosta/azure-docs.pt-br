@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020753"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916550"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -71,6 +71,14 @@ Não, o provisionamento de nuvem não dá suporte a write-back de ms-ds-consiste
 **P: Estou provisionando usuários usando o provisionamento de nuvem. Eu excluí a configuração. Por que eu ainda vejo os antigos objetos sincronizados no Azure AD?** 
 
 Quando você exclui a configuração, o provisionamento de nuvem não limpa os objetos sincronizados no Azure AD. Para garantir que você não fique com objetos antigos, altere o escopo da configuração para um grupo vazio ou unidades organizacionais. Depois que o provisionamento é executado e limpa os objetos, desabilite e exclua a configuração. 
+
+**P:  O que significa que o Exchange híbrido não tem suporte?**
+
+O recurso de implantação híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está sincronizando um conjunto específico de atributos do Azure AD em seu diretório local.  No momento, o agente de provisionamento de nuvem não sincroniza esses atributos de volta em seu diretório local e, portanto, não tem suporte como uma substituição para o Azure AD Connect.
+
+**P:  Posso instalar o agente de provisionamento de nuvem no Windows Server Core?**
+
+Não, não há suporte para a instalação do agente no Server Core.
 
 ## <a name="next-steps"></a>Próximas etapas 
 

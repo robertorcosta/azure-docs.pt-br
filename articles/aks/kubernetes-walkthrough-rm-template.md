@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 5fe82dbce2069b0ae1a88599d020f4ba6b116027
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9c4a79f196cc0737ddc9490f2fedda99961289f4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595281"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273785"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando um modelo do Azure Resource Manager
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Se optar por instalar e usar a CLI localmente, este início rápido exigirá que você esteja executando a CLI do Azure versão 2.0.61 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar um cluster do AKS usando um modelo do Resource Manager, forneça uma chave pública SSH e a entidade de serviço do Azure Active Directory. Se precisar de um desses recursos, confira a seção a seguir; caso contrário, passe para a seção [Criar um cluster do AKS](#create-an-aks-cluster).
 
@@ -34,9 +34,11 @@ Para criar um cluster do AKS usando um modelo do Resource Manager, forneça uma 
 
 Para acessar nós do AKS, conecte-se usando um par de chaves SSH. Use o comando `ssh-keygen` para gerar arquivos de chave SSH pública e privada. Por padrão, esses arquivos são criados no diretório *~/.ssh*. Se um par de chaves SSH com o mesmo nome existir no local especificado, esses arquivos serão substituídos.
 
+Acesse [https://shell.azure.com](https://shell.azure.com) para abrir o Cloud Shell no navegador.
+
 O comando a seguir cria um par de chaves SSH usando a criptografia RSA e o tamanho de bit 2048:
 
-```azurecli-interactive
+```console
 ssh-keygen -t rsa -b 2048
 ```
 
@@ -109,13 +111,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Para verificar a conexão com o cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista dos nós de cluster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 A saída de exemplo a seguir mostra os nós criados nas etapas anteriores. Verifique se o status para todos os nós é *Pronto*:
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
 aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
@@ -218,13 +220,13 @@ spec:
 
 Implante o aplicativo usando o comando [kubectl apply][kubectl-apply] e especifique o nome do manifesto YAML:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 A seguinte saída de exemplo mostra as Implantações e os Serviços criados com êxito:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -237,20 +239,20 @@ Quando o aplicativo é executado, um serviço de Kubernetes expõe o front-end d
 
 Para monitorar o andamento, use o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Inicialmente, o *EXTERNAL-IP* para o serviço *azure-vote-front* é mostrado como *pendente*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Quando o endereço *EXTERNAL-IP* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o processo de inspeção do `kubectl`. A seguinte saída de exemplo mostra um endereço IP público válido atribuído ao serviço:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

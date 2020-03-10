@@ -12,18 +12,18 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
-ms.openlocfilehash: 3c18440e87cf50e370b21b5f0ca33b42e0069fc1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8714b7a96197cb4a59b29bada31b5559961bf8e3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161419"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300206"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
 A plataforma de identidade da Microsoft é uma evolução da plataforma de desenvolvedor do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que conectam usuários e obtêm tokens para chamar APIs, como o Microsoft Graph, ou APIs criadas pelos desenvolvedores. Consiste em um serviço de autenticação, bibliotecas open-source, registro de aplicativo e configuração (por meio de um portal de desenvolvedor e de uma API de aplicativo), documentação completa do desenvolvedor, exemplos de início rápido, exemplos de código, tutoriais, guias de instruções e outros tipos de conteúdo do desenvolvedor. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2.0 e OpenID Connect.
 
-Até agora, a maioria dos desenvolvedores trabalhou com a plataforma do Azure AD v1.0 para autenticar contas corporativas e de estudante (provisionadas pelo Azure AD) solicitando tokens do ponto de extremidade do Azure AD v1.0, usando a ADAL (Biblioteca de Autenticação do Azure AD), o portal do Azure para registro de aplicativo e configuração e a API do Graph do Azure AD para configuração programática de aplicativo.
+Até agora, a maioria dos desenvolvedores trabalhou com a plataforma Azure AD v1.0 para autenticar contas corporativas e de estudante (provisionadas pelo Azure AD) solicitando tokens do ponto de extremidade do Azure AD v1.0, usando a ADAL (Biblioteca de Autenticação do Azure AD), o portal do Azure para registro de aplicativo e configuração e a API do Microsoft Graph para configuração programática de aplicativo.
 
 Com a plataforma de identidade unificada da Microsoft (v2.0), você pode escrever o código uma vez e autenticar qualquer identidade da Microsoft em seu aplicativo. Para várias plataformas, a MSAL (Biblioteca de Autenticação da Microsoft) de software livre totalmente compatível é recomendada para uso em pontos de extremidade da plataforma de identidade. A MSAL é simples de usar, fornece ótimas experiências de SSO (logon único) para seus usuários, ajuda você a alcançar alta confiabilidade e desempenho e foi desenvolvida usando o Microsoft SDL (Secure Development Lifecycle). Ao chamar APIs, você pode configurar seu aplicativo para aproveitar o consentimento incremental, que permite atrasar a solicitação de consentimento para escopos mais invasivos até que o uso do aplicativo garanta isso em runtime.  A MSAL também é compatível com o Azure Active Directory B2C permitindo que seus clientes usem suas identidades de conta social, empresarial ou local preferenciais para obter acesso de logon único a seus aplicativos e APIs.
 
@@ -49,7 +49,7 @@ A experiência de **[Registros de aplicativo](https://go.microsoft.com/fwlink/?l
 
 Para integração ao Azure AD B2C (na autenticação de identidades sociais ou locais), você precisará registrar seu aplicativo em um locatário do Azure AD B2C. Essa experiência também faz parte do portal do Azure.
 
-Atualmente, a **API de aplicativo no Microsoft Graph** está em versão prévia. Use essa API para configurar de forma programática os aplicativos integrados à plataforma de identidade da Microsoft para autenticar qualquer identidade da Microsoft. No entanto, até que essa API alcance disponibilidade geral, você deverá usar a API do Graph 1.6 do Azure AD e o manifesto do aplicativo.
+Use a [API de aplicativo](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) para configurar de maneira programática os aplicativos integrados à plataforma de identidade da Microsoft a fim de autenticar qualquer identidade da Microsoft.
 
 ### <a name="msal-libraries"></a>Bibliotecas MSAL
 

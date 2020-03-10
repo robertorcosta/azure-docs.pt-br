@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4438851ef7ea015060926075f46822de877b85b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a8d7f50ecf385388b63b9d83525a39737e0d157
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766431"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655745"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo Spring Boot
 
@@ -19,11 +19,11 @@ Neste início rápido, você incorpora a Configuração de Aplicativos do Azure 
 
 As bibliotecas do Gerenciamento de Recursos do Spring Boot estendem a estrutura com suporte abrangente para sinalizadores de recursos. Essas bibliotecas **não** têm uma dependência de nenhuma biblioteca do Azure. Elas se integram perfeitamente à Configuração de Aplicativos por meio de seu provedor de configuração do Spring Boot.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-- Um [SDK do Java Development Kit](https://docs.microsoft.com/java/azure/jdk) com suporte na versão 8.
-- [Apache Maven](https://maven.apache.org/download.cgi), versão 3.0 ou posterior.
+* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Um [SDK do Java Development Kit](https://docs.microsoft.com/java/azure/jdk) com suporte na versão 8.
+* [Apache Maven](https://maven.apache.org/download.cgi), versão 3.0 ou posterior.
 
 ## <a name="create-an-app-configuration-instance"></a>Criar uma instância de Configuração de Aplicativos
 
@@ -42,14 +42,14 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Navegue até <https://start.spring.io/>.
 
-2. Especifique as seguintes opções:
+1. Especifique as seguintes opções:
 
-   - Gere um projeto **Maven** com **Java**.
-   - Especifique uma versão do **Spring Boot** igual ou maior que 2.0.
-   - Especifique os nomes de **Grupo** e **Artefato** do aplicativo.  Este artigo usa `com.example` e `demo`.
-   - Adicione a dependência do **Spring Web**.
+   * Gere um projeto **Maven** com **Java**.
+   * Especifique uma versão do **Spring Boot** igual ou maior que 2.0.
+   * Especifique os nomes de **Grupo** e **Artefato** do aplicativo.  Este artigo usa `com.example` e `demo`.
+   * Adicione a dependência do **Spring Web**.
 
-3. Após especificar as opções anteriores, selecione **Gerar Projeto**. Quando solicitado, baixe o projeto para o seu computador local.
+1. Após especificar as opções anteriores, selecione **Gerar Projeto**. Quando solicitado, baixe o projeto para o seu computador local.
 
 ## <a name="add-feature-management"></a>Adicionar gerenciamento de recursos
 
@@ -57,20 +57,41 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Abra o arquivo *pom.xml* em um editor de texto e adicione o seguinte conteúdo à lista de `<dependencies>`:
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.2.1</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.1</version>
+        <version>1.1.2</version>
     </dependency>
     <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
 
@@ -108,6 +129,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
         }
     }
     ```
+
 1. Crie um arquivo Java chamado *MessageProperties.java* no diretório do pacote do aplicativo.
 
     ```java
@@ -131,7 +153,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
     }
     ```
 
-1. Crie um arquivo Java chamado *HelloController.java* no diretório do pacote do aplicativo. 
+1. Crie um arquivo Java chamado *HelloController.java* no diretório do pacote do aplicativo.
 
     ```java
     package com.example.demo;
@@ -220,36 +242,36 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
     ```
 
-6. Crie uma pasta chamada CSS em `static` e, dentro dela, um arquivo CSS chamado *main.css*.
+1. Crie uma pasta chamada CSS em `static` e, dentro dela, um arquivo CSS chamado *main.css*.
 
     ```css
     html {
-    position: relative;
-    min-height: 100%;
+     position: relative;
+     min-height: 100%;
     }
     body {
-    margin-bottom: 60px;
+     margin-bottom: 60px;
     }
     .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #f5f5f5;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 60px;
+     line-height: 60px;
+     background-color: #f5f5f5;
     }
 
     body > .container {
-    padding: 60px 15px 0;
+     padding: 60px 15px 0;
     }
 
     .footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+     padding-right: 15px;
+     padding-left: 15px;
     }
 
     code {
-    font-size: 80%;
+     font-size: 80%;
     }
     ```
 
@@ -284,6 +306,6 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 Neste início rápido, você criou um novo repositório de configurações de aplicativos e o usou para gerenciar recursos em um aplicativo Web Spring Boot por meio das [bibliotecas do Gerenciamento de Recursos](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-- Saiba mais sobre o [gerenciamento de recursos](./concept-feature-management.md).
-- [Gerenciar sinalizadores de recursos](./manage-feature-flags.md).
-- [Usar sinalizadores de recursos em um aplicativo Spring Boot Core](./use-feature-flags-spring-boot.md).
+* Saiba mais sobre o [gerenciamento de recursos](./concept-feature-management.md).
+* [Gerenciar sinalizadores de recursos](./manage-feature-flags.md).
+* [Usar sinalizadores de recursos em um aplicativo Spring Boot Core](./use-feature-flags-spring-boot.md).

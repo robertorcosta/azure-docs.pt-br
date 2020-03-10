@@ -33,7 +33,7 @@ O Intelligent Insights é uma capacidade exclusiva de inteligência interna do A
 - Detecção prévia de degradação de desempenho do banco de dados
 - Análise da causa raiz dos problemas detectados
 - Recomendações de melhoria de desempenho
-- Capacidade de expansão em centenas de milhares de bancos de dados
+- Capacidade de escala horizontal em centenas de milhares de bancos de dados
 - Impacto positivo nos recursos de DevOps e no custo total de propriedade
 
 ## <a name="how-does-intelligent-insights-work"></a>Como o Intelligent Insights funciona?

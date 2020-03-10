@@ -4,16 +4,16 @@ description: Fornece uma visão geral do Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
 ms.topic: overview
-ms.date: 10/11/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 75bd27f0945c66b9757055c0777b43a050ba67d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580439"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920987"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ No passado, a análise baseada na nuvem tinha que se comprometer em áreas de de
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos do Data Lake Storage Gen2
 
--   **Acesso compatível com Hadoop**: O Azure Data Lake Storage Gen2 permite gerenciar e acessar dados como você faria com um [Sistema de Arquivos Distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [driver ABFS ](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) e [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados no Data Lake Storage Gen2.
+-   **Acesso compatível com Hadoop**: O Azure Data Lake Storage Gen2 permite gerenciar e acessar dados como você faria com um [Sistema de Arquivos Distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [driver ABFS](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) e [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados no Data Lake Storage Gen2.
 
 -   **Um superconjunto de permissões POSIX**: O modelo de segurança do Data Lake Gen2 dá suporte a permissões POSIX e ACL juntamente com alguma granularidade adicional específica para o Data Lake Storage Gen2. As configurações podem ser definidas por meio do Gerenciador de Armazenamento ou por meio de estruturas como Hive e Spark.
 
@@ -66,30 +66,23 @@ A seguir estão as entidades equivalentes, conforme descrito pelos diferentes co
 | Blobs – Armazenamento de objetos de uso geral | Contêiner              | Diretório virtual (SDK somente – não fornece a manipulação atômica) | Blob           |
 | Azure Data Lake Storage Gen2 – Armazenamento de Análise          | Contêiner            | Diretório                                                           | Arquivo           |
 
+## <a name="supported-blob-storage-features"></a>Recursos do Armazenamento de Blobs compatíveis
+
+Recursos do Armazenamento de Blobs, como [log de diagnóstico](../common/storage-analytics-logging.md), [camadas de acesso](storage-blob-storage-tiers.md) e [políticas de gerenciamento do ciclo de vida do armazenamento de blobs](storage-lifecycle-management-concepts.md) agora funcionam com contas que têm um namespace hierárquico. Portanto, você pode habilitar namespaces hierárquicos em suas contas de Armazenamento de Blobs sem perder o acesso a esses recursos. 
+
+Para obter uma lista de recursos do Armazenamento de Blobs com suporte, confira [Recursos do Armazenamento de Blobs disponíveis no Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+
+## <a name="supported-azure-service-integrations"></a>Integrações de serviço do Azure com suporte
+
+O Data Lake Storage Gen2 é compatível com vários serviços do Azure que você pode usar para ingerir dados, executar análises e criar representações visuais. Para obter uma lista de serviços do Azure com suporte, confira [Serviços do Azure que dão suporte ao Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
 ## <a name="supported-open-source-platforms"></a>Plataformas de software livre com suporte
 
-Várias plataformas de software livre suportam o Data Lake Storage Gen2. Essas plataformas são exibidas na tabela a seguir.
+Várias plataformas de software livre suportam o Data Lake Storage Gen2. Para obter uma lista completa, confira [Plataformas de software livre que dão suporte ao Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-> [!NOTE]
-> Há suporte apenas para as versões que aparecem nesta tabela.
+## <a name="see-also"></a>Confira também
 
-| Plataforma |  Versão ou versões com suporte | Mais informações |
-| --- | --- | --- |
-| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [Quais são os componentes e versões do Apache Hadoop disponíveis com o HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Arquivo de versões do Apache Hadoop](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1+ | [Notas sobre a versão do Cloudera Enterprise 6.x](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Versão do Databricks Runtime](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configurar o acesso de dados de nuvem](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
-
-## <a name="supported-azure-services"></a>Serviços do Azure compatíveis
-
-O Data Lake Storage Gen2 é compatível com vários serviços do Azure que você pode usar para ingerir dados, executar análises e criar representações visuais. Para obter uma lista de serviços do Azure compatíveis, confira [Integrar o Azure Data Lake Storage aos serviços do Azure](data-lake-storage-integrate-with-azure-services.md).
-
-## <a name="next-steps"></a>Próximas etapas
-
-Os artigos a seguir descrevem alguns dos principais conceitos do Data Lake Storage Gen2 e detalham como armazenar, acessar, gerenciar e obter insights de seus dados:
-
-- [Namespace hierárquico](data-lake-storage-namespace.md)
-- [Criar uma conta de armazenamento](data-lake-storage-quickstart-create-account.md)
+- [Problemas conhecidos com o Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Acesso de vários protocolos no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-- [Integrar o Azure Data Lake Storage aos serviços do Azure](data-lake-storage-integrate-with-azure-services.md);
+
+

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 40846de9ee8eec3225a05e3c2c68c3ad5af02042
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 04228a5f3f7e0b10e3cd881043af7861bb9fb347
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201009"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251131"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma exportação diária
 > * Verificar se os dados são coletados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 A exportação de dados está disponível para uma variedade de tipos de conta do Azure, incluindo clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/) e do [Contrato de Cliente da Microsoft](get-started-partners.md). Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Há suporte para as seguintes permissões ou escopos do Azure por assinatura para exportações de dados por usuário e por grupo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Proprietário – pode criar, modificar ou excluir exportações agendadas de uma assinatura.
@@ -39,6 +39,8 @@ A exportação de dados está disponível para uma variedade de tipos de conta d
 Para contas de Armazenamento do Azure:
 - São necessárias permissões de gravação para alterar a conta de armazenamento configurada, independentemente das permissões de exportação.
 - Sua conta de Armazenamento do Azure precisa ser configurada para o Armazenamento de Blobs ou de Arquivos.
+
+Se você tiver uma nova assinatura, não poderá usar imediatamente os recursos do Gerenciamento de Custos. Poderá levar até 48 horas para você poder usar todos os recursos do Gerenciamento de Custos.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).

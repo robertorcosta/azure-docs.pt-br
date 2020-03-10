@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registr
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5342e51af870b1e5f8651ea2d28894233ed8e62
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7d84770f1b945ff47cb4e9118d9c342e67118722
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456062"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249915"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao fazer commit do código-fonte
 
@@ -69,7 +69,9 @@ Essa tarefa de várias etapa faz o seguinte:
 
 Primeiro, preencha essas variáveis de ambiente de shell com valores apropriados para seu ambiente. Esta etapa não é estritamente necessária, mas torna a execução dos comandos da CLI do Azure com várias linhas neste tutorial um pouco mais fácil. Se não preencher essas variáveis de ambiente, você precisará substituir manualmente cada valor sempre que aparecerem nos comandos de exemplo.
 
-```azurecli-interactive
+[![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -217,13 +219,13 @@ Agora que você testou a tarefa executando-a manualmente, dispare-a automaticame
 
 Primeiro, verifique se você está no diretório que contém o clone local do [repositório][sample-repo]:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 Em seguida, execute os seguintes comandos para criar, confirmar e enviar um novo arquivo para o seu fork do repositório no GitHub:
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"

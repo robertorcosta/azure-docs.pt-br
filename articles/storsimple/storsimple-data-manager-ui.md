@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273976"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933745"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço do Gerenciador de Dados do StorSimple no portal do Azure
 
@@ -102,7 +102,7 @@ Execute as etapas a seguir para criar uma definição de trabalho.
 
    3. Na subseção do **Filtro**, insira o diretório raiz que contém os dados de interesse no formato _\MyRootDirectory\Data_. Letras de unidade como _\C:\Data_ não têm suporte. Você também pode adicionar qualquer filtro de arquivo aqui.
 
-   4. O serviço de transformação de dados funciona nos dados que são passados para o Azure por meio de instantâneos. Ao executar esse trabalho, você pode optar por fazer um backup sempre que esse trabalho for executado (para trabalhar em dados mais recentes) ou usar o último backup existente na nuvem (se você estiver trabalhando em alguns dados arquivados).
+   4. O serviço de transformação de dados só funciona no instantâneo mais recente dos dados que são enviados para o Azure.
 
    5. Clique em **OK**.
 
@@ -151,7 +151,12 @@ Sempre que você precisar mover dados do StorSimple para a conta de armazenament
 
     ![Iniciar execução de trabalho 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
+### <a name="view-logs-after-job-completion"></a>Exibir logs após a conclusão do trabalho
 
-## <a name="next-steps"></a>Próximos passos
+Após a conclusão de um trabalho, você poderá exibir o status do trabalho. O status do trabalho pode ser **bem-sucedido**, **parcialmente bem-sucedido** e **com falha**. Você pode exibir a lista de arquivos que foram copiados com êxito e os arquivos que falharam ao serem copiados. Essas listas estão disponíveis em um contêiner chamado **"storsimple-Data-Manager-joblogs"** em sua conta de armazenamento de destino. Nesse contêiner, você pode procurar uma pasta com o mesmo nome que a definição de trabalho. Dentro disso, uma pasta será criada para cada execução de trabalho que conterá suas listas. O nome dessa pasta será o GUID do trabalho, que pode ser obtido na página de detalhes do trabalho. Como alternativa, na maioria dos casos você verá um link para os logs de cópia na própria página de trabalhos.
+Há dois conjuntos de arquivos CSV que serão exibidos nessa pasta. Todos os arquivos que começam com **copiedfilelist...** conterão a lista de arquivos copiados com êxito. Todos os arquivos que começam com **failedfilelist...** contêm arquivos que não puderam ser copiados, juntamente com uma mensagem de erro.
+
+
+## <a name="next-steps"></a>Próximas etapas
 
 [Usar o SDK do .NET para iniciar trabalhos do Gerenciador de Dados do StorSimple](storsimple-data-manager-dotnet-jobs.md).

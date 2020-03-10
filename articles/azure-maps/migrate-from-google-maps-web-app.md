@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b954c812bea6c2abf4376c2cee38a3789461ad01
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bdbf2a975cbdc3d06745b9375c1e6f8e751ddfd6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208736"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914063"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrar um aplicativo Web do Google Maps
 
@@ -57,8 +57,8 @@ Veja algumas das principais diferenças entre os SDKs Web do Google Maps e do Az
 - As formas no SDK da Web do Azure Mapas são baseadas no esquema GeoJSON. As classes auxiliares são expostas por meio do [namespace *atlas.data*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data?view=azure-iot-typescript-latest). Há também a classe [*atlas.Shape*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape). Use essa classe para encapsular objetos GeoJSON a fim de facilitar a atualização e manter os dados de forma associável.
 - As coordenadas nos Azure Mapas são definidas como objetos Position. Uma coordenada é especificada como uma matriz numérica no formato `[longitude,latitude]`. Ou, ela é especificada usando a nova atlas.data.Position(longitude, latitude).
     > [!TIP]
-    > A classe Position tem um método auxiliar estático para importar coordenadas que estão no formato "latitude,longitude". Com frequência você pode substituir o método [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position?view=azure-iot-typescript-latest) pelo método `new google.maps.LatLng` no código do Google Maps.
-- O Azure Mapas separa os estilos dos dados. A separação de dados e estilos é mais eficiente em termos de desempenho do que especificar informações de estilo em cada forma que é adicionada ao mapa. Os dados são armazenados em fontes de dados conectadas a camadas de renderização. O código dos Azure Mapas usa fontes de dados para renderizar os dados. Essa abordagem oferece o benefício de desempenho aprimorado. Além disso, muitas camadas dão suporte ao estilo controlado por dados, em que a lógica de negócios pode ser adicionada às opções de estilo de camada. Esse suporte altera como as formas individuais são renderizadas em uma camada com base nas propriedades definidas na forma.
+    > A classe Position tem um método auxiliar estático para importar coordenadas que estão no formato "latitude, longitude". O método [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position?view=azure-iot-typescript-latest) pode, muitas vezes, ser substituído pelo método `new google.maps.LatLng` no código do Google Maps.
+- Em vez de especificar informações de estilo em cada forma adicionada ao mapa, o Azure Mapas separa os estilos dos dados. Os dados são armazenados em fontes de dados e estão conectados a camadas de renderização. O código dos Azure Mapas usa fontes de dados para renderizar os dados. Essa abordagem oferece o benefício de desempenho aprimorado. Além disso, muitas camadas dão suporte ao estilo controlado por dados, em que a lógica de negócios pode ser adicionada às opções de estilo de camada. Esse suporte altera como as formas individuais são renderizadas em uma camada com base nas propriedades definidas na forma.
 
 ## <a name="web-sdk-side-by-side-examples"></a>Exemplos lado a lado do SDK da Web
 
@@ -246,7 +246,7 @@ Aqui está um exemplo do Azure Mapas com o idioma definido como "fr" e a região
 
 ### <a name="setting-the-map-view"></a>Como configurar a exibição do mapa
 
-No Azure Mapas e no Google Maps os mapas dinâmicos podem ser movidos de maneira programática para novas localizações geográficas. Para fazer isso, chame as funções apropriadas em JavaScript. O exemplo mostra como fazer com que o mapa exiba a imagem aérea do satélite, centralize o mapa sobre uma localização e altere o nível de zoom. As seguintes coordenadas de localização são usadas: longitude: -111,0225 e latitude: 35,0272.
+Os mapas dinâmicos nos Azure Mapas e no Google Maps podem ser movidos de maneira programática para novas localizações geográficas. Para fazer isso, chame as funções apropriadas em JavaScript. Os exemplos mostram como fazer com que o mapa exiba a imagem aérea do satélite, centralize o mapa sobre uma localização e altere o nível de zoom para 15 no Google Maps. As seguintes coordenadas de localização são usadas: longitude: -111,0225 e latitude: 35,0272.
 
 > [!NOTE]
 > O Google Maps usa peças de dimensão de 256 pixels, enquanto o Azure Mapas usa um tamanho de peça maior, de 512 pixels. Portanto, o Azure Mapas requer menos solicitações de rede para carregar a mesma área de mapa que o Google Maps. Devido à maneira como as pirâmides de peças funcionam nos controles de mapa, você precisa subtrair o nível de zoom usado no Google Maps pelo número um ao usar Azure Mapas. Essa operação aritmética garante que as peças maiores no Azure Mapas renderizem a mesma área de mapa que no Google Maps,
@@ -1515,6 +1515,156 @@ Use a classe `atlas.layer.ImageLayer` para sobrepor imagens georreferenciadas. E
 
 - [Sobrepor uma imagem](map-add-image-layer.md)
 - [Classe da camada de imagem](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)
+
+## <a name="add-kml-to-the-map"></a>Adicionar KML ao mapa
+
+Os mapas do Azure e do Google podem importar e renderizar dados do KML, KMZ e GeoRSS no mapa. Os Azure Mapas também dão suporte a arquivos GPX, GML, CSV espacial, GeoJSON, WKT (Well Known Text), WMS (Serviços de Mapeamento de Web), WMTS (Serviços de Bloco de Mapeamento de Web) e WFS (Serviços de Recurso da Web). Os Azure Mapas leem os arquivos localmente na memória e, na maioria dos casos, podem tratar arquivos KML muito maiores. 
+
+**Antes: Google Maps**
+
+
+```javascript
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <script type='text/javascript'>
+        var map, historicalOverlay;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('myMap'), {
+                center: new google.maps.LatLng(0, 0),
+                zoom: 1
+            });
+
+             var layer = new google.maps.KmlLayer({
+              url: 'https://googlearchive.github.io/js-v2-samples/ggeoxml/cta.kml',
+              map: map
+            });
+        }
+    </script>
+
+    <!-- Google Maps Script Reference -->
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+</head>
+<body>
+    <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+</body>
+</html>
+```
+
+Executar esse código em um navegador exibirá um mapa semelhante à imagem a seguir:
+
+<center>
+
+![Sobreposição de imagem do Google Maps](media/migrate-google-maps-web-app/google-maps-kml.png)</center>
+
+**Depois: Azure Mapas**
+
+Nos Azure Mapas, GeoJSON é o principal formato de dados usado no SK da Web; outros formatos de dados espaciais podem ser facilmente integrados usando o [módulo de E/S espacial](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Esse módulo tem funções para ler e gravar dados espaciais e também inclui uma camada de dados simples que pode renderizar dados facilmente de qualquer um desses formatos de dados espaciais. Para ler os dados em um arquivo de dados espaciais, basta passar uma URL ou dados brutos como uma cadeia de caracteres ou blob para a função `atlas.io.read`. Isso retornará todos os dados analisados do arquivo que podem ser adicionados ao mapa. O KML é um pouco mais complexo do que a maioria dos formatos de dados espaciais porque ele inclui muito mais informações de estilo. A classe `SpatialDataLayer` dá suporte à renderização da maioria desses estilos; no entanto, as imagens de ícone precisam ser carregadas no mapa antes de carregar os dados do recurso e as sobreposições de piso precisam ser adicionadas como camadas ao mapa separadamente. Ao carregar dados por meio de uma URL, eles devem ser hospedados em um ponto de extremidade habilitado para CORs ou um serviço de proxy deve ser passado como uma opção para a função de leitura. 
+
+```javascript
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+    <!-- Add reference to the Azure Maps Spatial IO module. -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
+
+    <script type='text/javascript'>
+        var map, datasource, layer;
+
+        function initMap() {
+            //Initialize a map instance.
+            map = new atlas.Map('myMap', {
+                view: 'Auto',
+
+                //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+                authOptions: {
+                    authType: 'subscriptionKey',
+                    subscriptionKey: '<Your Azure Maps Key>'
+                }
+            });
+
+            //Wait until the map resources are ready.
+            map.events.add('ready', function () {
+            
+                //Create a data source and add it to the map.
+                datasource = new atlas.source.DataSource();
+                map.sources.add(datasource);
+
+                //Add a simple data layer for rendering the data.
+                layer = new atlas.layer.SimpleDataLayer(datasource);
+                map.layers.add(layer);
+
+                //Read a KML file from a URL or pass in a raw KML string.
+                atlas.io.read('https://googlearchive.github.io/js-v2-samples/ggeoxml/cta.kml').then(async r => {
+                    if (r) {
+
+                        //Check to see if there are any icons in the data set that need to be loaded into the map resources.
+                        if (r.icons) {
+                            //For each icon image, create a promise to add it to the map, then run the promises in parrallel.
+                            var imagePromises = [];
+
+                            //The keys are the names of each icon image.
+                            var keys = Object.keys(r.icons);
+
+                            if (keys.length !== 0) {
+                                keys.forEach(function (key) {
+                                    imagePromises.push(map.imageSprite.add(key, r.icons[key]));
+                                });
+
+                                await Promise.all(imagePromises);
+                            }
+                        }
+
+                        //Load all features.
+                        if (r.features && r.features.length > 0) {
+                            datasource.add(r.features);
+                        }
+
+                        //Load all ground overlays.
+                        if (r.groundOverlays && r.groundOverlays.length > 0) {
+                            map.layers.add(r.groundOverlays);
+                        }
+
+                        //If bounding box information is known for data, set the map view to it.
+                        if (r.bbox) {
+                            map.setCamera({ bounds: r.bbox, padding: 50 });
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
+</body>
+</html>
+```
+
+<center>
+
+![Sobreposição de imagem do Azure Mapas](media/migrate-google-maps-web-app/azure-maps-kml.png)</center>
+
+**Recursos adicionais:**
+
+- [função atlas.io.read](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io?view=azure-maps-typescript-latest#read-string---arraybuffer---blob--spatialdatareadoptions-)
+- [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+- [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 ## <a name="additional-code-samples"></a>Exemplos de código adicionais
 

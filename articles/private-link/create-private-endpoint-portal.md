@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028886"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252570"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando portal do Azure
 
@@ -28,26 +28,22 @@ Entre no Portal do Azure em https://portal.azure.com.
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar seu recurso de Link Privado (um SQL Server no Azure, neste exemplo).
 
-### <a name="create-the-virtual-network"></a>Criar a rede virtual
-
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Rede virtual**.
-1. Em **Criar rede virtual**, insira ou selecione estas informações:
+Nesta seção, você precisará substituir os seguintes parâmetros nas etapas pelas informações abaixo:
 
-    | Configuração | Valor |
-    | ------- | ----- |
-    | Nome | Insira *MyVirtualNetwork*. |
-    | Espaço de endereço | Insira *10.1.0.0/16*. |
-    | Subscription | Selecione sua assinatura.|
-    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Location | Selecione **WestCentralUS**.|
-    | Sub-rede – Nome | Insira *mySubnet*. |
-    | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
-    |||
-1. Deixe o restante com os valores padrão e selecione **Criar**.
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | Centro-Oeste dos EUA    |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 

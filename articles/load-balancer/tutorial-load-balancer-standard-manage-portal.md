@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4d4703ccb4ee96eb69a780f91eae1eb6da9e1578
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5b39186a39fbd2398fb4045ba62797e321fc3284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225190"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249861"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure
 
@@ -51,7 +51,7 @@ Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carg
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite *myResourceGroupSLB* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
     | SKU           | Selecione **Padrão**.                          |
@@ -85,7 +85,7 @@ Para permitir que o Load Balancer monitore o status de seu aplicativo, use uma i
      
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *myHealthProbe*. |
+    | Nome | Insira *myHealthProbe*. |
     | Protocolo | Selecione **HTTP**. |
     | Porta | Insira *80*.|
     | Intervalo | Insira *15* para o número de **Intervalo** em segundos entre tentativas de investigação. |
@@ -103,7 +103,7 @@ Uma regra do Load Balancer é usada para definir como o tráfego é distribuído
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *myHTTPRule*. |
+    | Nome | Insira *myHTTPRule*. |
     | Protocolo | selecione **TCP**. |
     | Porta | Insira *80*.|
     | Porta de back-end | Insira *80*. |
@@ -116,22 +116,20 @@ Uma regra do Load Balancer é usada para definir como o tráfego é distribuído
 
 Nesta seção, crie uma rede virtual, crie três máquinas virtuais para o pool de back-end do Load Balancer e, em seguida, instalar o IIS nas máquinas virtuais para ajudar a testar o Load Balancer.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Rede virtual**.
-2. Em **Criar rede virtual**, insira ou selecione estas informações:
+Nesta seção, você precisará substituir os seguintes parâmetros nas etapas pelas informações abaixo:
 
-    | Configuração | Valor |
-    | ------- | ----- |
-    | NOME | Insira *myVNet*. |
-    | Espaço de endereço | Insira *10.1.0.0/16*. |
-    | Subscription | Selecione sua assinatura.|
-    | Resource group | Selecione o recurso existente – *myResourceGroupSLB*. |
-    | Location | Selecione **Europa Ocidental**.|
-    | Sub-rede – Nome | Insira *myBackendSubnet*. |
-    | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
-    
-3. Deixe o restante dos padrões e selecione **Criar**.
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB (selecione o grupo de recursos existente) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa Ocidental      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -164,7 +162,7 @@ O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no poo
 1. Selecione a guia **Gerenciamento** ou selecione **Avançar** > **Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**. 
 1. Selecione **Examinar + criar**.   
 1. Examine as configurações e selecione **Criar**.
-1. Siga as etapas para criar duas VMs adicionais – *myVM2* e *myVM3*, com um endereço IP público do SKU Standard na **Zona de disponibilidade** **2** e **3**, respectivamente, e defina todas as outras configurações iguais às de *myVM1*.  
+1. Siga as etapas para criar duas VMs adicionais: *myVM2* e *myVM3*, com um endereço IP público do SKU Standard na **Zona de disponibilidade** **2** e **3**, respectivamente, e todas as outras configurações iguais às de *myVM1*.  
 
 ### <a name="create-network-security-group-rule"></a>Criar regra de grupo de segurança de rede
 
@@ -173,8 +171,8 @@ Nesta seção, você criará uma regra de grupo de segurança de rede para permi
 1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, na lista de recursos, clique em **myNetworkSecurityGroup** que está localizado no grupo de recursos **myResourceGroupSLB**.
 2. Em **Configurações**, clique em **Regras de segurança de entrada** e clique em **Adicionar**.
 3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Service Tag* – para **Fonte**.
-    - *Internet* – para **Marca de serviço de fonte**
+    - *Service Tag* – para **Origem**.
+    - *Internet* – para **Marca de serviço de origem**
     - *80* - para os **Intervalos de porta de destino**
     - *TCP* – para **Protocolo**
     - *Allow* – para **Ação**
@@ -239,7 +237,7 @@ Para adicionar *myVM1* de volta ao pool de back-end, conclua as seguintes etapas
    2. Para **Selecionar um balanceador de carga**, selecione *myLoadBalancer*.
    3. Para **Selecionar um pool de back-end**, selecione *myBackendPool*. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando eles não forem mais necessários, exclua o grupo de recursos, o Load Balancer e todos os recursos relacionados. Para isso, selecione o grupo de recursos *myResouceGroupSLB* que contém o Load Balancer e clique em **Excluir**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604057"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918750"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -39,7 +39,7 @@ Para ajudá-lo a se proteger contra esses desafios, a Central de Segurança forn
 
 -   **Fortalecer a postura de segurança**: A Central de Segurança avalia seu ambiente e permite que você entenda o status de seus recursos e se eles são seguros.
 
--   **Proteger contra ameaças**: A Central de Segurança avalia a suas cargas de trabalho e gera alertas de detecção de ameaças e recomendações de prevenção de ameaças.
+-   **Proteger contra ameaças**: a Central de Segurança avalia a suas cargas de trabalho e gera recomendações de prevenção de ameaças e alertas de segurança.
 
 -   **Ficar seguro com mais rapidez**: Na Central de Segurança, tudo é feito na velocidade da nuvem. Por ser integrada nativamente, a implantação da Central de Segurança é fácil, oferecendo provisionamento automático e proteção com os serviços do Azure.
 
@@ -51,7 +51,7 @@ Como a Central de Segurança nativamente faz parte do Azure, serviços de PaaS n
 
 Além disso, a Central de Segurança protege servidores e máquinas virtuais não Azure na nuvem ou localmente para servidores Windows e Linux instalando o Microsoft Monitoring Agent neles. Máquinas virtuais do Azure são provisionadas automaticamente na Central de Segurança.
 
-Os eventos coletados dos agentes e do Azure são correlacionados no mecanismo de análise de segurança para fornecer alertas de detecção de ameaças e recomendações (tarefas de proteção) sob medida que você deve seguir para que suas cargas de trabalho fiquem seguras. Você deve investigar esses alertas assim que possível para verificar se ataques mal-intencionados não estão ocorrendo em suas cargas de trabalho.
+Os eventos coletados dos agentes e do Azure são correlacionados no mecanismo de análise de segurança para fornecer alertas de segurança e recomendações (tarefas de proteção) personalizados, que você deve seguir para que suas cargas de trabalho fiquem seguras. Você deve investigar esses alertas assim que possível para verificar se ataques mal-intencionados não estão ocorrendo em suas cargas de trabalho.
 
 Quando você habilita a Central de Segurança, a política de segurança interna da Central de Segurança é refletida no Azure Policy como uma iniciativa interna, na categoria Central de Segurança. A iniciativa interna é atribuída automaticamente a todas as assinaturas registradas da Central de Segurança (camadas Gratuita ou Standard). A iniciativa interna contém somente políticas de Auditoria. Para obter mais informações sobre as políticas da Central de Segurança no Azure Policy, confira [Trabalhando com políticas de segurança](tutorial-security-policy.md).
 
@@ -107,9 +107,9 @@ A proteção contra ameaças da Central de Segurança inclui análise de cadeia 
 
 ![Recomendação de ataque da Central de Segurança](media/security-center-intro/sc-attack-recommendation.png)
 
-### <a name="advanced-threat-protection"></a>Proteção avançada contra ameaças
+### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integração à proteção avançada contra ameaças do Microsoft Defender
 
-Com a Central de Segurança, você obtém a integração nativa à Proteção Avançada contra Ameaças do Windows Defender pronta para uso. Isso significa que, sem qualquer configuração, seus servidores e máquinas virtuais do Windows são totalmente integrados com avaliações e recomendações da Central de Segurança. Detecção avançada de ameaças também é oferecida pronta para uso para servidores e máquinas virtuais do Linux.
+A Central de Segurança inclui a integração nativa e automática à Proteção Avançada contra Ameaças do Microsoft Defender. Isso significa que, sem qualquer configuração, seus computadores Windows e Linux são totalmente integrados com avaliações e recomendações da Central de Segurança.
 
 Além disso, a Central de Segurança permite automatizar as políticas de controle de aplicativo em ambientes de servidor. Os controles de aplicativo adaptáveis na Central de Segurança habilitam a lista de permissões do aplicativo de ponta a ponta entre os servidores do Windows. Você não precisa criar as regras e verificar as violações, tudo é feito automaticamente para você.
 
@@ -129,7 +129,7 @@ A Central de Segurança inclui funcionalidades que ajudam você a realizar a cla
 
 ### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteger IoT e cargas de trabalho de nuvem híbrida
 
-A Central de Segurança do Azure para IoT (Internet das Coisas) simplifica a proteção de carga de trabalho híbridas, oferecendo visibilidade unificada e controle, prevenção de ameaças adaptável, além de resposta e detecção de ameaças inteligente em cargas de trabalho em execução na borda, no local, no Azure e em outras nuvens. Para saber mais, confira [Central de Segurança do Azure para IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+A Central de Segurança do Azure para IoT (Internet das Coisas) simplifica a proteção de cargas de trabalho híbridas, oferecendo visibilidade unificada e controle, prevenção de ameaças adaptável, além de resposta e proteção inteligente contra ameaças em cargas de trabalho em execução na borda, no local, no Azure e em outras nuvens. Para saber mais, confira [Central de Segurança do Azure para IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Ficar seguro com mais rapidez
 
@@ -146,6 +146,5 @@ Ampla coleta de log – logs do Windows e do Linux são todos aproveitados no me
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/free/).
-- O tipo de preço Gratuito da Central de Segurança é habilitado com sua assinatura do Azure. Para obter vantagem do gerenciamento de segurança avançado e dos recursos de detecção de ameaças, você deve atualizar para o tipo de preço Standard. A camada Standard pode ser experimentada gratuitamente. Consulte a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
+- O tipo de preço gratuito da Central de Segurança é habilitado com sua assinatura do Azure. Para aproveitar o gerenciamento de segurança avançado e os recursos de proteção contra ameaças, você deve atualizar para o tipo de preço Standard. O nível Standard pode ser experimentado gratuitamente durante 30 dias. Para obter mais informações, confira a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 - Se você estiver pronto para habilitar a Central de Segurança Standard agora, o [Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) o orientará pelas etapas.
-

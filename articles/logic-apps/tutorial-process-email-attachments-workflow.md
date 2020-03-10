@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/20/2019
-ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/27/2020
+ms.openlocfilehash: 4adcda6030ed59cb6cc2285eb1c1eea0f768662c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969114"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662605"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure
 
@@ -34,7 +34,7 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 ![Aplicativo lógico concluído em alto nível](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -59,7 +59,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
    | **Assinatura** | <*Azure-subscription-name*> | O nome e a ID da assinatura do Azure |  
    | **Grupo de recursos** | <*Azure-resource-group*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usado para organizar e gerenciar os recursos relacionados. Este exemplo usa "LA-tutorial-RG". <p>**Observação:** um grupo de recursos reside dentro de uma região específica. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente usar a mesma região sempre que possível. |
    | **Nome da conta de armazenamento** | <*Azure-storage-account-name*> | O nome da conta de armazenamento, que deve ter de 3 a 24 caracteres e pode conter apenas letras minúsculas e números. Este exemplo usa "attachmentstorageacct". |
-   | **Localidade** | <*Azure-region*> | A região na qual armazenar informações sobre sua conta de armazenamento. Este exemplo usa "Leste dos EUA". |
+   | **Localidade** | <*Azure-region*> | A região na qual armazenar informações sobre sua conta de armazenamento. Este exemplo usa "Oeste dos EUA". |
    | **Desempenho** | Standard | Essa configuração especifica os tipos de dados com suporte e a mídia para armazenar dados. Confira os [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Tipo de conta** | Propósito geral | O [tipo de conta de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replicação** | Armazenamento com redundância local (LRS) | Essa configuração especifica como os dados são copiados, armazenados, gerenciados e sincronizados. Veja [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o Armazenamento do Azure](../storage/common/storage-redundancy-lrs.md). |
@@ -89,7 +89,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
 1. Crie um contêiner de armazenamento de blobs para os anexos de email.
 
-   1. No menu da conta de armazenamento, selecione **Visão Geral**. Em **Serviços**, selecione **Contêineres**.
+   1. No menu da conta de armazenamento, selecione **Visão Geral**. No painel Visão Geral, selecione **Contêineres**.
 
       ![Adicionar contêiner do armazenamento de blobs](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -223,24 +223,24 @@ Depois de verificar que sua função funciona, crie o aplicativo lógico. Embora
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico
 
-1. Na página inicial do Azure, na caixa de pesquisa, encontre e selecione **Aplicativos Lógicos**.
+1. Na caixa de pesquisa de nível superior do Azure, insira `logic apps` e selecione **Aplicativos Lógicos**.
 
    ![Encontrar e selecionar "Aplicativos Lógicos"](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. Na página **Aplicativos Lógicos**, selecione **Adicionar**.
+1. No painel **Aplicativos Lógicos**, selecione **Adicionar**.
 
-   ![Adicionar novo aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Adicionar novo aplicativo lógico](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. Em **Criar aplicativo lógico**, forneça os detalhes sobre seu aplicativo lógico, conforme mostrado aqui. Quando terminar, selecione **Criar**.
+1. No painel **Aplicativo Lógico**, forneça os detalhes sobre seu aplicativo lógico, conforme mostrado aqui. Após terminar, selecione **Examinar + criar**.
 
    ![Fornecer informações de aplicativo lógico](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | Configuração | Valor | Descrição |
    | ------- | ----- | ----------- |
-   | **Nome** | LA-ProcessAttachment | O nome do seu aplicativo lógico |
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | A mesma assinatura do Azure que você usou anteriormente |
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que você usou anteriormente |
-   | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente |
+   | **Nome do Aplicativo Lógico** | LA-ProcessAttachment | O nome do seu aplicativo lógico |
+   | **Selecione a localização** | Oeste dos EUA | A mesma região que você usou anteriormente |
    | **Log Analytics** | Desativado | Para este tutorial, selecione a configuração **Desativado**. |
    ||||
 
@@ -667,7 +667,15 @@ Parabéns, você agora criou e executou um aplicativo lógico que automatiza tar
 
 Quando você não precisar mais deste exemplo, exclua o grupo de recursos que contém o aplicativo lógico e os recursos relacionados.
 
-1. No menu principal do Azure, selecione **Grupos de recursos**. Na lista de grupos de recursos, selecione o grupo de recursos para este tutorial. No painel **Visão geral**, selecione **Excluir grupo de recursos**.
+1. Na caixa de pesquisa de nível superior do Azure, insira `resources groups` e selecione **Grupos de recursos**.
+
+   ![Encontre e selecione "Grupos de recursos"](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+
+1. Na lista **Grupos de recursos**, selecione o grupo de recursos para este tutorial. 
+
+   ![Encontrar o grupo de recursos para o tutorial](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
+
+1. No painel **Visão geral**, selecione **Excluir grupo de recursos**.
 
    ![Excluir grupo de recursos do aplicativo lógico](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

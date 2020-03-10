@@ -25,7 +25,7 @@ Este artigo mostra como criar regras de dimensionamento automático no portal do
 Para criar regras de autoescala, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. Você pode criar um conjunto de dimensionamento com o [portal do Azure](quick-create-portal.md), [do Azure PowerShell](quick-create-powershell.md), ou [CLI do Azure](quick-create-cli.md).
 
 
-## <a name="create-a-rule-to-automatically-scale-out"></a>Crie uma regra para expandir automaticamente
+## <a name="create-a-rule-to-automatically-scale-out"></a>Crie uma regra para escalar horizontalmente de modo automático
 Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunto de dimensionamento também aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. Você controla quais métricas são monitoradas, como CPU ou disco, por quanto tempo a carga do aplicativo deve atender a determinado limite e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
 1. Abra o portal do Azure e selecione **Grupos de recursos** no menu esquerdo do painel.

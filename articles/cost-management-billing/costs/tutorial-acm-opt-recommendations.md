@@ -3,17 +3,17 @@ title: Tutorial – Reduzir os custos do Azure com recomendações
 description: Este tutorial o ajuda a reduzir os custos do Azure quando você age com base em recomendações de otimização.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 796d843461d5d622988f7992439a7c4426186761
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199952"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245408"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos usando recomendações
 
@@ -26,13 +26,13 @@ Neste tutorial, você aprenderá como:
 > * Aja em uma recomendação para redimensionar uma máquina virtual para uma opção mais econômica
 > * Verifique a ação para garantir que a máquina virtual foi redimensionada com êxito
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 As recomendações estão disponíveis para uma variedade de escopos e de tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 - Subscription
 - Resource group
 
-Você deve ter máquinas virtuais ativas com pelo menos 14 dias de atividade.
+Se você tiver uma nova assinatura, não poderá usar imediatamente os recursos do Gerenciamento de Custos. Poderá levar até 48 horas para você poder usar todos os recursos do Gerenciamento de Custos. Além disso, você deve ter máquinas virtuais ativas com pelo menos 14 dias de atividade.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).

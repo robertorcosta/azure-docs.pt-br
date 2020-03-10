@@ -112,7 +112,7 @@ A saída do servidor Nginx deverá ser semelhante à seguinte:
 
 
 ## <a name="scale-your-containers"></a>Dimensionar seus contêineres
-Você pode usar a API do Marathon para expandir ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
+Você pode usar a API do Marathon para escalar ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
 
 ```json
 { "instances": 3 }
@@ -169,7 +169,7 @@ Para implantar um contêiner Docker formatado, armazene o arquivo JSON em um loc
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-Você também pode usar a API do Marathon para expandir ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
+Você também pode usar a API do Marathon para escalar ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
 
 ```json
 { "instances": 3 }

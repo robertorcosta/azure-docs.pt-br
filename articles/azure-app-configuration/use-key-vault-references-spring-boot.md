@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 17d86f25de6eecee535d6f812f4ef0b078a4b6db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d1fb963753577e9518d93262f9c9c7a1cf984005
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752492"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656000"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Usar as referências do Key Vault em um aplicativo Java Spring
 
@@ -41,11 +41,11 @@ Neste tutorial, você aprenderá como:
 > * Criar uma chave da Configuração de Aplicativos que referencia um valor armazenado no Key Vault.
 > * Acessar o valor dessa chave em um aplicativo Java Spring.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Um [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk) com suporte na versão 8.
+* [Apache Maven](https://maven.apache.org/download.cgi), versão 3.0 ou posterior.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
@@ -56,10 +56,10 @@ Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.micr
 1. Na lista de resultados, selecione **Cofres de chaves** à esquerda.
 1. Em **Cofres de chaves**, selecione **Adicionar**.
 1. À direita, na seção **Criar cofre de chaves**, forneça as seguintes informações:
-    - Selecione **Assinatura** para escolher uma assinatura.
-    - Em **Grupo de Recursos**, selecione **Criar novo** e digite um nome para o grupo de recursos.
-    - Em **Nome do cofre de chaves**, é necessário um nome exclusivo. Para este tutorial, insira **Contoso-vault2**.
-    - Na lista suspensa **Região**, escolha uma localização.
+    * Selecione **Assinatura** para escolher uma assinatura.
+    * Em **Grupo de Recursos**, selecione **Criar novo** e digite um nome para o grupo de recursos.
+    * Em **Nome do cofre de chaves**, é necessário um nome exclusivo. Para este tutorial, insira **Contoso-vault2**.
+    * Na lista suspensa **Região**, escolha uma localização.
 1. Deixe as outras opções de **Criar cofre de chaves** com os valores padrão.
 1. Selecione **Criar**.
 
@@ -74,9 +74,9 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 1. Na página de propriedades do Key Vault, selecione **Segredos**.
 1. Selecione **Gerar/Importar**.
 1. No painel **Criar um segredo**, insira os seguintes valores:
-    - **Opções de upload**: insira **Manual**.
-    - **Name**: insira **Mensagem**.
-    - **Valor**: insira **Olá do Key Vault**.
+    * **Opções de upload**: insira **Manual**.
+    * **Name**: insira **Mensagem**.
+    * **Valor**: insira **Olá do Key Vault**.
 1. Deixe as outras propriedades de **Criar um segredo** com os valores padrão.
 1. Selecione **Criar**.
 
@@ -87,10 +87,10 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 1. Selecione **Gerenciador de Configurações**.
 
 1. Clique em **+ Criar** > **Referência do Key Vault** e especifique os seguintes valores:
-    - **Chave**: Selecione **/application/config.keyvaultmessage**
-    - **Rótulo**: deixe esse valor em branco.
-    - **Assinatura**, **Grupo de recursos** e **Cofre de chaves**: Insira os valores correspondentes aos valores no cofre de chaves que você criou na seção anterior.
-    - **Segredo**: selecione o segredo chamado **Mensagem** criado na seção anterior.
+    * **Chave**: Selecione **/application/config.keyvaultmessage**
+    * **Rótulo**: deixe esse valor em branco.
+    * **Assinatura**, **Grupo de recursos** e **Cofre de chaves**: Insira os valores correspondentes aos valores no cofre de chaves que você criou na seção anterior.
+    * **Segredo**: selecione o segredo chamado **Mensagem** criado na seção anterior.
 
 ## <a name="connect-to-key-vault"></a>Conectar-se ao Key Vault
 
@@ -119,8 +119,15 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
 1. Execute o comando a seguir para permitir que a entidade de serviço acesse o cofre de chaves:
 
+    ```console
+    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+
+1. Execute o comando a seguir para obter sua object-id e adicioná-la à Configuração de Aplicativos.
+
+    ```console
+    az ad sp show --id <clientId-of-your-service-principal>
+    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. Crie as seguintes variáveis de ambiente usando os valores da entidade de serviço que foram exibidos na etapa anterior:
@@ -130,7 +137,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
     * **AZURE_TENANT_ID**: *tenantId*
 
 > [!NOTE]
-> Essas credenciais do Key Vault são usadas somente dentro do seu aplicativo. Seu aplicativo é autenticado diretamente para o Key Vault com essas credenciais. Elas nunca são passadas para o serviço de Configuração de Aplicativos.
+> Essas credenciais do Key Vault são usadas somente dentro do seu aplicativo.  Seu aplicativo se autentica diretamente com o Key Vault usando essas credenciais sem envolver o serviço de Configuração de Aplicativos.  O Key Vault oferece autenticação para seu aplicativo e o serviço de Configuração de Aplicativos sem compartilhar ou expor chaves.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Atualizar o código para usar uma referência do Key Vault
 
@@ -157,17 +164,73 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
     }
     ```
 
+1. Crie um arquivo chamado *AzureCredentials.java* e adicione o código abaixo.
+
+    ```java
+    package com.example;
+
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.identity.EnvironmentCredentialBuilder;
+    import com.microsoft.azure.spring.cloud.config.AppConfigurationCredentialProvider;
+    import com.microsoft.azure.spring.cloud.config.KeyVaultCredentialProvider;
+
+    public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
+
+        @Override
+        public TokenCredential getKeyVaultCredential(String uri) {
+            return getCredential();
+        }
+
+        @Override
+        public TokenCredential getAppConfigCredential(String uri) {
+            return getCredential();
+        }
+
+        private TokenCredential getCredential() {
+            return new EnvironmentCredentialBuilder().build();
+        }
+
+    }
+    ```
+
+1. Crie um arquivo chamado *AppConfiguration.java*. Além disso, adicione o código abaixo.
+
+    ```java
+    package com.example;
+
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    public class AppConfiguration {
+
+        @Bean
+        public AzureCredentials azureCredentials() {
+            return new AzureCredentials();
+        }
+    }
+    ```
+
+1. Crie um arquivo em seu diretório META-INF de recursos chamado *spring.factories* e adicione.
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.AppConfiguration
+    ```
+
 1. Compile o aplicativo Spring Boot com Maven e execute-o, por exemplo:
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
+
 1. Depois que o aplicativo estiver em execução, use *curl* para testar o aplicativo, por exemplo:
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
+
     Você verá a mensagem inserida no repositório de Configuração de Aplicativos. Você também verá a mensagem que inseriu no Key Vault.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

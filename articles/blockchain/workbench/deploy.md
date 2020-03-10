@@ -4,12 +4,12 @@ description: Como implantar a visualização do Azure Blockchain Workbench
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189239"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943195"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implantar a visualização do Azure Blockchain Workbench
 
@@ -135,7 +135,7 @@ Concluída a implantação do Blockchain Workbench, um novo grupo de recursos co
 
     ![Conceitos básicos do Serviço de Aplicativo](media/deploy/app-service.png)
 
-Para associar um nome de domínio personalizado ao Blockchian Workbench, consulte [Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego](../../app-service/web-sites-traffic-manager-custom-domain-name.md).
+Para associar um nome de domínio personalizado ao Blockchian Workbench, consulte [Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego](../../app-service/configure-domain-traffic-manager.md).
 
 ## <a name="azure-ad-configuration-script"></a>Script de configuração do Azure AD
 

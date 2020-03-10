@@ -120,7 +120,7 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 
 Você pode fazer um upgrade, downgrade ou pausar o servidor. Use o portal do Azure ou tenha controle total usando o PowerShell. Você paga apenas pelo que usa.  
 
-### <a name="scale-out-resources-for-fast-query-responses"></a>Recursos de expansão para respostas de consulta rápidas
+### <a name="scale-out-resources-for-fast-query-responses"></a>Recursos de escala horizontal para respostas de consulta rápidas
 
 Com escalar horizontalmente, as consultas do cliente são distribuídas entre várias *réplicas de consulta* em um pool de consulta. As réplicas de consulta possuem cópias sincronizadas dos seus modelos de tabela. Ao distribuir a carga de trabalho de consulta, os tempos de resposta durante cargas de trabalho de consulta altas podem ser reduzidos. As operações de processamento do modelo podem ser separadas do pool de consultas, garantindo que as consultas não são afetadas negativamente pelas operações de processamento. 
 

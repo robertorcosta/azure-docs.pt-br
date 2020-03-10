@@ -8,18 +8,18 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1c19523508f434c114df884824d1595376bac21
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c02595ebdb2f011dcc94b517771a79a4b2df754d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276948"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161713"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar um novo aplicativo Android usando Âncoras Espaciais do Azure
 
 Este tutorial mostra como criar um novo aplicativo Android que se integra à funcionalidade de ARCore com Âncoras Espaciais do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se você tem:
 
@@ -123,13 +123,13 @@ Por fim, adicione o método `handleTap()` a seguir, que juntará tudo. Ele criar
 
 ## <a name="attach-a-local-azure-spatial-anchor"></a>Anexar uma âncora espacial do Azure local
 
-Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada a seguir. Esse código assegurará que o aplicativo se destine às Âncoras Espaciais do Azure versão 1.3.0. Dito isso, fazer referência a qualquer versão recente das Âncoras Espaciais do Azure deve funcionar.
+Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada a seguir. Esse código assegurará que o aplicativo se destine às Âncoras Espaciais do Azure versão 2.2.0. Dito isso, fazer referência a qualquer versão recente das Âncoras Espaciais do Azure deve funcionar. Você pode encontrar as notas sobre a versão [aqui.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.2.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.2.0]"
     ...
 }
 ```

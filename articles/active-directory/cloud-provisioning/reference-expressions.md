@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d250377e15b957c10322dbba9ca587dd58944ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794972"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298608"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributo no Azure Active Directory
 Quando você configura um provisionamento de nuvem, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. 
@@ -39,7 +39,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 * Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo:  "Nome da empresa: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-| Lista de funções | DESCRIÇÃO |
+| Lista de funções | Descrição |
 |-----|----|
 |[Acrescentar](#append)|seleciona um valor da cadeia de caracteres de source e acrescenta o sufixo ao final dela.|
 |[BitAnd](#bitand)|a função BitAnd define os bits especificados em um valor.|
@@ -47,7 +47,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 |[ConvertFromBase64](#convertfrombase64)|a função ConvertFromBase64 converte o valor codificado base64 especificado em uma cadeia de caracteres regular.|
 |[ConvertToBase64](#converttobase64)|a função ConvertToBase64 converte uma cadeia de caracteres em uma cadeia de caracteres Unicode em base64. |
 |[ConvertToUTF8Hex](#converttoutf8hex)|a função ConvertToUTF8Hex converte uma cadeia de caracteres em um valor codificado em UTF8 hexadecimal.|
-|[Contagem](#count)|a função Count retorna o número de elementos em um atributo de valores múltiplos|
+|[Count](#count)|a função Count retorna o número de elementos em um atributo de valores múltiplos|
 |[CStr](#cstr)|a função CStr converte em um tipo de dados da cadeia de caracteres.|
 |[DateFromNum](#datefromnum)|a função DateFromNum converte um valor, no formato de data do AD, em um tipo DateTime.|
 |[DNComponent](#dncomponent)|a função DNComponent retorna o valor de um componente DN especificado saindo da esquerda.|
@@ -67,10 +67,10 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 |[NormalizeDiacritics](#normalizediacritics)|Requer um argumento de cadeia de caracteres. Retorna a cadeia de caracteres, mas com nenhum dos caracteres diacríticos substituídos por caracteres não diacríticas equivalentes.|
 |[Not](#not) |Inverte o valor booliano de **source**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".| 
 |[RemoveDuplicates](#removeduplicates)|a função RemoveDuplicates obtém uma cadeia de caracteres de valores múltiplos e verifica se cada valor é exclusivo.| 
-|[Substitua](#replace) |substitui valores dentro de uma cadeia de caracteres. | 
+|[Substituir](#replace) |substitui valores dentro de uma cadeia de caracteres. | 
 |[SelectUniqueValue](#selectuniquevalue)|Requer um mínimo de dois argumentos, que são definidas usando expressões de regras de geração de valor exclusivo. A função avalia cada regra e, em seguida, verifica o valor gerado para exclusividade no aplicativo/diretório de destino.| 
 |[SingleAppRoleAssignment](#singleapproleassignment)|Retorna um único appRoleAssignment da lista de todos os appRoleAssignments atribuída a um usuário para um determinado aplicativo.| 
-|[Divisão](#split)|Divide uma cadeia de caracteres em uma matriz com vários valores, usando o caractere delimitador especificado.|
+|[Split](#split)|Divide uma cadeia de caracteres em uma matriz com vários valores, usando o caractere delimitador especificado.|
 |[StringFromSID](#stringfromsid)|a função StringFromSid converte uma matriz de bytes, que contém um identificador de segurança, em uma cadeia de caracteres.| 
 |[StripSpaces](#stripspaces) |remove todos os caracteres de espaço (" ") da caracteres da cadeia de source.| 
 |[Switch](#switch)|Quando o valor de **source** corresponde a um parâmetro **key**, retorna **value** para esse parâmetro **key**. | 
@@ -87,10 +87,10 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-   | **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
+   | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
+   | **suffix** |Obrigatório |String |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -250,11 +250,11 @@ se o atributo accountName não estiver presente, gere um erro no objeto.
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-   | **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-   | **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída. |
+   | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
+   | **inputFormat** |Obrigatório |String |Formato esperado do valor de source. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **outputFormat** |Obrigatório |String |Formato da data de saída. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -352,7 +352,7 @@ o inverso dessa função é chamado de IsNullOrEmpty.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>item
+### <a name="item"></a>Item
 **Descrição:**  
 a função Item retorna um item de um atributo/cadeia de caracteres de valores múltiplos.
 
@@ -383,7 +383,7 @@ se a expressão puder ser avaliada como um tipo de cadeia de caracteres, a funç
 usada para determinar se CStr() pode ter êxito ao analisar a expressão.
 
 ---
-### <a name="join"></a>Ingressar
+### <a name="join"></a>Join
 **Função:**<br> Join(separator, source1, source2, …)
 
 **Descrição:**<br> Join() é semelhante a Append(), exceto por poder combinar diversos valores de cadeia de caracteres **source** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separator**.
@@ -392,13 +392,13 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-   | **source1  … sourceN** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
+   | **separator** |Obrigatório |String |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
+   | **source1  … sourceN** |Obrigatório, número de vezes variável |String |Valores de cadeia de caracteres a serem unidos. |
 
 ---
-### <a name="left"></a>Left
+### <a name="left"></a>Left (à esquerda)
 **Descrição:**  
 a função Left retorna um número especificado de caracteres a partir da esquerda de uma cadeia de caracteres.
 
@@ -429,10 +429,10 @@ Retorna `Joh`.
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
-   | **iniciar** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
+   | **origem** |Obrigatório |String |Geralmente o nome do atributo. |
+   | **start** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
    | **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 ---
@@ -443,21 +443,21 @@ Retorna `Joh`.
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome. |
+   | **origem** |Obrigatório |String | Geralmente um atributo de nome ou sobrenome. |
 
 ---
-### <a name="not"></a>não
+### <a name="not"></a>Not
 **Função:**<br> Not(source)
 
 **Descrição:**<br> Inverte o valor booliano de **source**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
+   | **origem** |Obrigatório |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -497,15 +497,15 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente, o nome do atributo do objeto de **source**. |
-   | **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
-   | **regexPattern** |Opcional |Cadeia de caracteres |Padrão de Regex para o valor a ser substituído em **source**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
-   | **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
-   | **replacementValue** |Opcional |Cadeia de caracteres |Novo valor com o qual substituir um antigo. |
-   | **replacementAttributeName** |Opcional |Cadeia de caracteres |Nome do atributo a ser usado para o valor de substituição |
-   | **template** |Opcional |Cadeia de caracteres |Quando o valor de **template** for fornecido, procuraremos **oldValue** dentro de template e o substituiremos pelo valor de **source**. |
+   | **origem** |Obrigatório |String |Normalmente, o nome do atributo do objeto de **source**. |
+   | **oldValue** |Opcional |String |Valor a ser substituído em **source** ou **template**. |
+   | **regexPattern** |Opcional |String |Padrão de Regex para o valor a ser substituído em **source**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
+   | **regexGroupName** |Opcional |String |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
+   | **replacementValue** |Opcional |String |Novo valor com o qual substituir um antigo. |
+   | **replacementAttributeName** |Opcional |String |Nome do atributo a ser usado para o valor de substituição |
+   | **template** |Opcional |String |Quando o valor de **template** for fornecido, procuraremos **oldValue** dentro de template e o substituiremos pelo valor de **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -522,9 +522,9 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar. |
+   | **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras de geração de valor exclusivo para avaliar. |
 
 
 ---
@@ -535,9 +535,9 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-  | NOME | Obrigatório/repetição | Type | Observações |
+  | Nome | Obrigatório/repetição | Type | Observações |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]** . |
+  | **[appRoleAssignments]** |Obrigatório |String |Objeto **[appRoleAssignments]** . |
 
 ---
 ### <a name="split"></a>Divisão
@@ -547,10 +547,10 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
-   | **delimiter** |Obrigatório |Cadeia de caracteres |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
+   | **origem** |Obrigatório |String |**fonte** a atualizar. |
+   | **delimiter** |Obrigatório |String |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,24 +568,24 @@ a função StringFromSid converte uma matriz de bytes, que contém um identifica
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
+   | **origem** |Obrigatório |String |**fonte** a atualizar. |
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Opção
 **Função:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrição:**<br> Quando o valor de **source** corresponde a um parâmetro **key**, retorna **value** para esse parâmetro **key**. Se o valor de **source** não corresponder a nenhum parâmetro key, **defaultValue** será retornado.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros.
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
-   | **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
-   | **chave** |Obrigatório |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
-   | **valor** |Obrigatório |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
+   | **origem** |Obrigatório |String |O valor de **origem** a ser verificado. |
+   | **defaultValue** |Opcional |String |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
+   | **chave** |Obrigatório |String |Parâmetro **key** com o qual comparar o valor de **source**. |
+   | **value** |Obrigatório |String |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,10 +595,10 @@ a função StringFromSid converte uma matriz de bytes, que contém um identifica
 
 **Parâmetros:**<br> 
 
-   | NOME | Obrigatório/repetição | Type | Observações |
+   | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
-   | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
-   | **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+   | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source |
+   | **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 
@@ -609,10 +609,10 @@ a função StringFromSid converte uma matriz de bytes, que contém um identifica
 
 **Parâmetros:**<br> 
 
-  | NOME | Obrigatório/repetição | Type | Observações |
+  | Nome | Obrigatório/repetição | Type | Observações |
   | --- | --- | --- | --- |
-  | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-  | **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+  | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
+  | **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 

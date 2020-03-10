@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá como criar uma imagem de contêine
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8a45cf3a72ed8f38f6f28a2f0225d0913f906da
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456056"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252106"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
@@ -32,7 +32,7 @@ Em tutoriais subsequentes, você aprenderá a usar as Tarefas do ACR para builds
 
 Se quiser usar a CLI do Azure localmente, será preciso ter a CLI do Azure versão **2.0.46** ou posterior instalada e conectada com [az login][az-login]. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="github-account"></a>Conta do GitHub
 
@@ -52,13 +52,13 @@ Depois que você tiver criado o fork do repositório, clone o fork e entre no di
 
 Clone o repositório com `git`, substitua **\<your-github-username\>** pelo seu nome de usuário do GitHub:
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Insira o diretório que contém o código-fonte:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -72,7 +72,9 @@ Agora que você efetuou pull do código-fonte para o seu computador, siga estas 
 
 Para tornar a execução dos comandos de exemplo mais fácil, os tutoriais desta série usam variáveis de ambiente de shell. Execute o seguinte comando para definir a variável `ACR_NAME`. Substitua **\<registry-name\>** por um nome exclusivo para seu novo registro de contêiner. O nome do Registro precisa ser exclusivo no Azure, conter apenas letras minúsculas e conter de 5 a 50 caracteres alfanuméricos. Os outros recursos que você cria no tutorial se baseiam nesse nome, e você precisará modificar apenas essa primeira variável.
 
-```azurecli-interactive
+[![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 
@@ -288,7 +290,7 @@ Quando `Server running at http://localhost:80` aparecer, navegue para o FQDN do 
 
 Para desanexar o console do contêiner, pressione `Control+C`.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pare a instância de contêiner com o comando [az container delete][az-container-delete]:
 

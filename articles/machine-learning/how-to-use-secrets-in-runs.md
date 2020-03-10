@@ -9,35 +9,36 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 722e329b1a2d069b614a301a5eb2f8642b697295
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/09/2020
+ms.openlocfilehash: d877794abf12b8b412cd1ecf4efd72fd1179d768
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538703"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942250"
 ---
 # <a name="use-secrets-in-training-runs"></a>Usar segredos em execuções de treinamento
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a usar os segredos no treinamento em execução com segurança. Por exemplo, para conectar-se a um banco de dados externo a fim de consultar os dados de treinamento, você precisará passar seu nome de usuário e senha para o contexto de execução remota. Codificar esses valores em scripts de treinamento em texto não criptografado é inseguro, pois ele exporia o segredo. 
+Neste artigo, você aprenderá a usar os segredos no treinamento em execução com segurança. As informações de autenticação, como seu nome de usuário e senha, são segredos. Por exemplo, se você se conectar a um banco de dados externo a fim de consultar dado de treinamento, você precisará passar seu nome de usuário e senha para o contexto de execução remota. Codificar esses valores em scripts de treinamento em texto não criptografado é inseguro, pois ele exporia o segredo. 
 
-Em vez disso, seu Workspace do Azure Machine Learning tem [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) como recurso associado. Esse Key Vault pode ser usado para passar segredos para execuções remotas com segurança por meio de um conjunto de APIs em Azure Machine Learning SDK do Python.
+Em vez disso, seu espaço de trabalho Azure Machine Learning tem um recurso associado chamado de [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Use esta Key Vault para passar segredos para execuções remotas com segurança por meio de um conjunto de APIs no SDK do Azure Machine Learning Python.
 
 O fluxo básico para usar segredos é:
  1. No computador local, faça logon no Azure e conecte-se ao seu espaço de trabalho.
  2. No computador local, defina um segredo no Key Vault do espaço de trabalho.
  3. Enviar uma execução remota.
- 4. Na execução remota, obtenha o segredo do valor da chave e use-o.
+ 4. Na execução remota, obtenha o segredo de Key Vault e use-o.
 
 ## <a name="set-secrets"></a>Definir segredos
 
-No SDK do Azure Machine Learning Python, a classe [keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) contém métodos para definir segredos. Em sua sessão do Python local, primeiro obtenha uma referência para o espaço de trabalho Key Vault e, em seguida, use o método [set_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) para definir um segredo por nome e valor.
+No Azure Machine Learning, a classe [keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) contém métodos para definir segredos. Em sua sessão do Python local, primeiro obtenha uma referência ao seu espaço de trabalho Key Vault e, em seguida, use o método [`set_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) para definir um segredo por nome e valor. O método __set_secret__ atualizará o valor secreto se o nome já existir.
 
 ```python
 from azureml.core import Workspace
+from azureml.core import Keyvault
 import os
+
 
 ws = Workspace.from_config()
 my_secret = os.environ.get("MY_SECRET")
@@ -47,17 +48,17 @@ keyvault.set_secret(name="mysecret", value = my_secret)
 
 Não coloque o valor secreto em seu código Python, pois ele não é seguro para armazená-lo no arquivo como texto não criptografado. Em vez disso, obtenha o valor secreto de uma variável de ambiente, por exemplo, o segredo de compilação do Azure DevOps ou da entrada interativa do usuário.
 
-Você pode listar nomes de segredo usando o método [list_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--) . O método __set_secret__ atualizará o valor secreto se o nome já existir.
+Você pode listar nomes de segredo usando o método [`list_secrets()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--) e também há uma versão do lote,[set_secrets ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-) que permite que você defina vários segredos de cada vez.
 
 ## <a name="get-secrets"></a>Obter segredos
 
-No código local, você pode usar o método[keyvault. get_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) para obter o valor secreto por nome.
+No código local, você pode usar o método[`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) para obter o valor secreto por nome.
 
-Em execuções enviadas usando o [experimento. Submit](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-), use o método [Run. get_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-) . Como uma execução enviada está ciente de seu espaço de trabalho, esse método faz o atalho da instanciação do espaço de trabalho e retorna o valor secreto diretamente.
+Para execuções enviadas a [`Experiment.submit`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-) , use o método [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-) com a classe [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) . Como uma execução enviada está ciente de seu espaço de trabalho, esse método faz o atalho da instanciação do espaço de trabalho e retorna o valor secreto diretamente.
 
 ```python
 # Code in submitted run
-from azureml.core import Run
+from azureml.core import Experiment, Run
 
 run = Run.get_context()
 secret_value = run.get_secret(name="mysecret")
@@ -65,9 +66,9 @@ secret_value = run.get_secret(name="mysecret")
 
 Tenha cuidado para não expor o valor secreto escrevendo ou imprimindo-o.
 
-Os métodos set e Get também têm versões de lote [set_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-) e [get_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) para acessar vários segredos de uma só vez.
+Também há uma versão do lote, [get_secrets ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) para acessar vários segredos de uma só vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
  * [Exibir bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
  * [Saiba mais sobre o Enterprise Security com Azure Machine Learning](concept-enterprise-security.md)

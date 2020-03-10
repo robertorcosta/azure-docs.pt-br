@@ -34,7 +34,7 @@ As regras de balanceamento de carga das portas de alta disponibilidade são conf
 
 ### <a name="nva"></a>Soluções de virtualização de rede
 
-É possível usar as NVA para ajudar a proteger as cargas de trabalho do Azure contra vários tipos de ameaças à segurança. Ao usar as NVA nesses cenários, elas devem ser confiáveis, altamente disponíveis e expandir sob demanda.
+É possível usar as NVA para ajudar a proteger as cargas de trabalho do Azure contra vários tipos de ameaças à segurança. Ao usar as NVA nesses cenários, elas devem ser confiáveis, altamente disponíveis e escalar horizontalmente sob demanda.
 
 Para atingir essas metas, basta adicionar instâncias NVA ao pool de back-end do balanceador de carga interno e configurar uma regra do balanceador de carga para portas de alta disponibilidade.
 

@@ -2,13 +2,13 @@
 title: FAQ do dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo migrações para Azure.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 99f7fc7db79785f99b96e6076607e434e43e605f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.date: 03/09/2020
+ms.openlocfilehash: 3d0844b980ac418c5c334c2535c40dc5f3caeb16
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927319"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939281"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -64,7 +64,7 @@ Os dados coletados pelo dispositivo de migrações para Azure são armazenados n
 
 Veja mais informações sobre como os dados são armazenados:
 
-- Os dados são armazenados com segurança em uma assinatura da Microsoft e excluídos quando você exclui o projeto de migrações para Azure.
+- Os dados coletados são armazenados com segurança no CosmosDB em uma assinatura da Microsoft. Os dados são excluídos quando você exclui o projeto de migrações para Azure. O armazenamento é tratado pelas migrações para Azure. Não é possível escolher especificamente uma conta de armazenamento para os dados coletados.
 - Se você usar a [visualização de dependência](concepts-dependency-visualization.md), os dados coletados serão armazenados no Estados Unidos em um espaço de trabalho do Azure log Analytics criado em sua assinatura do Azure. Os dados são excluídos quando você exclui o espaço de trabalho Log Analytics em sua assinatura.
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Qual a quantidade de dados carregada durante a criação de perfil contínua?
@@ -88,9 +88,13 @@ Estas etapas descrevem como o dispositivo se conecta ao VMware vCenter Server:
 3. O dispositivo coleta dados de configuração sobre VMs (núcleos, memória, discos, NICs) e o histórico de desempenho de cada VM no último mês.
 4. Os metadados coletados são enviados para a ferramenta migrações para Azure: Server Assessment (pela Internet via HTTPS) para avaliação.
 
-## <a name="can-i-connect-the-appliance-to-multiple-instances-of-vcenter-server"></a>Posso conectar o dispositivo a várias instâncias do vCenter Server?
+## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>O dispositivo migrações para Azure pode se conectar a vários servidores vCenter?
 
-Não. Há um mapeamento de um para um entre um dispositivo e vCenter Server. Para descobrir VMs em várias instâncias de vCenter Server, você deve implantar vários dispositivos.
+Não. Há um mapeamento de um para um entre um dispositivo de [migrações para Azure](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias de vCenter Server, você deve implantar vários dispositivos. 
+
+## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto de migrações para Azure pode ter vários dispositivos?
+Um projeto pode ter vários dispositivos anexados a ele. No entanto, um dispositivo só pode ser associado a um projeto. 
+
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantas VMs ou servidores posso descobrir com um dispositivo?
 
@@ -126,6 +130,6 @@ Somente o dispositivo e os agentes do dispositivo são atualizados por essas atu
 
 Sim. No portal, acesse a página de **integridade do agente** para a ferramenta migrações para Azure: avaliação do servidor ou migrações para Azure: Server Migration. Lá, você pode verificar o status da conexão entre o Azure e os agentes de descoberta e avaliação no dispositivo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Leia a [visão geral de migrações para Azure](migrate-services-overview.md).

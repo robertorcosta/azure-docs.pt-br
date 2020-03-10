@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: computação de escala – T-SQL '
-description: Dimensione a computação no SQL Data Warehouse do Azure usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
+title: Escalar a computação no Azure Synapse Analytics – T-SQL
+description: Escale a computação no Azure Synapse Analytics usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6729552262d7bea619948ddba406418b80cf69dc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a6d47a41375c00b9bdad5079f8e1f11cf369120a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685948"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200372"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início Rápido: Dimensionar a computação no SQL Data Warehouse do Azure usando T-SQL
+# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Início Rápido: Escalar a computação no Azure Synapse Analytics usando o T-SQL
 
-Dimensione a computação no SQL Data Warehouse do Azure usando T-SQL e SSMS (SQL Server Management Studio). [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos. 
+Escale a computação no Azure Synapse Analytics (antigo SQL DW) usando T-SQL e SSMS (SQL Server Management Studio). [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos. 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -40,29 +40,29 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
-   | Configuração       | Valor sugerido | DESCRIÇÃO | 
+   | Configuração       | Valor sugerido | Descrição | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
-   | Nome do servidor | O nome do servidor totalmente qualificado | Veja um exemplo: **meunovoservidor-20171113.database.windows.net**. |
-   | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
+   | Nome do servidor | O nome do servidor totalmente qualificado | Aqui está um exemplo: **mySampleDataWarehouseservername.database.windows.net**. |
+   | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
    | Logon | A conta do administrador do servidor | A conta que você especificou quando criou o servidor. |
-   | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
+   | Senha | A senha para sua conta do administrador do servidor | A senha que você especificou quando criou o servidor. |
 
-    ![conectar-se ao servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![Conectar-se ao servidor](media/quickstart-scale-compute-tsql/connect-to-server.png)
 
-4. Clique em **Conectar**. A janela Pesquisador de Objetos abre no SSMS. 
+3. Clique em **Conectar**. A janela Pesquisador de Objetos será aberta no SSMS.
 
-5. No Pesquisador de Objetos, expanda **Bancos de dados**. Em seguida, expanda **meuBancoDeDadosDeExemplo** para exibir os objetos no novo banco de dados.
+4. No Pesquisador de Objetos, expanda **Bancos de Dados**. Em seguida, expanda **mySampleDataWarehouse** para exibir os objetos no novo banco de dados.
 
-    ![objetos de banco de dados](media/create-data-warehouse-portal/connected.png) 
+    ![Objetos de banco de dados](media/quickstart-scale-compute-tsql/connected.png)
 
 ## <a name="view-service-objective"></a>Exibir objetivo de serviço
 A configuração do objetivo de serviço contém o número de unidades de data warehouse para o data warehouse. 
 
 Para exibir as unidades de data warehouse atuais do seu data warehouse:
 
-1. Na conexão para **mynewserver-20171113.database.windows.net**, expanda **Bancos de Dados do Sistema**.
-2. Clique com o botão direito do mouse em **mestre** e selecione **Nova Consulta**. Uma nova janela de consulta é aberta.
+1. Na conexão para **mySampleDataWarehouseservername.database.windows.net**, expanda **Bancos de Dados do Sistema**.
+2. Clique com o botão direito do mouse em **mestre** e selecione **Nova Consulta**. Uma janela de nova consulta é aberta.
 3. Execute a seguinte consulta para selecionar da exibição de gerenciamento dinâmico sys.database_service_objectives. 
 
     ```sql
@@ -80,11 +80,10 @@ Para exibir as unidades de data warehouse atuais do seu data warehouse:
 
 4. Os resultados a seguir mostram que **mySampleDataWarehouse** tem um objetivo de serviço de DW400. 
 
-    ![Exibir DWUs atuais](media/quickstart-scale-compute-tsql/view-current-dwu.png)
-
+    ![iew-current-dwu](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## <a name="scale-compute"></a>Computação de escala
-No SQL Data Warehouse, você pode aumentar ou diminuir os recursos de computação ao ajustar as unidades de data warehouse. O [Criar e conectar – portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
+No Azure Synapse, você pode aumentar ou diminuir os recursos de computação ao ajustar as unidades de data warehouse. O [Criar e conectar – portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
 
 Para alterar unidades de data warehouse:
 
@@ -93,8 +92,7 @@ Para alterar unidades de data warehouse:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
-    ;
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c');
     ```
 
 ## <a name="monitor-scale-change-request"></a>Monitorar solicitação de alteração do dimensionamento
@@ -113,7 +111,7 @@ Para sondar o status de alteração do objeto de serviço:
         WHERE 
             1=1
             AND resource_type_desc = 'Database'
-            AND major_resource_id = 'MySampleDataWarehouse'
+            AND major_resource_id = 'mySampleDataWarehouse'
             AND operation = 'ALTER DATABASE'
         ORDER BY
             start_time DESC
@@ -134,7 +132,7 @@ Quando um data warehouse é pausado, você não pode se conectar a ele com T-SQL
 
 ## <a name="check-operation-status"></a>Verificar o status da operação
 
-Para retornar informações sobre as diversas operações de gerenciamento em seu SQL Data Warehouse, execute a seguinte consulta no DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Por exemplo, ela retornará a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.
+Para retornar informações sobre as diversas operações de gerenciamento em seu Azure Synapse, execute a consulta a seguir no DMV [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Por exemplo, ela retornará a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.
 
 ```sql
 SELECT *
@@ -143,12 +141,12 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySampleDataWarehouse'
+    major_resource_id = 'mySampleDataWarehouse'
 ```
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você sabe como dimensionar a computação para seu data warehouse. Para saber mais sobre o SQL Data Warehouse do Azure, prossiga para o tutorial de carregamento de dados.
+Agora você sabe como dimensionar a computação para seu data warehouse. Para saber mais sobre o Azure Synapse, prossiga para o tutorial de carregamento de dados.
 
 > [!div class="nextstepaction"]
->[Carregar dados em um SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregar dados em um Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)

@@ -227,7 +227,7 @@ O Portal do Azure fornece uma experiência de monitoramento de pipeline com deta
 
 ## <a name="scale-considerations"></a>Considerações de escala
 
-### <a name="scale-out"></a>Expansão
+### <a name="scale-out"></a>Escalar horizontalmente
 Quando a **memória disponível está baixa** e o **uso de CPU é alto**, adicionar um novo nó ajuda a escalar horizontalmente a carga entre computadores. Se as atividades estão falhando devido a tempo limite atingido ou ao nó do gateway ficar offline, ajuda adicionar um nó ao gateway.
  
 ### <a name="scale-up"></a>Escalar verticalmente

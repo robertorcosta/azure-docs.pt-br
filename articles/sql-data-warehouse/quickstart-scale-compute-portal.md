@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: escala de computação – portal do Azure '
-description: Dimensionar a computação no SQL Data Warehouse do Azure no Portal do Azure. Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
+description: Escalar a computação no pool de SQL no portal do Azure. Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -10,55 +10,49 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 59d929165ac9618d68707e2f13741e7bbba7b37f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 7463849223fdf81466237c7d0c912763988e80e6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685967"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200322"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Dimensionar a computação no SQL Data Warehouse do Azure no Portal do Azure
+# <a name="quickstart-scale-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Início Rápido: Escalar a computação no pool de SQL do Azure Synapse Analytics no portal do Azure
 
-Dimensionar a computação no SQL Data Warehouse do Azure no Portal do Azure. [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos. 
+Dimensionar a computação no pool de SQL no portal do Azure. [Escale horizontalmente a computação](sql-data-warehouse-manage-compute-overview.md) para melhorar o desempenho ou reduza a escala da computação para economizar custos. 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você pode dimensionar um data warehouse que você já tem ou usar o [Início Rápido: Criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**.  Este início rápido dimensiona o **mySampleDataWarehouse**.
+Você pode escalar um pool de SQL que você já tem ou usar o [Início rápido: criar e conectar – portal](create-data-warehouse-portal.md) para criar um pool de SQL chamado **mySampleDataWarehouse**.  Este início rápido dimensiona o **mySampleDataWarehouse**.
 
 >[!Note]
->O data warehouse precisa estar online para ser dimensionado. 
+>Seu pool de SQL deve estar online para ser dimensionado. 
 
 ## <a name="scale-compute"></a>Computação de escala
 
-Os recursos de computação do SQL Data Warehouse podem ser dimensionados com o aumento ou a diminuição das unidades de data warehouse. O Início Rápido [Criar e conectar – portal] (create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
+Os recursos de computação do pool de SQL podem ser dimensionados com o aumento ou a diminuição das unidades de data warehouse. O Início Rápido [Criar e conectar – portal] (create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
 
 Para alterar unidades de data warehouse:
 
-1. Clique em **SQL data warehouses** na página esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** na página **SQL data warehouses**. O data warehouse é aberto.
+1. Clique em **Azure Synapse Analytics (antigo SQL DW)** na página à esquerda do portal do Azure.
+2. Selecione **mySampleDataWarehouse** na página **Azure Synapse Analytics (antigo SQL DW)** . O pool de SQL é aberto.
 3. Clique em **Escala**.
 
     ![Clique em Escala.](media/quickstart-scale-compute-portal/click-scale.png)
 
-2. No painel Escala, mova o controle deslizante para a esquerda ou direita para alterar a configuração de DWU.
+2. No painel Escala, mova o controle deslizante para a esquerda ou direita para alterar a configuração de DWU. Em seguida, selecione Escalar.
 
     ![Mover o controle deslizante](media/quickstart-scale-compute-portal/scale-dwu.png)
 
-3. Clique em **Save** (Salvar). Será exibida uma mensagem de confirmação. Clique em **sim** para confirmar ou em **não** para cancelar.
-
-    ![Clique em Salvar](media/quickstart-scale-compute-portal/confirm-change.png)
-
-
-
 ## <a name="next-steps"></a>Próximas etapas
-Agora você aprendeu a dimensionar a computação para seu data warehouse. Para saber mais sobre o SQL Data Warehouse do Azure, prossiga para o tutorial de carregamento de dados.
+Agora você aprendeu a escalar a computação para o pool de SQL. Para saber mais sobre o pool de SQL, prossiga para o tutorial de carregamento de dados.
 
 > [!div class="nextstepaction"]
->[Carregar dados em um SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregar dados no pool de SQL](load-data-from-azure-blob-storage-using-polybase.md)

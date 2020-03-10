@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 9d9033689472fbc462eefd3d31c2b36a19add81a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 45cb07de9ddc7854e6da8b8739acfaa95dd0ed01
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589463"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304116"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Criar redes virtuais com recursos de gateway da NAT (versão prévia pública)
 
@@ -34,7 +34,7 @@ Recursos de gateway da NAT são parte da [NAT de Rede Virtual](nat-overview.md) 
 
 
 >[!NOTE] 
->A NAT de Rede Virtual está disponível atualmente como versão prévia pública. No momento, ela só está disponível em um conjunto limitado de [regiões](nat-overview.md#region-availability). Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) para obter detalhes.
+>A NAT de Rede Virtual está disponível atualmente como versão prévia pública. No momento, ela só está disponível em um conjunto limitado de [regiões](nat-overview.md#region-availability). Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter detalhes.
 
 ## <a name="how-to-deploy-nat"></a>Como implantar a NAT
 
@@ -349,21 +349,25 @@ Desejamos saber como podemos aprimorar o serviço. Compartilhe conosco seus [com
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [NAT de Rede Virtual](nat-overview.md).
-- Tutorial para validar um gateway da NAT
-  * [CLI do Azure](tutorial-create-validate-nat-gateway-cli.md),
-  * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
-  * [Portal](tutorial-create-validate-nat-gateway-cli.md)
-- Início rápido para implantar o recurso de gateway da NAT
-  * [CLI do Azure](./quickstart-create-nat-gateway-cli.md),
-  * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  * [Portal](./quickstart-create-nat-gateway-portal.md).
-- Saiba mais sobre as [zonas de disponibilidade](../availability-zones/az-overview.md).
-- Saiba mais sobre o [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
-- Saiba mais sobre [zonas de disponibilidade e o Standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-- Saiba mais sobre a API do recurso de gateway da NAT
-  * [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
-  * [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
-  * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
-- [Com o UserVoice, diga-nos o que criar em seguida](https://aka/natuservoice).
-- [Forneça comentários sobre a versão prévia pública](https://aka.ms/natfeedback).
+* Saiba mais sobre a [NAT da rede virtual](nat-overview.md).
+* Saiba mais sobre [métricas e alertas para recursos do Gateway da NAT](nat-metrics.md).
+* Saiba mais sobre a [solução de problemas de recursos do Gateway da NAT](troubleshoot-nat.md).
+* [Com o UserVoice, diga-nos o que criar em seguida](https://aka.ms/natuservoice).
+* [Forneça comentários sobre a versão prévia pública](https://aka.ms/natfeedback).
+* Tutorial para validar um gateway da NAT
+  - [CLI do Azure](tutorial-create-validate-nat-gateway-cli.md),
+  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
+  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+* Início rápido para implantar o recurso de gateway da NAT
+  - [CLI do Azure](./quickstart-create-nat-gateway-cli.md),
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md),
+  - [Portal](./quickstart-create-nat-gateway-portal.md).
+* Saiba mais sobre a API do recurso do Gateway da NAT
+  - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
+  - [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+* Saiba mais sobre as [zonas de disponibilidade](../availability-zones/az-overview.md).
+* Saiba mais sobre o [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
+* Saiba mais sobre as [zonas de disponibilidade e o Standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+
+

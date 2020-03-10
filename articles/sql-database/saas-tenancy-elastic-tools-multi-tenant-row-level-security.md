@@ -345,7 +345,7 @@ GO
 
 ## <a name="summary"></a>Resumo
 
-Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência. Essa eficiência é pronunciada quando um grande número de locatários tiver apenas algumas linhas de dados. Fragmentos de locatário único podem dar suporte a locatários premium que têm requisitos de desempenho e de isolamento mais rígidos. Para obter mais informações, confira [a referência à Segurança em Nível de Linha][rls].
+Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para escalar horizontalmente a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência. Essa eficiência é pronunciada quando um grande número de locatários tiver apenas algumas linhas de dados. Fragmentos de locatário único podem dar suporte a locatários premium que têm requisitos de desempenho e de isolamento mais rígidos. Para obter mais informações, confira [a referência à Segurança em Nível de Linha][rls].
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

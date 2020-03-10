@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar uma Tarefa do Registr
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 23f77cb4f4c14f052d8ecdb23beed21263623d3e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3870bc70e9d18a3c1c854055cb0c27018554a556
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617492"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249974"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: automatizar builds de imagem de contêiner na atualização da imagem base em um Registro de Contêiner do Azure 
 
@@ -30,7 +30,7 @@ Neste tutorial:
 
 Se você quiser usar a CLI do Azure localmente, precisará ter a versão da CLI do Azure **2.0.46** ou posterior instalada. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="complete-the-previous-tutorials"></a>Conclua os tutoriais anteriores
 
@@ -51,7 +51,9 @@ Caso ainda não tenha feito isso, conclua os seguintes tutoriais antes de contin
 
 Preencha essas variáveis de ambiente de shell com valores apropriados para seu ambiente. Esta etapa não é estritamente necessária, mas torna a execução dos comandos da CLI do Azure com várias linhas neste tutorial um pouco mais fácil. Se não preencher essas variáveis de ambiente, você precisará substituir manualmente cada valor sempre que aparecerem nos comandos de exemplo.
 
-```azurecli-interactive
+[![Inserir inicialização](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial

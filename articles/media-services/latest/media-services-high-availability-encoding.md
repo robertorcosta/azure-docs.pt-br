@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: f5b02376111a3deba33cd5688330018bd7c370d8
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899211"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934187"
 ---
 # <a name="media-services-high-availability-encoding"></a>Codificação de alta disponibilidade dos serviços de mídia 
 
@@ -42,8 +42,8 @@ Seguindo as diretrizes e as práticas recomendadas descritas no artigo, você re
     * [SDK do Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (que dá suporte a eventos dos serviços de mídia nativamente).
 
     Você também pode consumir eventos de grade de eventos via Azure Functions.
-*    Quando você cria um [trabalho](transforms-jobs-concept.md):
-    
+* Quando você cria um [trabalho](transforms-jobs-concept.md):
+
     * Selecione aleatoriamente uma conta na lista de contas atualmente usadas (essa lista normalmente conterá as duas contas, mas se forem detectadas problemas, ela poderá conter apenas uma conta). Se a lista estiver vazia, gere um alerta para que um operador possa investigar.
     * As diretrizes gerais são necessárias para uma [unidade reservada de mídia](media-reserved-units-cli-how-to.md) por [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (a menos que você esteja usando [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) em que é recomendado 3 unidades reservadas de mídia por JobOutput).
     * Obtenha a contagem de unidades reservadas de mídia (MRUs) para a conta escolhida. Se a contagem de **unidades reservadas de mídia** atual ainda não estiver no valor máximo, adicione o número do MRUs necessário para o trabalho e atualize o serviço. Se a taxa de envio do trabalho for alta e você estiver consultando com frequência o MRUs para descobrir que você está no máximo, use um cache distribuído para o valor com um tempo limite razoável.

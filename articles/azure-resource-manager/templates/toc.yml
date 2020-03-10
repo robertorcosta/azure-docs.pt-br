@@ -145,10 +145,6 @@
             - name: outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-        - name: Recursos do nível de assinatura
-          href: deploy-to-subscription.md
-        - name: Recursos do nível de grupos de gerenciamento
-          href: deploy-to-management-group.md
     - name: Usar ferramentas de criação
       items:
         - name: Código VS
@@ -182,7 +178,15 @@
           href: rollback-on-error.md
         - name: Proteger o modelo com o token SAS
           href: secure-template-with-sas-token.md
-        - name: Implantar vários grupos de recursos ou assinaturas
+    - name: Implantações com escopo
+      items:
+        - name: Subscription
+          href: deploy-to-subscription.md
+        - name: Grupo de gerenciamento
+          href: deploy-to-management-group.md
+        - name: Locatário
+          href: deploy-to-tenant.md
+        - name: Vários grupos de recursos ou assinaturas
           href: cross-resource-group-deployment.md
     - name: Fornece parâmetros
       items:

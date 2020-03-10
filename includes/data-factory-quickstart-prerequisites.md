@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: f808158c959894e757adaa73a81e3bf57f475da0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4d77cb8128105a40143a40e48ebe450115f7cf1e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021312"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164061"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ### <a name="azure-roles"></a>Funções do Azure
-Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, acesse o [portal do Azure](https://portal.azure.com), selecione seu nome de usuário no canto superior direito e selecione **Mais opções** (...) e, em seguida, selecione **Minhas permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada.
+Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, acesse o [portal do Azure](https://portal.azure.com), selecione seu nome de usuário no canto superior direito e selecione o ícone “ **...** ” para obter mais opções; em seguida, selecione **Minhas permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada.
 
 Para criar e gerenciar recursos filho para o Data Factory – incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e runtimes de integração –, os requisitos a seguir são aplicáveis:
 
@@ -36,10 +36,10 @@ Para obter mais informações, confira os seguintes artigos:
 - [Funções e permissões para o Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Use uma Conta de Armazenamento do Azure de uso geral (especificamente o Armazenamento de Blobs) como armazenamento de dados de *origem* e *destino* neste guia de início rápido. Se você não tiver uma conta de fins gerais de armazenamento do Azure, consulte [Criar uma conta de armazenamento](../articles/storage/common/storage-account-create.md) para criar uma. 
+Use uma conta de Armazenamento do Azure de uso geral (especificamente o Armazenamento de Blobs) como armazenamentos de dados de *origem* e *destino* neste início rápido. Se você não tiver uma conta de Armazenamento do Azure de uso geral, confira [Criar uma conta de armazenamento](../articles/storage/common/storage-account-create.md) para criar uma. 
 
 #### <a name="get-the-storage-account-name"></a>Obter o nome da conta de armazenamento
-Você precisará do nome da sua conta de armazenamento do Azure neste início rápido. O procedimento a seguir fornece as etapas para obter o nome da sua conta de armazenamento: 
+Você precisará do nome da sua conta de Armazenamento do Azure para este início rápido. O procedimento a seguir fornece as etapas para obter o nome da sua conta de armazenamento: 
 
 1. Em um navegador da Web, vá para o [portal do Azure](https://portal.azure.com) e entre usando seu nome de usuário e senha do Azure.
 2. No menu do portal do Azure, selecione **Todos os serviços**, em seguida, selecione **Armazenamento** > **Contas de armazenamento**. Você também pode pesquisar e selecionar *Contas de armazenamento* de qualquer página.
@@ -50,9 +50,9 @@ Você também pode pesquisar e selecionar *Contas de armazenamento* de qualquer 
 #### <a name="create-a-blob-container"></a>Criar um contêiner de blob
 Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no armazenamento de Blobs do Azure.
 
-1. Na página Conta de armazenamento, selecione **Visão geral** > **Blobs**.
-2. Na barra de ferramentas da página *\<Nome da conta>*  - **Blobs**, selecione **Contêiner**.
-3. Na caixa de diálogo **Novo contêiner**, insira **adftutorial** como o nome e selecione **OK**. A página *\<Nome da conta>*  - **Blobs** é atualizada para incluir **adftutorial** na lista de contêineres.
+1. Na página da conta de armazenamento, selecione **Visão geral** > **Contêineres**.
+2. Na barra de ferramentas da página *\<Nome da conta>*  - **Contêineres**, selecione **Contêiner**.
+3. Na caixa de diálogo **Novo contêiner**, insira **adftutorial** como o nome e selecione **OK**. A página *\<Nome da conta>*  - **Contêineres** é atualizada para incluir **adftutorial** na lista de contêineres.
 
    ![Lista de contêineres](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
@@ -66,11 +66,11 @@ Jane, Doe
 
 Salve o arquivo na pasta **C:\ADFv2QuickStartPSH**. (Se a pasta ainda não existir, crie-a.) Então volte ao portal do Azure e siga estas etapas:
 
-1. Na página *\<Nome da conta>*  - **Blobs** em que você parou, selecione **adftutorial** na lista atualizada de contêineres.
+1. Na página *\<Nome da conta>*  - **Contêineres** em que você parou, selecione **adftutorial** na lista atualizada de contêineres.
 
    1. Se você fechou a janela ou foi para outra página, entre no [portal do Azure](https://portal.azure.com) novamente.
    1. No menu do portal do Azure, selecione **Todos os serviços**, em seguida, selecione **Armazenamento** > **Contas de armazenamento**. Você também pode pesquisar e selecionar *Contas de armazenamento* de qualquer página.
-   1. Selecione a sua conta de armazenamento e, em seguida, selecione **Blobs** > **adftutorial**.
+   1. Selecione a sua conta de armazenamento e, em seguida, **Contêineres** > **adftutorial**.
 
 2. Na barra de ferramentas da página de contêiner do **adftutorial**, selecione **Carregar**.
 3. Na página **Carregar blob**, selecione a caixa **Arquivos** e, em seguida, navegue até o arquivo **emp.txt** e selecione-o.

@@ -1,34 +1,43 @@
 ---
-title: 'Tutorial: Extrair texto e estrutura de blobs JSON'
+title: 'Tutorial: REST e IA em blobs do Azure'
 titleSuffix: Azure Cognitive Search
-description: Veja um exemplo de extração de texto e processamento de linguagem natural do conteúdo em blobs JSON usando o Postman e as APIs REST da Pesquisa Cognitiva do Azure.
+description: Veja um exemplo de extração de texto e processamento de linguagem natural do conteúdo no Armazenamento de Blobs usando o Postman e as APIs REST do Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/26/2020
+ms.openlocfilehash: 8acafa14afab507b704806056efac0f877a47684
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113666"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190715"
 ---
-# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Tutorial: Extrair texto e estrutura de blobs JSON no Azure usando APIs REST (Azure Cognitive Search)
+# <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use o REST e a IA para gerar conteúdo pesquisável em blobs do Azure
 
-Se você tiver conteúdo de imagem ou texto não estruturado no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá ajudá-lo a extrair informações e criar outro tipo de conteúdo útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar arquivos de imagem (JPG, PNG e TIFF), este tutorial concentra-se no conteúdo baseado em palavras, aplicando a detecção de idioma e a análise de texto para criar campos e informações que podem ser aproveitadas em consultas, facetas e filtros.
+Se você tiver um texto não estruturado ou imagens no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá extrair informações e criar um conteúdo que seja útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial do REST concentra-se no texto, aplicando detecção de idioma e processamento de idioma natural para criar campos que você pode usar em consultas, facetas e filtros.
+
+Este tutorial usa o Postman e as [APIs REST de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Comece com documentos inteiros (texto não estruturado), como PDF, MD, DOCX e PPTX no Armazenamento de Blobs do Azure.
+> * Comece com documentos inteiros (texto não estruturado), como PDF, HTML, DOCX e PPTX no Armazenamento de Blobs do Azure.
 > * Defina um pipeline que extrai texto, detecta o idioma, reconhece entidades e detecta frases-chave.
 > * Defina um índice para armazenar a saída (conteúdo bruto, além de pares nome-valor gerados pelo pipeline).
 > * Execute o pipeline para começar com as transformações e a análise e para criar e carregar o índice.
 > * Explore os resultados usando a pesquisa de texto completo e uma sintaxe de consulta avançada.
 
-Você precisará de vários serviços para concluir este passo a passos, além do [aplicativo da área de trabalho Postman](https://www.getpostman.com/) ou de outra ferramenta de teste da Web para fazer chamadas à API REST. 
-
 Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
++ [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
++ [Aplicativo Postman para a área de trabalho](https://www.getpostman.com/)
++ [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+
+> [!Note]
+> Use o serviço gratuito para este tutorial. Um serviço de pesquisa gratuito limita você a três índices, três indexadores e três fontes de dados. Este tutorial cria um de cada. Antes de começar, reserve um espaço no seu serviço para aceitar os novos recursos.
 
 ## <a name="download-files"></a>Baixar arquivos
 
@@ -38,7 +47,9 @@ Caso não tenha uma assinatura do Azure, abra uma [conta gratuita](https://azure
 
 ## <a name="1---create-services"></a>1 – Criar serviços
 
-Este passo a passo usa a Pesquisa Cognitiva do Azure para indexação e consultas, os Serviços Cognitivos para enriquecimento de IA e o Armazenamento de Blobs do Azure para fornecer os dados. Se possível, crie os três serviços na mesma região e no mesmo grupo de recursos para facilitar a proximidade e a capacidade de gerenciamento. Na prática, sua conta de armazenamento do Azure pode estar em qualquer região.
+Este tutorial usa o Azure Cognitive Search para indexação e consultas, os Serviços Cognitivos no back-end para enriquecimento de IA e o Armazenamento de Blobs do Azure para fornecer os dados. Este tutorial permanece sob a alocação gratuita de 20 transações por indexador por dia nos Serviços Cognitivos, de modo que os únicos serviços que você precisará criar são pesquisa e armazenamento.
+
+Se possível, crie os dois na mesma região e no mesmo grupo de recursos para facilitar a proximidade e a capacidade de gerenciamento. Na prática, sua conta de armazenamento do Azure pode estar em qualquer região.
 
 ### <a name="start-with-azure-storage"></a>Começar com o Armazenamento do Azure
 
@@ -102,9 +113,9 @@ Assim como o Armazenamento de Blobs do Azure, reserve um momento para coletar a 
 
 2. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-    Obtenha a chave de consulta também. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
+   Obtenha a chave de consulta também. É uma melhor prática para emitir solicitações de consulta com acesso somente leitura.
 
-![Obter o nome do serviço e as chaves de consulta e de administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obter o nome do serviço e as chaves de consulta e de administrador](media/search-get-started-nodejs/service-name-and-keys.png)
 
 Todas as solicitações exigem uma api-key no cabeçalho de cada solicitação enviada a seu serviço. Uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que a manipula.
 
@@ -164,7 +175,7 @@ Um [objeto de conjunto de habilidades](https://docs.microsoft.com/rest/api/searc
 
 1. No **Corpo** da solicitação, copie a definição JSON abaixo. Esse conjunto de habilidades consiste nas habilidades internas a seguir.
 
-   | Habilidade                 | DESCRIÇÃO    |
+   | Habilidade                 | Descrição    |
    |-----------------------|----------------|
    | [Reconhecimento de Entidade](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e localizações do conteúdo no contêiner de blobs. |
    | [Detecção de Idioma](cognitive-search-skill-language-detection.md) | Detecta o idioma do conteúdo. |
@@ -475,29 +486,25 @@ Lembre-se de que começamos com o conteúdo do blob, em que todo o documento é 
    cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2019-05-06
    ```
 
-Essas consultas ilustram algumas das maneiras de trabalhar com a sintaxe de consulta e os filtros nos campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, confira [Exemplos na API REST de Pesquisa de Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Exemplos de consulta de sintaxe simples](search-query-simple-examples.md) e [Exemplos de consulta Lucene completa](search-query-lucene-examples.md).
+Essas consultas ilustram algumas das maneiras pelas quais você pode trabalhar com a sintaxe de consulta e os filtros em campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, confira [Exemplos em documentos de pesquisa da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Exemplos de consulta de sintaxe simples](search-query-simple-examples.md) e [Exemplos de consulta completas do Lucene](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Redefinir e execute novamente
 
-Nos primeiros estágios experimentais de desenvolvimento do pipeline, a abordagem mais prática para as iterações de design é excluir os objetos da Pesquisa Cognitiva do Azure e permitir que seu código para recriá-los. Nomes de recurso são exclusivos. Excluir um objeto permite que você recriá-la usando o mesmo nome.
+Nos primeiros estágios experimentais de desenvolvimento, a abordagem mais prática para a iteração de design é excluir os objetos do Azure Cognitive Search e permitir que o código os recompile. Nomes de recurso são exclusivos. Excluir um objeto permite que você recriá-la usando o mesmo nome.
 
-Reindexar seus documentos com as novas definições:
+Use o portal para excluir índices, indexadores, fontes de dados e conjuntos de habilidades. Ao excluir o indexador, também é possível excluir o índice, o conjunto de habilidades e a fonte de dados ao mesmo tempo.
 
-1. Exclua o indexador, o índice e o conjunto de habilidades.
-2. Modifique os objetos.
-3. Recrie-os no serviço para executar o pipeline. 
+![Excluir objetos de pesquisa](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Excluir objetos de pesquisa no portal")
 
-Use o portal para excluir índices, indexadores e conjuntos de habilidades ou use **DELETE** e forneça URLs para cada objeto. O comando a seguir exclui um indexador.
+Ou então, use **DELETE** e forneça URLs para cada objeto. O comando a seguir exclui um indexador.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/cog-search-demo-idxr?api-version=2019-05-06
 ```
 
 Código de status 204 é retornado na exclusão com êxito.
-
-Como seu código amadurece, talvez queira refinar uma estratégia de reconstrução. Para saber mais, confira [Como recompilar um índice](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Observações
 
@@ -507,13 +514,15 @@ Este tutorial demonstra as etapas básicas para a criação de um pipeline de in
 
 Por fim, você aprendeu como resultados de teste e reinicie o sistema para obter mais iterações. Você aprendeu que emitir consultas em relação ao índice retorna a saída criada pelo pipeline de indexação enriquecido. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço da Pesquisa Cognitiva do Azure e o serviço Blob do Azure. Supondo que você colocar ambos os serviços no mesmo grupo, exclua o grupo de recursos agora para excluir permanentemente todo o conteúdo, incluindo os serviços e qualquer conteúdo armazenado que você tenha criado para este tutorial. No portal, o nome do grupo de recurso está na página de Visão geral de cada serviço.
+Quando você está trabalhando em sua própria assinatura, no final de um projeto, é uma boa ideia remover os recursos que já não são necessários. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
+
+Encontre e gerencie recursos no portal usando o link Todos os recursos ou Grupos de recursos no painel de navegação à esquerda.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Personalizar ou estender o pipeline com qualificações personalizadas. Criando uma habilidade personalizada e adicionando-a a um conjunto de qualificações permite que você carregue texto ou análise de imagem que você escreve por conta própria. 
+Agora que você está familiarizado com todos os objetos de um pipeline de enriquecimento de IA, vamos examinar mais de perto as definições de conjunto de habilidades e as habilidades individuais.
 
 > [!div class="nextstepaction"]
-> [Exemplo: Como criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
+> [Como criar um conjunto de habilidades](cognitive-search-defining-skillset.md)

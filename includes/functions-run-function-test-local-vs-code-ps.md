@@ -2,20 +2,20 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/16/2020
+ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: 916aa2552e5dd004ec767df98ce7c78f7320efd0
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: edf5fc33ec14d41630462cca1a4ace0663473196
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964049"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190986"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
-O Azure Functions Core Tools é integrado ao Visual Studio Code para permitir que você execute e depure um projeto do Azure Functions localmente.  
+O Azure Functions Core Tools é integrado ao Visual Studio Code para permitir que você execute e depure um projeto do Azure Functions localmente. Para obter detalhes sobre como depurar no Visual Studio Code, confira [Depurar o Azure Functions do PowerShell localmente](../articles/azure-functions/functions-debug-powershell-local.md). 
 
-1. Para depurar a função, insira uma chamada ao cmdlet [`Wait-Debugger`](/powershell/module/microsoft.powershell.utility/wait-debugger?view=powershell-6) no código da função antes de anexar o depurador e, em seguida, pressione F5 para iniciar o projeto de aplicativo de funções e anexar o depurador. A saída do Core Tools é exibida no painel **Terminal**.
+1. Pressione F5 para iniciar o projeto de aplicativo de funções. A saída do Core Tools é exibida no painel **Terminal**.
 
 1. No painel **Terminal**, copie o ponto de extremidade de URL da sua função disparada por HTTP.
 
@@ -38,9 +38,6 @@ O Azure Functions Core Tools é integrado ao Visual Studio Code para permitir qu
 
     ![Execução de função no painel Terminal](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
 
-1. Para parar a depuração, pressione Ctrl + C para parar o Core Tools.
+1. Ao terminar, pressione **Ctrl + C** para interromper o Core Tools.
 
 Após verificar se a função foi executada corretamente no computador local, é hora de publicar o projeto no Azure.
-
-> [!NOTE]
-> Lembre-se de remover todas as chamadas a `Wait-Debugger` antes de publicar suas funções no Azure. 

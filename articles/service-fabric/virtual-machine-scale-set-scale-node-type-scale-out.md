@@ -1,6 +1,6 @@
 ---
 title: Adicionar um tipo de nó a um cluster de Service Fabric do Azure
-description: Aprenda como dimensionar um cluster do Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
+description: Aprenda como escalar horizontalmente um cluster do Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 1e7bae89561d43d717eb4d15e95183761b077443

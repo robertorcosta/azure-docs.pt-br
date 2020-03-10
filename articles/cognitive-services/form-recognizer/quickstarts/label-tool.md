@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485345"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205808"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -22,7 +22,7 @@ Neste início rápido, você usará a API REST do Reconhecimento de Formulários
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, é necessário ter:
 
@@ -35,12 +35,19 @@ Para concluir este início rápido, é necessário ter:
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem de exemplo
 
 Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de exemplo. Siga as etapas a seguir para configurar o contêiner do Docker. Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
-1. Primeiro, instale o Docker em um computador host. O computador host pode ser o seu computador local ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/)ou [Linux](https://docs.docker.com/install/)). Ou você pode usar um serviço de hospedagem do Docker no Azure, como o [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/index), as [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/index) ou um cluster do Kubernetes [implantado em um Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). O computador host deve atender aos seguintes requisitos de hardware:
+1. Primeiro, instale o Docker em um computador host. Este guia mostrará como usar o computador local como um host. Se você quiser usar um serviço de hospedagem do Docker no Azure, confira o guia de instruções [Implantar a ferramenta de rótulos de exemplo](../deploy-label-tool.md). 
+
+   O computador host deve atender aos seguintes requisitos de hardware:
 
     | Contêiner | Mínimo | Recomendadas|
     |:--|:--|:--|
     |Ferramenta de rotulagem de exemplo|2 núcleos, 4 GB de memória|4 núcleos, 8 GB de memória|
-    
+
+   Instale o Docker em seu computador seguindo as instruções apropriadas para seu sistema operacional: 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux](https://docs.docker.com/install/).
+
 1. Obtenha o contêiner de ferramentas de rotulagem de exemplo com o comando `docker pull`.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -116,17 +123,23 @@ Clique em **Executar o OCR em todos os arquivos** no painel esquerdo para obter 
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos ao texto
 
-Em seguida, você criará rótulos e os aplicará aos elementos de texto que você deseja que o modelo reconheça.
+Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de texto que você deseja que o modelo reconheça.
 
-1. Primeiro, use o painel editor de marcas para criar as marcas (rótulos) que você deseja identificar.
+1. Primeiro, use o painel editor de marcas para criar as marcas que você deseja identificar.
+  1. Clique em **+** para criar uma marca.
+  1. Insira o nome da marca.
+  1. Pressione Enter para salvar a marca.
 1. No editor principal, clique e arraste para selecionar uma ou várias palavras dos elementos de texto realçados.
+1. Clique na marca que você deseja aplicar ou pressione a tecla correspondente no teclado. As chaves de número são atribuídas como teclas de atalho para as 10 primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marcas.
+    > [!Tip]
+    > Lembre-se das dicas a seguir quando estiver rotulando seus formulários.
+    > * Você só pode aplicar uma marca a cada elemento de texto selecionado.
+    > * Cada marca só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes no mesmo formulário, crie marcas diferentes para cada instância. Por exemplo: "fatura n º 1", "fatura n º 2" e assim por diante.
+    > * As marcas não podem se estender por páginas.
+    > * Valores de rótulo como aparecem no formulário. Não tente dividir um valor em duas partes com duas marcas diferentes. Por exemplo, um campo de endereço deve ser rotulado com uma só marca, mesmo que abranja várias linhas.
+    > * Não inclua chaves nos campos marcados &mdash; apenas os valores.
+    > * Os dados da tabela devem ser detectados automaticamente e estarão disponíveis no arquivo JSON de saída final. No entanto, se o modelo não detectar todos os dados da tabela, você também poderá marcar esses campos manualmente. Marque cada célula na tabela com um rótulo diferente. Se os formulários tiverem tabelas com números variados de linhas, marque pelo menos um formulário com a maior tabela possível.
 
-    > [!NOTE]
-    > No momento, não é possível selecionar texto que se estenda por várias páginas.
-1. Clique na marca que você deseja aplicar ou pressione a tecla correspondente no teclado. Você só pode aplicar uma marca a cada elemento de texto selecionado e cada marca só pode ser aplicada uma vez por página.
-
-    > [!TIP]
-    > As chaves de número são atribuídas como teclas de atalho para as dez primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marcas.
 
 Siga as etapas acima para rotular cinco de seus formulários e, em seguida, passe para a próxima etapa.
 

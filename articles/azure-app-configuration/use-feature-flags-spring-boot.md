@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
-ms.openlocfilehash: 8c66e2995462701f7ddaefc3a2623c02fee883ef
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 090ede85301f9e7aff14394c8fb5c7d558d98dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687196"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656017"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo Spring Boot
 
@@ -51,11 +51,23 @@ Recomendamos que você mantenha os sinalizadores de recursos fora do aplicativo 
 
 A maneira mais fácil de conectar seu aplicativo Spring Boot à Configuração de Aplicativos é por meio do provedor de configuração:
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -69,23 +81,22 @@ O gerenciador de recursos dá suporte ao *application.yml* como uma fonte de con
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-set:
+    feature-a: true
+    feature-b: false
+    feature-c:
+      enabled-for:
+        -
+          name: Percentage
+          parameters:
+            value: 50
 ```
 
 Por convenção, a seção `feature-management` deste documento YAML é usada para as configurações de sinalizadores de recursos. O exemplo anterior mostra três sinalizadores de recursos com seus filtros definidos na propriedade `EnabledFor`:
 
-* `FeatureA` está *ativado*.
-* `FeatureB` está *desativado*.
-* `FeatureC` especifica um filtro chamado `Percentage` com uma propriedade `Parameters`. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% de que o sinalizador `FeatureC` esteja *ativado*.
+* `feature-a` está *ativado*.
+* `feature-b` está *desativado*.
+* `feature-c` especifica um filtro chamado `Percentage` com uma propriedade `parameters`. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% de que o sinalizador `feature-c` esteja *ativado*.
 
 ## <a name="feature-flag-checks"></a>Verificações de sinalizadores de recursos
 
@@ -94,7 +105,7 @@ O padrão básico do gerenciamento de recursos é primeiro verificar se um sinal
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
+if (featureManager.isEnabledAsync("feature-a"))
 {
     // Run the following code
 }
@@ -118,11 +129,11 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>Ações do controlador
 
-Em controladores MVC, use o atributo `@FeatureGate` para controlar se uma ação específica está habilitada. A seguinte ação `Index` exige que `FeatureA` esteja *ativado* para ser executada:
+Em controladores MVC, use o atributo `@FeatureGate` para controlar se uma ação específica está habilitada. A seguinte ação `Index` exige que `feature-a` esteja *ativado* para ser executada:
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
@@ -132,7 +143,7 @@ Quando uma ação ou um controlador MVC está bloqueado devido ao sinalizador de
 
 ## <a name="mvc-filters"></a>Filtros do MVC
 
-Configure filtros do MVC de modo que eles sejam ativados com base no estado de um sinalizador de recursos. O exemplo a seguir adiciona um filtro do MVC chamado `FeatureFlagFilter`. Esse filtro só é disparado no pipeline do MVC se `FeatureA` está habilitado.
+Configure filtros do MVC de modo que eles sejam ativados com base no estado de um sinalizador de recursos. O exemplo a seguir adiciona um filtro do MVC chamado `FeatureFlagFilter`. Esse filtro só é disparado no pipeline do MVC se `feature-a` está habilitado.
 
 ```java
 @Component
@@ -144,7 +155,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -156,11 +167,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>Rotas
 
-É possível usar sinalizadores de recursos para redirecionar rotas. O código a seguir que redirecionará um usuário de `FeatureA` está habilitado:
+É possível usar sinalizadores de recursos para redirecionar rotas. O código a seguir que redirecionará um usuário de `feature-a` está habilitado:
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }

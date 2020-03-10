@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905510"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933779"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -147,31 +147,31 @@ Copie todos os contêineres de BLOB, diretórios e blobs da conta de armazenamen
 
 Copie um único objeto para o armazenamento de blobs de Amazon Web Services (AWS) S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
   
-- azcopy CP "https://s3.amazonaws.com/ [Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "
+- azcopy CP "https://s3.amazonaws.com/[Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "
 
 Copie um diretório inteiro para o armazenamento de BLOBs do AWS S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/ [Bucket]/[pasta]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "--recursivo = true
+- azcopy CP "https://s3.amazonaws.com/[Bucket]/[pasta]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "--recursivo = true
 
 Consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para entender melhor o espaço reservado [pasta].
 
 Copie todos os buckets para o armazenamento de blobs de Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 Copie todos os buckets para o armazenamento de blobs de uma região Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3- [Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP "https://s3-[Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket. Como nos exemplos anteriores, você precisará de uma chave de acesso e um token SAS. Certifique-se de definir a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/ [Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP "https://s3.amazonaws.com/[Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 ## <a name="options"></a>Opções
 
 **--blob-Type** cadeia de caracteres define o tipo de blob no destino. Isso é usado para carregar BLOBs e ao copiar entre contas (padrão ' detect '). Os valores válidos incluem ' detect ', ' BlockBlob ', ' PageBlob ' e ' AppendBlob '. Ao copiar entre contas, um valor de "detectar" faz com que o AzCopy use o tipo de blob de origem para determinar o tipo do blob de destino. Ao carregar um arquivo, ' detect ' determina se o arquivo é um VHD ou um arquivo VHDX com base na extensão de arquivo. Se o arquivo for ether a um VHD ou arquivo VHDX, AzCopy tratará o arquivo como um blob de páginas. (padrão "detectar")
 
-**--Block-blob-camada** carregar blob de blocos para o armazenamento do Azure usando esta camada de BLOB. (padrão "None")
+**--Block-blob-camada** carregar blobs de blocos diretamente para a [camada de acesso](../blobs/storage-blob-storage-tiers.md) de sua escolha. (padrão ' none '). Os valores válidos incluem ' nenhum ', ' quente ', ' frio ' e ' arquivo '. Se ' none ' ou nenhuma camada for passada, o blob herdará a camada da conta de armazenamento.
 
 **--Block-size-MB** float Use esse tamanho de bloco (especificado na MIB) ao carregar no armazenamento do Azure e baixar do armazenamento do Azure. O valor padrão é calculado automaticamente com base no tamanho do arquivo. Frações decimais são permitidas (por exemplo: 0,25).
 
@@ -241,6 +241,6 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--** formato da cadeia de caracteres do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [azcopy](storage-ref-azcopy.md)

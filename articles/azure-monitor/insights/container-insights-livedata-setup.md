@@ -4,11 +4,11 @@ description: Este artigo descreve como configurar a exibição em tempo real de 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459915"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395360"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 

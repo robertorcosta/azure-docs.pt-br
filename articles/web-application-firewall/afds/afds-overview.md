@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934715"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915632"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall do Aplicativo Web do Azure no Azure Front Door
 
@@ -77,7 +77,7 @@ Você pode configurar regras personalizadas WAF da seguinte maneira:
 
 ### <a name="azure-managed-rule-sets"></a>Conjuntos de regras gerenciados pelo Azure
 
-Os conjuntos de regras gerenciados pelo Azure oferecem uma maneira fácil de implantar a proteção contra um conjunto comum de ameaças de segurança. Como esses conjuntos de regras são gerenciados pelo Azure, as regras são atualizadas conforme necessário para proteção contra novas assinaturas de ataque. Na versão prévia pública, o Conjunto de Regras Padrão gerenciado pelo Azure inclui regras contra as seguintes categorias de ameaça:
+Os conjuntos de regras gerenciados pelo Azure oferecem uma maneira fácil de implantar a proteção contra um conjunto comum de ameaças de segurança. Como esses conjuntos de regras são gerenciados pelo Azure, as regras são atualizadas conforme necessário para proteção contra novas assinaturas de ataque. O Conjunto de Regras Padrão gerenciado pelo Azure inclui regras contra as seguintes categorias de ameaça:
 
 - Script entre sites
 - Ataques de Java
@@ -91,6 +91,8 @@ Os conjuntos de regras gerenciados pelo Azure oferecem uma maneira fácil de imp
 
 O número de versão do Conjunto de Regras Padrão será incrementado quando novas assinaturas de ataque forem adicionadas ao conjunto de regras.
 O Conjunto de Regras Padrão é habilitado por padrão no modo de detecção em suas políticas de WAF. Você pode desabilitar ou habilitar regras individuais dentro do Conjunto de Regras Padrão para atender aos requisitos do aplicativo. Você também pode definir ações específicas (PERMITIR/BLOQUEAR/REDIRECIONAR/REGISTRAR EM LOG) por regra.
+
+Às vezes, você pode omitir certos atributos de solicitação de uma avaliação do WAF. Um exemplo comum são os tokens inseridos pelo Active Directory que são usados para autenticação. Você pode configurar uma lista de exclusões para uma regra gerenciada, para um grupo de regras ou para todo o conjunto de regras.  
 
 A ação padrão é BLOQUEAR. Além disso, as regras personalizadas poderão ser configuradas na mesma política WAF se você desejar ignorar qualquer uma das regras pré-configuradas no Conjunto de Regras Padrão.
 
