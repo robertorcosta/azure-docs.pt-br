@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a721d1e486010e22927512985611cccdd99f4505
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 47bd3b5da79bdb9c7dca75d521aa39d3652ab1ab
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365052"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945616"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -56,7 +56,7 @@ Seu código pode usar uma identidade gerenciada para solicitar tokens de acesso 
 
 O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam com VMs (máquinas virtuais):
 
-![Identidades de serviço gerenciadas e VMs do Azure](media/overview/msi-vm-vmextension-imds-example.png)
+![Identidades de serviço gerenciadas e VMs do Azure](media/overview/data-flow.png)
 
 |  Propriedade    | Identidade gerenciada atribuída pelo sistema | Identidade gerenciada atribuída pelo usuário |
 |------|----------------------------------|--------------------------------|
