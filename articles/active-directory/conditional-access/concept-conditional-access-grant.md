@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09a720be10b09e11adc8acdc8ab26a06870311b0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 0716c2d4475bb538c06b9a591521fbdcfc0c80e4
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892717"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968152"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -67,7 +67,7 @@ As organizações podem optar por usar a identidade do dispositivo como parte de
 
 As organizações podem exigir que uma tentativa de acesso aos aplicativos de nuvem selecionados precise ser feita de um aplicativo cliente aprovado. Esses aplicativos cliente aprovados dão suporte a [políticas de proteção de aplicativo do Intune](/intune/app-protection-policy) independentemente de qualquer solução de MDM (gerenciamento de dispositivo móvel).
 
-Essa configuração se aplica aos seguintes aplicativos cliente:
+Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 
 - Proteção de Informações do Microsoft Azure
 - Livros da Microsoft
@@ -80,6 +80,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -129,7 +130,7 @@ Consulte o artigo [como: exigir a política de proteção de aplicativo e um apl
 
 Se sua organização tiver criado termos de uso, opções adicionais poderão estar visíveis em conceder controles. Essas opções permitem que os administradores exijam a confirmação dos termos de uso como uma condição de acessar os recursos protegidos pela política. Mais informações sobre os termos de uso podem ser encontradas no artigo [Azure Active Directory termos de uso](terms-of-use.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Acesso condicional: controles de sessão](concept-conditional-access-session.md)
 

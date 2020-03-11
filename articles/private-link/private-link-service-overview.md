@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587406"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082958"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
@@ -42,7 +42,7 @@ Depois que um consumidor inicia uma conexão, o provedor de serviços pode aceit
 
 Se o serviço de vínculo privado não estiver mais em uso, você poderá excluí-lo. No entanto, antes de excluir o serviço, verifique se não há nenhuma conexão de ponto de extremidade privada associada a ele. Você pode rejeitar todas as conexões e excluir o serviço.
 
-## <a name="properties"></a>Propriedades
+## <a name="properties"></a>{1&gt;Propriedades&lt;1}
 
 Um serviço de vínculo privado especifica as seguintes propriedades: 
 
@@ -104,15 +104,15 @@ Essas informações são codificadas usando um vetor TLV (tipo-tamanho-valor) pe
 
 Detalhes do TLV personalizado:
 
-|Campo |Comprimento (octetos)  |DESCRIÇÃO  |
+|Campo |Comprimento (octetos)  |Descrição  |
 |---------|---------|----------|
-|Type  |1        |PP2_TYPE_AZURE (0xEE)|
-|Comprimento  |2      |Comprimento do valor|
-|Valor  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|Tipo  |1        |PP2_TYPE_AZURE (0xEE)|
+|Duração  |2      |Comprimento do valor|
+|{1&gt;Valor&lt;1}  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bytes) que representa a LINKID do ponto de extremidade privado. Codificado no formato little endian.|
 
  > [!NOTE]
- > O provedor de serviços é responsável por verificar se o serviço por trás do balanceador de carga padrão está configurado para analisar o cabeçalho do protocolo de proxy de acordo com a [especificação](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando o protocolo de proxy está habilitado no serviço de vínculo privado. A solicitação falhará se a configuração do protocolo de proxy estiver habilitada no serviço de vínculo privado e o serviço não estiver configurado para analisar o cabeçalho. Da mesma forma, a solicitação falhará se o serviço estiver esperando um cabeçalho de protocolo de proxy enquanto a configuração não estiver habilitada no serviço de vínculo privado. Depois que a configuração de protocolo de proxy estiver habilitada, o cabeçalho do protocolo proxy também será incluído em investigações de integridade HTTP/TCP do host para as máquinas virtuais de back-end, mesmo que não haja nenhuma informação do cliente no cabeçalho. 
+ > O provedor de serviços é responsável por verificar se o serviço por trás do balanceador de carga padrão está configurado para analisar o cabeçalho do protocolo de proxy de acordo com a [especificação](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando o protocolo de proxy está habilitado no serviço de vínculo privado. A solicitação falhará se a configuração do protocolo de proxy estiver habilitada no serviço de vínculo privado, mas o serviço do provedor de serviços não estiver configurado para analisar o cabeçalho. Da mesma forma, a solicitação falhará se o serviço do provedor de serviços estiver esperando um cabeçalho de protocolo de proxy enquanto a configuração não estiver habilitada no serviço de vínculo privado. Depois que a configuração de protocolo de proxy estiver habilitada, o cabeçalho do protocolo proxy também será incluído em investigações de integridade HTTP/TCP do host para as máquinas virtuais de back-end, mesmo que não haja nenhuma informação do cliente no cabeçalho. 
 
 ## <a name="limitations"></a>Limitações
 
@@ -121,6 +121,6 @@ A seguir estão as limitações conhecidas ao usar o serviço de link privado:
 - Dá suporte apenas ao tráfego IPv4
 - Dá suporte apenas ao tráfego TCP
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - [Criar um serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
 - [Criar um serviço de vínculo privado usando CLI do Azure](create-private-link-service-cli.md)

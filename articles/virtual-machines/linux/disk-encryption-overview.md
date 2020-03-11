@@ -2,17 +2,18 @@
 title: Habilitar Azure Disk Encryption para VMs Linux
 description: Este artigo fornece instruções sobre como habilitar a criptografia de disco Microsoft Azure para VMs do Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96ac1becfed74141b3b1544646f5d82bd0985045
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 28d37ba6796799ea27bbd5338247a504ea82388f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396841"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970489"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs Linux 
 
@@ -53,7 +54,7 @@ Azure Disk Encryption tem suporte em um subconjunto de [distribuições Linux en
 
 As distribuições do servidor Linux que não são endossadas pelo Azure não dão suporte a Azure Disk Encryption; daqueles que são endossados, somente as seguintes distribuições e versões são compatíveis Azure Disk Encryption:
 
-| Distribuição do Linux | Versão | Tipo de volume suportado para criptografia|
+| Distribuição do Linux | {1&gt;Version&lt;1} | Tipo de volume suportado para criptografia|
 | --- | --- |--- |
 | Ubuntu | 18.04| SO e disco de dados |
 | Ubuntu | 16.04| SO e disco de dados |
@@ -122,7 +123,7 @@ A tabela a seguir define alguns dos termos comuns usados na documentação de cr
 | Cmdlets do PowerShell | Para obter mais informações, confira [cmdlets do Azure PowerShell](/powershell/azure/overview). |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Início rápido-criar e criptografar uma VM Linux com CLI do Azure](disk-encryption-cli-quickstart.md)
 - [Início rápido-criar e criptografar uma VM do Linux com o Azure PowerShell](disk-encryption-powershell-quickstart.md)

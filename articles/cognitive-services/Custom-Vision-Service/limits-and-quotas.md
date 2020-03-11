@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5f481ebf219eea8ae31e9802144bbf771a24e8b8
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718356"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081770"
 ---
 # <a name="limits-and-quotas"></a>Limites e cotas
 
@@ -42,8 +42,8 @@ Espera-se que o número de imagens de treinamento por projeto e tags por projeto
 |Altura/largura máxima da imagem em pixels|ilimitado|ilimitado|
 |Tamanho máximo da imagem (upload da imagem de treinamento) |6 MB|6 MB|
 |Tamanho máximo da imagem (previsão)|4 MB|4 MB|
-|Imagem de treinamento da detecção de regiões máximas por objeto|200|200|
-|Máximo de marcas por imagem de classificação|30|30|
+|Imagem de treinamento da detecção de regiões máximas por objeto|300|300|
+|Máximo de marcas por imagem de classificação|100|100|
 
 > [!NOTE]
 > Imagens com menos de 256 pixels serão aceitas, mas em escala.

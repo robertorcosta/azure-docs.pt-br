@@ -1,5 +1,6 @@
 ---
-title: 'PowerShell: cluster HDInsight do Azure com o Azure Data Lake Storage Gen1 como armazenamento complementar | Microsoft Docs'
+title: 'PowerShell: Cluster HDInsight do Azure com o Armazenamento de Data Lake do Azure Gen1 como armazenamento complementar | Microsoft Docs'
+description: Saiba como usar Azure PowerShell para configurar um cluster HDInsight com Azure Data Lake Storage Gen1 como armazenamento adicional.
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: twooley
@@ -11,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f78ad8d58bb1bc760a31b792b44a4a39ed25e1f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cd61619e0417ab1db8d8413872b2dff1c904fc1
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161390"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970137"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Use o Azure PowerShell para criar um cluster do HDInsight com o Armazenamento de Data Lake do Azure Gen1 (como armazenamento adicional)
 
@@ -34,13 +35,13 @@ Saiba como usar o Azure PowerShell para configurar um cluster HDInsight com Azur
 > Se você pretende usar Gen1 de armazenamento do Data Lake como armazenamento adicional para o cluster HDInsight, é altamente recomendável que você faça isso ao criar o cluster conforme descrito neste artigo. Adicionar o Data Lake Storage Gen1 como armazenamento adicional a um cluster existente do HDInsight é um processo complicado e propenso a erros.
 >
 
-Para tipos de cluster com suporte, Gen1 de armazenamento do Data Lake pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o Data Lake Storage Gen1 é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Azuis Storage Blobs (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, enquanto os dados que você deseja processar podem ser armazenados em uma conta do Data Lake Storage Gen1. Usar o Data Lake Storage Gen1 como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de leitura/gravação no armazenamento do cluster.
+Para tipos de cluster com suporte, Gen1 de armazenamento do Data Lake pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o Data Lake Storage Gen1 é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Azure Storage Blobs (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, enquanto os dados que você quer processar podem ser armazenados em uma conta do Data Lake Storage Gen1. Usar o Data Lake Storage Gen1 como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de leitura/gravação no armazenamento do cluster.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Usar o Data Lake Storage Gen1 para armazenamento de cluster HDInsight
 
-Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Storage Gen1:
+Aqui estão algumas considerações importantes para usar HDInsight com Data Lake Storage Gen1:
 
-* Opção para criar clusters HDInsight com acesso ao Data Lake Storage Gen1, pois o armazenamento adicional está disponível para as versões 3.2, 3.4, 3.5 e 3.6 do HDInsight.
+* A opção para criar clusters HDInsight com acesso ao Data Lake Storage Gen1 como armazenamento adicional está disponível para as versões 3.2, 3.4, 3.5 e 3.6 do HDInsight.
 
 Configurar o HDInsight para trabalhar com o Data Lake Storage Gen1 usando o PowerShell envolve as seguintes etapas:
 
@@ -49,7 +50,7 @@ Configurar o HDInsight para trabalhar com o Data Lake Storage Gen1 usando o Powe
 * Criar o cluster HDInsight com a autenticação para o Data Lake armazenamento Gen1
 * Executar um trabalho de teste no cluster
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +138,7 @@ Para configurar a autenticação do Active Directory para o Data Lake armazename
 
 Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está instalado antes de continuar com as etapas nesta seção. Você também deve ter criado um diretório, como **C:\mycertdir**, no qual o certificado será criado.
 
-1. Na janela do PowerShell, navegue até o local no qual você instalou o SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos.
+1. Na janela do PowerShell, navegue até o local onde você instalou SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos.
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
@@ -145,7 +146,7 @@ Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está i
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     Você receberá uma solicitação para inserir a senha da chave privada. Após a execução bem-sucedida do comando, você verá um **CertFile.cer** e **mykey.pvk** no diretório de certificado especificado.
-2. Use o utilitário [Pvk2Pfx][pvk2pfx] para converter os arquivos .pvk e .cer criados pelo MakeCert em um arquivo .pfx. Execute o comando a seguir.
+2. Use o utilitário [pvk2pfx][pvk2pfx] para converter os arquivos. pvk e. cer que o MakeCert criou em um arquivo. pfx. Execute o comando a seguir.
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
@@ -220,7 +221,7 @@ Nesta seção, criamos um cluster Linux de Hadoop do HDInsight com Data Lake arm
 
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-storage-gen1-account"></a>Execute tarefas de teste no cluster do HDInsight para usar a conta do Data Lake Storage Gen1
-Depois de configurar um cluster HDInsight, você pode executar tarefas de teste no cluster para testar se o cluster HDInsight pode acessar o Data Lake Storage Gen1. Para fazer isso, executaremos um exemplo de trabalho do Hive que cria uma tabela usando os dados de exemplo que você carregou anteriormente para a conta do Data Lake Storage Gen1.
+Após configurar um cluster HDInsight, você poderá executar trabalhos de teste no cluster para testar se o cluster HDInsight pode acessar o Data Lake Storage Gen1. Para fazer isso, executaremos um exemplo de trabalho do Hive que cria uma tabela usando os dados de exemplo que você carregou anteriormente para a conta do Data Lake Storage Gen1.
 
 Nesta seção, você acessará o cluster Linux HDInsight criado por você por SSH e executará uma consulta Hive de exemplo.
 
@@ -269,9 +270,9 @@ Isso deve listar o arquivo que você carregou anteriormente para o Data Lake Sto
 
 Também é possível usar o comando `hdfs dfs -put` para carregar alguns arquivos no Data Lake Storage Gen1 e, em seguida, usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte Também
 * [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Portal: criar um cluster HDInsight para usar o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Portal: Criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

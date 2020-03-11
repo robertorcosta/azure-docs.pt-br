@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7018100c830f22c3ed5e924b5096911b1f8135cb
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942317"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081821"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,8 +130,8 @@ Use o conjunto de dados de validação personalizada se a divisão aleatória n�
 ## <a name="compute-to-run-experiment"></a>Computação para executar o experimento
 
 Em seguida, determine onde o modelo será treinado. Um experimento de treinamento de aprendizado de máquina automatizado pode ser executado nas opções de computação a seguir:
-*   O computador local, como a área de trabalho ou o laptop local – geralmente, quando o conjunto de dados é pequeno e você ainda está na fase de exploração.
-*   Um computador remoto na nuvem – [Computação gerenciada do Azure Machine Learning](concept-compute-target.md#amlcompute) é um serviço gerenciado que permite a capacidade de treinar modelos de machine learning em clusters de máquinas virtuais do Azure.
+*    O computador local, como a área de trabalho ou o laptop local – geralmente, quando o conjunto de dados é pequeno e você ainda está na fase de exploração.
+*    Um computador remoto na nuvem – [Computação gerenciada do Azure Machine Learning](concept-compute-target.md#amlcompute) é um serviço gerenciado que permite a capacidade de treinar modelos de machine learning em clusters de máquinas virtuais do Azure.
 
     Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obter exemplos de notebooks com destinos de computação locais e remotos.
 
@@ -147,7 +147,7 @@ Há várias opções que você pode usar para configurar experimentos de aprendi
 
 Alguns exemplos incluem:
 
-1.  Teste de classificação usando AUC ponderado como a métrica primária com minutos de tempo limite de experimento definido como 30 minutos e 2 dobras de validação cruzada.
+1.    Teste de classificação usando AUC ponderado como a métrica primária com minutos de tempo limite de experimento definido como 30 minutos e 2 dobras de validação cruzada.
 
     ```python
     automl_classifier=AutoMLConfig(
@@ -159,7 +159,7 @@ Alguns exemplos incluem:
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Abaixo está um exemplo de um experimento de regressão definido para terminar após 60 minutos com cinco dobras cruzadas de validação.
+2.    Abaixo está um exemplo de um experimento de regressão definido para terminar após 60 minutos com cinco dobras cruzadas de validação.
 
     ```python
     automl_regressor = AutoMLConfig(
@@ -195,7 +195,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 Ao configurar seus experimentos, você pode habilitar a configuração avançada `featurization`. A tabela a seguir mostra as configurações aceitas para personalização na [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
-|Configuração do personalização | DESCRIÇÃO |
+|Configuração do personalização | Descrição |
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que a etapa personalização personalizada deve ser usada. [Saiba como personalizar o personalização](how-to-configure-auto-train.md#customize-feature-engineering).|
 |`"featurization": 'off'`| Indica que a etapa personalização não deve ser feita automaticamente.|
@@ -521,7 +521,7 @@ Consulte o [instruções](how-to-machine-learning-interpretability-automl.md) pa
 
 Para obter informações gerais sobre como as explicações de modelo e a importância dos recursos podem ser habilitadas em outras áreas do SDK fora do aprendizado de máquina automatizado, consulte o artigo [conceito](how-to-machine-learning-interpretability.md) sobre interpretação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre [como e onde implantar um modelo](how-to-deploy-and-where.md).
 

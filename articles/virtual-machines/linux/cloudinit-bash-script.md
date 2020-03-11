@@ -1,35 +1,27 @@
 ---
 title: Usar Cloud-init para executar um script de bash em uma VM do Linux no Azure
 description: Como usar o cloud-init para executar um script de bash em uma VM do Linux durante a criação com a CLI do Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e18b740b9b656236bd1958dd191bc9b02283d67
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e2f19ceb6c7f19ba749b46a3553036587be6a71a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036792"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969226"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Usar cloud-init para executar um script de bash em uma VM Linux no Azure
-Este artigo mostra como usar [cloud-init](https://cloudinit.readthedocs.io) para executar um script de bash existente em uma VM (máquina virtual) Linux ou VMSS (conjuntos de dimensionamento de máquinas virtuais) no tempo de provisionamento no Azure. Esses scripts cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
+Este artigo mostra como usar [cloud-init](https://cloudinit.readthedocs.io) para executar um script de bash existente em uma VM (máquina virtual) Linux ou VMSS (conjuntos de dimensionamento de máquinas virtuais) no tempo de provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
 
 ## <a name="run-a-bash-script-with-cloud-init"></a>Executar um script de bash com cloud-init
 Com a cloud-init você não precisa converter seus scripts existentes em uma cloud-config, a cloud-init aceita vários tipos de entrada, um dos quais é um script de bash.
 
 Se você estiver usando a Extensão do Azure de Script Personalizado do Linux para executar seus scripts, poderá migrá-las para usar a cloud-init. No entanto, as Extensões do Azure integraram os relatórios para alertar para falhas de script, uma implantação de imagem de cloud-init NÃO falhará se o script falhar.
 
-Para ver essa funcionalidade em ação, crie um script de bash simples para teste. Como o arquivo `#cloud-config` de cloud-init, esse script deve ser local para onde você executará os comandos de AzureCLI para provisionar sua máquina virtual.  Para este exemplo, crie o arquivo no Cloud Shell, não no computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor simple_bash.sh` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
+Para ver essa funcionalidade em ação, crie um script de bash simples para teste. Como o arquivo `#cloud-config` de cloud-init, esse script deve ser local para onde você executará os comandos de AzureCLI para provisionar sua máquina virtual.  Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor simple_bash.sh` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
 
 ```bash
 #!/bin/sh
@@ -65,10 +57,10 @@ Altere para o diretório **/tmp** e verifique se o arquivo myScript.txt existe e
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter exemplos adicionais de alterações de configuração do cloud-init, consulte o seguinte:
  
-- [Adicionar um usuário do Linux adicional a uma VM](cloudinit-add-user.md)
+- [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md) (Executar um gerenciador de pacotes para atualizar os pacotes existentes na primeira inicialização)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) (Alterar o nome do host local da VM) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md) (Instalar um pacote de aplicativo, atualizar os arquivos de configuração e injetar chaves)

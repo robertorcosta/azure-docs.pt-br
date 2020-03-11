@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 08a4330f4a786deca8ddb2f1c6803b29152e7f50
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207023"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080142"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importar chaves protegidas por HSM para o Key Vault (versão prévia)
 
@@ -45,7 +45,7 @@ Aqui está uma visão geral do processo. Etapas específicas a serem concluídas
 * O KEK deve estar no mesmo cofre de chaves em que a chave de destino será importada.
 * Quando o arquivo BYOK é carregado para Key Vault, um Key Vault HSM usa a chave privada KEK para descriptografar o material de chave de destino e importá-lo como uma chave HSM. Essa operação ocorre inteiramente dentro de um Key Vault HSM. A chave de destino sempre permanece no limite de proteção do HSM.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 A tabela a seguir lista os pré-requisitos para usar o BYOK no Azure Key Vault:
 
@@ -58,16 +58,18 @@ A tabela a seguir lista os pré-requisitos para usar o BYOK no Azure Key Vault:
 
 ## <a name="supported-hsms"></a>HSMs com suporte
 
-|Nome do fornecedor do HSM|Modelos HSM com suporte|Mais informações|
-|---|---|---|
-|Thales|Família SafeNet Luna HSM 7 com firmware versão 7,3 ou posterior| [Ferramenta e documentação do SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Nome do fornecedor|Tipo de fornecedor|Modelos HSM com suporte|Mais informações|
+|---|---|---|---|
+|Thales|Fabricante|Família SafeNet Luna HSM 7 com firmware versão 7,3 ou posterior| [Ferramenta e documentação do SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|HSM como um serviço|Serviço de gerenciamento de chaves de autodefesa (SDKMS)|[Exportando chaves SDKMS para provedores de nuvem para BYOK-Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+
 
 > [!NOTE]
 > Para importar chaves protegidas por HSM da família nCipher nShield de HSMs, use o [procedimento BYOK herdado](hsm-protected-keys-legacy.md).
 
 ## <a name="supported-key-types"></a>Tipos de chave com suporte
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|DESCRIÇÃO|
+|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
 |---|---|---|---|---|
 |Chave de troca de chaves (KEK)|RSA| 2\.048 bits<br />3\.072 bits<br />4\.096 bits|Azure Key Vault HSM|Um par de chaves RSA com suporte para HSM gerado em Azure Key Vault|
 |Chave de destino|RSA|2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM do fornecedor|A chave a ser transferida para o Azure Key Vault HSM|
@@ -130,7 +132,7 @@ az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey
 
 Se o upload for bem-sucedido, CLI do Azure exibirá as propriedades da chave importada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para obter mais informações, consulte [esta comparação de preço e recurso](https://azure.microsoft.com/pricing/details/key-vault/).
 

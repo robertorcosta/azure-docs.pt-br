@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 11/08/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942230"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078484"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Treinar modelos com o Azure Machine Learning usando o estimador
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Este artigo se concentra nas etapas 4 a 5. Para as etapas 1 a 3, consulte o [tut
 
 ### <a name="single-node-training"></a>Treinamento de nó único
 
-Use um `Estimator` para um treinamento de nó único executado em computação remota no Azure para um modelo scikit-learn. Você já deve ter criado seu [destino de computação](how-to-set-up-training-targets.md#amlcompute) objeto `compute_target` e sua [datastore](how-to-access-data.md) objeto `ds`.
+Use um `Estimator` para um treinamento de nó único executado em computação remota no Azure para um modelo scikit-learn. Você já deve ter criado o objeto de [destino de computação](how-to-set-up-training-targets.md#amlcompute) `compute_target` e seu objeto [filedataset](how-to-create-register-datasets.md) `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -58,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 Este snippet de código especifica os seguintes parâmetros para o `Estimator` construtor.
 
-Parâmetro | Description
+Parâmetro | Descrição
 --|--
 `source_directory`| O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada do computador local para a computação remota.
 `script_params`| Dicionário que especifica os argumentos de linha de comando a serem passados para o script de treinamento `entry_script`, na forma de pares de `<command-line argument, value>`. Para especificar um sinalizador detalhado em `script_params`, use `<command-line argument, "">`.
@@ -110,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 O código acima expõe os seguintes novos parâmetros para o `Estimator` construtor:
 
-Parâmetro | Description | Padrão
+Parâmetro | Descrição | Padrão
 --|--|--
 `custom_docker_image`| O nome da imagem que você deseja usar. Fornece somente as imagens disponíveis em repositórios do docker público (no Hub do Docker neste caso). Para usar uma imagem de um repositório privado do docker, use o parâmetro `environment_definition` do construtor em vez disso. [Confira o exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| O número de nós a serem usados no seu trabalho de treinamento. | `1`
@@ -151,7 +151,7 @@ Para blocos de anotações em modelos de treinamento usando avaliadores específ
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Executar as métricas de durante o treinamento de faixa](how-to-track-experiments.md)
 * [Treinar modelos de PyTorch](how-to-train-pytorch.md)

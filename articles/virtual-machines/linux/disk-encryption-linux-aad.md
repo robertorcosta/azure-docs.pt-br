@@ -2,17 +2,18 @@
 title: Azure Disk Encryption com VMs de IaaS Linux do Aplicativo Azure AD (versão anterior)
 description: Este artigo fornece instruções sobre como habilitar as VMs da IaaS do Microsoft Azure Disk Encryption para Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d41f2138a453e4a34354c10bbebad41724a18d1d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457473"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970620"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitar Azure Disk Encryption com o Azure AD em VMs do Linux (versão anterior)
 
@@ -35,7 +36,7 @@ Faça um [instantâneo](snapshot-copy-managed-disk.md), faça um backup ou ambos
 
  
 
-## <a name="bkmk_RunningLinux"> </a> Habilitar criptografia em uma VM da IaaS do Linux existente ou em execução
+## <a name="bkmk_RunningLinux"></a> Habilitar a criptografia em uma VM IaaS do Linux existente ou em execução
 
 Nesse cenário, você pode habilitar a criptografia usando o modelo de Azure Resource Manager, cmdlets do PowerShell ou comandos CLI do Azure. 
 
@@ -131,7 +132,7 @@ Use o cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set
      ```
 
 
-### <a name="bkmk_RunningLinux"> </a> Habilitar criptografia em uma VM da IaaS do Linux existente ou em execução com um modelo
+### <a name="bkmk_RunningLinux"></a> Habilitar a criptografia em uma VM IaaS Linux existente ou em execução com um modelo
 
 Você pode habilitar a criptografia de disco em uma VM Linux IaaS existente ou em execução no Azure usando o [modelo do Gerenciador de Recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
@@ -141,7 +142,7 @@ Você pode habilitar a criptografia de disco em uma VM Linux IaaS existente ou e
 
 A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos existente ou VMs em execução que usam uma ID de cliente do Azure AD:
 
-| . | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | AADClientID | ID do cliente do aplicativo Azure AD que tem permissões para gravar segredos no cofre de chaves. |
 | AADClientSecret | Segredo do cliente do aplicativo AD do Azure que tem permissões para gravar segredos para o cofre de chaves. |
@@ -163,7 +164,7 @@ O parâmetro EncryptFormatAll reduz o tempo para que os discos de dados do Linux
 > EncryptFormatAll não deve ser usado quando houver dados necessários nos volumes de dados de uma VM. Você pode excluir discos da criptografia desmontando-os. Experimente o parâmetro EncryptFormatAll em uma VM de teste primeiro para entender o parâmetro de recurso e sua implicação antes de experimentá-lo na VM de produção. A opção EncryptFormatAll formata o disco de dados, de modo que todos os dados nele serão perdidos. Antes de prosseguir, verifique se os discos que você deseja excluir estão desmontados corretamente. </br></br>
  >Se você definir esse parâmetro enquanto atualiza as configurações de criptografia, isso poderá levar a uma reinicialização antes da criptografia real. Nesse caso, você também deseja remover o disco que não deseja Formatar do arquivo fstab. Da mesma forma, você deve adicionar a partição que deseja criptografar no arquivo fstab antes de iniciar a operação de criptografia. 
 
-### <a name="bkmk_EFACriteria"> </a> Critérios do EncryptFormatAll
+### <a name="bkmk_EFACriteria"></a> Critérios de EncryptFormatAll
 O parâmetro passa por todas as partições e as criptografa, desde que atendam a *todos* os critérios a seguir: 
 - Não é uma partição de inicialização/SO/raiz
 - Ainda não está criptografado
@@ -174,7 +175,7 @@ O parâmetro passa por todas as partições e as criptografa, desde que atendam 
 
 Criptografe os discos que compõem o volume RAID ou LVM em vez do volume RAID ou LVM.
 
-### <a name="bkmk_EFATemplate"> </a> Usar o parâmetro EncryptFormatAll com um modelo
+### <a name="bkmk_EFATemplate"></a> Usar o parâmetro EncryptFormatAll com um modelo
 Para usar a opção EncryptFormatAll, use qualquer modelo de Azure Resource Manager preexistente que criptografa uma VM do Linux e altere o campo **EncryptionOperation** para o recurso AzureDiskEncryption.
 
 1. Como exemplo, use o [modelo do Resource Manager para criptografar uma VM da IaaS do Linux em execução](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm). 
@@ -183,7 +184,7 @@ Para usar a opção EncryptFormatAll, use qualquer modelo de Azure Resource Mana
 4. Selecione a assinatura, o grupo de recursos, o local do grupo de recursos, outros parâmetros, termos legais e contrato. Selecione **criar** para habilitar a criptografia na VM IaaS existente ou em execução.
 
 
-### <a name="bkmk_EFAPSH"> </a> Usar o parâmetro EncryptFormatAll com um cmdlet do PowerShell
+### <a name="bkmk_EFAPSH"></a> Usar o parâmetro EncryptFormatAll com um cmdlet do PowerShell
 Use o cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) com o parâmetro EncryptFormatAll.
 
 **Criptografar uma VM em execução usando um segredo do cliente e EncryptFormatAll:** Por exemplo, o script a seguir inicializa suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension com o parâmetro EncryptFormatAll. O grupo de recursos, a VM, o cofre de chaves, o aplicativo do Azure AD e o segredo do cliente já devem ter sido criados como pré-requisitos. Substitua MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, meu-AAD-Client-ID e meu-AAD-Client-Secret pelos valores.
@@ -202,7 +203,7 @@ Use o cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set
    ```
 
 
-### <a name="bkmk_EFALVM"> </a> Usar o parâmetro EncryptFormatAll com LVM (Gerenciador de Volume Lógico) 
+### <a name="bkmk_EFALVM"></a> Usar o parâmetro EncryptFormatAll com o LVM (Gerenciador de volumes lógicos) 
 É recomendável uma configuração LVM-on-crypt. Para todos os exemplos a seguir, substitua o caminho-do-dispositivo e o montagem pelo que for adequado ao seu caso de uso. Essa configuração pode ser feita da seguinte maneira:
 
 - Adicione os discos de dados que irão compor a VM.
@@ -229,7 +230,7 @@ Use o cmdlet [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set
 
 
 
-## <a name="bkmk_VHDpre"> </a> Novas VMs da IaaS criadas a partir de chaves de criptografia e VHD criptografado pelo cliente
+## <a name="bkmk_VHDpre"></a> Novas VMs IaaS criadas do VHD criptografado pelo cliente e chaves de criptografia
 Nesse cenário, você pode habilitar a criptografia usando o modelo do Resource Manager, cmdlets do PowerShell ou comandos da CLI. As seções a seguir explicam detalhadamente o modelo do Gerenciador de Recursos e comandos da CLI. 
 
 Use as instruções no apêndice para preparar imagens previamente criptografadas que podem ser usadas no Azure. Depois que a imagem for criada, você poderá usar as etapas na próxima seção para criar uma VM do Azure criptografada.
@@ -243,7 +244,7 @@ Use as instruções no apêndice para preparar imagens previamente criptografada
 
 
 
-### <a name="bkmk_VHDprePSH"> </a> Usar o Azure PowerShell para criptografar VMs da IaaS com VHDs previamente criptografados 
+### <a name="bkmk_VHDprePSH"></a> Usar Azure PowerShell para criptografar VMs IaaS com VHDs previamente criptografados 
 Você pode habilitar a criptografia de disco em seu VHD criptografado usando o cmdlet do PowerShell [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). O exemplo a seguir fornece alguns parâmetros comuns. 
 
 ```powershell
@@ -337,7 +338,7 @@ Você pode desabilitar a criptografia usando Azure PowerShell, o CLI do Azure ou
      3. Selecione **comprar** para desabilitar a criptografia de disco em uma VM do Windows em execução. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Visão geral do Azure Disk Encryption para Linux](disk-encryption-overview-aad.md)
 - [Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md)

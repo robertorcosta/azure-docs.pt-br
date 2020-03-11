@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661287"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080301"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -279,6 +279,9 @@ Ao projetar a infraestrutura para o SAP no Azure, você deve estar ciente de alg
 Os [limites de taxa de transferência de Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) por 1 Tib de cota de volume são:
 - Camada de armazenamento Premium-64 MiB/s  
 - Camada de armazenamento ultra-128 MiB/s  
+
+> [!IMPORTANT]
+> Independentemente da capacidade que você implanta em um único volume NFS, a taxa de transferência é esperada para limite no intervalo de largura de banda de 1,2 a 1,4 GB/s utilizada por um consumidor em uma máquina virtual. Isso tem a ver com a arquitetura subjacente da oferta de seja e limites de sessão do Linux relacionados em relação ao NFS. Os números de desempenho e taxa de transferência, conforme documentado no artigo [resultados do teste de desempenho de benchmark para Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) foram realizados em um volume NFS compartilhado com várias VMs cliente e como resultado com várias sessões. Esse cenário é diferente para o cenário que medimos no SAP. Onde medimos a taxa de transferência de uma única VM em um volume NFS. hospedado em seja.
 
 Para atender aos requisitos de taxa de transferência mínima do SAP para dados e log, e de acordo com as diretrizes para `/hana/shared`, os tamanhos recomendados seriam semelhantes a:
 

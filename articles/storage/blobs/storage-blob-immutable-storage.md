@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365311"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968315"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazene dados de blob críticos para os negócios com armazenamento imutável
 
@@ -68,7 +68,7 @@ Uma política de retenção baseada em tempo desbloqueada é recomendada apenas 
 Os seguintes limites se aplicam às políticas de retenção:
 
 - Para uma conta de armazenamento, o número máximo de contêineres com políticas imutáveis baseadas em tempo bloqueado é de 10.000.
-- O intervalo de retenção mínimo é um dia. O máximo é de 146.000 dias (400 anos).
+- O intervalo de retenção mínimo é 1 dia. O máximo é de 146.000 dias (400 anos).
 - Para um contêiner, o número máximo de edições para estender um intervalo de retenção para políticas imutáveis baseadas em tempo bloqueado é 5.
 - Para um contêiner, um máximo de sete logs de auditoria de política de retenção baseadas em tempo são mantidos para uma política bloqueada.
 
@@ -84,15 +84,7 @@ Por exemplo, suponha que um usuário crie uma política de retenção baseada em
 
 Políticas de retenção baseadas em tempo desbloqueadas permitem que a configuração de `allowProtectedAppendWrites` seja habilitada e desabilitada a qualquer momento. Quando a política de retenção baseada em tempo estiver bloqueada, a configuração de `allowProtectedAppendWrites` não poderá ser alterada.
 
-As políticas de retenção legal não podem habilitar `allowProtectedAppendWrites` e não permitem que novos blocos sejam anexados a blobs de acréscimo. Se uma retenção legal for aplicada a uma política de retenção baseada em tempo com o `allowProtectedAppendWrites` habilitado, a API *AppendBlock* falhará até que a retenção legal seja levantada.
-
-> [!IMPORTANT] 
-> A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível atualmente nas seguintes regiões:
-> - Leste dos EUA
-> - Centro-Sul dos Estados Unidos
-> - Oeste dos EUA 2
->
-> Neste momento, Aconselhamos enfaticamente que você não habilite `allowProtectedAppendWrites` em nenhuma outra região além daquelas especificadas, pois isso pode causar falhas intermitentes e afetar a conformidade para BLOBs de acréscimo. Para obter mais informações sobre como definir e bloquear políticas de retenção baseadas em tempo, consulte [habilitando gravações de blobs de acréscimo protegidos](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+As políticas de retenção legal não podem habilitar `allowProtectedAppendWrites` e qualquer retenção legal anulará a propriedade ' allowProtectedAppendWrites '. Se uma retenção legal for aplicada a uma política de retenção baseada em tempo com o `allowProtectedAppendWrites` habilitado, a API *AppendBlock* falhará até que a retenção legal seja levantada.
 
 ## <a name="legal-holds"></a>Retenções legais
 
@@ -140,7 +132,7 @@ Não, você pode usar o armazenamento imutável com todas as contas de uso geral
 
 **Posso aplicar uma política de retenção baseada em tempo e em retenção legal?**
 
-Sim, um contêiner pode ter um controle legal e uma política de retenção baseada em tempo ao mesmo tempo. Todos os blobs nesse contêiner permanecem no estado imutável até que todas as retenções legais sejam apagadas, mesmo que o período de retenção efetivo tenha expirado. Por outro lado, um blob permanece em um estado imutável até que o período de retenção efetivo expire, mesmo que todas as retenções legais tenham sido compensadas.
+Sim, um contêiner pode ter um controle legal e uma política de retenção baseada em tempo ao mesmo tempo; no entanto, a configuração ' allowProtectedAppendWrites ' não será aplicada até que a retenção legal seja apagada. Todos os blobs nesse contêiner permanecem no estado imutável até que todas as retenções legais sejam apagadas, mesmo que o período de retenção efetivo tenha expirado. Por outro lado, um blob permanece em um estado imutável até que o período de retenção efetivo expire, mesmo que todas as retenções legais tenham sido compensadas. 
 
 **As políticas de retenção legal são apenas para procedimentos legais ou existem outros cenários de uso?**
 
@@ -164,7 +156,7 @@ Sim, você pode usar o comando definir camada de BLOB para mover dados entre as 
 
 **O que acontece se eu não conseguir pagar e meu intervalo de retenção não expirou?**
 
-No caso de não pagamento, as políticas normais de retenção de dados serão aplicadas conforme estipulado nos termos e condições do seu contrato com a Microsoft.
+No caso de não pagamento, as políticas normais de retenção de dados serão aplicadas conforme estipulado nos termos e condições do seu contrato com a Microsoft. Para obter informações gerais, consulte [Gerenciamento de dados na Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **Há oferta de um período de avaliação ou de cortesia para apenas experimentar o recurso?**
 

@@ -6,21 +6,24 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.openlocfilehash: 1a372ef12ef7b0afb06ed3c540daaee5e38c3374
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: a784fc070400995c56d16a3bc264d589bcb1f64e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899159"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082839"
 ---
 # <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Integração do Azure Monitor para o Azure Red Hat OpenShift 4,3
 
-> [!IMPORTANT]
-> O Azure Red Hat OpenShift 4,3 é oferecido em versão prévia. Os recursos de visualização são autoatendimento e são fornecidos como estão e disponíveis e são excluídos do SLA (contrato de nível de serviço) e da garantia limitada. Portanto, os recursos não são destinados ao uso em produção. 
+> [!IMPORTANT] 
+> Observe que o Azure Red Hat OpenShift 4,3 está disponível atualmente apenas em visualização privada no leste dos EUA. A aceitação da visualização privada é apenas por convite. Certifique-se de registrar sua assinatura antes de tentar habilitar esse recurso: [registro de visualização privada do Azure Red Hat OpenShift](https://aka.ms/aro-preview-register)
+
+> [!NOTE]
+> Os recursos de visualização são autoatendimento e são fornecidos como estão e disponíveis e são excluídos do SLA (contrato de nível de serviço) e da garantia limitada. Portanto, os recursos não são destinados ao uso em produção.
 
 Este artigo descreve como habilitar a visualização privada de Azure Monitor para contêineres para clusters OpenShift 4,3 hospedados no local ou em qualquer ambiente de nuvem. As mesmas instruções também se aplicam para habilitar o monitoramento de clusters do Azure Red Hat OpenShift (toa) 4,3.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Helm 3](https://helm.sh/docs/intro/install/)
@@ -83,13 +86,13 @@ Execute novamente o script de integração conforme descrito na seção [integra
 
 Navegue até [monitoramento híbrido](https://aka.ms/azmon-containers-hybrid)e você pode ver seu cluster OPENSHIFT/aro v4 habilitado recentemente com status de integridade na guia **clusters monitorados** . Lá, você pode obter informações mais aprofundadas, como métricas, inventário e logs, clicando na coluna **cluster** .
 
-## <a name="supported-features"></a>Recursos compatíveis
+## <a name="supported-features"></a>Recursos com suporte
 
 Para obter mais informações sobre os recursos e a funcionalidade com suporte, consulte [visão geral do contêiner insights](../azure-monitor/insights/container-insights-overview.md).
 
 Entre em contato conosco por meio de askcoin@microsoft.com para obter comentários e dúvidas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre monitoramento, consulte:
 - [Visão geral do contêiner de informações](../azure-monitor/insights/container-insights-overview.md)

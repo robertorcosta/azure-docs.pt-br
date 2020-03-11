@@ -1,20 +1,19 @@
 ---
-title: Carregar um VHD no Azure usando o CLI do Azure
+title: Carregar um VHD usando o CLI do Azure
 description: Saiba como carregar um VHD em um disco gerenciado do Azure e copiar um disco gerenciado entre regiões, usando o CLI do Azure, por meio do carregamento direto.
-services: virtual-machines-linux,storage
+services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
 ms.date: 09/20/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 51c3933b5ee585c96ad81fe04d379b6771ae81e3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457600"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970336"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carregar um VHD no Azure usando o CLI do Azure
 
@@ -24,7 +23,7 @@ Se você estiver fornecendo uma solução de backup para VMs IaaS no Azure, reco
 
 Atualmente, o carregamento direto tem suporte para discos gerenciados HDD padrão, SSD Standard e SSD Premium. Ainda não há suporte para o ultra SSDs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Baixe a versão mais recente [do AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale a CLI do Azure](/cli/azure/install-azure-cli).
@@ -122,7 +121,7 @@ az disk revoke-access -n $sourceDiskName -g $sourceRG
 az disk revoke-access -n $targetDiskName -g $targetRG
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você carregou com êxito um VHD em um disco gerenciado, é possível anexar o disco como um [disco de dados a uma VM existente](add-disk.md) ou [anexar o disco a uma VM como um disco do sistema operacional](upload-vhd.md#create-the-vm), para criar uma nova VM. 
 

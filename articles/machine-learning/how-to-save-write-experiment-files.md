@@ -11,13 +11,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 197e93946a52303f312912e4ebd2487f8c1360b2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/10/2020
+ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75536727"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078421"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ Ao iniciar o treinamento é executado em um [destino de computação](how-to-set
 
 Antes de poder iniciar um experimento em um destino de computação ou em seu computador local, você deve garantir que os arquivos necessários estejam disponíveis para esse destino de computação, como arquivos de dependência e arquivos de dados que seu código precisa executar.
 
-Azure Machine Learning executa scripts de treinamento copiando a pasta de script inteira para o contexto de computação de destino e, em seguida, tira um instantâneo. O limite de armazenamento para instantâneos de teste é de 300 MB e/ou 2.000 arquivos.
+Azure Machine Learning executa scripts de treinamento copiando a pasta de script inteira para o contexto de computação de destino e, em seguida, tira um instantâneo. O limite de armazenamento para instantâneos de teste é de 300 MB e/ou 2000 arquivos.
 
 Por esse motivo, recomendamos:
 
@@ -73,7 +73,7 @@ Se você não precisar de um repositório de armazenamento, grave arquivos na pa
 
 * **Para salvar o arquivo gravado como logs no histórico de execuções,** grave arquivos na pasta `./logs`. Os logs são carregados em tempo real, portanto, esse método é adequado para streaming de atualizações dinâmicas de uma execução remota.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre como [acessar os dados de seus armazenamentos](how-to-access-data.md).
 

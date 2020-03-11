@@ -51,6 +51,8 @@
       href: batch-api-basics.md
     - name: APIs e ferramentas
       href: batch-apis-tools.md
+    - name: Detectar e manipular erros do serviço de Lote
+      href: batch-retry-after-errors.md
     - name: Práticas recomendadas
       href: best-practices.md
     - name: Cotas e limites
@@ -131,8 +133,6 @@
           href: batch-job-schedule.md
         - name: Verificar se há erros de trabalho e tarefa
           href: batch-job-task-error-checking.md
-        - name: Detectar e manipular erros do serviço de Lote
-          href: batch-retry-after-errors.md
     - name: Persistir saída de tarefa e de trabalho
       href: batch-task-output.md
       items:

@@ -1,39 +1,141 @@
 ---
-title: Mapeando a transformação achatar fluxo de dados
-description: Transformação do achatamento do fluxo de dados de mapeamento de Azure Data Factory
+title: Transformação achatar no fluxo de dados de mapeamento
+description: Desnormalizar dados hierárquicos usando a transformação achatar
 author: kromerm
 ms.author: makromer
+ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 415a093fd8a8fbe27e1d240b061548e18f2ca6b6
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: MT
+ms.date: 03/09/2020
+ms.openlocfilehash: 9b09771f51c8b7e6762dac23cc7390d75f47a387
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164722"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969098"
 ---
-# <a name="azure-data-factory-flatten-transformation"></a>Transformação de Azure Data Factory achatamento
+# <a name="flatten-transformation-in-mapping-data-flow"></a>Transformação achatar no fluxo de dados de mapeamento
 
-A transformação achatamento pode ser usada para dinamizar valores de matriz dentro de uma estrutura hierárquica em novas linhas, essencialmente desnormalizando seus dados.
+Use a transformação achatar para pegar valores de matriz dentro de estruturas hierárquicas, como JSON, e desagrupá-los em linhas individuais. Esse processo é conhecido como desnormalização.
 
-![Caixa de ferramentas transformação](media/data-flow/flatten5.png "Caixa de ferramentas transformação")
+## <a name="configuration"></a>Configuração
 
-![Transformação achatada 1](media/data-flow/flatten7.png "Transformação achatada 1")
+A transformação achatamento contém as seguintes definições de configuração
 
-## <a name="unroll-by"></a>Não acumulado por
+![Configurações de mesclagem](media/data-flow/flatten1.png "Configurações de mesclagem")
 
-Primeiro, escolha a coluna de matriz que você deseja reverter e dinamizar.
+### <a name="unroll-by"></a>Não acumulado por
 
-![Configurações de transformação de mesclagem](media/data-flow/flatten1.png "Configurações de transformação de mesclagem")
+Selecione uma matriz para desroll-la. Os dados de saída terão uma linha por item em cada matriz. Se a matriz de não acumulação na linha de entrada for nula ou vazia, haverá uma linha de saída com valores não acumulados como NULL.
 
-## <a name="unroll-root"></a>Desacumular raiz
+### <a name="unroll-root"></a>Desacumular raiz
 
-Por padrão, o ADF mesclará a estrutura na matriz de redistribuição que você escolheu acima. Ou, você pode escolher uma parte diferente da hierarquia para a qual reverter. "Unlance root" é uma configuração opcional.
+Por padrão, a transformação achatar desverte uma matriz na parte superior da hierarquia na qual ela existe. Opcionalmente, você pode selecionar uma matriz como sua raiz de desroll. A raiz não acumulada deve ser uma matriz de objetos complexos que seja ou que contenha a matriz unlance by. Se uma raiz não acumulada for selecionada, os dados de saída conterão pelo menos uma linha por item na raiz de deslançamento. Se a linha de entrada não tiver nenhum item na raiz não acumulada, ela será descartada dos dados de saída. A escolha de uma raiz sem distribuição sempre produzirá um número menor ou igual de linhas que o comportamento padrão.
 
-## <a name="input-columns"></a>Colunas de entrada
+### <a name="flatten-mapping"></a>Mapeamento de achatamento
 
-Por fim, escolha a projeção da sua nova estrutura com base nos campos de entrada, bem como a coluna normalizada que você não rolou.
+Semelhante à transformação selecionar, escolha a projeção da nova estrutura de campos de entrada e a matriz desnormalizada. Se uma matriz desnormalizada for mapeada, a coluna de saída será o mesmo tipo de dados que a matriz. Se a matriz de unlance by for uma matriz de objetos complexos que contém submatrizes, o mapeamento de um item desse subarry produzirá uma matriz.
+
+Consulte a guia inspecionar e a visualização de dados para verificar a saída do mapeamento.
+
+## <a name="examples"></a>Exemplos
+
+Consulte o seguinte objeto JSON para ver os exemplos abaixo da transformação achatar
+
+``` json
+{
+  "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
+  "goods": {
+    "trade":true, "customers":["government", "distributer", "retail"],
+    "orders":[
+        {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
+        {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
+    ]}}
+{"name":"Company1","location":"Seattle", "satellites": ["New York"],
+  "goods":{"trade":false, "customers":["store1", "store2"],
+  "orders":[
+      {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
+      {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
+    ]}}
+{"name": "Company2", "location": "Bellevue",
+  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}}
+{"name": "Company3", "location": "Kirkland"}
+```
+
+### <a name="no-unroll-root-with-string-array"></a>Nenhuma raiz de distribuição com matriz de cadeia de caracteres
+
+| Não acumulado por | Desacumular raiz | Projeção |
+| --------- | ----------- | ---------- |
+| bens. Customers | Nenhum | {1&gt;name&lt;1} <br> cliente = bens. Customer |
+
+#### <a name="output"></a>Saída
+
+```
+{ 'MSFT', 'government'},
+{ 'MSFT', 'distributer'},
+{ 'MSFT', 'retail'},
+{ 'Company1', 'store'},
+{ 'Company1', 'store2'},
+{ 'Company2', 'Bank'},
+{ 'Company3', null}
+```
+
+### <a name="no-unroll-root-with-complex-array"></a>Nenhuma raiz de distribuição com matriz complexa
+
+| Não acumulado por | Desacumular raiz | Projeção |
+| --------- | ----------- | ---------- |
+| bens. Orders. remetited. orderItems | Nenhum | {1&gt;name&lt;1} <br> orderId = bens. Orders. orderId <br> itemName = bens. Orders. remetited. orderItems. itemName <br> itemQty = bens. Orders. remetited. orderItems. itemQty <br> local = local |
+
+#### <a name="output"></a>Saída
+
+```
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
+{ 'Company1', 4, 'Charger', 3, 'Seattle'},
+{ 'Company1', 5, 'Chair', 4, 'Seattle'},
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'Company2', 4, null, null, 'Bellevue'},
+{ 'Company3', null, null, null, 'Kirkland'}
+```
+
+### <a name="same-root-as-unroll-array"></a>Mesma raiz como matriz não revertida
+
+| Não acumulado por | Desacumular raiz | Projeção |
+| --------- | ----------- | ---------- |
+| bens. Orders | bens. Orders | {1&gt;name&lt;1} <br> mercadorias. Orders. remetited. orderItems. itemName <br> bens. Customers <br> local |
+
+#### <a name="output"></a>Saída
+
+```
+{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'},
+{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'},
+{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'},
+{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'},
+{ 'Company2', null, ['Bank'], 'Bellevue'}
+```
+
+### <a name="unroll-root-with-complex-array"></a>Desacumular raiz com matriz complexa
+
+| Não acumulado por | Desacumular raiz | Projeção |
+| --------- | ----------- | ---------- |
+| bens. Orders. remetited. orderItem | bens. Orders |{1&gt;name&lt;1} <br> orderId = bens. Orders. orderId <br> itemName = bens. Orders. remetited. orderItems. itemName <br> itemQty = bens. Orders. remetited. orderItems. itemQty <br> local = local |
+
+#### <a name="output"></a>Saída
+
+```
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
+{ 'Company1', 4, 'Charger', 3, 'Seattle'},
+{ 'Company1', 5, 'Chair', 4, 'Seattle'},
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'Company2', 4, null, null, 'Bellevue'}
+```
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -53,25 +155,16 @@ foldDown(unroll(<unroll cols>),
 ### <a name="example"></a>{1&gt;Exemplo&lt;1}
 
 ```
-source(output(
-        name as string,
-        location as string,
-        satellites as string[],
-        goods as (trade as boolean, customers as string[], orders as (orderId as string, orderTotal as double, shipped as (orderItems as (itemName as string, itemQty as string)[]))[])
-    ),
-    allowSchemaDrift: true,
-    validateSchema: false) ~> source2
-source2 foldDown(unroll(goods.orders.shipped.orderItems),
+source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
     mapColumn(
         name,
-        each(goods.orders, match(type == 'integer')),
-        each(goods.orders.shipped.orderItems, match(true())),
-        location
-    )) ~> Flatten1
-Flatten1 sink(allowSchemaDrift: true,
-    validateSchema: false,
-    skipDuplicateMapInputs: true,
-    skipDuplicateMapOutputs: true) ~> sink1
+        orderId = goods.orders.orderId,
+        itemName = goods.orders.shipped.orderItems.itemName,
+        itemQty = goods.orders.shipped.orderItems.itemQty,
+        location = location
+    ),
+    skipDuplicateMapInputs: false,
+    skipDuplicateMapOutputs: false) 
 ```    
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}

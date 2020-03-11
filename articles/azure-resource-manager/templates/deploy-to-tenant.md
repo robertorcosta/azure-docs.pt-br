@@ -3,18 +3,18 @@ title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: aa72116c3e6e98293b28b2d4413fd1dafb1372d9
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: 64090f1a0bac4b2b5f18d8dec14be0c3b051ac17
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942735"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968870"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
 À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseados em função](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
 
-## <a name="supported-resources"></a>Recursos compatíveis
+## <a name="supported-resources"></a>Recursos com suporte
 
 Você pode implantar os seguintes tipos de recursos no nível do locatário:
 
@@ -25,7 +25,7 @@ Você pode implantar os seguintes tipos de recursos no nível do locatário:
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>Esquema
+### <a name="schema"></a>Schema
 
 O esquema usado para implantações de locatário é diferente do esquema para implantações de grupo de recursos.
 
@@ -70,7 +70,7 @@ Para Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resour
 ```azurepowershell-interactive
 New-AzTenantDeployment `
   -Location "West US" `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```
 
 Para a API REST, use [implantações-criar ou atualizar no escopo do locatário](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -172,7 +172,7 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Você também pode implantar modelos no nível da [assinatura](deploy-to-subscription.md) ou do [grupo de gerenciamento](deploy-to-management-group.md).

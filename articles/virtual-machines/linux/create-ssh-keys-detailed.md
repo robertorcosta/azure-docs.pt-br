@@ -1,25 +1,17 @@
 ---
-title: Etapas detalhadas-par de chaves SSH para VMs Linux do Azure
+title: Etapas detalhadas para criar um par de chaves SSH
 description: Conheça as etapas detalhadas para criar e gerenciar um par de chaves SSH pública e privada para VMs Linux no Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: eea078a4fb8287a4f07db478adf059eecce9ed82
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c34a88c39104d3af2c5747d1cd6d3dea6929379a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929705"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969548"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Etapas detalhadas: criar e gerenciar chaves SSH para autenticação para uma VM do Linux no Azure 
 Com um par de chaves SSH (Secure Shell), você poderá criar uma máquina virtual Linux no Azure que usam chaves SSH para autenticação como padrão, eliminando a necessidade de senhas para entrar. VMs criadas com o Portal do Azure, CLI do Azure, modelos do Resource Manager ou outras ferramentas podem incluir sua chave pública SSH como parte da implantação, que configura a autenticação de chave SSH para conexões SSH. 
@@ -217,7 +209,7 @@ touch ~/.ssh/config
 vim ~/.ssh/config
 ```
 
-### <a name="example-configuration"></a>Exemplo de configuração
+### <a name="example-configuration"></a>Configuração de exemplo
 
 Adicione os parâmetros de configurações apropriadas para a VM do seu host.
 
@@ -239,7 +231,7 @@ ssh myvm
 
 Na primeira vez que você entrar em um servidor usando uma chave SSH, o comando solicitará a frase secreta para esse arquivo de chave.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 A próxima etapa é criar VMs do Linux do Azure usando a nova chave pública SSH. As VMs do Azure criadas com uma chave pública SSH como a entrada estão mais protegidas do que as VMs criadas com as senhas do método de entrada padrão.
 

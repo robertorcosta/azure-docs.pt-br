@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396515"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968018"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -105,7 +105,7 @@ IoT Hub impõe outros limites operacionais:
 | Mensagens de nuvem para dispositivo<sup>1</sup> | Tamanho máximo da mensagem 64 KB. O máximo de mensagens pendentes para entrega é de 50 por dispositivo. |
 | Método direto<sup>1</sup> | O tamanho de payload do método direto máximo é 128 KB. |
 | Configurações automáticas de dispositivo e módulo<sup>1</sup> | 100 configurações por hub SKU pago. 20 configurações por hub SKU gratuito. |
-| IoT Edge implantações automáticas<sup>1</sup> | 20 módulos por implantação. 100 implantações (incluindo implantações em camadas) por Hub SKU pago. 10 implantações por Hub SKU gratuito. |
+| IoT Edge implantações automáticas<sup>1</sup> | 50 módulos por implantação. 100 implantações (incluindo implantações em camadas) por Hub SKU pago. 10 implantações por Hub SKU gratuito. |
 | Gêmeos<sup>1</sup> | O tamanho máximo das seções desejadas e das propriedades relatadas são 32 KB. O tamanho máximo da seção de marcas é 8 KB. |
 | Políticas de acesso compartilhado | O número máximo de políticas de acesso compartilhado é 16 |
 

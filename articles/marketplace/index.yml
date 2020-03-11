@@ -1,0 +1,131 @@
+### YamlMime:Landing
+title: Bem-vindo(a) ao marketplace comercial da Microsoft
+summary: Saiba mais sobre o marketplace comercial da Microsoft, um mercado de aplicativos e serviços online que permite que startups e empresas ofereçam soluções aos clientes em todo o mundo.
+metadata:
+  title: Bem-vindo(a) ao marketplace comercial da Microsoft
+  description: Saiba mais sobre o marketplace comercial da Microsoft, um mercado de aplicativos e serviços online que permite que startups e empresas ofereçam soluções aos clientes em todo o mundo.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: landing-page
+  author: MaggiePucciEvans
+  ms.author: evansma
+  ms.date: 03/04/2020
+  ms.openlocfilehash: 3dced8953c09520b96a9aa24cf7b5db1022de6ce
+  ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 03/08/2020
+  ms.locfileid: "78927589"
+landingContent:
+- title: Trabalhar no marketplace comercial da Microsoft
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Criar uma nova conta
+      url: ./partner-center-portal/create-account.md
+    - text: Determinar a opção de publicação
+      url: ./determine-your-listing-type.md
+    - text: Perguntas frequentes sobre o marketplace comercial da Microsoft
+      url: ./marketplace-faq-publisher-guide.md
+    - text: Notas de versão
+      url: https://aka.ms/publicmarketplaceroadmap
+    - text: Políticas e termos
+      url: ./policies-terms.md
+- title: Cenários e tarefas comuns
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Práticas recomendadas de marketing
+      url: ./gtm-marketing-best-practices.md
+    - text: Práticas recomendadas de listagem de ofertas
+      url: ./gtm-offer-listing-best-practices.md
+    - text: Guia de publicação da oferta de aplicativos SaaS
+      url: ./marketplace-saas-applications-technical-publishing-guide.md
+  - linkListType: get-started
+    links:
+    - text: Participe do fórum da comunidade do Azure Marketplace e do AppSource
+      url: https://aka.ms/MarketplaceCommunity
+    - text: Registre-se para participar de webinars para discussão ou assista mais tarde sob demanda
+      url: https://aka.ms/allwebinars
+    - text: Disponibilize soluções no Microsoft AppSource e no Office
+      url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+- title: Analise sua oferta e os dados do cliente
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Painel de resumo
+      url: ./partner-center-portal/summary-dashboard.md
+    - text: Painel de pedidos
+      url: ./partner-center-portal/orders-dashboard.md
+    - text: Painel de cliente
+      url: ./partner-center-portal/customer-dashboard.md
+    - text: Painel de uso
+      url: ./partner-center-portal/usage-dashboard.md
+    - text: Painel Insights do Marketplace
+      url: ./partner-center-portal/insights-dashboard.md
+    - text: Painel de downloads
+      url: ./partner-center-portal/downloads-dashboard.md
+    - text: Painel de classificações e opiniões
+      url: ./partner-center-portal/ratings-reviews.md
+- title: Gerencie suas ofertas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ofertas de aplicativo do Azure
+      url: ./partner-center-portal/create-new-azure-apps-offer.md
+    - text: Ofertas do Dynamics 365 for Customer Engagement e do PowerApps
+      url: ./partner-center-portal/create-new-customer-engagement-offer.md
+    - text: Ofertas do Dynamics 365 for Operations
+      url: ./partner-center-portal/create-new-operations-offer.md
+    - text: Ofertas do Dynamics 365 Business Central
+      url: ./partner-center-portal/create-new-business-central-offer.md
+    - text: Ofertas de SaaS
+      url: ./partner-center-portal/create-new-saas-offer.md
+    - text: Ofertas de máquinas virtuais
+      url: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+    - text: Mais tipos de ofertas
+      url: ./cloud-partner-portal/cpp-marketplace-offers.md
+- title: Receba pagamentos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configurar sua conta de pagamento e formulários de imposto
+      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+    - text: Cobrança do marketplace comercial
+      url: ./partner-center-portal/billing-details.md
+    - text: Limites, métodos e períodos de pagamento
+      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+    - text: Relatório de pagamento
+      url: ./partner-center-portal/payout-summary.md
+    - text: Detalhes do imposto
+      url: ./partner-center-portal/tax-details-paid-transactions.md
+- title: Referência de API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Pré-requisitos de API
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+    - text: APIs de cumprimento de SaaS
+      url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+    - text: Referência de API do Portal do Cloud Partner
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+    - text: APIs de serviço de medição do Marketplace
+      url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+    - text: Criar ou modificar uma oferta
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+    - text: Recuperar ofertas
+      url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+    - text: Entrar no ar
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+    - text: Preços das ofertas de máquina virtual
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+- title: Obtenha suporte
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Opções de suporte
+      url: ./partner-center-portal/support.md
+    - text: Disponibilidade geográfica e moedas
+      url: ./marketplace-geo-availability-currencies.md
+    - text: Solucionar problemas dos erros de autenticação
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md

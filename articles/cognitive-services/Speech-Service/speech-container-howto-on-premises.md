@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 7874a6b274939c233dd1c4e6d146df2a9a409e65
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cd4ff97902b1ce3d1d5a0ea066608fd33e6bf697
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834001"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037094"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Usar contêineres de serviço de fala com kubernetes e Helm
 
@@ -25,7 +25,7 @@ Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 
-|Obrigatório|Finalidade|
+|Necessário|Finalidade|
 |--|--|
 | Conta do Azure | Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. |
@@ -39,8 +39,8 @@ Consulte os detalhes do [computador host do contêiner do serviço de fala][spee
 
 | Serviço | CPU/contêiner | Memória/contêiner |
 |--|--|--|
-| **Conversão de fala em texto** | um decodificador requer um mínimo de 1.150 milicores. Se a `optimizedForAudioFile` estiver habilitada, 1.950 milicores serão necessárias. (padrão: dois decodificadores) | Necessário: 2 GB<br>Limitado: 4 GB |
-| **Conversão de texto em fala** | uma solicitação simultânea requer um mínimo de 500 milicores. Se a `optimizeForTurboMode` estiver habilitada, 1.000 milicores serão necessárias. (padrão: duas solicitações simultâneas) | Necessário: 1 GB<br> Limitado: 2 GB |
+| **Conversão de fala em texto** | um decodificador requer um mínimo de 1.150 milicores. Se a `optimizedForAudioFile` estiver habilitada, 1.950 milicores serão necessárias. (padrão: dois decodificadores) | Obrigatório: 2 GB<br>Limitado:  4 GB |
+| **Conversão de Texto em Fala** | uma solicitação simultânea requer um mínimo de 500 milicores. Se a `optimizeForTurboMode` estiver habilitada, 1.000 milicores serão necessárias. (padrão: duas solicitações simultâneas) | Obrigatório: 1 GB<br> Limitado: 2 GB |
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Conectar-se ao cluster kubernetes
 
@@ -261,7 +261,7 @@ Os gráficos Helm são hierárquicos. Ser hierárquico permite a herança de gr�
 
 [!INCLUDE [Text-to-Speech Helm Chart Config](includes/text-to-speech-chart-config.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure), [visite aqui][installing-helm-apps-in-aks].
 

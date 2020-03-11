@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f7a6c5872c5e2b7e1b47b40e32ddb047641e8b2e
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a621165210702e075f15fb61bd615e157f997fe1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944222"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078859"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C
 
@@ -64,13 +64,13 @@ Para ler, atualizar ou excluir uma conta de usuário existente, a declaração d
 
 Para criar uma nova conta de usuário, a declaração de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames. EmailAddress**ou **signInNames. username**. Para uma conta federada: o **alternativeSecurityId**.
 
-O elemento InputClaimsTransformations pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
+O elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
 
 ## <a name="outputclaims"></a>OutputClaims
 
 O elemento **OutputClaims** contém uma lista de declarações retornadas pelo perfil técnico do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory. Você também pode incluir declarações que não são retornadas pelo Azure Active Directory, desde que defina o atributo `DefaultValue`.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
+O elemento [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
 Por exemplo, o perfil técnico de **AAD-UserWriteUsingLogonEmail** cria uma conta local e retorna as seguintes declarações:
 
@@ -92,7 +92,7 @@ Por exemplo, o perfil técnico de **AAD-UserWriteUsingLogonEmail** cria uma cont
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-O elemento **PersistedClaims** contém todos os valores que o Azure AD deve manter, com possíveis informações de mapeamento entre um tipo de declaração já definido na seção ClaimsSchema na política e o nome do atributo do Azure AD.
+O elemento **PersistedClaims** contém todos os valores que devem ser persistidos pelo Azure AD com informações de mapeamento possíveis entre um tipo de declaração já definido na seção [ClaimsSchema](claimsschema.md) na política e o nome do atributo do Azure AD.
 
 O perfil técnico do **AAD-UserWriteUsingLogonEmail**, que cria a nova conta local, mantém as declarações a seguir:
 
@@ -123,9 +123,7 @@ O nome da declaração será o nome do atributo do Azure AD, a menos que seja es
 
 ### <a name="read"></a>Ler
 
-A operação **Ler** os dados sobre uma conta de usuário único. Para ler dados do usuário, você precisa fornecer uma chave como uma declaração de entrada, como **objectId**, **userPrincipalName**, **signInNames** (qualquer tipo, nome de usuário e conta baseada em email) ou **alternativeSecurityId**.
-
-O perfil técnico a seguir lê os dados sobre uma conta de usuário usando o objectId do usuário:
+A operação **Ler** os dados sobre uma conta de usuário único. O perfil técnico a seguir lê os dados sobre uma conta de usuário usando o objectId do usuário:
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -153,11 +151,9 @@ O perfil técnico a seguir lê os dados sobre uma conta de usuário usando o obj
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Gravar
+### <a name="write"></a>Gravação
 
-A operação **Gravar** cria ou atualiza uma conta de usuário único. Para gravar uma conta de usuário, você precisa fornecer uma chave como uma declaração de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.
-
-O seguinte perfil técnico cria uma nova conta social:
+A operação **Gravar** cria ou atualiza uma conta de usuário único. O seguinte perfil técnico cria uma nova conta social:
 
 ```XML
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -197,9 +193,7 @@ O seguinte perfil técnico cria uma nova conta social:
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-A operação **DeleteClaims** limpa as informações de uma lista de declarações fornecida. Para excluir informações de declarações, você precisa fornecer uma chave como uma declaração de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.
-
-O perfil técnico a seguir exclui declarações:
+A operação **DeleteClaims** limpa as informações de uma lista de declarações fornecida. O perfil técnico a seguir exclui declarações:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
@@ -220,9 +214,7 @@ O perfil técnico a seguir exclui declarações:
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-A operação **DeleteClaimsPrincipal** exclui uma única conta de usuário do diretório. Para excluir uma conta de usuário, você precisa fornecer uma chave como uma declaração de entrada, como **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.
-
-O perfil técnico a seguir exclui uma conta de usuário do diretório usando o nome UPN:
+A operação **DeleteClaimsPrincipal** exclui uma única conta de usuário do diretório. O perfil técnico a seguir exclui uma conta de usuário do diretório usando o nome UPN:
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
@@ -253,16 +245,30 @@ O perfil técnico a seguir exclui uma conta de usuário social usando **alternat
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | A operação a ser executada. Valores possíveis: `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Gere um erro se o objeto de usuário não existe no diretório. Valores possíveis: `true` ou `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Não | Caso um erro deva ser gerado (veja a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao usuário se o objeto de usuário não existe. O valor pode ser [localizado](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Gere um erro se o objeto de usuário já existe. Valores possíveis: `true` ou `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Não | Se um erro for gerado (veja a descrição do atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique a mensagem a mostrar ao usuário se o objeto de usuário já existe. O valor pode ser [localizado](localization.md).|
 | ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor: ObjectId de um aplicativo. Para obter mais informações, veja [Atributos personalizados de uso em uma política de edição de perfil personalizada](custom-policy-custom-attributes.md). |
 | ClientId | Não | O identificador de cliente para acessar o locatário como um terceiro. Para obter mais informações, veja [Atributos personalizados de uso em uma política de edição de perfil personalizada](custom-policy-custom-attributes.md) |
 | IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina isso como `true`. |
+
+### <a name="error-messages"></a>Mensagens de erro
+ 
+As configurações a seguir podem ser usadas para configurar a mensagem de erro exibida após a falha. Os metadados devem ser configurados no perfil técnico [autodeclarado](self-asserted-technical-profile.md) . As mensagens de erro podem ser [localizadas](localization.md).
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalAlreadyExists | Não | Se um erro for gerado (veja a descrição do atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique a mensagem a mostrar ao usuário se o objeto de usuário já existe. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Não | Caso um erro deva ser gerado (veja a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao usuário se o objeto de usuário não existe. |
+
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+
+Consulte o seguinte artigo, por exemplo, usando o perfil técnico do Azure AD:
+
+- [Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-configure-user-input.md)
 
 
 

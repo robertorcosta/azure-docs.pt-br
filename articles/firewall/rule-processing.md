@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 69c0c13c7027707cdadb2f1f1de9cc1655c9c625
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396042"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082450"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regra do Firewall do Azure
 Você pode configurar regras de NAT, regras de rede e regras de aplicativos no firewall do Azure. As regras são processadas de acordo com o tipo de regra. 
@@ -32,7 +32,7 @@ Se você configurar regras de rede e regras de aplicativo, as regras de rede ser
 
 A conectividade de Internet de entrada pode ser habilitada Configurando DNAT (conversão de endereços de rede de destino) conforme descrito em [tutorial: filtrar o tráfego de entrada com o Firewall do Azure DNAT usando o portal do Azure](tutorial-firewall-dnat.md). As regras de NAT são aplicadas em prioridade antes das regras de rede. Se uma correspondência for encontrada, será adicionada uma regra de rede correspondente implícita para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido.
 
-As regras de aplicativo não são aplicadas para conexões de entrada. Portanto, se você quiser filtrar o tráfego HTTP/S de entrada, deverá usar o WAF (firewall do aplicativo Web). Para obter mais informações, consulte [o que é o Firewall do aplicativo Web do Azure?](../web-application-firewall/overview.md)
+As regras de aplicativo não são aplicadas a conexões de entrada. Portanto, se você quiser filtrar o tráfego HTTP/S de entrada, deverá usar o WAF (firewall do aplicativo Web). Para obter mais informações, consulte [o que é o Firewall do aplicativo Web do Azure?](../web-application-firewall/overview.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -90,6 +90,10 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 **Resultado**
 
 As conexões SSH são negadas porque uma coleção de regras de rede de prioridade mais alta a bloqueia. O processamento da regra é interrompido neste ponto.
+
+## <a name="rule-changes"></a>Alterações de regra
+
+Se você alterar uma regra para negar tráfego anteriormente permitido, todas as sessões existentes relevantes serão descartadas.
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 

@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas no backup de estado d
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: f311de435d813cb0e6f8a2c3d932e05d695603f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583292"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969567"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
@@ -40,7 +40,7 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 - Fazer a recuperação em hardware diferente usando a recuperação do Estado do Sistema não é recomendado pela Microsoft
 - O backup de estado do sistema atualmente dá suporte a servidores Windows "locais". Essa funcionalidade não está disponível para VMs do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Antes de solucionarmos problemas de backup de estado do sistema com o backup do Azure, execute a verificação de pré-requisitos abaixo.  
 
@@ -72,7 +72,7 @@ Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute a
 
 2. Selecione o **tipo de instalação** e clique em **Avançar**.
 
-    ![Tipo de Instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
+    ![Tipo de instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
 3. Selecione um servidor no pool de servidores e clique em **Avançar**. Na função de servidor, deixe a seleção padrão e clique em **Avançar**.
 4. Selecione **backup do Windows Server** na guia **recursos** e clique em **Avançar**.
@@ -137,7 +137,7 @@ Se o trabalho falhar, ele indica um problema WSB que resultaria em falha nos bac
 
 | Sintoma | Resolução
 | -- | --
-| -O agente MARS falha com a mensagem de erro: falha no backup porque o volume da cópia de sombra não pôde crescer devido a espaço em disco insuficiente nos volumes que contêm arquivos do sistema <br/><br/> -O seguinte log de erros/avisos está presente nos logs de eventos do sistema VolSnap: "não havia espaço em disco suficiente no volume C: para aumentar o armazenamento de cópia de sombra para cópias de sombra de C: devido a essa falha, todas as cópias de sombra do volume C: estão em risco de serem excluídas" | -Libere espaço no volume realçado no log de eventos para que haja espaço suficiente para que as cópias de sombra cresçam enquanto o backup está em andamento <br/><br/> -Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço usado para cópia de sombra. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| -O agente MARS falha com a mensagem de erro: falha no backup porque o volume da cópia de sombra não pôde crescer devido a espaço em disco insuficiente nos volumes que contêm arquivos do sistema <br/><br/> -O seguinte log de erros/avisos está presente nos logs de eventos do sistema VolSnap: "não havia espaço em disco suficiente no volume C: para aumentar o armazenamento de cópia de sombra para cópias de sombra de C: devido a essa falha, todas as cópias de sombra do volume C: estão em risco de serem excluídas" | -Libere espaço no volume realçado no log de eventos para que haja espaço suficiente para que as cópias de sombra cresçam enquanto o backup está em andamento <br/><br/> -Ao configurar o espaço de cópia de sombra, podemos restringir a quantidade de espaço usado para cópia de sombra. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partição EFI bloqueada
 
@@ -145,6 +145,6 @@ Se o trabalho falhar, ele indica um problema WSB que resultaria em falha nos bac
 | -- | --
 | O agente MARS falha com a mensagem de erro: "falha no backup do estado do sistema porque a partição do sistema EFI está bloqueada. Isso pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou backup de software " | -Se o problema for devido a um software de segurança de terceiros, você precisará entrar em contato com o fornecedor de antivírus para que ele possa permitir o agente MARS <br/><br/> -Se um software de backup de terceiros estiver em execução, aguarde sua conclusão e repita o backup
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter mais informações sobre o estado do sistema do Windows na implantação do Gerenciador de recursos, consulte [fazer backup do estado do sistema do Windows Server](backup-azure-system-state.md)

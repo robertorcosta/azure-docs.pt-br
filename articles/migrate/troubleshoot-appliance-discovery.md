@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3e25f55d82ba146f9076e38faf1e399c5228d947
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048699"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080371"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -78,7 +78,7 @@ Se você receber esse erro de conexão, talvez não consiga se conectar ao vCent
 Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciamento de Azure Key Vault", faça o seguinte:
 - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
 - Verifique se a conta tem acesso ao cofre de chaves especificado na mensagem de erro e repita a operação.
-- Se o problema persistir, contate o Suporte da Microsoft.
+- Se o problema persistir, contate o suporte da Microsoft.
 - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) sobre as funções e permissões do Azure necessárias.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Erro 60028: não foi possível iniciar a descoberta
@@ -89,7 +89,7 @@ Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operaç
 - Se houver um erro de validação, examine as diretrizes de correção para corrigir os erros e tente a opção **salvar e iniciar descoberta** novamente.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: falha na operação do Azure AD 
-Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Realize um dos seguintes procedimentos:
+Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Siga um destes procedimentos:
 
 - Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
 - Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.
@@ -150,6 +150,7 @@ Erros típicos de descoberta de aplicativo são resumidos na tabela.
 10004: "não é possível descobrir os aplicativos instalados para < computadores > Windows/Linux". |  As credenciais para acessar < máquinas > Windows/Linux não foram fornecidas no dispositivo.| Adicione uma credencial ao dispositivo que tem acesso ao < computadores > Windows/Linux.
 10005: "não é possível acessar o servidor local". | As credenciais de acesso podem estar erradas. | Atualize as credenciais do dispositivo Verifique se você pode acessar o computador relevante com eles. 
 10006: "não é possível acessar o servidor local". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux.|  Use a descoberta de aplicativos somente para Windows/Linux.
+10007: "não é possível processar os metadados recuperados" | Esse erro interno ocorreu ao tentar desserializar o JSON | Contatar Suporte da Microsoft para uma resolução
 9000/9001/9002: "não é possível descobrir os aplicativos instalados no servidor". | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Instale/reinstale as ferramentas do VMware no computador relevante e verifique se ela está em execução.
 9003: não é possível descobrir os aplicativos instalados no servidor ". | Isso pode ocorrer se o sistema operacional do computador não for Windows ou Linux. | Use a descoberta de aplicativos somente para Windows/Linux.
 9004: "não é possível descobrir os aplicativos instalados no servidor". | Isso pode acontecer se a VM estiver desligada. | Para descoberta, verifique se a VM está ativada.
@@ -158,9 +159,21 @@ Erros típicos de descoberta de aplicativo são resumidos na tabela.
 9008: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
 9009: "não é possível recuperar os aplicativos instalados no servidor". | Pode ocorrer se as configurações de UAC (controle de conta de usuário) do Windows no servidor forem restritivas e impedir a descoberta de aplicativos instalados. | Procure configurações de ' controle de conta de usuário ' no servidor e defina a configuração do UAC no servidor para um dos dois níveis inferiores.
 9010: "não é possível recuperar os aplicativos instalados no servidor". | Pode ser um erro interno.  | Tf o problema não é resolvido em até 24 horas, entre em contato com o suporte.
+9011: "o arquivo a ser baixado do convidado não foi encontrado na VM convidada" | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9012: "o conteúdo do arquivo de resultado está vazio." | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9013: "um novo perfil temporário é criado para cada logon na VM VMware" | Um novo perfil temporário é criado para cada logon na VM | Verifique se o nome de usuário fornecido nas credenciais da VM convidada está no formato UPN.
+9015: "não é possível se conectar a VMs VMware devido a privilégios insuficientes no vCenter" | A função de operações de convidado não está habilitada na conta de usuário do vCenter | Verifique se a função de operações de convidado está habilitada na conta de usuário do vCenter.
+9016: "não é possível conectar-se a VMs VMware, pois o agente de operações convidadas está sem dados" | As ferramentas do VMware não estão instaladas corretamente ou não estão atualizadas. | Verifique se as ferramentas do VMware estão corretamente instaladas e atualizadas.
+9017: "o arquivo com metadados descobertos não foi encontrado na VM". | O problema pode ocorrer devido a um erro interno. | Contate a Suporte da Microsoft para obter uma resolução.
+9018: "o PowerShell não está instalado nas VMs convidadas." | O PowerShell não está disponível na VM convidada. | Instale o PowerShell na VM convidada.
+9019: "não é possível descobrir devido a falhas de operação da VM convidada" | Falha na operação de convidado do VMware na VM. | Verifique se as credenciais da VM são válidas e se o nome de usuário fornecido nas credenciais da VM convidada está no formato UPN.
+9020: "a permissão de criação do arquivo foi negada." | A função associada ao usuário ou à política de grupo é restringir o usuário a criar o arquivo na pasta | Verifique se o usuário convidado fornecido tem permissão de criação para o arquivo na pasta. Consulte **notificações** na avaliação do servidor para o nome da pasta.
+9021: "a permissão de criação de arquivo foi negada no caminho temporário do sistema de pastas." | Não há suporte para a versão da ferramenta VMware na VM | Atualize sua versão de ferramenta do VMware acima de 10.2.0.
+9022: "obter acesso ao objeto WMI foi negado." | A função associada ao usuário ou à política de grupo está restringindo o usuário a acessar o objeto WMI. | Entre em contato com o Suporte da Microsoft.
+9023: "o valor da variável de ambiente SystemRoot está vazio." | Não conhecido | Entre em contato com o Suporte da Microsoft.
+9024: "o valor da variável de ambiente TEMP está vazio." | Não conhecido | Entre em contato com o Suporte da Microsoft.
+9025: "o PowerShell está corrompido nas VMs convidadas." | Não conhecido | Reinstale o PowerShell na VM convidada e verifique se o PowerShell pode ser executado na VM convidada.
 8084: "não é possível descobrir aplicativos devido ao erro do VMware: <Exception from VMware>" | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer se uma exceção for lançada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Pesquise a mensagem na documentação do [VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e siga as etapas para corrigir. Se você não puder corrigir, entre em contato com o suporte da Microsoft.
-9012: "não é possível descobrir os aplicativos instalados no servidor" | O problema pode ocorrer devido a um erro interno.  | Se o problema não for resolvido em até 24 horas, entre em contato com o suporte.
-9013: "não é possível descobrir os aplicativos instalados no servidor" | Um novo perfil temporário é criado cada vez que há logon na VM.  | Verifique se um perfil temporário não foi criado para o usuário convidado fornecido.
 
 
 

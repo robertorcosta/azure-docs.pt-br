@@ -1,5 +1,5 @@
 - name: Documentação dos Serviços de Nuvem
-  href: index.md
+  href: index.yml
 - name: Visão geral
   items:
     - name: O que são os Serviços de Nuvem?

@@ -1,19 +1,19 @@
 ---
 title: Modificar um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como modificar e atualizar um conjunto de dimensionamento de máquinas virtuais do Azure com as APIs REST, Azure PowerShell e CLI do Azure
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 02/14/2018
-ms.author: manayar
-ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.author: mimckitt
+ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390428"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082432"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -311,7 +311,7 @@ Para atualizar VMs existentes, você deve fazer uma "atualização manual" de ca
 >[!NOTE]
 > Clusters do Service Fabric só podem usar o modo *Automático*, mas a atualização é tratada de maneira diferente. Para obter mais informações, consulte [Service Fabric atualizações de aplicativos](../service-fabric/service-fabric-application-upgrade.md).
 
-Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. Altera para o conjunto de dimensionamento de perfil de sistema operacional (como o nome de usuário administrador e senha) só pode ser alterado na versão da API *2017-12-01* ou posterior. Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
+Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. As alterações no sistema operacional do conjunto de dimensionamento e no perfil do disco de dados (como nome de usuário e senha de administrador) só podem ser alteradas na versão de API *2017-12-01* ou posterior. Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
 
 - a API REST com [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) da seguinte maneira:
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 03/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 51bf005bdad4197120fed96894ac1cdd150738ee
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75935222"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079826"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Escolher um modo de reconhecimento de fala
 
@@ -33,7 +33,7 @@ No final de um expressão reconhecido, o serviço para de processar o áudio des
 Para obter mais informações sobre como usar a função `RecognizeOnceAsync`, consulte o [.net Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
-var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
+var result = await recognizer.RecognizeOnceAsync();
 ```
 
 ::: zone-end
@@ -72,7 +72,7 @@ Para idiomas adicionais, consulte os [documentos de referência do SDK de fala](
 
 ## <a name="continuous"></a>Contínuo
 
-Se você precisar de um reconhecimento de execução longa, use as funções de início e de parada correspondentes para o reconhecimento contínuo. A função start será iniciada e continuará processando todos os declarações até que você invoque a função STOP ou até que haja muito tempo no silêncio. Ao usar o modo contínuo, não se esqueça de registrar-se nos vários eventos que serão acionados na ocorrência. Por exemplo, o evento "reconhecido" é acionado quando ocorre o reconhecimento de fala. Você precisa ter um manipulador de eventos em vigor para lidar com o reconhecimento. Um limite de 10 minutos de tempo total de reconhecimento de fala, por sessão, é imposto pelo serviço de fala.
+Se você precisar de um reconhecimento de execução longa, use as funções de início e de parada correspondentes para o reconhecimento contínuo. A função start será iniciada e continuará processando todos os declarações até que você invoque a função STOP ou até que haja muito tempo no silêncio. Ao usar o modo contínuo, não se esqueça de registrar-se nos vários eventos que serão acionados na ocorrência. Por exemplo, o evento "reconhecido" é acionado quando ocorre o reconhecimento de fala. Você precisa ter um manipulador de eventos em vigor para lidar com o reconhecimento.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -88,10 +88,10 @@ recognizer.Recognized += (s, e) =>
 };
 
 // Start continuous speech recognition
-await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StartContinuousRecognitionAsync();
 
 // Stop continuous speech recognition
-await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ::: zone-end
@@ -208,7 +208,7 @@ Para idiomas adicionais, consulte os [documentos de referência do SDK de fala](
 
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Explore os exemplos adicionais do SDK de fala no GitHub](https://aka.ms/csspeech/samples)

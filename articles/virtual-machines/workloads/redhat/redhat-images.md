@@ -1,6 +1,6 @@
 ---
 title: Imagens do Red Hat Enterprise Linux no Azure | Microsoft Docs
-description: Saiba mais sobre imagens do Red Hat Enterprise Linux no Microsoft Azure
+description: Saiba mais sobre as imagens de Red Hat Enterprise Linux no Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -12,45 +12,50 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 5ed5d9337dd4e7acdbba25c4cb66d2690793f250
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 7913cb888e1799efae0f3ecdf3391d19736cc273
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134400"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970160"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral de imagens de Red Hat Enterprise Linux
-Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomes e retenção.
 
-Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata). Para obter detalhes de preços, visite a [calculadora de preços do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Este artigo descreve as imagens disponíveis do Red Hat Enterprise Linux (RHEL) no Azure Marketplace e as políticas relacionadas à sua nomenclatura e retenção.
+
+Para obter informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL, consulte [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata). Para obter detalhes de preços, consulte [calculadora de preços do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> Atualmente, as imagens RHEL disponíveis no Azure Marketplace dão suporte aos modelos de licenciamento BYOS (Bring-Your-Own-Subscription) ou PAYG (Pagamento Conforme o Uso). Não há suporte para o [Benefício de Uso Híbrido do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) a troca dinâmica entre BYOS e PAYG. O modo de licenciamento de troca exige a reimplantação da VM com base na imagem correspondente.
+> As imagens RHEL atualmente disponíveis no Azure Marketplace dão suporte a BYOS (traga sua própria assinatura) ou a modelos de licenciamento pagos conforme o uso. O [benefício de uso híbrido do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) e a alternância dinâmica entre BYOS e licenciamento pago conforme o uso não têm suporte. Para alternar o modo de licenciamento, você deve reimplantar a VM da imagem correspondente.
 
 >[!NOTE]
-> Para qualquer problema relacionado a imagens RHEL no Azure Marketplace, registre um tíquete de suporte com a Microsoft.
+> Para qualquer problema relacionado a imagens RHEL no Azure Marketplace, arquivo um tíquete de suporte com a Microsoft.
 
-## <a name="viewing-images-available-in-azure"></a>Exibindo imagens disponíveis no Azure
-Ao Pesquisar "Red Hat" no Marketplace ou ao criar um recurso na interface do usuário portal do Azure, você verá apenas um subconjunto de todas as imagens RHEL disponíveis. Você sempre pode obter o conjunto completo de imagens VM disponíveis usando a CLI/PowerShell/API do Azure.
+## <a name="view-images-available-in-azure"></a>Exibir imagens disponíveis no Azure
 
-Para ver o conjunto completo de imagens disponíveis do Red Hat no Azure, execute o seguinte comando
+Quando você Pesquisar "Red Hat" no Azure Marketplace ou quando criar um recurso na interface do usuário do portal do Azure, você verá apenas um subconjunto de todas as imagens do RHEL disponíveis. Você sempre pode obter o conjunto completo de imagens de VM disponíveis usando o CLI do Azure, o PowerShell e a API.
+
+Para ver o conjunto completo de imagens do Red Hat disponíveis no Azure, execute o seguinte comando:
 
 ```azurecli-interactive
 az vm image list --publisher RedHat --all
 ```
 
 ### <a name="naming-convention"></a>Convenção de nomenclatura
-Imagens de VM no Azure são organizadas por Editor, oferta, SKU e versão. A combinação de Publisher:Offer:SKU:Version é a imagem URN e identifica exclusivamente a imagem a ser usada.
+
+As imagens de VM no Azure são organizadas por editor, oferta, SKU e versão. A combinação de Publisher:Offer:SKU:Version é a imagem URN e identifica exclusivamente a imagem a ser usada.
 
 Por exemplo, `RedHat:RHEL:7-LVM:7.6.2018103108` se refere a uma imagem RHEL 7,6 LVM particionada criada em 31 de outubro de 2018.
 
-Abaixo está um exemplo de como criar uma VM do RHEL 7.6.
+Uma amostra de como criar uma VM RHEL 7,6 é mostrada aqui.
+
 ```azurecli-interactive
 az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:7.6.2018103108 --no-wait
 ```
 
 ### <a name="the-latest-moniker"></a>O moniker "mais recente"
-A API REST do Azure permite o uso do moniker "mais recente" para a versão em vez da versão específica. Usar "mais recente" provisionará a imagem mais recente disponível para determinado publicador, oferta e SKU.
+
+A API REST do Azure permite o uso do moniker "mais recente" para a versão em vez da versão específica. O uso de "mais recente" provisiona a imagem mais recente disponível para o Publicador, a oferta e a SKU fornecidos.
 
 Por exemplo, `RedHat:RHEL:7-LVM:latest` refere-se à imagem mais recente do LVM de família RHEL 7 disponível.
 
@@ -63,104 +68,118 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:lat
 Essa comparação de versão de imagem é feita comparando os valores como um objeto de [versão](https://docs.microsoft.com/dotnet/api/system.version.-ctor?view=netframework-4.8) , não como uma cadeia de caracteres.
 
 ## <a name="rhel-6-image-types"></a>Tipos de imagem RHEL 6
-Para imagens RHEL 6. x, os tipos de imagem são os seguintes:
+
+Para imagens RHEL 6. x, os tipos de imagem são mostrados na tabela a seguir.
 
 |Publicador | Oferta | Valor de SKU | {1&gt;Version&lt;1} | Detalhes
 |----------|-------|-----------|---------|--------
-|RedHat | RHEL | Versão secundária (por exemplo, 6,9) | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 6.9.2018010506) | Todas as imagens padrão RHEL 6. x seguem essa Convenção
+|RedHat | RHEL | Versão secundária (por exemplo, 6,9) | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 6.9.2018010506) | Todas as imagens padrão RHEL 6. x seguem essa convenção.
 |RedHat | RHEL-BYOS | RHEL-raw69 | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 6.9.20181023) | Esta imagem é uma imagem RHEL 6,9 BYOS.
-|RedHat | RHEL | RHEL-SAP-APPS | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 6.8.2017053118) | Esta é uma imagem RHEL 6,8 para aplicativos SAP. Ele tem o direito de acessar repositórios de aplicativos SAP, bem como de repositórios de RHEL base.
-|RedHat | RHEL | RHEL-SAP-HANA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 6.7.2017053121) | Esta é uma imagem RHEL 6,7 para SAP HANA. Ele tem o direito de acessar repositórios SAP HANA, bem como de repositórios de RHEL base.
+|RedHat | RHEL | RHEL-SAP-APPS | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 6.8.2017053118) | Esta imagem é uma imagem RHEL 6,8 para aplicativos SAP. Ele tem o direito de acessar repositórios de aplicativos SAP e repositórios de RHEL base.
+|RedHat | RHEL | RHEL-SAP-HANA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 6.7.2017053121) | Esta imagem é um RHEL 6,7 para a imagem SAP HANA. Ele tem o direito de acessar repositórios SAP HANA e repositórios de RHEL base.
 
 ## <a name="rhel-7-image-types"></a>Tipos de imagem RHEL 7
-Para imagens RHEL 7. x, há alguns tipos de imagens diferentes. A tabela a seguir mostra os diferentes conjuntos de imagens que oferecemos. Uma lista completa pode ser exibida com o comando AZ CLI `az vm image list --publisher redhat --all`.
+
+Para imagens RHEL 7. x, há alguns tipos de imagens diferentes. A tabela a seguir mostra os diferentes conjuntos de imagens que oferecemos. Para ver uma lista completa, use o comando CLI do Azure `az vm image list --publisher redhat --all`.
 
 >[!NOTE]
-> Salvo indicação em contrário, todas as imagens são particionadas pelo LVM e se conectarão a repositórios RHEL regulares (ou seja, não EUS, não E4S). No futuro, estamos migrando para publicar apenas imagens de particionamento LVM, mas estão abertas para comentários sobre essa decisão. Detalhes sobre o suporte de atualização estendida e os serviços de atualização para SAP estão disponíveis na [página ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+> Salvo indicação em contrário, todas as imagens são particionadas em LVM e se conectam a repositórios RHEL regulares. Ou seja, os repositórios não são EUS (suporte de atualização estendida) e não são serviços de atualização para SAP (E4S). No futuro, estamos migrando para publicar apenas imagens de particionamento LVM, mas estão abertas para comentários sobre essa decisão. Para obter mais informações sobre o suporte de atualização estendida e os serviços de atualização para SAP, consulte [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 |Publicador | Oferta | Valor de SKU | {1&gt;Version&lt;1} | Detalhes
 |----------|-------|------------|---------|--------
-|RedHat | RHEL | Versão secundária (por exemplo, 7,6) | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019102813) | As imagens publicadas antes de abril de 2019 serão anexadas aos repositórios padrão do RHEL. As imagens publicadas após abril de 2019 serão anexadas aos repositórios do EUS (suporte estendido de atualização) do Red Hat para permitir o bloqueio de versão de uma versão secundária específica. Os clientes que desejam repositórios regulares devem usar as imagens que contêm 7-LVM ou 7-RAW no valor de SKU (detalhes abaixo). RHEL 7,7 e imagens posteriores serão particionadas pelo LVM. Todas as outras imagens nesta categoria são de particionamento bruto.
-|RedHat | RHEL | 7-RAW | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019102813) | Essas imagens são particionadas em formato bruto (ou seja, nenhum volume lógico foi adicionado).
-|RedHat | RHEL | 7-RAW-CI | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019072418) | Essas imagens são particionadas de forma bruta (ou seja, nenhum volume lógico foi adicionado) e usará Cloud-init para provisionamento.
+|RedHat | RHEL | Versão secundária (por exemplo, 7,6) | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019102813) | As imagens publicadas antes de abril de 2019 são anexadas a repositórios RHEL padrão. As imagens publicadas após abril de 2019 são anexadas aos repositórios de EUS do Red Hat para permitir o bloqueio de versão de uma versão secundária específica. Os clientes que desejam repositórios regulares devem usar as imagens que contêm 7-LVM ou 7-RAW no valor de SKU (os detalhes a seguir). RHEL 7,7 e imagens posteriores são o LVM particionado. Todas as outras imagens nesta categoria são partições não processadas.
+|RedHat | RHEL | 7-RAW | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019102813) | Essas imagens são particionadas em formato bruto (por exemplo, nenhum volume lógico foi adicionado).
+|RedHat | RHEL | 7-RAW-CI | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019072418) | Essas imagens são particionadas em formato bruto (por exemplo, nenhum volume lógico foi adicionado) e usam Cloud-init para provisionamento.
 |RedHat | RHEL | 7-LVM | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019062414) | Essas imagens são particionadas em LVM.
-|RedHat | RHEL-BYOS | RHEL-{LVM, RAW} | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.7.20190819) | Essas imagens são as imagens do RHEL 7 BYOS. Eles não são anexados a nenhum repositório e não cobram a taxa Premium do RHEL. Se você estiver interessado nas imagens do RHEL BYOS, [solicite o acesso](https://aka.ms/rhel-byos). Os valores de SKU terminam com a versão secundária e denotam se a imagem é RAW ou com particionamento de LVM. Por exemplo, um valor de SKU de RHEL-lvm77 indica uma imagem de RHEL 7,7 particionada por LVM.
+|RedHat | RHEL-BYOS | RHEL-{LVM, RAW} | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.7.20190819) | Essas imagens são as imagens do RHEL 7 BYOS. Eles não são anexados a nenhum repositório e não cobram a taxa Premium do RHEL. Se você estiver interessado nas imagens do RHEL BYOS, [solicite o acesso](https://aka.ms/rhel-byos). Os valores de SKU terminam com a versão secundária e indicam se a imagem é bruta ou LVM particionado. Por exemplo, um valor de SKU de RHEL-lvm77 indica uma imagem de RHEL 7,7 particionada por LVM.
 |RedHat | RHEL | RHEL-SAP | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019071300) | Essas imagens são RHEL for SAP images. Eles têm o direito de acessar os repositórios de SAP HANA e de aplicativos, bem como repositórios E4S do RHEL. A cobrança inclui o RHEL Premium e o SAP Premium sobre a taxa de computação base.
-|RedHat | RHEL | RHEL-SAP-HA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019062320) | Essas imagens são RHEL for SAP com alta disponibilidade e imagens de serviços de atualização. Eles têm o direito de acessar os repositórios de SAP HANA e de aplicativos e os repositórios de alta disponibilidade, bem como os repositórios de E4S RHEL. A cobrança inclui o RHEL Premium, o SAP Premium e o HA Premium acima da taxa de computação base.
-|RedHat | RHEL | RHEL-HA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019062019) | Essas são imagens RHEL que também estão qualificadas para acessar o complemento de alta disponibilidade. Eles cobrarão um pouco mais sobre o RHEL e a taxa de computação base devido ao complemento de alta disponibilidade Premium.
-|RedHat | RHEL | RHEL-SAP-APPS | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.3.2017053118) | Essas imagens estão desatualizadas, pois os aplicativos SAP e SAP HANA repositórios foram combinados nos repositórios SAP. Essas são as imagens do RHEL for SAP Applications. Eles têm o direito de acessar repositórios de aplicativos SAP, bem como repositórios de RHEL base.
-|RedHat | RHEL | RHEL-SAP-HANA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.3.2018051421) | Essas imagens estão desatualizadas, pois os aplicativos SAP e SAP HANA repositórios foram combinados nos repositórios SAP. Essas são RHEL for SAP HANA imagens. Eles têm o direito de acessar repositórios SAP HANA, bem como de repositórios de RHEL base.
+|RedHat | RHEL | RHEL-SAP-HA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019062320) | Essas imagens são RHEL for SAP com alta disponibilidade e imagens de serviços de atualização. Eles têm o direito de acessar os repositórios de SAP HANA e de aplicativos e os repositórios de alta disponibilidade, bem como os repositórios de E4S RHEL. A cobrança inclui o RHEL Premium, o SAP Premium e a alta disponibilidade Premium sobre a taxa de computação base.
+|RedHat | RHEL | RHEL-HA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.6.2019062019) | Essas imagens são imagens RHEL que também estão qualificadas para acessar o complemento de alta disponibilidade. Eles cobram um pouco mais sobre o RHEL e a taxa de computação base devido ao complemento de alta disponibilidade Premium.
+|RedHat | RHEL | RHEL-SAP-APPS | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.3.2017053118) | Essas imagens estão desatualizadas porque os aplicativos SAP e SAP HANA repositórios foram combinados nos repositórios SAP. Essas imagens são RHEL for SAP Application images. Eles têm o direito de acessar repositórios de aplicativos SAP e repositórios de RHEL base.
+|RedHat | RHEL | RHEL-SAP-HANA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.3.2018051421) | Essas imagens estão desatualizadas porque os aplicativos SAP e SAP HANA repositórios foram combinados nos repositórios SAP. Essas imagens são RHEL for SAP HANA imagens. Eles têm o direito de acessar repositórios SAP HANA e repositórios de RHEL base.
 
 ## <a name="rhel-8-image-types"></a>Tipos de imagem RHEL 8
+
 Os detalhes dos tipos de imagem RHEL 8 estão abaixo.
 
 |Publicador | Oferta | Valor de SKU | {1&gt;Version&lt;1} | Detalhes
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 8.0.20191023) | Essas imagens são imagens RHEL 8,0 com particionamento de LVM conectadas a repositórios Red Hat padrão.
-|RedHat | RHEL | 8-Gen2 | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 8.0.20191024) | Essas imagens são imagens do Hyper-V geração 2 RHEL 8,0 LVM-partições conectadas a repositórios Red Hat padrão. Mais informações sobre VMs de geração 2 no Azure estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|RedHat | RHEL | 8-Gen2 | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 8.0.20191024) | Essas imagens são imagens do Hyper-V geração 2 RHEL 8,0 LVM-partições conectadas a repositórios Red Hat padrão. Para obter mais informações sobre VMs de geração 2 no Azure, consulte [suporte para VMs de geração 2 no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## <a name="rhel-longer-support-add-ons"></a>O RHEL suporta mais Complementos
 
-### <a name="extended-update-support-eus"></a>Suporte de atualização estendida (EUS)
-A partir de abril de 2019, as imagens RHEL estão disponíveis que são anexadas aos repositórios EUS (suporte de atualização estendida) por padrão. Mais detalhes sobre o RHEL EUS estão disponíveis na [documentação do Red Hat](https://access.redhat.com/articles/rhel-eus).
+### <a name="extended-update-support"></a>Suporte de atualização estendida
 
-É possível alternar para repositórios EUS e tem suporte. Instruções sobre como mudar sua VM para EUS e mais detalhes sobre as datas de fim de suporte do EUS estão disponíveis [aqui](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+A partir de abril de 2019, são disponibilizadas imagens RHEL que são anexadas aos repositórios EUS por padrão. Mais informações sobre o RHEL EUS estão disponíveis na [documentação do Red Hat](https://access.redhat.com/articles/rhel-eus).
+
+É possível alternar para repositórios EUS e tem suporte. Para obter instruções sobre como mudar sua VM para EUS e obter mais informações sobre o suporte do EUS de datas de fim de vida, consulte [RHEL eus e VMs RHEL de bloqueio de versão](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
 
 >[!NOTE]
-> Não há suporte para EUS em extras de RHEL. Isso significa que, se você estiver instalando um pacote que geralmente está disponível no canal de extras do RHEL, não poderá fazer isso enquanto estiver em EUS. O ciclo de vida do produto Red Hat extras é detalhado [aqui](https://access.redhat.com/support/policy/updates/extras/).
+> O EUS não tem suporte em extras de RHEL. Isso significa que, se você instalar um pacote que geralmente está disponível no canal de extras do RHEL, não será possível fazer isso enquanto estiver em EUS. Para obter mais informações sobre o ciclo de vida do produto Red Hat extras, consulte [Red Hat Enterprise Linux ciclo de vida extra](https://access.redhat.com/support/policy/updates/extras/).
 
-#### <a name="differentiating-between-regular-and-eus-images"></a>Diferenciando imagens regulares e EUSs.
+#### <a name="differentiate-between-regular-and-eus-images"></a>Diferenciar entre imagens regulares e EUSs
+
 Os clientes que desejam usar imagens anexadas a repositórios EUS devem usar a imagem RHEL que contém um número de versão secundária do RHEL no SKU.
 
-Por exemplo, você pode ver as duas seguintes imagens RHEL 7,4 disponíveis:
+Por exemplo, você pode ver as duas imagens RHEL 7,4 a seguir disponíveis.
+
 ```bash
 RedHat:RHEL:7-LVM:7.6.2019062414
 RedHat:RHEL:7.6:7.6.2019102813
 ```
-Nesse caso, os `RedHat:RHEL:7.6:7.6.2019102813` serão anexados aos repositórios do EUS por padrão (valor de SKU de 7,4) e `RedHat:RHEL:7-LVM:7.6.2019062414` serão anexados a repositórios não EUS por padrão (valor de SKU de 7-LVM).
 
-Se você quiser usar repositórios regulares (não EUS), implante usando uma imagem que não contenha um número de versão secundário na SKU.
+Nesse caso, `RedHat:RHEL:7.6:7.6.2019102813` é anexado a repositórios do EUS por padrão. O valor de SKU é 7,4. E `RedHat:RHEL:7-LVM:7.6.2019062414` é anexado a repositórios não EUS por padrão. O valor de SKU é 7-LVM.
+
+Para usar repositórios regulares (não EUS), use uma imagem que não contenha um número de versão secundário na SKU.
 
 #### <a name="rhel-images-with-eus"></a>Imagens RHEL com EUS
-A tabela a seguir será aplicada a imagens RHEL conectadas a repositórios do EUS.
+
+As informações na tabela a seguir se aplicam a imagens RHEL que estão conectadas a repositórios EUS.
 
 >[!NOTE]
-> No momento da gravação, apenas RHEL 7,4 e versões secundárias posteriores têm suporte EUS. EUS não tem mais suporte para RHEL < = 7,3.
+> No momento da gravação, apenas RHEL 7,4 e versões secundárias posteriores têm suporte EUS. EUS não é mais suportado para RHEL < = 7.3.
 >
-> Mais detalhes sobre a disponibilidade EUS do RHEL podem ser encontrados [aqui](https://access.redhat.com/support/policy/updates/errata).
+> Para obter mais informações sobre a disponibilidade EUS do RHEL, consulte [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 Versão secundária |Exemplo de imagem EUS              |Status do EUS                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
-RHEL 7,4      |RedHat:RHEL:7.4:7.4.2019041718 | As imagens publicadas em abril de 2019 e posteriores serão EUS por padrão|
-RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | As imagens publicadas em junho de 2019 e posteriores serão EUS por padrão |
-RHEL 7,6      |RedHat:RHEL:7.6:7.6.2019052206 | As imagens publicadas podem ser 2019 e posteriores serão EUS por padrão  |
-RHEL 8,0      |{1&gt;N/A&lt;1}                            | Nenhum EUS disponível no Red Hat                               |
+RHEL 7,4      |RedHat:RHEL:7.4:7.4.2019041718 | As imagens publicadas em abril de 2019 e versões posteriores são EUS por padrão.|
+RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | As imagens publicadas em junho de 2019 e posteriores são EUS por padrão. |
+RHEL 7,6      |RedHat:RHEL:7.6:7.6.2019052206 | As imagens publicadas podem ser 2019 e posteriores são EUS por padrão. |
+RHEL 8,0      |{1&gt;N/A&lt;1}                            | Nenhum EUS está disponível no Red Hat.                               |
 
-### <a name="update-services-for-sap-e4s"></a>Serviços de atualização para SAP (E4S)
-As últimas imagens do RHEL for SAP serão conectadas aos serviços de atualização para assinaturas de soluções SAP (E4S). Mais detalhes sobre o E4S estão disponíveis na [documentação](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions)do Red Hat.
+### <a name="update-services-for-sap"></a>Serviços de atualização para SAP
+
+As últimas imagens do RHEL for SAP serão conectadas aos serviços de atualização para assinaturas de soluções SAP (E4S). Para obter mais informações sobre o E4S, consulte a [documentação](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions)do Red Hat.
 
 #### <a name="rhel-images-with-e4s"></a>Imagens RHEL com E4S
-As imagens das ofertas a seguir criadas após dezembro de 2019 serão conectadas a repositórios E4S.
+
+As imagens das ofertas a seguir criadas depois de dezembro de 2019 estão conectadas a repositórios E4S:
 
 * RHEL-SAP (RHEL para SAP)
-* RHEL-SAP-HA (RHEL for SAP com HA e Update Services)
+* RHEL-SAP-HA (RHEL for SAP com serviços de atualização e alta disponibilidade)
 
 ## <a name="other-available-offers-and-skus"></a>Outras ofertas e SKUs disponíveis
-A lista completa de ofertas disponíveis e SKUs pode incluir imagens adicionais além do que está listado na tabela acima, por exemplo, `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. Essas ofertas podem ser usadas para fornecer suporte a soluções específicas do marketplace, ou devem ser publicadas para fins de teste e visualizações. Podem ser alteradas ou removidas a qualquer momento sem aviso. Não use, a menos que sua presença foi documentada publicamente pela Microsoft ou Red Hat.
+
+A lista completa de ofertas e SKUs disponíveis pode incluir imagens adicionais além das listadas na tabela anterior. Um exemplo é `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. Essas ofertas podem ser usadas para fornecer suporte para soluções específicas do Marketplace. Ou eles podem ser publicados para visualizações e fins de teste. Eles podem ser alterados ou removidos a qualquer momento, sem aviso. Não os use, a menos que sua presença seja documentada publicamente pela Microsoft ou Red Hat.
 
 ## <a name="publishing-policy"></a>Política de publicação
-A Microsoft e Red Hat atualizam as imagens quando novas versões secundárias são lançadas, conforme necessário para resolver CVEs específicos ou para alterações/atualizações ocasionais de configuração. Nos esforçamos para fornecer imagens atualizadas assim que possível, em três dias úteis após uma versão ou uma correção CVE.
 
-Podemos atualizar somente a versão secundária atual em uma família de determinada imagem. Com o lançamento de uma versão secundária mais recente, podemos parar de atualizar a versão secundária mais antiga. Por exemplo, com o lançamento do RHEL 7.6, imagens de RHEL 7.5 não serão atualizadas.
+As imagens de atualização do Microsoft e do Red Hat como novas versões secundárias são lançadas, conforme necessário para resolver vulnerabilidades e exposições comuns (CVEs) específicas ou para alterações de configuração ou atualizações ocasionais. Nos esforçamos para fornecer imagens atualizadas o mais rápido possível dentro de três dias úteis após uma versão ou disponibilidade de uma correção de CVE.
+
+Atualizamos apenas a versão secundária atual em uma determinada família de imagens. Com o lançamento de uma versão secundária mais recente, podemos parar de atualizar a versão secundária mais antiga. Por exemplo, com o lançamento do RHEL 7,6, as imagens do RHEL 7,5 não são mais atualizadas.
 
 >[!NOTE]
-> As máquinas virtuais do Active Azure provisionadas das imagens com pagamento Conforme o Uso são conectadas ao RHUI do Azure e podem receber atualizações e correções assim que forem liberadas pela Red Hat e replicadas para o RHUI do Azure (geralmente em menos de 24 horas após a liberação oficial pela Red Hat). Essas VMs não exigem uma nova imagem publicada para obter as atualizações e os clientes têm controle total sobre quando iniciar a atualização.
+> As VMs ativas do Azure provisionadas a partir de imagens pré-pagas do RHEL são conectadas à RHUI do Azure e podem receber atualizações e correções assim que são lançadas pelo Red Hat e replicadas para o RHUI do Azure. O tempo geralmente é inferior a 24 horas após a versão oficial da Red Hat. Essas VMs não exigem uma nova imagem publicada para obter as atualizações. Os clientes têm controle total sobre quando iniciar a atualização.
 
 ## <a name="image-retention-policy"></a>Política de retenção de imagem
-Nossa política atual é manter todas as imagens publicadas anteriormente. Nós nos reservamos ao direito de remover as imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido à plataforma subsequente ou atualizações de componentes, podem ser removidas. Imagens que podem ser removidas seguirão a política atual do Marketplace para fornecer notificações de até 30 dias antes da remoção da imagem.
+
+A política atual é manter todas as imagens publicadas anteriormente. Nós nos reservamos ao direito de remover as imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido a atualizações de componentes ou plataformas subsequentes podem ser removidas. As imagens que podem ser removidas seguem a política atual do Azure Marketplace para fornecer notificações de até 30 dias antes da remoção da imagem.
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-* Exiba a lista completa de [imagens RHEL no Azure](./redhat-imagelist.md).
-* Saiba mais sobre a Infraestrutura de atualização do Red Hat do Azure [aqui](https://aka.ms/rhui-update).
-* Saiba mais sobre a [oferta BYOS do RHEL](./byos.md).
-* Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+
+* Para exibir a lista completa de imagens RHEL no Azure, confira [Red Hat Enterprise Linux (RHEL) imagens disponíveis no Azure](./redhat-imagelist.md).
+* Para saber mais sobre a infraestrutura de atualização do Red Hat do Azure, confira [infraestrutura de atualização do Red Hat para VMs do RHEL sob demanda no Azure](https://aka.ms/rhui-update).
+* Para saber mais sobre a oferta BYOS do RHEL, confira [Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure](./byos.md).
+* Para obter informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL, consulte [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).

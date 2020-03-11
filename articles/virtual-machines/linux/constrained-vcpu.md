@@ -1,25 +1,17 @@
 ---
-title: Tamanhos de vCPU restritos do Azure – Linux
+title: Tamanhos de vCPU restritos
 description: Lista dos tamanhos de Vm que são compatíveis com uma contagem de vCPU restrita.
-services: virtual-machines-linux
-documentationcenter: ''
 author: jonbeck7
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: f4bb48bb4225d8ce19f577a7e4156aaa46ee065a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4b481d3ef61a0b7e52d3b4c4855634ec3efa0158
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036652"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969715"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamanhos de VM compatíveis com vCPU restrita
 
@@ -34,6 +26,6 @@ ms.locfileid: "74036652"
 - [GPU](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
 

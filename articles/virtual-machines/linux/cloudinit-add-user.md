@@ -1,25 +1,17 @@
 ---
 title: Usar Cloud-init para adicionar um usuário a uma VM do Linux no Azure
 description: Como usar cloud-init para adicionar um usuário a uma VM do Linux durante a criação com a CLI do Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 428f489a24c24b173cb1cef0980dd17c1d8483ce
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f1782bfe0c14e3b44703f89ec7f78590c1bb74c5
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036773"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969232"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Usar cloud-init para adicionar um usuário a uma VM Linux no Azure
 Este artigo mostra como usar [cloud-init](https://cloudinit.readthedocs.io) para adicionar um usuário em uma VM (máquina virtual) ou VMSS (conjuntos de dimensionamento de máquinas virtuais) no tempo de provisionamento no Azure. Esse script cloud-init é executado na primeira inicialização uma vez que os recursos tiverem sido provisionados pelo Azure. Para obter mais informações sobre como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md).
@@ -27,7 +19,7 @@ Este artigo mostra como usar [cloud-init](https://cloudinit.readthedocs.io) para
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Adicionar um usuário a uma VM com a inicialização de nuvem
 Uma das primeiras tarefas em qualquer nova VM Linux é adicionar um usuário adicional para você para evitar o uso do *root*. As chaves de SSH são uma prática recomendada para segurança e usabilidade. As chaves são adicionadas ao arquivo *~/.ssh/authorized_keys* com esse script de inicialização de nuvem.
 
-Para adicionar um usuário a uma VM Linux, crie um arquivo no shell atual chamado *cloud_init_add_user.txt* e cole a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell, não no computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud_init_add_user.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  Você precisa fornecer sua própria chave pública (como o conteúdo de *~/.ssh/id_rsa.pub*) para o valor de `ssh-authorized-keys:`, ela foi reduzida aqui para simplificar o exemplo.
+Para adicionar um usuário a uma VM Linux, crie um arquivo no shell atual chamado *cloud_init_add_user.txt* e cole a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud_init_add_user.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  Você precisa fornecer sua própria chave pública (como o conteúdo de *~/.ssh/id_rsa.pub*) para o valor de `ssh-authorized-keys:`, ela foi reduzida aqui para simplificar o exemplo.
 
 ```yaml
 #cloud-config
@@ -82,10 +74,10 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter exemplos adicionais de alterações de configuração do cloud-init, consulte o seguinte:
  
-- [Adicionar um usuário do Linux adicional a uma VM](cloudinit-add-user.md)
+- [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md) (Executar um gerenciador de pacotes para atualizar os pacotes existentes na primeira inicialização)
 - [Change VM local hostname](cloudinit-update-vm-hostname.md) (Alterar o nome do host local da VM) 
 - [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md) (Instalar um pacote de aplicativo, atualizar os arquivos de configuração e injetar chaves)

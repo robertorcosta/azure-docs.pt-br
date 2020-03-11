@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/28/2020
+ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: ffbac18b3172dd0cd3d430bae5060be0a8d1bb21
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393506"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082538"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -31,7 +31,7 @@ Este artigo descreve as alterações introduzidas no Azure Media Services v3, mo
 E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs herdadas do Media Services v2](../previous/media-services-overview.md), analise as seguintes diretrizes e considerações antes de migrar para as APIs v3. Há muitos benefícios e novos recursos na API v3 que melhoram a experiência do desenvolvedor e os recursos dos Serviços de Mídia. No entanto, conforme explicado na seção [Problemas conhecidos](#known-issues) deste artigo, também há algumas limitações devido a alterações entre as versões da API. Esta página será mantida à medida que a equipe de Serviços de Mídia fizer melhorias contínuas nas APIs da v3 e abordar as lacunas entre as versões. 
 
 > [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md)v3, exibir (não gerenciar) os [ativos](assets-concept.md)v3, obter informações sobre como acessar APIs. Para obter mais detalhes, consulte [perguntas frequentes](frequently-asked-questions.md#can-i-use-the-azure-portal-to-manage-v3-resources). 
 
 ## <a name="benefits-of-media-services-v3"></a>Benefícios do Serviços de Mídia do Microsoft Azure v3
   
@@ -131,7 +131,13 @@ A tabela a seguir mostra as diferenças de código entre v2 e v3 para cenários 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-sdk), CLI ou um dos SDKs suportados.
+*  No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para:
+
+    * Gerenciar [eventos ao vivo](live-events-outputs-concept.md)dos serviços de mídia v3, 
+    * Exibir (não gerenciar) os [ativos](assets-concept.md)v3, 
+    * [Obtenha informações sobre como acessar APIs](access-api-portal.md). 
+
+Para todas as outras tarefas de gerenciamento (por exemplo, [transformações e trabalhos](transforms-jobs-concept.md) e [proteção de conteúdo](content-protection-overview.md)), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
 * Você precisa para provisionar unidades reservadas de mídia (MRUs) em sua conta para controlar a simultaneidade e o desempenho de seus trabalhos, especialmente os que envolvem a análise de áudio ou de vídeo. Para obter mais informações, consulte [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Colocação em escala do processamento de mídia). Você pode gerenciar as MRUs usando a [CLI 2.0 para Serviços de Mídia v3](media-reserved-units-cli-how-to.md), o [portal do Azure](../previous/media-services-portal-scale-media-processing.md) ou as [APIs v2](../previous/media-services-dotnet-encoding-units.md). Você precisa provisionar MRUs, se você estiver usando os Serviços de Mídia do Microsoft Azure v2 ou v3 APIs.
 * As entidades do Serviços de Mídia do Microsoft Azure criadas com a API v3 não podem ser gerenciadas pela API v2.  
 * Nem todas as entidades na API v2 aparecem automaticamente na API v3.  Veja a seguir exemplos de entidades nas duas versões que são incompatíveis:  
@@ -145,7 +151,7 @@ A tabela a seguir mostra as diferenças de código entre v2 e v3 para cenários 
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para ver como é fácil começar a codificar e transmitir arquivos de vídeo, confira [Arquivos de transmissão](stream-files-dotnet-quickstart.md). 
 

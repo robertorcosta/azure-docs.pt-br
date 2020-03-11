@@ -1,37 +1,27 @@
 ---
-title: Instalar e configurar o Terraform para provisionar recursos do Azure
-description: Saiba como instalar e configurar o Terraform para criar recursos do Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: tomarchermsft
-manager: gwallace
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/20/2019
-ms.author: tarcher
-ms.openlocfilehash: 74728fb05e900c534580f1c8eaf14dd0e48fc42c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: MT
+title: Início Rápido – Instalar e configurar o Terraform para provisionar recursos do Azure
+description: Neste início rápido, você instalará e configurará o Terraform para criar recursos do Azure
+keywords: azure devops terraform instalar configurar
+ms.topic: quickstart
+ms.date: 03/09/2020
+ms.openlocfilehash: 82635f59ec8165add2046a230a040b06f89d9898
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77473123"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943512"
 ---
-# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Instalar e configurar o Terraform para provisionar recursos do Azure
+# <a name="quickstart-install-and-configure-terraform-to-provision-azure-resources"></a>Início Rápido: Instalar e configurar o Terraform para provisionar recursos do Azure
  
 O Terraform fornece uma maneira fácil de definir, visualizar e implantar a infraestrutura de nuvem usando uma [linguagem de modelagem simples](https://www.terraform.io/docs/configuration/syntax.html). Este artigo descreve as etapas necessárias para usar o Terraform para provisionar recursos no Azure.
 
 Para saber mais sobre como usar Terraform com o Azure, visite o [Terraform Hub](/azure/terraform).
 > [!NOTE]
-> Para obter suporte específico do Terraform, entre em contato com o Terraform diretamente usando um dos seus canais da Comunidade:
+> Para obter suporte específico do Terraform, entre em contato com o Terraform diretamente usando um dos canais da comunidade:
 >
->   • A [seção Terraform](https://discuss.hashicorp.com/c/terraform-core) do portal da Comunidade contém perguntas, casos de uso e padrões úteis.
+>    * A [seção Terraform](https://discuss.hashicorp.com/c/terraform-core) do portal da comunidade contém perguntas, casos de uso e padrões úteis.
 >
->   • Para perguntas relacionadas ao provedor, visite a seção [provedores de Terraform](https://discuss.hashicorp.com/c/terraform-providers) do portal da Comunidade.
+>    * Para perguntas relacionadas ao provedor, acesse a seção [Provedores Terraform](https://discuss.hashicorp.com/c/terraform-providers) do portal da comunidade.
 
 
 
@@ -54,7 +44,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Para permitir que o Terraform provisione recursos para o Azure, crie uma [entidade de serviço do Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli). A entidade de serviço concede seus scripts Terraform para provisionar recursos em sua assinatura do Azure.
 
-Se você tiver várias assinaturas do Azure, primeiro consulte sua conta com a [lista de contas AZ](/cli/azure/account#az-account-list) para obter uma lista de IDs de assinatura e valores de ID de locatário:
+Se você tiver várias assinaturas do Azure, primeiro consulte sua conta com [az account list](/cli/azure/account#az-account-list) para obter uma lista de valores de ID da assinatura e ID do locatário:
 
 ```azurecli-interactive
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
@@ -104,6 +94,10 @@ Crie um arquivo `test.tf` em um diretório vazio e cole o script a seguir.
 
 ```hcl
 provider "azurerm" {
+  # The "feature" block is required for AzureRM provider 2.x. 
+  # If you are using version 1.x, the "features" block is not allowed.
+  version = "~>2.0"
+  features {}
 }
 resource "azurerm_resource_group" "rg" {
         name = "testResourceGroup"

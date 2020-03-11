@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 1cac52dcee91e57a22b6d18595b067de888aba73
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365312"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082277"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -255,12 +255,6 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 - A auditoria do banco de dados SQL do Azure é otimizada para disponibilidade & desempenho. Durante uma atividade muito alta, o banco de dados SQL do Azure permite que as operações continuem e não registrem alguns eventos auditados.
 
 - Para configurar a auditoria imutável na conta de armazenamento, consulte [permitir gravações de blobs de acréscimo protegidos](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Observe que o nome do contêiner para auditoria é **sqldbauditlogs**.
-
-    > [!IMPORTANT]
-    > A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível no momento e visível somente nas seguintes regiões:
-    > - Leste dos EUA
-    > - Centro-Sul dos Estados Unidos
-    > - Oeste dos EUA 2
 
 
 ## <a id="subheading-7"></a>Gerenciar a auditoria de banco de dados e SQL Server do Azure usando Azure PowerShell

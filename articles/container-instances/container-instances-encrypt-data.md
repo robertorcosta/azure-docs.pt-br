@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544308"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080353"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
 
@@ -41,6 +41,10 @@ O restante do documento aborda as etapas necessárias para criptografar os dados
 
 A primeira etapa é garantir que seu [locatário do Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tenha uma entidade de serviço atribuída para conceder permissões ao serviço de instâncias de contêiner do Azure. 
 
+> [!IMPORTANT]
+> Para executar o comando a seguir e criar uma entidade de serviço com êxito, confirme que você tem permissões para criar entidades de serviço em seu locatário.
+>
+
 O seguinte comando da CLI irá configurar o SP ACI em seu ambiente do Azure:
 
 ```azurecli-interactive
@@ -48,6 +52,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 A saída da execução deste comando deve mostrar uma entidade de serviço que foi configurada com "displayName": "serviço de instância de contêiner do Azure".
+
+Caso você não consiga criar a entidade de serviço com êxito:
+* Confirme que você tem permissões para fazer isso em seu locatário
+* Verifique se uma entidade de serviço já existe em seu locatário para implantar no ACI. Você pode fazer isso executando `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` e usar essa entidade de serviço em vez disso
 
 ### <a name="create-a-key-vault-resource"></a>Crie um recurso do Key Vault
 

@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c0b0c6ec68c818f107c7e3e3241e4acc0edb7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671763"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082524"
 ---
-# <a name="enable-on-premises-azure-active-password-protection"></a>Habilitar a proteção de senha ativa do Azure local
+# <a name="enable-on-premises-azure-active-directory-password-protection"></a>Habilitar o local Azure Active Directory proteção por senha
 
 Os usuários geralmente criam senhas que usam palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa. Essas senhas são fáceis de adivinhar e fracas contra ataques baseados em dicionário. Para impor senhas fortes em sua organização, a proteção de senha do Azure Active Directory (Azure AD) fornece uma lista de senhas excluídas global e personalizada. Uma solicitação de alteração de senha falhará se houver uma correspondência nessa lista de senhas banidas.
 

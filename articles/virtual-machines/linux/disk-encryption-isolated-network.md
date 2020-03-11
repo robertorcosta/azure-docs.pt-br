@@ -2,17 +2,18 @@
 title: Azure Disk Encryption em uma rede isolada
 description: Este artigo fornece dicas de solução de problemas para Microsoft Azure a criptografia de disco para VMs do Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: e91f4f1d1a16bec9d2da0365b185319aac8892be
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207713"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970670"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption em uma rede isolada
 
@@ -35,7 +36,7 @@ No Red Hat, quando um proxy é necessário, é preciso garantir que o gerenciado
 
 Quando os pacotes são instalados manualmente, eles também devem ser atualizados manualmente conforme novas versões são lançadas.
 
-## <a name="network-security-groups"></a>Grupos de segurança de rede
+## <a name="network-security-groups"></a>Regras de segurança de rede
 Qualquer configuração de grupo de segurança de rede aplicada ainda deve permitir que o ponto de extremidade atenda aos pré-requisitos de configuração de rede documentados para criptografia de disco.  Consulte [Azure Disk Encryption: requisitos de rede](disk-encryption-overview.md#networking-requirements)
 
 ## <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption com o Azure AD (versão anterior)
@@ -48,7 +49,7 @@ Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryptio
 
 A máquina virtual deve ser capaz de acessar o ponto de extremidade do [serviço de metadados de instância do Azure](instance-metadata-service.md) , que usa um endereço IP não roteável conhecido (`169.254.169.254`) que pode ser acessado somente de dentro da VM.  Não há suporte para as configurações de proxy que alteram o tráfego HTTP local para esse endereço (por exemplo, a adição de um cabeçalho X-Forwardd-for).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Veja mais etapas para a [solução de problemas de criptografia de disco do Azure](disk-encryption-troubleshooting.md)
 - [Criptografia de dados em repouso do Azure](../../security/fundamentals/encryption-atrest.md)

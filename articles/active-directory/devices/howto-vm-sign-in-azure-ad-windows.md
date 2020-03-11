@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8fe33f78b96dbfe780c94fbddfc5c8821148279
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672585"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080086"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -40,7 +40,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 > [!NOTE]
 > Depois de habilitar esse recurso, suas VMs do Windows no Azure serão ingressadas no Azure AD. Você não pode associá-lo a outro domínio como o AD local ou o Azure AD DS. Se você precisar fazer isso, será necessário desconectar a VM do seu locatário do Azure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>{1&gt;{2&gt;Requisitos&lt;2}&lt;1}
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões do Azure e distribuições do Windows com suporte
 
@@ -152,7 +152,8 @@ Agora que você criou a VM, precisará configurar a política RBAC do Azure para
 
 > [!NOTE]
 > Para permitir que um usuário faça logon na VM por RDP, você deve atribuir o logon de administrador da máquina virtual ou a função de logon de usuário da máquina virtual. Um usuário do Azure com as funções de proprietário ou colaborador atribuídas a uma VM não tem privilégios automaticamente para fazer logon na VM por RDP. Isso é para fornecer separação auditada entre o conjunto de pessoas que controlam máquinas virtuais em comparação com o conjunto de pessoas que podem acessar máquinas virtuais.
-' Há várias maneiras pelas quais você pode configurar atribuições de função para a VM:
+
+Há várias maneiras pelas quais você pode configurar atribuições de função para a VM:
 
 - Usando a experiência do portal do Azure AD
 - Usando a experiência de Azure Cloud Shell
@@ -194,7 +195,7 @@ Para obter mais informações sobre como usar o RBAC para gerenciar o acesso aos
 - [Gerenciar o acesso aos recursos do Azure usando RBAC e CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
 - [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](/azure/role-based-access-control/role-assignments-portal)
 - [Gerencie o acesso aos recursos do Azure usando RBAC e Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
-'
+
 ## <a name="using-conditional-access"></a>Usando o acesso condicional
 
 Você pode impor políticas de acesso condicional, como a autenticação multifator ou a verificação de risco de entrada do usuário antes de autorizar o acesso às VMs do Windows no Azure que estão habilitadas com o logon do Azure AD. Para aplicar a política de acesso condicional, você deve selecionar o aplicativo "entrada de VM do Azure Windows" na opção de atribuição de aplicativos ou ações de nuvem e, em seguida, usar o risco de entrada como uma condição e/ou exigir autenticação multifator como um controle de acesso de concessão. 
@@ -221,7 +222,7 @@ Agora você está conectado à máquina virtual do Azure do Windows Server 2019 
 > [!NOTE]
 > Você pode salvar o. Arquivo RDP localmente no seu computador para iniciar futuras conexões de área de trabalho remota para sua máquina virtual em vez de ter que navegar até a página de visão geral da máquina virtual no portal do Azure e usando a opção conectar.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Solucionar problemas de implantação
 
@@ -362,5 +363,6 @@ Se você não tiver implantado o Windows Hello para empresas e se isso não for 
 
 Compartilhe seus comentários sobre este recurso de visualização ou relate problemas usando-os no [Fórum de comentários do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre Azure Active Directory, consulte [o que é Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) '
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+
+Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)

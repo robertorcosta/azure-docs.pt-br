@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/27/2019
-ms.openlocfilehash: 72006f907a1c1641308c8ee43e7a405765410789
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 03/09/2020
+ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770876"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082873"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -27,13 +27,13 @@ Os clusters do Hadoop podem oferecer o desempenho mais ideal quando a carga no c
 
 Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, entre na [interface do usuário da Web do AmAmbari](hdinsight-hadoop-manage-ambari.md)e selecione a guia **hosts** . Seus hosts são listados por seus nomes de domínio totalmente qualificados. O status operacional de cada host é mostrado por um indicador de integridade colorido:
 
-| Cor | Description |
+| Cor | Descrição |
 | --- | --- |
 | Vermelho | Pelo menos um componente mestre no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
-| Orange | Pelo menos um componente secundário no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
+| Laranja | Pelo menos um componente secundário no host está inoperante. Passe o mouse para ver uma dica de ferramenta que lista os componentes afetados. |
 | Amarelo | O servidor Ambari não recebeu uma pulsação do host por mais de 3 minutos. |
 | Verde | Estado de execução normal. |
- 
+
 Você também verá colunas mostrando o número de núcleos e a quantidade de RAM para cada host, bem como o uso do disco e a carga média.
 
 ![Visão geral da guia hosts Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
@@ -52,7 +52,7 @@ O YARN divide as duas responsabilidades do JobTracker, o gerenciamento de recurs
 
 O Resource Manager é um *planejador puro* e arbitra unicamente os recursos disponíveis entre todos os aplicativos concorrentes. O Gerenciador de Recursos garante que todos os recursos estejam sempre em uso, otimizando para várias constantes, como SLAs, garantias de capacidade e assim por diante. O ApplicationMaster negocia recursos do Gerenciador de Recursos e trabalha com o NodeManager para executar e monitorar os contêineres e seu consumo de recursos.
 
-Quando vários locatários compartilham um cluster grande, há a competição pelos recursos do cluster. O CapacityScheduler é um agendador conectável que auxilia no compartilhamento de recurso através do enfileiramento de solicitações. O CapacityScheduler também dá suporte às *filas hierárquicas* a fim de garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que outras filas de aplicativos tenham permissão para usar os recursos livres.
+Quando vários locatários compartilham um cluster grande, há a competição pelos recursos do cluster. O CapacityScheduler é um agendador conectável que auxilia no compartilhamento de recurso através do enfileiramento de solicitações. O CapacityScheduler também dá suporte a *filas hierárquicas* para garantir que os recursos sejam compartilhados entre as subfilas de uma organização, antes que as filas de outros aplicativos tenham permissão para usar recursos gratuitos.
 
 O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para visualizar informações sobre suas filas, entre na interface do usuário do Ambari Web e selecione **YARN Queue Manager** no menu superior.
 
@@ -82,7 +82,47 @@ Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), 
 * [Diretrizes de ajuste do desempenho para o MapReduce no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Diretrizes de ajuste do desempenho para o Apache Storm no HDInsight e Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="troubleshoot-sluggish-node-performance"></a>Solucionar problemas de desempenho de nó lento
+
+Em alguns casos, a economia pode ocorrer devido a pouco espaço em disco no cluster. Investigue com estas etapas:
+
+1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar a cada um dos nós.
+
+1. Verifique o uso do disco executando um dos seguintes comandos:
+
+    ```bash
+    df -h
+    du -h --max-depth=1 / | sort -h
+    ```
+
+1. Examine a saída e verifique a presença de arquivos grandes na pasta `mnt` ou em outras pastas. Normalmente, as pastas `usercache`e `appcache` (mnt/recurso/Hadoop/yarn/local/usercache/Hive/AppCache/) contêm arquivos grandes.
+
+1. Se houver arquivos grandes, um trabalho atual está causando o crescimento do arquivo ou um trabalho anterior com falha pode ter contribuído para esse problema. Para verificar se esse comportamento é causado por um trabalho atual, execute o seguinte comando:
+
+    ```bash
+    sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
+    ```
+
+1. Se esse comando indicar um trabalho específico, você poderá optar por encerrar o trabalho usando um comando semelhante ao seguinte:
+
+    ```bash
+    yarn application -kill -applicationId <application_id>
+    ```
+
+    Substitua `application_id` pela ID do aplicativo. Se nenhum trabalho específico for indicado, vá para a próxima etapa.
+
+1. Depois que o comando acima for concluído, ou se nenhum trabalho específico for indicado, exclua os arquivos grandes que você identificou executando um comando semelhante ao seguinte:
+
+    ```bash
+    rm -rf filecache usercache
+    ```
+
+Para obter mais informações sobre problemas de espaço em disco, consulte [sem espaço em disco](./hadoop/hdinsight-troubleshoot-out-disk-space.md).
+
+> [!NOTE]  
+> Se você tiver arquivos grandes que deseja manter, mas estiver contribuindo para o problema de pouco espaço em disco, será necessário escalar verticalmente seu cluster HDInsight e reiniciar os serviços. Depois de concluir este procedimento e aguardar alguns minutos, você observará que o armazenamento é liberado e o desempenho normal do nó é restaurado.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Visite os links a seguir para obter mais informações sobre o monitoramento e a solução de problemas dos seus clusters:
 

@@ -1,25 +1,17 @@
 ---
 title: Copiar uma VM do Linux usando CLI do Azure
 description: Saiba como criar uma cópia da sua VM Linux do Azure usando a CLI do Azure e Managed Disks.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4612d15dd5d3ab6e814f09210d5ff3991fef0328
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ed8574133eafe751699e90ea8cae832ee649fb00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121881"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969593"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Criar uma cópia da sua VM Linux usando a CLI do Azure e Managed Disks
 
@@ -27,7 +19,7 @@ Este artigo mostra como criar uma cópia da sua máquina virtual (VM) do Azure e
 
 Você também pode [carregar e criar uma VM com base em um VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 -   Instale a [CLI do Azure](/cli/azure/install-az-cli2).
 
@@ -131,6 +123,6 @@ az vm create --resource-group myResourceGroup \
     --attach-os-disk myCopiedDisk
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber como usar uma [Galeria de imagens compartilhadas](shared-images.md) para gerenciar imagens de VM.

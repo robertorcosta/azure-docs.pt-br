@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174406"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968755"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Compartilhar link para solicitar um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -41,13 +41,13 @@ Desde que o catálogo do pacote de acesso esteja [habilitado para usuários exte
 
     ![Visão geral do pacote de acesso – Link do portal Meus Acessos](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    É importante que você copie todo o link meu portal de acesso ao enviá-lo para um parceiro comercial interno. Isso garante que o parceiro terá acesso ao portal do seu diretório para fazer sua solicitação. O link começa com `myaccess`, inclui uma dica de diretório e termina com uma ID de pacote de acesso.
+    É importante que você copie todo o link meu portal de acesso ao enviá-lo para um parceiro comercial interno. Isso garante que o parceiro terá acesso ao portal do seu diretório para fazer sua solicitação. O link começa com `myaccess`, inclui uma dica de diretório e termina com uma ID de pacote de acesso.  (Para o governo dos EUA, o domínio no link meu portal de acesso será `myaccess.microsoft.us`.)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
 1. Envie um email para o parceiro comercial externo. Eles podem compartilhar o link com seus usuários para solicitar o pacote de acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
 - [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)

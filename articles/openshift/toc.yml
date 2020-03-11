@@ -33,6 +33,12 @@
           href: howto-create-tenant.md
         - name: Criar um usuário e objeto de aplicativo do Azure AD
           href: howto-aad-app-configuration.md
+    - name: Red Hat OpenShift 4.3 no Azure (versão prévia)
+      items:
+        - name: Criar um cluster do Red Hat OpenShift 4.3 no Azure
+          href: howto-using-azure-redhat-openshift.md
+        - name: Configurar o Azure Monitor para o Red Hat OpenShift 4.3 no Azure
+          href: howto-azure-monitor-v4.md
     - name: Implantar um Prometheus autônomo em um cluster do Red Hat OpenShift no Azure
       href: howto-deploy-prometheus.md
     - name: Criar um cluster privado do Red Hat OpenShift no Azure

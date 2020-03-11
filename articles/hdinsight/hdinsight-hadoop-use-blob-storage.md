@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192618"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037239"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
@@ -25,11 +25,11 @@ Neste artigo, você aprenderá como funciona o Armazenamento do Azure com cluste
 > [!IMPORTANT]  
 > O tipo de conta de armazenamento **BlobStorage** pode ser usado apenas como armazenamento secundário para clusters HDInsight.
 
-| Tipo de conta de armazenamento | Serviços com suporte | Níveis de desempenho compatíveis | Camadas de acesso compatíveis |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (uso geral v2)  | Blob     | Standard                    | \* quente, esporádico e de arquivo   |
-| Armazenamento (uso geral v1)   | Blob     | Standard                    | N/D                    |
-| BlobStorage                    | Blob     | Standard                    | \* quente, esporádico e de arquivo   |
+| Tipo de conta de armazenamento | Serviços com suporte | Níveis de desempenho compatíveis |Níveis de desempenho sem suporte| Camadas de acesso compatíveis |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2 (uso geral v2)  | Blob     | Standard                    |Premium| \* quente, esporádico e de arquivo   |
+| Armazenamento (uso geral v1)   | Blob     | Standard                    |Premium| {1&gt;N/A&lt;1}                    |
+| BlobStorage                    | Blob     | Standard                    |Premium| \* quente, esporádico e de arquivo   |
 
 Não recomendamos o contêiner de blobs padrão para armazenar dados corporativos. É uma prática recomendada excluir o contêiner de blobs padrão após cada uso para reduzir o custo de armazenamento. O contêiner padrão contém os logs do aplicativo e do sistema. Certifique-se de recuperar os logs antes de excluir o contêiner.
 
@@ -126,7 +126,7 @@ LOCATION '/example/data/';
 
 A Microsoft fornece as seguintes ferramentas para trabalhar com o armazenamento do Azure:
 
-| Ferramenta | Linux | OS X | Windows |
+| Ferramenta | Linux | OS X | Portal |
 | --- |:---:|:---:|:---:|
 | [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -162,7 +162,7 @@ Ao criar um cluster HDInsight, você especifica a conta de armazenamento do Azur
 > [!WARNING]  
 > Não há suporte para o uso de uma conta de armazenamento adicional em um local diferente do cluster HDInsight.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a usar o armazenamento do Azure compatível com HDFS com o HDInsight. Isso permite que você crie soluções de aquisição de dados para arquivamento de longo prazo escalonáveis e use o HDInsight para desbloquear as informações nos dados armazenados estruturados e não estruturados.
 

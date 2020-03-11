@@ -6,14 +6,14 @@ manager: nitinme
 description: Duas tabelas que representam os registros de contêiner, repositórios e nomes de imagem para todas as ofertas de serviço cognitiva.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 7c229ea306d89f85fb37a68fc84e3e4f6770e5ad
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 55a3bb5f894d3ab753cfec64687abc9c7cae53cb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866925"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081951"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contêiner
 
@@ -26,21 +26,21 @@ As tabelas a seguir são uma lista das imagens de contêiner disponíveis oferec
 
 O MCR (registro de contêiner da Microsoft) distribui todos os contêineres "não restritos" publicamente disponíveis para serviços cognitivas. Os contêineres também estão disponíveis diretamente do [Hub do Docker](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-| Serviço | Contêiner | Registro de contêiner/repositório/nome da imagem |
+| Service | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |--|--|--|
 | [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
-| [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extração de frases-chave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-| [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Detecção de idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Análise de sentimento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+| [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extração de Frases-Chave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+| [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Detecção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
+| [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Análise de Sentimento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Visualização pública "restrita" (registro de contêiner: `containerpreview.azurecr.io`)
 
 O registro de visualização de contêiner hospeda todos os contêineres "restritos" publicamente disponíveis para serviços cognitivas. Esses contêineres exigem uma solicitação formal para acessá-los por meio de seu registro de contêiner.
 
-| Serviço | Contêiner | Registro de contêiner/repositório/nome da imagem |
+| Service | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |--|--|--|
 | [Detector de anomalias](../../anomaly-detector/anomaly-detector-container-howto.md) | Detector de Anomalias | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
-| [Pesquisa Visual Computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leitura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
+| [Pesquisa Visual Computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Ler | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Detecção Facial](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Reconhecimento de Formulários | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=stt) | Conversão de fala em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |

@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1549a26022b8d593412a666228b07f05272d640c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: HT
+ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945901"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967945"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -125,7 +125,6 @@ dependencies
 | render barchart  
 ```
 
-
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Exibindo o uso de Application Insights em sua fatura do Azure
 
 O Azure fornece uma grande funcionalidade útil no gerenciamento de [custos do Azure +](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Hub de cobrança. Por exemplo, a funcionalidade de "análise de custo" permite que você exiba seus gastos para os recursos do Azure. A adição de um filtro por tipo de recurso (para Microsoft. insights/componentes para Application Insights) permitirá que você acompanhe seus gastos.
@@ -174,6 +173,14 @@ Para alterar o limite diário, na seção **Configurar** do recurso de Applicati
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-003.png)
 
 Para [alterar o limite diário por meio de Azure Resource Manager](../../azure-monitor/app/powershell.md), a propriedade a ser alterada é a `dailyQuota`.  Por meio de Azure Resource Manager você também pode definir o `dailyQuotaResetTime` e a `warningThreshold`do limite diário.
+
+### <a name="create-alerts-for-the-daily-cap"></a>Criar alertas para o limite diário
+
+O limite diário de Application Insights cria um evento no KOG da atividade do Azure quando os volumes de dados ingeridos atingem o nível de aviso ou o nível de limite diário.  Você pode [criar um alerta com base nesses eventos do log de atividades](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Os nomes de sinal para esses eventos são:
+
+* Limite de aviso de limite diário do componente de Application Insights atingido
+
+* Application Insights limite diário do componente atingido
 
 ## <a name="sampling"></a>amostragem
 [Amostragem](../../azure-monitor/app/sampling.md) é um método de redução da taxa em que a telemetria é enviada para o seu aplicativo, enquanto mantém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Você também mantém contagens de eventos corretas.

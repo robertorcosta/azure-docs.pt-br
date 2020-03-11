@@ -8,12 +8,12 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: f19e4e34b2ec8cebc9e1841f277f26fba941bb89
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: bb78536326885e043279de1ff77e6e8efcd95193
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673921"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037146"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure (versão prévia)
 
@@ -73,6 +73,9 @@ Mantenha as configurações padrão.
 ## <a name="create-your-web-app-and-private-endpoint"></a>Criar seu aplicativo Web e ponto de extremidade privado
 
 Nesta seção, você criará um aplicativo Web privado usando um ponto de extremidade privado para ele.
+
+> [!Note]
+>O recurso de ponto de extremidade privado só está disponível para Premium V2 e isolado com SKU de ASE externo
 
 ### <a name="web-app"></a>Aplicativo Web
 
@@ -179,7 +182,7 @@ Quando você terminar de usar o ponto de extremidade privado, o aplicativo Web e
 1. Selecione Excluir grupo de recursos.
 1. Digite Ready-RG para digitar o nome do grupo de recursos e selecione Excluir.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste guia de início rápido, você criou uma VM em uma rede virtual, um aplicativo Web e um ponto de extremidade privado. Você se conectou a uma VM da Internet e se comunica com segurança ao aplicativo Web usando o link privado. Para saber mais sobre o ponto de extremidade privado, confira [o que é o ponto de extremidade privado do Azure][privateendpoint].
 

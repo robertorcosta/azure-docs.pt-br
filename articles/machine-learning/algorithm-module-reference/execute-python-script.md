@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 91480b3ba0a2bbd3e8c31adb931f5baabe1b07ce
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.date: 03/10/2020
+ms.openlocfilehash: 52eb3bdb463389d075421661610b5ee94d14d77d
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605586"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037078"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -75,7 +75,48 @@ import os
 os.system(f"pip install scikit-misc")
 ```
 
-## <a name="how-to-use"></a>Como usar
+## <a name="upload-files"></a>Carregar arquivos
+O **script executar Python** dá suporte ao carregamento de arquivos usando [Azure Machine Learning SDK do Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+
+O exemplo a seguir mostra como carregar um arquivo de imagem no módulo **Executar script Python** :
+
+```Python
+
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
+# imports up here can be used to
+import pandas as pd
+
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a pandas.DataFrame
+#   Param<dataframe2>: a pandas.DataFrame
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+    from matplotlib import pyplot as plt
+    plt.plot([1, 2, 3, 4])
+    plt.ylabel('some numbers')
+    img_file = "line.png"
+    plt.savefig(img_file)
+
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    run.upload_file(f"graphics/{img_file}", img_file)
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+}
+```
+
+Depois que o pipeline for enviado com êxito, você poderá visualizar a imagem no painel direito do módulo ![carregada-Image](media/module/upload-image-in-python-script.png)
+
+## <a name="how-to-configure-execute-python-script"></a>Como configurar o script Python de execução
 
 O módulo **Executar script Python** contém o código Python de exemplo que você pode usar como ponto de partida. Para configurar o módulo **Executar script Python** , você fornece um conjunto de entradas e código Python para executar na caixa de texto **script Python** .
 
@@ -122,6 +163,6 @@ O módulo retorna dois conjuntos de valores:
 + O **conjunto de resultados de resultado 2**, definido pelo segundo retornou o dataframe pandas no script Python
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

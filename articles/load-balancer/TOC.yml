@@ -12,7 +12,8 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Criar balanceador de carga – PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Criar balanceador de carga – Modelo
+    - name: Criar balanceador de carga – Modelo ARM
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
   expanded: true
 - name: Tutoriais

@@ -118,6 +118,8 @@
                   href: traffic-analytics-faq.md
                 - name: Esquema e agregação de dados
                   href: traffic-analytics-schema.md
+                - name: Atualização do esquema (agosto de 2019)
+                  href: traffic-analytics-schema-update.md
             - name: Usar o Power BI
               href: network-watcher-visualize-nsg-flow-logs-power-bi.md
             - name: Usar o Elastic Stack

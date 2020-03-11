@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 2/1/2020
-ms.openlocfilehash: aaff56ba1de69485d1c3b93bc7ed95ce1a3cbd88
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 3/9/2020
+ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983542"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969627"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Recursos de visualização do Azure Stream Analytics
 
@@ -33,13 +33,6 @@ Os desenvolvedores podem aproveitar o poder do Azure Stream Analytics para proce
 
 Os desenvolvedores que criam Stream Analytics módulos na nuvem ou em IoT Edge podem gravar ou reutilizar funções personalizadas C# e chamá-las diretamente na consulta por meio de [funções definidas pelo usuário](stream-analytics-edge-csharp-udf-methods.md).
 
-### <a name="managed-identity-authentication-with-power-bi"></a>Autenticação de identidade gerenciada com Power BI
-
-O Azure Stream Analytics oferece suporte completo à autenticação baseada em identidade gerenciada com Power BI para uma experiência de painel dinâmico.
-
-### <a name="anomaly-detection"></a>Detecção de Anomalias
-
-Azure Stream Analytics os modelos de aprendizado de máquina têm suporte para detecção de *pico* e *DIPs* , além de detecção bidirecional, positiva lenta e baixa de tendências negativas. Para obter mais informações, visite [detecção de anomalias em Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="debug-query-steps-in-visual-studio"></a>Depurar etapas de consulta no Visual Studio
 

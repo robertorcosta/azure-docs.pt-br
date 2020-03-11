@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840495"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080202"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de Análise de Imagens
 
@@ -32,15 +32,15 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | Description |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | defaultLanguageCode   |  Uma cadeia de caracteres que indica o idioma para retornar. O serviço retorna resultados de reconhecimento no idioma especificado. Se este parâmetro não for especificado, o valor padrão é “en”. <br/><br/>Idiomas com suporte: <br/>*en* - inglês (padrão) <br/> *es* -espanhol <br/> *ja* -japonês <br/> *pt* -Português <br/> *zh* - chinês Simplificado|
-| visualFeatures |  Uma matriz de cadeias de caracteres que indica os tipos de recurso visuais para retornar. Tipos de recurso válido visuais:  <ul><li>*adulto* – detecta se a imagem é pornográfico por natureza (descreve nudez ou uma lei sexo) ou é terríveis (representa violência extrema ou sangue). O conteúdo de sexo sugerido (também conhecido como conteúdo erótico) também é detectado.</li><li>*marcas* – detecta várias marcas em uma imagem, incluindo o local aproximado. O recurso visual de *marcas* só está disponível em inglês.</li><li> *categorias* – categoriza o conteúdo da imagem de acordo com uma taxonomia definida na documentação de [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)de serviços cognitivas. </li><li> *cor* -determina a cor de destaque, a cor dominante e se uma imagem é preta & branca.</li><li>*Descrição* -descreve o conteúdo da imagem com uma frase completa em idiomas com suporte.</li><li>*faces* – detecta se há faces presentes. Se presente, gera coordenadas, sexo e idade.</li><li>  *ImageType* – detecta se a imagem é uma clip-art ou um desenho de linha.</li><li>  *objetos* – detecta vários objetos dentro de uma imagem, incluindo o local aproximado. O recurso Visual *Objects* só está disponível em inglês.</li><li> *marcas* - marca a imagem com uma lista detalhada das palavras relacionadas ao conteúdo da imagem.</li></ul> Nomes de recursos visuais diferenciam maiusculas de minúsculas.|
+| visualFeatures |  Uma matriz de cadeias de caracteres que indica os tipos de recurso visuais para retornar. Tipos de recurso válido visuais:  <ul><li>*adulto* – detecta se a imagem é pornográfico por natureza (descreve nudez ou uma lei sexo) ou é terríveis (representa violência extrema ou sangue). O conteúdo de sexo sugerido (também conhecido como conteúdo erótico) também é detectado.</li><li>*marcas* – detecta várias marcas em uma imagem, incluindo o local aproximado. O recurso visual de *marcas* só está disponível em inglês.</li><li> *categorias* – categoriza o conteúdo da imagem de acordo com uma taxonomia definida na documentação de [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)de serviços cognitivas. </li><li>*Descrição* -descreve o conteúdo da imagem com uma frase completa em idiomas com suporte.</li><li>*faces* – detecta se há faces presentes. Se presente, gera coordenadas, sexo e idade.</li><li> *objetos* – detecta vários objetos dentro de uma imagem, incluindo o local aproximado. O recurso Visual *Objects* só está disponível em inglês.</li><li> *marcas* - marca a imagem com uma lista detalhada das palavras relacionadas ao conteúdo da imagem.</li></ul> Nomes de recursos visuais diferenciam maiusculas de minúsculas. Observe que os recursos visuais *ColorType* e *ImageType* foram preteridos, mas essa funcionalidade ainda pode ser acessada por meio de uma [habilidade personalizada](https://go.microsoft.com/fwlink/?linkid=2121117).|
 | detalhes   | Uma matriz de cadeias de caracteres que indica qual domínio específico de detalhes retornar. Tipos de recurso válido visuais: <ul><li>*celebridades* -identifica celebridades se detectada na imagem.</li><li>*pontos de referência* – identifica os pontos de referência, se detectados na imagem. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Description                                          |
+| Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
 | image         | Tipo complexo. Atualmente só funciona com o campo "/document/normalized_images" produzido pelo indexador de BLOBs do Microsoft Azure quando ```imageAction``` é definido como um valor diferente de ```none```. Para obter mais informações, confira [este exemplo](#sample-output).|
 
@@ -470,20 +470,6 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
             ]
           }
         ],
-        "color": {
-          "dominantColorForeground": "Brown",
-          "dominantColorBackground": "Brown",
-          "dominantColors": [
-            "Brown",
-            "Black"
-          ],
-          "accentColor": "873B59",
-          "isBwImg": false
-        },
-        "imageType": {
-          "clipArtType": 0,
-          "lineDrawingType": 0
-        },
         "objects": [
           {
             "rectangle": {
@@ -517,7 +503,7 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
 ## <a name="error-cases"></a>Casos de erro
 Nos casos de erro a seguir, nenhum elemento é extraído.
 
-| Código do Erro | Description |
+| Código do Erro | Descrição |
 |------------|-------------|
 | NotSupportedLanguage | O idioma fornecido não tem suporte. |
 | InvalidImageUrl | A URL da imagem está incorretamente formatada ou não está acessível.|

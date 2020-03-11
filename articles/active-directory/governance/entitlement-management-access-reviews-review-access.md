@@ -16,25 +16,25 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78a69301ab2ae637531f8643d9d57a8b44b563f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608924"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968739"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Examinar o acesso de um pacote de acesso no gerenciamento de direitos do Azure AD
 
 O gerenciamento de direitos do Azure AD simplifica o modo como as empresas gerenciam o acesso a grupos, aplicativos e sites do SharePoint. Este artigo descreve como executar revisões de acesso para outros usuários atribuídos a um pacote do Access como um revisor designado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para examinar as atribuições de pacote do acesso ativo dos usuários, você deve atender aos pré-requisitos para fazer uma revisão de acesso:
 - Azure AD Premium P2
 - Administrador global
 - Administrador de usuário designado, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
-Para obter mais informações, consulte [requisitos de licença](entitlement-management-overview.md#license-requirements).
+Para obter mais informações, veja [Requisitos de licença](entitlement-management-overview.md#license-requirements).
 
 
 ## <a name="open-the-access-review"></a>Abrir a revisão de acesso
@@ -47,7 +47,7 @@ Use as seguintes etapas para localizar e abrir a revisão de acesso:
 
 1. Clique no link **examinar acesso do usuário** para abrir a revisão de acesso. 
 
-1. Se você não tiver o email, poderá encontrar suas revisões de acesso pendentes navegando diretamente para https://myaccess.microsoft.com.
+1. Se você não tiver o email, poderá encontrar suas revisões de acesso pendentes navegando diretamente para https://myaccess.microsoft.com.  (Para o governo dos EUA, use `https://myaccess.microsoft.us` em vez disso.)
 
 1. Clique em **revisões de acesso** na barra de navegação à esquerda para ver uma lista de revisões de acesso pendentes atribuídas a você.
     
@@ -101,6 +101,6 @@ Para revisar o acesso a vários usuários mais rapidamente, você pode usar as r
 
 1.  Clique em **Enviar** para aceitar as recomendações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Revisão automática de pacotes do Access](entitlement-management-access-reviews-self-review.md)

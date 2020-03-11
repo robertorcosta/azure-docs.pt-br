@@ -7,6 +7,11 @@
     - name: O que há de novo nos Serviços de Mídia?
       displayName: release notes
       href: release-notes.md
+- name: Inícios rápidos
+  items:
+    - name: Evento ao vivo com portal e Wirecast
+      displayName: 'live, event, portal, wirecast'
+      href: live-events-wirecast-quickstart.md
 - name: Tutoriais
   expanded: true
   items:
@@ -189,10 +194,10 @@
     - name: Alta disponibilidade
       items:
         - name: Codificação
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: Streaming
-          displayName: 'failover, bcdr'
+          displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
     - name: Diretrizes de migração da v2 para a v3
       href: migrate-from-v2-to-v3.md

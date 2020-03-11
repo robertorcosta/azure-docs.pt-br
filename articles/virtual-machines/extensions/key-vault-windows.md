@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d0491a5178331c53248d9c764d9ff1c6a6970683
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 3de4baa4eafe26cff18d9b1bcfb59398439994b0
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425775"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969780"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
@@ -66,17 +66,17 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| {1&gt;Nome&lt;1} | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | string |
+| publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForWindows | string |
-| typeHandlerVersion | 1.0 | INT |
+| typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
-| linkOnRenewal | false | booleano |
+| linkOnRenewal | {1&gt;false&lt;1} | booleano |
 | certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | booleano |
+| requiredInitialSync | {1&gt;true&lt;1} | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
 
 
@@ -101,6 +101,7 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+        "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
@@ -192,7 +193,7 @@ Por favor esteja ciente das seguintes restrições/exigências:
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o Azure PowerShell.
 

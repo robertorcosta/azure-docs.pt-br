@@ -7,12 +7,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 957fef32702f35b4b509d829eba6a41914c4fc53
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: ff69262a89d8112419ffe62cd391d003cb21adc1
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205850"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967623"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integração às Identidades Gerenciadas do Azure
 
@@ -33,7 +33,7 @@ Neste artigo, você aprenderá como:
 > * Configure seu aplicativo para usar uma identidade gerenciada ao conectar-se à Configuração de Aplicativo.
 > * Opcionalmente, configure seu aplicativo para usar uma identidade gerenciada quando você se conectar a Key Vault por meio de uma referência de Key Vault de configuração de aplicativo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para concluir este tutorial, você deve ter:
 
@@ -68,7 +68,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 
 1. Em **Assinatura**, selecione sua assinatura do Azure. Selecione o recurso de Serviço de Aplicativo para o seu aplicativo.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![Adicionar uma identidade gerenciada](./media/add-managed-identity.png)
 
@@ -240,8 +240,6 @@ Procure o aplicativo web usando um navegador para verificar se o conteúdo foi i
 http://<app_name>.azurewebsites.net
 ```
 
-![Aplicativo em execução no Serviço de Aplicativo](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
-
 ## <a name="use-managed-identity-in-other-languages"></a>Usar a identidade gerenciada em outras linguagens
 
 Os provedores da Configuração de Aplicativo para o .NET Framework e o Java Spring também têm suporte interno para a identidade gerenciada. Você pode usar o ponto de extremidade de URL do repositório em vez de sua cadeia de conexão completa ao configurar um desses provedores. 
@@ -270,7 +268,7 @@ Por exemplo, você pode atualizar o aplicativo de console .NET Framework criado 
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Neste tutorial, você adicionou uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber mais sobre como usar a Configuração de Aplicativo, continue para ver as amostras da CLI do Azure.
 
 > [!div class="nextstepaction"]

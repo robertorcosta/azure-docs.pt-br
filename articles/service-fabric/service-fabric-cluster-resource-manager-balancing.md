@@ -5,17 +5,17 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f56717c086f005b1155988e2041ff2e717e047f2
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452094"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081685"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric oferece suporte a alterações de carga dinâmico, reagindo a inclusões ou remoções de nós ou serviços. Ele também corrige automaticamente as violações de restrição e, proativamente, balanceia novamente o cluster. Mas com que frequência essas ações são executadas, e o que as dispara?
 
-Há três categorias diferentes de trabalho executadas pelo Gerenciador de Recursos de Cluster. Eles são:
+Há três categorias diferentes de trabalho executadas pelo Gerenciador de Recursos de Cluster. São eles:
 
 1. Posicionamento – esse estágio lida com o posicionamento de réplicas com estado ou de instâncias sem estado que estejam ausentes. O posicionamento inclui os novos serviços e a manipulação de réplicas com estado ou de instâncias sem estado que falharam. A exclusão e o descarte de réplicas ou de instâncias são tratados aqui.
 2. Verificações de Restrição – esse estágio verifica e corrige violações das restrições (regras) de posicionamento no sistema. Os exemplos de regras são a garantia de que os nós não estão acima da capacidade e se as restrições de posicionamento do serviço estão sendo atendidas.
@@ -201,10 +201,11 @@ O Gerenciador de Recursos de Cluster descobre automaticamente quais serviços es
 os serviços de balanceamento de ![juntos][Image5]
 </center>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
 * O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 * O Resource Manager do Cluster tem várias limitações que você pode configurar para diminuir a variação no cluster. Normalmente, eles não são necessários, mas você poderá aprender mais sobre eles [aqui](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* O Gerenciador de recursos de cluster pode reconhecer e manipular o subclustering (uma situação que algumas vezes surge quando você usa restrições de posicionamento e balanceamento). Para saber como o subclustering pode afetar o balanceamento e como você pode tratá-lo, consulte [aqui](service-fabric-cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

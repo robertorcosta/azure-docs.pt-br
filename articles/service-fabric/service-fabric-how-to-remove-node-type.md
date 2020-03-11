@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661969"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969397"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó Service Fabric
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric removendo um tipo de nó existente de um cluster. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Depois de criar um cluster do Service Fabric, você pode dimensionar um cluster horizontalmente removendo um tipo de nó (conjunto de dimensionamento de máquinas virtuais) e todos os seus nós.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -31,7 +31,7 @@ O Service Fabric "orquestra" alterações subjacentes e atualiza de forma que os
 
 Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem imediatamente. O Service Fabric não intercepta todas as atualizações do conjunto de dimensionamento de nós de Bronze, assim, todas as VMs ficam inativas imediatamente. Se você tiver qualquer coisa com o monitoamento de estado em nós, os dados são perdidos. Agora, mesmo se você estivesse sem estado, todos os nós no Service Fabric participam do anel, portanto, uma vizinhança inteira pode ser perdida, o que pode desestabilizar o cluster em si.
 
-## <a name="remove-a-non-primary-node-type"></a>Remover um tipo de nó não primário
+## <a name="remove-a-node-type"></a>Remover um tipo de nó
 
 1. Tome cuidado com esses pré-requisitos antes de iniciar o processo.
 
@@ -122,7 +122,7 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
     - Localize o modelo de Azure Resource Manager usado para implantação.
     - Localize a seção relacionada ao tipo de nó na seção Service Fabric.
     - Remova a seção correspondente ao tipo de nó.
-    - Para clusters de durabilidade prata e mais alto, atualize o recurso de cluster no modelo e configure as políticas de integridade para ignorar a malha:/integridade do aplicativo de sistema adicionando `applicationDeltaHealthPolicies` conforme indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de integridade. 
+    - Somente para clusters de durabilidade e mais alta, atualize o recurso de cluster no modelo e configure as políticas de integridade para ignorar a malha:/integridade do aplicativo do sistema adicionando `applicationDeltaHealthPolicies` em recurso de cluster `properties` conforme indicado abaixo. A política abaixo deve ignorar os erros existentes, mas não permitir novos erros de integridade. 
  
  
      ```json
@@ -158,7 +158,7 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
     },
     ```
 
-    Implante o modelo de Azure Resource Manager modificado. \* * Esta etapa levará um tempo, geralmente até duas horas. Essa atualização irá alterar as configurações para o InfrastructureService, portanto, é necessária uma reinicialização de nó. Nesse caso, `forceRestart` é ignorado. 
+    - Implante o modelo de Azure Resource Manager modificado. \* * Esta etapa levará um tempo, geralmente até duas horas. Essa atualização irá alterar as configurações para o InfrastructureService, portanto, é necessária uma reinicialização de nó. Nesse caso, `forceRestart` é ignorado. 
     O parâmetro `upgradeReplicaSetCheckTimeout` especifica o tempo máximo que Service Fabric aguarda que uma partição esteja em um estado seguro, se ainda não estiver em um estado seguro. Depois que as verificações de segurança forem aprovadas para todas as partições em um nó, Service Fabric continuará com a atualização nesse nó.
     O valor do parâmetro `upgradeTimeout` pode ser reduzido para 6 horas, mas para a segurança máxima 12 horas deve ser usado.
 

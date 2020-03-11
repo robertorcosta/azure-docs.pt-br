@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 13c51f0db468c1591ca29de17f1744752589a1c8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/09/2020
+ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663738"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037535"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
 
@@ -54,6 +54,12 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 ```
 
 Substitua `<username>` pelo nome de uma conta no domínio com permissões para acessar o cluster. Substitua `<AAD-DOMAIN>` pelo nome do Azure Active Directory (AAD) ao qual o cluster está associado. Use uma cadeia de caracteres em maiúsculas para o valor de `<AAD-DOMAIN>`, caso contrário, a credencial não será encontrada. Marque `/etc/krb5.conf` para os nomes de realm, se necessário.
+
+Para localizar a URL JDBC de Ambari:
+
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, em que `CLUSTERNAME` é o nome do cluster. Verifique se o HiveServer2 está em execução.
+
+1. Use a área de transferência para copiar a URL JDBC do HiveServer2.
 
 ---
 
@@ -193,7 +199,7 @@ Este exemplo se baseia no uso do cliente beeline de uma conexão SSH.
 
     Essas instruções realizam as seguintes ações:
 
-    |de |DESCRIÇÃO |
+    |Instrução |Descrição |
     |---|---|
     |DROP TABLE|Se a tabela existir, ela será excluída.|
     |CRIAR TABELA EXTERNA|Cria uma tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local original.|
@@ -256,7 +262,7 @@ Esta é uma continuação do exemplo anterior. Use as etapas a seguir para criar
 
     Essas instruções realizam as seguintes ações:
 
-    |de |DESCRIÇÃO |
+    |Instrução |Descrição |
     |---|---|
     |CREATE TABLE SE NÃO EXISTIR|Se a tabela ainda não existir, ela será criada. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e totalmente gerenciadas por ele.|
     |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). O formato ORC é altamente otimizado e eficiente para o armazenamento de dados do Hive.|
@@ -353,7 +359,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho do cluster HDInsight, t
 
 1. Teste sua conexão. Use o formato de conexão de [pontos de extremidade públicos ou privados](#over-public-or-private-endpoints)acima.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter mais informações gerais sobre o hive no HDInsight, consulte [usar Apache Hive com Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 

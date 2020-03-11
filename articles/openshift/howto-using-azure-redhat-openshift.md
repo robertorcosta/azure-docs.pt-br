@@ -7,19 +7,22 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: toa, openshift, AZ aro, Red Hat, CLI
-ms.openlocfilehash: 81f8edb42be1f73692062d36440890ef5a1e7c9a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 3c336a1fbfb9f991ff824e8deafe84f3d899771d
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899302"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082822"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Criar, acessar e gerenciar um cluster do Azure Red Hat OpenShift 4,3
 
 > [!IMPORTANT]
-> O Azure Red Hat OpenShift (ARO) 4,3 é oferecido na versão prévia. Os recursos de visualização são autoatendimento e são fornecidos como estão e disponíveis e são excluídos do SLA (contrato de nível de serviço) e da garantia limitada. Portanto, os recursos não são destinados ao uso em produção.
+> Observe que o Azure Red Hat OpenShift 4,3 está disponível atualmente apenas em visualização privada no leste dos EUA. A aceitação da visualização privada é apenas por convite. Certifique-se de registrar sua assinatura antes de tentar habilitar esse recurso: [registro de visualização privada do Azure Red Hat OpenShift](https://aka.ms/aro-preview-register)
 
-## <a name="prerequisites"></a>Prerequisites
+> [!NOTE]
+> Os recursos de visualização são autoatendimento e são fornecidos como estão e disponíveis e são excluídos do SLA (contrato de nível de serviço) e da garantia limitada. Portanto, os recursos não são destinados ao uso em produção.
+
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Você precisará do seguinte para criar um cluster do Azure Red Hat OpenShift 4,3:
 

@@ -1,25 +1,17 @@
 ---
 title: Implantar o IBM DB2 pureScale no Azure
 description: Aprenda como implantar uma arquitetura de exemplo usada recentemente para migrar uma empresa de seu ambiente IBM DB2 em execução no z/OS para o IBM DB2 pureScale no Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: c4db27b938934aafa350866991ff174cbdbed0ac
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291542"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968888"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implantar o IBM DB2 pureScale no Azure
 
@@ -27,7 +19,7 @@ Este artigo descreve como implantar uma [arquitetura de exemplo](ibm-db2-puresca
 
 Para seguir as etapas usadas na migração, confira os scripts de instalação no repositório [DB2onAzure](https://aka.ms/db2onazure) no GitHub. Esses scripts baseiam-se na arquitetura para uma carga de trabalho OLTP (processamento) típico, o tamanho médio de transações online.
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 Para implantar essa arquitetura, faça o download e execute o script deploy.sh localizado no repositório [DB2onAzure](https://aka.ms/db2onazure) no GitHub.
 
@@ -79,13 +71,13 @@ O repositório do GitHub inclui o DB2server.rsp, um arquivo de resposta (.rsp) q
 > [!NOTE]
 > Um arquivo de resposta de amostra, DB2server.rsp, está incluso no repositório [DB2onAzure](https://aka.ms/db2onazure) no GitHub. Se você usar esse arquivo, deverá editá-lo antes que ele funcione em seu ambiente.
 
-| Nome da tela               | Campo                                        | Valor                                                                                                 |
+| Nome da tela               | Campo                                        | {1&gt;Valor&lt;1}                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Bem-vindo                   |                                              | Nova instalação                                                                                           |
 | Escolha um produto          |                                              | Versão do DB2 11.1.3.3. Edições de servidor com o DB2 pureScale                                              |
 | Configuração             | Diretório                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Selecione o tipo de instalação                 | Típico                                                                                               |
-|                           | Eu concordo com os termos da IBM                     | Marcado                                                                                               |
+|                           | Eu concordo com os termos da IBM                     | Verificado                                                                                               |
 | Proprietário da instância            | Usuário Existente Por Instância, Nome do Usuário        | DB2sdin1                                                                                              |
 | Usuário Isolado               | Usuário existente, nome de usuário                     | DB2sdfe1                                                                                              |
 | Sistema de arquivos do cluster       | Caminho de dispositivo de partição de disco de compartilhado            | /dev/dm-2                                                                                             |
@@ -141,7 +133,7 @@ O repositório do GitHub inclui uma base de dados de conhecimento mantida pelos 
 
 Para obter mais informações sobre esses e outros problemas conhecidos, confira o arquivo kb.md no repositório [DB2onAzure](https://aka.ms/DB2onAzure).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 -   [Criação de usuários necessários para uma instalação do Recurso DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 

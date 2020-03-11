@@ -2,17 +2,18 @@
 title: Cenários de Azure Disk Encryption em VMs Linux
 description: Este artigo fornece instruções sobre como habilitar a criptografia de disco Microsoft Azure para VMs Linux para vários cenários
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4ccb4409bd9a41f390668cb94ef91b1b565421
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19dcfb96f29939fd92f49ba288ddb6d9264e0f9a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358805"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970587"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários de Azure Disk Encryption em VMs Linux
 
@@ -38,7 +39,7 @@ Em todos os casos, você deve [fazer um instantâneo](snapshot-copy-managed-disk
 
 Azure Disk Encryption pode ser habilitado e gerenciado por meio do [CLI do Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). Para fazer isso, você deve instalar as ferramentas localmente e conectar-se à sua assinatura do Azure.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI é projetada para consultar dados com flexibilidade, dar suporte a operações de longa execução como processos desbloqueados e facilitar o script. Você pode instalá-lo localmente seguindo as etapas em [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -193,7 +194,7 @@ Você pode habilitar a criptografia de disco em uma VM Linux existente ou em exe
 
 A tabela a seguir lista os parâmetros de modelo do Resource Manager existente para VMs em execução ou existentes:
 
-| Parâmetro | Description |
+| Parâmetro | Descrição |
 | --- | --- |
 | vmName | Nome da VM para executar a operação de criptografia. |
 | keyVaultName | Nome do cofre de chaves para o qual a chave de criptografia deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando CLI do Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
@@ -401,7 +402,7 @@ Azure Disk Encryption não funciona para os seguintes cenários, recursos e tecn
 - Criptografia de sistemas de arquivos compartilhados/distribuídos como (mas não se limitando a): DFS, GFS, DRDB e CephFS.
 - Despejo de falhas do kernel (kdump).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
 - [Azure Disk Encryption scripts de exemplo](disk-encryption-sample-scripts.md)

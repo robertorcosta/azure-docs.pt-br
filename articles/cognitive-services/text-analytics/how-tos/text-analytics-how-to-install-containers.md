@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 6e05dc2136211bcd15a9f0583358b05ccbf96f5a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383154"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037516"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
@@ -24,7 +24,10 @@ Os contêineres permitem executar as APIs de análise de texto em seu próprio a
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+> [!IMPORTANT]
+> A conta gratuita é limitada a 5.000 transações por mês e apenas os <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">tipos <span class="docon docon-navigate-external x-hidden-focus"></span> de preço</a> **gratuito** e **padrão** são válidos para contêineres. Para obter mais informações sobre taxas de solicitação de transação, consulte [limites de dados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para executar qualquer um dos contêineres de Análise de Texto, você deve ter o computador host e os ambientes de contêiner.
 
@@ -32,7 +35,7 @@ Para executar qualquer um dos contêineres de Análise de Texto, você deve ter 
 
 Você deve cumprir os seguintes pré-requisitos antes de usar os contêineres de Análise de Texto:
 
-|obrigatórios|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
@@ -48,15 +51,15 @@ Você deve cumprir os seguintes pré-requisitos antes de usar os contêineres de
 
 A tabela a seguir descreve os núcleos de CPU mínimos e recomendados, pelo menos 2,6 gigahertz (GHz) ou mais rápidos, bem como a memória, em gigabytes (GB), para alocar para cada contêiner de Análise de Texto.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
-# <a name="language-detectiontablanguage"></a>[Detecção de Idioma](#tab/language)
+# <a name="language-detection"></a>[Detecção de Idioma](#tab/language)
 
 [!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Análise de Sentimento](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
 
@@ -71,15 +74,15 @@ Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que s
 
 As imagens de contêiner para Análise de Texto estão disponíveis no registro de contêiner da Microsoft.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-# <a name="language-detectiontablanguage"></a>[Detecção de Idioma](#tab/language)
+# <a name="language-detection"></a>[Detecção de Idioma](#tab/language)
 
 [!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Análise de Sentimento](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
 
@@ -89,15 +92,15 @@ As imagens de contêiner para Análise de Texto estão disponíveis no registro 
 
 ### <a name="docker-pull-for-the-text-analytics-containers"></a>Pull do Docker para os contêineres de Análise de Texto
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[Detecção de Idioma](#tab/language)
+# <a name="language-detection"></a>[Detecção de Idioma](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Análise de Sentimento](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -116,22 +119,22 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/
 
 [Exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do comando `docker run` estão disponíveis.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[Detecção de Idioma](#tab/language)
+# <a name="language-detection"></a>[Detecção de Idioma](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Análise de Sentimento](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
 ***
 
 > [!IMPORTANT]
-> As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para obter mais informações, confira [Cobrança](#billing).
+> As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -149,7 +152,7 @@ Use o host, `http://localhost:5000`, para APIs de contêiner.
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você executar o contêiner com uma [montagem](../text-analytics-resource-container-config.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem durante a inicialização ou execução do contêiner.
 
@@ -161,7 +164,7 @@ Os contêineres de Análise de Texto enviam informações de cobrança para Azur
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre essas opções, confira [Configurar os contêineres](../text-analytics-resource-container-config.md).
+Para obter mais informações sobre essas opções, consulte [Configurar contêineres](../text-analytics-resource-container-config.md).
 
 <!--blogs/samples/video course -->
 
@@ -178,12 +181,12 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * Imagens de contêiner são baixadas de um MCR (Registro de Contêiner da Microsoft) no Azure.
 * Imagens de contêiner são executadas no Docker.
 * Você pode usar a API REST ou o SDK para chamar as operações em contêineres de análise de texto especificando o URI do host do contêiner.
-* Você deve especificar as informações de cobrança ao criar uma instância de um contêiner.
+* Você deve especificar informações de faturamento ao instanciar um contêiner.
 
 > [!IMPORTANT]
 > Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-* Examinar [Configurar contêineres](../text-analytics-resource-container-config.md) para saber mais sobre as definições de configuração
+* Revise [Configurar contêineres](../text-analytics-resource-container-config.md) para configurações
 * Consulte [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md) para resolver problemas relacionados à funcionalidade.

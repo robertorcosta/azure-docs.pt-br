@@ -1,26 +1,65 @@
 ---
 title: Comandos comuns do CLI do Azure
 description: Aprenda alguns dos comandos comuns da CLI do Azure para começar a gerenciar suas VMs no modo do Azure Resource Manager
-services: virtual-machines-linux
-documentationcenter: ''
 author: RicksterCDN
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: cf031ad2-654d-46aa-9da6-af22d97df1b7
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: e229388bcd0347600e37339d263290d3f4335849
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036893"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969246"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos comuns da CLI do Azure para gerenciar recursos do Azure
-[!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]
+
+A CLI do Azure permite criar e gerenciar os recursos do Azure no Windows, Linux e macOS. Este artigo detalha alguns dos comandos mais comuns para criar e gerenciar máquinas virtuais (VMs).
+
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
+
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
+Para obter ajuda mais detalhada com opções específicas de linha de comando, você pode usar as opções e a ajuda online sobre os comandos digitando `az <command> <subcommand> --help`.
+
+### <a name="create-vms"></a>Criar VMs
+| {1&gt;Tarefa&lt;1} | Comandos da CLI do Azure |
+| --- | --- |
+| Criar um grupo de recursos | `az group create --name myResourceGroup --location eastus` |
+| Criar uma VM do Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
+| Criar uma VM do Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
+
+### <a name="manage-vm-state"></a>Gerenciar o estado da VM
+| {1&gt;Tarefa&lt;1} | Comandos da CLI do Azure |
+| --- | --- |
+| Iniciar uma VM | `az vm start --resource-group myResourceGroup --name myVM` |
+| Parar uma VM | `az vm stop --resource-group myResourceGroup --name myVM` |
+| Desalocar uma VM | `az vm deallocate --resource-group myResourceGroup --name myVM` |
+| Reiniciar uma VM | `az vm restart --resource-group myResourceGroup --name myVM` |
+| Reimplantar uma VM | `az vm redeploy --resource-group myResourceGroup --name myVM` |
+| Excluir uma VM | `az vm delete --resource-group myResourceGroup --name myVM` |
+
+### <a name="get-vm-info"></a>Obter informações sobre a VM
+| {1&gt;Tarefa&lt;1} | Comandos da CLI do Azure |
+| --- | --- |
+| Listar VMs | `az vm list` |
+| Obter informações sobre uma VM | `az vm show --resource-group myResourceGroup --name myVM` |
+| Conferir o uso dos recursos de VM | `az vm list-usage --location eastus` |
+| Conferir todos os tamanhos de VM disponíveis | `az vm list-sizes --location eastus` |
+
+## <a name="disks-and-images"></a>Discos e imagens
+| {1&gt;Tarefa&lt;1} | Comandos da CLI do Azure |
+| --- | --- |
+| Adicionar um disco de dados a uma VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
+| Remover um disco de dados de uma VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
+| Redimensionar um disco | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
+| Instantâneo de um disco | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
+| Criar imagem de uma VM | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
+| Criar uma VM com base em uma imagem | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
+
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+Para obter exemplos adicionais dos comandos da CLI, consulte o tutorial [Criar e gerenciar VMs do Linux com a CLI do Azure](tutorial-manage-vm.md).
+
+
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848741"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968782"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -26,22 +26,22 @@ Os administradores podem definir na política quais métodos de autenticação e
 
 A Microsoft recomenda que os administradores habilitem os usuários a selecionar mais do que o número mínimo necessário de métodos de autenticação, caso eles não tenham acesso a um.
 
-|Método de autenticação|Uso|
+|Método de Autenticação|Uso|
 | --- | --- |
 | Senha | MFA e o SSPR |
 | Perguntas de segurança | Somente o SSPR |
 | Endereço de email | Somente o SSPR |
 | Aplicativo Microsoft Authenticator | MFA e o SSPR |
 | Token OATH de hardware | Versão prévia pública para MFA e SSPR |
-| SMS | MFA e o SSPR |
+| sms | MFA e o SSPR |
 | Chamada de voz | MFA e o SSPR |
-| Senhas do aplicativo | MFA somente em determinados casos |
+| Senhas de aplicativo | MFA somente em determinados casos |
 
 ![Métodos de autenticação em uso na tela de login](media/concept-authentication-methods/overview-login.png)
 
 |     |
 | --- |
-| Os tokens de hardware OATH para MFA e SSPR são recursos de visualização pública de Azure Active Directory. Para obter mais informações sobre visualizações, consulte [Termos de Uso Suplementares para as Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Os tokens de hardware OATH para MFA e SSPR são recursos de visualização pública de Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Senha
@@ -156,25 +156,25 @@ Os usuários podem ter uma combinação de até cinco tokens de hardware OATH ou
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Tokens OATH de hardware (versão prévia pública)
 
-O OATH é um padrão livre que especifica os códigos de OTP (senha única) são gerados. O Azure AD será compatível com o uso de tokens OATH-TOTP SHA-1 das variedades de 30 segundos ou 60 segundos. Os clientes podem adquirir esses tokens do fornecedor de sua escolha. As chaves secretas são limitadas a 128 caracteres, que podem não ser compatíveis com todos os tokens. As chaves secretas precisam ser codificadas em Base32.
+O OATH é um padrão livre que especifica os códigos de OTP (senha única) são gerados. O Azure AD será compatível com o uso de tokens OATH-TOTP SHA-1 das variedades de 30 segundos ou 60 segundos. Os clientes podem adquirir esses tokens do fornecedor de sua escolha. As chaves secretas são limitadas a 128 caracteres, que podem não ser compatíveis com todos os tokens. A chave secreta pode conter apenas os caracteres *de a-z* ou *a-z* e os dígitos *1-7*e deve ser codificada em Base32.
 
-![Carregando tokens OATH para a folha de tokens OATH do servidor MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+![Carregando tokens OATH para a folha de tokens OATH do MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-Os tokens OATH de hardware agora são compatíveis como parte de uma versão prévia pública. Para obter mais informações sobre visualizações, consulte [Termos de Uso Suplementares para as Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+Tokens de hardware OATH têm suporte como parte de uma visualização pública. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-Depois que os tokens são adquiridos, eles precisam ser carregados em um formato de arquivo de valores separados por vírgulas (CSV) incluindo o UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo como mostrado no exemplo a seguir.
+Depois que os tokens são adquiridos, eles devem ser carregados em um formato de arquivo CSV (valores separados por vírgula), incluindo o UPN, o número de série, a chave secreta, o intervalo de tempo, o fabricante e o modelo, conforme mostrado no exemplo a seguir:
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```
 
 > [!NOTE]
-> Verifique se você incluiu a linha de cabeçalho no arquivo CSV como mostrado acima.
+> Certifique-se de incluir a linha de cabeçalho no arquivo CSV.
 
-Uma vez corretamente formatado como um arquivo CSV, um administrador poderá entrar no portal do Azure e navegar para **Azure Active Directory**, **MFA Server**, **Tokens OATH** e carregar o arquivo CSV resultante.
+Uma vez formatado corretamente como um arquivo CSV, um administrador pode entrar no portal do Azure, navegar até **Azure Active Directory** > **Security** > **MFA** > **tokens OATH**e carregar o arquivo CSV resultante.
 
-Dependendo do tamanho do arquivo CSV, ele poderá levar alguns minutos para ser processado. Clique no botão **Atualizar** para obter o status atual. Se houver erros no arquivo, haverá a opção de baixar um arquivo CSV listando os erros para que você possa resolvê-los.
+Dependendo do tamanho do arquivo CSV, ele poderá levar alguns minutos para ser processado. Clique no botão **Atualizar** para obter o status atual. Se houver erros no arquivo, haverá a opção de baixar um arquivo CSV listando os erros para que você possa resolvê-los. Os nomes de campo no arquivo CSV baixado são diferentes da versão carregada.
 
 Depois que os erros forem resolvidos, o administrador poderá ativar cada chave clicando em **Ativar** para o token a ser ativado e inserindo a OTP exibido no token.
 
@@ -197,11 +197,11 @@ Para funcionarem adequadamente, os números de telefone devem estar no formato *
 
 A Microsoft não garante a entrega de prompt consistente de Autenticação multifator com base em voz ou SMS pelo mesmo número. Pensando no melhor para nossos usuários, a Microsoft pode adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. A Microsoft não oferece suporte a códigos curtos para países/regiões além do Estados Unidos e do Canadá.
 
-#### <a name="text-message"></a>mensagem de texto
+#### <a name="text-message"></a>Mensagem de Texto
 
 Um SMS é enviado para o número do celular que contém um código de verificação. Digite o código de verificação fornecido na interface de login para continuar.
 
-#### <a name="phone-call"></a>chamada telefônica
+#### <a name="phone-call"></a>Chamada telefônica
 
 Uma chamada de voz automatizada é feita para o número de telefone que você fornece. Atenda a chamada e pressione # no teclado do telefone para autenticar
 
@@ -257,7 +257,7 @@ Se sua organização for federada para o SSO com o Azure AD e você pretender us
 * Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo ao usar a verificação em duas etapas com os clientes, dependendo de onde eles se autenticam. Para clientes que fazem a autenticação em uma infraestrutura local, você usaria um nome de usuário e senha organizacional. Para clientes que se autenticam no Azure AD, você usaria a senha de aplicativo.
 * Por padrão, os usuários não podem criar senhas de aplicativo. Se você precisar permitir que os usuários criem senhas de aplicativos, selecione a opção **Permitir que usuários criem senhas de aplicativos para fazer login em aplicativos que não são de navegador** em configurações de serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [Ativar redefinição de senha de autoatendimento para sua organização](quickstart-sspr.md)
 

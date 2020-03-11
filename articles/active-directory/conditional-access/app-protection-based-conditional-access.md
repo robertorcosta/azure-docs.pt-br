@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d8cdb32e04f9ba1274291430ac230107f3150c6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298370"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080075"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: exigir a política de proteção de aplicativo e um aplicativo cliente aprovado para acesso de aplicativo de nuvem com acesso condicional
 
@@ -30,6 +30,9 @@ Este artigo apresenta dois cenários para configurar políticas de acesso condic
 No acesso condicional, esses aplicativos cliente são conhecidos como protegidos por uma política de proteção de aplicativo. Mais informações sobre as políticas de proteção de aplicativo podem ser encontradas no artigo [visão geral das políticas de proteção de aplicativo](/intune/apps/app-protection-policy)
 
 Para obter uma lista de aplicativos cliente qualificados, consulte [requisito de política de proteção de aplicativo](concept-conditional-access-grant.md).
+
+> [!NOTE]
+>    A cláusula or é usada na política para permitir que os usuários utilizem aplicativos que dão suporte à **política de proteção de aplicativo necessária** ou exigem controles de concessão de **aplicativo cliente aprovados** . Para obter mais informações sobre quais aplicativos dão suporte ao controle **exigir a política de proteção de aplicativo** , consulte requisito de política de proteção de [aplicativo](concept-conditional-access-grant.md).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: aplicativos do Office 365 exigem aplicativos aprovados com políticas de proteção de aplicativo
 
@@ -56,7 +59,7 @@ As organizações devem concluir as seguintes etapas para exigir o uso de um apl
 1. Em **controles de acesso** > **concessão**, selecione as seguintes opções:
    - **Exigir aplicativo cliente aprovado**
    - **Exigir política de proteção de aplicativo (visualização)**
-   - **Exigir todos os controles selecionados**
+   - **Exigir um dos controles selecionados**
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar e habilitar sua política.
 
@@ -75,7 +78,7 @@ Para a política de acesso condicional nesta etapa, configure os seguintes compo
    1. **Aplicativos cliente (versão prévia)** :
       1. Defina **Configurar** como **Sim**.
       1. Selecione **aplicativos móveis e clientes de área de trabalho** e **clientes do Exchange ActiveSync**.
-1. Em **controles de acesso** > **concessão**, selecione **conceder acesso**, **exigir aplicativo cliente aprovado**e selecione **selecionar**.
+1. Em **controles de acesso** > **concessão**, selecione **conceder acesso**, **exigir política de proteção de aplicativo**e selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar e habilitar sua política.
 
@@ -108,7 +111,7 @@ As organizações devem concluir as três etapas a seguir para exigir o uso de u
 1. Em **controles de acesso** > **concessão**, selecione as seguintes opções:
    - **Exigir aplicativo cliente aprovado**
    - **Exigir política de proteção de aplicativo (visualização)**
-   - **Exigir todos os controles selecionados**
+   - **Exigir um dos controles selecionados**
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar e habilitar sua política.
 
@@ -125,7 +128,7 @@ As organizações devem concluir as três etapas a seguir para exigir o uso de u
    1. **Aplicativos cliente (versão prévia)** :
       1. Defina **Configurar** como **Sim**.
       1. Selecione **aplicativos móveis e clientes de área de trabalho** e **clientes do Exchange ActiveSync**.
-1. Em **controles de acesso** > **concessão**, selecione **conceder acesso**, **exigir aplicativo cliente aprovado**e selecione **selecionar**.
+1. Em **controles de acesso** > **concessão**, selecione **conceder acesso**, **exigir política de proteção de aplicativo**e selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar e habilitar sua política.
 
@@ -133,7 +136,7 @@ As organizações devem concluir as três etapas a seguir para exigir o uso de u
 
 Examine o artigo [como criar e atribuir políticas de proteção de aplicativo](/intune/apps/app-protection-policies), para obter as etapas para criar políticas de proteção de aplicativo para Android e Ios. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 [O que é o acesso condicional?](overview.md)
 

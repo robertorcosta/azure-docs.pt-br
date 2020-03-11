@@ -3,17 +3,17 @@ title: Usar vários pools de nó no serviço kubernetes do Azure (AKS)
 description: Saiba como criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: 3e0890a0e8600526da2047cabc0b50af8177ea37
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: cf127cc75377c3ca3a18cdeaedbc1d450d6c3826
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374508"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082176"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no serviço de kubernetes do Azure (AKS)
 
-No AKS (serviço kubernetes do Azure), os nós da mesma configuração são agrupados em *pools de nós*. Esses pools de nós contêm as VMs subjacentes que executam seus aplicativos. O número inicial de nós e seu tamanho (SKU) são definidos quando você cria um cluster AKS, que cria um *pool de nós padrão*. Para dar suporte a aplicativos que têm demandas de armazenamento ou de computação diferentes, você pode criar pools de nós adicionais. Por exemplo, use esses pools de nós adicionais para fornecer GPUs para aplicativos de computação intensiva ou acesso ao armazenamento SSD de alto desempenho.
+No AKS (serviço kubernetes do Azure), os nós da mesma configuração são agrupados em *pools de nós*. Esses pools de nós contêm as VMs subjacentes que executam seus aplicativos. O número inicial de nós e seu tamanho (SKU) é definido quando você cria um cluster AKS, que cria um *pool de nós padrão*. Para dar suporte a aplicativos que têm demandas de armazenamento ou de computação diferentes, você pode criar pools de nós adicionais. Por exemplo, use esses pools de nós adicionais para fornecer GPUs para aplicativos de computação intensiva ou acesso ao armazenamento SSD de alto desempenho.
 
 > [!NOTE]
 > Esse recurso permite maior controle sobre como criar e gerenciar vários pools de nós. Como resultado, comandos separados são necessários para criar/atualizar/excluir. Anteriormente, as operações de cluster por meio de `az aks create` ou `az aks update` usavam a API managedCluster e eram a única opção para alterar o plano de controle e um único pool de nós. Esse recurso expõe uma operação separada definida para pools de agente por meio da API agentPool e requer o uso do comando `az aks nodepool` definido para executar operações em um pool de nós individual.
@@ -33,8 +33,8 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 * O cluster AKS deve usar o balanceador de carga SKU padrão para usar vários pools de nós, o recurso não tem suporte com balanceadores de carga de SKU básicos.
 * O cluster AKS deve usar conjuntos de dimensionamento de máquinas virtuais para os nós.
 * O nome de um pool de nós pode conter apenas caracteres alfanuméricos minúsculos e deve começar com uma letra minúscula. Para pools de nós do Linux, o comprimento deve ter entre 1 e 12 caracteres, para pools de nó do Windows o comprimento deve ter entre 1 e 6 caracteres.
-* Todos os pools de nós devem residir na mesma vnet e sub-rede.
-* Ao criar vários pools de nós no momento da criação do cluster, todas as versões do kubernetes usadas por pools de nós devem corresponder à versão definida para o plano de controle. Isso pode ser atualizado depois que o cluster tiver sido provisionado usando operações de pool por nó.
+* Todos os pools de nós devem residir na mesma rede virtual e sub-rede.
+* Ao criar vários pools de nós no momento da criação do cluster, todas as versões do kubernetes usadas por pools de nós devem corresponder à versão definida para o plano de controle. Essa versão pode ser atualizada depois que o cluster tiver sido provisionado usando operações de pool por nó.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
@@ -195,11 +195,11 @@ Um cluster AKS tem dois objetos de recurso de cluster com versões do kubernetes
 
 Um plano de controle é mapeado para um ou vários pools de nós. O comportamento de uma operação de atualização depende de qual CLI do Azure comando é usado.
 
-A atualização de um plano de controle AKS requer o uso de `az aks upgrade`. Isso atualiza a versão do plano de controle e todos os pools de nós no cluster. 
+A atualização de um plano de controle AKS requer o uso de `az aks upgrade`. Esse comando atualiza a versão do plano de controle e todos os pools de nós no cluster.
 
 Emitir o comando `az aks upgrade` com o sinalizador `--control-plane-only` atualiza apenas o plano de controle de cluster. Nenhum dos pools de nós associados no cluster foi alterado.
 
-A atualização de pools de nós individuais requer o uso de `az aks nodepool upgrade`. Isso atualiza somente o pool de nós de destino com a versão especificada do kubernetes
+A atualização de pools de nós individuais requer o uso de `az aks nodepool upgrade`. Este comando atualiza somente o pool de nós de destino com a versão especificada do kubernetes
 
 ### <a name="validation-rules-for-upgrades"></a>Regras de validação para atualizações
 
@@ -449,12 +449,50 @@ Events:
 
 Somente os pods que têm esse seu gpunodepool aplicado podem ser agendados em nós no *am*. Qualquer outro pod seria agendado no pool de nós *nodepool1* . Se você criar pools de nós adicionais, poderá usar os conteúdo e os Tolerations adicionais para limitar o que os pods podem ser agendados nesses recursos de nó.
 
-## <a name="specify-a-tag-for-a-node-pool"></a>Especificar uma marca para um pool de nós
+## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especificar um seu, rótulo ou uma marca para um pool de nós
 
-Você pode aplicar uma marca do Azure a pools de nós em seu cluster AKS. As marcas aplicadas a um pool de nós são aplicadas a cada nó dentro do pool de nós e são mantidas por meio de atualizações. As marcas também são aplicadas a novos nós adicionados a um pool de nós durante as operações de expansão. A adição de uma marca pode ajudar com tarefas como rastreamento de política ou estimativa de custo.
+Ao criar um pool de nós, você pode adicionar os, rótulos ou marcas a esse pool de nós. Quando você adiciona um você, um rótulo ou uma marca, todos os nós dentro desse pool de nós também obtêm o seu não, o rótulo ou a marca.
+
+Para criar um pool de nós com um AKs, use [AZ nodepool Add][az-aks-nodepool-add]. Especifique o nome *taintnp* e use o parâmetro `--node-taints` para especificar *SKU = GPU: NoSchedule* para o seu.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-count 1 \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
+```
+
+A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *taintnp* está *criando* nós com o *nodeTaints*especificado:
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "taintnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeTaints":  {
+      "sku": "gpu:NoSchedule"
+    },
+    ...
+  },
+ ...
+]
+```
+
+As informações de seu kubernetes são visíveis no entanto para manipular regras de agendamento para nós.
 
 > [!IMPORTANT]
-> Para usar marcas do pool de nós, você precisa da extensão da CLI do *AKs* versão 0.4.29 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
+> Para usar rótulos e marcas do pool de nós, você precisa da extensão da CLI *AKs-Preview* versão 0.4.35 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
 > 
 > ```azurecli-interactive
 > # Install the aks-preview extension
@@ -464,7 +502,51 @@ Você pode aplicar uma marca do Azure a pools de nós em seu cluster AKS. As mar
 > az extension update --name aks-preview
 > ```
 
-Crie um pool de nós usando o [pool de nós AZ AKs Add][az-aks-nodepool-add]. Especifique o nome *tagnodepool* e use o parâmetro `--tag` para especificar *Dept = it* e *costcenter = 9999* para marcas.
+Você também pode adicionar rótulos a um pool de nós durante a criação do pool de nós. Os rótulos definidos no pool de nós são adicionados a cada nó no pool de nós. Esses [Rótulos são visíveis no kubernetes][kubernetes-labels] para manipular regras de agendamento para nós.
+
+Para criar um pool de nós com um rótulo, use [AZ AKs nodepool Add][az-aks-nodepool-add]. Especifique o nome *labelnp* e use o parâmetro `--labels` para especificar *Dept = it* e *costcenter = 9999* para rótulos.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels dept=IT costcenter=9999 \
+    --no-wait
+```
+
+> [!NOTE]
+> O rótulo só pode ser definido para pools de nós durante a criação do pool de nós. Os rótulos também devem ser um par chave/valor e ter uma [sintaxe válida][kubernetes-label-syntax].
+
+A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *labelnp* está *criando* nós com o *nodeLabels*especificado:
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "labelnp",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "nodeLabels":  {
+      "dept": "IT",
+      "costcenter": "9999"
+    },
+    ...
+  },
+ ...
+]
+```
+
+Você pode aplicar uma marca do Azure a pools de nós em seu cluster AKS. As marcas aplicadas a um pool de nós são aplicadas a cada nó dentro do pool de nós e são mantidas por meio de atualizações. As marcas também são aplicadas a novos nós adicionados a um pool de nós durante operações de expansão. A adição de uma marca pode ajudar com tarefas como rastreamento de política ou estimativa de custo.
+
+Crie um pool de nós usando o [AKs AZ nodepool Add][az-aks-nodepool-add]. Especifique o nome *tagnodepool* e use o parâmetro `--tag` para especificar *Dept = it* e *costcenter = 9999* para marcas.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -617,13 +699,13 @@ Pode levar alguns minutos para atualizar o cluster AKS dependendo das configura�
 > [!WARNING]
 > Durante a versão prévia de atribuição de um IP público por nó, ele não pode ser usado com o *Standard Load BALANCER SKU em AKs* devido a possíveis regras do balanceador de carga em conflito com o provisionamento de VM. Como resultado dessa limitação, os pools do agente do Windows não têm suporte com esse recurso de visualização. Enquanto estiver na versão prévia, você deverá usar o *SKU do Load Balancer básico* se precisar atribuir um IP público por nó.
 
-Os nós AKS não exigem seus próprios endereços IP públicos para comunicação. No entanto, alguns cenários podem exigir que os nós em um pool de nós tenham seus próprios endereços IP públicos. Um exemplo é o jogo, onde um console do precisa fazer uma conexão direta com uma máquina virtual de nuvem para minimizar os saltos. Isso pode ser feito registrando-se para um recurso de visualização separado, o IP público do nó (versão prévia).
+Os nós AKS não exigem seus próprios endereços IP públicos para comunicação. No entanto, alguns cenários podem exigir que os nós em um pool de nós tenham seus próprios endereços IP públicos. Um exemplo é o jogo, onde um console do precisa fazer uma conexão direta com uma máquina virtual de nuvem para minimizar os saltos. Esse cenário pode ser obtido registrando-se para um recurso de visualização separado, o IP público do nó (versão prévia).
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Após o registro bem-sucedido, implante um modelo de Azure Resource Manager seguindo as mesmas instruções [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade valor booliano `enableNodePublicIP` a agentPoolProfiles. Defina o valor como `true`, como por padrão, ele será definido como `false` se não for especificado. Esta é uma propriedade somente de tempo de criação e requer uma versão de API mínima de 2019-06-01. Isso pode ser aplicado a pools de nós do Linux e do Windows.
+Após o registro bem-sucedido, implante um modelo de Azure Resource Manager seguindo as mesmas instruções [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade valor booliano `enableNodePublicIP` a agentPoolProfiles. Defina o valor como `true`, como por padrão, ele será definido como `false` se não for especificado. Esta propriedade é uma propriedade somente de tempo de criação e requer uma versão de API mínima de 2019-06-01. Isso pode ser aplicado a pools de nós do Linux e do Windows.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -641,7 +723,7 @@ Para excluir o próprio cluster, use o comando [AZ Group Delete][az-group-delete
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo, você aprendeu a criar e gerenciar vários pools de nós em um cluster AKS. Para obter mais informações sobre como controlar os pods nos pools de nós, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][operator-best-practices-advanced-scheduler].
 
@@ -652,6 +734,8 @@ Para criar e usar pools de nós de contêiner do Windows Server, consulte [criar
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md

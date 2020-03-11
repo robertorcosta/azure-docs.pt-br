@@ -1,20 +1,17 @@
 ---
 title: Visão geral dos hosts dedicados do Azure para máquinas virtuais
 description: Saiba mais sobre como os hosts dedicados do Azure podem ser usados para implantar máquinas virtuais.
-services: virtual-machines-linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ddd08f87fb7847a81b28b18c1dedc1c4f0a7a169
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c19b3410e106aaf5fed53aba45d06eac6dd9d601
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246209"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970739"
 ---
 # <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
@@ -25,7 +22,7 @@ O host dedicado do Azure é um serviço que fornece servidores físicos capazes 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Você pode implantar um host dedicado usando o [CLI do Azure](dedicated-hosts-cli.md), o [portal](dedicated-hosts-portal.md)e o [PowerShell](../windows/dedicated-hosts-powershell.md).
 

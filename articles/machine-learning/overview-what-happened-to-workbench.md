@@ -5,18 +5,17 @@ description: Saiba mais sobre o que é possível sem o aplicativo Workbench e qu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: overview
+ms.topic: conceptual
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 11/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 21c6972b73f15a3f128b4a26222e478a5e2a245a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.date: 03/05/2020
+ms.openlocfilehash: 9b49eb6237346a76903202a118331383c5a8f623
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75542152"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944250"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu com o Workbench de aprendizado de máquina do Azure?
 
@@ -48,7 +47,7 @@ Embora existam novos clientes da CLI e do SDK aprimorados na versão atual, o pr
 
 ## <a name="support-timeline"></a>Linha do tempo de suporte
 
-Em 9 de janeiro de 2019, foi encerrado o suporte para as contas do Machine Learning Workbench, da Experimentação do Azure Machine Learning e do Gerenciamento de Modelos e as CLIs e os SDKs associados.
+Em 9 de janeiro de 2019, foi encerrado o suporte para as contas do Machine Learning Workbench, da Experimentação do Azure Machine Learning e do Gerenciamento de Modelos e para as CLIs e os SDKs associados.
 
 Todas as funcionalidades mais recentes estão disponíveis usando este <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, a [CLI](reference-azure-machine-learning-cli.md) e o [portal](how-to-manage-workspace.md).
 

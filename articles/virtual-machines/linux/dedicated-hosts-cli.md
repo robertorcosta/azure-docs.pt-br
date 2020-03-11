@@ -1,20 +1,17 @@
 ---
-title: Implantar hosts dedicados do Azure usando a CLI
+title: Implantar VMs do Linux em hosts dedicados usando a CLI
 description: Implante VMs em hosts dedicados usando o CLI do Azure.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f712d1be76a9bb3dc4856b9f1fa7c7b805296dea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483475"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970767"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implantar VMs em hosts dedicados usando o CLI do Azure
  
@@ -271,7 +268,7 @@ Você também pode excluir o grupo de recursos inteiro em um único comando. Iss
 az group delete -n myDHResourceGroup 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
 

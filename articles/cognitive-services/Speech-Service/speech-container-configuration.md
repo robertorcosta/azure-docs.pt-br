@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816565"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037320"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar contêineres de serviço de fala
 
@@ -50,9 +50,9 @@ Essa configuração pode ser localizada no seguinte local:
 
 - Portal do Azure: visão geral **da fala** , rotulada `Endpoint`
 
-| obrigatórios | name | Tipo de dados | Descrição |
+| Obrigatório | {1&gt;Nome&lt;1} | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| SIM | `Billing` | string | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+| Sim | `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -66,7 +66,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 [!INCLUDE [Container shared HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-settings"></a>Configurações de registro em log
+## <a name="logging-settings"></a>Configurações de log
 
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
@@ -78,10 +78,10 @@ Os contêineres de fala padrão não usam montagens de entrada ou de saída para
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, o local de montagem do [computador host](speech-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões do local de montagem do host.
 
-| Opcional | name | Tipo de dados | Descrição |
+| Opcional | {1&gt;Nome&lt;1} | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| Não permitido | `Input` | string | Os contêineres de fala padrão não usam isso. Os contêineres de fala personalizados usam [montagens de volume](#volume-mount-settings).                                                                                    |
-| Opcional | `Output` | string | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Não permitido | `Input` | String | Os contêineres de fala padrão não usam isso. Os contêineres de fala personalizados usam [montagens de volume](#volume-mount-settings).                                                                                    |
+| Opcional | `Output` | String | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Configurações de montagem de volume
 
@@ -115,7 +115,7 @@ Os exemplos a seguir usam as definições de configuração para ilustrar como e
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
-| Placeholder | Value | Formato ou exemplo |
+| Espaço reservado | {1&gt;Valor&lt;1} | Formato ou exemplo |
 | ----------- | ----- | ----------------- |
 | **{API_KEY}** | A chave do ponto de extremidade do recurso `Speech` na página chaves do `Speech` do Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
 | **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está disponível na página Visão geral do `Speech` do Azure. | Consulte [coletando parâmetros necessários](speech-container-howto.md#gathering-required-parameters) para obter exemplos explícitos. |
@@ -130,7 +130,7 @@ Substitua {_argument_name_} pelos seus próprios valores:
 
 Os exemplos do Docker a seguir são para o contêiner de fala.
 
-## <a name="speech-to-texttabstt"></a>[Conversão de fala em texto](#tab/stt)
+## <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>Exemplo básico de conversão de fala em texto
 
@@ -153,7 +153,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-speech-to-texttabcstt"></a>[Fala Personalizada para texto](#tab/cstt)
+## <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
 ### <a name="basic-example-for-custom-speech-to-text"></a>Exemplo básico para Fala Personalizada para texto
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="text-to-speechtabtss"></a>[Conversão de texto em fala](#tab/tss)
+## <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Exemplo básico para conversão de texto em fala
 
@@ -203,7 +203,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-text-to-speechtabctts"></a>[Conversão de texto em fala personalizada](#tab/ctts)
+## <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
 ### <a name="basic-example-for-custom-text-to-speech"></a>Exemplo básico para conversão de texto em fala personalizada
 
@@ -232,6 +232,6 @@ Logging:Console:LogLevel:Default=Information
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Reveja [Como instalar e executar contêineres](speech-container-howto.md)

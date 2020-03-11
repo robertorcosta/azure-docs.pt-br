@@ -1,26 +1,16 @@
 ---
 title: Calcular pontuações de parâmetro de comparação para VMs Linux do Azure
 description: Compare as pontuações de parâmetro de comparação de computação do CoreMark de VMs do Linux que executam o Linux.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 04/09/2018
-ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 6662f109f9a8227ec45d44a730abc91ebcd8dd70
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 71413e9a1e0b368bf5d3ae26bbc97d7d78da9422
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650837"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969741"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Linux
 As pontuações de parâmetro de comparação CoreMark a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -416,7 +406,7 @@ O Comark é um teste de execução curta que normalmente é concluído nos créd
 ## <a name="about-coremark"></a>Sobre o CoreMark
 Os números do Linux foram calculados com a execução do [CoreMark](https://www.eembc.org/coremark/faq.php) no Ubuntu. O CoreMark foi configurado com o número de threads definidos como o número de CPUs virtuais e a simultaneidade definida como PThreads. O número de iterações de destino foi ajustado com base no desempenho esperado para fornecer um runtime de pelo menos 20 segundos (normalmente muito mais). A pontuação final representa o número de iterações concluídas dividido pelo número de segundos necessário para executar o teste. Cada teste foi executado, no mínimo, sete vezes em cada VM. Datas de execuções de teste mostradas acima. Execução de teste em várias VMs em regiões públicas do Azure tinham suporte na execução da data. Séries básicas A e B (expansíveis) não mostradas porque o desempenho é variável. Séries N não mostrada, pois elas centralizadas em GPU e a Coremark não mede o desempenho de GPU.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Para executar os scripts do CoreMark nas VMs do Linux, baixe o [pacote de scripts do CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 

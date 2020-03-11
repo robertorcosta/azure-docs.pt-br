@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre descoberta, avaliação e análise de dependê
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7733213f78452b3f35b835eec847ec837138b8e5
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: e46d1e6ee1dd404e6e040eb394e89dd86a3d4d8e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932659"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082264"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -68,6 +68,12 @@ Quando você cria uma avaliação no Azure, dependendo da duração do desempenh
 Por exemplo, se você definir a duração do desempenho para um dia e o valor de percentil para 95 º percentil, as migrações para Azure classificarão os pontos de exemplo de 15 minutos enviados pelo coletor para o dia anterior em ordem crescente. Ele escolhe o valor de 95 º percentil como a utilização efetiva.
 
 O uso do valor 95 º percentil garante que as exceções sejam ignoradas. As exceções poderão ser incluídas se a migração do Azure usar o 99 º percentil. Para escolher o pico de uso do período sem exceções, defina migrações para Azure para usar o 99 º percentil.
+
+## <a name="how-are-import-based-assessments-different-from-assessments-with-discovery-source-as-appliance"></a>Como as avaliações baseadas em importação são diferentes das avaliações com a fonte de descoberta como dispositivo?
+
+As avaliações baseadas em importação são avaliações criadas com computadores que são importados para migrações para Azure usando um arquivo CSV. Somente quatro campos são obrigatórios para importar: nome do servidor, núcleos, memória e sistema operacional. Aqui estão algumas coisas a serem observadas: 
+ - Os critérios de preparação são menos rigorosos em avaliações baseadas em importação no parâmetro de tipo de inicialização. Se o tipo de inicialização não for fornecido, supõe-se que o computador tem o tipo de inicialização BIOS e que o computador não está marcado como **condicionalmente pronto**. Em avaliações com a origem de descoberta como dispositivo, a preparação será marcada como **condicionalmente pronta** se o tipo de inicialização estiver ausente. Essa diferença no cálculo de preparação é porque os usuários podem não ter todas as informações sobre as máquinas nos estágios iniciais do planejamento de migração quando são feitas avaliações baseadas em importação. 
+ - As avaliações de importação baseadas em desempenho usam o valor de utilização fornecido pelo usuário para cálculos de dimensionamento correto. Como o valor de utilização é fornecido pelo usuário, as opções **histórico de desempenho** e utilização de **percentil** são desabilitadas nas propriedades de avaliação. Em avaliações com a origem de descoberta como dispositivo, o valor de percentil escolhido é escolhido dos dados de desempenho coletados pelo dispositivo.
 
 ## <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
 

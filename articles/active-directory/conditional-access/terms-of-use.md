@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d92c3e51aae70c66dcf9b7ca6dfd631650ace574
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 1dbd1d96cda88d500e16fff885dae03ebfa230f0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561741"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079905"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -52,7 +52,7 @@ Os termos de uso do Azure AD têm os seguintes recursos:
 - Exibir um log de atividades de termos de uso para conformidade e auditoria.
 - Crie e gerencie os termos de uso usando [APIs de Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (atualmente em versão prévia).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 Para usar e configurar os termos de uso do Azure AD, você deve ter:
 
@@ -92,9 +92,9 @@ Depois de ter finalizado seu documento de termos de uso, use o procedimento a se
 
 1. Use as configurações de **expiração de início** e de **frequência** para especificar o agendamento de expirações de termos de uso. A tabela a seguir mostra o resultado para duas configurações de exemplo:
 
-   | Expirar a partir de | Frequência | Result |
+   | Expirar a partir de | Frequência | Resultado |
    | --- | --- | --- |
-   | Data de hoje  | Mensal | A partir de hoje, os usuários devem aceitar os termos de uso e, em seguida, reaceitar todos os meses. |
+   | A data de hoje  | Mensal | A partir de hoje, os usuários devem aceitar os termos de uso e, em seguida, reaceitar todos os meses. |
    | Data no futuro  | Mensal | A partir de hoje, os usuários devem aceitar os termos de uso. Quando a data futura chegar, os consentimentos irão expirar e depois os usuários devem aceitar novamente a todos os meses.  |
 
    Por exemplo, se você definir a expiração a partir da data para **1 de janeiro** e a frequência para **Mensal**, segue como ocorreriam as expirações para dois usuários:
@@ -117,7 +117,7 @@ Depois de ter finalizado seu documento de termos de uso, use o procedimento a se
 
    ![Lista suspensa acesso condicional para selecionar um modelo de política](./media/terms-of-use/conditional-access-templates.png)
 
-   | Modelo | DESCRIÇÃO |
+   | Modelo | Descrição |
    | --- | --- |
    | **Acesso a aplicativos de nuvem para todos os convidados** | Uma política de acesso condicional será criada para todos os convidados e todos os aplicativos de nuvem. Essa política afeta o portal do Azure. Após ela ser criada, talvez seja necessário sair e entrar novamente. |
    | **Acesso a aplicativos de nuvem para todos os usuários** | Uma política de acesso condicional será criada para todos os usuários e todos os aplicativos de nuvem. Essa política afeta o portal do Azure. Após ela ser criada, será necessário sair e entrar novamente. |
@@ -277,7 +277,11 @@ Se um usuário estiver usando o Windows 10 e o Microsoft Edge, ele receberá uma
 
 Se estiver usando o Chrome, o usuário será solicitado a instalar a [Extensão de Contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-### <a name="join-an-android-device"></a>Ingressar em um dispositivo Android
+### <a name="register-an-ios-device"></a>Registrar um dispositivo iOS
+
+Se um usuário estiver usando um dispositivo iOS, será solicitado que ele instale o [aplicativo Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### <a name="register-an-android-device"></a>Registrar um dispositivo Android
 
 Se um usuário estiver usando um dispositivo Android, será solicitado que ele instale o [aplicativo Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 
@@ -362,7 +366,7 @@ R: atualmente, você não pode atualizar um documento de termos de uso existente
 R: Sim, os usuários finais podem selecionar hiperlinks para páginas adicionais, mas não há suporte para links para seções dentro do documento.
 
 **P: os termos de uso possuem suporte para vários idiomas?**<br />
-R: Sim. Atualmente, há 108 diferentes idiomas que um administrador pode configurar para um único termo de uso. Um administrador pode carregar vários documentos em PDF e marcar esses documentos com um idioma correspondente (até 108). Quando os usuários finais entram, examinamos a preferência de idioma do navegador deles e exibimos o documento correspondente. Se não houver nenhuma correspondência, exibimos o documento padrão, que é o primeiro documento carregado.
+{2&gt;R:&lt;2} Sim. Atualmente, há 108 diferentes idiomas que um administrador pode configurar para um único termo de uso. Um administrador pode carregar vários documentos em PDF e marcar esses documentos com um idioma correspondente (até 108). Quando os usuários finais entram, examinamos a preferência de idioma do navegador deles e exibimos o documento correspondente. Se não houver nenhuma correspondência, exibimos o documento padrão, que é o primeiro documento carregado.
 
 **P: Quando os termos de uso são acionados?**<br />
 R: Os termos de uso são acionados acionada no momento em que o usuário faz o logon.
@@ -385,7 +389,7 @@ R: se você tiver configurado os termos de uso do Azure AD e os [termos e condi�
 **P: quais pontos de extremidade os termos de uso do serviço usam para autenticação?**<br />
 R: Termos de uso utiliza os seguintes pontos de extremidade para autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com. Se sua organização tiver uma lista de permissões de URLs para registro, você precisará adicionar esses pontos de extremidade à sua lista de permissões, juntamente com os pontos de extremidade do Azure AD para entrar.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Início rápido: exigir que os termos de uso sejam aceitos antes de acessar os aplicativos de nuvem](require-tou.md)
 - [Práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md)

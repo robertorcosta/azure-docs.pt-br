@@ -1,26 +1,18 @@
 ---
-title: Como criar imagens de VM do Azure do Linux com o Packr
+title: Criar imagens de VM do Azure do Linux com o empacotador
 description: Saiba como usar o Packer para criar imagens de máquinas virtuais Linux no Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: a9f0750908123c236596683ec2ad6de505c46213
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 338541661b335e3d96a267f01590173f8ce8ee89
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036956"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969282"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Linux no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Linux e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para as distribuições e os ambientes de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -72,7 +64,7 @@ Para criar imagens, você cria um modelo como um arquivo JSON. No modelo, você 
 
 Crie um arquivo chamado *ubuntu.json* e cole o conteúdo a seguir. Insira seus próprios valores para o seguinte:
 
-| .                           | Onde obter |
+| Parâmetro                           | Onde obter |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Primeira linha da saída do comando create `az ad sp` – *appId* |
 | *client_secret*                     | Segunda linha da saída do comando create `az ad sp` – *password* |
@@ -234,5 +226,5 @@ Agora, abra um navegador da Web e digite `http://publicIpAddress` na barra de en
 ![Site padrão NGINX](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Você também pode usar scripts de provisionamento do Packer com o [Construtor de imagens do Azure](image-builder.md).

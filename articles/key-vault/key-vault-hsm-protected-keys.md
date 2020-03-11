@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: d7f9527aa5aa3353dc9087f4bcc5f3a5fb241637
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184546"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082890"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para Key Vault
 
@@ -31,12 +31,21 @@ Essa funcionalidade não está disponível para o Azure China 21Vianet.
 
 Há suporte para a transferência de chaves protegidas por HSM para Key Vault por meio de dois métodos diferentes, dependendo dos HSMs que você usa. Use a tabela abaixo para determinar qual método deve ser usado para os HSMs a serem gerados e, em seguida, transfira suas próprias chaves protegidas por HSM para usar com Azure Key Vault. 
 
-|Nome do fornecedor do HSM|Modelos HSM com suporte|Método de transferência de chave HSM com suporte|
-|---|---|---|
-|Thales|<ul><li>Família SafeNet Luna HSM 7 com firmware versão 7,3 ou mais recente</li></ul>| [Usar o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|nCipher|<ul><li>família de HSMs nShield</li></ul>|[Usar método BYOK herdado](hsm-protected-keys-legacy.md)|
+|Nome do Fornecedor|Tipo de fornecedor|Modelos HSM com suporte|Método de transferência de chave HSM com suporte|
+|---|---|---|---|
+|nCipher|Fabricante|<ul><li>família de HSMs nShield</li></ul>|[Usar método BYOK herdado](hsm-protected-keys-legacy.md)|
+|Thales|Fabricante|<ul><li>Família SafeNet Luna HSM 7 com firmware versão 7,3 ou mais recente</li></ul>| [Usar o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM como um serviço|<ul><li>Serviço de gerenciamento de chaves de autodefesa (SDKMS)</li></ul>|[Usar o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
 
 
-## <a name="next-steps"></a>Próximas etapas
+
+
+
+
+
+
+
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Siga [Key Vault práticas recomendadas](key-vault-best-practices.md) para garantir a segurança, durabilidade e monitoramento para suas chaves.

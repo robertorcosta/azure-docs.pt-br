@@ -1,26 +1,18 @@
 ---
 title: Implantar seu primeiro aplicativo no Cloud Foundry no Microsoft Azure
 description: Implantar um aplicativo no Cloud Foundry no Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45ae8979a2617d4f380e417e3f0910182ebe145e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036839"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970068"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implantar seu primeiro aplicativo no Cloud Foundry no Microsoft Azure
 
@@ -39,7 +31,7 @@ Há várias opções para a criação de um ambiente do Cloud Foundry no Azure:
 
 ## <a name="connect-to-the-cloud-controller"></a>Conectar-se ao Cloud Controller
 
-O Cloud Controller é o ponto de entrada primário em um ambiente do Cloud Foundry para implantação e gerenciamento de aplicativos. A CCAPI (API básica do Cloud Controller) é uma API REST, mas é acessível por meio de várias ferramentas. Nesse caso, interagimos com ele por meio da [CLI do Cloud Foundry][cf-cli]. Você pode instalar a CLI no Linux, no MacOS ou no Windows, mas se preferir não instalá-lo, ele estará disponível pré-instalado no [Azure cloud Shell][cloudshell-docs].
+O Cloud Controller é o ponto de entrada primário em um ambiente do Cloud Foundry para implantação e gerenciamento de aplicativos. A CCAPI (API básica do Cloud Controller) é uma API REST, mas é acessível por meio de várias ferramentas. Nesse caso, interagimos com ele por meio da [CLI do Cloud Foundry][cf-cli]. Você pode instalar a CLI no Linux, no macOS ou no Windows, mas se preferir não instalá-lo, ele estará disponível pré-instalado no [Azure cloud Shell][cloudshell-docs].
 
 Para fazer logon, prefixe `api` ao SYSTEMDOMAINURL que você obteve na implantação do marketplace. Como a implantação padrão usa um certificado autoassinado, você também deve incluir a opção `skip-ssl-validation`.
 
@@ -141,7 +133,7 @@ cf scale -i 2 hello-spring-cloud
 A execução do comando `cf app` no aplicativo mostra que o Cloud Foundry está criando outra instância do aplicativo. Depois que o aplicativo for iniciado, o Cloud Foundry iniciará automaticamente o balanceamento de carga de tráfego para ele.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Leia a documentação do Cloud Foundry][cloudfoundry-docs]
 - [Configurar o plug-in Azure DevOps Services para Cloud Foundry][vsts-plugin]

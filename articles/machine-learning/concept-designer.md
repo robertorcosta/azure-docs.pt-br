@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312423"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037619"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>O que é o designer de Azure Machine Learning? 
+# <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer de Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 O designer de Azure Machine Learning permite que você conecte visualmente [conjuntos](#datasets) de informações e [módulos](#module) em uma tela interativa para criar modelos de aprendizado de máquina. Para saber como começar a usar o designer, consulte [tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
@@ -74,7 +74,7 @@ As execuções de pipeline são agrupadas em [experimentos](concept-azure-machin
 
 Um conjunto de dados de aprendizado de máquina facilita o acesso e o trabalho com eles. Vários exemplos de conjuntos de exemplo estão incluídos no designer para experimentar. Você pode [registrar](how-to-create-register-datasets.md) mais conjuntos de informações conforme necessário.
 
-## <a name="module"></a>Módulo
+## <a name="module"></a>{1&gt;Módulo&lt;1}
 
 Um módulo é um algoritmo que você pode executar em seus dados. O designer tem vários módulos que variam de funções de entrada de dados até processos de treinamento, pontuação e validação.
 
@@ -91,11 +91,11 @@ Use os recursos de computação do seu espaço de trabalho para executar seu pip
 | Destino de computação | Treinamento | Implantação |
 | ---- |:----:|:----:|
 | Computação do Azure Machine Learning | ✓ | |
-| Serviço do Kubernetes do Azure | | ✓ |
+| Serviço de Kubernetes do Azure | | ✓ |
 
 Os destinos de computação são anexados ao seu [espaço de trabalho do Azure Machine Learning](concept-workspace.md). Você gerencia seus destinos de computação em seu espaço de trabalho em [Azure Machine Learning Studio (clássico)](https://ml.azure.com).
 
-## <a name="deploy"></a>Implantação
+## <a name="deploy"></a>Implantar
 
 Para executar inferência em tempo real, você deve implantar um pipeline como um **ponto de extremidade em tempo real**. O ponto de extremidade em tempo real cria uma interface entre um aplicativo externo e seu modelo de pontuação. Uma chamada para um ponto de extremidade em tempo real retorna resultados de previsão para o aplicativo em tempo real. Para fazer uma chamada para um ponto de extremidade em tempo real, você passa a chave de API que foi criada quando você implantou o ponto de extremidade. O ponto de extremidade é baseado em REST, uma opção de arquitetura popular para projetos de programação da Web.
 
@@ -116,7 +116,7 @@ O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/py
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Movendo da interface visual para o designer
 
-A interface visual (versão prévia) foi atualizada e agora é Azure Machine Learning designer. O designer foi reprojetado para usar um back-end baseado em pipeline que se integra totalmente com os outros recursos do Azure Machine Learning. 
+A interface visual (versão prévia) foi atualizada e agora é Azure Machine Learning designer (versão prévia). O designer foi reprojetado para usar um back-end baseado em pipeline que se integra totalmente com os outros recursos do Azure Machine Learning. 
 
 Como resultado dessas atualizações, alguns conceitos e termos da interface visual foram alterados ou renomeados. Consulte a tabela abaixo para obter as alterações conceituais mais importantes. 
 
@@ -132,16 +132,8 @@ Você pode converter experimentos de interface visual existentes e serviços Web
 [!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Conheça os conceitos básicos da análise preditiva e do aprendizado de máquina com [o tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
-* Use um dos exemplos e modifique para a suíte de suas necessidades:
-
-- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
-- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
-- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
-- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)
+* Saiba como modificar as [amostras de designer](samples-designer.md) existentes para adaptá-las às suas necessidades.
 
