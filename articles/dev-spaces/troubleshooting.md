@@ -1,16 +1,16 @@
 ---
-title: solução de problemas
+title: Solução de problemas
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: fdb0d8afa55f87ae61213b189e9e24ec63bfcfb8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251119"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946081"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -292,7 +292,7 @@ Tente baixar e instalar a versão mais recente da CLI do Azure Dev Spaces:
 
 Você pode ver esse erro ao executar o depurador de Visual Studio Code. Talvez você não tenha a extensão de VS Code C# para instalada em seu computador de desenvolvimento. A C# extensão inclui suporte de depuração para o CoreCLR (.NET Core).
 
-Para corrigir esse problema, instale a [extensão de vs Code C#para ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)o.
+Para corrigir esse problema, instale a [extensão de vs Code C#para ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)o.
 
 ### <a name="error-configured-debug-type-coreclr-is-not-supported"></a>Erro "não há suporte para o tipo de depuração configurado ' CoreCLR '"
 
@@ -391,7 +391,7 @@ Para atualizar a função RBAC do usuário para o controlador:
     * Para *função*, selecione *colaborador* ou *proprietário*.
     * Para *Atribuir acesso a*, selecione *Usuário, grupo ou entidade de serviço do Azure AD*.
     * Para *selecionar*, pesquise o usuário que você deseja conceder permissões.
-1. Clique em *Save* (Salvar).
+1. Clique em *Salvar*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 
