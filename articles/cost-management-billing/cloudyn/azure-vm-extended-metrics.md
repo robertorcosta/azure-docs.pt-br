@@ -9,12 +9,12 @@ ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: 9f1f60fd16aa830372bd0f5b19e22e7003de496b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 84a9d6aa6203b8a518b0e33bed0ec2707c4389a1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770312"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082907"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas estendidas para máquinas virtuais do Azure
 
@@ -34,7 +34,7 @@ Por exemplo, convém monitorar o percentual de CPU e memória das suas VMs do Az
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar se as métricas estendidas estão habilitadas
 
-1. Entre no Portal do Azure em https://portal.azure.com.
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Em **Máquinas virtuais**, selecione uma máquina virtual e, em seguida, em **Monitoramento**, selecione **Métricas**. É mostrada uma lista das métricas disponíveis.
 3. Selecione algumas métricas e é mostrado um gráfico de dados para elas.  
     ![Métrica de exemplo – porcentagem de CPU de host](./media/azure-vm-extended-metrics/metric01.png)

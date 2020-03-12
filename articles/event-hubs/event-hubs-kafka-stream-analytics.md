@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: d7b060a2b35ca41bf87b69be706284174d7b1012
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 8047ac5d3db2db230a00583e888a4afea3b282b9
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587151"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969365"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de Eventos habilitados para Kafka e processá-los com o Azure Stream Analytics. Este artigo apresenta as seguintes etapas: 
@@ -30,7 +30,7 @@ Este artigo mostra como transmitir dados para os Hubs de Eventos habilitados par
 Não é necessário alterar os clientes de protocolo ou executar seus próprios clusters ao usar o ponto de extremidade do Kafka exposto por um hub de eventos. Hubs de Eventos do Azure dá suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html) e posterior. 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisa atender aos seguinte pré-requisitos:
 
@@ -60,7 +60,7 @@ Quando você cria um namespace dos Hubs de Eventos do nível **Standard**, o pon
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Navegue até `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app` e abra o arquivo **TestDataReporter.java** em um editor de sua escolha. 
+5. Navegue até `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/` e abra o arquivo **TestDataReporter.java** em um editor de sua escolha. 
 6. Comente a seguinte linha de código:
 
     ```java

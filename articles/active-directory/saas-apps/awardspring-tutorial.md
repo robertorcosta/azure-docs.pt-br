@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d397d179a3f5bd50479e76c04e5eb709a3ef1f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260711"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897806"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AwardSpring
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o AwardSpring ao Azure AD (Azure Act
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | Nome | user.givenname |
     | Sobrenome | user.surname |
     | Email | user.mail |
-    | Nome de Usuário | user.userprinicipalname |
+    | Nome de Usuário | user.userprincipalname |
     | StudentID | < ID do estudante > |
 
     > [!NOTE]

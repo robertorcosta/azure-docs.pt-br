@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 5d84b1b951cd1a48a385083f5ce2e2aaf1cba8d7
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 78b9d81e20013db41693c24aa8c4a649c724c8b8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110652"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674419"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Usar um dispositivo simulado para testar a conectividade com o hub IoT
 
@@ -31,13 +31,15 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os scripts da CLI executados neste tutorial usam a [Extensão do Microsoft Azure IoT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Para instalar essa extensão, execute o comando da CLI a seguir:
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 O aplicativo do simulador de dispositivos executado neste tutorial é gravado usando o Node.js. Você precisa do Node.js v10.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -103,7 +105,7 @@ Para redefinir a chave do dispositivo primário para **MyTestDevice**, execute o
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
 # Requires the IoT Extension for Azure CLI
-# az extension add --name azure-cli-iot-ext
+# az extension add --name azure-iot
 
 # Reset the primary device key for MyTestDevice
 az iot hub device-identity update --device-id MyTestDevice --set authentication.symmetricKey.primaryKey=$key --hub-name {YourIoTHubName}

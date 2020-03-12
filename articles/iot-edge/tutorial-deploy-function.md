@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e490f9a5b6801ed86ca7d594dfd6069a380d5fe5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1f4b3387375b52b28600590a099884277f3de63e
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772278"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943026"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implantar funções do Azure como módulos do IoT Edge
 
@@ -39,7 +39,7 @@ A função do Azure criada neste tutorial filtra os dados de temperatura gerados
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos implementados:
 
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior pa
 
 Para desenvolver um módulo do IoT Edge com o Azure Functions, instale os seguintes pré-requisitos adicionais em seu computador de desenvolvimento:
 
-* [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [O SDK 2.1 do .NET Core](https://www.microsoft.com/net/download).
 
 ## <a name="create-a-function-project"></a>Criar um projeto de função

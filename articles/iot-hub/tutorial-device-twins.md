@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 1337870fc871282f84af17b34ba26b3b0271316b
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: bda8f1e3419f80faabb2f469a9ac5fd5c77bd79e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110722"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674390"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -37,7 +37,7 @@ Neste tutorial, você executa as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v10.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -64,7 +64,7 @@ hubname=tutorial-iot-hub
 location=centralus
 
 # Install the IoT extension if it's not already installed:
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Create a resource group:
 az group create --name tutorial-iot-hub-rg --location $location

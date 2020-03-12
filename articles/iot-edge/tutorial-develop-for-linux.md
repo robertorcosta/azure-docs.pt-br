@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 38ffd4931f318b15f1ac06fcfd742bde8e5c6838
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a127c8c77f97708729cf91d6ced214e98924fb6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772963"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943019"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Linux
 
@@ -57,7 +57,7 @@ A tabela a seguir lista os cenários de desenvolvimento compatíveis para **cont
 
 Este tutorial ensina as etapas de desenvolvimento para o Visual Studio Code. Se preferir usar o Visual Studio, veja as instruções em [Usar o Visual Studio 2019 para desenvolver e depurar módulos para o Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Um computador de desenvolvimento:
 
@@ -65,7 +65,7 @@ Um computador de desenvolvimento:
   * Verifique se o computador de desenvolvimento dá suporte à virtualização aninhada. Essa funcionalidade é necessária para executar um mecanismo de contêiner, que será instalado na próxima seção.
 * A maioria dos sistemas operacionais que pode executar um mecanismo de contêiner pode ser usada para desenvolver módulos do IoT Edge para dispositivos Linux. Este tutorial usa um computador Windows, mas indica diferenças conhecidas no MacOS ou no Linux.
 * Instale o [Git](https://git-scm.com/) para extrair pacotes de modelo de módulo posteriormente neste tutorial.  
-* [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [C# para extensão do Visual Studio Code (com OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [SDK do .NET Core 2.1](https://www.microsoft.com/net/download).
 
 Um dispositivo do Azure IoT Edge no Linux:

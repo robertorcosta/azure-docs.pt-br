@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448844"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402653"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
@@ -28,14 +28,14 @@ Neste tutorial, você aprenderá como:
 > * Integrar o Power BI Desktop à API do Detector de Anomalias para a detecção de anomalias em lotes
 > * Visualize as anomalias encontradas em seus dados, incluindo os valores esperados e vistos e os limites da detecção de anomalias.
 
-## <a name="prerequisites"></a>Prerequisites
-
+## <a name="prerequisites"></a>Pré-requisitos
+* Uma [assinatura do Azure](https://azure.microsoft.com/free/)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponível gratuitamente.
 * Um arquivo do Excel (.xlsx) contendo pontos de dados de série temporal. Os dados de exemplo deste início rápido podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. 
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Você fará isso posteriormente no início rápido.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
-
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## <a name="load-and-format-the-time-series-data"></a>Carregar e formatar os dados de série temporal
 

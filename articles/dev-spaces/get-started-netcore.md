@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: e23685d410b2d663efde8c530be01adaab637bf8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252436"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942491"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e .NET Core com Azure Dev Spaces
 
@@ -81,7 +81,7 @@ Insira o seguinte comando da CLI do Azure, usando o grupo de recursos que conté
 Recursos avançados como depuração do Kubernetes estão disponíveis para desenvolvedores .NET Core e Node.js usando VS Code.
 
 1. Caso não o tenha, instale o [VS Code](https://code.visualstudio.com/Download).
-1. Baixe e instale as extensões [Azure Dev Spaces do VS](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). Para cada extensão, clique em Instalar uma vez na página do Marketplace da extensão e, novamente, no VS Code.
+1. Baixe e instale as extensões [Azure Dev Spaces do VS](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). Para cada extensão, clique em Instalar uma vez na página do Marketplace da extensão e, novamente, no VS Code.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Criar um aplicativo Web em execução em um contêiner
 

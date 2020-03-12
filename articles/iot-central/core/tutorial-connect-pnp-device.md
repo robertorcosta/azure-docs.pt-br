@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 84db3996b49a95d1ef6a9f1e80299605cc31d669
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: e22a9ae2888187dc877876ee5d4d4ec4ecb7c6e5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329435"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play (versão prévia) e conectá-lo ao aplicativo do IoT Central
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Execute o código do dispositivo no Windows e veja ele se conectar ao aplicativo do IoT Central.
 > * Exiba a telemetria simulada enviada pelo dispositivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua o início rápido [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) para criar um aplicativo do IoT Central usando o modelo de **App personalizado > Aplicativo personalizado**.
 
@@ -169,10 +169,10 @@ Você usará o SDK do dispositivo para criar o stub do código do dispositivo ge
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. Depois que o build for concluído com êxito, no mesmo prompt de comando, execute o aplicativo. Substitua `<scopeid>` e `<primarykey>` pelos valores que você anotou anteriormente:
+1. Depois que o build for concluído com êxito, no mesmo prompt de comando, execute o aplicativo. Substitua `<scopeid>` e `<devicekey>` pelos valores que você anotou anteriormente:
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
     ```
 
 1. O aplicativo do dispositivo iniciará o envio de dados ao Hub IoT. Às vezes, você vê o erro `Error registering device for DPS` na primeira vez que executa o comando anterior. Se você vir esse erro, repita o comando.

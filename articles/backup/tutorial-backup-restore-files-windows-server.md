@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como usar o Agente do MARS (Serviços de Recu
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 5958f6574f8c559bae8f500b1cb555e96e007d0e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171812"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672953"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar arquivos do Azure para um Windows Server
 
@@ -21,7 +21,7 @@ O Backup do Azure habilita a recuperação de itens individuais dos backups do s
 > * Selecionar um ponto de recuperação
 > * Restaurar itens de um ponto de recuperação
 
-Este tutorial presume que você já executou as etapas para [Fazer backup de um Windows Server para o Azure](backup-configure-vault.md) e tenha, pelo menos, um backup dos seus arquivos do Windows Server no Azure.
+Este tutorial presume que você já executou as etapas para [Fazer backup de um Windows Server para o Azure](backup-windows-with-mars-agent.md) e tenha, pelo menos, um backup dos seus arquivos do Windows Server no Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Iniciar recuperação de itens individuais
 

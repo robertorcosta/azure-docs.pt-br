@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar uma Tarefa do Registr
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 3870bc70e9d18a3c1c854055cb0c27018554a556
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249974"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402864"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: automatizar builds de imagem de contêiner na atualização da imagem base em um Registro de Contêiner do Azure 
 
@@ -99,7 +99,7 @@ az acr task create \
 
 Esta tarefa é semelhante à tarefa criada no [tutorial anterior](container-registry-tutorial-build-task.md). Ela instrui as Tarefas do ACR para disparar um build de imagem quando as confirmações são enviadas por push para o repositório especificado por `--context`. Embora o Dockerfile usado para criar a imagem no tutorial anterior especifique uma imagem base pública (`FROM node:9-alpine`), o Dockerfile nessa tarefa, [Dockerfile-app][dockerfile-app], especifica uma imagem base no mesmo registro:
 
-```Dockerfile
+```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
@@ -151,9 +151,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Se você concluiu o tutorial anterior (e não excluiu o registro), você verá uma saída semelhante à seguinte. Anote o número de execuções de tarefa e a ID de EXECUÇÃO mais recente para que seja possível comparar a saída depois de atualizar a imagem base na próxima seção.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da6       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T23:07:22Z  00:00:38
@@ -168,7 +166,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 Aqui você pode simular um patch de estrutura na imagem base. Edite **Dockerfile-base**e adicione um "a" depois do número de versão definido em `NODE_VERSION`:
 
-```Dockerfile
+```dockerfile
 ENV NODE_VERSION 9.11.2a
 ```
 
@@ -190,9 +188,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 A saída deverá ser semelhante à seguinte. O GATILHO para o build executado por último será “Atualização da Imagem”, indicando que a tarefa foi iniciada pela sua tarefa rápida da imagem base.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
 da8       taskhelloworld  Linux       Succeeded  Image Update  2018-09-17T23:11:50Z  00:00:33

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779328f4c21afb4392663e6f8840749ea505c529
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242428"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897775"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao PureCloud by Genesys
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o PureCloud by Genesys ao Azure AD (
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -123,9 +123,9 @@ Para habilitar o SSO do Azure AD no portal do Azure, siga estas etapas:
 
 1. Além disso, o aplicativo PureCloud by Genesys espera que mais alguns atributos sejam passados de volta na resposta SAML, conforme mostrado na tabela a seguir. Esses atributos também são pré-populados, mas você pode examiná-los conforme necessário.
 
-    | NOME | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
-    | Email | user.userprinicipalname |
+    | Email | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
