@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 51fa6d4859eb4b7f059b499ba73d84d9fc65e6f6
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970220"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398979"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviços do Azure em imagens da câmera
 
@@ -30,7 +30,7 @@ Este tutorial mostrará como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
 - A carga de trabalho do Xamarin para Visual Studio (confira [Instalando o Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -107,7 +107,7 @@ O aplicativo exige uma conta de entidade de serviço do Azure para implantar ser
 
 Crie uma entidade de serviço usando o Azure Cloud Shell ou a CLI do Azure, conforme mostrado aqui. Para começar, entre e selecione a assinatura que você deseja usar.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -115,7 +115,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 Em seguida, crie sua entidade de serviço. (Esse processo pode levar algum tempo para ser concluído).
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
@@ -135,7 +135,7 @@ Anote os valores `clientId` e `tenantId`. Adicione-os aos campos apropriados no 
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 Nesta altura, você permitiu acesso ao aplicativo ao seguinte:
 
@@ -171,7 +171,7 @@ Siga estas etapas para executar o aplicativo:
 
     ![Uma tela do aplicativo mostrando campos para a região de implantação e o grupo de recursos](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você seguiu todas as etapas deste cenário e usou o aplicativo para implantar serviços do Azure em sua conta, acesse o [portal do Azure](https://ms.portal.azure.com/). No portal, cancele os serviços que você não deseja usar.
 

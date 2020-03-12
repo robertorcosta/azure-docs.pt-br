@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registr
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7d84770f1b945ff47cb4e9118d9c342e67118722
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249915"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402310"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao fazer commit do código-fonte
 
@@ -92,7 +92,7 @@ Esta tarefa especifica que qualquer código de tempo é confirmado para o branch
 
 A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é semelhante à seguinte:
 
-```console
+```output
 {
   "agentConfiguration": {
     "cpu": 2
@@ -157,7 +157,7 @@ az acr task run --registry $ACR_NAME --name example1
 
 Por padrão, o comando `az acr task run` transmite a saída de log para o console quando você executa o comando. A saída mostra o andamento da execução de cada uma das etapas da tarefa. A saída abaixo é condensada para mostrar as principais etapas.
 
-```console
+```output
 Queued a run with ID: cf19
 Waiting for an agent...
 2019/05/03 03:03:31 Downloading source code...
@@ -234,8 +234,7 @@ git push origin master
 
 Você pode ser solicitado a fornecer suas credenciais do GitHub quando executar o comando `git push`. Forneça seu nome de usuário do GitHub e insira o token de acesso pessoal (PAT) que criou anteriormente para a senha.
 
-```console
-$ git push origin master
+```azurecli-interactive
 Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
@@ -248,8 +247,7 @@ az acr task logs --registry $ACR_NAME
 
 A saída é semelhante à seguinte, mostrando a tarefa em execução no momento (ou executada por último):
 
-```console
-$ az acr task logs --registry $ACR_NAME
+```output
 Showing logs of the last created run.
 Run ID: cf1d
 
@@ -268,9 +266,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 A saída do comando deve ser semelhante ao seguinte. As execuções que as Tarefas do ACR efetuou são exibidas, e “Confirmação de Git” aparece na coluna GATILHO para a tarefa mais recente:
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  ---------  ----------  ---------  ---------  --------------------  ----------
 cf1d      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:37
@@ -362,7 +358,7 @@ Por padrão, o comando `az acr task run` transmite a saída de log para o consol
 
 Saída:
 
-```console
+```output
 Queued a run with ID: cf1g
 Waiting for an agent...
 2019/05/03 04:33:39 Downloading source code...
