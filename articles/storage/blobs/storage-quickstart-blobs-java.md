@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8f05ab3298f0475bda0e79565c13cd7a120632f0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c883653754e1f69d3b2d79b256d57a036c70b58e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196035"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330100"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Java v12
 
@@ -152,7 +152,7 @@ O Armazenamento de Blobs do Azure é otimizado para armazenar grandes quantidade
 
 O diagrama a seguir mostra a relação entre esses recursos.
 
-![Diagrama da arquitetura de Armazenamento de Blobs](./media/storage-blob-introduction/blob1.png)
+![Diagrama da arquitetura de Armazenamento de Blobs](./media/storage-blobs-introduction/blob1.png)
 
 Use as seguintes classes Java para interagir com esses recursos:
 

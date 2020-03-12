@@ -3,15 +3,16 @@ title: Criar e criptografar uma VM do Linux com o Azure Powershell
 description: Neste início rápido, você aprenderá a usar o Azure Powershell para criar e criptografar uma máquina virtual do Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 14cdd1e15212141e8c631b589c9c470bbdfe38a9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829019"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970542"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Início Rápido: Criar e criptografar uma VM do Linux no Azure com o Azure PowerShell
 
@@ -39,7 +40,7 @@ New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image 
 
 Levará alguns minutos para que sua VM seja implantada. 
 
-## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Criar um Cofre de chaves configurado para chaves de criptografia
+## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Criar um Key Vault configurado para chaves de criptografia
 
 A criptografia de disco do Azure armazena sua chave de criptografia em um Azure Key Vault. Crie um Key Vault com [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Para habilitar o Key Vault para armazenar chaves de criptografia, use o parâmetro -EnabledForDiskEncryption.
 
@@ -85,7 +86,7 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : OS disk encryption started
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, você poderá usar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados:
 
