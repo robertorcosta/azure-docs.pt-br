@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 8065be841b18fa0f8706a3bea3739ee2cb013323
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 41b24a94d36b21fe5d5f539e056abb535bda433a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367594"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128294"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição de pool de hosts de área de trabalho pessoal
 
@@ -72,7 +73,7 @@ Para atribuir um usuário a um host de sessão específico, execute o seguinte c
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você configurou o tipo de atribuição de área de trabalho pessoal, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-lo como parte de uma sessão de usuário. Esses próximos dois como tos informarão como se conectar a uma sessão usando o cliente de sua escolha:
 

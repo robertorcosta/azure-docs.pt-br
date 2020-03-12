@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 5a6a96f478c4402a830cc522657f56cfd11fa56f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4f30bf112175742566c2957d78154e5a7abd1733
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821823"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096873"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -63,9 +63,9 @@ Os [grupos de failover automático](sql-database-auto-failover-group.md#auto-fai
 
 |                                              | Replicação geográfica | Grupos de failover  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Failover automático                           |     Não          |      Sim         |
+| failover automático                           |     Não          |      Sim         |
 | Fazer failover de vários bancos de dados simultaneamente  |     Não          |      Sim         |
-| Atualizar cadeia de conexão após o failover      |     Sim         |      Não          |
+| O usuário deve atualizar a cadeia de conexão após o failover      |     Sim         |      Não          |
 | Instância gerenciada com suporte                   |     Não          |      Sim         |
 | Pode estar na mesma região que o primário             |     Sim         |      Não          |
 | Várias réplicas                            |     Sim         |      Não          |
@@ -152,6 +152,6 @@ Após recuperar de um dos mecanismos de recuperação, você deverá executar as
 
 Às vezes, um aplicativo deve ser colocado offline devido à manutenção planejada, como uma atualização do aplicativo. [Gerenciar atualizações de aplicativos](sql-database-manage-application-rolling-upgrade.md) descreve como usar a replicação geográfica ativa para habilitar as atualizações sem interrupção do seu aplicativo em nuvem para minimizar o tempo de inatividade durante as atualizações e fornecer um caminho de recuperação caso algo saia errado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter uma discussão sobre as considerações de design de aplicativo para bancos de dados independentes e para pools elásticos, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Estratégias de recuperação de desastre para pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+manager: lizross
+ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484597"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127369"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
 
@@ -97,7 +98,7 @@ Para desabilitar o aplicativo da loja:
 5. Selecione **desabilitado**e selecione **OK**.
 6. Escolha **Aplicar**.
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre a área de trabalho virtual do Windows e a várias sessões do Windows 10 Enterprise:
 

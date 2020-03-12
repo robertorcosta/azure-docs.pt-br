@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 9c738c5b7f233ffa34296eed67eb0f5497f737fc
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+manager: lizross
+ms.openlocfilehash: f508cac23d997b7595fcc7a4606608aa2dc15fc6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206666"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128224"
 ---
 # <a name="connect-with-the-web-client"></a>Conectar-se ao cliente Web
 
@@ -25,10 +26,10 @@ O cliente Web permite que você acesse seus recursos de área de trabalho virtua
 
 Embora qualquer navegador compatível com HTML5 funcione, oficialmente damos suporte aos seguintes sistemas operacionais e navegadores.
 
-| Navegador           | SO com suporte                     | Observações               |
+| Navegador.           | SO com Suporte                     | {1&gt;Observações&lt;1}               |
 |-------------------|----------------------------------|---------------------|
-| Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          |                     |
+| Microsoft Edge    | Portal                          |                     |
+| Internet Explorer | Portal                          |                     |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Versão 55 ou posterior |
 | Google Chrome     | Windows, macOS, Linux, sistema operacional Chrome |                     |
@@ -42,6 +43,6 @@ Em um navegador, navegue até o [cliente Web da área de trabalho virtual do Win
 
 Depois de entrar, você verá agora uma lista de recursos. Você pode iniciar recursos selecionando-os como faria com um aplicativo normal na guia **todos os recursos** .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre como usar o cliente Web, confira introdução [ao cliente Web](https://go.microsoft.com/fwlink/?linkid=2120256).

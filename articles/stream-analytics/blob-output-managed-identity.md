@@ -5,17 +5,17 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 03/11/2020
+ms.openlocfilehash: 13f48a9e0bc3ed8f8c4d5f1b7da4b6c03f54cdf8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664322"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129980"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure (versão prévia)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure
 
-A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para o armazenamento de BLOBs do Azure está disponível para Azure Stream Analytics como uma visualização. Isso dá aos trabalhos de Stream Analytics acesso direto a uma conta de armazenamento em vez de usar uma cadeia de conexão. Além da segurança aprimorada, esse recurso também permite que você grave dados em uma conta de armazenamento em uma rede virtual (VNET) no Azure.
+A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para o armazenamento de BLOBs do Azure fornece ao Stream Analytics trabalhos acesso direto a uma conta de armazenamento em vez de usar uma cadeia de conexão. Além da segurança aprimorada, esse recurso também permite que você grave dados em uma conta de armazenamento em uma rede virtual (VNET) no Azure.
 
 Este artigo mostra como habilitar a identidade gerenciada para as saídas de blob de um trabalho de Stream Analytics por meio do portal do Azure e de uma implantação de Azure Resource Manager.
 
@@ -235,7 +235,7 @@ Abaixo estão as limitações atuais deste recurso:
 
 4. Não há suporte para a [identidade atribuída ao usuário](../active-directory/managed-identities-azure-resources/overview.md) . Isso significa que o usuário não é capaz de inserir sua própria entidade de serviço a ser usada por seus Stream Analytics trabalho. A entidade de serviço deve ser gerada pelo Azure Stream Analytics.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Entender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)
 * [Azure Stream Analytics o particionamento de saída de blob personalizado](./stream-analytics-custom-path-patterns-blob-storage-output.md)

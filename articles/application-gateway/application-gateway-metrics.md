@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 8b63233aa2b20862e4654c89f1a6dd5d00c78940
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485175"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096082"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -125,10 +125,6 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
    Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 
-- **Regras correspondentes do firewall do aplicativo Web**
-
-- **Regras disparadas por firewall do aplicativo Web**
-
 ### <a name="backend-metrics"></a>Métricas de back-end
 
 Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
@@ -180,9 +176,9 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
   Contagem de solicitações bem-sucedidas que o gateway de aplicativo serviu. A contagem de solicitações pode ser filtrada para mostrar a contagem por cada/pool de back-end específico-combinação de configurações de http.
 
-- **Regras correspondentes do firewall do aplicativo Web**
-
-- **Regras disparadas por firewall do aplicativo Web**
+- **Contagem de solicitações bloqueadas do firewall do aplicativo Web**
+- **Distribuição de solicitações bloqueadas do firewall do aplicativo Web**
+- **Distribuição da regra total do firewall do aplicativo Web**
 
 ### <a name="backend-metrics"></a>Métricas de back-end
 
@@ -238,7 +234,7 @@ Para saber mais sobre notificações de alerta, consulte [Receber notificações
 
 Para entender mais sobre webhooks e como eles podem ser usados com alertas, consulte [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Visualize o contador e os logs de eventos com os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 * Postagem no blog [Visualize your Azure Activity Log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar o log de atividades do Azure com o Power BI).

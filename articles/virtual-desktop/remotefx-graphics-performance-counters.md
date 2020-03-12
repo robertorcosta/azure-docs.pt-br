@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367228"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127562"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho de gráficos no Área de Trabalho Remota
 
@@ -99,7 +100,7 @@ Se os recursos do cliente estiverem causando o afunilamento, tente uma das segui
 > [!NOTE]
 > No momento, não há suporte para o contador de quadros de origem/segundo. Por enquanto, o contador de quadros/segundos de origem sempre exibirá 0.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para criar uma máquina virtual do Azure otimizada para GPU, consulte [Configurar a aceleração da GPU (unidade de processamento gráfico) para o ambiente de área de trabalho virtual do Windows](configure-vm-gpu.md).
 - Para obter uma visão geral das faixas de solução de problemas e escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).

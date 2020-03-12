@@ -1,5 +1,5 @@
 ---
-title: Implantar Data Explorer do Azure em sua rede virtual (versão prévia)
+title: Implantar Data Explorer do Azure em sua rede virtual
 description: Saiba como implantar o Azure Data Explorer em sua rede virtual
 author: basaba
 ms.author: basaba
@@ -7,14 +7,14 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e845b44c51b7611cd3f23f8b33e6576aced2d6ca
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 5a2731e26ba4f371177cf2ae649f0695f27e6304
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851458"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096758"
 ---
-# <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Implantar Data Explorer do Azure em sua rede virtual (versão prévia)
+# <a name="deploy-azure-data-explorer-into-your-virtual-network"></a>Implantar Data Explorer do Azure em sua rede virtual
 
 Este artigo explica os recursos que estão presentes quando você implanta um cluster de Data Explorer do Azure em uma rede virtual do Azure personalizada. Essas informações ajudarão você a implantar um cluster em uma sub-rede em sua rede virtual (VNet). Para obter mais informações sobre redes virtuais do Azure, consulte [o que é a rede virtual do Azure?](/azure/virtual-network/virtual-networks-overview)
 
@@ -25,9 +25,6 @@ O Data Explorer do Azure dá suporte à implantação de um cluster em uma sub-r
 * Impor regras de NSG ( [grupo de segurança de rede](/azure/virtual-network/security-overview) ) no seu tráfego de cluster data Explorer do Azure.
 * Conecte sua rede local à sub-rede do cluster Data Explorer do Azure.
 * Proteja suas fontes de conexão de dados ([Hub de eventos](/azure/event-hubs/event-hubs-about) e a [grade de eventos](/azure/event-grid/overview)) com pontos de [extremidade de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
-
-> [!NOTE]
-> A integração e a implantação da rede virtual estão no modo de visualização. Para habilitar esse recurso, abra um [tíquete de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>Acessar o cluster de Data Explorer do Azure em sua VNet
 
@@ -78,8 +75,8 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | **Uso**   | **De**   | **Para**   | **Protocolo**   |
 | --- | --- | --- | --- |
 | Gerenciamento  |[ADX Management Addresses](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Sub-rede ADX: 443  | TCP  |
-| Monitoramento da integridade  | [Endereços de monitoramento de integridade do ADX](#health-monitoring-addresses)  | Sub-rede ADX: 443  | TCP  |
-| ADX comunicação interna  | Sub-rede ADX: todas as portas  | Sub-rede ADX: todas as portas  | Todos  |
+| Monitoramento de Integridade  | [Endereços de monitoramento de integridade do ADX](#health-monitoring-addresses)  | Sub-rede ADX: 443  | TCP  |
+| ADX comunicação interna  | Sub-rede ADX: todas as portas  | Sub-rede ADX: todas as portas  | Tudo  |
 | Permitir entrada do Azure Load Balancer (investigação de integridade)  | AzureLoadBalancer  | Sub-rede ADX: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Configuração de NSG de saída
@@ -93,7 +90,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Download de configuração do Azure Monitor  | Sub-rede ADX  | [Endereços do ponto de extremidade de configuração do Azure monitor](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (se aplicável) | Sub-rede ADX | AzureActiveDirectory: 443 | TCP |
 | Autoridade de certificação | Sub-rede ADX | Internet: 80 | TCP |
-| Comunicação interna  | Sub-rede ADX  | Sub-rede ADX: todas as portas  | Todos  |
+| Comunicação interna  | Sub-rede ADX  | Sub-rede ADX: todas as portas  | Tudo  |
 | Portas que são usadas para plug-ins `sql\_request` e `http\_request`  | Sub-rede ADX  | Internet: personalizado  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>Endereços IP relevantes
@@ -122,7 +119,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Oeste do Japão | 40.81.184.86 |
 | Coreia Central | 40.82.156.149 |
 | Sul da Coreia | 40.80.234.9 |
-| Centro-Norte dos EUA | 40.81.45.254 |
+| Centro Norte dos EUA | 40.81.45.254 |
 | Norte da Europa | 52.142.91.221 |
 | Norte da África do Sul | 102.133.129.138 |
 | Oeste da África do Sul | 102.133.0.97 |
@@ -161,7 +158,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Oeste do Japão | 138.91.19.129 |
 | Coreia Central | 138.91.19.129 |
 | Sul da Coreia | 138.91.19.129 |
-| Centro-Norte dos EUA | 23.96.212.108 |
+| Centro Norte dos EUA | 23.96.212.108 |
 | Norte da Europa | 191.235.212.69 
 | Norte da África do Sul | 104.211.224.189 |
 | Oeste da África do Sul | 104.211.224.189 |
@@ -264,7 +261,7 @@ Para implantar o cluster Data Explorer do Azure em sua rede virtual, use o [clus
 
 Este modelo cria o cluster, a rede virtual, a sub-rede, o grupo de segurança de rede e os endereços IP públicos.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Nesta seção, você aprenderá a solucionar problemas de conectividade, operacional e criação de cluster para um cluster que é implantado em sua [rede virtual](/azure/virtual-network/virtual-networks-overview).
 

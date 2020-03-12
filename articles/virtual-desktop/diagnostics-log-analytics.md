@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: f50e5144080ffb1c91e834c757082bb57eeaffcb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+manager: lizross
+ms.openlocfilehash: 355acb081afef8c78cdf971c7a82acdb91ab5593
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479222"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127937"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usar Log Analytics para o recurso de diagnóstico
 
@@ -130,6 +131,6 @@ Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnaly
 
 Você precisará executar esse cmdlet para todos os locatários dos quais deseja interromper o envio de dados. 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1} 
 
 Para examinar os cenários de erro comuns que o recurso de diagnóstico pode identificar para você, consulte [identificar e diagnosticar problemas](diagnostics-role-service.md#common-error-scenarios).

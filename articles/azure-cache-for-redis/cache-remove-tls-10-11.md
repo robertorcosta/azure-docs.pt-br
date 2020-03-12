@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 77f526470204204ef2a801575bb4e8d7e364ffed
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6130c934f9a718baab840dae714222e4153bfcf6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260145"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126349"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remova o TLS 1,0 e 1,1 do uso com o cache do Azure para Redis
 
@@ -19,7 +19,7 @@ Há um push em todo o setor para o uso exclusivo da TLS (Transport Layer Securit
 
 Como parte desse esforço, vamos fazer as seguintes alterações no cache do Azure para Redis:
 
-* **Fase 1:** Configuraremos a versão padrão mínima do TLS como 1,2 para instâncias de cache recém-criadas.  As instâncias de cache existentes não serão atualizadas neste ponto.  Você terá permissão para [alterar a versão mínima do TLS](cache-configure.md#access-ports) de volta para 1,0 ou 1,1 para compatibilidade com versões anteriores, se necessário.  Essa alteração pode ser feita por meio do portal do Azure ou de outras APIs de gerenciamento.
+* **Fase 1:** Configuraremos a versão padrão mínima do TLS como 1,2 para instâncias de cache recém-criadas. (Isso costumava ser o TLS 1,0.) As instâncias de cache existentes não serão atualizadas neste ponto. Você terá permissão para [alterar a versão mínima do TLS](cache-configure.md#access-ports) de volta para 1,0 ou 1,1 para compatibilidade com versões anteriores, se necessário. Essa alteração pode ser feita por meio do portal do Azure ou de outras APIs de gerenciamento.
 * **Fase 2:** Vamos parar de dar suporte às versões 1,0 e 1,1 do TLS. Após essa alteração, seu aplicativo será solicitado a usar o TLS 1,2 ou posterior para se comunicar com o cache.
 
 Além disso, como parte dessa alteração, removeremos o suporte para pacotes de criptografia mais antigos e inseguros.  Nossos pacotes criptografia com suporte serão restritos ao seguinte quando o cache for configurado com uma versão de TLS mínima de 1,2.
@@ -34,7 +34,7 @@ As datas em que essas alterações entram em vigor são:
 | Nuvem               | Data de início da fase 1 | Data de início da fase 2 |
 |---------------------|--------------------|--------------------|
 | Azure (global)      |  13 de janeiro de 2020  | 31 de março de 2020     |
-| Azure Governamental    |  13 de março de 2020    | 11 de maio de 2020       |
+| Azure Government    |  13 de março de 2020    | 11 de maio de 2020       |
 | Azure Alemanha       |  13 de março de 2020    | 11 de maio de 2020       |
 | Azure China         |  13 de março de 2020    | 11 de maio de 2020       |
 
@@ -46,7 +46,7 @@ A maneira mais fácil de descobrir se seu aplicativo funcionará com o TLS 1,2 �
 
 A maioria dos aplicativos usa bibliotecas de cliente do Redis para lidar com a comunicação com seus caches. Aqui estão as instruções para configurar algumas das bibliotecas de cliente populares, em várias linguagens de programação e estruturas, para usar o TLS 1,2.
 
-### <a name="net-framework"></a>.NET Framework
+### <a name="net-framework"></a>{1&gt;.NET Framework&lt;1}
 
 Os clientes do Redis .NET usam a versão mais antiga do TLS por padrão no .NET Framework 4.5.2 ou anterior e usam a versão mais recente do TLS no .NET Framework 4,6 ou posterior. Se você estiver usando uma versão mais antiga do .NET Framework, poderá habilitar o TLS 1,2 manualmente:
 
@@ -87,21 +87,27 @@ O node Redis e o IORedis usam TLS 1,2 por padrão.
 
 ### <a name="php"></a>PHP
 
-Predis no PHP 7 não funcionará porque o PHP 7 dá suporte apenas a TLS 1,0. No PHP 7.2.1 ou anterior, o Predis usa TLS 1,0 ou 1,1 por padrão. Você pode especificar o TLS 1,2 ao criar a instância do cliente:
+#### <a name="predis"></a>Predis
+ 
+* Versões anteriores ao PHP 7: Predis dá suporte apenas a TLS 1,0. Essas versões não funcionam com o TLS 1,2; Você deve atualizar para usar o TLS 1,2.
+ 
+* PHP 7,0 a PHP 7.2.1: Predis usa somente TLS 1,0 ou 1,1 por padrão. Você pode usar a solução alternativa a seguir para usar o TLS 1,2. Especifique o TLS 1,2 ao criar a instância do cliente:
 
-``` PHP
-$redis=newPredis\Client([
-    'scheme'=>'tls',
-    'host'=>'host',
-    'port'=>6380,
-    'password'=>'password',
-    'ssl'=>[
-        'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
-    ],
-]);
-```
+  ``` PHP
+  $redis=newPredis\Client([
+      'scheme'=>'tls',
+      'host'=>'host',
+      'port'=>6380,
+      'password'=>'password',
+      'ssl'=>[
+          'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+      ],
+  ]);
+  ```
 
-No PHP 7,3 ou superior, o Predis usa a versão mais recente do TLS.
+* PHP 7,3 e versões posteriores: o Predis usa a versão mais recente do TLS.
+
+#### <a name="phpredis"></a>PhpRedis
 
 PhpRedis não dá suporte a TLS em nenhuma versão do PHP.
 
@@ -113,6 +119,6 @@ Redis-py usa TLS 1,2 por padrão.
 
 O RediGO usa TLS 1,2 por padrão.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>{1&gt;{2&gt;Informações adicionais&lt;2}&lt;1}
 
 - [Como configurar o cache do Azure para Redis](cache-configure.md)

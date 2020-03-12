@@ -10,18 +10,20 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 4ab3bc43cf8ef479cb91d187a4c177db03415b86
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b2c7825b10feab45df9cb89dbe2b82da1c143866
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525576"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129755"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>Interpretação de modelo no Machine Learning automatizado
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a habilitar os recursos de interpretação para o ML (aprendizado de máquina automatizado) no Azure Machine Learning. O ML automatizado ajuda você a entender a importância bruta e em engenharia dos recursos. Para usar a interpretação de modelo, defina `model_explainability=True` no objeto `AutoMLConfig`.  
+Neste artigo, você aprenderá a habilitar os recursos de interpretação para o ML (aprendizado de máquina automatizado) no Azure Machine Learning. O ML automatizado ajuda você a entender a importância do recurso projetado. 
+
+Todas as versões do SDK após o 1.0.85 definido `model_explainability=True` por padrão. No SDK versão 1.0.85 e versões anteriores, os usuários precisam definir `model_explainability=True` no objeto `AutoMLConfig` para usar a interpretação de modelo. 
 
 Neste artigo, você aprenderá como:
 
@@ -29,21 +31,21 @@ Neste artigo, você aprenderá como:
 - Habilite visualizações para ajudá-lo a ver padrões em dados e explicações.
 - Implemente a interpretabilidade durante a inferência ou a pontuação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 - Recursos de interpretação. Execute `pip install azureml-interpret azureml-contrib-interpret` para obter os pacotes necessários.
 - Conhecimento da criação de experimentos de ML automatizados. Para obter mais informações sobre como usar o SDK do Azure Machine Learning, conclua este [tutorial de modelo de regressão](tutorial-auto-train-models.md) ou veja como [Configurar experimentos de ml automatizados](how-to-configure-auto-train.md).
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretabilidade durante o treinamento para o melhor modelo
 
-Recupere a explicação da `best_run`, que inclui explicações para recursos de engenharia e recursos brutos.
+Recupere a explicação da `best_run`, que inclui explicações para recursos de engenharia.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Baixar a importância de recursos com engenharia da loja de artefatos
 
-Você pode usar `ExplanationClient` para baixar as explicações de recursos de engenharia do repositório de artefatos do `best_run`. Para obter a explicação do conjunto de recursos brutos `raw=True`.
+Você pode usar `ExplanationClient` para baixar as explicações de recursos de engenharia do repositório de artefatos do `best_run`. 
 
 ```python
-from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+from azureml.explain.model._internal.explanation_client import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -52,26 +54,26 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-training-for-any-model"></a>Interpretabilidade durante o treinamento de qualquer modelo 
 
-Ao computar explicações de modelo e visualizá-las, você não está limitado a uma explicação de modelo existente para um modelo de ML automatizado. Você também pode obter uma explicação para seu modelo com dados de teste diferentes. As etapas nesta seção mostram como computar e visualizar a importância do recurso com engenharia e a importância bruta do recurso com base em seus dados de teste.
+Ao computar explicações de modelo e visualizá-las, você não está limitado a uma explicação de modelo existente para um modelo de ML automatizado. Você também pode obter uma explicação para seu modelo com dados de teste diferentes. As etapas nesta seção mostram como computar e visualizar a importância de recursos em engenharia com base em seus dados de teste.
 
 ### <a name="retrieve-any-other-automl-model-from-training"></a>Recuperar qualquer outro modelo de AutoML do treinamento
 
 ```python
-automl_run, fitted_model = local_run.get_output(metric='r2_score')
+automl_run, fitted_model = local_run.get_output(metric='accuracy')
 ```
 
 ### <a name="set-up-the-model-explanations"></a>Configurar as explicações do modelo
 
-Use `automl_setup_model_explanations` para obter as explicações de recursos com engenharia e bruta. O `fitted_model` pode gerar os seguintes itens:
+Use `automl_setup_model_explanations` para obter as explicações com engenharia. O `fitted_model` pode gerar os seguintes itens:
 
 - Dados em destaque de amostras treinadas ou de teste
-- Listas de nomes de recursos de engenharia e bruto
+- Listas de nomes de recursos de engenharia
 - Classes localizáveis em sua coluna rotulada em cenários de classificação
 
 O `automl_explainer_setup_obj` contém todas as estruturas da lista acima.
 
 ```python
-from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
 
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train, 
                                                              X_test=X_test, y=y_train, 
@@ -86,16 +88,16 @@ Para gerar uma explicação para modelos AutoML, use a classe `MimicWrapper`. Vo
 - Seu espaço de trabalho
 - Um modelo LightGBM, que atua como um substituto para o modelo de ML automatizado `fitted_model`
 
-O MimicWrapper também usa o objeto `automl_run` em que as explicações brutas e convertidas serão carregadas.
+O MimicWrapper também usa o objeto `automl_run` em que as explicações projetadas serão carregadas.
 
 ```python
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 
 # Initialize the Mimic Explainer
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
-                         features=automl_explainer_setup_obj.engineered_feature_names,
+                         features=automl_explainer_setup_obj.engineered_feature_names, 
                          feature_maps=[automl_explainer_setup_obj.feature_map],
                          classes=automl_explainer_setup_obj.classes)
 ```
@@ -105,27 +107,8 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMEx
 Você pode chamar o método `explain()` no MimicWrapper com os exemplos de teste transformados para obter a importância do recurso para os recursos de engenharia gerados. Você também pode usar `ExplanationDashboard` para exibir a visualização do painel dos valores de importância do recurso dos recursos de engenharia gerados por featurizers de ML automatizados.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
-engineered_explanations = explainer.explain(['local', 'global'],              
-                                            eval_dataset=automl_explainer_setup_obj.X_test_transform)
-
+engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
-ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, automl_explainer_setup_obj.X_test_transform)
-```
-
-### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Usar o explicador de imitação para computação e visualização da importância bruta do recurso
-
-Você pode chamar o método `explain()` em MimicWrapper novamente com os exemplos de teste transformados e configurando `get_raw=True` para obter a importância do recurso para os recursos brutos. Você também pode usar `ExplanationDashboard` para exibir a visualização do painel dos valores de importância do recurso dos recursos brutos.
-
-```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
-
-raw_explanations = explainer.explain(['local', 'global'], get_raw=True, 
-                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
-                                     eval_dataset=automl_explainer_setup_obj.X_test_transform)
-
-print(raw_explanations.get_feature_importance_dict())
-ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, automl_explainer_setup_obj.X_test_raw)
 ```
 
 ### <a name="interpretability-during-inference"></a>Interpretabilidade durante a inferência
@@ -134,7 +117,7 @@ Nesta seção, você aprenderá a colocar em operação um modelo de ML automati
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Registrar o modelo e o explicador de Pontuação
 
-Use o `TreeScoringExplainer` para criar o explicador de pontuação que calculará os valores brutos e de importância de recursos em engenharia no tempo de inferência. Você inicializa o explicador de pontuação com o `feature_map` que foi calculado anteriormente. O explicador de Pontuação usa a `feature_map` para retornar a importância bruta do recurso.
+Use o `TreeScoringExplainer` para criar o explicador de pontuação que calculará os valores de importância do recurso projetado no momento da inferência. Você inicializa o explicador de pontuação com o `feature_map` que foi calculado anteriormente. 
 
 Salve o explicador de Pontuação e registre o modelo e o explicador de pontuação com o Serviço Gerenciamento de Modelos. Execute o seguinte código:
 
@@ -208,21 +191,19 @@ service.wait_for_deployment(show_output=True)
 
 ### <a name="inference-with-test-data"></a>Inferência com dados de teste
 
-Inferência com alguns dados de teste para ver o valor previsto do modelo de ML automatizado. Exiba a importância do recurso projetado para o valor previsto e a importância bruta do recurso para o valor previsto.
+Inferência com alguns dados de teste para ver o valor previsto do modelo de ML automatizado. Exiba a importância do recurso projetado para o valor previsto.
 
 ```python
 if service.state == 'Healthy':
     # Serialize the first row of the test data into json
     X_test_json = X_test[:1].to_json(orient='records')
     print(X_test_json)
-    # Call the service to get the predictions and the engineered and raw explanations
+    # Call the service to get the predictions and the engineered explanations
     output = service.run(X_test_json)
     # Print the predicted value
     print(output['predictions'])
     # Print the engineered feature importances for the predicted value
     print(output['engineered_local_importance_values'])
-    # Print the raw feature importances for the predicted value
-    print(output['raw_local_importance_values'])
 ```
 
 ### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualizar para descobrir padrões em dados e explicações no tempo de treinamento
@@ -231,6 +212,6 @@ Você pode visualizar o gráfico de importância do recurso em seu espaço de tr
 
 [Arquitetura de interpretação de Machine Learning ![](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre como você pode habilitar as explicações do modelo e a importância dos recursos em áreas do SDK do Azure Machine Learning diferentes do Machine Learning automatizado, consulte o [artigo conceito sobre interpretação](how-to-machine-learning-interpretability.md).

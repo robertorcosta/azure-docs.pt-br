@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6671b9c83ab71b4a92fe36d647e5a4e4d781154e
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250870"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096167"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -70,11 +70,6 @@ Modelos registrados são identificados por nome e versão. Cada vez que você re
 
 Você não pode excluir um modelo registrado que está sendo usado em uma implantação ativa.
 Para obter mais informações, consulte a seção sobre registro de modelos em [Implantar modelos](how-to-deploy-and-where.md#registermodel).
-
-### <a name="profile-models"></a>Modelos de perfil
-
-Azure Machine Learning pode ajudá-lo a entender os requisitos de CPU e memória do serviço que será criado quando você implantar seu modelo. A criação de perfil testa o serviço que executa o modelo e retorna informações como uso da CPU, uso de memória e latência de resposta. Ele também fornece uma recomendação de CPU e memória com base no uso de recursos.
-Para obter mais informações, consulte a seção criação de perfil de [implantar modelos](how-to-deploy-and-where.md#profilemodel).
 
 ### <a name="package-and-debug-models"></a>Modelos de pacote e depuração
 
@@ -181,7 +176,7 @@ Para obter mais informações sobre como usar Azure Pipelines com Azure Machine 
 
 Você também pode usar Azure Data Factory para criar um pipeline de ingestão de dados que prepara os dados para uso com treinamento. Para obter mais informações, consulte [pipeline de ingestão de dados](how-to-cicd-data-ingestion.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais lendo e explorando os seguintes recursos:
 

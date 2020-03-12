@@ -3,12 +3,12 @@ title: Visão geral das Tarefas do ACR
 description: Uma introdução às tarefas do ACR, um conjunto de recursos no registro de contêiner do Azure que fornece criação de imagem de contêiner segura e automatizada, gerenciamento e aplicação de patches na nuvem.
 ms.topic: article
 ms.date: 01/22/2020
-ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615948"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087278"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -102,7 +102,7 @@ Saiba mais sobre as tarefas de várias etapas em [Run multi-step build, test, an
 
 A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para as Tarefas do ACR:
 
-| Local do contexto | DESCRIÇÃO | Exemplo |
+| Local do contexto | Descrição | {1&gt;Exemplo&lt;1} |
 | ---------------- | ----------- | ------- |
 | Sistema de arquivos local | Arquivos dentro de um diretório no sistema de arquivos local. | `/home/user/projects/myapp` |
 | Branch mestre do GitHub | Arquivos dentro da ramificação mestre (ou outro padrão) de um repositório GitHub público ou privado.  | `https://github.com/gituser/myapp-repo.git` |
@@ -122,19 +122,15 @@ Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64.
 | Sistema operacional | Arquitetura|
 | --- | ------- | 
 | Linux | AMD64<br/>braço<br/>arm64<br/>386 |
-| Windows | AMD64 |
+| Portal | AMD64 |
 
-## <a name="view-task-logs"></a>Exibir logs de tarefa
+## <a name="view-task-output"></a>Exibir saída da tarefa
 
-Cada execução de tarefa gera a saída de log que você pode inspecionar para determinar se as etapas da tarefa foram executadas com êxito. Se você usar o comando [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)ou [AZ ACR Task execute](/cli/azure/acr/task#az-acr-task-run) para disparar a tarefa, a saída do log para a execução da tarefa será transmitida ao console e também será armazenada para recuperação posterior. Quando uma tarefa é disparada automaticamente, por exemplo, por uma confirmação de código-fonte ou uma atualização de imagem base, os logs de tarefa são armazenados somente. Exiba os logs de uma tarefa executada no portal do Azure ou use o comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
+Cada execução de tarefa gera a saída de log que você pode inspecionar para determinar se as etapas da tarefa foram executadas com êxito. Quando você dispara uma tarefa manualmente, a saída de log para a execução da tarefa é transmitida para o console e também armazenada para recuperação posterior. Quando uma tarefa é disparada automaticamente, por exemplo, por uma confirmação de código-fonte ou uma atualização de imagem base, os logs de tarefa são armazenados somente. Exiba os logs de execução no portal do Azure ou use o comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
-Por padrão, os dados e logs para tarefas executadas em um registro são mantidos por 30 dias e, em seguida, limpos automaticamente. Se você quiser arquivar os dados para uma execução de tarefa, habilite o arquivamento usando o comando [AZ ACR Task Update-Run](/cli/azure/acr/task#az-acr-task-update-run) . O exemplo a seguir habilita o arquivamento para a tarefa executar *CF11* no registro *myregistry*.
+Veja mais sobre como [Exibir e gerenciar logs de tarefas](container-registry-tasks-logs.md).
 
-```azurecli
-az acr task update-run --registry myregistry --run-id cf11 --no-archive false
-```
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Quando estiver pronto para automatizar as compilações e a manutenção da imagem de contêiner na nuvem, confira a [série de tutoriais de tarefas do ACR](container-registry-tutorial-quick-task.md).
 

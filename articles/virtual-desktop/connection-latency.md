@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
-ms.openlocfilehash: 7ef35bdf6c7470d425826d7a30755cc216e69158
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+manager: lizross
+ms.openlocfilehash: a4210947d771768943775a3e62c2558fa2883bd5
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164712"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128182"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinar a latência de conexão de usuário na área de trabalho virtual do Windows
 
@@ -24,7 +25,7 @@ A [ferramenta estimador de experiência de área de trabalho virtual do Windows]
 
 A área de trabalho virtual do Windows usa o Gerenciador de tráfego do Azure, que verifica o local do servidor DNS do usuário para encontrar a instância mais próxima do serviço de área de trabalho virtual do Windows. Recomendamos que os administradores examinem o local do servidor DNS do usuário antes de escolher o local para as VMs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para verificar o melhor local para obter a latência ideal, consulte a [ferramenta estimador de experiência de área de trabalho virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - Para os planos de preços, consulte [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).

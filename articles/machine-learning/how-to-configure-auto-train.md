@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3ea40ed02fd6b585cfdc9c30fe59bd4e247395c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6f49529b0599f36ae4a26939bbbe171a45a1a53a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081821"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127190"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Opções de configuração disponíveis no aprendizado de máquina automatizado:
 * Explorar as métricas do modelo
 * Registro e implantação do modelo
 
-Se preferir uma experiência sem código, você também poderá [criar experiências automatizadas de aprendizado de máquina no Azure Machine Learning Studio](how-to-create-portal-experiments.md).
+Se preferir uma experiência sem código, você também poderá [criar experiências automatizadas de aprendizado de máquina no Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimento
 
@@ -191,7 +191,7 @@ Saiba mais sobre as definições específicas dessas métricas em [entender os r
 
 ### <a name="data-featurization"></a>Personalização de dados
 
-Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, você também pode habilitar personalização adicionais, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#featurization).
+Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, você também pode habilitar personalização adicionais, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-use-automated-ml-for-ml-models.md#featurization).
 
 Ao configurar seus experimentos, você pode habilitar a configuração avançada `featurization`. A tabela a seguir mostra as configurações aceitas para personalização na [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -199,7 +199,7 @@ Ao configurar seus experimentos, você pode habilitar a configuração avançada
 | ------------- | ------------- |
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica que a etapa personalização personalizada deve ser usada. [Saiba como personalizar o personalização](how-to-configure-auto-train.md#customize-feature-engineering).|
 |`"featurization": 'off'`| Indica que a etapa personalização não deve ser feita automaticamente.|
-|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](how-to-create-portal-experiments.md#advanced-featurization-options) são executadas automaticamente.|
+|`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](how-to-use-automated-ml-for-ml-models.md#advanced-featurization-options) são executadas automaticamente.|
 
 > [!NOTE]
 > As etapas de personalização automatizadas do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de personalização aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.

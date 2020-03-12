@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 673c20355e9ad4abf2c8318b3eb2ebbcc36ed8fd
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367514"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128236"
 ---
 # <a name="connect-with-the-macos-client"></a>Conectar-se ao cliente macOS
 
@@ -41,6 +42,6 @@ Depois de entrar, você deverá ver uma lista de recursos disponíveis.
 
 Depois que você se inscreveu em um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para saber mais sobre o cliente macOS, confira a documentação [introdução ao cliente MacOS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/) .

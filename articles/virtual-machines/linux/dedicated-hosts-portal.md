@@ -4,14 +4,15 @@ description: Implante VMs em hosts dedicados usando o portal do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 01/09/2020
+ms.workload: infrastructure
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 5af09cf7ef6c811a239a64c5c6349c3625316177
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: HT
+ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970745"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086774"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
 
@@ -38,6 +39,26 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 1. Quando você vir a mensagem a validação foi aprovada, selecione **criar**.
 
 Levará alguns minutos para que sua VM seja implantada.
+
+## <a name="add-an-existing-vm"></a>Adicionar uma VM existente 
+
+Você pode adicionar uma VM existente a um host dedicado, mas a VM deve primeiro ser Stop\Deallocated. Antes de mover uma VM para um host dedicado, verifique se a configuração da VM tem suporte:
+
+- O tamanho da VM deve estar na mesma família de tamanho que o host dedicado. Por exemplo, se o host dedicado for DSv3, o tamanho da VM poderá ser Standard_D4s_v3, mas não poderá ser um Standard_A4_v2. 
+- A VM precisa estar localizada na mesma região que o host dedicado.
+- A VM não pode fazer parte de um grupo de posicionamento de proximidade. Remova a VM do grupo de posicionamento de proximidade antes de movê-la para um host dedicado. Para obter mais informações, consulte [mover uma VM para fora de um grupo de posicionamento de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- A VM não pode estar em um conjunto de disponibilidade.
+- Se a VM estiver em uma zona de disponibilidade, ela deverá ser a mesma zona de disponibilidade que o grupo de hosts. As configurações de zona de disponibilidade para a VM e o grupo de hosts devem corresponder.
+
+Mova a VM para um host dedicado usando o [portal](https://portal.azure.com).
+
+1. Abra a página da VM.
+1. Selecione **parar** para STOP\DEALLOCATE a VM.
+1. Selecione **configuração** no menu à esquerda.
+1. Selecione um grupo de hosts e um host nos menus suspensos.
+1. Quando terminar, selecione **salvar** na parte superior da página.
+1. Depois que a VM tiver sido adicionada ao host, selecione **visão geral** no menu à esquerda.
+1. Na parte superior da página, selecione **Iniciar** para reiniciar a VM.
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 

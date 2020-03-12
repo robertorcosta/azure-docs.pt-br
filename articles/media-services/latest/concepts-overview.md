@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5bb480181c244ee03b6ec9c2a2f5f7783c72f394
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: bdc0af39e3f3a06da6c06ddc384efe44dd678ea3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251414"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087920"
 ---
 # <a name="media-services-concepts"></a>Conceitos dos serviços de mídia
 
@@ -26,18 +26,20 @@ Este tópico fornece uma breve visão geral da terminologia e dos conceitos dos 
 Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.
 
 > [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar [eventos ao vivo](live-events-outputs-concept.md)do Media Services V3, exibir (não gerenciar) v3 [ativos](assets-concept.md), [obter informações sobre como acessar APIs](access-api-portal.md). Para todas as outras tarefas de gerenciamento (por exemplo, [transformações e trabalhos](transforms-jobs-concept.md) e [proteção de conteúdo](content-protection-overview.md)), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="media-services-v3-terminology"></a>Terminologia dos serviços de mídia v3
 
-|Termo|DESCRIÇÃO|
+|Termo|Descrição|
 |---|---|
 |Evento ao vivo|Um **evento ao vivo** representa um pipeline para ingestão, transcodificação (opcionalmente) e empacotamento de fluxos ao vivo de vídeo, áudio e metadados em tempo real.<br/><br/>Para clientes que migram de APIs do Media Services v2, o **evento ao vivo** substitui a entidade de **canal** na v2. Para obter mais informações, consulte [migrando de v2 para v3](migrate-from-v2-to-v3.md).|
 |Ponto de extremidade/empacotamento/origem de streaming|Um **ponto de extremidade de streaming** representa um serviço de empacotamento e origem (just-in-time) dinâmico que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente, usando um dos protocolos de mídia de streaming comuns (HLS ou Dash). Além disso, o **ponto de extremidade de streaming** fornece criptografia dinâmica (just-in-time) para a DRMs líder do setor.<br/><br/>No setor de streaming de mídia, esse serviço é comumente conhecido como um **empacotador** ou **origem**.  Outros termos comuns do setor para esse recurso incluem JITP (just-in-time-Packager) ou JITE (codificação just-in-time). 
 
 ## <a name="media-services-v3-concepts"></a>Conceitos do Media Services V3
 
-|Conceitos|DESCRIÇÃO|Links|
+|Conceitos|Descrição|Links|
 |---|---|---|
 |Ativos e carregando conteúdo|Para começar a gerenciar, criptografar, codificar, analisar e transmitir conteúdo de mídia no Azure, você precisa criar uma conta de serviços de mídia e carregar seus arquivos digitais em **ativos**.|[Upload e armazenamento na nuvem](storage-account-concept.md)<br/><br/>[Conceito de ativos](assets-concept.md)|
 |Codificando o conteúdo|Depois de carregar seus arquivos de mídia digital de alta qualidade em ativos, você pode codificá-los em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. <br/>Para codificar com os serviços de mídia v3, você precisa criar **transformações** e **trabalhos**.|[Transformações e Trabalhos](transforms-jobs-concept.md)<br/><br/>[Codificação com os serviços de mídia](encoding-concept.md)|
@@ -53,7 +55,7 @@ Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes d
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Codificar o arquivo remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
 * [Codificar o arquivo carregado e o fluxo de vídeo – .NET](stream-files-tutorial-with-api.md)

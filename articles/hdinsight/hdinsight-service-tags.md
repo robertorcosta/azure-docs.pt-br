@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/05/2019
-ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/10/2020
+ms.openlocfilehash: a72753d5553e79a8ed28c3afcc7e54af6c2d230c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435403"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117242"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight
 
@@ -40,7 +40,7 @@ A maneira mais fácil de começar a usar marcas de serviço com o cluster HDInsi
 
 1. Na lista suspensa **marca de serviço de origem** , selecione **HDInsight**.
 
-    ![portal do Azure adicionar marca de serviço](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+    ![portal do Azure adicionar marca de serviço](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
 Essa marca contém os endereços IP dos serviços de integridade e gerenciamento para todas as regiões em que o HDInsight está disponível e garantirá que o cluster possa se comunicar com os serviços de integridade e gerenciamento necessários, independentemente de onde ele foi criado.
 
@@ -54,14 +54,14 @@ Para descobrir quais marcas de serviço adicionar para sua região, leia as seç
 
 Se você preferir a opção de marca de serviço dois, e o cluster estiver localizado em uma das regiões listadas nesta tabela, você só precisará adicionar uma única marca de serviço regional ao seu grupo de segurança de rede.
 
-| País | Região | Marca de serviço |
+| País/Região | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 | &nbsp; | Sudeste da Austrália | HDInsight. AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight. AustraliaCentral |
 | China | Leste da China 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Norte da China 2 | HDInsight. ChinaNorth2 |
-| Estados Unidos | Centro-Norte dos EUA | HDInsight. NorthCentralUS |
+| Estados Unidos | Centro Norte dos EUA | HDInsight. NorthCentralUS |
 | &nbsp; | Oeste dos EUA 2 | HDInsight. WestUS2 |
 | &nbsp; | Centro-Oeste dos EUA | HDInsight. WestCentralUS |
 | Canadá | Leste do Canadá | HDInsight. CanadaEast |
@@ -71,11 +71,12 @@ Se você preferir a opção de marca de serviço dois, e o cluster estiver local
 | Índia | Índia Central | HDInsight. CentralIndia |
 | &nbsp; | Sul da Índia | HDInsight. SouthIndia |
 | Japão | Oeste do Japão | HDInsight. JapanWest |
-| França | França Central| HDInsight. FranceCentral |
+| France | França Central| HDInsight. FranceCentral |
 | Reino Unido | Sul do Reino Unido | HDInsight. UKSouth |
-| Azure Governamental | USDoD central   | HDInsight. USDoDCentral |
+| Azure Government | USDoD central   | HDInsight. USDoDCentral |
 | &nbsp; | Gov. dos EUA – Texas | HDInsight. USGovTexas |
 | &nbsp; | Leste UsDoD | HDInsight. USDoDEast |
+| &nbsp; | Gov. dos EUA – Arizona | HDInsight. USGovArizona |
 
 ### <a name="use-multiple-regional-service-tags"></a>Usar várias marcas de serviço regional
 
@@ -93,17 +94,17 @@ Por exemplo, se o cluster for criado na região de `East US 2`, você precisará
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| País | Região | Marca de serviço |
+| País/Região | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Estados Unidos | Leste dos EUA 2 | HDInsight. EastUS2 |
-| &nbsp; | EUA Central | HDInsight. Centralus |
+| &nbsp; | Centro dos EUA | HDInsight. Centralus |
 | &nbsp; | NorthCentral nós | HDInsight. NorthCentralUS |
-| &nbsp; | Centro-Sul dos EUA | HDInsight. SouthCentralUS |
+| &nbsp; | Centro-Sul dos Estados Unidos | HDInsight. SouthCentralUS |
 | &nbsp; | Leste dos EUA | HDInsight. Eastus |
 | &nbsp; | Oeste dos EUA | HDInsight. Westus |
 | Japão | Leste do Japão | HDInsight. JapanEast |
-| Europa | Europa Setentrional | HDInsight. NorthEurope |
-| &nbsp; | Oeste da Europa| HDInsight. WestEurope |
+| Europa | Norte da Europa | HDInsight. NorthEurope |
+| &nbsp; | Europa Ocidental| HDInsight. WestEurope |
 | Ásia | Leste da Ásia | HDInsight. EastAsia |
 | &nbsp; | Sudeste Asiático | HDInsight. SoutheastAsia |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
@@ -120,7 +121,7 @@ Os clusters nas regiões de **US gov Iowa** e **US gov-Virgínia**precisam permi
 
 Os clusters nas regiões da **Alemanha central** e da **Alemanha nordeste**precisam permitir duas marcas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNorthEast`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Grupos de segurança de rede – marcas de serviço](../virtual-network/security-overview.md#security-rules)
 - [Criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md)

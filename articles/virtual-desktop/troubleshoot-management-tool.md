@@ -7,14 +7,15 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: dd9fd135536fc2cb222b908f3d61c1d1430e65b0
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+manager: lizross
+ms.openlocfilehash: 9d07ba42e83d9eec071ab047e9e1e92bac1f1411
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905609"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127495"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Solucionar problemas da ferramenta de gerenciamento de área de trabalho virtual do Windows
+# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Solucionar problemas da ferramenta de gerenciamento da Área de Trabalho Virtual do Windows
 
 Este artigo descreve problemas que podem ocorrer durante a implantação da ferramenta de gerenciamento de área de trabalho virtual do Windows e como corrigi-las.
 
@@ -54,7 +55,7 @@ Se um cliente definir a região para o leste dos EUA, ele não poderá implantar
 
 Para corrigir isso, implante a ferramenta de gerenciamento em uma região diferente. Reimplantar a ferramenta em uma região diferente não deve afetar a experiência do usuário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Saiba mais sobre as faixas de escalonamento em [visão geral, comentários e suporte da solução de problemas](troubleshoot-set-up-overview.md).
 - Saiba como relatar problemas com as ferramentas de área de trabalho virtual do Windows em [modelos ARM para serviços de área de trabalho remota](https://github.com/Azure/RDS-Templates/blob/master/README.md).

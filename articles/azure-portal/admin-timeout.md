@@ -9,12 +9,12 @@ ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132085"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096616"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Definir tempo limite de inatividade no nível do diretório
 
@@ -43,7 +43,7 @@ Para confirmar se a política de tempo limite de inatividade está definida corr
 A configuração entra em vigor para novas sessões. Ele não será aplicado imediatamente a nenhum usuário que já esteja conectado.
 
 > [!NOTE]
-> Se um administrador tiver configurado uma configuração de tempo limite no nível de diretório, os usuários poderão substituir a política e definir sua própria duração de saída inativa. No entanto, o usuário deve escolher um intervalo de tempo menor que o definido no nível do diretório.
+> Se um administrador global tiver configurado uma configuração de tempo limite no nível de diretório, os usuários poderão substituir a política e definir sua própria duração de saída inativa. No entanto, o usuário deve escolher um intervalo de tempo menor que o que está definido no nível do diretório pelo administrador global.
 >
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}

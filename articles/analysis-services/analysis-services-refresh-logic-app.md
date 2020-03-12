@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572336"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126949"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com Aplicativos Lógicos
 
@@ -26,9 +26,9 @@ Todas as chamadas devem ser autenticadas com um token de Azure Active Directory 
 ## <a name="design-the-logic-app"></a>Criar o aplicativo lógico
 
 > [!IMPORTANT]
-> Os exemplos a seguir pressupõem que o Firewall do Azure Analysis Services está desabilitado.  Se o firewall estiver habilitado, o endereço IP público do iniciador de solicitação deverá estar na lista de permissões no firewall do Azure Analysis Services. Para saber mais sobre intervalos de IP de aplicativo lógico por região, confira [limites e informações de configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> Os exemplos a seguir pressupõem que o Firewall do Azure Analysis Services está desabilitado. Se o firewall estiver habilitado, o endereço IP público do iniciador de solicitação deverá estar na lista de permissões no firewall do Azure Analysis Services. Para saber mais sobre intervalos de IP de aplicativos lógicos do Azure por região, consulte [limites e informações de configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 #### <a name="create-a-service-principal-spn"></a>Criar uma entidade de serviço (SPN)
 
@@ -62,15 +62,15 @@ Esta etapa será preenchida com a URL HTTP POST quando o aplicativo lógico for 
 
 Configure a atividade HTTP da seguinte maneira:
 
-|Propriedade  |Valor  |
+|Propriedade  |{1&gt;Valor&lt;1}  |
 |---------|---------|
 |**Método**     |POST         |
-|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https: \//westus. asazure. Windows. net/servers/meuservidor/Models/AdventureWorks/atualizações|
-|**Cabeçalhos**     |   Tipo de conteúdo, aplicativo/JSON <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
+|**Cabeçalhos**     |   Content-Type, application/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Para saber mais sobre como formar o corpo da solicitação, consulte [atualização assíncrona com a API REST – post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticação**     |Active Directory OAuth         |
 |**Vários**     |Preencha seu Azure Active Directory Tenantid         |
-|**Público-alvo**     |https://*. asazure. Windows. net         |
+|**Público-alvo**     |https://*.asazure.windows.net         |
 |**ID do Cliente**     |Insira o nome da entidade de serviço ClientID         |
 |**Tipo de credencial**     |Segredo         |
 |**Segredo**     |Insira o segredo do nome da entidade de serviço         |
@@ -113,7 +113,7 @@ Selecione as horas desejadas.
 
 Salve o aplicativo lógico.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-[Exemplos](analysis-services-samples.md)  
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[Amostras](analysis-services-samples.md)  
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

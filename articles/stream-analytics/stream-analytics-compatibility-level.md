@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/10/2020
+ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201791"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087865"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -25,11 +25,9 @@ O nível de compatibilidade controla o comportamento de runtime de um trabalho d
 
 O Azure Stream Analytics atualmente dá suporte a três níveis de compatibilidade:
 
-* 1,0-comportamento anterior
-* 1,1-comportamento padrão
+* 1,0-nível de compatibilidade original, introduzido durante a disponibilidade geral de Azure Stream Analytics há vários anos.
+* 1,1-comportamento anterior
 * 1,2-comportamento mais recente com melhorias mais recentes
-
-O nível de compatibilidade 1,0 original foi introduzido durante a disponibilidade geral de Azure Stream Analytics há vários anos.
 
 Quando você cria um novo trabalho de Stream Analytics, é uma prática recomendada criá-lo usando o nível de compatibilidade mais recente. Inicie seu design de trabalho contando com os comportamentos mais recentes, para evitar alterações e complexidade adicionais posteriormente.
 
@@ -150,7 +148,7 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 **nível de 1,1:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Solucionar problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics o Resource Health](stream-analytics-resource-health.md)

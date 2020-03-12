@@ -3,12 +3,12 @@ title: Executar o Azure Functions de um pacote
 description: Faça com que o Azure Functions Runtime execute suas funções montando um arquivo de pacote de implantação que contém os arquivos de projeto do aplicativo de funções.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921106"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087030"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar o Azure Functions de um arquivo de pacote
 
@@ -91,6 +91,7 @@ Consulte os artigos a seguir para obter mais informações.
 - Não há suporte para formatos tar e gzip.
 - Esse recurso não compõe o cache local.
 - Para obter um desempenho de inicialização a frio aprimorado, use a opção de zip local (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- Executar do pacote é incompatível com a opção de personalização de implantação (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`), a etapa de compilação será ignorada durante a implantação.
 
 ## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 

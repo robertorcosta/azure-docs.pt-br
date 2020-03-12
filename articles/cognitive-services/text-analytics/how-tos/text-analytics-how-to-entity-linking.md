@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
 ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899479"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117494"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -81,21 +81,21 @@ Vinculação de entidade
 > [!NOTE]
 > O NER (reconhecimento de entidade nomeada) versão 2 só dá suporte às entidades a seguir. O NER v3 está em visualização pública e expande muito o número e a profundidade das entidades reconhecidas no texto.   
 
-| Type  | SubType | Exemplo |
+| Tipo  | SubType | {1&gt;Exemplo&lt;1} |
 |:-----------   |:------------- |:---------|
 | Person        | N/D\*         | "João", "Bill Gates"     |
-| Location      | N/D\*         | "Redmond, Washington", "Paris"  |
+| Local      | N/D\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/D\*         | "Microsoft"   |
 | Quantidade      | Número        | "6", "seis"     |
-| Quantidade      | Porcentagem    | "50%", "cinquenta por cento"|
+| Quantidade      | Percentual    | "50%", "cinquenta por cento"|
 | Quantidade      | Ordinal       | "2º", "segundo"     |
-| Quantidade      | Idade           | "90 dias", "30 anos"    |
+| Quantidade      | Duração           | "90 dias", "30 anos"    |
 | Quantidade      | Moeda      | "US$ 10,99"     |
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
 | Datetime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      |
 | Datetime      | Data          | "2 de maio de 2017", "02/05/2017"   |
-| Datetime      | Hora          | "8h", "8:00"  |
+| Datetime      | Tempo          | "8h", "8:00"  |
 | Datetime      | DateRange     | "2 de maio a 5 de maio"    |
 | Datetime      | TimeRange     | "18h às 19h"     |
 | Datetime      | Duration      | "1 minuto e 45 segundos"   |
@@ -290,7 +290,7 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de
 * As solicitações POST são enviadas para um ou mais pontos de extremidade, usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
 * A saída da resposta, composta por entidades vinculadas (incluindo pontuações de confiança, deslocamentos e links da Web, para cada ID de documento) pode ser usada em qualquer aplicativo
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Visão geral da Análise de Texto](../overview.md)
 * [Como usar a biblioteca de clientes da Análise de Texto](../quickstarts/text-analytics-sdk.md)

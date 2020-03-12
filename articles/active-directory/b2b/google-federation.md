@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/1/2019
+ms.date: 03/05/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272889"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126667"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -55,25 +55,24 @@ Primeiramente, crie um novo projeto no Console de Desenvolvedores do Google para
    
    ![Captura de tela mostrando uma nova página de projeto para o Google](media/google-federation/google-new-project.png)
 
-3. Verifique se seu novo projeto está selecionado no menu do projeto. Em seguida, abra o menu no canto superior esquerdo e selecione **APIs e serviços** > **Credenciais**.
+3. Verifique se seu novo projeto está selecionado no menu do projeto. Em **APIs & serviços**, selecione **tela de consentimento do OAuth**.
 
-   ![Captura de tela mostrando a opção de credenciais da API do Google](media/google-federation/google-api.png)
- 
-4. Escolha a guia de **tela de consentimento do OAuth** e insira um **nome do aplicativo**. (Deixe as outras configurações.)
+4. Selecione **externo**e, em seguida, selecione **criar**. 
+5. Na **tela de consentimento do OAuth**, insira um nome de **aplicativo**. (Deixe as outras configurações.)
 
    ![Captura de tela mostrando a opção de ecrã de consentimento do Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
-5. Role até a **autorizado domínios** seção e insira microsoftonline.com.
+6. Role até a **autorizado domínios** seção e insira microsoftonline.com.
 
    ![Captura de tela mostrando a seção domínios autorizados](media/google-federation/google-oauth-authorized-domains.png)
 
-6. Selecione **Salvar**.
+7. Selecione **Salvar**.
 
-7. Escolha a guia **credenciais** . No menu **criar credenciais** , escolha **ID do cliente OAuth**.
+8. Escolha **credenciais**. No menu **Criar credenciais**, escolha **ID do cliente OAuth**.
 
    ![Captura de tela mostrando a opção criar credenciais do Google APIs](media/google-federation/google-api-credentials.png)
 
-8. Em **Tipo de aplicativo**, escolha **Aplicativo Web** e, em **URIs de redirecionamento autorizados**, insira estes URIs:
+9. Em **Tipo de aplicativo**, escolha **Aplicativo Web** e, em **URIs de redirecionamento autorizados**, insira estes URIs:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(em que `<directory id>` é a ID do seu diretório)
    
@@ -82,7 +81,7 @@ Primeiramente, crie um novo projeto no Console de Desenvolvedores do Google para
 
    ![Captura de tela mostrando a seção de URIs de redirecionamento autorizados](media/google-federation/google-create-oauth-client-id.png)
 
-9. Selecione **Criar**. Copie a ID do cliente e o segredo do cliente, que você usará quando adicionar o provedor de identidade no portal do Azure AD.
+10. Selecione **Criar**. Copie a ID do cliente e o segredo do cliente, que você usará quando adicionar o provedor de identidade no portal do Azure AD.
 
    ![Captura de tela mostrando a ID do cliente OAuth e o segredo do cliente](media/google-federation/google-auth-client-id-secret.png)
 
@@ -101,7 +100,7 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja in
 1. Instale a versão mais recente do módulo PowerShell for Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)) do Azure AD.
 2. Execute o seguinte comando: `Connect-AzureAD`.
 3. No prompt de entrada, entre com a conta de Administrador Global gerenciada.  
-4. Execute o seguinte comando: 
+4. Execute o comando a seguir: 
    
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
@@ -125,7 +124,7 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja in
 1. Instale a versão mais recente do módulo PowerShell for Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)) do Azure AD.
 2. Execute `Connect-AzureAD`.  
 4. No prompt de logon, entre com a conta de Administrador Global gerenciada.  
-5. Digite o seguinte comando:
+5. Insira o seguinte comando:
 
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 

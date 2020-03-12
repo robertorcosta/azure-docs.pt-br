@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 72534225acffa176d248901f363100955e36c6f6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/10/2020
+ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898923"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095540"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -29,9 +29,9 @@ A tabela a seguir resume os serviços de armazenamento do Azure que têm suporte
 | Serviço de armazenamento | Tipo de conta | Tipo de namespace | Serviços com suporte | Níveis de desempenho compatíveis | Camadas de acesso compatíveis | Versão do HDInsight | Tipo de cluster |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Uso geral V2 | Hierárquico (Filesystem) | Blob | Standard | Quente, frio e arquivo morto | 3.6+ | Todos, exceto Spark 2,1 e 2,2|
-|Armazenamento do Azure| Uso geral V2 | Objeto | Blob | Standard | Quente, frio e arquivo morto | 3.6+ | Todos |
-|Armazenamento do Azure| Uso geral V1 | Objeto | Blob | Standard | N/D | Todos | Todos |
-|Armazenamento do Azure| Armazenamento de BLOBs * * | Objeto | Blob de blocos | Standard | Quente, frio e arquivo morto | Todos | Todos |
+|Armazenamento do Azure| Uso geral V2 | Object | Blob | Standard | Quente, frio e arquivo morto | 3.6+ | Tudo |
+|Armazenamento do Azure| Uso geral V1 | Object | Blob | Standard | N/D | Tudo | Tudo |
+|Armazenamento do Azure| Armazenamento de BLOBs * * | Object | Blob de blocos | Standard | Quente, frio e arquivo morto | Tudo | Tudo |
 |Azure Data Lake Storage Gen1| N/D | Hierárquico (Filesystem) | N/D | N/D | N/D | apenas 3,6 | Todos, exceto HBase |
 
 \* * Para clusters HDInsight, somente contas de armazenamento secundárias podem ser do tipo BlobStorage e o blob de página não é uma opção de armazenamento com suporte.
@@ -46,7 +46,6 @@ Você pode criar um cluster usando diferentes combinações de serviços para ar
 |---|---|---|---|
 | 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
 | 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Armazenamento do Data Lake Gen2 | Não |
-| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Armazenamento do Data Lake Gen1 | Sim |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Armazenamento do Data Lake Gen2 | Sim |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
 | 3,6 & 4,0 | Armazenamento do Data Lake Gen2 | Armazenamento do Data Lake Gen1 | Não |
@@ -54,6 +53,7 @@ Você pode criar um cluster usando diferentes combinações de serviços para ar
 | 3.6 | Armazenamento do Data Lake Gen1 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
 | 3.6 | Armazenamento do Data Lake Gen1 | Armazenamento do Data Lake Gen2 | Não |
 | 4,0 | Armazenamento do Data Lake Gen1 | Qualquer | Não |
+| 4,0 | Uso Geral v1, Uso Geral v2 | Armazenamento do Data Lake Gen1 | Não |
 
 \* = Isso pode ser uma ou várias contas de Data Lake Storage Gen2, desde que todas as configurações usem a mesma identidade gerenciada para acesso ao cluster.
 
@@ -244,7 +244,7 @@ Para saber mais sobre como acessar os dados no Data Lake Storage Gen1, confira o
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)

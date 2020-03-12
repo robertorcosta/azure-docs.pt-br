@@ -5,20 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246227"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128997"
 ---
 ## <a name="limitations"></a>Limitações
 
 - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- Há suporte para a seguinte série de VMs: DSv3, ESv3 e Fsv2. 
 
 ## <a name="benefits"></a>Benefícios 
 
@@ -101,23 +100,21 @@ Para obter mais informações, consulte [preços do host dedicado do Azure](http
 
 Você também pode economizar em custos com uma [instância reservada de hosts dedicados do Azure](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
-## <a name="vm-families-and-hardware-generations"></a>Famílias de VMs e gerações de hardware
+## <a name="sizes-and-hardware-generations"></a>Tamanhos e gerações de hardware
 
-Uma SKU é definida para um host e representa a série de tamanho da VM e o tipo. Você pode misturar várias VMs de tamanhos diferentes em um único host, desde que eles tenham a mesma série de tamanho. O tipo é a geração de hardware disponível atualmente na região.
+Uma SKU é definida para um host e representa a série de tamanho da VM e o tipo. Você pode misturar várias VMs de tamanhos diferentes em um único host, desde que eles tenham a mesma série de tamanho. 
 
-Diferentes `types` para a mesma série de VMs serão de fornecedores de CPU diferentes e terão diferentes gerações de CPU e número de núcleos.
+O *tipo* é a geração de hardware. Tipos de hardware diferentes para a mesma série de VMs serão de fornecedores de CPU diferentes e terão diferentes gerações de CPU e número de núcleos. 
 
-Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
+Os tamanhos e tipos de hardware variam por região. Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
 
-Hosts dedicados dão suporte ao seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
 
- 
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
 
 
 O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes Estados serão retornados quando você consultar o host:
 
-| Estado de Integridade   | DESCRIÇÃO       |
+| Estado de Integridade   | Descrição       |
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |

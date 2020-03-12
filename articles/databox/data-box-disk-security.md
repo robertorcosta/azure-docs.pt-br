@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606568"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117280"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box Disk
 
@@ -34,7 +34,7 @@ O diagrama a seguir indica o fluxo de dados através da solução do Azure Data 
 
 ## <a name="security-features"></a>Recursos de segurança
 
-O Data Box Disk fornece uma solução segura para a proteção de dados, garantindo que somente entidades autorizadas possam exibir, modificar ou excluir seus dados. Os recursos de segurança para essa solução são destinados ao disco e ao serviço associado, garantindo a segurança dos dados armazenados neles. 
+O Data Box Disk fornece uma solução segura para a proteção de dados, garantindo que somente entidades autorizadas possam exibir, modificar ou excluir seus dados. Os recursos de segurança para essa solução são destinados ao disco e ao serviço associado, garantindo a segurança dos dados armazenados neles.
 
 ### <a name="data-box-disk-protection"></a>Proteção do Data Box Disk
 
@@ -48,7 +48,7 @@ O Data Box Disk é protegido pelos seguintes recursos:
 
 Os dados que entram e saem do Data Box Disk são protegidos pelos seguintes recursos:
 
-- Criptografia de dados BitLocker em todos os momentos. 
+- Criptografia de dados BitLocker em todos os momentos.
 - Eliminação segura de dados do disco após a conclusão do carregamento de dados do Azure. A eliminação de dados cumpre os padrões do NIST 800-88r1.
 
 ### <a name="data-box-service-protection"></a>Proteção de serviço do Data Box
@@ -56,10 +56,9 @@ Os dados que entram e saem do Data Box Disk são protegidos pelos seguintes recu
 O serviço do Data Box é protegido pelos seguintes recursos.
 
 - O acesso ao serviço do Data Box Disk requer que a organização tenha uma assinatura do Azure que inclua o Data Box Disk. Sua assinatura determina os recursos que você pode acessar no portal do Azure.
-- Como o serviço do Data Box está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
+- Como o serviço do Data Box está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - O Data Box Disk armazena a chave de acesso do disco que é usada para desbloquear o disco no serviço. 
-- O serviço do Data Box Disk armazena os detalhes do pedido e o status no serviço. Essas informações são excluídas quando o pedido é excluído. 
-
+- O serviço do Data Box Disk armazena os detalhes do pedido e o status no serviço. Essas informações são excluídas quando o pedido é excluído.
 
 ## <a name="managing-personal-data"></a>Gerenciando dados pessoais
 
@@ -75,11 +74,11 @@ O Azure Data Box Disk reúne e exibe informações pessoais nas seguintes instâ
   - Número de telefone
   - Email
   - Endereço
-  - City
+  - Cidade
   - CEP/Código postal
   - Estado
   - Região/País/Região
-  - ID da Unidade
+  - ID da unidade
   - Número da conta da operadora
   - Enviar número de controle
 
@@ -90,7 +89,7 @@ O Azure Data Box Disk reúne e exibe informações pessoais nas seguintes instâ
 Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Examine os [requisitos do Data Box Disk](data-box-disk-system-requirements.md).
 - Entenda os [limites do Data Box Disk](data-box-disk-limits.md).

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
-ms.openlocfilehash: 354ee312099902372863ce2ea636d2f9f9943d5c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+manager: lizross
+ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566420"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127904"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
 
@@ -76,13 +77,13 @@ Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](./cr
 
 Todos os valores nesta seção devem corresponder ao que você forneceu ao criar pela primeira vez o pool de hosts e VMs de host de sessão, exceto para *usuários de área de trabalho padrão*:
 
-1.  Para *assinatura*, selecione a assinatura na qual você criou o pool de hosts pela primeira vez.
-2.  Para *grupo de recursos*, selecione o mesmo grupo de recursos em que as VMs de host de sessão do pool de hosts existentes estão localizadas.
-3.  Para *região*, selecione a mesma região em que as VMs de host de sessão do pool de hosts existentes estão localizadas.
-4.  Para *nome do Hostpool*, insira o nome do pool de hosts existente.
-5.  Para *tipo de área de trabalho*, selecione o tipo de área de trabalho que corresponde ao pool de hosts existente.
-6.  Para *usuários da área de trabalho padrão*, insira uma lista separada por vírgulas de todos os usuários adicionais que você deseja entrar nos clientes da área de trabalho virtual do Windows e acesse uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir user3@contoso.com e user4@contoso.com acesso, insira user3@contoso.comuser4@contoso.com.
-7.  Selecione **Avançar: configurar máquina virtual**.
+1.    Para *assinatura*, selecione a assinatura na qual você criou o pool de hosts pela primeira vez.
+2.    Para *grupo de recursos*, selecione o mesmo grupo de recursos em que as VMs de host de sessão do pool de hosts existentes estão localizadas.
+3.    Para *região*, selecione a mesma região em que as VMs de host de sessão do pool de hosts existentes estão localizadas.
+4.    Para *nome do Hostpool*, insira o nome do pool de hosts existente.
+5.    Para *tipo de área de trabalho*, selecione o tipo de área de trabalho que corresponde ao pool de hosts existente.
+6.    Para *usuários da área de trabalho padrão*, insira uma lista separada por vírgulas de todos os usuários adicionais que você deseja entrar nos clientes da área de trabalho virtual do Windows e acesse uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir user3@contoso.com e user4@contoso.com acesso, insira user3@contoso.comuser4@contoso.com.
+7.    Selecione **Avançar: configurar máquina virtual**.
 
 >[!NOTE]
 >Exceto para *usuários da área de trabalho padrão*, todos os campos devem corresponder exatamente ao que foi configurado no pool de hosts existente. Se houver uma incompatibilidade que resultará em um novo pool de hosts.
@@ -122,7 +123,7 @@ Todos os valores de parâmetro nesta seção devem corresponder ao que você for
 
 Siga as instruções em [executar o modelo de Azure Resource Manager para provisionar um novo pool de hosts](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, exceto o *número de RDSH de instâncias*. Insira o número de VMs de host de sessão que você deseja no pool de hosts depois de executar o modelo. Por exemplo, se você estiver expandindo o pool de hosts de cinco hosts de sessão para oito, digite **8**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você expandiu o pool de hosts existente, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Você pode se conectar a uma sessão com qualquer um dos seguintes clientes:
 

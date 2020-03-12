@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: 6f4e0744aad5f053cdda0a52b382ad3c86982c2f
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.date: 03/11/2020
+ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904974"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127639"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure
 
@@ -19,7 +19,7 @@ Os aplicativos lógicos do Azure dependem do armazenamento do Azure para armazen
 
 Quando você cria um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar seus aplicativos lógicos e deseja obter mais controle sobre as chaves de criptografia usadas pelo armazenamento do Azure, você pode configurar, usar e gerenciar sua própria chave usando [Azure Key Vault](../key-vault/key-vault-overview.md). Esse recurso também é conhecido como "Bring Your Own Key" (BYOK) e sua chave é chamada de "chave gerenciada pelo cliente".
 
-Este tópico mostra como configurar e especificar sua própria chave de criptografia a ser usada ao criar o ISE. 
+Este tópico mostra como configurar e especificar sua própria chave de criptografia a ser usada ao criar o ISE usando a API REST de aplicativos lógicos. Para ver as etapas gerais para criar um ISE por meio da API REST de aplicativos lógicos, consulte [criar um ambiente de serviço de integração (ISE) usando a API REST de aplicativos lógicos](../logic-apps/create-integration-service-environment-rest-api.md).
 
 ## <a name="considerations"></a>Considerações
 
@@ -33,9 +33,9 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * Em *30 minutos* depois de enviar a solicitação HTTPS Put que cria o ISE, você deve [fornecer acesso ao cofre de chaves para a identidade atribuída pelo sistema do ISE](#identity-access-to-key-vault). Caso contrário, a criação do ISE falhará e lançará um erro de permissões.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Os mesmos [pré-requisitos](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) e [requisitos para habilitar o acesso ao ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) como quando você cria um ISE no portal do Azure
 
 * Um cofre de chaves do Azure que tem as propriedades **exclusão reversível** e **não limpar** habilitadas
 
@@ -43,7 +43,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * No cofre de chaves, uma chave criada com esses valores de propriedade:
 
-  | Propriedade | Valor |
+  | Propriedade | {1&gt;Valor&lt;1} |
   |----------|-------|
   | **Tipo de Chave** | RSA |
   | **Tamanho da chave RSA** | 2\.048 |
@@ -66,6 +66,15 @@ Para criar seu ISE chamando a API REST dos aplicativos lógicos, faça esta soli
 
 > [!IMPORTANT]
 > A versão 2019-05-01 da API REST dos aplicativos lógicos requer que você faça sua própria solicitação HTTP PUT para conectores do ISE.
+
+A implantação geralmente leva dentro de duas horas para ser concluída. Ocasionalmente, a implantação pode levar até quatro horas. Para verificar o status da implantação, na [portal do Azure](https://portal.azure.com), na barra de ferramentas do Azure, selecione o ícone notificações, que abre o painel notificações.
+
+> [!NOTE]
+> Se a implantação falhar ou você excluir o ISE, o Azure poderá levar até uma hora antes de liberar suas sub-redes. Esse atraso significa que você pode precisar esperar antes de reutilizar essas sub-redes em outro ISE.
+>
+> Se você excluir sua rede virtual, o Azure geralmente levará até duas horas antes de lançar suas sub-redes, mas essa operação poderá levar mais tempo. 
+> Ao excluir redes virtuais, certifique-se de que nenhum recurso ainda esteja conectado. 
+> Consulte [excluir rede virtual](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 ### <a name="request-header"></a>Cabeçalho da solicitação
 
@@ -218,6 +227,6 @@ Para essa tarefa, você pode usar o comando Azure PowerShell [set-AzKeyVaultAcce
 
 Para obter mais informações, consulte [fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba mais sobre o [Azure Key Vault](../key-vault/key-vault-overview.md)

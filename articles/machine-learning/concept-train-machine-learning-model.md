@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 68b7dfbf61f5d353f394bfbc034e00fddd262cd1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344034"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129775"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 
@@ -69,7 +69,7 @@ Defina as iterações, configurações de hiperparâmetro, personalização e ou
 * [Exemplos: Jupyter Notebook exemplos para o aprendizado de máquina automatizado](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [Como: configurar experimentos de ML automatizados em Python](how-to-configure-auto-train.md)
 * [Como: treinar a autoatendimento de um modelo de previsão de série temporal](how-to-auto-train-forecast.md)
-* [Como: criar, explorar e implantar experimentos de aprendizado de máquina automatizados com o [Azure Machine Learning Studio](how-to-create-portal-experiments.md)
+* [Como criar, explorar e implantar experimentos de aprendizado de máquina automatizados com o Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md)
 
 ### <a name="estimators"></a>Estimativas
 

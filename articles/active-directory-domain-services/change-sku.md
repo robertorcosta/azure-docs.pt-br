@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b65310569e95173b88dd0aa0dfe1dbacd86cc8fc
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614232"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126711"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Alterar a SKU de um domínio gerenciado Azure AD Domain Services existente
 
-No Azure Active Directory Domain Services (AD DS do Azure), o desempenho e os recursos disponíveis são baseados no tipo de SKU. Essas diferenças de recursos incluem a frequência de backup ou o número máximo de relações de confiança de floresta de saída unidirecionais (atualmente em versão prévia). Você seleciona uma SKU ao criar o domínio gerenciado e pode alternar SKUs conforme suas necessidades de negócios mudam depois que o domínio gerenciado tiver sido implantado. As alterações nos requisitos de negócios podem incluir a necessidade de backups mais frequentes ou a criação de relações de confiança de floresta adicionais. Para obter mais informações sobre os limites e os preços das diferentes SKUs, consulte [conceitos do azure AD DS SKU][concepts-sku] e páginas de [preços do Azure AD DS][pricing] .
+No Azure Active Directory Domain Services (AD DS do Azure), o desempenho e os recursos disponíveis são baseados no tipo de SKU. Essas diferenças de recursos incluem a frequência de backup ou o número máximo de relações de confiança de floresta de saída unidirecionais (atualmente em versão prévia). Você seleciona uma SKU ao criar o domínio gerenciado e pode alternar os SKUs para cima ou para baixo conforme suas necessidades de negócios mudam depois que o domínio gerenciado tiver sido implantado. As alterações nos requisitos de negócios podem incluir a necessidade de backups mais frequentes ou a criação de relações de confiança de floresta adicionais. Para obter mais informações sobre os limites e os preços das diferentes SKUs, consulte [conceitos do azure AD DS SKU][concepts-sku] e páginas de [preços do Azure AD DS][pricing] .
 
 Este artigo mostra como alterar a SKU de um domínio gerenciado AD DS do Azure existente usando o portal do Azure.
 
@@ -36,9 +36,12 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
 
 ## <a name="sku-change-limitations"></a>Limitações de alteração de SKU
 
-Há algumas limitações para a operação de alteração de SKU se você usar uma floresta de recursos (atualmente em visualização) e tiver criado relações de confiança de floresta de saída unidirecionais do Azure AD DS para um ambiente de AD DS local. As SKUs *Premium* e *Enterprise* definem um limite no número de relações de confiança que você pode criar. Não é possível alterar para uma SKU com um limite máximo inferior do que você configurou no momento.
+Você pode alterar os SKUs para cima ou para baixo depois que o domínio gerenciado AD DS do Azure tiver sido implantado. No entanto, se você usar uma floresta de recursos (atualmente em visualização) e tiver criado relações de confiança de uma floresta de saída unidirecional do Azure AD DS para um ambiente de AD DS local, haverá algumas limitações para a operação de alteração de SKU. As SKUs *Premium* e *Enterprise* definem um limite no número de relações de confiança que você pode criar. Não é possível alterar para uma SKU com um limite máximo inferior do que você configurou no momento.
 
-Por exemplo, se você tiver criado duas relações de confiança de floresta no SKU *Premium* , não poderá mudar para o SKU *Standard* . O SKU *Standard* não dá suporte a relações de confiança de floresta. Ou, se você tiver criado sete relações de confiança no SKU *Premium* , não poderá mudar para o SKU *corporativo* . O SKU *empresarial* dá suporte a um máximo de cinco relações de confiança.
+Por exemplo:
+
+* Se você tiver criado duas relações de confiança de floresta no SKU *Premium* , não poderá mudar para a SKU *Standard* . O SKU *Standard* não dá suporte a relações de confiança de floresta.
+* Ou, se você tiver criado sete relações de confiança no SKU *Premium* , não poderá mudar para o SKU *corporativo* . O SKU *empresarial* dá suporte a um máximo de cinco relações de confiança.
 
 Para obter mais informações sobre esses limites, consulte [recursos e limites de SKU AD DS do Azure][concepts-sku].
 
@@ -59,7 +62,7 @@ Para alterar a SKU de um domínio gerenciado AD DS do Azure usando o portal do A
 
 Pode levar um minuto ou dois para alterar o tipo de SKU.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você tiver uma floresta de recursos e quiser criar relações de confiança adicionais após a alteração de SKU, consulte [criar uma relação de confiança de floresta de saída para um domínio local no Azure AD DS (versão prévia)][create-trust].
 

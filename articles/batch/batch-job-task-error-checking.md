@@ -5,14 +5,14 @@ services: batch
 author: mscurrell
 ms.service: batch
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: c4e36d76bf85b9715a817dbeb7c690aa77f8d978
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852179"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087014"
 ---
 # <a name="job-and-task-error-checking"></a>Verificação de erro de trabalho e tarefa
 
@@ -73,6 +73,17 @@ O impacto das falhas de tarefas no trabalho e de qualquer dependência de tarefa
 - Para dependências, [dependencyaction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) controla se as tarefas dependentes da tarefa com falha são bloqueadas ou são executadas.
 - Para o trabalho, [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) controla se a tarefa com falha leva ao trabalho que está sendo desabilitado, encerrado ou deixado inalterado.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="task-command-line-failures"></a>Falhas de linha de comando de tarefa
+
+Quando a linha de comando da tarefa é executada, a saída é gravada em `stderr.txt` e `stdout.txt`. Além disso, o aplicativo pode gravar em arquivos de log específicos do aplicativo.
+
+Se o nó do pool no qual uma tarefa foi executada ainda existir, os arquivos de log poderão ser obtidos e exibidos. Por exemplo, o portal do Azure lista e pode exibir arquivos de log para uma tarefa ou um nó de pool. Várias APIs também permitem que os arquivos de tarefa sejam listados e obtidos, como [obter da tarefa](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+
+Devido aos pools e nós de pool frequentemente serem efêmeros, com os nós sendo adicionados e excluídos continuamente, é recomendável que os arquivos de log sejam persistidos. [Os arquivos de saída de tarefas](https://docs.microsoft.com/azure/batch/batch-task-output-files) são uma maneira conveniente de salvar arquivos de log no armazenamento do Azure.
+
+### <a name="output-file-failures"></a>Falhas de arquivo de saída
+Em cada upload de arquivo, o lote grava dois arquivos de log para o nó de computação, `fileuploadout.txt` e `fileuploaderr.txt`. Você pode analisar esses arquivos de log para saber mais sobre uma falha específica. Nos casos em que o carregamento do arquivo nunca foi tentado, por exemplo, porque a própria tarefa não pôde ser executada, esses arquivos de log não existirão.  
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Verifique se seu aplicativo implementa a verificação de erros abrangente; pode ser essencial detectar e diagnosticar problemas imediatamente.

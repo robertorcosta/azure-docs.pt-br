@@ -5,20 +5,20 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/09/2020
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e7a814c1607b15e3af0e76a5ae6dfad1594a3b3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 427117fe47294a1db1fa8d3fa1e46ee1efb91b4d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474226"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129108"
 ---
 ## <a name="limitations"></a>Limitações
 
 - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- A versão inicial dá suporte à seguinte série de VMs: DSv3, ESv3, FSv2, LSv2 e MSv2. 
+- Os tamanhos e tipos de hardware disponíveis para hosts dedicados variam por região. Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
 
 ## <a name="create-a-host-group"></a>Criar um grupo de hosts
 
@@ -36,8 +36,6 @@ Neste exemplo, criaremos um grupo de hosts usando 1 zona de disponibilidade e 2 
 1. Abra o [portal](https://portal.azure.com)do Azure.
 1. Selecione **criar um recurso** no canto superior esquerdo.
 1. Procure por **grupo de hosts** e, em seguida, selecione **grupos de hosts** nos resultados.
-
-    ![Resultado da pesquisa de grupos de hosts.](./media/virtual-machines-common-dedicated-hosts-portal/host-group.png)
 1. Na página **grupos de hosts** , selecione **criar**.
 1. Selecione a assinatura que você deseja usar e, em seguida, selecione **criar nova** para criar um novo grupo de recursos.
 1. Digite *myDedicatedHostsRG* como o **nome** e, em seguida, selecione **OK**.
@@ -46,8 +44,6 @@ Neste exemplo, criaremos um grupo de hosts usando 1 zona de disponibilidade e 2 
 1. Para **zona de disponibilidade**, selecione **1**.
 1. Para **contagem de domínios de falha**, selecione **2**.
 1. Selecione **revisar + criar** e aguarde a validação.
-
-    ![Configurações do grupo de hosts](./media/virtual-machines-common-dedicated-hosts-portal/host-group-settings.png)
 1. Depois de ver a mensagem **validação aprovada** , selecione **criar** para criar o grupo de hosts.
 
 Só deve levar alguns minutos para criar o grupo de hosts.
@@ -62,16 +58,12 @@ Se você definir uma contagem de domínios de falha para seu grupo de hosts, ser
 
 1. Selecione **criar um recurso** no canto superior esquerdo.
 1. Pesquise **host dedicado** e, em seguida, selecione **hosts dedicados** nos resultados.
-
-    ![Resultado da pesquisa de grupos de hosts.](./media/virtual-machines-common-dedicated-hosts-portal/host.png)
 1. Na página **hosts dedicados** , selecione **criar**.
 1. Selecione a assinatura que você deseja usar.
 1. Selecione *myDedicatedHostsRG* como o **grupo de recursos**.
 1. Em **detalhes da instância**, digite *myhost* para o **nome** e selecione *leste dos EUA* para o local.
-1. Em **perfil de hardware**, selecione *família de Es3 padrão-tipo 1* para a família de **tamanho**, selecione *myHostGrup* para o **grupo de hosts** e, em seguida, selecione *1* para o **domínio de falha**. Deixe os padrões para o restante dos campos.
+1. Em **perfil de hardware**, selecione *família de Es3 padrão-tipo 1* para a **família de tamanho**, selecione *myhost* Group para o **grupo de hosts** e, em seguida, selecione *1* para o **domínio de falha**. Deixe os padrões para o restante dos campos.
 1. Quando terminar, selecione **revisar + criar** e aguarde a validação.
-
-    ![Configurações do host](./media/virtual-machines-common-dedicated-hosts-portal/host-settings.png)
 1. Depois de ver a mensagem **validação aprovada** , selecione **criar** para criar o host.
 
 

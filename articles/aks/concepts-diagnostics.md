@@ -6,16 +6,18 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596174"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126597"
 ---
-# <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Visão geral de diagnóstico do AKS (serviço kubernetes do Azure)
+# <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Visão geral do diagnóstico do serviço kubernetes do Azure (visualização)
 
 A solução de problemas de cluster do AKS (serviço de kubernetes do Azure) é uma parte importante da manutenção do cluster, especialmente se o cluster estiver executando cargas de trabalho de missão crítica. O diagnóstico de AKS é uma experiência de autodiagnóstico inteligente que ajuda você a identificar e resolver problemas em seu cluster. O diagnóstico de AKS é nativo de nuvem e você pode usá-lo sem nenhuma configuração extra ou custo de cobrança.
+
+Este recurso está agora em visualização pública.
 
 ## <a name="open-aks-diagnostics"></a>Abrir o diagnóstico do AKS
 
@@ -77,7 +79,7 @@ O gerenciamento de identidades e segurança detecta erros de autenticação e au
 - erros 401
 - erros 403
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Colete logs para ajudá-lo a solucionar ainda mais os problemas de cluster usando o [AKs Periscope](https://aka.ms/aksperiscope).
 

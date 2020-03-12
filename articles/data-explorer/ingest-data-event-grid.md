@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424976"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096425"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
@@ -26,7 +26,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e escalon�
 
 Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do Azure](/azure/event-grid/overview) e a rotear eventos para o Azure data Explorer por meio de um hub de eventos. Para começar, você precisa ter uma conta de armazenamento com uma assinatura da grade de eventos que envie notificações para os Hubs de Eventos do Azure. Então, você criará uma conexão de dados da Grade de Eventos e verá o fluxo de dados pelo sistema.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Uma assinatura do Azure. Criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/).
 * [Um cluster e um banco de dados](create-cluster-database-portal.md).
@@ -118,7 +118,7 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela criada na **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: zip e GZip |
+    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOH, SCSV, TSV, RAW e TXT. Opções de compactação com suporte: zip e GZip |
     | Mapeamento de coluna | *TestMapping* | O mapeamento que você criou em **TestDatabase**, que mapeia os dados de entrada JSON para tipos de dados e nomes de coluna da **TestTable**.|
     | | |
     
@@ -150,13 +150,32 @@ Salve os dados em um arquivo e carregue-o com este script:
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Para obter o melhor desempenho de ingestão, o tamanho *descompactado* dos BLOBs compactados enviados para ingestão deve ser comunicado. Como as notificações da grade de eventos contêm apenas detalhes básicos, as informações de tamanho devem ser comunicadas explicitamente. As informações de tamanho não compactado podem ser fornecidas definindo a propriedade `rawSizeBytes` nos metadados de blob com o tamanho de dados *descompactado* em bytes.
+
+### <a name="ingestion-properties"></a>Propriedades da ingestão
+
+Você pode especificar as [Propriedades de ingestão](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) da ingestão de BLOBs por meio dos metadados de BLOB.
+
+Essas propriedades podem ser definidas:
+
+|**Propriedade** | **Descrição da propriedade**|
+|---|---|
+| `rawSizeBytes` | Tamanho dos dados brutos (não compactados). Para Avro/ORC/parquet, esse é o tamanho antes que a compactação específica de formato seja aplicada.|
+| `kustoTable` |  Nome da tabela de destino existente. Substitui o `Table` definido na folha `Data Connection`. |
+| `kustoDataFormat` |  Formato de dados. Substitui o `Data format` definido na folha `Data Connection`. |
+| `kustoIngestionMappingReference` |  Nome do mapeamento de ingestão existente a ser usado. Substitui o `Column mapping` definido na folha `Data Connection`.|
+| `kustoIgnoreFirstRecord` | Se definido como `true`, Kusto ignorará a primeira linha do blob. Use em dados de formato tabular (CSV, TSV ou semelhante) para ignorar os cabeçalhos. |
+| `kustoExtentTags` | Cadeia de caracteres que representa as [marcas](/azure/kusto/management/extents-overview#extent-tagging) que serão anexadas à extensão resultante. |
+| `kustoCreationTime` |  Substitui [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) para o blob, formatado como uma cadeia de caracteres ISO 8601. Use para o preenchimento. |
 
 > [!NOTE]
 > O Azure Data Explorer não excluirá os BLOBs após a ingestão.
@@ -205,6 +224,6 @@ Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg**
 
 1. Na nova janela, insira o nome do grupo de recursos para excluir (*test-hub-rg*) e, em seguida, selecione **Excluir**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Consultar dados no Azure Data Explorer](web-query-data.md)

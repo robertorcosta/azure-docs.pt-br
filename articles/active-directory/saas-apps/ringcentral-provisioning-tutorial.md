@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: configurar o RingCentral para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o RingCentral.
+description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o RingCentral.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,44 +15,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6c6936b485526c07b3486874d6bdaacaf07ae8e5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 052223f69fc1c1d59ec5f1bcbeb3746ef7122c86
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77060860"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087040"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: configurar o RingCentral para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no RingCentral e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no RingCentral.
+Este tutorial descreve as etapas que você precisa executar tanto no RingCentral quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="capabilities-supported"></a>Funcionalidades com suporte
+> [!div class="checklist"]
+> * Criar usuários no RingCentral
+> * Remover usuários no RingCentral quando eles não exigem mais acesso
+> * Manter os atributos de usuário sincronizados entre o Azure AD e o RingCentral
+> * [Logon único](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial) no RingCentral (recomendado)
+
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* Um locatário do Azure AD
+* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, administrador de aplicativos, administrador de aplicativos de nuvem, proprietário do aplicativo ou administrador global). 
 * [Um locatário do RingCentral](https://www.ringcentral.com/office/plansandpricing.html)
 * Uma conta de usuário no RingCentral com permissões de administrador.
 
-## <a name="assigning-users-to-ringcentral"></a>Atribuindo usuários ao RingCentral
+## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planejar sua implantação de provisionamento
+1. Saiba mais sobre [como o serviço de provisionamento funciona](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine quem estará no [escopo do provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determine quais dados [mapeados entre o Azure AD e o RingCentral](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
-
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao RingCentral. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao RingCentral seguindo as instruções aqui:
-* [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
-
-## <a name="important-tips-for-assigning-users-to-ringcentral"></a>Dicas importantes para atribuir usuários ao RingCentral
-
-* É recomendável que um único usuário do Azure AD seja atribuído ao RingCentral para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
-
-* Ao atribuir um usuário ao RingCentral, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
-
-## <a name="set-up-ringcentral-for-provisioning"></a>Configurar o RingCentral para provisionamento
+## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o RingCentral para dar suporte ao provisionamento com o Azure AD
 
 1. Entre no console do [administrador do RingCentral](https://login.ringcentral.com/sw.html). Navegue até **ferramentas > integração de diretórios**.
 
@@ -67,37 +63,22 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 > [!NOTE]
 > Para atribuir licenças a usuários, consulte o link de vídeo [aqui](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
 
-## <a name="add-ringcentral-from-the-gallery"></a>Adicionar o RingCentral da Galeria
+## <a name="step-3-add-ringcentral-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o RingCentral da Galeria de aplicativos do Azure AD
 
-Antes de configurar o RingCentral para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o RingCentral da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Adicione o RingCentral da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no RingCentral. Se você tiver configurado anteriormente o RingCentral para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo separado ao testar a integração inicialmente. Saiba mais sobre como adicionar um aplicativo da Galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-**Para adicionar o RingCentral da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Definir quem estará no escopo para provisionamento 
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+O serviço de provisionamento do Azure AD permite o escopo que será provisionado com base na atribuição ao aplicativo e ou com base em atributos do usuário/grupo. Se você optar por definir o escopo que será provisionado em seu aplicativo com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você escolher o escopo que será provisionado com base apenas em atributos do usuário ou grupo, você poderá usar um filtro de escopo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+* Ao atribuir usuários e grupos ao RingCentral, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função de acesso padrão são excluídos do provisionamento e serão marcados como não habilitados com eficiência nos logs de provisionamento. Se a única função disponível no aplicativo for a função de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar outras funções. 
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de distribuir para todos. Quando o escopo do provisionamento é definido como usuários e grupos atribuídos, você pode controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido como todos os usuários e grupos, você pode especificar um [filtro de escopo baseado em atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+## <a name="step-5-configure-automatic-user-provisioning-to-ringcentral"></a>Etapa 5. Configurar o provisionamento automático de usuário para o RingCentral 
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, insira **RingCentral**, selecione **RingCentral** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
-
-    ![RingCentral na lista de resultados](common/search-new-app.png)
-
-## <a name="configuring-automatic-user-provisioning-to-ringcentral"></a>Configurando o provisionamento automático de usuário para o RingCentral 
-
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no RingCentral com base em atribuições de usuário e/ou grupo no Azure AD.
-
-> [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o RingCentral, seguindo as instruções fornecidas no [tutorial de logon único do RingCentral](ringcentral-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
-
-> [!NOTE]
-> Para saber mais sobre o ponto de extremidade de SCIM do RingCentral, consulte [referência de API do RingCentral](https://developers.ringcentral.com/api-reference).
+Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ringcentral-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para RingCentral no Azure AD:
 
@@ -119,23 +100,38 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 5. Na seção **credenciais de administrador** , insira `https://platform.ringcentral.com/scim/v2` na **URL do locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao RingCentral. Se a conexão falhar, verifique se sua conta do RingCentral tem permissões de administrador e tente novamente.
 
-    ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Guia provisionamento](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Selecione **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para RingCentral**.
 
-    ![Mapeamentos de usuário RingCentral](media/ringcentral-provisioning-tutorial/usermappings.png)
+9. Examine os atributos de usuário que são sincronizados do Azure AD para o RingCentral na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no RingCentral para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que a API RingCentral dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o RingCentral na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no RingCentral para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+   |Atributo|Tipo|
+   |---|---|
+   |userName|String|
+   |externalId|String|
+   |ativo|Boolean|
+   |displayName|String|
+   |título|String|
+   |emails[type eq "work"].value|String|
+   |endereços [tipo EQ "trabalho"]. país|String|
+   |endereços [tipo EQ "trabalho"]. região|String|
+   |endereços [tipo EQ "trabalho"]. localidade|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|Referência|
 
-    ![Atributos de usuário do RingCentral](media/ringcentral-provisioning-tutorial/userattributes.png)
-
-10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para habilitar o serviço de provisionamento do Azure AD para o RingCentral, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
@@ -149,16 +145,20 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no RingCentral.
+Essa operação inicia o ciclo de sincronização inicial de todos os usuários e grupos definidos no **escopo** na seção **configurações** . O ciclo inicial leva mais tempo para ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
+Depois de configurar o provisionamento, use os seguintes recursos para monitorar sua implantação:
+
+1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou sem êxito
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e como fechá-lo para conclusão
+3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os Estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

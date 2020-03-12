@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+manager: lizross
+ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201774"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127579"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -159,7 +160,7 @@ Como um parceiro de integração certificado, o liquit ajuda a acelerar a transi
 
 O VSI de logon é um provedor de serviços de valor agregado da área de trabalho virtual do Windows e Microsoft Partner fornecendo software para teste de desempenho de aplicativos em ambientes de área de trabalho virtuais do Windows Os clientes que movem seus serviços de negócios locais para a área de trabalho virtual do Windows usam o VSI Enterprise Edition de logon para avaliar e manter o desempenho, a escalabilidade e a disponibilidade ideais do Windows 10 Enterprise Multi-Session, Windows 10 Enterprise e O Windows 7 foi habilitado com seus aplicativos críticos para os negócios.
 
-- [Acesse o site do parceiro](https://www.loginvsi.com).
+- [Acesse o site do parceiro](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
 ## <a name="nerdio"></a>Nerdio
 
@@ -254,6 +255,16 @@ Com o triCerat, a impressão é direta na área de trabalho virtual do Windows e
 
 - [Acesse o site do parceiro](https://www.tricerat.com/microsoft-printing).
 
+## <a name="vast-limits"></a>grandes limites
+
+![logotipo de vastos limites](./media/partners/vast-limits.png)
+
+os vastos limites, a empresa uberAgent, fornece visibilidade nas implantações de área de trabalho virtual do Windows. Ele cria software para ti empresarial porque sabe como os profissionais de ti acham e quais ferramentas precisam. Seus produtos ajudam os profissionais de ti a serem mais eficientes, dando-lhes exatamente o que precisam para realizar seus trabalhos; Não mais, não menos.
+
+o uberAgent é um produto de monitoramento e análise projetado para computação de usuário final que não apenas coleta dados — fornece aos clientes as informações que são importantes. o uberAgent tem suas próprias métricas, cobrindo os principais aspectos da experiência do usuário, do desempenho do aplicativo e da segurança do ponto de extremidade, informando a você tudo o que você precisa saber sobre suas VMs de área de trabalho virtual do Windows sem afetar a densidade de usuário dos sistemas o uberAgent simplifica a solução de problemas, ajuda com o dimensionamento e fornece informações valiosas essenciais para a segurança das informações.
+
+- [Vá para o site do parceiro](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
+
 ## <a name="workspot"></a>Workspot
 
 ![Logotipo do Workspot](./media/partners/workspot.png)
@@ -265,7 +276,7 @@ Workspot estende o valor da área de trabalho virtual do Windows simplificando o
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Acesse o site do parceiro](https://www.workspot.com/wvd).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Saiba mais sobre a área de trabalho virtual do Windows](overview.md).
 - [Crie um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).

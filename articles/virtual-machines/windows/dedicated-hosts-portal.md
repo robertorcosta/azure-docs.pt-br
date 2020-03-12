@@ -1,23 +1,18 @@
 ---
-title: Implantar hosts dedicados do Azure usando o portal do Azure
-description: Implante VMs em hosts dedicados usando o portal do Azure.
-services: virtual-machines-windows
+title: Implantar hosts dedicados do Azure usando o portal
+description: Implante VMs em hosts dedicados usando o Portal.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833936"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086940"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
 
@@ -25,7 +20,7 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
-## <a name="create-a-vm"></a>Criar uma VM
+## <a name="create-a-vm"></a>Criar uma máquina virtual
 
 1. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
 1. Na página **Novo**, em **Popular**, selecione **Datacenter do Windows Server 2016**.
@@ -40,8 +35,27 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 1. Deixe os padrões restantes e, em seguida, selecione o botão **Examinar + criar** na parte inferior da página.
 1. Quando você vir a mensagem a validação foi aprovada, selecione **criar**.
 
+## <a name="add-an-existing-vm"></a>Adicionar uma VM existente 
 
-## <a name="next-steps"></a>Próximos passos
+Você pode adicionar uma VM existente a um host dedicado, mas a VM deve primeiro ser Stop\Deallocated. Antes de mover uma VM para um host dedicado, verifique se a configuração da VM tem suporte:
+
+- O tamanho da VM deve estar na mesma família de tamanho que o host dedicado. Por exemplo, se o host dedicado for DSv3, o tamanho da VM poderá ser Standard_D4s_v3, mas não poderá ser um Standard_A4_v2. 
+- A VM precisa estar localizada na mesma região que o host dedicado.
+- A VM não pode fazer parte de um grupo de posicionamento de proximidade. Remova a VM do grupo de posicionamento de proximidade antes de movê-la para um host dedicado. Para obter mais informações, consulte [mover uma VM para fora de um grupo de posicionamento de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- A VM não pode estar em um conjunto de disponibilidade.
+- Se a VM estiver em uma zona de disponibilidade, ela deverá ser a mesma zona de disponibilidade que o grupo de hosts. As configurações de zona de disponibilidade para a VM e o grupo de hosts devem corresponder.
+
+Mova a VM para um host dedicado usando o [portal](https://portal.azure.com).
+
+1. Abra a página da VM.
+1. Selecione **parar** para STOP\DEALLOCATE a VM.
+1. Selecione **configuração** no menu à esquerda.
+1. Selecione um grupo de hosts e um host nos menus suspensos.
+1. Quando terminar, selecione **salvar** na parte superior da página.
+1. Depois que a VM tiver sido adicionada ao host, selecione **visão geral** no menu à esquerda.
+1. Na parte superior da página, selecione **Iniciar** para reiniciar a VM.
+
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) . 
 
