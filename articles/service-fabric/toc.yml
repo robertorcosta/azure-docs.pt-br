@@ -4,7 +4,7 @@
   items:
     - name: O que é Service Fabric?
       href: service-fabric-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar aplicativo .NET
@@ -210,7 +210,7 @@
               href: service-fabric-manifest-example-container-app.md
         - name: Modelo de hospedagem
           href: service-fabric-hosting-model.md
-        - name: Segurança de aplicativo
+        - name: Segurança do aplicativo
           href: service-fabric-application-and-service-security.md
         - name: Estado do serviço
           href: service-fabric-concepts-state.md
@@ -280,7 +280,7 @@
               href: service-fabric-cluster-nodetypes.md
             - name: Atualização dos clusters no Azure
               href: service-fabric-cluster-upgrade.md
-            - name: Dimensionamento
+            - name: Scaling
               href: service-fabric-cluster-scaling.md
             - name: Padrões de rede do cluster
               href: service-fabric-patterns-networking.md
@@ -290,7 +290,7 @@
               href: service-fabric-standalone-clusters-overview.md
             - name: Atualização dos clusters independentes
               href: service-fabric-cluster-upgrade-standalone.md
-            - name: Dimensionamento
+            - name: Scaling
               href: service-fabric-cluster-scaling-standalone.md
         - name: Gerenciador de recursos de cluster
           items:
@@ -316,6 +316,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Equilibrar cluster
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Subcluster
+              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Limitação
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Movimento de serviços
@@ -886,7 +888,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Notas de versão
       href: release-notes.md
-    - name: Exemplo de código
+    - name: Código de exemplo
       href: 'https://aka.ms/servicefabricsamples'
     - name: Opções de suporte
       href: service-fabric-support.md

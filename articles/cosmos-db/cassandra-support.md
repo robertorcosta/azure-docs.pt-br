@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 0a2ace3f73379cff0b9289a8cebb10cb7930348d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397351"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128911"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 
@@ -55,7 +55,7 @@ A API do Cassandra do Azure Cosmos DB é compatível com os seguintes tipos de d
 * int  
 * {1&gt;list&lt;1}  
 * set  
-* smallint  
+* SMALLINT  
 * texto  
 * time  
 * timestamp  
@@ -145,6 +145,8 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 
 * CREATE KEYSPACE (as configurações de replicação para este comando são ignoradas)
 * CREATE TABLE 
+* CRIAR índice (sem especificar o nome do índice e índices descongelados completos ainda não têm suporte)
+* PERMITIR FILTRAGEM
 * ALTER TABLE 
 * USE 
 * INSERT 
@@ -179,7 +181,7 @@ O Azure Cosmos DB dá suporte ao controle de acesso baseado em função (RBAC) p
 
 ## <a name="keyspace-and-table-options"></a>Opções de tabela e de keyspace
 
-As opções para nome da região, classe, replication_factor e datacenter no comando "CREATE KEYSPACE" são ignoradas atualmente. O sistema usa o método de replicação de [distribuição global](global-dist-under-the-hood.md) subjacente do Azure Cosmos DB para adicionar as regiões. Se você precisar da presença de dados entre regiões, poderá habilitá-la no nível da conta com o PowerShell, a CLI ou o portal. Para saber mais, confira o artigo [como adicionar regiões](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes não podem ser desabilitadas porque o Azure Cosmos DB garante que cada gravação seja durável. Em todas as regiões, o Azure Cosmos DB replica os dados no conjunto de réplicas composto por quatro réplicas e essa [configuração](global-dist-under-the-hood.md) de conjunto de réplicas não pode ser modificada.
+As opções para nome da região, classe, replication_factor e datacenter no comando "CREATE KEYSPACE" são ignoradas atualmente. O sistema usa o método de replicação de [distribuição global](global-dist-under-the-hood.md) da Azure Cosmos DB subjacente para adicionar as regiões. Se você precisar da presença de dados entre regiões, poderá habilitá-la no nível da conta com o PowerShell, a CLI ou o portal. Para saber mais, confira o artigo [como adicionar regiões](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes não podem ser desabilitadas porque o Azure Cosmos DB garante que cada gravação seja durável. Em todas as regiões, o Azure Cosmos DB replica os dados no conjunto de réplicas composto por quatro réplicas e essa [configuração](global-dist-under-the-hood.md) de conjunto de réplicas não pode ser modificada.
  
 Todas as opções são ignoradas ao criar a tabela com a exceção de gc_grace_seconds, que deve ser definida como zero.
 O keyspace e a tabela têm uma opção extra chamada "cosmosdb_provisioned_throughput", com um valor mínimo de 400 RU/s. A taxa de transferência do keyspace permite o compartilhamento de taxa de transferência em várias tabelas e é útil para cenários em que todas as tabelas não estão utilizando a taxa de transferência provisionada. O comando ALTER TABLE permite alterar a taxa de transferência provisionada entre as regiões. 

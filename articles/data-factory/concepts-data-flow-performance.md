@@ -6,19 +6,22 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
-ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: 1a6b50456a5dc3ff89fe7b513f406dc68bd2401e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381911"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128830"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
 O mapeamento de fluxos de dados no Azure Data Factory fornece uma interface sem código para projetar, implantar e orquestrar transformações de dados em escala. Se você não estiver familiarizado com o mapeamento de fluxos de dados, consulte a [visão geral do fluxo de dados de mapeamento](concepts-data-flow-overview.md).
 
 Ao projetar e testar fluxos de dados do UX do ADF, certifique-se de alternar no modo de depuração para executar seus fluxos de dados em tempo real sem esperar que um cluster fique quente. Para obter mais informações, consulte [modo de depuração](concepts-data-flow-debug-mode.md).
+
+Este vídeo mostra alguns intervalos de exemplo transformando dados com fluxos de dados:
+> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw]
 
 ## <a name="monitoring-data-flow-performance"></a>Monitorando o desempenho do fluxo de dados
 
@@ -70,7 +73,7 @@ Em **Opções de origem** na transformação origem, as configurações a seguir
 * A definição de uma consulta pode permitir que você filtre linhas na origem antes que elas cheguem ao fluxo de dados para processamento. Isso pode tornar a aquisição de dados inicial mais rápida. Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu banco de BD SQL do Azure, como leitura não confirmada.
 * A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
 
-![Origem](media/data-flow/source4.png "Origem")
+![Origem](media/data-flow/source4.png "Fonte")
 
 ### <a name="sink-batch-size"></a>Tamanho do lote do coletor
 

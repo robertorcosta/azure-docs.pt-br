@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 12/09/2019
-ms.openlocfilehash: 4149e90e07bbcd03a0df41060b42b8902b89e774
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2af1e87ce7b17183ae09fb02b2652a04f585e84
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396183"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129047"
 ---
 # <a name="data-access-in-azure-machine-learning"></a>Acesso a dados no Azure Machine Learning
 
@@ -58,7 +58,7 @@ Serviços de armazenamento do Azure com suporte que podem ser registrados como r
 + Sistema de arquivos do Databricks
 + Banco de Dados do Azure para MySQL
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjunto de dados
 
 [Crie um conjunto](how-to-create-register-datasets.md) de dados de Azure Machine Learning para interagir com os dados em seus armazenamentos de dados e empacotar seus dados em um objeto consumível para tarefas de aprendizado de máquina. Registre o conjunto de dados em seu espaço de trabalho para compartilhá-lo e reutilizá-lo em experimentos diferentes sem complexidades de ingestão de dados.
 
@@ -83,7 +83,7 @@ Com conjuntos de informações, você pode realizar várias tarefas de aprendiza
 
 + [Treine os modelos de aprendizado de máquina](how-to-train-with-datasets.md).
 + Consumir conjuntos de os em 
-     + [experimentos de ML automatizados](how-to-create-portal-experiments.md)
+     + [experimentos de ML automatizados](how-to-use-automated-ml-for-ml-models.md)
      + o [Designer](tutorial-designer-automobile-price-train-score.md#import-data) 
 + Acesse conjuntos de informações para pontuação com inferência de lote em [pipelines de Machine Learning](how-to-create-your-first-pipeline.md).
 + Crie um [projeto de rotulagem de dados](#label).

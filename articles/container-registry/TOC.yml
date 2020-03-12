@@ -181,6 +181,8 @@
               href: container-registry-tasks-authentication-key-vault.md
         - name: Criar imagem com Buildpacks (versão prévia)
           href: container-registry-tasks-pack-build.md
+        - name: Exibir logs de tarefas
+          href: container-registry-tasks-logs.md
 - name: Referência
   expanded: false
   items:

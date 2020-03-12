@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674281"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130033"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -61,7 +61,7 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte a Z
 
 |    Tipo de conta de armazenamento    |    Regiões com suporte    |    Serviços com suporte    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Uso geral v2<sup>1</sup>    | Sudeste da Ásia<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2    |    Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
+|    Uso geral v2<sup>1</sup>    | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2    |    Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
 |    BlockBlobStorage<sup>1</sup>    | Europa Ocidental<br /> Leste dos EUA    |    Blobs de blocos somente    |
 |    Armazenamento de    | Europa Ocidental<br /> Leste dos EUA    |    Somente arquivos do Azure    |
 
@@ -109,10 +109,12 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 - Sudeste da Ásia
 - Norte da Europa
 - Europa Ocidental
+- Leste do Japão
 - Sul do Reino Unido
 - Leste dos EUA
 - Leste dos EUA 2
 - EUA Central
+- Oeste dos EUA 2
 
 A Microsoft continua a habilitar GZRS e RA-GZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre as regiões com suporte.
 

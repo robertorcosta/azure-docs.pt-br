@@ -216,7 +216,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Controlar implantações com a política do Azure (visualização)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
-        - name: Atualizar as credenciais da entidade de serviço de cluster
+        - name: Atualizar credenciais do cluster
           href: update-credentials.md
         - name: Restringir e controlar o tráfego de saída do cluster
           href: limit-egress-traffic.md

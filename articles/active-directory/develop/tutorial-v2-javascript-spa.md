@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 51a456a05e1d41057e80b92e44f997e1b52cb132
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377417"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129622"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
@@ -28,6 +28,9 @@ Este guia demonstra como um aplicativo SPA (aplicativo de página única) JavaSc
 - Entrar em contas pessoais, bem como contas corporativas e de estudante 
 - Adquirir um token de acesso
 - Chamar a API do Microsoft Graph ou outras APIs que requerem tokens de acesso do *ponto de extremidade da plataforma de identidade da Microsoft*
+
+>[!NOTE]
+> Se você for novo na plataforma de identidade da Microsoft, recomendamos que inicie com os [usuários de conexão e obtenha um token de acesso em um início rápido do JavaScript Spa](quickstart-v2-javascript.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 
@@ -45,7 +48,7 @@ O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consu
 
 Este guia usa a seguinte biblioteca:
 
-|Biblioteca|DESCRIÇÃO|
+|Biblioteca|Descrição|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Versão prévia da Biblioteca de Autenticação da Microsoft para JavaScript|
 
@@ -57,7 +60,7 @@ Este guia usa a seguinte biblioteca:
 
 ## <a name="set-up-your-web-server-or-project"></a>Configurar o servidor Web ou o projeto
 
-> Prefere baixar este projeto de exemplo? Execute um destes procedimentos:
+> Prefere baixar este projeto de exemplo? Siga um destes procedimentos:
 > 
 > - [Baixe os arquivos de projeto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) para executar o projeto com um servidor Web local, como Node.js.
 >
@@ -65,7 +68,7 @@ Este guia usa a seguinte biblioteca:
 >
 > Pule para a [etapa de configuração](#register-your-application) a fim de configurar o exemplo de código antes de executá-lo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
 
 * Para executar este tutorial, é necessário um servidor Web local como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) ou a integração do IIS Express com o [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -339,7 +342,7 @@ Adicione o seguinte código no arquivo `index.html` dentro da marca `<script></s
 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
 1. Este início rápido requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja ativado. No painel esquerdo do aplicativo registrado, selecione **Autenticação**.
 1. Em **Configurações avançadas**, em **Concessão implícita**, marque as caixas de seleção **Tokens de ID** e **Tokens de Acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > #### <a name="set-a-redirect-url-for-nodejs"></a>Configurar a URL de redirecionamento para o Node.js
 > Para o Node.js, você pode definir a porta do servidor Web no arquivo *server.js*. Este tutorial usa a porta 30662, mas você pode usar qualquer outra porta disponível.

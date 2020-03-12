@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396430"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127217"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
@@ -83,7 +83,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 Em todos os experimentos de aprendizado de máquina automatizados, seus dados são dimensionados e normalizados automaticamente para ajudar os algoritmos a executarem bem.  Durante o treinamento do modelo, uma das técnicas de dimensionamento ou normalização a seguir será aplicada a cada modelo.
 
-|Dimensionamento&nbsp;&&nbsp;normalização| DESCRIÇÃO |
+|Dimensionamento&nbsp;&&nbsp;normalização| Descrição |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a média e dimensionamento para a variação de unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma recursos dimensionando cada recurso pelo mínimo e máximo da coluna  |
@@ -95,9 +95,9 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pré-processamento avançado: personalização opcional
 
-O pré-processamento avançado adicional e os personalização também estão disponíveis, como data guardrails, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#featurization). Habilite essa configuração com:
+O pré-processamento avançado adicional e os personalização também estão disponíveis, como data guardrails, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-use-automated-ml-for-ml-models.md#featurization). Habilite essa configuração com:
 
-+ Azure Machine Learning Studio: habilite o **personalização automático** na seção **Exibir configuração adicional** [com estas etapas](how-to-create-portal-experiments.md#create-and-run-experiment).
++ Azure Machine Learning Studio: habilite o **personalização automático** na seção **Exibir configuração adicional** [com estas etapas](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 + SDK do Python: especificando `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para a [classe`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
@@ -141,7 +141,7 @@ Considere os seguintes modelos treinados e suas imprecisões de treinamento e te
 
 | Modelo | Precisão do treinamento | Precisão do teste |
 |-------|----------------|---------------|
-| Um | 99,9% | 95% |
+| A | 99,9% | 95% |
 | B | 87% | 87% |
 | C | 99,9% | 45% |
 
@@ -153,7 +153,7 @@ O modelo **C** representa um caso claro de sobreajuste; a precisão do treinamen
 
 ## <a name="classification--regression"></a>Regressão de & de classificação
 
-A classificação e a regressão são os tipos mais comuns de tarefas de aprendizado de máquina. Ambos são tipos de aprendizado supervisionado em que os modelos aprendem a usar dados de treinamento e aplicam esses aprendizados a novos dados. O Azure Machine Learning oferece featurizations especificamente para essas tarefas, como featurizers de texto de rede neural profunda para classificação. Saiba mais sobre [as opções de personalização](how-to-create-portal-experiments.md#featurization). 
+A classificação e a regressão são os tipos mais comuns de tarefas de aprendizado de máquina. Ambos são tipos de aprendizado supervisionado em que os modelos aprendem a usar dados de treinamento e aplicam esses aprendizados a novos dados. O Azure Machine Learning oferece featurizations especificamente para essas tarefas, como featurizers de texto de rede neural profunda para classificação. Saiba mais sobre [as opções de personalização](how-to-use-automated-ml-for-ml-models.md#featurization). 
 
 A principal meta dos modelos de classificação é prever quais categorias novos dados se encaixarão com base em aprendizados de seus dados de treinamento. Exemplos de classificação comuns incluem detecção de fraudes, reconhecimento de manuscrito e detecção de objetos.  Saiba mais e veja um exemplo de [classificação com o Machine Learning automatizado](tutorial-train-models-with-aml.md).
 
@@ -201,7 +201,7 @@ Como os algoritmos de classificação geralmente são avaliados por exatidão, a
 
 Além disso, as execuções automáticas de ML geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo e identificar os modelos potencialmente afetados por dados desequilibrados.
 
-Gráfico| DESCRIÇÃO
+Gráfico| Descrição
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia os rótulos classificados corretamente em relação aos rótulos reais dos dados. 
 [Recall de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
@@ -279,14 +279,14 @@ Obter guardrails| ✓|✓
 Pausar execução| ✓| 
 Retomar execução| ✓| 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Veja exemplos e aprenda a criar modelos usando o aprendizado de máquina automatizado:
 
 + Siga o [tutorial: treinar automaticamente um modelo de regressão com Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Defina as configurações para o teste de treinamento automático:
-  + No Azure Machine Learning Studio, [Use estas etapas](how-to-create-portal-experiments.md).
+  + No Azure Machine Learning Studio, [Use estas etapas](how-to-use-automated-ml-for-ml-models.md).
   + Com o SDK do Python, [Use estas etapas](how-to-configure-auto-train.md).
 
 + Saiba como treinar automaticamente usando dados de série temporal, [Use estas etapas](how-to-auto-train-forecast.md).
