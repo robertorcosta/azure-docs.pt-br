@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361778"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275133"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VMs (versão prévia) para um ambiente híbrido
 
@@ -48,7 +48,7 @@ Instale o Dependency Agent manualmente em computadores Windows executando `Insta
 
 A tabela a seguir destaca os parâmetros compatíveis com a instalação do agente por meio da linha de comando.
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 |:--|:--|
 | /? | Retorna uma lista das opções de linha de comando. |
 | /S | Realiza uma instalação silenciosa sem a interação do usuário. |
@@ -65,10 +65,10 @@ O Dependency Agent é instalado em servidores Linux por meio de *InstallDependen
 > O acesso root é necessário para instalar ou configurar o agente.
 >
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 |:--|:--|
 | -help | Obtenha uma lista das opções de linha de comando. |
-| -s | Realize uma instalação silenciosa sem solicitações ao usuário. |
+| -S | Realize uma instalação silenciosa sem solicitações ao usuário. |
 | --check | Verifica as permissões e o sistema operacional, mas não instala o agente. |
 
 Por exemplo, para executar o programa de instalação com o parâmetro `-help`, insira **installdependencyagent-Linux64. bin-Help**.
@@ -79,7 +79,7 @@ Se o Agente de Dependência não for iniciado, verifique os logs para obter info
 
 Os arquivos do Agente de Dependência são colocados nos diretórios a seguir:
 
-| Files | Local |
+| Arquivos | Location |
 |:--|:--|
 | Arquivos de núcleo | /opt/microsoft/dependency-agent |
 | Arquivos de log | /var/opt/microsoft/dependency-agent/log |
@@ -223,7 +223,7 @@ Para usar o CLI do Azure, primeiro você precisa instalar e usar a CLI localment
     ```
    Depois de habilitar o monitoramento, poderão ser necessários cerca de 10 minutos antes da exibição do estado de integridade e das métricas para o computador híbrido.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>A VM não aparece no mapa
 
@@ -252,7 +252,7 @@ Se você vir o servidor no mapa, mas ele não tiver dados de processo ou de cone
 Verifique o arquivo C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou o arquivo /var/opt/microsoft/dependency-agent/log/service.log (Linux). As últimas linhas do arquivo devem indicar por que o kernel não foi carregado. Por exemplo, se o kernel tiver sido atualizado por você, talvez o Linux não dê suporte a ele.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que o monitoramento está habilitado para suas máquinas virtuais, essas informações estão disponíveis para análise com Azure Monitor para VMs.
 

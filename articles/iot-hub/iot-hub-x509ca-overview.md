@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257571"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284506"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo usando certificados de AC X.509
 
@@ -40,7 +40,7 @@ Para o ambiente de produção, recomendamos que você adquira um certificado de 
 
 Você também pode criar uma AC X.509 autoassinada para experimentação ou para uso em redes de IoT fechadas.
 
-Independentemente de como obter seu certificado de autoridade de certificação X.509, certifique-se de manter sua chave privada correspondente secreta e protegida em todos os momentos.  Isso é necessário para a criação de relação de confiança na autenticação da AC X.509.
+Independentemente de como você obtém o certificado de autoridade de certificação X. 509, certifique-se de manter seu segredo de chave privada correspondente e protegido o tempo todo.  Isso é necessário para a criação de relação de confiança na autenticação da AC X.509.
 
 Saiba como [criar um certificado de autoridade de certificação autoassinado](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), que você pode usar para experimentação em toda esta descrição do recurso.
 
@@ -50,7 +50,7 @@ O proprietário de um certificado de autoridade de certificação X.509 pode ass
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-O certificado do dispositivo (também chamado de um certificado de folha) deve ter o *nome da entidade* definido como o **ID do dispositivo** que foi usada ao registrar o dispositivo de IoT no IoT Hub do Azure. Essa configuração é necessária para autenticação.
+O certificado do dispositivo (também chamado de certificado de folha) deve ter o *nome da entidade* definido como a **ID do dispositivo** que foi usada ao registrar o dispositivo IOT no Hub IOT do Azure. Essa configuração é necessária para autenticação.
 
 Saiba mais aqui como [criar uma cadeia de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) como feito durante a assinatura de dispositivos.
 

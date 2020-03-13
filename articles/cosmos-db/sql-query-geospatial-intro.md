@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 0fe83b8e28b96f1d89a7c98cfe86a6e924f1bc49
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 655c3a96792fba83ac73365f02d48ce0347e9048
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566342"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137879"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados geoespaciais e de localização geojson em Azure Cosmos DB
 
@@ -25,7 +25,10 @@ Este artigo é uma introdução à funcionalidade geoespacial no Azure Cosmos DB
 
 Os dados espaciais descrevem a posição e a forma dos objetos no espaço. Na maioria dos aplicativos, eles correspondem aos objetos na Terra e dados geoespaciais. Os dados espaciais podem ser usados para representar a localização de uma pessoa, um lugar de interesse ou a divisa de uma cidade ou de um lago. Com frequência, os casos de uso comum envolvem consultas de proximidade, por exemplo, “encontre todas as cafeterias próximas ao local atual”.
 
-A API do SQL do Azure Cosmos DB dá suporte ao tipo de dados **geography** . O tipo **geografia** representa dados em um sistema de coordenadas esféricas.
+A API do SQL do Azure Cosmos DB dá suporte a dois tipos de dados espaciais: o tipo de dados **Geometry** e o tipo de dados **geography** .
+
+- O tipo **Geometry** representa dados em um sistema de coordenadas euclidiana (simples)
+- O tipo **geografia** representa dados em um sistema de coordenadas esféricas.
 
 ## <a name="supported-data-types"></a>Tipos de dados com suporte
 
@@ -70,7 +73,11 @@ Os tipos de dados espaciais podem ser inseridos em um documento Azure Cosmos DB,
 }
 ```
 
-### <a name="points-in-geography-coordinate-system"></a>Pontos no sistema de coordenadas geography
+### <a name="points-in-a-geometry-coordinate-system"></a>Pontos em um sistema de coordenadas de geometria
+
+Para o tipo de dados **Geometry** , a especificação geojson especifica o eixo horizontal primeiro e o eixo vertical segundo.
+
+### <a name="points-in-a-geography-coordinate-system"></a>Pontos em um sistema de coordenadas geography
 
 Para o tipo de dados **geography** , a especificação geojson especifica a longitude primeiro e a latitude segundo. Assim como acontece em outros aplicativos de mapeamento, a longitude e a latitude são ângulos e são representados em graus. Os valores de longitude são medidos a partir do Meridiano Principal e estão entre -180,0 graus e 180,0 graus e os valores de latitude são medidos a partir do Equador e estão entre -90,0 graus e 90,0 graus.
 

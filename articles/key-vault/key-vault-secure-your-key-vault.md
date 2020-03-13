@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
 ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373813"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284376"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -88,7 +88,7 @@ Conceda acesso a um usuário, grupo ou aplicativo para executar operações espe
 
 Você pode restringir o acesso ao plano de dados usando [pontos de extremidade de serviço de rede virtual no Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). É possível configurar [regras de firewalls e da rede virtual](key-vault-network-security.md) para ter uma camada adicional de segurança.
 
-## <a name="example"></a>{1&gt;Exemplo&lt;1}
+## <a name="example"></a>Exemplo
 
 Neste exemplo, estamos desenvolvendo um aplicativo que usa um certificado para TLS/SSL, armazenamento do Azure para armazenar dados e uma chave RSA de 2.048 bits para operações de entrada. Nosso aplicativo é executado em uma máquina virtual (VM) do Azure (ou em um conjunto de dimensionamento de máquinas virtuais). Podemos usar um cofre de chaves para armazenar os segredos do aplicativo. Podemos armazenar o certificado de inicialização usado pelo aplicativo para se autenticar com o Azure Active Directory.
 
@@ -223,7 +223,7 @@ Este exemplo descreve um cenário simples. Os cenários da vida real podem ser m
 
 * [Definir](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) e [remover](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) a política de acesso ao Key Vault usando o PowerShell.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Configurar [redes virtuais e firewalls do Key Vault](key-vault-network-security.md).
 

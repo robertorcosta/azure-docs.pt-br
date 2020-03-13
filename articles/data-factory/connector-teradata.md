@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 5a41d5653de0d8a9f674009904756892ac343609
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930911"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281724"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados do Teradata privilegiando usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -45,7 +45,7 @@ Especificamente, este conector do Teradata dá suporte a:
 >
 > Após o lançamento do tempo de execução de integração auto-hospedado v 3.18, Azure Data Factory atualizado o conector do Teradata. Qualquer carga de trabalho existente que usa o conector do Teradata anterior ainda tem suporte. No entanto, para novas cargas de trabalho, é uma boa ideia usar a nova. Observe que o novo caminho requer um conjunto diferente de serviço vinculado, conjunto de código e fonte de cópia. Para obter detalhes de configuração, consulte as respectivas seções a seguir.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -63,17 +63,17 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 O serviço vinculado do Teradata dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **Teradata**. | SIM |
-| connectionString | Especifica as informações necessárias para se conectar à instância Teradata. Consulte os exemplos a seguir.<br/>Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | SIM |
+| type | A propriedade Type deve ser definida como **Teradata**. | Sim |
+| connectionString | Especifica as informações necessárias para se conectar à instância Teradata. Consulte os exemplos a seguir.<br/>Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
 | Nome de Usuário | Especifique um nome de usuário para se conectar ao Teradata. Aplica-se quando você está usando a autenticação do Windows. | Não |
-| Senha | Especifique uma senha para a conta de usuário que você especificou para o nome de usuário. Você também pode optar por [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). <br>Aplica-se quando você estiver usando a autenticação do Windows ou fazendo referência a uma senha em Key Vault para autenticação básica. | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |SIM |
+| password | Especifique uma senha para a conta de usuário que você especificou para o nome de usuário. Você também pode optar por [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). <br>Aplica-se quando você estiver usando a autenticação do Windows ou fazendo referência a uma senha em Key Vault para autenticação básica. | Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Sim |
 
 Mais propriedades de conexão que você pode definir na cadeia de conexão por seu caso:
 
-| Propriedade | Descrição | Valor padrão |
+| Propriedade | DESCRIÇÃO | Valor padrão |
 |:--- |:--- |:--- |
 | CharacterSet | O conjunto de caracteres a ser usado para a sessão. Por exemplo, `CharacterSet=UTF16`.<br><br/>Esse valor pode ser um conjunto de caracteres definido pelo usuário ou um dos seguintes conjuntos de caracteres predefinidos: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatível com DOS, KANJISJIS_0S)<br/>-EUC (compatível com UNIX, KANJIEC_0U)<br/>-IBM Mainframe (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | O valor padrão é `ASCII`. |
 | MaxRespSize |O tamanho máximo do buffer de resposta para solicitações SQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬`.<br/><br/>Para o banco de dados Teradata versão 16, 0 ou posterior, o valor máximo é 7361536. Para conexões que usam versões anteriores, o valor máximo é 1048576. | O valor padrão é `65536`. |
@@ -146,14 +146,14 @@ Mais propriedades de conexão que você pode definir na cadeia de conexão por s
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista das propriedades com suporte pelo conjunto de e do Teradata. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte os [DataSets](concepts-datasets-linked-services.md).
+Esta seção fornece uma lista das propriedades com suporte pelo conjunto de e do Teradata. Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets](concepts-datasets-linked-services.md).
 
 Para copiar dados do Teradata, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como `TeradataTable`. | SIM |
-| database | O nome da instância Teradata. | Não (se "query" na fonte da atividade for especificada) |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como `TeradataTable`. | Sim |
+| Banco de Dados | O nome da instância Teradata. | Não (se "query" na fonte da atividade for especificada) |
 | tabela | O nome da tabela na instância Teradata. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo:**
@@ -204,10 +204,10 @@ Esta seção fornece uma lista das propriedades com suporte pela origem do Terad
 
 Para copiar dados do Teradata, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como `TeradataSource`. | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Ao habilitar a carga particionada, você precisa vincular quaisquer parâmetros de partição internos correspondentes em sua consulta. Para obter exemplos, consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) . | Não (se a tabela no DataSet for especificada) |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como `TeradataSource`. | Sim |
+| Consulta | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Ao habilitar a carga particionada, você precisa vincular quaisquer parâmetros de partição internos correspondentes em sua consulta. Para obter exemplos, consulte a seção [cópia paralela da Teradata](#parallel-copy-from-teradata) . | Não (se a tabela no DataSet for especificada) |
 | partitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Teradata. <br>Permitir valores são: **nenhum** (padrão), **hash** e **DynamicRange**.<br>Quando uma opção de partição é habilitada (ou seja, não `None`), o grau de paralelismo para carregar dados simultaneamente do Teradata é controlado pela configuração de [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia. | Não |
 | partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de partição não estiver `None`. | Não |
 | partitionColumnName | Especifique o nome da coluna de origem que será usada pela partição de intervalo ou pela partição de hash para cópia paralela. Se não for especificado, o índice principal da tabela será detectado automaticamente e usado como a coluna de partição. <br>Aplicar quando a opção de partição for `Hash` ou `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, `?AdfHashPartitionCondition` de gancho ou `?AdfRangePartitionColumnName` na cláusula WHERE. Consulte o exemplo em [cópia paralela da seção Teradata](#parallel-copy-from-teradata) . | Não |
@@ -298,24 +298,24 @@ Quando você habilita a cópia particionada, o Data Factory executa consultas pa
 
 Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor, consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
-| Tipo de dados do Teradata | Tipo de dados provisório do Data Factory |
+| Tipo de dados Teradata | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | BigInt |Int64 |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |string |
-| Clob |string |
-| Data |DateTime |
+| Char |String |
+| Clob |String |
+| Data |Datetime |
 | Decimal |Decimal |
-| DOUBLE |DOUBLE |
+| Double |Double |
 | Graphic |Sem suporte. Aplicar conversão explícita na consulta de origem. |
-| Número inteiro |Int32 |
-| Intervalo - dia |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Integer |Int32 |
+| Interval Day |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Intervalo - dia para hora |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Intervalo - dia para minuto |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Interval Day To Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
-| Intervalo - hora |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Hour |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Intervalo - hora para minuto |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Interval Hour To Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Interval Minute |Sem suporte. Aplicar conversão explícita na consulta de origem. |
@@ -324,21 +324,21 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 | Interval Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Interval Year |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Interval Year To Month |Sem suporte. Aplicar conversão explícita na consulta de origem. |
-| NUMBER |DOUBLE |
+| Número |Double |
 | Período (Data) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Período (hora) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Período (hora com fuso horário) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Period (Timestamp) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Período (carimbo de data/hora com fuso horário) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | SmallInt |Int16 |
-| Tempo |timespan |
-| Hora com fuso horário |timespan |
-| Timestamp |DateTime |
-| Timestamp With Time Zone |DateTime |
+| Hora |TimeSpan |
+| Hora com fuso horário |TimeSpan |
+| Timestamp |Datetime |
+| Timestamp With Time Zone |Datetime |
 | VarByte |Byte[] |
-| VarChar |string |
+| VarChar |String |
 | VarGraphic |Sem suporte. Aplicar conversão explícita na consulta de origem. |
-| xml |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Xml |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
@@ -346,5 +346,5 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

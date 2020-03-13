@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300061"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136510"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: fornecer declarações opcionais para seu aplicativo do Azure AD
 
@@ -37,7 +37,7 @@ Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v
 
 | Tipo de Conta | Tokens v1.0 | Tokens v2.0  |
 |--------------|---------------|----------------|
-| Conta pessoal da Microsoft  | {1&gt;N/A&lt;1}  | Suportado |
+| Conta pessoal da Microsoft  | N/D  | Suportado |
 | Conta do AD do Azure      | Suportado | Suportado |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>conjunto de declarações opcionais v 1.0 e v 2.0
@@ -49,7 +49,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 
 **Tabela 2: conjunto de declarações opcionais v 1.0 e v 2.0**
 
-| {1&gt;Nome&lt;1}                       |  Descrição   | Tipo de token | Tipo de Usuário | {1&gt;Observações&lt;1}  |
+| Nome                       |  DESCRIÇÃO   | Tipo de token | Tipo de Usuário | Observações  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora em que o usuário foi autenticado pela última vez. Confira especificações de OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
@@ -78,17 +78,17 @@ Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não
 
 **Tabela 3: v 2.0-apenas declarações opcionais**
 
-| Declaração JWT     | {1&gt;Nome&lt;1}                            | Descrição                                | {1&gt;Observações&lt;1} |
+| Declaração JWT     | Nome                            | DESCRIÇÃO                                | Observações |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP com o qual o cliente se conectou.   |       |
 | `onprem_sid`  | Identificador de Segurança Local |                                             |       |
 | `pwd_exp`     | Hora da Expiração da Senha        | A data e a hora em que a senha expira. |       |
 | `pwd_url`     | Alterar URL da Senha             | Uma URL que o usuário pode acessar para alterar sua senha.   |   |
 | `in_corp`     | Dentro da Rede Corporativa        | Indica se o cliente está se conectando da rede corporativa. Se não forem, a declaração não será incluída.   |  Baseado nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) na Autenticação Multifator.    |
-| `nickname`    | Apelido                        | Um nome adicional para o usuário. O apelido é separado de First ou Last Name. | 
-| `family_name` | Sobrenome                       | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. <br>"family_name":"Barros" | Com suporte no MSA e no Azure AD   |
-| `given_name`  | Nome                      | Fornece o primeiro ou "dado" nome do usuário, conforme definido no objeto de usuário.<br>"given_name": "Davi"                   | Com suporte no MSA e no Azure AD  |
-| `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. |
+| `nickname`    | Apelido                        | Um nome adicional para o usuário. O apelido é separado de First ou Last Name. Requer o escopo de `profile`.| 
+| `family_name` | Sobrenome                       | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. <br>"family_name":"Barros" | Com suporte no MSA e no Azure AD. Requer o escopo de `profile`.   |
+| `given_name`  | Nome                      | Fornece o primeiro ou "dado" nome do usuário, conforme definido no objeto de usuário.<br>"given_name": "Davi"                   | Com suporte no MSA e no Azure AD.  Requer o escopo de `profile`. |
+| `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. Requer o escopo de `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de declarações opcionais
 
@@ -96,7 +96,7 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 
 **Tabela 4: valores para configurar declarações opcionais**
 
-| Nome da propriedade  | Nome de Propriedade Adicional | Descrição |
+| Nome da propriedade  | Nome de Propriedade Adicional | DESCRIÇÃO |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usada para respostas SAML e JWT e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -117,12 +117,13 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
         }
     ```
 
-Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua outro UPN com o locatário de início adicional e as informações do locatário do recurso. A declaração de `upn` só será alterada no token se o usuário for um convidado no locatário (que usa um IDP diferente para autenticação). 
+Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua uma declaração de UPN com as informações de locatário inicial e de locatário de recursos adicionais. A declaração de `upn` só será alterada no token se o usuário for um convidado no locatário (que usa um IDP diferente para autenticação). 
 
 ## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
 
 > [!IMPORTANT]
 > Os tokens de acesso **sempre** são gerados usando o manifesto do recurso, não o cliente.  Portanto, na solicitação `...scope=https://graph.microsoft.com/user.read...` o recurso é a API Microsoft Graph.  Assim, o token de acesso é criado usando o manifesto da API Microsoft Graph, não o manifesto do cliente.  Alterar o manifesto para seu aplicativo nunca fará com que os tokens da API de Microsoft Graph pareçam diferentes.  Para validar que as alterações de `accessToken` estão em vigor, solicite um token para seu aplicativo, não para outro aplicativo.  
+
 
 Você pode configurar declarações opcionais para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
 
@@ -186,7 +187,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: propriedades do tipo OptionalClaims**
 
-| {1&gt;Nome&lt;1}        | Tipo                       | Descrição                                           |
+| Nome        | Type                       | DESCRIÇÃO                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT. |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -199,7 +200,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: propriedades do tipo OptionalClaim**
 
-| {1&gt;Nome&lt;1}                 | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                 | Type                    | DESCRIÇÃO                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |
@@ -207,7 +208,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 | `additionalProperties` | Coleção (Edm.String) | Propriedades adicionais da declaração. Se uma propriedade existir na coleção, ela modificará o comportamento da declaração opcional especificado na propriedade name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configurando declarações opcionais de extensão de diretório
 
-Além do conjunto de declarações opcionais padrão, você também pode configurar tokens para incluir extensões. Esse recurso é útil para anexar informações adicionais do usuário que o aplicativo pode usar; por exemplo, um identificador adicional ou uma opção de configuração importante que o usuário configurou. Consulte a parte inferior desta página para obter um exemplo.
+Além do conjunto de declarações opcionais padrão, você também pode configurar tokens para incluir extensões. Para obter mais informações, consulte [a documentação da extensão de Microsoft GraphProperty](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) – Observe que as declarações de esquema e aberta não têm suporte de declaração opcional, somente as extensões de diretório do estilo AAD-Graph. Esse recurso é útil para anexar informações adicionais do usuário que o aplicativo pode usar; por exemplo, um identificador adicional ou uma opção de configuração importante que o usuário configurou. Consulte a parte inferior desta página para obter um exemplo.
 
 > [!NOTE]
 > - As extensões de esquema de diretório são um recurso somente do Azure AD, portanto, se o manifesto do aplicativo solicitar uma extensão personalizada e um usuário da MSA fizer logon em seu aplicativo, essas extensões não serão retornadas.
@@ -269,7 +270,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
    Se você quiser que os grupos no token contenham os atributos do grupo do AD local na seção declarações opcionais, especifique a qual tipo de token a declaração opcional deve ser aplicada, o nome da declaração opcional solicitada e todas as propriedades adicionais desejadas.  Vários tipos de token podem ser listados:
 
    - Token para o token de ID de OIDC
-   - accessToken para o token de acesso do OAuth/OIDC
+   - accessToken para o token de acesso OAuth
    - Saml2Token para tokens SAML.
 
    > [!NOTE]
@@ -286,7 +287,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
        }
     ```
 
-   | Esquema de declarações opcional | {1&gt;Valor&lt;1} |
+   | Esquema de declarações opcional | Valor |
    |----------|-------------|
    | **nomes** | Deve ser "grupos" |
    | **original** | Não usado. Omitir ou especificar nulo |

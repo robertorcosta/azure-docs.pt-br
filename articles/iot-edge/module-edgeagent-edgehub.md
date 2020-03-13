@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379365"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284831"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente do IoT Edge e dos gêmeos de módulo do hub do IoT Edge
 
@@ -31,7 +31,7 @@ Um módulo de r inclui:
 
 O gêmeo do módulo para o agente do IoT Edge se chama `$edgeAgent` e coordena as comunicações entre o agente do IoT Edge em execução em um dispositivo e o Hub IoT. As propriedades desejadas são definidas durante a aplicação de um manifesto de implantação em um dispositivo específico como parte de uma implantação de dispositivo único ou em escala.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem que ser "1.0" | Sim |
 | runtime.type | Tem que ser "docker" | Sim |
@@ -74,7 +74,7 @@ A cópia das propriedades desejadas atuais é útil para informar se o dispositi
 
 A tabela a seguir não inclui as informações que são copiadas das propriedades desejadas.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | -------- | ----------- |
 | lastDesiredVersion | Este inteiro refere-se à última versão das propriedades desejadas processadas pelo agente do IoT Edge. |
 | lastDesiredStatus.code | Esse código de status refere-se às últimas propriedades desejadas vistas pelo agente de IoT Edge. Valores permitidos: `200` Êxito, `400` Configuração inválida, `412` Versão do esquema inválido, `417` As propriedades desejadas estão vazias, `500` Falha |
@@ -104,7 +104,7 @@ A tabela a seguir não inclui as informações que são copiadas das propriedade
 
 O gêmeo do módulo para o hub do IoT Edge se chama `$edgeHub` e coordena as comunicações entre o hub do IoT Edge em execução em um dispositivo e o Hub IoT. As propriedades desejadas são definidas durante a aplicação de um manifesto de implantação em um dispositivo específico como parte de uma implantação de dispositivo único ou em escala.
 
-| Propriedade | Descrição | Necessárias no manifesto de implantação |
+| Propriedade | DESCRIÇÃO | Necessárias no manifesto de implantação |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem que ser "1.0" | Sim |
 | routes.{routeName} | Uma cadeia de caracteres que representa uma rota do hub do IoT Edge. Para obter mais informações, consulte [declarar rotas](module-composition.md#declare-routes). | O elemento `routes` pode estar presente mas vazio. |
@@ -112,7 +112,7 @@ O gêmeo do módulo para o hub do IoT Edge se chama `$edgeHub` e coordena as com
 
 ## <a name="edgehub-reported-properties"></a>Propriedades relatadas do EdgeHub
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | -------- | ----------- |
 | lastDesiredVersion | Este inteiro refere-se à última versão das propriedades desejadas processadas pelo hub do IoT Edge. |
 | lastDesiredStatus.code | O código de status referente às últimas propriedades desejadas vistas pelo hub de IoT Edge. Valores permitidos: `200` Êxito, `400` Configuração inválida, `500` Falha |
@@ -121,6 +121,6 @@ O gêmeo do módulo para o hub do IoT Edge se chama `$edgeHub` e coordena as com
 | clients.{device or moduleId}.lastConnectTime | Última vez em que o dispositivo ou módulo está conectado. |
 | clients.{device or moduleId}.lastDisconnectTime | Última vez em que o dispositivo ou módulo foi desconectado. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como utilizar essas propriedades para compilar manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).

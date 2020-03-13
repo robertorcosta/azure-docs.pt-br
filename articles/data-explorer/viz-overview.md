@@ -8,12 +8,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 32ccc5ad236c87d3609798a8432db14ee440d067
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7b1c7825beb769b610d661cb9644fc3f3919d548
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064556"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139055"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>Visualização de dados com o Azure Data Explorer 
 
@@ -42,6 +42,10 @@ O Azure Data Explorer fornece a capacidade de se conectar ao [Microsoft Excel](h
 ## <a name="grafana"></a>Grafana
 
 O [Grafana](https://grafana.com) fornece um plug-in do data Explorer do Azure que permite visualizar dados do data Explorer do Azure. Você [configura o Azure data Explorer como uma fonte de dados para Grafana e, em seguida, visualiza os dados](/azure/data-explorer/grafana). 
+
+## <a name="kibana"></a>Kibana
+
+O Azure Data Explorer fornece a capacidade de se conectar ao [Kibana (a página de descoberta) usando o](https://www.elastic.co/guide/en/kibana/6.8/discover.html) K2Bridge, um conector de software livre. Você [configura o Azure data Explorer como uma fonte de dados para Kibana e, em seguida, visualiza os dados](/azure/data-explorer/k2bridge).
 
 ## <a name="odbc-connector"></a>Conector do ODBC
 

@@ -8,11 +8,11 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395621"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275172"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -43,7 +43,7 @@ A estrutura básica de um arquivo de solução de gerenciamento é a mesma que u
        "outputs": {  }
     }
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 [Parâmetros](../../azure-resource-manager/templates/template-syntax.md#parameters) são valores que exige dos usuários quando eles instalam a solução de gerenciamento.  Eles são parâmetros padrão que todas as soluções terão; além disso, você pode adicionar parâmetros adicionais conforme necessário para sua solução específica.  O modo como os usuários fornecerão valores de parâmetro quando instalarem sua solução dependerá do parâmetro específico e do modo como a solução estiver sendo instalada.
 
 Quando um usuário instala a solução de gerenciamento por meio do [Azure Marketplace](solutions.md#install-a-monitoring-solution) ou dos Modelos de Início Rápido do Azure, será solicitado que ele selecione uma Conta de automação e um [Espaço de Trabalho do Log Analytics](solutions.md#log-analytics-workspace-and-automation-account).  Eles são usados para preencher os valores de cada um dos parâmetros padrão.  Não é solicitado que o usuário forneça diretamente os valores dos parâmetros padrão, mas será solicitado que ele forneça valores para eventuais parâmetros adicionais.
@@ -61,12 +61,12 @@ Um parâmetro de exemplo é mostrado abaixo.
 
 A tabela a seguir descreve os atributos de um parâmetro.
 
-| Atributo | Descrição |
+| Atributo | DESCRIÇÃO |
 |:--- |:--- |
 | type |Tipo de dados para o parâmetro. O controle de entrada exibido para o usuário depende do tipo de dados.<br><br>bool – Caixa suspensa<br>cadeia de caracteres – caixa de texto<br>int – Caixa de texto<br>securestring – Campo de senha<br> |
 | category |Categoria opcional para o parâmetro.  Parâmetros na mesma categoria são agrupados. |
 | controle |Funcionalidade adicional para parâmetros de cadeia de caracteres.<br><br>datetime – O controle datetime é exibido.<br>GUID – O valor de GUID é gerado automaticamente e o parâmetro não é exibido. |
-| description |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
+| descrição |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
 
 ### <a name="standard-parameters"></a>Parâmetros padrão
 A tabela a seguir lista os parâmetros padrão para todas as soluções de gerenciamento.  Esses valores são populados para o usuário em vez de solicitados a eles quando a solução é instalada dos modelos do Azure Marketplace ou de Início Rápido.  Se a solução for instalada com outro método, o usuário deverá fornecer valores para eles.
@@ -76,7 +76,7 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 >
 >
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | accountName |string |Nome da conta de Automação do Azure. |
 | pricingTier |string |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
@@ -124,7 +124,7 @@ A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar
 
 Consulte os valores de parâmetro em outros elementos da solução com a sintaxe **parameters('nome do parâmetro')** .  Por exemplo, para acessar o nome do workspace, você usaria **parameters('workspaceName')**
 
-## <a name="variables"></a>Variáveis
+## <a name="variables"></a>variáveis
 [Variáveis](../../azure-resource-manager/templates/template-syntax.md#variables) são valores que serão usados no restante da solução de gerenciamento.  Esses valores não são expostos ao usuário que instala a solução.  Eles se destinam a fornecer ao autor um único local onde ele pode gerenciar os valores que podem ser usados várias vezes em toda a solução. É necessário colocar os valores específicos à solução em variáveis, em vez de embuti-los em código no elemento **resources**.  Isso torna o código mais legível e permite que você altere esses valores facilmente em versões posteriores.
 
 A seguir está um exemplo de um elemento **variables** com parâmetros típicos usado em soluções.
@@ -201,10 +201,10 @@ Cada solução exige uma entrada de recurso no elemento **resources** que define
 ### <a name="dependencies"></a>Dependências
 O recurso da solução deve ter uma [dependência](../../azure-resource-manager/templates/define-resource-dependency.md) em todos os outros recursos da solução, pois precisam existir antes que a solução possa ser criada.  Você pode fazer isso adicionando uma entrada para cada recurso no elemento **dependsOn**.
 
-### <a name="properties"></a>{1&gt;Propriedades&lt;1}
+### <a name="properties"></a>Propriedades
 O recurso da solução tem as propriedades na tabela a seguir.  Isso inclui os recursos referenciados e contidos pela solução que define como os recursos são gerenciados após a instalação da solução.  Cada recurso na solução deve ser listado na propriedade **referencedResources** ou **containedResources**.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | workspaceResourceId |ID do espaço de trabalho Log Analytics no formato *\<ID do grupo de recursos >/providers/Microsoft.OperationalInsights/workspaces/\<nome do espaço de trabalho\>* . |
 | referencedResources |Lista de recursos na solução que não deverão ser removidos quando a solução for removida. |
@@ -215,16 +215,16 @@ O exemplo acima é uma solução com um runbook, um cronograma e uma exibição.
 ### <a name="plan"></a>Plano
 A entidade **plano** do recurso da solução tem as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| {1&gt;name&lt;1} |O nome da solução. |
+| name |O nome da solução. |
 | version |Versão da solução conforme determinado pelo autor. |
 | product |Cadeia de caracteres exclusiva para identificar a solução. |
-| publisher |O publicador da solução. |
+| publicador |O publicador da solução. |
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Adicionar alertas e pesquisas salvas](solutions-resources-searches-alerts.md) à sua solução de gerenciamento.
 * [Adicionar exibições](solutions-resources-views.md) à sua solução de gerenciamento.
 * [Adicionar runbooks e outros recursos da Automação](solutions-resources-automation.md) à solução de gerenciamento.

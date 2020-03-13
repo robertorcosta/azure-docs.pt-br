@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544259"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138528"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -103,7 +103,8 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
 
 >[!IMPORTANT] 
-> O filtro IsMemberOf não tem suporte no momento.
+> - O filtro IsMemberOf não tem suporte no momento.
+> - EQUALs e NOT EQUALs não têm suporte para atributos de valores múltiplos
 
 9. Opcionalmente, repita as etapas 7 e 8 para adicionar mais cláusulas de escopo.
 
@@ -120,14 +121,14 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
 
 ## <a name="common-scoping-filters"></a>Filtros de escopo comuns
-| Atributo de Destino| Operador | {1&gt;Valor&lt;1} | Descrição|
+| Atributo de Destino| Operador | Valor | DESCRIÇÃO|
 |----|----|----|----|
 |userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
 |userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
 |department|EQUALS|sales|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
 |workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](../app-provisioning/user-provisioning.md)
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](../app-provisioning/customize-application-attributes.md)
 * [Escrever expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)

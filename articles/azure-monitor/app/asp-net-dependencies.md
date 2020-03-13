@@ -4,11 +4,11 @@ description: Monitore chamadas de dependência de seu aplicativo Web local ou Mi
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 8fb1550a3f1d4b3336384139b049b60e23e648d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666234"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276290"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência no insights Aplicativo Azure 
 
@@ -92,7 +92,7 @@ Para aplicativos ASP.NET Core, não há nenhuma etapa adicional necessária para
 
 Para aplicativos ASP.NET, a consulta SQL completa é coletada com a ajuda da instrumentação de código de byte, que requer o mecanismo de instrumentação. As etapas adicionais específicas da plataforma, conforme descrito abaixo, são necessárias.
 
-| Platform | Etapas necessárias para obter a consulta SQL completa |
+| Plataforma | Etapas necessárias para obter a consulta SQL completa |
 | --- | --- |
 | Aplicativo Web do Azure |No painel de controle do aplicativo Web, [abra a folha Application insights](../../azure-monitor/app/azure-web-apps.md) e habilite os comandos SQL no .net |
 | Servidor IIS (VM do Azure, local e assim por diante). | Use o módulo Status Monitor PowerShell para [instalar o mecanismo de instrumentação](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) e reiniciar o IIS. |
@@ -187,7 +187,7 @@ Você pode rastrear dependências na [linguagem de consulta Kusto](/azure/kusto/
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 Assim como todos os Application Insights SDK, o módulo de coleta de dependência também é de código-fonte aberto. Leia e contribua com o código ou relate problemas no [repositório do GitHub oficial](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Exceções](../../azure-monitor/app/asp-net-exceptions.md)
 * [Dados do usuário e da página](../../azure-monitor/app/javascript.md)

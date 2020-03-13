@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584534"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276602"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -63,7 +63,7 @@ Quando você estiver usando o plano Premium, as instâncias do host Azure Functi
 
 * Instâncias passivas perpétuas para evitar qualquer início frio
 * Conectividade de VNet
-* Duração de execução ilimitada
+* Duração de execução ilimitada (60 minutos garantidos)
 * Tamanhos de instância Premium (um núcleo, duas principais e quatro instâncias de núcleo)
 * Preços mais previsíveis
 * Alocação de aplicativo de alta densidade para planos com vários aplicativos de funções
@@ -153,12 +153,10 @@ A unidade de escala para Azure Functions é o aplicativo de funções. Quando o 
 O dimensionamento pode variar em uma série de fatores e ser diferente com base no gatilho e na linguagem selecionada. Há algumas complexidades de comportamentos de dimensionamento a serem considerados:
 
 * Um único aplicativo de funções só pode ser dimensionado para um máximo de 200 instâncias. Uma única instância pode processar mais de uma mensagem ou solicitação por vez, portanto, não há um limite definido de número de execuções simultâneas.
-* Para gatilhos HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 1 segundo.
-* Para gatilhos não HTTP, novas instâncias só serão alocadas no máximo uma vez a cada 30 segundos.
-
-Gatilhos diferentes também podem ter diferentes limites de dimensionamento, como documentado abaixo:
-
-* [Hub de Evento](functions-bindings-event-hubs-trigger.md#scaling)
+* Para gatilhos HTTP, novas instâncias são alocadas, no máximo, uma vez por segundo.
+* Para gatilhos não HTTP, novas instâncias são alocadas, no máximo, uma vez a cada 30 segundos. O dimensionamento é mais rápido quando executado em um [plano Premium](#premium-plan).
+* Para gatilhos do barramento de serviço, use _gerenciar_ direitos em recursos para o dimensionamento mais eficiente. Com os direitos de _escuta_ , o dimensionamento não é tão preciso porque o comprimento da fila não pode ser usado para informar decisões de dimensionamento. Para saber mais sobre como definir direitos nas políticas de acesso do barramento de serviço, consulte [política de autorização de acesso compartilhado](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* Para gatilhos do hub de eventos, consulte as [diretrizes de dimensionamento](functions-bindings-event-hubs-trigger.md#scaling) no artigo de referência. 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Melhores práticas e padrões para aplicativos escalonáveis
 

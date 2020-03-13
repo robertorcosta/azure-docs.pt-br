@@ -12,14 +12,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468167"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217767"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de erro da API REST do Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
 Os códigos de erro a seguir podem ser retornados por uma operação em um serviço Web Azure Machine Learning Studio (clássico).
  
@@ -27,7 +29,7 @@ Os códigos de erro a seguir podem ser retornados por uma operação em um servi
  
 Argumento inválido fornecido.
  
-Essa classe de erros significa que um argumento fornecido em algum lugar foi inválido. Isso pode ser uma credencial ou um local de armazenamento do Azure para algo passado para o serviço Web. Examine o campo do "código" de erro na seção "detalhes" para diagnosticar qual argumento específico foi inválido.
+Essa classe de erros significa que um argumento fornecido em algum lugar foi inválido. Isso pode ser uma credencial ou um local de armazenamento do Azure para algo passado para o serviço Web. Consulte o campo "código" do erro na seção "detalhes" para diagnosticar qual argumento específico era inválido.
  
 | Código do erro | Mensagem do usuário |
 | ---------- |--------------|

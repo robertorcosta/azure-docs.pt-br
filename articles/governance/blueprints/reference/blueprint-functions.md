@@ -4,11 +4,11 @@ description: Descreve as funções disponíveis para uso com artefatos de Bluepr
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386239"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280671"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para uso com plantas do Azure
 
@@ -32,9 +32,9 @@ Retorna um objeto das propriedades preenchidas com as saídas dos artefatos do B
 > [!NOTE]
 > A função `artifacts()` não pode ser usada de dentro de um modelo do Resource Manager. A função só pode ser usada na definição do Blueprint JSON ou no artefato JSON ao gerenciar o plano gráfico com Azure PowerShell ou a API REST como parte de [plantas como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sim |string |O nome de um artefato de plano gráfico. |
 
@@ -76,7 +76,7 @@ As propriedades de **saídas** do objeto retornado são definidas no modelo do R
 }
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 Um artefato do modelo do Resource Manager com a ID _myTemplateArtifact_ que contém a seguinte propriedade de saída de exemplo:
 
@@ -106,12 +106,12 @@ Um artefato do modelo do Resource Manager com a ID _myTemplateArtifact_ que cont
 
 Alguns exemplos de recuperação de dados do exemplo _myTemplateArtifact_ são:
 
-| Expressão | Tipo | {1&gt;Valor&lt;1} |
+| Expression | Type | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["primeiro", "segundo"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | primeiro |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"MyProperty": "meu valor", "anotherproperty": true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | {"MyProperty": "meu valor", "anotherproperty": true} |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
@@ -121,9 +121,9 @@ Alguns exemplos de recuperação de dados do exemplo _myTemplateArtifact_ são:
 
 Combina vários valores de cadeia de caracteres e retorna o resultado concatenado.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | string1 |Sim |string |O primeiro valor de concatenação. |
 | argumentos adicionais |Não |string |Valores adicionais em ordem sequencial para concatenação |
@@ -136,7 +136,7 @@ Uma cadeia de caracteres de valores concatenados.
 
 A função Azure Blueprint difere da função de modelo Azure Resource Manager, pois só funciona com cadeias de caracteres.
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 `concat(parameters('organizationName'), '-vm')`
 
@@ -146,9 +146,9 @@ A função Azure Blueprint difere da função de modelo Azure Resource Manager, 
 
 Retorna um valor de parâmetro Blueprint. O nome do parâmetro especificado deve ser definido na definição do Blueprint ou em artefatos do Blueprint.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sim |string |O nome do parâmetro a retornar. |
 
@@ -160,7 +160,7 @@ O valor do parâmetro de artefato Blueprint ou Blueprint especificado.
 
 A função Azure Blueprint difere da função de modelo de Azure Resource Manager, pois só funciona com parâmetros de plano gráfico.
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 Defina o parâmetro _principalIds_ na definição do Blueprint:
 
@@ -222,7 +222,7 @@ A função Azure Blueprint difere da função de modelo Azure Resource Manager. 
 
 Um uso comum da função `resourceGroup()` é criar recursos no mesmo local que o artefato do grupo de recursos.
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 Para usar o local do grupo de recursos, defina na definição do plano gráfico ou durante a atribuição, como o local de outro artefato, declare um objeto de espaço reservado do grupo de recursos na definição do Blueprint. Neste exemplo, _NetworkingPlaceholder_ é o nome do espaço reservado do grupo de recursos.
 
@@ -267,9 +267,9 @@ Em seguida, use a função `resourceGroup()` no contexto de um artefato Blueprin
 
 Retorna um objeto que representa o artefato do grupo de recursos especificado. Ao contrário de `resourceGroup()`, que requer o contexto do artefato, essa função é usada para obter as propriedades de um espaço reservado do grupo de recursos específico quando não está no contexto desse grupo de recursos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sim |string |O nome do espaço reservado do artefato do grupo de recursos a ser retornado. |
 
@@ -284,7 +284,7 @@ O objeto retornado está no seguinte formato:
 }
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 Para usar o local do grupo de recursos, defina na definição do plano gráfico ou durante a atribuição, como o local de outro artefato, declare um objeto de espaço reservado do grupo de recursos na definição do Blueprint. Neste exemplo, _NetworkingPlaceholder_ é o nome do espaço reservado do grupo de recursos.
 
@@ -323,7 +323,7 @@ Em seguida, use a função `resourceGroups()` do contexto de qualquer artefato d
 }
 ```
 
-## <a name="subscription"></a>assinatura.
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
@@ -342,7 +342,7 @@ O objeto retornado está no seguinte formato:
 }
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 Use o nome de exibição da assinatura e a função `concat()` para criar uma Convenção de nomenclatura passada como parâmetro _resourceName_ para o artefato do modelo.
 
@@ -365,7 +365,7 @@ Use o nome de exibição da assinatura e a função `concat()` para criar uma Co
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978769"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276472"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -153,7 +153,7 @@ Veja [Visão geral da Rede Virtual](virtual-network/virtual-networks-overview.md
 ## <a name="web-app"></a>Aplicativo Web
 Outro nome para o [Aplicativo de Serviço de Aplicativo](#app-service-app).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de Recurso de Nuvem](https://azure.microsoft.com/resources/)  

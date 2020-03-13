@@ -9,17 +9,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392539"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284597"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
 Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/). Esse ponto de extremidade é atualmente apenas exposto usando o protocolo [AMQP](https://www.amqp.org/) na porta 5671. Um Hub IoT expõe as propriedades a seguir para permitir que você controle as **mensagens/eventos** do ponto de extremidade do sistema de mensagens interno compatível com o Hub de Eventos.
 
-| Propriedade            | Descrição |
+| Propriedade            | DESCRIÇÃO |
 | ------------------- | ----------- |
 | **Contagem de partição** | Defina essa propriedade no momento da criação para determinar o número de [partições](../event-hubs/event-hubs-features.md#partitions) para inclusão do evento de dispositivo para nuvem. |
 | **Período de retenção**  | Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. O padrão é de um dia, mas pode ser aumentado para sete dias. |
@@ -50,17 +50,17 @@ Ao usar SDKs de hubs de eventos ou integrações de produtos que não reconhecem
 
 No portal, o campo ponto de extremidade compatível com o Hub de eventos contém uma cadeia de conexão completa de hubs de eventos semelhante a: **Endpoint = SB://abcd1234namespace.ServiceBus.Windows.net/; SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-eHub-ABCD-1234-123456**. Se o SDK que você está usando exigir outros valores, eles serão:
 
-| {1&gt;Nome&lt;1} | {1&gt;Valor&lt;1} |
+| Nome | Valor |
 | ---- | ----- |
 | Ponto de extremidade | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome do host | abcd1234namespace.servicebus.windows.net |
-| {1&gt;Namespace&lt;1} | abcd1234namespace |
+| Namespace | abcd1234namespace |
 
 Dessa forma, você poderá usar qualquer política de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
 Os SDKs que você pode usar para se conectar ao ponto de extremidade compatível com o Hub de eventos interno que o Hub IoT expõe incluem:
 
-| Linguagem | . | {1&gt;Exemplo&lt;1} | {1&gt;Observações&lt;1} |
+| Linguagem | . | Exemplo | Observações |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início rápido](quickstart-send-telemetry-dotnet.md) | Usa informações compatíveis com os hubs de eventos |
  Java | https://github.com/Azure/azure-event-hubs-java | [Início rápido](quickstart-send-telemetry-java.md) | Usa informações compatíveis com os hubs de eventos |
@@ -76,7 +76,7 @@ As integrações de produto que você pode usar com o ponto de extremidade compa
 * [Integração do Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 * [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre pontos de extremidade do Hub IoT, consulte [Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md).
 

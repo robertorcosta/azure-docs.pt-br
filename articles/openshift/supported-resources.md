@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274912"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243660"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Recursos do Azure Red Hat OpenShift
 
@@ -21,7 +21,7 @@ Este tópico lista as regiões do Azure e os tamanhos de máquina virtual com su
 
 Consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) para obter uma lista atual de regiões em que você pode implantar clusters do Azure Red Hat OpenShift.
 
-## <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais
+## <a name="virtual-machine-sizes"></a>Tamanhos de máquina virtual
 
 Aqui estão os tamanhos de máquina virtual com suporte que você pode especificar para os nós de computação em seu cluster do Azure Red Hat OpenShift.
 
@@ -61,6 +61,6 @@ Os seguintes tamanhos de nó mestre/infraestrutura têm suporte da API REST do A
 |Standard D16s v3|16|64 GB|
 |Standard D32s v3|32|128 GB|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente o tutorial [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) .

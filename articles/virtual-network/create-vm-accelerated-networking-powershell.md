@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083694"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245051"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Criar uma máquina virtual do Windows com rede acelerada usando o Azure PowerShell
 
@@ -40,7 +40,7 @@ Os benefícios da rede acelerada aplicam-se somente à VM em que ela está habil
 
 ## <a name="limitations-and-constraints"></a>Limitações e Restrições
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**

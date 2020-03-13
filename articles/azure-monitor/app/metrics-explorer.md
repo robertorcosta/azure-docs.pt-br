@@ -4,11 +4,11 @@ description: Como interpretar os gráficos no gerenciador de métricas e como pe
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368236"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275887"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 As métricas em [Application insights][start] são valores medidos e contagens de eventos que são enviados na telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
@@ -24,7 +24,7 @@ Aqui está um exemplo de conjunto de gráficos:
 
 No portal do Application Insights, você encontra gráficos de métricas em todos os lugares. Na maioria dos casos, eles podem ser personalizados e você pode adicionar mais gráficos à folha. Na folha visão geral, clique para gráficos mais detalhados (que têm títulos como "Servidor") ou clique em **Metrics Explorer** para abrir uma nova folha em que você possa criar gráficos personalizados.
 
-## <a name="time-range"></a>Intervalo de tempo
+## <a name="time-range"></a>Intervalo de horas
 Você pode alterar o intervalo de tempo coberto pelos gráficos ou grades em qualquer folha.
 
 ![Abrir a lâmina de visão geral do seu aplicativo no portal do Azure](./media/metrics-explorer/03-range.png)
@@ -180,7 +180,7 @@ Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá
 
 Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente à consulta do Analytics equivalente.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 *Não vejo dados no gráfico.*
 
 * Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
@@ -193,7 +193,7 @@ Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente �
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 

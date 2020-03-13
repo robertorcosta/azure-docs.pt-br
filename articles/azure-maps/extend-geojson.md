@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368593"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276394"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrias geojson estendidas
 
@@ -39,7 +39,7 @@ Não há suporte para a geometria `Circle`da pela [especificação geojson][1]. 
 
 Uma geometria `Circle` representada usando o objeto `GeoJSON Feature` __deve__ conter as seguintes coordenadas e propriedades:
 
-- Center
+- Centro
 
     O centro do círculo é representado usando um objeto `GeoJSON Point`.
 
@@ -51,7 +51,7 @@ Uma geometria `Circle` representada usando o objeto `GeoJSON Feature` __deve__ c
 
     A geometria do círculo também deve conter a propriedade `subType`. Essa propriedade deve ser uma parte das propriedades do `GeoJSON Feature`e seu valor deve ser _Circle_
 
-#### <a name="example"></a>{1&gt;Exemplo&lt;1}
+#### <a name="example"></a>Exemplo
 
 Veja como você representará um círculo usando um objeto `GeoJSON Feature`. Vamos centralizar o círculo em latitude: 47,639754 e Longitude:-122,126986 e atribuir a ele um raio igual a 100 medidores:
 
@@ -83,7 +83,7 @@ Uma geometria `Rectangle` representada usando o objeto `GeoJSON Polygon Feature`
 
     A geometria do retângulo também deve conter a propriedade `subType`. Essa propriedade deve ser uma parte das propriedades do `GeoJSON Feature`e seu valor deve ser _Rectangle_
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 ```json
 {
@@ -98,7 +98,7 @@ Uma geometria `Rectangle` representada usando o objeto `GeoJSON Polygon Feature`
 }
 
 ```
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre dados geojson no Azure Maps:
 

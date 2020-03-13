@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931929"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281880"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -25,9 +25,9 @@ ms.locfileid: "74931929"
 > * [Versão 2 (versão atual)](../copy-activity-overview.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Copiar atividade na V2](../copy-activity-overview.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Copiar atividade na V2](../copy-activity-overview.md).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 No Azure Data Factory, você pode usar a Atividade de Cópia para copiar dados entre armazenamentos de dados locais e na nuvem. Após os dados serem copiados, eles ainda podem ser transformados e analisados. Também é possível usar a Atividade de Cópia a fim de publicar resultados de análise e transformação para consumo do aplicativo e BI (business intelligence).
 
 ![Função da Atividade de Cópia](media/data-factory-data-movement-activities/copy-activity.png)
@@ -96,18 +96,18 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 |:--- |:--- |:--- |
 | Estados Unidos | Leste dos EUA | Leste dos EUA |
 | &nbsp; | Leste dos EUA 2 | Leste dos EUA 2 |
-| &nbsp; | EUA Central | EUA Central |
+| &nbsp; | Centro dos EUA | Centro dos EUA |
 | &nbsp; | Centro-Norte dos EUA | Centro-Norte dos EUA |
-| &nbsp; | Centro-Sul dos EUA | Centro-Sul dos EUA |
+| &nbsp; | Centro-Sul dos Estados Unidos | Centro-Sul dos Estados Unidos |
 | &nbsp; | Centro-Oeste dos EUA | Centro-Oeste dos EUA |
 | &nbsp; | Oeste dos EUA | Oeste dos EUA |
 | &nbsp; | Oeste dos EUA 2 | Oeste dos EUA 2 |
-| Canadá | Leste do Canadá | Canadá Central |
+| Canada | Leste do Canadá | Canadá Central |
 | &nbsp; | Canadá Central | Canadá Central |
 | Brasil | Sul do Brasil | Sul do Brasil |
-| Europa | Europa Setentrional | Europa Setentrional |
-| &nbsp; | Oeste da Europa | Oeste da Europa |
-| Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
+| Europa | Norte da Europa | Norte da Europa |
+| &nbsp; | Europa Ocidental | Europa Ocidental |
+| United Kingdom | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
 | Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
 | &nbsp; | Leste da Ásia | Sudeste Asiático |
@@ -210,6 +210,6 @@ Armazenamentos de dados diferentes têm sistemas de tipo nativo diferentes. A At
 
 O mapeamento de um sistema de tipo nativo para o tipo .NET do armazenamento de dados está no respectivo artigo sobre armazenamento de dados. (Clique no link específico da tabela Repositórios de dados com suporte). Você pode usar esses mapeamentos para determinar os tipos apropriados ao criar tabelas para que a Atividade de Cópia execute as conversões certas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a Atividade de Cópia, consulte [Copiar dados de armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para saber mais sobre como mover dados de um repositório de dados local para um repositório de dados na nuvem, confira [Mover dados de repositórios de dados locais para repositórios de dados na nuvem](data-factory-move-data-between-onprem-and-cloud.md).

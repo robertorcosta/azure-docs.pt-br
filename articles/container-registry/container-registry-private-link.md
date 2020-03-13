@@ -3,12 +3,12 @@ title: Configurar link privado
 description: Configurar um ponto de extremidade privado em um registro de contêiner e habilitar um link privado em uma rede virtual local
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: b7dcf2d1eb1a77ea8b9660318ed2a7d4ec183b42
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 57c2a59ad8b16c39c7c577173feae68dcb263277
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128391"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203348"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configurar o link privado do Azure para um registro de contêiner do Azure 
 
@@ -25,10 +25,17 @@ Esse recurso está disponível na camada de serviço do registro de contêiner *
 
 * No momento, você não pode configurar um link privado com um ponto de extremidade privado em um [registro com replicação geográfica](container-registry-geo-replication.md). 
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Para usar as etapas de CLI do Azure neste artigo, é recomendável CLI do Azure versão 2.2.0 ou posterior. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli]. Ou execute em [Azure cloud Shell](../cloud-shell/quickstart.md).
-* Se você ainda não tiver um registro de contêiner, crie um (camada Premium necessária) e envie por push uma imagem de exemplo, como `hello-world` do Hub do Docker. Por exemplo, use o [portal do Azure][quickstart-portal] ou o [CLI do Azure][quickstart-cli] para criar um registro. 
+* Se você ainda não tiver um registro de contêiner, crie um (camada Premium necessária) e envie por push uma imagem de exemplo, como `hello-world` do Hub do Docker. Por exemplo, use o [portal do Azure][quickstart-portal] ou o [CLI do Azure][quickstart-cli] para criar um registro.
+* Se você quiser configurar o acesso ao registro usando um link privado em uma assinatura do Azure diferente, será necessário registrar o provedor de recursos para o registro de contêiner do Azure nessa assinatura. Por exemplo:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of private link>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 Os exemplos de CLI do Azure neste artigo usam as seguintes variáveis de ambiente. Substitua os valores apropriados para seu ambiente. Todos os exemplos são formatados para o shell bash:
 
@@ -259,11 +266,11 @@ As etapas a seguir pressupõem que você já tenha uma rede virtual e uma sub-re
 1. Selecione **+ ponto de extremidade privado**.
 1. Na guia **noções básicas** , insira ou selecione as seguintes informações:
 
-    | Configuração | {1&gt;Valor&lt;1} |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
-    | Assinatura | Selecione sua assinatura. |
-    | Grupo de recursos | Insira o nome de um grupo existente ou crie um novo.|
+    | Subscription | Selecione sua assinatura. |
+    | Resource group | Insira o nome de um grupo existente ou crie um novo.|
     | **Detalhes da instância** |  |
     | Nome | Insira um nome exclusivo. |
     |Região|Selecione uma região.|
@@ -271,10 +278,10 @@ As etapas a seguir pressupõem que você já tenha uma rede virtual e uma sub-re
 5. Selecione **Avançar: recurso**.
 6. Insira ou selecione as seguintes informações:
 
-    | Configuração | {1&gt;Valor&lt;1} |
+    | Configuração | Valor |
     | ------- | ----- |
     |Método de conexão  | Selecione **conectar a um recurso do Azure em meu diretório**.|
-    | Assinatura| Selecione sua assinatura. |
+    | Subscription| Selecione sua assinatura. |
     | Tipo de recurso | Selecione **Microsoft. ContainerRegistry/registros**. |
     | Recurso |Selecione o nome do registro|
     |Subrecurso de destino |Selecionar **registro**|
@@ -282,13 +289,13 @@ As etapas a seguir pressupõem que você já tenha uma rede virtual e uma sub-re
 7. Selecione **Avançar: configuração**.
 8. Insira ou selecione as informações:
 
-    | Configuração | {1&gt;Valor&lt;1} |
+    | Configuração | Valor |
     | ------- | ----- |
     |**Rede**| |
     | Rede virtual| Selecione a rede virtual na qual sua máquina virtual está implantada, como *myDockerVMVNET*. |
     | Sub-rede | Selecione uma sub-rede, como *myDockerVMSubnet* , em que sua máquina virtual é implantada. |
     |**Integração do DNS privado**||
-    |Integrar com a zona DNS privado |Selecione **Sim**. |
+    |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. |
     |Zona DNS privado |Selecionar *(novo) privatelink.azurecr.Io* |
     |||
 
@@ -370,7 +377,7 @@ az group delete --name $resourceGroup
 
 Para limpar seus recursos no portal, navegue até o grupo de recursos. Depois que o grupo de recursos for carregado, clique em **excluir grupo de recursos** para remover o grupo de recursos e os recursos armazenados nele.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre o link privado, consulte a documentação do [link privado do Azure](../private-link/private-link-overview.md) .
 * Uma alternativa ao link privado é configurar as regras de acesso à rede para restringir o acesso ao registro. Para saber mais, confira [restringir o acesso a um registro de contêiner do Azure usando uma rede virtual do Azure ou regras de firewall](container-registry-vnet.md).

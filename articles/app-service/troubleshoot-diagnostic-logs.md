@@ -1,19 +1,19 @@
 ---
-title: Habilite o log de diagnósticos
+title: Habilitar o registro em log de diagnóstico
 description: Saiba como habilitar o log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985927"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280463"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O Azure fornece diagnósticos internos para auxiliar na depuração de um [aplicativo de Serviço de Aplicativo](overview.md). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
 Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -23,7 +23,7 @@ Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure p
 >
 >
 
-|Tipo|Plataforma|Local|Description|
+|Type|Plataforma|Location|DESCRIÇÃO|
 |-|-|-|-|
 | Registro em log do aplicativo | Windows, Linux | Sistema de arquivos do serviço de aplicativo e/ou BLOBs de armazenamento do Azure | Registra as mensagens geradas pelo código do aplicativo. As mensagens podem ser geradas pela estrutura da Web que você escolher ou do código do aplicativo diretamente usando o padrão de log padrão do seu idioma. Cada mensagem recebe uma das seguintes categorias: **crítico**, **erro**, **aviso**, **informações**, **depuração**e **rastreamento**. Você pode selecionar o quão detalhado deseja que o log seja definindo o nível de severidade ao habilitar o log do aplicativo.|
 | Log do servidor Web| Windows | Sistema de arquivos do serviço de aplicativo ou BLOBs de armazenamento do Azure| Dados de solicitação HTTP brutos no [formato de arquivo de log estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de log inclui dados como o método HTTP, o URI de recurso, o IP do cliente, a porta do cliente, o agente do usuário, o código de resposta e assim por diante. |
@@ -163,7 +163,7 @@ Para aplicativos do Linux/contêiner, o arquivo ZIP contém logs de saída do co
 
 Para aplicativos do Windows, o arquivo ZIP contém o conteúdo do diretório *D:\Home\LogFiles* no sistema de arquivos do serviço de aplicativo. Ele contém a seguinte estrutura:
 
-| Tipo de log | Diretório | Description |
+| Tipo de log | Diretório | DESCRIÇÃO |
 |-|-|-|
 | **Logs de aplicativo** |*/LogFiles/Application/* | Contém um ou mais arquivos de texto. O formato das mensagens de log depende do provedor de log que você usa. |
 | **Rastreamentos de solicitação com falha** | */LogFiles/W3SVC # # # # # # # # #/* | Contém arquivos XML e um arquivo XSL. Você pode exibir os arquivos XML formatados no navegador. |
@@ -182,14 +182,14 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Suporte do Windows | Suporte para Linux (Docker) | Description |
+| Tipo de log | Suporte do Windows | Suporte para Linux (Docker) | DESCRIÇÃO |
 |-|-|-|
-| AppServiceConsoleLogs | A ser definido | Sim | Saída padrão e erro padrão |
+| AppServiceConsoleLogs | TBA | Sim | Saída padrão e erro padrão |
 | AppServiceHTTPLogs | Sim | Sim | Logs do Web Server |
 | AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
 | AppServiceAuditLogs | Sim | Sim | Atividade de logon via FTP e kudu |
-| AppServiceFileAuditLogs | A ser definido | Sim | Alterações de arquivo via FTP e kudu |
-| AppServiceAppLogs | A ser definido | Java SE & Tomcat | Logs de aplicativo |
+| AppServiceFileAuditLogs | TBA | Sim | Alterações de arquivo via FTP e kudu |
+| AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativo |
 
 ## <a name="nextsteps"></a> Próximas etapas
 * [Logs de consulta com Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

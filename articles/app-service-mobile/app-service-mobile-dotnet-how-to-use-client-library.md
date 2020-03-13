@@ -7,11 +7,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374009"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249367"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como usar o cliente gerenciado para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -84,7 +84,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 No código anterior, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel, que está localizada na folha de back-end de seu Aplicativo Móvel no [Azure portal]. O objeto MobileServiceClient deve ser um singleton.
 
 ## <a name="work-with-tables"></a>Trabalhar com tabelas
-A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e modificar os dados na tabela.  Os seguintes tópicos são abordados:
+A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e modificar os dados na tabela.  Veja os tópicos que serão abordados:
 
 * [Criar uma referência de tabela](#instantiating)
 * [Consultar dados](#querying)
@@ -625,7 +625,7 @@ Dois fluxos de autenticação têm suporte: fluxo *gerenciado pelo cliente* e fl
 
 Para configurar a autenticação, você precisa registrar seu aplicativo com um ou mais provedores de identidade.  O provedor de identidade gera uma ID de cliente e um segredo do cliente para seu aplicativo.  Esses valores são definidos no seu back-end para habilitar a autenticação/autorização de Serviço de Aplicativo do Azure.  Para saber mais, siga as instruções detalhadas no tutorial [Adicionar autenticação ao seu aplicativo].
 
-Os seguintes tópicos são abordados nesta seção:
+Os tópicos a seguir são abordados nesta seção:
 
 * [Autenticação gerenciada pelo cliente](#clientflow)
 * [Autenticação gerenciada pelo servidor](#serverflow)

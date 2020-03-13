@@ -9,11 +9,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 7b7a3a0a87996358436df9f7ee4a266574c0b7db
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385519"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283336"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center
 
@@ -171,7 +171,7 @@ Para adicionar usuários à sua conta do Partner Center que já existe na conta 
 \* Se você selecionar mais de um usuário para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários usuários com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3. Quando terminar de escolher usuários, clique em **Adicionar selecionado**.
 4. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para os usuários selecionados.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 #### <a name="create-new-users"></a>Criar novos usuários
 
@@ -183,7 +183,7 @@ Para criar contas de usuário totalmente novas, você deve ter uma conta com per
 1. Se tiver marcado a caixa para **tornar esse usuário um administrador global**, você precisará fornecer um **email de recuperação de senha** para que o usuário recupere sua senha, se necessário.
 1. Na seção **Associação de grupo** , selecione os grupos aos quais você deseja que o novo usuário pertença.
 1. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o usuário.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 A criação de um novo usuário no Partner Center também criará uma conta para esse usuário na conta de trabalho (locatário do Azure AD) na qual você está conectado. Fazer alterações no nome de um usuário no Partner Center fará as mesmas alterações na conta corporativa da sua organização (locatário do Azure AD).
 
@@ -194,7 +194,7 @@ Para convidar usuários que atualmente não fazem parte de sua conta de trabalho
 1. Vá para **usuários** (em **configurações de conta**), selecione **Adicionar usuários**e, em seguida, escolha **convidar usuários por email**.
 2. Insira um ou mais endereços de email (até dez), separados por vírgulas ou pontos-e-vírgulas.
 3. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o usuário.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 Os usuários que você convidou receberão um convite por email para ingressar na sua conta do Partner Center. Uma nova conta de usuário convidado será criada em sua conta corporativa (locatário do Azure AD). Cada usuário precisará aceitar seu convite antes que possa acessar sua conta.
 
@@ -228,7 +228,7 @@ Para adicionar um grupo que já existe na conta corporativa da sua organização
 Se você selecionar mais de um grupo para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários grupos com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3. Quando terminar de escolher grupos, clique em **Adicionar selecionado**.
 4. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para os grupos selecionados. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar ao grupo, independentemente das funções e permissões associadas à sua conta individual.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 Quando você adiciona um grupo existente, todos os usuários que são membros desse grupo poderão acessar sua conta do Partner Center, com as permissões associadas à função atribuída do grupo.
 
@@ -242,7 +242,7 @@ Para adicionar um grupo novo à marca à sua conta do Partner Center:
 4. Especifique a (s) função (ões) ou as permissões personalizadas para o grupo. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar aqui, independentemente das funções/permissões associadas à sua conta individual.
 5. Selecione usuário (s) para o novo grupo na lista que aparece. Você pode usar a caixa de pesquisa para procurar usuários específicos.
 6. Quando terminar de selecionar usuários, clique em **Adicionar selecionado** para adicioná-los ao novo grupo.
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 Observe que esse novo grupo será criado na conta corporativa da sua organização (locatário do Azure AD) também, não apenas na sua conta do Partner Center.
 
@@ -262,7 +262,7 @@ Para adicionar aplicativos que já existem no Azure Active Directory da sua empr
 2. Selecione um ou mais aplicativos do Azure AD na lista exibida. Você pode usar a caixa de pesquisa para procurar aplicativos específicos do Azure AD. Se você selecionar mais de um aplicativo do Azure AD para adicionar à sua conta do Partner Center, deverá atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários aplicativos do Azure AD com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3. Quando terminar de selecionar aplicativos do Azure AD, clique em **Adicionar selecionado**.
 4. Na seção **funções** , especifique a (s) função (ões) ou permissões personalizadas para os aplicativos do Azure ad selecionados.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 #### <a name="add-new-azure-ad-applications"></a>Adicionar novos aplicativos do Azure AD
 
@@ -273,7 +273,7 @@ Se você quiser conceder acesso à central de parceiros a uma conta de aplicativ
 3. Insira a **URL de resposta** para o novo aplicativo do Azure AD. Essa é a URL em que os usuários podem entrar e usar seu aplicativo do Azure AD (às vezes, também conhecido como URL do aplicativo ou URL de logon). A **URL de resposta** não pode ter mais de 256 caracteres e deve ser exclusiva em seu diretório.
 4. Insira o **URI da ID do aplicativo** para o novo aplicativo do Azure AD. Esse é um identificador lógico para o aplicativo do Azure AD que é apresentado quando uma solicitação de logon único é enviada ao Azure AD. Observe que o **URI da ID do aplicativo** deve ser exclusivo para cada aplicativo do Azure AD em seu diretório. Esta ID não pode ter mais de 256 caracteres. Para obter mais informações sobre o URI da ID do aplicativo, consulte [integrando aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5. Na seção **funções** , especifique a (s) função (ões) ou as permissões personalizadas para o aplicativo do Azure AD.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 Depois de adicionar ou criar um aplicativo do Azure AD, você pode retornar à seção **usuários** e selecionar o nome do aplicativo para examinar as configurações do aplicativo, incluindo a ID do locatário, a ID do cliente, a URL de resposta e o URI da ID do aplicativo.
 
@@ -352,6 +352,6 @@ A seção **contratos** do Partner Center (em **configurações de conta**) perm
 
 As **ações necessárias** podem aparecer na parte superior desta página se houver atualizações de contrato que precisam de sua atenção. Para aceitar um contrato atualizado, primeiro leia a versão do contrato vinculado e, em seguida, selecione **aceitar contrato**.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma oferta de SaaS](./create-new-saas-offer.md)

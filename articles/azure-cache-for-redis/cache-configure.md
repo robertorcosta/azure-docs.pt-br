@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714645"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278734"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -49,7 +49,7 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Propriedades](#properties)
     * [Bloqueios](#locks)
     * [Script de automação](#automation-script)
-* {1&gt;Administração&lt;1}
+* Administração
     * [Importar dados](#importexport)
     * [Exportar Dados](#importexport)
     * [Reboot](#reboot)
@@ -288,7 +288,7 @@ Clique em **Script de automação** para compilar e exportar um modelo de seus r
 ## <a name="administration-settings"></a>Configurações de administração
 As configurações na seção **Administração** permitem que você execute as tarefas administrativas a seguir para seu cache.
 
-![{1&gt;Administração&lt;1}](./media/cache-configure/redis-cache-administration.png)
+![Administração](./media/cache-configure/redis-cache-administration.png)
 
 * [Importar dados](#importexport)
 * [Exportar Dados](#importexport)
@@ -386,7 +386,7 @@ Novas instâncias de Cache do Azure para Redis são configuradas com os seguinte
 >
 >
 
-| Configuração | Valor padrão | Descrição |
+| Configuração | Valor padrão | DESCRIÇÃO |
 | --- | --- | --- |
 | `databases` |16 |O número de bancos de dados padrão é 16, mas você pode configurar um número diferente com base no tipo de preço.<sup>1</sup> O banco de dados padrão é o DB 0; você poderá selecionar um diferente por conexão usando `connection.GetDatabase(dbid)`, em que `dbid` é um número entre `0` e `databases - 1`. |
 | `maxclients` |Depende do tipo de preço<sup>2</sup> |Esse valor é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido o Redis fecha todas as novas conexões, retornando um erro de 'número máximo de clientes atingido'. |
@@ -504,5 +504,5 @@ Você pode mover o cache para uma nova assinatura clicando em **Mover**.
 
 Para saber mais sobre como mover os recursos de um grupo de recursos para outro, e de uma assinatura para outra, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Para obter mais informações sobre como trabalhar com os comandos do Redis, consulte [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)

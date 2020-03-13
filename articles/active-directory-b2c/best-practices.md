@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6c737af85e2a7205dca6a56174dfda565da1410d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304388"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136152"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e práticas recomendadas para Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Durante a fase de implementação, considere as recomendações a seguir.
 
 |  |  |
 |--|--|
-| Editar políticas personalizadas com a extensão de Azure AD B2C para Visual Studio Code | Baixe Visual Studio Code e essa extensão criada pela Comunidade [do Visual Studio Code Marketplace]((https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)). Embora não seja um produto oficial da Microsoft, a extensão de Azure AD B2C para Visual Studio Code inclui vários recursos que ajudam a facilitar o trabalho com políticas personalizadas. |
+| Editar políticas personalizadas com a extensão de Azure AD B2C para Visual Studio Code | Baixe Visual Studio Code e essa extensão criada pela Comunidade [do Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Embora não seja um produto oficial da Microsoft, a extensão de Azure AD B2C para Visual Studio Code inclui vários recursos que ajudam a facilitar o trabalho com políticas personalizadas. |
 | Saiba como solucionar problemas Azure AD B2C | Saiba como [solucionar problemas de políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante o desenvolvimento. Saiba o que é um fluxo de autenticação normal e use as ferramentas para descobrir erros e anomalias. Por exemplo, use [Application insights](troubleshoot-with-application-insights.md) para examinar os logs de saída de percursos do usuário. |
 | Aproveite nossa biblioteca de padrões de política personalizada comprovada | Encontre [exemplos](https://github.com/azure-ad-b2c/samples) de vários percursos de usuário do CIAM (gerenciamento de identidade e acesso) de clientes Azure ad B2C aprimorados. |
 

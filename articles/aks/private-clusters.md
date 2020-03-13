@@ -4,100 +4,23 @@ description: Saiba como criar um cluster do AKS (serviço de kubernetes do Azure
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: b8b4f8062d9f60648e22ab4eb0be78eb47159834
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205182"
 ---
-# <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado do serviço kubernetes do Azure (versão prévia)
+# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster particular do serviço kubernetes do Azure
 
 Em um cluster privado, o plano de controle ou o servidor de API tem endereços IP internos que são definidos no documento [alocação de endereço RFC1918 para Internet privada](https://tools.ietf.org/html/rfc1918) . Usando um cluster privado, você pode garantir que o tráfego de rede entre o servidor de API e os pools de nós permaneça apenas na rede privada.
 
 O plano de controle ou o servidor de API está em uma assinatura do Azure gerenciada pelo AKS (serviço de kubernetes do Azure). O cluster ou o pool de nós de um cliente está na assinatura do cliente. O servidor e o cluster ou pool de nós podem se comunicar entre si por meio do [serviço de vínculo privado do Azure][private-link-service] na rede virtual do servidor de API e um ponto de extremidade privado exposto na sub-rede do cluster AKs do cliente.
 
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são de autoatendimento e são oferecidos de acordo com a aceitação. As visualizações são fornecidas *como estão* e disponíveis e são excluídas do SLA (contrato de nível de serviço) e *da* garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente em uma base de *melhor esforço* . Portanto, os recursos não são destinados ao uso em produção. Para obter mais informações, consulte os seguintes artigos de suporte:
->
-> * [Políticas de suporte do AKS](support-policies.md)
-> * [Perguntas frequentes sobre o suporte do Azure.](faq.md)
-
 ## <a name="prerequisites"></a>Prerequisites
 
-* O CLI do Azure versão 2.0.77 ou posterior e a versão de extensão de visualização CLI do Azure AKS 0.4.18
+* O CLI do Azure versão 2.2.0 ou posterior
 
-## <a name="currently-supported-regions"></a>Regiões com suporte no momento
-
-* Leste da Austrália
-* Sudeste da Austrália
-* Sul do Brasil
-* Canadá Central
-* Leste do Canadá
-* Cenral nós
-* Leste da Ásia
-* Leste dos EUA
-* Leste dos EUA 2
-* Leste dos EUA 2 EUAP
-* França Central
-* Norte da Alemanha
-* Leste do Japão
-* Oeste do Japão
-* Coreia Central
-* Sul da Coreia
-* Centro-Norte dos EUA
-* Norte da Europa
-* Norte da Europa
-* Centro-Sul dos Estados Unidos
-* Sul do Reino Unido
-* Europa Ocidental
-* Oeste dos EUA
-* Oeste dos EUA 2
-* Leste dos EUA 2
-
-## <a name="currently-supported-availability-zones"></a>Zonas de Disponibilidade atualmente com suporte
-
-* Centro dos EUA
-* Leste dos EUA
-* Leste dos EUA 2
-* França Central
-* Leste do Japão
-* Norte da Europa
-* Sudeste Asiático
-* Sul do Reino Unido
-* Europa Ocidental
-* Oeste dos EUA 2
-
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalar a extensão mais recente do CLI do Azure AKS Preview
-
-Para usar clusters privados, você precisa do CLI do Azure extensão de visualização AKS versão 0.4.18 ou posterior. Instale a extensão de visualização do CLI do Azure AKS usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o seguinte comando [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-> [!CAUTION]
-> Quando você registra um recurso em uma assinatura, não é possível cancelar o registro desse recurso no momento. Depois de habilitar alguns recursos de visualização, você pode usar as configurações padrão para todos os clusters AKS que foram criados na assinatura. Não habilite os recursos de visualização em assinaturas de produção. Use uma assinatura separada para testar recursos de visualização e coletar comentários.
-
-```azurecli-interactive
-az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-```
-
-Pode levar vários minutos para que o status do registro seja exibido como *registrado*. Você pode verificar o status usando o seguinte comando de [lista de recursos do AZ][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o estado for registrado, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o seguinte comando [AZ Provider Register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-az provider register --namespace Microsoft.Network
-```
 ## <a name="create-a-private-aks-cluster"></a>Criar um cluster AKS privado
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -159,6 +82,7 @@ Conforme mencionado, o emparelhamento VNet é uma maneira de acessar seu cluster
 9. Vá para a rede virtual onde você tem a VM, selecione **emparelhamentos**, selecione a rede virtual AKs e, em seguida, crie o emparelhamento. Se os intervalos de endereços na rede virtual AKS e o conflito de rede virtual da VM, o emparelhamento falhará. Para obter mais informações, consulte [emparelhamento de rede virtual][virtual-network-peering].
 
 ## <a name="dependencies"></a>Dependências  
+
 * O serviço de vínculo privado tem suporte somente no Azure Load Balancer padrão. Não há suporte para Azure Load Balancer básica.  
 * Para usar um servidor DNS personalizado, implante um servidor do AD com o DNS para encaminhar para este IP 168.63.129.16
 
@@ -173,7 +97,6 @@ Conforme mencionado, o emparelhamento VNet é uma maneira de acessar seu cluster
 * Não há suporte para converter clusters AKS existentes em clusters privados
 * Excluir ou modificar o ponto de extremidade privado na sub-rede do cliente fará com que o cluster pare de funcionar. 
 * No momento, não há suporte para Azure Monitor para contêineres de dados dinâmicos.
-* Não há suporte para *traga seu próprio DNS* no momento.
 
 
 <!-- LINKS - internal -->

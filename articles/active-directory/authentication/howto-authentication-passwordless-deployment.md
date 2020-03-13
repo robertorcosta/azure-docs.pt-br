@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc8a62bd75a01cb6b7184cb52585c4f8b08cadb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378271"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136527"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
@@ -51,7 +51,7 @@ A Microsoft oferece três opções de autenticação com senha que abrangem muit
 
 Os métodos de autenticação com senha da Microsoft permitem diferentes cenários. Considere suas necessidades organizacionais, pré-requisitos e os recursos de cada método de autenticação para selecionar sua estratégia de autenticação com senha. Recomendamos que todas as organizações que usam dispositivos Windows 10 usem o Windows Hello para empresas. Em seguida, adicione uma entrada do telefone (com o aplicativo Microsoft Authenticator) ou chaves de segurança para cenários adicionais.
 
-| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello para Empresas |
+| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello for Business |
 | --- | --- | --- | --- |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 atribuído | **Não** | **Sim** <br> Com biométrica, PIN | **Sim**<br>com reconhecimento biométrico e PIN |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 compartilhado | **Não** | **Sim** <br> Com biométrica, PIN  | **Não** |
@@ -61,7 +61,7 @@ Os métodos de autenticação com senha da Microsoft permitem diferentes cenári
 
 Para obter informações sobre como selecionar o melhor método para sua organização, consulte [decidindo um método com senha](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#deciding-a-passwordless-method).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 As organizações devem atender aos seguintes pré-requisitos antes de iniciar uma implantação com senha:
 
@@ -93,7 +93,7 @@ Considere suas necessidades de negócios e os casos de uso para cada método de 
 
 A tabela a seguir descreve os casos de uso a serem implementados durante este projeto.
 
-| Área | Descrição |
+| Área | DESCRIÇÃO |
 | --- | --- |
 | **Access** | A entrada sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de uso estão disponíveis para que os administradores sejam auditados quase em tempo real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias ou a ferramenta SIEM é usada. |
@@ -130,7 +130,7 @@ Consulte [práticas recomendadas para um piloto](https://aka.ms/deploymentplans)
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planejar a autenticação sem senha com o aplicativo Microsoft Authenticator
 
-O aplicativo Microsoft Authenticator é um download gratuito do Google Play ou da Apple App Store. [Saiba mais sobre como baixar o aplicativo Microsoft Authenticator](https://www.microsoft.com/account/authenticator?cmp=h66ftb_42hbak). Fazer com que os usuários baixem o aplicativo Microsoft Authenticator. e siga as instruções para habilitar a entrada pelo telefone. 
+O aplicativo Microsoft Authenticator é um download gratuito do Google Play ou da Apple App Store. [Saiba mais sobre como baixar o aplicativo Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Fazer com que os usuários baixem o aplicativo Microsoft Authenticator. e siga as instruções para habilitar a entrada pelo telefone. 
 
 Ele transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários entram em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando a biometria ou um PIN para confirmar. [Veja detalhes sobre como o aplicativo Microsoft Authenticator funciona](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in). 
 
@@ -292,7 +292,7 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Função do Azure AD | Descrição |
+| Função do Azure AD | DESCRIÇÃO |
 | --- | --- |
 | Administrador global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação. |
@@ -326,7 +326,7 @@ Siga as etapas descritas no artigo [habilitar a entrada de chave de segurança s
 | O usuário não pode gerenciar minha chave de segurança no Windows 10 versão 1809 | A versão 1809 requer que você use o software de gerenciamento de chaves de segurança fornecido pelo fornecedor de chave FIDO2. Contate o fornecedor para obter suporte. |
 | Acho que minha chave de segurança do FIDO2 pode ser defeituosa – como posso testá-la. | Navegue até [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), insira as credenciais para uma conta de teste, conecte a chave de segurança suspeita, selecione o botão **+** na parte superior direita da tela, clique em criar e passe pelo processo de criação. Se esse cenário falhar, o dispositivo poderá estar com defeito. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Habilitar chaves de segurança sem senha para entrar no Azure AD](howto-authentication-passwordless-security-key.md)
 - [Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)

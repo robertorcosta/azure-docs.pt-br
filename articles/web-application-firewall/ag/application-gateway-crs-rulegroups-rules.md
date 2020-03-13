@@ -9,11 +9,11 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075366"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279241"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall do aplicativo Web
 
@@ -94,7 +94,7 @@ O CRS 2.2.9 inclui 10 grupos de regras, conforme mostrado na tabela a seguir. Ca
 
 As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall do aplicativo Web no gateway de aplicativo.
 
-# <a name="owasp-31tabowasp31"></a>[OWASP 3,1](#tab/owasp31)
+# <a name="owasp-31"></a>[OWASP 3,1](#tab/owasp31)
 
 ## <a name="owasp31"></a>Conjuntos de regras
 
@@ -255,7 +255,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941150|Filtro XSS - Categoria 5 = atributos HTML não permitidos|
 |941160|NoScript XSS InjectionChecker: injeção de HTML|
 |941170|NoScript XSS InjectionChecker: injeção de atributo|
-|941180|Palavras-chave da lista de bloqueios do validador de nós|
+|941180|Palavras-chave da lista negra do validador de nós|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|
@@ -340,7 +340,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |944130|Classes Java suspeitas|
 |944200|Exploração da desserialização do Java Apache Commons|
 
-# <a name="owasp-30tabowasp30"></a>[OWASP 3.0](#tab/owasp30)
+# <a name="owasp-30"></a>[OWASP 3,0](#tab/owasp30)
 
 ## <a name="owasp30"></a>Conjuntos de regras
 
@@ -482,7 +482,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941130|Filtro XSS - Categoria 3 = vetor de atributo|
 |941140|Filtro XSS - Categoria 4 = Vector de URI de Javascript|
 |941150|Filtro XSS - Categoria 5 = atributos HTML não permitidos|
-|941180|Palavras-chave da lista de bloqueios do validador de nós|
+|941180|Palavras-chave da lista negra do validador de nós|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|
@@ -540,7 +540,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |943110|Possível ataque de fixação da sessão = nome do parâmetro de SessionID com referenciador fora do domínio|
 |943120|Possível ataque de fixação da sessão = nome do parâmetro de SessionID sem referenciador|
 
-# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+# <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
 ## <a name="owasp229"></a>Conjuntos de regras
 

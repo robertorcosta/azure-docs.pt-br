@@ -4,11 +4,11 @@ description: Azure Notebooks projetos de visualização gerenciam uma coleção 
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646238"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280567"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos no Azure Notebooks Preview
 
@@ -26,7 +26,7 @@ Seu painel **Meus Projetos** em `https://notebooks.azure.com/<userID>/projects` 
 
 O que você pode fazer no painel depende se você estiver conectado com a conta que possui a ID de usuário:
 
-| Comando | Disponível para | Description |
+| Comando | Disponível para | DESCRIÇÃO |
 | --- | --- | --- |
 | **Executar** | Proprietário | Inicia o servidor de projeto e abre a pasta do projeto no Jupyter. (mais comumente, você primeiro navegar em uma pasta de projeto e iniciar um notebook a partir daí.) |
 | **Download** | Qualquer pessoa | Baixa uma cópia do projeto selecionado como um arquivo ZIP. |
@@ -57,7 +57,7 @@ Se você não tiver um projeto do Microsoft Azure Notebooks, você pode criar um
 
 Quando você usa o comando **+ Novo projeto**, o Microsoft Azure Notebooks exibem uma janela pop-up **Criar Novo Projeto**. Nessa janela pop-up, insira as informações a seguir, em seguida, selecione **Criar**:
 
-| Campo | Description |
+| Campo | DESCRIÇÃO |
 | --- | --- |
 | Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "meu projeto de notebook". |
 | Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
@@ -70,10 +70,10 @@ As palavras reservadas a seguir não podem ser usadas por si mesmas como IDs de 
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| sobre | account | administração | api | blog | sala de aula |
-| content | painel Transações da Web | explorar | faq | ajuda | html |
+| sobre | account | administração | api | blog da equipe | turma |
+| content | painel Transações da Web | apresenta | faq | ajuda | html |
 | inicial | importar | biblioteca | gerenciamento | novo | notebook |
-| notebooks | pdf | versão prévia | preços | Perfil | pequisa |
+| notebooks | pdf | preview | preços | Perfil | pequisa |
 | status | suporte | test | | | |
 
 Se você tentar usar uma dessas palavras como uma ID do projeto, os pop-up **criar novo projeto** e **configurações do projeto** indicarão "a ID da biblioteca é um identificador reservado".
@@ -84,7 +84,7 @@ Como uma ID de projeto também faz parte da URL de um projeto, o software bloque
 
 Você pode importar facilmente um repositório do GitHub público inteiro como um projeto, incluindo todos os dados e arquivos *README.md*. Use **Carregar Repositório do GitHub** de comando, forneça os detalhes a seguir na janela pop-up e selecione **Importar**:
 
-| Campo | Description |
+| Campo | DESCRIÇÃO |
 | --- | --- |
 | Repositório GitHub | O nome do repositório de origem em github.com. Por exemplo, para clonar os blocos de anotações do Jupyter para os serviços Cognitivos do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), insira "Microsoft/cognitive-services-notebooks".  |
 | Clonar recursivamente | Repositórios do GitHub podem conter vários repositórios filho. Defina essa opção se você deseja clonar o repositório pai e todos os seus filhos. Como é possível que um repositório tenha muitos filhos, deixe essa opção não criptografada, a menos que você saiba que ele precisa. |
@@ -110,7 +110,7 @@ Pra clonar um projeto:
 
 1. Depois de selecionar o botão **Clone**, o Azure Notebooks navega diretamente para a cópia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Explorar notebooks de exemplo](azure-notebooks-samples.md)
 - [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)

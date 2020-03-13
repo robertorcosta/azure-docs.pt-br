@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: b0b398be919364b5a146e86ca1a1790674bb7d01
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395761"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275016"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
@@ -71,7 +71,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 ## <a name="essentials"></a>Conceitos básicos
 
-| Campo | Descrição|
+| Campo | DESCRIÇÃO|
 |:---|:---|
 | alertId | O GUID que identifica exclusivamente a instância de alerta. |
 | alertRule | O nome da regra de alerta que gerou a instância de alerta. |
@@ -83,7 +83,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 | originAlertId | A ID da instância de alerta, conforme gerado pelo serviço de monitoramento que a gera. |
 | firedDateTime | A data e a hora em que a instância de alerta foi acionada no UTC (tempo Universal Coordenado). |
 | resolvedDateTime | A data e a hora em que a condição do monitor para a instância de alerta está definida como **resolvida** em UTC. Atualmente aplicável somente a alertas de métricas.|
-| description | A descrição, conforme definido na regra de alerta. |
+| descrição | A descrição, conforme definido na regra de alerta. |
 |essentialsVersion| O número de versão da seção Essentials.|
 |alertContextVersion | O número de versão para a seção `alertContext`. |
 
@@ -479,7 +479,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
 - Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 

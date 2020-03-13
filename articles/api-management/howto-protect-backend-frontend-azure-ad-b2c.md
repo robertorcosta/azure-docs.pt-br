@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ae776fc3fb1f9eb4b7fa9747f2769dcccb25e042
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967625"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136339"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteger o back-end SPA com OAuth 2,0, Azure Active Directory B2C e gerenciamento de API do Azure
 
@@ -31,7 +31,7 @@ Vamos ver como o gerenciamento de API pode ser usado em um cenário simplificado
 
 Para uma defesa profunda, usamos EasyAuth para validar o token novamente dentro da API de back-end.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 Para seguir as etapas deste artigo, você precisa ter:
 * Uma conta de armazenamento do Azure (StorageV2) Uso Geral v2 para hospedar o aplicativo de página única do front-end JS
 * Uma instância de gerenciamento de API do Azure 
@@ -250,7 +250,7 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
 
    > [!NOTE]
    > A seção a seguir é opcional e não se aplica à camada de **consumo** , que não dá suporte ao portal do desenvolvedor.
-   > Se você não pretende usar o portal do desenvolvedor ou não pode usá-lo já que está usando a camada de consumo, ignore esta etapa e vá diretamente para ["criar o JavaScript Spa para consumir a API"](##build-the-javascript-spa-to-consume-the-api).
+   > Se você não pretende usar o portal do desenvolvedor ou não pode usá-lo já que está usando a camada de consumo, ignore esta etapa e vá diretamente para ["criar o JavaScript Spa para consumir a API"](#build-the-javascript-spa-to-consume-the-api).
 
 ## <a name="optional-configure-the-developer-portal"></a>Adicional Configurar o portal do desenvolvedor
 
@@ -457,7 +457,7 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
 ## <a name="and-were-done"></a>E pronto
 As etapas acima podem ser adaptadas e editadas para permitir muitos usos diferentes de Azure AD B2C com o gerenciamento de API.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [Azure Active Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.
 * Para outras maneiras de proteger seu serviço de back-end, confira [Autenticação de certificado mútuo](api-management-howto-mutual-certificates.md).

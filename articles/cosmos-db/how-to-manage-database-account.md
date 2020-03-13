@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873668"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247378"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 
 Este artigo descreve como gerenciar várias tarefas em uma conta do Azure Cosmos usando o portal do Azure, o Azure PowerShell, a CLI do Azure e modelos do Azure Resource Manager.
 
-## <a name="create-an-account"></a>Crie uma conta
+## <a name="create-an-account"></a>Criar uma conta
 
 ### <a id="create-database-account-via-portal"></a>Portal do Azure
 
@@ -27,7 +27,7 @@ Este artigo descreve como gerenciar várias tarefas em uma conta do Azure Cosmos
 
 Consulte [criar uma conta de Azure Cosmos DB com CLI do Azure](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
-### <a id="create-database-account-via-ps"></a>Azure PowerShell
+### <a id="create-database-account-via-ps"></a>PowerShell do Azure
 
 Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-powershell.md#create-account)
 
@@ -59,7 +59,7 @@ Em um modo de gravação de várias regiões, você poderá adicionar ou remover
 
 Consulte [Adicionar ou remover regiões com CLI do Azure](manage-with-cli.md#add-or-remove-regions)
 
-### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
+### <a id="add-remove-regions-via-ps"></a>PowerShell do Azure
 
 Consulte [Adicionar ou remover regiões com o PowerShell](manage-with-powershell.md#update-account)
 
@@ -75,7 +75,7 @@ Abra a guia **Replicar Dados Globalmente** e selecione **Habilitar** para habili
 
 Consulte [habilitar regiões de várias gravações com CLI do Azure](manage-with-cli.md#enable-multiple-write-regions)
 
-### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
+### <a id="configure-multiple-write-regions-ps"></a>PowerShell do Azure
 
 Consulte [habilitar regiões de várias gravações com o PowerShell](manage-with-powershell.md#multi-master)
 
@@ -161,7 +161,7 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
 Consulte [habilitar failover automático com CLI do Azure](manage-with-cli.md#enable-automatic-failover)
 
-### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
+### <a id="enable-automatic-failover-via-ps"></a>PowerShell do Azure
 
 Consulte [habilitar failover automático com o PowerShell](manage-with-powershell.md#enable-automatic-failover)
 
@@ -192,7 +192,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 Consulte [definir a prioridade de failover com CLI do Azure](manage-with-cli.md#set-failover-priority)
 
-### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
+### <a id="set-failover-priorities-via-ps"></a>PowerShell do Azure
 
 Consulte [definir a prioridade de failover com o PowerShell](manage-with-powershell.md#modify-failover-priority)
 
@@ -224,11 +224,11 @@ O processo de execução de um failover manual envolve a alteração da região 
 
 Consulte [disparar failover manual com CLI do Azure](manage-with-cli.md#trigger-manual-failover)
 
-### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
+### <a id="enable-manual-failover-via-ps"></a>PowerShell do Azure
 
 Consulte [disparar failover manual com o PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações e exemplos sobre como gerenciar a conta do Azure Cosmos, bem como o banco de dados e contêineres, leia os seguintes artigos:
 

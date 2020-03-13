@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426709"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282270"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitoramento de desempenho para Reliable Service Remoting
 O runtime do Reliable ServiceRemoting emite [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Esses recursos fornecem informações sobre como o ServiceRemoting está operando e ajudam na solução de problemas e no monitoramento de desempenho.
@@ -19,7 +19,7 @@ O runtime do Reliable ServiceRemoting emite [contadores de desempenho](https://m
 ## <a name="performance-counters"></a>Contadores de desempenho
 O runtime do Reliable ServiceRemoting define as seguintes categorias de contador de desempenho:
 
-| Categoria | Description |
+| Categoria | DESCRIÇÃO |
 | --- | --- |
 | Serviço do Service Fabric |Contadores específicos do Azure Service Fabric Remoting, por exemplo, média de tempo gasto para processar a solicitação |
 | Método de Serviço do Service Fabric |Contadores específicos aos métodos implementados pelo Service Fabric Remoting Service; por exemplo, quantas vezes um método de serviço é invocado |
@@ -74,7 +74,7 @@ No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do méto
 
 O runtime do Reliable Service publica os contadores de desempenho relacionados à execução dos métodos de serviço a seguir.
 
-| Nome da categoria | Nome do contador | Description |
+| Nome da categoria | Nome do contador | DESCRIÇÃO |
 | --- | --- | --- |
 | Método de Serviço do Service Fabric |Invocação/s |Número de vezes que o método de serviço é invocado por segundo |
 | Método de Serviço do Service Fabric |Média de milissegundos por invocação |Tempo usado para executar o método de serviço em milissegundos |
@@ -83,13 +83,13 @@ O runtime do Reliable Service publica os contadores de desempenho relacionados �
 ### <a name="service-request-processing-performance-counters"></a>Solicitação de serviço processando contadores de desempenho
 Quando um cliente chama um método por meio de um objeto de proxy do serviço, isso resulta no envio de uma mensagem de solicitação pela rede para o serviço de comunicação remota. O serviço processa a mensagem de solicitação e envia uma resposta de volta ao cliente. O runtime do Reliable ServiceRemoting publica os seguintes contadores de desempenho relacionados ao processamento de solicitação de serviço.
 
-| Nome da categoria | Nome do contador | Description |
+| Nome da categoria | Nome do contador | DESCRIÇÃO |
 | --- | --- | --- |
 | Serviço do Service Fabric |nº de solicitações pendentes |Número de solicitações sendo processadas no serviço |
 | Serviço do Service Fabric |Média de milissegundos por solicitação |Tempo (em milissegundos) que o serviço leva para processar uma solicitação |
 | Serviço do Service Fabric |Média de milissegundos para desserialização de solicitação |Tempo (em milissegundos) para desserializar a mensagem de solicitação de serviço quando ela é recebida no serviço |
 | Serviço do Service Fabric |Média de milissegundos para serialização de resposta |Tempo (em milissegundos) para serializar a mensagem de resposta do serviço no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Exemplo de código](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

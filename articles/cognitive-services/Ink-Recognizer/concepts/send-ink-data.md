@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274481"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221101"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta para a API de Reconhecimento de Tinta Digital 
 
 Escrita à tinta digital se refere às tecnologias que permitem representações digitais de entrada, como manuscrito e desenhos. Normalmente, isso é feito usando um digitalizador que captura os movimentos de dispositivos de entrada, como uma caneta. Conforme os dispositivos continuam possibilitando experiências sofisticadas de escrita à tinta digital, a inteligência artificial e o aprendizado de máquina permitem o reconhecimento de formas e texto escritos em qualquer contexto. A API de Reconhecimento de Tinta Digital permite que você envie traços de tinta e obtenha informações detalhadas sobre eles. 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>A API de Reconhecimento de Tinta Digital vs. serviços de OCR
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>A API do reconhecedor de tinta vs. serviços de OCR
 
 A API de Reconhecimento de Tinta Digital não usa o OCR (reconhecimento óptico de caracteres). Os serviços de OCR processam os dados de pixel de imagens para fornecer o reconhecimento de manuscrito e texto. Às vezes, isso é chamado de reconhecimento offline. Em vez disso, a API de Reconhecimento de Tinta Digital exige dados de traço de tinta digital capturados conforme o dispositivo de entrada é utilizado. Dessa maneira, o processamento de dados de tinta digital pode produzir resultados de reconhecimento mais precisos comparado aos serviços de OCR. 
 

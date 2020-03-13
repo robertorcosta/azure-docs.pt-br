@@ -10,11 +10,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386866"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279501"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de nuvem privada do VMware
 
@@ -29,7 +29,7 @@ Uma nuvem privada é um ambiente isolado de pilha VMware (hosts ESXi, vCenter, v
 
 Uma nuvem privada VMware Stack é implantada com a seguinte versão de software.
 
-| Componente | {1&gt;Version&lt;1} | Versão licenciada |
+| Componente | Versão | Versão licenciada |
 |-----------|---------|------------------|
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | vCenter padrão |
@@ -117,6 +117,6 @@ O CloudSimple testa um patch de segurança crítico assim que ele se torna dispo
 
 O CloudSimple fornece atualizações de manutenção trimestral para componentes de software VMware. Quando uma nova versão principal do software VMware estiver disponível, o CloudSimple funcionará com os clientes para coordenar uma janela de manutenção adequada para atualização.  
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Manutenção e atualizações do CloudSimple](cloudsimple-maintenance-updates.md)

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082958"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280424"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
@@ -42,7 +42,7 @@ Depois que um consumidor inicia uma conexão, o provedor de serviços pode aceit
 
 Se o serviço de vínculo privado não estiver mais em uso, você poderá excluí-lo. No entanto, antes de excluir o serviço, verifique se não há nenhuma conexão de ponto de extremidade privada associada a ele. Você pode rejeitar todas as conexões e excluir o serviço.
 
-## <a name="properties"></a>{1&gt;Propriedades&lt;1}
+## <a name="properties"></a>Propriedades
 
 Um serviço de vínculo privado especifica as seguintes propriedades: 
 
@@ -104,11 +104,11 @@ Essas informações são codificadas usando um vetor TLV (tipo-tamanho-valor) pe
 
 Detalhes do TLV personalizado:
 
-|Campo |Comprimento (octetos)  |Descrição  |
+|Campo |Comprimento (octetos)  |DESCRIÇÃO  |
 |---------|---------|----------|
-|Tipo  |1        |PP2_TYPE_AZURE (0xEE)|
-|Duração  |2      |Comprimento do valor|
-|{1&gt;Valor&lt;1}  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|Type  |1        |PP2_TYPE_AZURE (0xEE)|
+|Comprimento  |2      |Comprimento do valor|
+|Valor  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bytes) que representa a LINKID do ponto de extremidade privado. Codificado no formato little endian.|
 
  > [!NOTE]
@@ -121,6 +121,6 @@ A seguir estão as limitações conhecidas ao usar o serviço de link privado:
 - Dá suporte apenas ao tráfego IPv4
 - Dá suporte apenas ao tráfego TCP
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - [Criar um serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
 - [Criar um serviço de vínculo privado usando CLI do Azure](create-private-link-service-cli.md)

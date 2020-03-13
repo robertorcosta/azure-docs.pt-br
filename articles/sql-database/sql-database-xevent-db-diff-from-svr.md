@@ -3,7 +3,7 @@ title: Eventos estendidos
 description: Descreve eventos estendidos (XEvents) no Banco de Dados SQL do Azure e como as sessões de eventos diferem ligeiramente das sessões de eventos no Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822293"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213953"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos estendidos no Banco de Dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -34,7 +34,7 @@ Informações adicionais sobre eventos estendidos, para Banco de Dados SQL do Az
 - [Início Rápido: eventos estendidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventos estendidos](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tópico pressupõe que você já tem algum conhecimento de:
 
@@ -86,20 +86,20 @@ O recurso de eventos estendidos recebe suporte de várias [exibições do catál
 | **sys.database_event_session_actions** |Retorna uma linha para cada ação em cada evento de uma sessão de eventos. |
 | **sys.database_event_session_events** |Retorna uma linha para cada evento em uma sessão de eventos. |
 | **sys.database_event_session_fields** |Retorna uma linha para cada coluna personalizável que foi explicitamente definida em eventos e destinos. |
-| **sys.database_event_session_targets** |Retorna uma linha para cada destino de evento em uma sessão de eventos. |
+| **sys.database_event_session_targets** |Retorna uma linha para cada destino de evento em uma sessão de evento. |
 | **sys.database_event_sessions** |Retorna uma linha para cada sessão de eventos no banco de dados do Banco de Dados SQL. |
 
 No Microsoft SQL Server, exibições do catálogo semelhantes têm nomes que incluem *.server\_* em vez de *.database\_* . O nome padrão é **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
 
 O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)](https://msdn.microsoft.com/library/bb677293.aspx) que dão suporte a eventos estendidos. DMVs mostram as sessões de evento *ativas* .
 
 | Nome da DMV | DESCRIÇÃO |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações da sessão de eventos. |
-| **sys.dm_xe_database_session_events** |Retorna informações sobre eventos da sessão. |
-| **sys.dm_xe_database_session_object_columns** |Mostra os valores de configuração para objetos associados a uma sessão. |
+| **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações da sessão de evento. |
+| **sys.dm_xe_database_session_events** |Retorna informações sobre os eventos da sessão. |
+| **sys.dm_xe_database_session_object_columns** |Mostra os valores de configuração de objetos associados a uma sessão. |
 | **sys.dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
 | **sys.dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
 
@@ -171,7 +171,7 @@ O token SAS gerado para o contêiner de Armazenamento do Azure deve especificar 
 
 - Ler
 - Gravar
-- Listar
+- Lista
 
 ## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
@@ -203,7 +203,7 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
     - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
-Outros tópicos com exemplos de código para eventos estendidos estão disponíveis nos links a seguir. No entanto, você deve verificar regularmente os exemplos para ver se eles se destinam ao Microsoft SQL Server ou ao Banco de Dados SQL do Azure. Assim você pode decidir se pequenas alterações são necessárias para a execução do exemplo.
+Outros tópicos com exemplos de código para eventos estendidos estão disponíveis nos links a seguir. No entanto, você deve verificar regularmente os exemplos para ver se eles se destinam ao Microsoft SQL Server ou ao Banco de Dados SQL do Azure. Em seguida, você pode decidir se alterações mínimas são necessárias para realizar o exemplo.
 
 <!--
 ('lock_acquired' event.)

@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3c22f63b7085c7ab8d6b54e383528568dc9c12e7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9ae8f5072573dcc91dd3e8bdcd08968790f6444d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917026"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205203"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Girar certificados no serviço kubernetes do Azure (AKS)
 
@@ -37,7 +37,7 @@ O AKS gera e usa os seguintes certificados, autoridades de certificação e cont
 * O cliente `kubectl` tem um certificado para se comunicar com o cluster AKS.
 
 > [!NOTE]
-> Os clusters AKS criados antes de março de 2019 têm certificados que expiram após dois anos. Qualquer cluster criado após 2019 de março ou qualquer cluster que tenha seus certificados girados tem certificados que expiram após 30 anos. Para verificar quando o cluster foi criado, use `kubectl get nodes` para ver a *idade* de seus pools de nós.
+> Os clusters AKS criados antes de março de 2019 têm certificados que expiram após dois anos. Qualquer cluster criado após 2019 de março ou qualquer cluster que tenha seus certificados girados tem certificados de AC de cluster que expiram após 30 anos. Todos os outros certificados expiram após dois anos. Para verificar quando o cluster foi criado, use `kubectl get nodes` para ver a *idade* de seus pools de nós.
 > 
 > Além disso, você pode verificar a data de validade do certificado do cluster. Por exemplo, o comando a seguir exibe os detalhes do certificado para o cluster *myAKSCluster* .
 > ```console
@@ -87,7 +87,7 @@ kubectl get no
 > [!NOTE]
 > Se você tiver qualquer serviço que seja executado sobre AKS, como [Azure dev Spaces][dev-spaces], talvez seja necessário [Atualizar certificados relacionados a esses serviços][dev-spaces-rotate] também.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo mostrou como girar automaticamente os certificados, as CAs e as SAs do seu cluster. Você pode ver [as práticas recomendadas para segurança de cluster e atualizações no serviço de kubernetes do Azure (AKs)][aks-best-practices-security-upgrades] para obter mais informações sobre as práticas recomendadas de segurança do AKS.
 

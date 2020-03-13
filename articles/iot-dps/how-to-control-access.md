@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396057"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285143"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Provisionamento de Dispositivo do Hub IoT do Azure
 
@@ -50,7 +50,7 @@ Para saber mais sobre como construir e usar os tokens de segurança, veja a pró
 
 O HTTP é o único protocolo com suporte e implementa a autenticação incluindo um token válido no cabeçalho da solicitação **Authorization**.
 
-#### <a name="example"></a>{1&gt;Exemplo&lt;1}
+#### <a name="example"></a>Exemplo
 ```csharp
 SharedAccessSignature sr = 
    mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
@@ -75,7 +75,7 @@ O token de segurança tem o seguinte formato:
 
 Veja os valores esperados:
 
-| {1&gt;Valor&lt;1} | Descrição |
+| Valor | DESCRIÇÃO |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256.|
 | {expiry} |As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
@@ -177,7 +177,7 @@ Os tópicos de referência a seguir fornecem a você mais informações sobre co
 
 A tabela a seguir lista as permissões que você pode usar para controlar o acesso ao seu Serviço de Provisionamento de Dispositivo de IoT.
 
-| Permissão | {1&gt;Observações&lt;1} |
+| Permissão | Observações |
 | --- | --- |
 | **ServiceConfig** |Concede acesso para alterar as configurações de serviço. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
 | **EnrollmentRead** |Concede acesso de leitura para os registros do dispositivo e os grupos de registro. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |

@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 0bb4157ff77ef57f377ba0c6a08bfe8529f663f4
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 618bc5719e3629d37567d8ac77594e7734f82a09
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169269"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204419"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Serviço do lote do Azure para trabalhos Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 O processamento em Pool do Lote do Machine Learning fornece escala gerenciada pelo cliente para o Serviço de Execução em Lotes do Azure Machine Learning. O processamento em lote clássico para o machine learning ocorre em um ambiente multilocatário, que limita o número de trabalhos simultâneos que você pode enviar e no qual os trabalhos são enfileirados na ordem primeiro a entrar, primeiro a sair. Essa incerteza significa que você não pode prever com exatidão quando seu trabalho será executado.
 
@@ -111,4 +113,4 @@ Caso você crie um Pool do Lote com 4 máquinas virtuais e o exclua após 12 hor
 
 | **Use o Processamento Pool do Lote quando**    | **Use o processamento em lotes clássico quando**  |
 |---|---|
-|Você precisar executar um grande número de trabalhos<br>Ou<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>Ou<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja escalar horizontalmente os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>And<br/> Você não precisar que os trabalhos sejam executados imediatamente |
+|Você precisar executar um grande número de trabalhos<br>Ou<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>Ou<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja expandir os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>And<br/> Você não precisa que os trabalhos sejam executados imediatamente |

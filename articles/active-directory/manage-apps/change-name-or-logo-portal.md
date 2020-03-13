@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3dfe0f8788275dd4403b6c9cad99a8eb09e479b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274723"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138494"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Alterar o nome ou o logotipo de um aplicativo empresarial no Azure Active Directory
 
@@ -42,8 +42,8 @@ ms.locfileid: "74274723"
 7. No seletor de arquivos, selecione o arquivo desejado como o novo logotipo. O nome do arquivo aparece na caixa abaixo da imagem do logotipo atual.
 
    > [!NOTE]
-   > O Azure exige que a imagem do logotipo seja um arquivo PNG e aplica limites de largura, altura e tamanho do arquivo.
-8. Selecione **Salvar**. Se você escolher um novo logotipo, a imagem do campo de **logotipo** será alterada para refletir o novo arquivo de logotipo.
+   > O Azure exige que a imagem do logotipo seja um arquivo PNG e aplica limites de largura, altura e tamanho do arquivo. Os logotipos personalizados devem ter exatamente 215 &times; 215 pixels de tamanho e estar no formato PNG. Recomendamos que você use um plano de fundo de cor sólida sem transparência no logotipo do aplicativo para parecer melhor para os usuários.
+8. Clique em **Salvar**. Se você escolher um novo logotipo, a imagem do campo de **logotipo** será alterada para refletir o novo arquivo de logotipo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587344"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209461"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights
 
-Esta página apresenta informações sobre como usar o log de diagnóstico de desempenho do Banco de Dados SQL do Azure gerado pelo [Intelligent Insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades desenvolvimento personalizadas. Você pode enviar esse log de diagnóstico para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
+Esta página apresenta informações sobre como usar o log de diagnóstico de desempenho do Banco de Dados SQL do Azure gerado pelo [Intelligent Insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades desenvolvimento personalizadas. Você pode enviar esse log de diagnóstico para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 ## <a name="log-header"></a>Cabeçalho do log
 
@@ -47,8 +47,8 @@ A propriedade pool elástico (elasticPoolName_s) indica a qual pool elástico o 
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
 "intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported time stamp
-"elasticPoolName_s" : "", // resource elastic pool (if applicable) 
-"databaseName_s" : "db_name",  // database name
+"elasticPoolName_s" : "", // resource elastic pool (if applicable)
+"databaseName_s" : "db_name", // database name
 "issueId_d" : 1525, // unique ID of the issue detected
 "status_s" : "Active" // status of the issue – possible values: "Active", "Verifying", and "Complete"
 ```
@@ -64,7 +64,7 @@ Problemas de desempenho detectados são relatados com a seguinte estrutura de pr
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
 "category" : "Detectable performance pattern", // performance issue detected, see the table
 "details": <Details outputted> // details of an issue (see the table)
-}] 
+}]
 ```
 
 Padrões de desempenho detectáveis e os detalhes que são gerados no log de diagnóstico são fornecidos na tabela a seguir.
@@ -105,7 +105,7 @@ No exemplo de log a seguir, a consulta com o hash 0x9102EXZ4 foi detectada como 
 
 ```json
 "impact" : [{
-"entity" : { 
+"entity" : {
 "Type" : "Query", // type of entity - query
 "Value" : "query hash value", // for example "0x9102EXZ4" query hash value },
 "Metric" : "DurationIncreaseSeconds", // measured metric and the measurement unit (in this case seconds)
@@ -137,10 +137,8 @@ A última parte do log de desempenho do Intelligent Insights refere-se à análi
 Você pode usar o log de desempenho Intelligent Insights com [Azure monitor logs]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Saiba mais sobre conceitos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Saiba como [Solucionar problemas de desempenho do Banco de Dados SQL do Azure com Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Saiba como [monitorar o Banco de dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Saiba como [coletar e consumir dados de log dos recursos do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-
-

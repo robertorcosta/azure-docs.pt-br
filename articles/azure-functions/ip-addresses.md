@@ -4,11 +4,11 @@ description: Saiba como encontrar endereços IP de entrada e saída para aplicat
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612880"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276485"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -128,6 +128,6 @@ az webapp show --resource-group <group_name> --name <app_name> --query sku --out
 
 O Ambiente do Serviço de Aplicativo `sku` é `Isolated`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Uma causa comum de alterações de IP é a função de escala de aplicativos. [Saiba mais sobre o dimensionamento do aplicativo de função](functions-scale.md).

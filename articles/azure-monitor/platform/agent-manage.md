@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361780"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275094"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciar e manter o agente de Log Analytics para o Windows e Linux
 
@@ -89,7 +89,7 @@ As etapas nesta seção são necessárias quando você deseja não apenas reconf
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Abra **Painel de Controle**.
+2. Abra o **Painel de Controle**.
 
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Azure Log Analytics**.
 
@@ -97,7 +97,7 @@ As etapas nesta seção são necessárias quando você deseja não apenas reconf
 
 5. Se estiver adicionando um espaço de trabalho, clique em **Adicionar** e na caixa de diálogo **Adicionar um espaço de trabalho do Log Analytics**, cole a ID do espaço de trabalho e chave do espaço de trabalho (chave primária). Caso o computador deva se reportar a um espaço de trabalho do Log Analytics na nuvem do Azure Governamental, selecione Azure US Government na lista suspensa do Azure Cloud.
 
-6. Clique em **OK** para salvar suas alterações.
+6. Clique em **OK** para salvar as alterações.
 
 #### <a name="remove-a-workspace-using-powershell"></a>Remova um workspace usando o PowerShell
 
@@ -172,7 +172,7 @@ Para configurar o agente para se comunicar com o serviço por meio de um servido
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Abra **Painel de Controle**.
+2. Abra o **Painel de Controle**.
 
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Configurações de proxy**.
 
@@ -223,7 +223,7 @@ Execute as etapas a seguir se os computadores Linux precisarem se comunicar por 
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ```
 
-## <a name="uninstall-agent"></a>Desinstalar agente
+## <a name="uninstall-agent"></a>Desinstalar o agente
 Use um dos procedimentos a seguir para desinstalar o agente do Windows ou Linux usando a linha de comando ou o assistente de instalação.
 
 ### <a name="windows-agent"></a>Agente do Windows
@@ -231,7 +231,7 @@ Use um dos procedimentos a seguir para desinstalar o agente do Windows ou Linux 
 #### <a name="uninstall-from-control-panel"></a>Desinstalar usando o painel de controle
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. No **Painel de Controle**, clique em **Programas e Recursos**.
+2. Abra o **Painel de Controle** e clique em **Programas e Recursos**.
 
 3. Em **Programas e Recursos**, clique em **Microsoft Monitoring Agent** e clique em **Desinstalar** e, em seguida clique em **Sim**.
 
@@ -261,7 +261,7 @@ Execute as seguintes etapas para configurar o agente do Log Analytics para Windo
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Abra **Painel de Controle**.
+2. Abra o **Painel de Controle**.
 
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Operations Manager**.
 
@@ -290,7 +290,7 @@ Execute as seguintes etapas para configurar o agente do Log Analytics para Linux
 
 3. Reinicie o servidor OMI: `sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine [solução de problemas do agente do Linux](agent-linux-troubleshoot.md) se você encontrar problemas ao instalar ou gerenciar o agente do Linux.
 

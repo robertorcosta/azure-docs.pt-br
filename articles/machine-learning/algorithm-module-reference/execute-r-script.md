@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 1cf8c208e83950706278e2cff5d13951393eec8f
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037110"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140766"
 ---
 # <a name="execute-r-script"></a>Executar script R
 
@@ -97,13 +97,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Depois que o pipeline for enviado com êxito, você poderá visualizar a imagem no painel direito do módulo ![carregada-Image](media/module/upload-image-in-r-script.png)
+Depois que o pipeline for enviado com êxito, você poderá visualizar a imagem no painel direito do módulo
+
+[!div class="mx-imgBorder"]
+![carregado-imagem](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar o executar script R
 
 O módulo **Executar script R** contém um código de exemplo que você pode usar como ponto de partida. Para configurar o módulo **Executar script R** , forneça um conjunto de entradas e código a ser executado.
 
-![Módulo R](media/module/upload-image-in-r-script.png)
+![Módulo R](media/module/execute-r-script.png)
 
 Os conjuntos de dados armazenados no designer são convertidos automaticamente em um quadro do R data quando carregados com esse módulo.
 
@@ -123,25 +126,25 @@ Os conjuntos de dados armazenados no designer são convertidos automaticamente e
 
     Para ajudá-lo a começar, a caixa de texto **script R** é preenchida previamente com o código de exemplo, que você pode editar ou substituir.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * O script deve conter uma função chamada `azureml_main`, que é o ponto de entrada para esse módulo.
 
@@ -174,9 +177,9 @@ Há várias maneiras pelas quais você pode estender seu pipeline usando o scrip
 
 O módulo **Executar script r** dá suporte a arquivos de script r arbitrários como entradas. Para fazer isso, eles devem ser carregados em seu espaço de trabalho como parte do arquivo ZIP.
 
-1. Para carregar um arquivo ZIP que contém o código R para seu espaço de trabalho, clique em **novo**, clique em **conjunto**de e, em seguida, selecione **do arquivo local** e a opção **arquivo zip** .  
+1. Para carregar um arquivo ZIP que contém o código R para seu espaço de trabalho, vá para a página de ativos de **conjuntos de valores** , clique em **criar conjunto**de linhas e, em seguida, selecione **do arquivo local** e a opção tipo de conjunto **de arquivos.**  
 
-1. Verifique se o arquivo compactado está disponível na lista **DataSets salvos** .
+1. Verifique se o arquivo compactado está disponível na lista **meus conjuntos** de arquivos na categoria **conjuntos** de arquivos na árvore de módulos à esquerda.
 
 1.  Conecte o conjunto de dados à porta de entrada do **pacote de script** .
 
@@ -290,11 +293,11 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 
 |              |            | 
 |--------------|------------| 
-| Pacote      | {1&gt;Version&lt;1}    | 
-| askpass      | 1.1        | 
+| Pacote      | Versão    | 
+| askpass      | 1,1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
-| {1&gt;base&lt;1}         | 3.5.1      | 
+| base         | 3.5.1      | 
 | base64enc    | 0,1-3      | 
 | BH           | 1.69.0-1   | 
 | associador        | 0.1.1      | 
@@ -306,7 +309,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | acento        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
-| {1&gt;classe&lt;1}        | 7.3-15     | 
+| class        | 7.3-15     | 
 | CLI          | 1.1.0      | 
 | clipe        | 0.6.0      | 
 | cluster      | 2.0.7-1    | 
@@ -434,6 +437,6 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | zeallot      | 0.1.0      | 
 | zoológico          | 1.8-6      | 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

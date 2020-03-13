@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368287"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275692"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria no Application Insights
 
@@ -152,7 +152,7 @@ A resposta curta é que nenhum dos canais internos oferece uma garantia de tipo 
 
 Embora o nome de seu pacote e namespace inclua "WindowsServer", esse canal tem suporte em sistemas diferentes do Windows, com a seguinte exceção. Em sistemas diferentes do Windows, o canal não cria uma pasta de armazenamento local por padrão. Você deve criar uma pasta de armazenamento local e configurar o canal para usá-la. Depois que o armazenamento local tiver sido configurado, o canal funcionará da mesma maneira em todos os sistemas.
 
-### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>O SDK cria um armazenamento local temporário? Os dados são criptografados no armazenamento?
+### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>O SDK cria armazenamento local temporário? Os dados são criptografados no armazenamento?
 
 O SDK armazena itens de telemetria no armazenamento local durante problemas de rede ou durante a limitação. Esses dados não são criptografados localmente.
 
@@ -161,10 +161,10 @@ Para sistemas Windows, o SDK cria automaticamente uma pasta local temporária no
 Para sistemas diferentes do Windows, nenhum armazenamento local é criado automaticamente pelo SDK e, portanto, nenhum dado é armazenado localmente por padrão. Você pode criar um diretório de armazenamento por conta própria e configurar o canal para usá-lo. Nesse caso, você é responsável por garantir que o diretório esteja protegido.
 Leia mais sobre [proteção e privacidade de dados](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
-## <a name="open-source-sdk"></a>SDK de código-fonte aberto
+## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 Assim como todos os SDK para Application Insights, os canais são de software livre. Leia e contribua com o código ou relate problemas no [repositório GitHub oficial](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Exemplos](../../azure-monitor/app/sampling.md)
+* [Amostragem](../../azure-monitor/app/sampling.md)
 * [Solução de problemas do SDK](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)

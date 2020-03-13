@@ -7,29 +7,29 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122527"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278838"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o Cache Redis do Azure
 Este tópico descreve como executar tarefas administrativas, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para as instâncias do Cache Redis do Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reboot"></a>Reinicializar
+## <a name="reboot"></a>Reboot
 A folha **Reinicializar** permite a reinicialização de um ou mais nós do cache. Essa funcionalidade de reinicialização permite que você teste seu aplicativo para garantir a resiliência caso ocorra uma falha de um nó de cache.
 
-![Reinicializar](./media/cache-administration/redis-cache-administration-reboot.png)
+![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Selecione os nós a serem reinicializados e clique em **Reinicializar**.
 
-![Reinicializar](./media/cache-administration/redis-cache-reboot.png)
+![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
 Se tiver um cache premium com clustering habilitado, você poderá selecionar quais fragmentos do cache serão reinicializados.
 
-![Reinicializar](./media/cache-administration/redis-cache-reboot-cluster.png)
+![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 Para reinicializar um ou mais nós do cache, selecione os nós desejados e clique em **Reinicializar**. Se tiver um cache premium com clustering habilitado, escolha os fragmentos que deseja reinicializar e clique em **Reinicializar**. Depois de alguns minutos, os nós selecionados são reinicializados e voltam a ficar online alguns minutos mais tarde.
 
@@ -87,7 +87,7 @@ A janela de manutenção padrão e mínima para atualizações é de cinco horas
 Se você não especificar uma janela de manutenção, as atualizações poderão ser feitas a qualquer momento.
 
 ### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window"></a>Que tipos de atualizações são feitas durante a janela de manutenção agendada?
-Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção programada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
+Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção agendada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
 
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
 Sim, você pode gerenciar as atualizações agendadas usando os cmdlets do PowerShell a seguir:

@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: 1a6b50456a5dc3ff89fe7b513f406dc68bd2401e
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128830"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246286"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -149,7 +149,7 @@ O gerenciamento do desempenho de junções em seu fluxo de dados é uma operaç�
 
 Outra otimização de junção é criar suas junções de forma que evite a tendência do Spark de implementar Junções cruzadas. Por exemplo, quando você inclui valores literais em suas condições de junção, o Spark pode ver que, como um requisito para executar um produto cartesiano completo primeiro, filtre os valores associados. Mas se você tiver certeza de que tem valores de coluna em ambos os lados da sua condição de junção, poderá evitar esse produto cartesiano induzido ao Spark e melhorar o desempenho de suas junções e fluxos de dados.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte outros artigos de fluxo de dados relacionados ao desempenho:
 

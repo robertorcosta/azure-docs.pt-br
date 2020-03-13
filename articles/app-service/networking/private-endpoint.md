@@ -8,12 +8,12 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 893a7a2c7483fccc3bbc7bd198929f65917457b3
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: ad7e04d611129766fe9fb72285fe35ccfbb17626
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79036942"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136665"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure (versão prévia)
 
@@ -69,7 +69,7 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure][pricing
 
 Estamos melhorando o recurso de link privado e o ponto de extremidade privado regularmente. consulte [Este artigo][pllimitations] para obter informações atualizadas sobre as limitações.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para implantar um ponto de extremidade privado para seu aplicativo Web por meio do portal, consulte [como conectar-se de forma privada a um aplicativo Web][howtoguide]
 
@@ -83,7 +83,7 @@ Para implantar um ponto de extremidade privado para seu aplicativo Web por meio 
 [vnetintegrationfeature]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [disablesecuritype]: https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 [accessrestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[tcpproxy]: https://docs.microsoft.com/azure/private-link/rivate-link-service-overview#getting-connection-information-using-tcp-proxy-v2
+[tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/

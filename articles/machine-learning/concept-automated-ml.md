@@ -11,11 +11,11 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
 ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127217"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283882"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
@@ -83,7 +83,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 Em todos os experimentos de aprendizado de máquina automatizados, seus dados são dimensionados e normalizados automaticamente para ajudar os algoritmos a executarem bem.  Durante o treinamento do modelo, uma das técnicas de dimensionamento ou normalização a seguir será aplicada a cada modelo.
 
-|Dimensionamento&nbsp;&&nbsp;normalização| Descrição |
+|Dimensionamento&nbsp;&&nbsp;normalização| DESCRIÇÃO |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a média e dimensionamento para a variação de unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma recursos dimensionando cada recurso pelo mínimo e máximo da coluna  |
@@ -141,7 +141,7 @@ Considere os seguintes modelos treinados e suas imprecisões de treinamento e te
 
 | Modelo | Precisão do treinamento | Precisão do teste |
 |-------|----------------|---------------|
-| A | 99,9% | 95% |
+| Um | 99,9% | 95% |
 | B | 87% | 87% |
 | C | 99,9% | 45% |
 
@@ -201,7 +201,7 @@ Como os algoritmos de classificação geralmente são avaliados por exatidão, a
 
 Além disso, as execuções automáticas de ML geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo e identificar os modelos potencialmente afetados por dados desequilibrados.
 
-Gráfico| Descrição
+Gráfico| DESCRIÇÃO
 ---|---
 [Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia os rótulos classificados corretamente em relação aos rótulos reais dos dados. 
 [Recall de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
@@ -279,7 +279,7 @@ Obter guardrails| ✓|✓
 Pausar execução| ✓| 
 Retomar execução| ✓| 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Veja exemplos e aprenda a criar modelos usando o aprendizado de máquina automatizado:
 

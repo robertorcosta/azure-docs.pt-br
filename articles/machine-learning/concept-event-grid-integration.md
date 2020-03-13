@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 5ec953ace6bb9583c622f89cfcd0196482b1c683
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8a975487c68a21b2c8b6fa2f07d86c312243f12
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541745"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139038"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Consumir eventos de Azure Machine Learning (visualização)
 
@@ -36,12 +36,13 @@ Para obter mais informações sobre fontes de eventos e manipuladores de eventos
 
 Azure Machine Learning fornece eventos nos vários pontos do ciclo de vida do Machine Learning: 
 
-| Tipo de evento | Description |
+| Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Gerado quando uma execução do experimento do Machine Learning é concluída |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Gerado quando um modelo de aprendizado de máquina é registrado no espaço de trabalho |
 | `Microsoft.MachineLearningServices.ModelDeployed` | Gerado quando uma implantação do serviço de inferência com um ou mais modelos é concluída |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | Gerado quando um trabalho de detecção de descompasso de dados para dois conjuntos de dados é concluído |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | Gerado quando um status de execução é alterado, atualmente só é gerado quando um status de execução é ' Failed ' |
 
 ## <a name="subscribe-to-machine-learning-events"></a>Assinar eventos de Machine Learning
 
@@ -61,6 +62,7 @@ A grade de eventos do Azure dá suporte a filtros de assunto com base em __come�
 | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
 | `Microsoft.MachineLearningServices.ModelDeployed` | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
 | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
 ### <a name="advanced-filtering"></a>Filtragem avançada
 
@@ -90,11 +92,11 @@ Os aplicativos que manipulam Machine Learning eventos devem seguir algumas prát
 A grade de eventos do Azure permite que os clientes criem manipuladores de mensagens desacopladas, que podem ser disparados por Azure Machine Learning eventos. Alguns exemplos notáveis de manipuladores de mensagens são:
 * Funções do Azure
 * Aplicativos Lógicos do Azure
-* Hubs de Eventos do Azure
+* Hubs de eventos do Azure
 * Pipeline de Azure Data Factory
 * WebHooks genéricos, que podem ser hospedados na plataforma do Azure ou em outro lugar
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a grade de eventos e dê uma tentativa de Azure Machine Learning eventos:
 

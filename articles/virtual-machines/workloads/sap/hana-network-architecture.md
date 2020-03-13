@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 068cc2ed9743a62aa2249a815893c71499711092
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: ca05603ebf06906349a7f94443eafb773a0764f9
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617028"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138987"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitetura de rede do SAP HANA (Instâncias Grandes)
 
@@ -77,7 +77,7 @@ Com a revisão 3 de carimbos de instância grande do HANA, a latência de rede e
 
 Com a revisão 4 dos carimbos de instância grande do HANA, a latência de rede entre as VMs do Azure que são implantadas em proximidade com o carimbo de instância grande do HANA é uma experiência para atender à média ou melhor do que a classificação média, conforme documentado na [Observação SAP #1100926-FAQ: desempenho de rede](https://launchpad.support.sap.com/#/notes/1100926/E) se o caminho rápido do Azure ExpressRoute estiver configurado (veja abaixo). Para implantar VMs do Azure de perto às unidades de instância grande do HANA 4, você precisa aproveitar os grupos de [posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). O modo como os grupos de posicionamento de proximidade podem ser usados para localizar a camada de aplicativo SAP no mesmo datacenter do Azure, pois a revisão 4 unidades de instância grande do HANA hospedadas é descrita em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
 
-Para fornecer latência de rede determinística entre VMs e instância grande do HANA, a escolha do SKU do gateway do ExpressRoute é essencial. Diferentemente dos padrões de tráfego entre VMs locais e VMs, o padrão de tráfego entre as VMs e o SAP HANA em Instâncias Grandes pode desenvolver pequenas, mas elevadas intermitências de solicitações e volumes de dados a serem transmitidos. Para lidar bem com essas intermitências, é recomendável usar a SKU do gateway UltraPerformance. Para a classe do tipo II de SKUs de instância grande do HANA, o uso do SKU de gateway UltraPerformance como um gateway ExpressRotue é obrigatório.
+Para fornecer latência de rede determinística entre VMs e instância grande do HANA, a escolha do SKU do gateway do ExpressRoute é essencial. Diferentemente dos padrões de tráfego entre VMs locais e VMs, o padrão de tráfego entre as VMs e o SAP HANA em Instâncias Grandes pode desenvolver pequenas, mas elevadas intermitências de solicitações e volumes de dados a serem transmitidos. Para lidar bem com essas intermitências, é recomendável usar a SKU do gateway UltraPerformance. Para a classe do tipo II de SKUs de instância grande do HANA, o uso do SKU de gateway UltraPerformance como um gateway de ExpressRoute é obrigatório.
 
 > [!IMPORTANT] 
 > Dado o tráfego geral entre o aplicativo do SAP e as camadas do banco de dados, somente as SKUs do gateway HighPerformance ou UltraPerformance para redes virtuais têm suporte para conexão com o SAP HANA do Azure (Instâncias Grandes). Para SKUs de tipo II de instância grande do HANA, somente o SKU de gateway UltraPerformance tem suporte como um gateway de ExpressRoute. As exceções se aplicam ao usar o caminho rápido do ExpressRoute (veja abaixo)
