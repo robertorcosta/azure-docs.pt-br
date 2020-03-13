@@ -50,6 +50,8 @@
       href: named-entity-types.md
     - name: Suporte de idioma e região
       href: language-support.md
+    - name: Deslocamentos de texto
+      href: concepts/text-offsets.md
 - name: Guias de instruções
   items:
     - name: Chamar a API da Análise de Texto

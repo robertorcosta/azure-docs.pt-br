@@ -88,6 +88,8 @@
           href: concept-disaster-recovery.md
 - name: Guias de instruções
   items:
+    - name: Habilitar um recurso para um subconjunto de usuários
+      href: howto-feature-filters-aspnet-core.md
     - name: Importar ou exportar dados de configuração
       href: howto-import-export-data.md
     - name: Rotear eventos para um ponto de extremidade personalizado
