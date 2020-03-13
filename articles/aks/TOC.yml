@@ -117,18 +117,12 @@
   items:
     - name: Operações de cluster
       items:
-        - name: Criar um cluster AKS
-          href: '/cli/azure/aks#az-aks-create'
-          maintainContext: true
         - name: Dimensionar um cluster AKS
           href: scale-cluster.md
         - name: Atualizar um cluster AKS
           href: upgrade-cluster.md
         - name: Atualizações do SO para nó do processo
           href: node-updates-kured.md
-        - name: Excluir um cluster AKS
-          href: '/cli/azure/aks#az-aks-delete'
-          maintainContext: true
         - name: Integrar um ACR a um cluster do AKS
           href: cluster-container-registry-integration.md
         - name: Criar nós virtuais
