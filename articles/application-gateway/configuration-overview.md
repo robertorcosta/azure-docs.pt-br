@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
-ms.translationtype: MT
+ms.openlocfilehash: f42be2a3075d313a490703562761a5df13542c85
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913252"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279215"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -25,7 +25,7 @@ Esta imagem ilustra um aplicativo que tem três ouvintes. Os dois primeiros são
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Rede virtual do Azure e sub-rede dedicada
 
@@ -340,7 +340,7 @@ Por exemplo, se *www.contoso.com* for especificado na configuração do **nome d
 
 ## <a name="back-end-pool"></a>Pool de back-end
 
-Você pode apontar um pool de back-ends para quatro tipos de membros de back-end: uma máquina virtual específica, um conjunto de dimensionamento de máquinas virtuais, um endereço IP/FQDN ou um serviço de aplicativo. Cada pool de back-ends pode apontar para vários membros do mesmo tipo. Não há suporte para apontar para membros de diferentes tipos no mesmo pool de back-end.
+Você pode apontar um pool de back-ends para quatro tipos de membros de back-end: uma máquina virtual específica, um conjunto de dimensionamento de máquinas virtuais, um endereço IP/FQDN ou um serviço de aplicativo. 
 
 Depois de criar um pool de back-end, você deve associá-lo a uma ou mais regras de roteamento de solicitação. Você também deve configurar investigações de integridade para cada pool de back-ends no seu gateway de aplicativo. Quando uma condição de regra de roteamento de solicitação é atendida, o gateway de aplicativo encaminha o tráfego para os servidores íntegros (conforme determinado pelas investigações de integridade) no pool de back-ends correspondente.
 
@@ -351,7 +351,7 @@ Um gateway de aplicativo monitora a integridade de todos os recursos em seu back
 > [!NOTE]
 > Depois de criar uma investigação de integridade personalizada, você precisa associá-la a uma configuração de HTTP de back-end. Uma investigação personalizada não monitorará a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você conhece os componentes do gateway de aplicativo, você pode:
 

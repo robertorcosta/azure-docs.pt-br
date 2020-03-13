@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f592872e67ff8559060706ddb3b1e45839b6acaf
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 5f091341bee65d17b42e289bab1192142d095637
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665458"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136118"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente com o Azure Key Vault usando o portal do Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "75665458"
 
 Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o [portal do Azure](https://portal.azure.com/). Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../../key-vault/quick-create-portal.md).
 
-## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
+## <a name="configure-azure-key-vault"></a>Configurar Azure Key Vault
 
 O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure requer que duas propriedades sejam definidas no cofre de chaves, **exclusão reversível** e **não sejam limpas**. Essas propriedades não são habilitadas por padrão, mas podem ser habilitadas usando o PowerShell ou CLI do Azure em um cofre de chaves novo ou existente.
 
@@ -94,12 +94,12 @@ Para alterar a chave usada para a criptografia de armazenamento do Azure, siga e
 
 ## <a name="disable-customer-managed-keys"></a>Desabilitar chaves gerenciadas pelo cliente
 
-Quando você desabilita chaves gerenciadas pelo cliente, sua conta de armazenamento é criptografada com chaves gerenciadas pela Microsoft. Para desabilitar as chaves gerenciadas pelo cliente, siga estas etapas:
+Quando você desabilita chaves gerenciadas pelo cliente, sua conta de armazenamento é novamente criptografada com chaves gerenciadas pela Microsoft. Para desabilitar as chaves gerenciadas pelo cliente, siga estas etapas:
 
 1. Navegue até sua conta de armazenamento e exiba as configurações de **criptografia** .
 1. Desmarque a caixa de seleção ao lado da configuração **usar sua própria chave** .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
 - [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

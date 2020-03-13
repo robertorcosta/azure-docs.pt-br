@@ -4,11 +4,11 @@ description: Documentação de referência para as configurações de aplicativo
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963692"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277824"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -36,7 +36,7 @@ Cadeia de conexão da conta de armazenamento opcional para armazenar logs e exib
 
 |Chave|Valor de exemplo|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
 > [!NOTE]
 > Para obter melhor desempenho e experiência, o tempo de execução versão 2. x e versões posteriores usam APPINSIGHTS_INSTRUMENTATIONKEY e o app insights para monitoramento em vez de `AzureWebJobsDashboard`.
@@ -189,7 +189,7 @@ Os valores válidos são `1` ou uma URL que resolve para o local de um arquivo d
 
 Por padrão, os proxies de funções utilizarão um atalho para enviar chamadas à API de proxies diretamente para funções no mesmo aplicativo de funções, em vez de criar uma nova solicitação HTTP. Essa configuração permite que você desabilite esse comportamento.
 
-|Chave|Valor|Description|
+|Chave|Valor|DESCRIÇÃO|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front-end HTTP para o Aplicativo de funções|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Esse é o valor padrão. Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local serão encaminhadas diretamente para essa função|
@@ -199,7 +199,7 @@ Por padrão, os proxies de funções utilizarão um atalho para enviar chamadas 
 
 Essa configuração controla se %2F é decodificado como barras nos parâmetros de rota quando inseridos na URL de back-end. 
 
-|Chave|Valor|Description|
+|Chave|Valor|DESCRIÇÃO|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Os parâmetros de rota com barras codificadas os terão decodificados. `example.com/api%2ftest` se tornará `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Esse é o comportamento padrão. Todos os parâmetros de rota serão passados inalterados|
@@ -227,7 +227,7 @@ Aqui, está um exemplo de proxy.json em um aplicativo de funções no myfunction
 |false|myfunction.com/test%2fapi|example.com/test%2fapi|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba como atualizar as configurações do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings)
 

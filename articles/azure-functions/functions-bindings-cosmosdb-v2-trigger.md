@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945905"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277564"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Gatilho de Azure Cosmos DB para Azure Functions 2. x
 
@@ -216,7 +216,7 @@ Na [biblioteca de tempo de execução de funções Java](https://docs.microsoft.
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `CosmosDBTrigger`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
 |**tipo** | n/d | Deve ser definido como `cosmosDBTrigger`. |
 |**direction** | n/d | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
@@ -250,7 +250,7 @@ O gatilho requer uma segunda coleção que ele usa para armazenar _concessões_ 
 
 O gatilho não indica se um documento foi atualizado ou inserido, ele fornece apenas o documento em si. Se você precisa lidar com inserções e atualizações de forma diferente, você pode fazer isso com a implementação de campos de carimbo de hora de inserção ou atualização.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Ler um documento de Azure Cosmos DB (Associação de entrada)](./functions-bindings-cosmosdb-v2-input.md)
 - [Salvar alterações em um documento de Azure Cosmos DB (Associação de saída)](./functions-bindings-cosmosdb-v2-output.md)

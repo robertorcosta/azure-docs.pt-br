@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b51016b1b73b51cd1f1ec827f05fc9a93dd4cb38
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: eb62883859a3efeb1c05deb38d8a40fba76e9cdf
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650700"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137913"
 ---
 # <a name="list-blobs-with-net"></a>Listar BLOBs com .NET
 
 Ao listar BLOBs do seu código, você pode especificar várias opções para gerenciar como os resultados são retornados do armazenamento do Azure. Você pode especificar o número de resultados a serem retornados em cada conjunto de resultados e, em seguida, recuperar os conjuntos subsequentes. Você pode especificar um prefixo para retornar os BLOBs cujos nomes começam com esse caractere ou cadeia de caracteres. E você pode listar os BLOBs em uma estrutura de listagem simples ou hierarquicamente. Uma listagem hierárquica retorna BLOBs como se elas fossem organizadas em pastas. 
 
-Este artigo mostra como listar BLOBs usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).  
+Este artigo mostra como listar BLOBs usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-blob-listing-options"></a>Entender as opções de listagem de BLOB
 

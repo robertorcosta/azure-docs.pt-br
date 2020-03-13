@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2579748d9c68512e51fe46ec70084c30d06953bc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372518"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278760"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -44,8 +44,8 @@ Os requisitos mínimos para um Hybrid Runbook Worker do Linux são:
 
 | **Pacote necessário** | **Descrição** | **Versão mínima**|
 |--------------------- | --------------------- | -------------------|
-|Glibc |Biblioteca do GNU C| 2.5-12 |
-|Openssl| Bibliotecas do OpenSSL | 1.0 (TLS 1.1 e TLS 1.2 são compatíveis|
+|Glibc |Biblioteca GNU C| 2.5-12 |
+|Openssl| Bibliotecas OpenSSL | 1.0 (TLS 1.1 e TLS 1.2 são compatíveis|
 |Curl | cliente Web cURL | 7.15.5|
 |Python-ctypes | O Python 2. x é obrigatório |
 |PAM | Módulos de autenticação conectáveis|
@@ -59,7 +59,7 @@ Antes de prosseguir, observe o espaço de trabalho do Log Analytics ao qual sua 
 1. Habilite a solução **Hybrid Worker de Automação** no Azure usando um dos métodos a seguir:
 
    * Adicione a solução **Hybrid Worker de automação** à sua assinatura usando o procedimento em [Adicionar soluções de logs de Azure monitor ao seu espaço de trabalho](../log-analytics/log-analytics-add-solutions.md).
-   * Execute o seguinte cmdlet:
+   * Execute o cmdlet a seguir:
 
         ```azurepowershell-interactive
          Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
@@ -110,7 +110,7 @@ Os seguintes tipos de runbook não funcionam em um Linux Hybrid Worker:
 * Gráfico
 * Fluxo de Trabalho Gráfico do PowerShell
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Para obter instruções sobre como remover os Hybrid Runbook Workers, consulte [Remover Hybrid Runbook Workers da Automação do Azure](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).

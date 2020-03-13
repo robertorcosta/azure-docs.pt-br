@@ -7,11 +7,11 @@ ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967945"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275939"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -286,7 +286,7 @@ Como essa camada é aplicável somente a clientes com uma assinatura do Operatio
 
 Você pode escrever um script para definir o tipo de preço usando o gerenciamento de recursos do Azure. [Saiba como](powershell.md#price).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Amostragem](../../azure-monitor/app/sampling.md)
 

@@ -9,11 +9,11 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391471"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283362"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -148,7 +148,7 @@ Para obter mais informações, consulte [visão geral do gerenciamento de Lead](
 
 Lembre-se de **salvar** antes de passar para a próxima seção!
 
-## <a name="properties"></a>{1&gt;Propriedades&lt;1}
+## <a name="properties"></a>Propriedades
 
 A página **Propriedades** permite que você defina as categorias e os setores usados para agrupar sua oferta no Marketplace, sua versão do aplicativo e os contratos legais que dão suporte à sua oferta. Selecione **salvar** depois de concluir esta página.
 
@@ -169,7 +169,7 @@ Você precisará definir detalhes do Marketplace (nome da oferta, descrição, i
 > [!NOTE]
 > A oferta de conteúdo de listagem (como descrição, documentos, capturas de tela, termos de uso etc.) não precisa estar em inglês, desde que a descrição da oferta comece com a frase ", este aplicativo está disponível apenas em [idioma diferente do inglês]". Também é aceitável fornecer uma URL de *Link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem da oferta.
 
-### <a name="name"></a>{1&gt;Nome&lt;1}
+### <a name="name"></a>Nome
 
 O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas. Esse campo é preenchido previamente com o texto inserido para o **alias de oferta** quando você criou a oferta, mas pode alterar esse valor. Esse nome pode ser marcado (e você pode incluir os símbolos de marca registrada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -181,7 +181,7 @@ Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser
 
 Forneça uma descrição mais longa da sua oferta (até 256 caracteres). A descrição pode ser usada nos resultados da pesquisa do Marketplace.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 
 Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa descrição será exibida aos clientes na visão geral de listagem do Marketplace. Inclua a proposta de valor da sua oferta, os principais benefícios, a categoria e/ou as associações do setor, as oportunidades de compra no aplicativo e as divulgações necessárias. 
 
@@ -242,7 +242,7 @@ Opcionalmente, você pode adicionar até cinco vídeos que demonstram sua oferta
 
 - [Práticas recomendadas para listagens de ofertas do Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-## <a name="preview"></a>{1&gt;Preview&lt;1}
+## <a name="preview"></a>Visualização
 
 A guia **Visualização** permite que você defina um **público-alvo** limitado para validar sua oferta antes de publicar sua oferta em tempo real para o público mais amplo do Marketplace.
 
@@ -309,7 +309,7 @@ Os serviços do Azure governamental lidam com os dados que estão sujeitos a det
 
 A guia **lista de planos** exibe as informações de listagem específicas do plano que podem ser diferentes entre planos diferentes para a mesma oferta.
 
-### <a name="name"></a>{1&gt;Nome&lt;1}
+### <a name="name"></a>Nome
 
 Preenchido previamente com base em seu nome, você atribuiu seu plano quando o criou.  Esse nome será exibido como o título desse "plano de software" exibido no Marketplace.  Pode conter até 100 caracteres.
 
@@ -317,13 +317,13 @@ Preenchido previamente com base em seu nome, você atribuiu seu plano quando o c
 
 Forneça um breve resumo do seu plano de software.  Pode conter até 100 caracteres.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 
 Essa descrição é uma oportunidade para explicar o que torna este plano de software exclusivo e quaisquer diferenças de outros planos de software dentro de sua oferta. Pode conter até 2.000 caracteres.
 
 Selecione **salvar** depois de concluir esses campos.
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilidade
 
 A guia **disponibilidade** é visível apenas para os planos de modelo de solução.  Você pode tornar o plano visível para todos, somente para clientes específicos (um público privado) e se deseja tornar o plano oculto para uso somente por outros modelos de solução ou aplicativos gerenciados.
 
@@ -519,6 +519,6 @@ A etapa de **validação manual** no processo de publicação representa uma an�
 
 Se encontrar erros em uma ou mais das etapas de publicação, você precisará corrigi-los e republicar sua oferta.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

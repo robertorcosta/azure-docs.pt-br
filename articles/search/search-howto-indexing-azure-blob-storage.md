@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 32912f0aef91bd4a7c831a82d1e83f00a1e0f131
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379563"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283102"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva
 
@@ -233,7 +233,7 @@ Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` est
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controlando quais partes do blob são indexadas
 
-Você pode controlar quais partes dos blobs são indexadas usando o parâmetro de configuração `dataToExtract`. Pode usar os seguintes valores:
+Você pode controlar quais partes dos blobs são indexadas usando o parâmetro de configuração `dataToExtract`. Ele pode usar os seguintes valores:
 
 * `storageMetadata` – especifica que somente [as propriedades de blob padrão e os metadados especificados pelo usuário](../storage/blobs/storage-properties-metadata.md) são indexados.
 * `allMetadata` – especifica que os metadados de armazenamento e os [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraídos do conteúdo do blob são indexados.
@@ -289,16 +289,56 @@ Você também poderá continuar a indexação se ocorrem erros a qualquer moment
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexação incremental e detecção de exclusão
+
 Quando você configura um indexador de blob para execução em um cronograma, ele reindexa apenas os blobs alterados, conforme determinado pelo carimbo de data/hora `LastModified` do blob.
 
 > [!NOTE]
 > Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
 
-Para dar suporte à exclusão de documentos, use uma abordagem de "exclusão reversível". Se você excluir os blobs imediatamente, documentos correspondentes não serão removidos do índice de pesquisa. Em vez disso, execute as seguintes etapas:  
+Para dar suporte à exclusão de documentos, use uma abordagem de "exclusão reversível". Se você excluir os blobs imediatamente, documentos correspondentes não serão removidos do índice de pesquisa.
 
-1. Adicione uma propriedade de metadados personalizada ao blob para indicar ao Azure Pesquisa Cognitiva que ele foi excluído logicamente
-2. Configure uma política de detecção de exclusão reversível na fonte de dados
-3. Depois que o indexador processar o blob (conforme mostrado pela API do status do indexador), você pode excluir fisicamente o blob
+Há duas maneiras de implementar a abordagem de exclusão reversível. Ambos são descritos abaixo.
+
+### <a name="native-blob-soft-delete-preview"></a>Exclusão reversível de blob nativo (versão prévia)
+
+> [!IMPORTANT]
+> O suporte para exclusão reversível de blob nativo está em versão prévia. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-versão prévia](https://docs.microsoft.com/azure/search/search-api-preview) fornece esse recurso. No momento, não há suporte para Portal ou SDK do .NET.
+
+Nesse método, você usará o recurso de [exclusão reversível de blob nativo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) oferecido pelo armazenamento de BLOBs do Azure. Se a fonte de dados tiver um conjunto de políticas de exclusão reversível nativa e o indexador encontrar um blob que foi transferido para um estado de exclusão reversível, o indexador removerá esse documento do índice.
+
+Use as seguintes etapas:
+1. Habilite [a exclusão reversível nativa para o armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). É recomendável definir a política de retenção com um valor muito maior do que a agenda do intervalo do indexador. Dessa forma, se houver um problema ao executar o indexador ou se você tiver um grande número de documentos para indexar, haverá muito tempo para que o indexador eventualmente processe os BLOBs com exclusão reversível. Os indexadores do Azure Pesquisa Cognitiva excluirão apenas um documento do índice se ele processar o blob enquanto ele estiver em um estado de exclusão reversível.
+1. Configure uma política de detecção de exclusão reversível de blob nativo na fonte de dados. Um exemplo é mostrado abaixo. Como esse recurso está em versão prévia, você deve usar a API REST de visualização.
+1. Execute o indexador ou defina o indexador para ser executado em um agendamento. Quando o indexador executar e processar o blob, o documento será removido do índice.
+
+    ```
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : null },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+        }
+    }
+    ```
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindexando BLOBs não excluídos
+
+Se você excluir um blob do armazenamento de BLOBs do Azure com a exclusão reversível nativa habilitada na sua conta de armazenamento, o blob passará para um estado de exclusão reversível, dando a você a opção de restaurar esse blob dentro do período de retenção. Quando uma fonte de dados do Azure Pesquisa Cognitiva tiver uma política de exclusão reversível de blob nativo e o indexador processar um blob com exclusão reversível, ele removerá esse documento do índice. Se esse blob posteriormente não for excluído, o indexador **nem** sempre reindexa esse BLOB. Isso ocorre porque o indexador determina quais BLOBs serão indexados com base no carimbo de data/hora `LastModified` do blob. Quando um blob com exclusão reversível não é excluído, seu `LastModified` carimbo de data/hora não é atualizado, portanto, se o indexador já tiver processado BLOBs com `LastModified` carimbos de data/hora mais recentes do que o BLOB não excluído, ele não reindexa o BLOB não excluído. Para garantir que um BLOB não excluído seja reindexado, você deve salvar novamente os metadados desse blob. Você não precisa alterar os metadados, mas salvá-los novamente atualizará o carimbo de data/hora `LastModified` do blob para que o indexador saiba que ele precisa reindexar esse BLOB.
+
+### <a name="soft-delete-using-custom-metadata"></a>Exclusão reversível usando metadados personalizados
+
+Nesse método, você usará uma propriedade de metadados personalizada para indicar quando um documento deve ser removido do índice de pesquisa.
+
+Use as seguintes etapas:
+
+1. Adicione uma propriedade de metadados personalizada ao blob para indicar ao Azure Pesquisa Cognitiva que ele é excluído logicamente.
+1. Configure uma política de detecção de coluna de exclusão reversível na fonte de dados. Um exemplo é mostrado abaixo.
+1. Depois que o indexador tiver processado o blob e excluído o documento do índice, você poderá excluir o blob do armazenamento de BLOBs do Azure.
 
 Por exemplo, a política a seguir considerará que um blob foi excluído se tiver uma propriedade de metadados `IsDeleted` com o valor `true`:
 
@@ -310,13 +350,17 @@ Por exemplo, a política a seguir considerará que um blob foi excluído se tive
         "name" : "blob-datasource",
         "type" : "azureblob",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "container" : { "name" : "my-container", "query" : null },
         "dataDeletionDetectionPolicy" : {
             "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
             "softDeleteColumnName" : "IsDeleted",
             "softDeleteMarkerValue" : "true"
         }
-    }   
+    }
+
+#### <a name="reindexing-undeleted-blobs"></a>Reindexando BLOBs não excluídos
+
+Se você definir uma política de detecção de coluna de exclusão reversível em sua fonte de dados, adicione a propriedade de metadados personalizada a um blob com o valor do marcador e, em seguida, execute o indexador, o indexador removerá esse documento do índice. Se você quiser reindexar esse documento, basta alterar o valor de metadados de exclusão reversível para esse BLOB e executar novamente o indexador.
 
 ## <a name="indexing-large-datasets"></a>Indexando grandes conjuntos de dados
 

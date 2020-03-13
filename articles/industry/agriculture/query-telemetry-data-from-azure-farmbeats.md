@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: 2786519bfc54b39c986ba57c78d9d6409a596351
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b871ccb5cb110cfc6154a415059541c4b94f4106
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129789"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137298"
 ---
 # <a name="query-ingested-telemetry-data"></a>Consultar dados de telemetria ingeridos
 
@@ -108,11 +108,11 @@ Os dados de telemetria são recebidos em um EventHub e, em seguida, processados 
 
 Siga as etapas abaixo para visualizar dados em TSI
 
-1. Vá para o portal do Azure-> FarmBeats DataHub grupo de recursos-> clique em Time Series Insights ambiente (TSI-XXXX)-> políticas de acesso a dados. Adicionar usuário com acesso de leitor ou colaborador.
-2. Vá para a página Visão geral do ambiente de Time Series Insights (TSI-XXXX) e clique na "URL do Time Series Insights Explorer". Agora, você poderá visualizar a telemetria ingerida.
+1. Vá para o portal do Azure-> FarmBeats DataHub grupo de recursos-> selecione ambiente de Time Series Insights (TSI-XXXX)-> políticas de acesso a dados. Adicionar usuário com acesso de leitor ou colaborador.
+2. Vá para a página Visão geral do ambiente de Time Series Insights (TSI-XXXX) e selecione a "URL do Gerenciador de Time Series Insights". Agora, você poderá visualizar a telemetria ingerida.
 
 Além de armazenar, consultar e visualizar a telemetria, o TSI também permite a integração a um painel de Power BI. Mais detalhes [aqui]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora você consultou os dados do sensor de sua instância do FarmBeats do Azure. Agora, saiba como [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para seus farms.

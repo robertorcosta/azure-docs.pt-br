@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230566"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276940"
 ---
 # <a name="manage-your-function-app"></a>Gerenciar seu aplicativo de funções 
 
@@ -25,9 +25,9 @@ Este artigo descreve como configurar e gerenciar seus aplicativos de funções.
 > [!TIP]  
 > Muitas opções de configuração também podem ser gerenciadas usando o [CLI do Azure]. 
 
-## <a name="get-started-in-the-azure-portal"></a>Comece no portal do Azure
+## <a name="get-started-in-the-azure-portal"></a>Introdução ao portal do Azure
 
-Acesse o [portal do Azure] e entre usando sua conta do Azure. Na barra de pesquisa na parte superior do portal, digite o nome do seu aplicativo de funções e selecione-o na lista. Depois de selecionar o aplicativo de funções, você deverá ver esta página:
+Acesse o [Azure portal] e entre usando sua conta do Azure. Na barra de pesquisa na parte superior do portal, digite o nome de seu aplicativo de funções e selecione-o na lista. Depois de selecionar o aplicativo de funções, você deverá ver esta página:
 
 ![Visão geral do aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -149,4 +149,4 @@ Quando as funções usam um gatilho HTTP, você pode exigir que as chamadas seja
 + [Implantação contínua para Azure Functions](functions-continuous-deployment.md)
 
 [CLI do Azure]: /cli/azure/
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

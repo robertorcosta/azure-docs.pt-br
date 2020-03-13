@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ad56f1f15936bc3f3f1ac75396352206f68e7a61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7b049c04913d3415074f46b9d90ec34be874a2da
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671470"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136699"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
@@ -47,7 +47,7 @@ Sua cadeia de conexão é exibida na folha visão geral do recurso de Applicatio
 
 ![Cadeia de conexão na folha visão geral](media/overview-dashboard/overview-connection-string.png)
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>Esquema
 
 #### <a name="max-length"></a>Comprimento máximo
 
@@ -262,7 +262,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Introdução ao runtime com:
 
@@ -276,4 +276,4 @@ Introdução ao tempo de desenvolvimento com:
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python (versão prévia)](../../azure-monitor/app/opencensus-python.md)
+* [Python](../../azure-monitor/app/opencensus-python.md)

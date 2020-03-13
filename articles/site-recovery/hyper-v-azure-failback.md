@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
 ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498190"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281776"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 
@@ -81,5 +81,5 @@ Faça failback para um local alternativo da seguinte maneira:
     > Se você cancelar o trabalho de failback durante a sincronização de dados, a VM local estará em um estado corrompido. Isso ocorre porque a sincronização de dados copia os dados mais recentes dos discos de VM do Azure para os discos de dados locais e, até que a sincronização seja concluída, os dados do disco podem não estar em um estado consistente. Se a VM local for iniciada após a sincronização de dados ser cancelada, ela poderá não ser inicializada. Nesse caso, execute novamente o failover para concluir a sincronização de dados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Depois que a VM local estiver replicando para o Azure, você poderá [executar outro failover](site-recovery-failover.md) para o Azure, conforme necessário.

@@ -5,11 +5,11 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292919"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276862"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -92,7 +92,7 @@ Para obter informações sobre como usar o Application Insights, consulte a [doc
 
 As áreas de Application Insights a seguir podem ser úteis ao avaliar o comportamento, o desempenho e os erros em suas funções:
 
-| Tab | Description |
+| Tab | DESCRIÇÃO |
 | ---- | ----------- |
 | **[Sucedi](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções de servidor. O **Nome da Operação** é o nome da função. Falhas em dependências não são mostradas a menos que você implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analisar problemas de desempenho. |
@@ -119,7 +119,7 @@ requests
 
 As tabelas disponíveis são mostradas na guia **esquema** à esquerda. Você pode encontrar os dados gerados por invocações de função nas tabelas a seguir:
 
-| Tabela | Description |
+| Tabela | DESCRIÇÃO |
 | ----- | ----------- |
 | **rastreamentos** | Logs criados pelo tempo de execução e por código de função. |
 | **requests** | Uma solicitação para cada invocação de função. |
@@ -155,10 +155,10 @@ Se você gravar logs em seu código de função, a categoria será `Function` na
 
 O agente de Azure Functions também inclui um *nível de log* com cada log. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) é uma enumeração e o código inteiro indica a importância relativa:
 
-|LogLevel    |Codificar|
+|LogLevel    |Código|
 |------------|---|
 |Trace       | 0 |
-|Depuração       | 1 |
+|Depurar       | 1 |
 |Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
@@ -634,7 +634,7 @@ Em Application Insights, selecione **Live Metrics Stream**. [As entradas de log 
 
 ![Exibir Live Metrics Stream no portal](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Código do Visual Studio
+### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
@@ -642,7 +642,7 @@ Em Application Insights, selecione **Live Metrics Stream**. [As entradas de log 
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Você pode habilitar os logs de streaming usando o [CLI do Azure](/cli/azure/install-azure-cli). Use os comandos a seguir para entrar, escolher sua assinatura e transmitir arquivos de log:
 
@@ -670,7 +670,7 @@ Ao habilitar Application Insights, desabilite o log interno que usa o armazename
 
 Para desabilitar o registro em log interno, exclua a configuração de aplicativo `AzureWebJobsDashboard`. Para obter informações sobre como excluir configurações do aplicativo no portal do Azure, consulte a seção **Configurações do aplicativo** em [Como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md#settings). Antes de excluir a configuração do aplicativo, certifique-se de que nenhuma função existente no mesmo aplicativo de funções use a configuração para gatilhos ou associações do armazenamento do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais, consulte os recursos a seguir:
 

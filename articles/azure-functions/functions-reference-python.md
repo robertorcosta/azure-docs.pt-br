@@ -3,12 +3,12 @@ title: Referência de desenvolvedor do Python para o Azure Functions
 description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 1b94cb51bcb4e2634cdb04c389efbab44bb024bb
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206326"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276680"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -65,16 +65,16 @@ A estrutura de pastas recomendada para um projeto de funções do Python é seme
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -89,19 +89,47 @@ A pasta principal do projeto (\_aplicativo \_\_\_) pode conter os seguintes arqu
 
 Cada função possui seu próprio arquivo de código e arquivo de configuração de associação (function.json). 
 
-O código compartilhado deve ser mantido em uma pasta separada em \_aplicativo \_\_\_. Para fazer referência a módulos na pasta SharedCode, você pode usar a seguinte sintaxe:
-
-```python
-from __app__.SharedCode import myFirstHelperFunction
-```
-
-Para fazer referência a módulos locais para uma função, você pode usar a sintaxe de importação relativa da seguinte maneira:
-
-```python
-from . import example
-```
-
 Ao implantar seu projeto em um aplicativo de funções no Azure, todo o conteúdo da pasta do projeto principal ( *\_\_aplicativo\_\_* ) deve ser incluído no pacote, mas não a pasta em si. É recomendável que você mantenha os testes em uma pasta separada da pasta do projeto, neste exemplo `tests`. Isso impede que você implante o código de teste com seu aplicativo. Para obter mais informações, consulte [testes de unidade](#unit-testing).
+
+## <a name="import-behavior"></a>Comportamento de importação
+
+Você pode importar módulos em seu código de função usando referências absolutas e relativas absolutos. Com base na estrutura de pastas mostrada acima, as importações a seguir funcionam de dentro do arquivo de função *\_\_aplicativo\_\_\meus\_primeira função\_\\_\_init\_. py*:\_
+
+```python
+from . import example #(explicit relative)
+```
+
+```python
+from ..shared_code import my_first_helper_function #(explicit relative)
+```
+
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+As importações a seguir *não funcionam* de dentro do mesmo arquivo:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+O código compartilhado deve ser mantido em uma pasta separada em *\_aplicativo \_\_\_* . Para fazer referência a módulos na pasta de *código\_compartilhada* , você pode usar a seguinte sintaxe:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## <a name="triggers-and-inputs"></a>Gatilhos e entradas
 
@@ -366,7 +394,18 @@ Para o desenvolvimento local, as configurações do aplicativo são [mantidas no
 
 ## <a name="python-version"></a>Versão do Python 
 
-Atualmente, Azure Functions dá suporte a Python 3.6. x e 3.7. x (distribuições oficiais do CPython). Ao executar localmente, o tempo de execução usa a versão disponível do Python. Para solicitar uma versão específica do Python ao criar seu aplicativo de funções no Azure, use a opção `--runtime-version` do comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . A alteração de versão é permitida somente na criação de Aplicativo de funções.  
+O Azure Functions dá suporte às seguintes versões do Python:
+
+| Versão do Functions | Versões de<sup>*</sup> do Python |
+| ----- | ----- |
+| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 2. x | 3.7<br/>3.6 |
+
+<sup>*</sup> Distribuições oficiais do CPython
+
+Para solicitar uma versão específica do Python ao criar seu aplicativo de funções no Azure, use a opção `--runtime-version` do comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . A versão de tempo de execução do Functions é definida pela opção `--functions-version`. A versão do Python é definida quando o aplicativo de funções é criado e não pode ser alterado.  
+
+Ao executar localmente, o tempo de execução usa a versão disponível do Python. 
 
 ## <a name="package-management"></a>Gerenciamento de pacotes
 

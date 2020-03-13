@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ac8fe2e5bf1c338fa67619a675225eb80256c3f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690985"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135897"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar contêineres de blob com .NET
 
-Ao listar os contêineres em uma conta de armazenamento do Azure do seu código, você pode especificar várias opções para gerenciar como os resultados são retornados do armazenamento do Azure. Este artigo mostra como listar contêineres usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).  
+Ao listar os contêineres em uma conta de armazenamento do Azure do seu código, você pode especificar várias opções para gerenciar como os resultados são retornados do armazenamento do Azure. Este artigo mostra como listar contêineres usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-container-listing-options"></a>Entender as opções de listagem de contêiner
 
@@ -98,7 +98,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Listar contêineres](/rest/api/storageservices/list-containers2)
 [enumerando recursos de blob](/rest/api/storageservices/enumerating-blob-resources)

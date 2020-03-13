@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226255"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278370"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -129,7 +129,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como você pode se beneficiar do runbook e da Galeria de módulos do PowerShell, consulte [galerias de runbook e de módulo para a automação do Azure](automation-runbook-gallery.md).
 * Para saber mais sobre como editar runbooks do PowerShell e do fluxo de trabalho do PowerShell com um editor de texto, consulte [editando runbooks textuais na automação do Azure](automation-edit-textual-runbook.md).

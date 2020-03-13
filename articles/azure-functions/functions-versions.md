@@ -4,17 +4,17 @@ description: O Azure Functions é compatível com várias versões do runtime. A
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919746"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276550"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
 
 As versões principais do tempo de execução do Azure Functions estão relacionadas à versão do .NET na qual o tempo de execução se baseia. A tabela a seguir indica a versão atual do tempo de execução, o nível de versão e a versão do .NET relacionada. 
 
-| Versão de tempo de execução | Nível de liberação<sup>1</sup> | Versão do .NET | 
+| Versão de runtime | Nível de liberação<sup>1</sup> | Versão do .NET | 
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3,1 | 
 | 2. x | GA | .NET Core 2.2 |
@@ -26,7 +26,7 @@ As versões principais do tempo de execução do Azure Functions estão relacion
 
 Este artigo detalha algumas das diferenças entre as várias versões, como você pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Linguagens
+## <a name="languages"></a>Languages
 
 A partir da versão 2. x, o tempo de execução usa um modelo de extensibilidade de linguagem e todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. O idioma das funções em um aplicativo de funções é escolhido durante a criação do aplicativo e é mantido na configuração do [\_WORKER\_tempo de execução](functions-app-settings.md#functions_worker_runtime) . 
 
@@ -104,7 +104,7 @@ A seguir estão as alterações a serem observadas antes de atualizar um aplicat
 
 A versão do runtime do Functions usada por aplicativos publicados no Azure é determinada pela configuração de aplicativo [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Há suporte para os seguintes valores de versão de tempo de execução principais:
 
-| {1&gt;Valor&lt;1} | Destino de tempo de execução |
+| Valor | Destino de tempo de execução |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2. x |
@@ -200,9 +200,9 @@ A tabela a seguir mostra quais associações são compatíveis em cada versão d
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte os seguintes recursos:
+Para saber mais, consulte os recursos a seguir:
 
 * [Codificar e testar o Azure Functions localmente](functions-run-local.md)
 * [Como direcionar para versões do Azure Functions Runtime](set-runtime-version.md)

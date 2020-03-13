@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371999"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277993"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o Cache Redis do Azure
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -22,7 +22,7 @@ Você pode usar os recursos de [monitoramento](cache-how-to-monitor.md) do Cache
 Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é preciso dimensionar.
 
 * Carga do Servidor Redis
-* Utilização de Memória
+* Uso de Memória
 * Largura de Banda de Rede
 * Uso da CPU
 
@@ -31,7 +31,7 @@ Se você determinar que o cache não atende mais aos requisitos de seu aplicativ
 ## <a name="scale-a-cache"></a>Dimensionar um cache
 Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-azure-cache-for-redis-settings) no [Portal do Azure](https://portal.azure.com) e clique em **Dimensionar** no **menu Recurso**.
 
-![Dimensionar](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Escala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selecione o tipo de preço desejado na folha **Selecionar tipo de preço** e clique em **Selecionar**.
 

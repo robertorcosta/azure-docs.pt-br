@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372934"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282686"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia é para profissionais de ti (tecnologia da informação), arquitetos de ti, analistas de segurança de informações e administradores de nuvem para usar a central de segurança do Azure.
 
 
-## <a name="planning-guide"></a>Guia de Planejamento
+## <a name="planning-guide"></a>Guia de planejamento
 Este guia aborda as tarefas que você pode seguir para otimizar o uso da central de segurança com base nos requisitos de segurança e no modelo de gerenciamento de nuvem de sua organização. Para tirar total proveito da Central de Segurança, é importante entender como as pessoas ou equipes diferentes em sua organização usam o serviço para atender às necessidades de desenvolvimento e operações seguras, monitoramento, administração resposta a incidentes. As principais áreas a serem consideradas ao planejar o uso da Central de Segurança são:
 
 * Funções de segurança e controles de acesso
@@ -133,7 +133,7 @@ Antes de configurar as políticas de segurança, examine cada uma das [recomenda
 ## <a name="data-collection-and-storage"></a>Coleta de dados e armazenamento
 A central de segurança do Azure usa o Microsoft Monitoring Agent – esse é o mesmo agente usado pelo serviço de Azure Monitor – para coletar dados de segurança de suas máquinas virtuais. Os [dados coletados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por esse agente são armazenados nos seus espaços de trabalho do Log Analytics existentes.
 
-### <a name="agent"></a>Agente do
+### <a name="agent"></a>Agente
 
 Quando o provisionamento automático é habilitado na política de segurança, o Microsoft Monitoring Agent (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ou [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) é instalado em todas as VMs do Azure e nas que vierem a ser criadas. Se a VM ou o computador já possui o Microsoft Monitoring Agent instalado, a Central de Segurança do Azure otimizará o agente instalado atual. O processo do agente foi projetado para não ser invasivo e ter um impacto muito pequeno sobre o desempenho da VM.
 
@@ -246,7 +246,7 @@ No [como aproveitar a central de segurança do Azure & Microsoft Operations Mana
 >
 >
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a planejar a adoção da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)

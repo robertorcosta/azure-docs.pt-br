@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 52eb3bdb463389d075421661610b5ee94d14d77d
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3370c7ebb8e0253543e6b9cb6ce7614811fb5bd0
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037078"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140783"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -114,7 +114,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 }
 ```
 
-Depois que o pipeline for enviado com êxito, você poderá visualizar a imagem no painel direito do módulo ![carregada-Image](media/module/upload-image-in-python-script.png)
+Depois que o pipeline for enviado com êxito, você poderá visualizar a imagem no painel direito do módulo
+
+[!div class="mx-imgBorder"]
+![carregado-imagem](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Como configurar o script Python de execução
 
@@ -132,7 +135,7 @@ O módulo **Executar script Python** contém o código Python de exemplo que voc
 
     ![Executar o mapa de entrada do Python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou códigos do Python, adicione o arquivo compactado que contém esses recursos personalizados no **pacote de script**. A entrada para o **grupo de script** deve ser um arquivo compactado carregado em seu espaço de trabalho como um tipo de arquivo de conjunto de dados. 
+4. Para incluir novos pacotes ou códigos do Python, adicione o arquivo compactado que contém esses recursos personalizados no **pacote de script**. A entrada para o **grupo de script** deve ser um arquivo compactado carregado em seu espaço de trabalho como um tipo de arquivo de conjunto de dados. Você pode carregar o conjunto de recursos na página de ativos de **conjuntos de valores** e pode arrastar e soltar o módulo DataSet da lista **meus conjuntos de valores** na árvore de módulos à esquerda na página de criação do designer. 
 
     Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada, mas você deverá preceder um diretório chamado **src** para o caminho.
 
@@ -163,6 +166,6 @@ O módulo retorna dois conjuntos de valores:
 + O **conjunto de resultados de resultado 2**, definido pelo segundo retornou o dataframe pandas no script Python
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3ec965318da1361454b4a6bb78ed7147562b5fea
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194988"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138511"
 ---
 # <a name="authentication-basics"></a>Noções básicas de autenticação
 
@@ -50,9 +50,9 @@ O AD do Azure também fornece Azure Active Directory B2C para que as organizaç�
 
 Os tokens de segurança contêm informações sobre usuários e aplicativos. O Azure AD usa tokens baseados em JSON (JWTs) que contêm declarações.
 
-Uma declaração fornece asserções sobre uma entidade, como um [aplicativo cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) ou [proprietário do recurso](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner), para outra entidade, como um servidor de [recursos](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server)).
+Uma declaração fornece asserções sobre uma entidade, como um [aplicativo cliente](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) ou [proprietário do recurso](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner), para outra entidade, como um [servidor de recursos](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
 
-As declarações são pares de nome/valor que retransmitem fatos sobre o assunto do token. Por exemplo, uma declaração pode conter fatos sobre a entidade de segurança que foi autenticada pelo [servidor de autorização](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server)). As declarações presentes em um determinado token dependem de muitas coisas, incluindo o tipo de token, o tipo de credencial usado para autenticar o assunto, a configuração do aplicativo e assim por diante.
+As declarações são pares de nome/valor que retransmitem fatos sobre o assunto do token. Por exemplo, uma declaração pode conter fatos sobre a entidade de segurança que foi autenticada pelo [servidor de autorização](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server). As declarações presentes em um determinado token dependem de muitas coisas, incluindo o tipo de token, o tipo de credencial usado para autenticar o assunto, a configuração do aplicativo e assim por diante.
 
 Os aplicativos podem usar declarações para várias tarefas, como:
 

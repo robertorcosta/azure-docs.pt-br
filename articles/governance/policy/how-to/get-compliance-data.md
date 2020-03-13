@@ -4,11 +4,11 @@ description: Efeitos e avaliações do Azure Policy determinam a conformidade. S
 ms.date: 02/01/2019
 ms.topic: how-to
 ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873141"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280632"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -71,7 +71,7 @@ A chamada retorna um status **202 Aceito**. Uma propriedade **Location** com o s
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` é estaticamente gerado para o escopo solicitado. Se um escopo já estiver executando um exame sob demanda, um novo exame não será iniciado. Em vez disso, a nova solicitação receberá o mesmo URI de `{ResourceContainerGUID}` **localização** para o status. Um comando **GET** da API REST para o URI de **localização** retorna um **202 Aceito** enquanto a avaliação está em andamento. Quando o exame de avaliação for concluído, ela retornará um status **200 OK**. O corpo de um exame completo é uma resposta JSON com o status:
+`{ResourceContainerGUID}` é estaticamente gerado para o escopo solicitado. Se um escopo já estiver executando um exame sob demanda, um novo exame não será iniciado. Em vez disso, a nova solicitação é fornecida com o mesmo URI de **local** de `{ResourceContainerGUID}` para o status. Um comando **GET** da API REST para o URI de **localização** retorna um **202 Aceito** enquanto a avaliação está em andamento. Quando o exame de avaliação for concluído, ela retornará um status **200 OK**. O corpo de um exame completo é uma resposta JSON com o status:
 
 ```json
 {
@@ -87,9 +87,9 @@ A tabela a seguir mostra como os diferentes efeitos da política funcionam com a
 | Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
 | Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Em conformidade |
+| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
 | Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | False | Em conformidade |
+| Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
 
 \* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
 Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
@@ -399,7 +399,7 @@ Se você tiver um [espaço de trabalho log Analytics](../../../log-analytics/log
 
 ![Azure Policy conformidade usando logs de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

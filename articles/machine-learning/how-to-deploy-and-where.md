@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 4bb13080d2539610eb7cbf3a3e29ce3090c49f55
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250961"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283635"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -1155,4 +1155,5 @@ Para obter mais informações, consulte a documentação de [WebService. Delete 
 * [Consumir um modelo de Azure Machine Learning implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitorar seus modelos do Azure Machine Learning com o Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)
+* [Criar alertas de eventos e gatilhos para implantações de modelo](how-to-use-event-grid.md)
 

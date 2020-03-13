@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378255"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280541"
 ---
-# <a name="registration-management"></a>Gerenciamento de registro
+# <a name="registration-management"></a>Gerenciamento de registros
 
 Este tópico explica como registrar dispositivos em hubs de notificação para receber notificações por push. O tópico descreve em alto nível os registros e apresenta os dois padrões principais para registro de dispositivos: registro diretamente do dispositivo para o hub de notificação e registro por meio de um back-end de aplicativo.
 
@@ -263,7 +263,7 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 O gerenciamento de registros do back-end exige a produção adicional de código. O aplicativo do dispositivo deve fornecer o indicador PNS atualizado para o back-end sempre que o aplicativo for iniciado (junto com marcas e modelos) e o back-end deve atualizar esse identificador no hub de notificação. A figura a seguir ilustra esse design.
 
-![Gerenciamento de registro](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
+![Gerenciamento de registros](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
 As vantagens do gerenciamento de registros a partir do back-end incluem a capacidade de modificar marcas para os registros, mesmo quando o aplicativo correspondente no dispositivo estiver inativo, e a capacidade de autenticar o aplicativo cliente antes de adicionar uma marca a seu registro.
 

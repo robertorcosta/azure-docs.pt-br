@@ -4,11 +4,11 @@ description: As definições de Azure Policy têm vários efeitos que determinam
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544123"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281178"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -46,7 +46,7 @@ Esse efeito é útil para testar situações ou quando a definição de polític
 Uma alternativa ao efeito desabilitado é **imposiçãomode** , que é definida na atribuição de política.
 Quando **imposiçãomode** é _desabilitada_, os recursos ainda são avaliados. Registro em log, como logs de atividade, e o efeito de política não ocorre. Para obter mais informações, consulte [atribuição de política – modo de imposição](./assignment-structure.md#enforcement-mode).
 
-## <a name="append"></a>Append
+## <a name="append"></a>Acrescentar
 
 O efeito acrescentar é usado para adicionar outros campos ao recurso solicitado durante a criação ou atualização. Um exemplo comum é especificar os IPs permitidos para um recurso de armazenamento.
 
@@ -158,7 +158,7 @@ A matriz de propriedades de **operações** torna possível alterar várias marc
 
 A propriedade **Operation** tem as seguintes opções:
 
-|Operação |Descrição |
+|Operação |DESCRIÇÃO |
 |-|-|
 |addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
 |Adicionar |Adiciona a marca e o valor definidos ao recurso. |
@@ -567,7 +567,7 @@ Se ambas as políticas 1 e 2 tiveram o efeito negar, a situação será alterada
 
 Cada atribuição é avaliada individualmente. Assim, não existe chance de um recurso passar por uma brecha nas diferenças de escopo. O resultado de políticas em camadas ou sobreposição de políticas é considerado **cumulativo mais restritivo**. Por exemplo, se as políticas 1 e 2 tivessem efeito deny, um recurso seria bloqueado pelas políticas conflitantes e sobrepostas. Caso ainda precise que o recurso seja criado no escopo de destino, revise as exclusões em cada atribuição para validar que as políticas corretas estão afetando os escopos corretos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).

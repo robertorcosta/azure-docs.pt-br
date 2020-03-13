@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384811"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279150"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -158,7 +158,7 @@ O Azure gera o log de atividades por padrão. Os logs são preservados por 90 di
 
 O log de acesso é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Cada acesso do gateway de aplicativo é registrado no formato JSON, conforme mostrado no exemplo a seguir para V1:
 
-|{1&gt;Valor&lt;1}  |Descrição  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo que atendeu à solicitação.        |
 |clientIP     | IP de origem da solicitação.        |
@@ -202,7 +202,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 ```
 Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de informações:
 
-|{1&gt;Valor&lt;1}  |Descrição  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo que atendeu à solicitação.        |
 |clientIP     | IP de origem da solicitação.        |
@@ -256,7 +256,7 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 O log de desempenho é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Os dados do log de desempenho são gerados em intervalos de 1 minuto. Ele está disponível apenas para a SKU v1. Para a SKU v2, use [métricas](application-gateway-metrics.md) para dados de desempenho. Os seguintes dados são registrados em log:
 
 
-|{1&gt;Valor&lt;1}  |Descrição  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     |  Instância do Gateway de Aplicativo para a qual os dados de desempenho estão sendo gerados. Para um gateway de aplicativo de várias instâncias, há uma linha por instância.        |
 |healthyHostCount     | Número de hosts íntegros no pool de back-end.        |
@@ -293,7 +293,7 @@ O log de desempenho é gerado apenas se você o habilitou em cada instância do 
 O log de firewall é gerado apenas se você o habilitou em cada gateway de aplicativo, conforme detalhado nas etapas anteriores. Esse log também exige a configuração de um firewall de aplicativo Web em um gateway de aplicativo. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Os seguintes dados são registrados em log:
 
 
-|{1&gt;Valor&lt;1}  |Descrição  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo para a qual os dados de firewall estão sendo gerados. Para um gateway de aplicativo de várias instâncias, há uma linha por instância.         |
 |clientIp     |   IP de origem da solicitação.      |
@@ -303,7 +303,7 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 |ruleSetVersion     | Versão utilizada do conjunto de regras. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID da Regra do evento de gatilho.        |
 |message     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
-|action     |  Ação executada na solicitação. Os valores disponíveis são MATCHED e blocked.      |
+|ação     |  Ação executada na solicitação. Os valores disponíveis são MATCHED e blocked.      |
 |site     | Site para o qual o log foi gerado. No momento, somente Global é listado porque as regras são globais.|
 |detalhes     | Detalhes do evento de gatilho.        |
 |details.message     | Descrição da regra.        |
@@ -365,7 +365,7 @@ Você também pode se conectar à sua conta de armazenamento e recuperar as entr
 
 Publicamos um modelo do Resource Manager que instala e executa o popular analisador de logs [GoAccess](https://goaccess.io/) para logs de acesso do Gateway de Aplicativo. O GoAccess fornece valiosas estatísticas de tráfego HTTP, tais como visitantes exclusivos, arquivos solicitados, hosts, sistemas operacionais, navegadores, códigos de status HTTP e muito mais. Para obter mais detalhes, consulte o [arquivo Leiame na pasta de modelo do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Visualize o contador e os logs de eventos com os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 * Postagem no blog [Visualize your Azure Activity Log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar o log de atividades do Azure com o Power BI).

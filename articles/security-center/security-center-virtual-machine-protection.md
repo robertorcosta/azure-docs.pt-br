@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
 ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380819"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282634"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja seus computadores e aplicativos
 Quando a central de segurança do Azure identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
@@ -198,7 +198,7 @@ A Central de Segurança examina as configurações do Docker e fornece visibilid
 ![guia contêiner](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes artigos:
 
 * [Lista de referências completa das recomendações de segurança da central de segurança do Azure](recommendations-reference.md)

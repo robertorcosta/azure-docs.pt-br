@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78297830"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138936"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Entrar em suas contas usando o aplicativo Microsoft Authenticator
 
@@ -112,7 +112,7 @@ Em um dispositivo iOS:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Entrar usando a verificação de dois fatores para sua conta
 
-O método de verificação padrão de dois fatores exige que você insira seu nome de usuário e senha no dispositivo no qual você está fazendo logon e, em seguida, escolha se o aplicativo de Microsoft Authenticator recebe Microsoft Authenticator aplicativo. Em um dispositivo Android, esses códigos de verificação podem ser encontrados na tela contas. Em um dispositivo iOS, esses códigos de verificação podem ser encontrados na tela **contas** ou na exibição de tela inteira de uma conta, dependendo do tipo de conta. Você pode ativar a verificação de dois fatores para sua conta como parte do processo de adicionar a conta ao aplicativo Microsoft Authenticator.
+O método de verificação padrão de dois fatores exige que você insira seu nome de usuário e senha no dispositivo no qual você está fazendo logon. Em seguida, abra seu aplicativo Microsoft Authenticator e digite o código gerado aleatoriamente para sua conta na caixa de **código Enter** . Em um dispositivo Android, esses códigos de verificação podem ser encontrados na tela **contas** . Em um dispositivo iOS, esses códigos de verificação podem ser encontrados na tela **contas** ou na exibição de tela inteira de uma conta, dependendo do tipo de conta. Você pode ativar a verificação de dois fatores para sua conta como parte do processo de adicionar a conta ao aplicativo Microsoft Authenticator.
 
 >[!Note]
 >Caso sua conta corporativa ou de estudante ou sua conta pessoal não seja exibida na tela **Contas** do aplicativo Microsoft Authenticator, isso significa que você ainda não adicionou a conta ao aplicativo Microsoft Authenticator. Para adicionar sua conta, confira [Adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md) ou [Adicionar suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).

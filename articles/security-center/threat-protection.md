@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 031423d72aecacc1feed692aaa32bcd1ff7efbab
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373028"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282699"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças na Central de Segurança do Azure
 
@@ -127,6 +127,10 @@ A central de segurança fornece proteção contra ameaças em diferentes níveis
 
 Além disso, nossa equipe global de pesquisadores de segurança monitora constantemente o panorama de ameaças. Eles adicionam alertas e vulnerabilidades específicos do contêiner à medida que são descobertos.
 
+> [!TIP]
+> Você pode simular alertas de contêiner seguindo as instruções nesta [postagem no blog](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+
+
 
 
 
@@ -209,6 +213,9 @@ Para obter mais informações, consulte:
 * [A lista de alertas de proteção contra ameaças para o armazenamento do Azure](alerts-reference.md#alerts-azurestorage)
 
 
+> [!TIP]
+> Você pode simular alertas de armazenamento do Azure seguindo as instruções nesta [postagem no blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
 
 
 
@@ -266,14 +273,14 @@ Se você tiver uma licença para o Azure WAF, seus alertas do WAF serão transmi
 
 Ataques de DDoS (negação de serviço distribuído) são conhecidos por serem fáceis de executar. Eles se tornaram uma grande preocupação de segurança, especialmente se você estiver movendo seus aplicativos para a nuvem. 
 
-Um ataque de DDoS tenta esgotar os recursos de um aplicativo, fazendo com que o aplicativo não fique disponível para usuários legítimos. Os ataques de DDoS podem ter como destino qualquer ponto de extremidade que possa ser acessado pela Internet.
+Um ataque de DDoS tenta esgotar os recursos de um aplicativo, fazendo com que o aplicativo fique indisponível para usuários legítimos. Os ataques de DDoS podem ter como destino qualquer ponto de extremidade que possa ser acessado pela Internet.
 
 Para se defender contra ataques de DDoS, compre uma licença para a proteção contra DDoS do Azure e verifique se você está seguindo as práticas recomendadas de design de aplicativo. A proteção contra DDoS fornece diferentes camadas de serviço. Para obter mais informações, consulte [visão geral da proteção contra DDoS do Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 Para obter uma lista dos alertas de proteção contra DDoS do Azure, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-azureddos).
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os alertas de segurança desses recursos de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas da central de segurança do Azure](alerts-reference.md)

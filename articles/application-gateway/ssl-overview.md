@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
 ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75657974"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279098"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Visão geral da terminação SSL e SSL de ponta a ponta com o gateway de aplicativo
 
@@ -107,7 +107,7 @@ Os Certificados de Autenticação foram reprovados e substituídos por Certifica
 - Se **escolher o nome do host do endereço de back-end** for escolhido em vez do campo Host na configuração http de back-end, o cabeçalho SNI será sempre definido como o FQDN do pool de back-end e o CN no certificado SSL do servidor de back-end deverá corresponder ao FQDN. Não há suporte para membros do pool de back-end com IPs neste cenário.
 - O certificado raiz é um certificado raiz codificado em base64 a partir dos certificados do servidor de back-end.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de aprender sobre SSL de ponta a ponta, vá para [Configurar um SSL de ponta a ponta usando o gateway de aplicativo com o PowerShell](application-gateway-end-to-end-ssl-powershell.md) para criar um Gateway de Aplicativo usando o SSL de ponta a ponta.
 

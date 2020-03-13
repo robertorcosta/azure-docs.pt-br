@@ -4,11 +4,11 @@ description: Saiba como habilitar o monitoramento para um novo cluster do AKS (s
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385491"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275432"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar o monitoramento de um novo cluster do AKS (serviço kubernetes do Azure)
 
@@ -112,7 +112,7 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
   }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
 

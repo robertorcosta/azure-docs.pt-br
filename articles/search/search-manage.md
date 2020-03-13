@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379605"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282920"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ Para se planejar para o futuro, talvez você queira conferir o armazenamento (us
 
 <a id="next-steps"></a>
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Depois de compreender os conceitos por trás de administração do serviço, considere o uso do [PowerShell](search-manage-powershell.md) para automatizar tarefas.
 
 Também é recomendável examinar o [artigo de desempenho e otimização](search-performance-optimization.md).

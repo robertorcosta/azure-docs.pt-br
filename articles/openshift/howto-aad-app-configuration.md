@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 0a629a86ab9029bf7c12470e582a72bd3671fc86
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78940914"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280528"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Active Directory para o Azure Red Hat OpenShift
 
@@ -92,12 +92,20 @@ Para obter detalhes sobre como criar um novo aplicativo do Azure AD, consulte [r
 
 ## <a name="add-api-permissions"></a>Adicionar permissões de API
 
-1. Na seção **gerenciar** , clique em **permissões de API**e, em seguida, clique em **+ Adicionar uma permissão**. 
-3. No painel **solicitar permissões de API** , selecione a guia **APIs da Microsoft** e, em seguida, selecione o bloco **Microsoft Graph** . Selecione **Permissões de aplicativo**.
-4. Procure por **usuário** e habilite a permissão **User. Read** . Pesquise o **diretório** e habilite o **diretório. Read. All**.
-5. Clique em **adicionar permissões** para aceitar as alterações.
-6. O painel de permissões de API agora deve mostrar *User. Read* e *Directory. Read. All*. Observe o aviso na coluna **obrigatório consentimento do administrador** ao lado de *Directory. Read. All*.
-7. Se você for o *administrador da assinatura do Azure*, clique em * * conceder consentimento do administrador para o * nome da assinatura * * *. Se você não for o *administrador da assinatura do Azure*, solicite o consentimento do seu administrador.
+[//]: # (Não altere para Microsoft Graph. Ele não funciona com Microsoft Graph.)
+1. Na seção **gerenciar** , clique em **permissões de API**
+2. Clique em **adicionar permissão** e selecione **Azure Active Directory grafo** e, em seguida, **permissões delegadas**.
+> [!NOTE]
+> Verifique se você selecionou o "Azure Active Directory Graph" e não o bloco "Microsoft Graph".
+
+3. Expanda **usuário** na lista abaixo e habilite a permissão **User. Read** . Se **User. Read** estiver habilitado por padrão, certifique-se de que ele é o Azure Active Directory o usuário de permissão de **grafo** **. Read**.
+4. Role para cima e selecione **permissões de aplicativo**.
+5. Expanda **diretório** na lista abaixo e habilite **Directory. ReadAll**.
+6. Clique em **adicionar permissões** para aceitar as alterações.
+7. O painel de permissões de API agora deve mostrar *User. Read* e *Directory. ReadAll*. Observe o aviso na coluna **obrigatório consentimento do administrador** ao lado de *Directory. ReadAll*.
+8. Se você for o *administrador da assinatura do Azure*, clique em **conceder consentimento do administrador para o *nome da assinatura***  abaixo. Se você não for o *administrador da assinatura do Azure*, solicite o consentimento do seu administrador.
+
+![Captura de tela do painel permissões de API. Permissões User. Read e Directory. ReadAll adicionadas, consentimento do administrador necessário para o diretório. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
 > A sincronização do grupo de administradores de cluster só funcionará depois que o consentimento tiver sido concedido. Você verá um círculo verde com uma marca de seleção e uma mensagem "concedida para o *nome da assinatura*" na coluna *consentimento do administrador obrigatório* .
@@ -109,7 +117,7 @@ Para obter detalhes sobre como gerenciar administradores e outras funções, con
 * [Aplicativos e objetos de entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 * [Início rápido: registrar um aplicativo com o ponto de extremidade do Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver atendido todos os [pré-requisitos do Azure Red Hat OpenShift](howto-setup-environment.md), estará pronto para criar seu primeiro cluster!
 

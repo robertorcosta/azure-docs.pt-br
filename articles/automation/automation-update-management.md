@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372897"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278500"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -77,7 +77,7 @@ Ter um computador registrado para Gerenciamento de Atualizações em mais de um 
 
 A tabela a seguir lista os sistemas operacionais com suporte para avaliações de atualização. A aplicação de patch requer um Hybrid Runbook Worker. Para obter informações sobre requisitos de Hybrid Runbook Worker, consulte os guias de instalação para instalar um [Hybrid runbook Worker do Windows](automation-windows-hrw-install.md) e um [Hybrid runbook Worker do Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
-|Sistema operacional  |{1&gt;Observações&lt;1}  |
+|Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2012 || 
 |Windows Server 2008 R2 (RTM e SP1 Standard)| Gerenciamento de Atualizações só dá suporte à execução de Avaliações para este sistema operacional, não há suporte para a aplicação de patches, pois o [Hybrid runbook Worker](automation-windows-hrw-install.md) não tem suporte para o Windows Server 2008 R2. |
@@ -94,17 +94,17 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 
 A tabela a seguir lista os sistemas operacionais sem suporte:
 
-|Sistema operacional  |{1&gt;Observações&lt;1}  |
+|Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Client     | Os sistemas operacionais clientes (como Windows 7 e Windows 10) não têm suporte.        |
-|Windows Server 2016 Nano Server     | {1&gt;Sem suporte.&lt;1}       |
-|Nós do serviço kubernetes do Azure | {1&gt;Sem suporte.&lt;1} Use o processo de aplicação de patch descrito em [aplicar segurança e atualizações de kernel a nós do Linux no serviço kubernetes do Azure (AKs)](../aks/node-updates-kured.md)|
+|Windows Server 2016 Nano Server     | Sem suporte.       |
+|Nós do serviço kubernetes do Azure | Sem suporte. Use o processo de aplicação de patch descrito em [aplicar segurança e atualizações de kernel a nós do Linux no serviço kubernetes do Azure (AKs)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisitos do cliente
 
 As informações a seguir descrevem os requisitos de cliente específicos do sistema operacional. Para obter diretrizes adicionais, consulte [planejamento de rede](#ports).
 
-#### <a name="windows"></a>Portal
+#### <a name="windows"></a>Windows
 
 Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS ou exigem acesso a Microsoft Update.
 
@@ -163,13 +163,13 @@ Para obter mais informações sobre como os pacotes de gerenciamento de soluçã
 
 A tabela a seguir descreve as fontes conectadas às quais essa solução dá suporte:
 
-| Fonte conectada | Suportado | Descrição |
+| Fonte conectada | Suportado | DESCRIÇÃO |
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
 | Grupo de gerenciamento do Operations Manager |Sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/><br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
 
-### <a name="collection-frequency"></a>Frequência da coleta
+### <a name="collection-frequency"></a>Frequência de coleta
 
 Uma verificação é executada duas vezes por dia para cada computador Windows gerenciado. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status foi alterado. Se o status foi alterado, uma verificação de conformidade é iniciada.
 
@@ -200,13 +200,13 @@ Recomendamos que você use os endereços listados ao definir exceções. Para en
 
 Siga as instruções em [conectar computadores sem acesso à Internet](../azure-monitor/platform/gateway.md) para configurar computadores que não têm acesso à Internet.
 
-## <a name="update-classifications"></a>Classificações de atualizações
+## <a name="update-classifications"></a>Classificações de origem
 
 As tabelas a seguir listam as classificações de atualização no Gerenciamento de Atualizações, com uma definição de cada classificação.
 
-### <a name="windows"></a>Portal
+### <a name="windows"></a>Windows
 
-|classificação  |Descrição  |
+|classificação  |DESCRIÇÃO  |
 |---------|---------|
 |Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
 |Atualizações de segurança     | Uma atualização para um problema específico do produto relacionadas à segurança.        |
@@ -219,7 +219,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 
 ### <a name="linux-2"></a>Linux
 
-|classificação  |Descrição  |
+|classificação  |DESCRIÇÃO  |
 |---------|---------|
 |Atualizações críticas ou de segurança     | Atualizações para um problema específico ou um problema relacionado à segurança específico do produto.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas por natureza ou que não são atualizações de segurança.        |
@@ -258,6 +258,6 @@ Para começar a atualizar os sistemas, você precisa habilitar a solução Geren
 
 - [Com um modelo de Azure Resource Manager](automation-update-management-deploy-template.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Examine as [perguntas frequentes](automation-faq.md) sobre a automação do Azure para examinar perguntas comuns sobre essa solução.

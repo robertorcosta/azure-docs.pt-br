@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372940"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278409"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Exibir avaliações de atualização de Gerenciamento de Atualizações do Azure
 
@@ -28,13 +28,13 @@ Selecione **Atualizações ausentes** para exibir a lista de atualizações que 
 
 ![Atualizações ausentes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classificações de atualizações
+## <a name="update-classifications"></a>Classificações de origem
 
 As tabelas a seguir listam as classificações de atualização com suporte no Gerenciamento de Atualizações, com uma definição para cada classificação.
 
-### <a name="windows"></a>Portal
+### <a name="windows"></a>Windows
 
-|classificação  |Descrição  |
+|classificação  |DESCRIÇÃO  |
 |---------|---------|
 |Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
 |Atualizações de segurança     | Uma atualização para um problema específico do produto relacionadas à segurança.        |
@@ -47,7 +47,7 @@ As tabelas a seguir listam as classificações de atualização com suporte no G
 
 ### <a name="linux-2"></a>Linux
 
-|classificação  |Descrição  |
+|classificação  |DESCRIÇÃO  |
 |---------|---------|
 |Atualizações críticas ou de segurança     | Atualizações para um problema específico ou um problema relacionado à segurança específico do produto.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas por natureza ou que não são atualizações de segurança.        |
@@ -62,6 +62,6 @@ Atualmente, não há um método com suporte para habilitar a disponibilidade de 
 
 Para classificar atualizações no Red Hat Enterprise versão 6, você precisa instalar o plug-in yum-Security. No Red Hat Enterprise Linux 7, o plug-in já faz parte do próprio yum, não há necessidade de instalar nada. Para obter mais informações, consulte o seguinte [artigo de conhecimento](https://access.redhat.com/solutions/10021)do Red Hat.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de exibir as avaliações de atualização, você pode agendar uma implantação de atualização seguindo as etapas em [gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).

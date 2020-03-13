@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891223"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279787"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 
@@ -23,9 +23,9 @@ Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que f
 
 ![Gerenciador do Armazenamento do Microsoft Azure][0]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 As seguintes versões do Windows dão suporte ao Gerenciador de Armazenamento:
 
@@ -35,13 +35,13 @@ As seguintes versões do Windows dão suporte ao Gerenciador de Armazenamento:
 
 Para todas as versões do Windows, Gerenciador de Armazenamento requer .NET Framework 4.6.2 ou posterior.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 As seguintes versões do suporte para macOS Gerenciador de Armazenamento:
 
 * macOS 10,12 Sierra e versões posteriores
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Gerenciador de Armazenamento está disponível no [repositório de snap](https://snapcraft.io/storage-explorer) para as distribuições mais comuns do Linux. Recomendamos o repositório de snap para esta instalação. O snap Gerenciador de Armazenamento instala todas as suas dependências e atualizações quando novas versões são publicadas no repositório de instantâneos.
 

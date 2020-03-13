@@ -4,11 +4,11 @@ description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769023"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276745"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -160,7 +160,7 @@ Você pode fornecer argumentos adicionais em uma configuração de aplicativo ch
 
 No [portal do Azure](https://portal.azure.com), use a [guia Configurações do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) para adicionar a configuração de `JAVA_OPTS`.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Você pode usar o comando [AZ functionapp config appSettings Set](/cli/azure/functionapp/config/appsettings) para definir `JAVA_OPTS`, como no exemplo a seguir:
 
@@ -331,7 +331,7 @@ Você invoca essa função em um HttpRequest. Ele grava vários valores no armaz
 
  Eles são definidos em `azure-functions-java-library`. Eles são tipos auxiliares para trabalhar com as funções HttpTrigger.
 
-| Tipo especializado      |       Escolha o destino        | Uso típico                  |
+| Tipo especializado      |       Destino        | Uso típico                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Gatilho de HTTP     | Obtém o método, os cabeçalhos ou as consultas |
 | `HttpResponseMessage` | Associação de saída HTTP | Retorna o status diferente de 200   |
@@ -444,7 +444,7 @@ public class Function {
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o desenvolvimento em Java Azure Functions, consulte os seguintes recursos:
 

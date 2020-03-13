@@ -4,11 +4,11 @@ description: Saiba mais sobre failover e com falha no Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539511"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281802"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre failover/failback de recuperação de desastre local
 
@@ -157,7 +157,7 @@ Após o failback para o site local, você habilita a **replicação inversa** pa
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Failover de [VMs do VMware específicas](vmware-azure-tutorial-failover-failback.md)
 - Faça failover de [VMs do Hyper-V específicas](hyper-v-azure-failover-failback-tutorial.md).
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.

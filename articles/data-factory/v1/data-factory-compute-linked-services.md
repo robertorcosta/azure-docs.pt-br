@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361402"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281542"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 > [!NOTE]
@@ -30,7 +30,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Lote do Azure](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de lote e Recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
@@ -119,7 +119,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 > 
 
 ### <a name="properties"></a>Propriedades
-| Propriedade                     | Descrição                              | Obrigatório |
+| Propriedade                     | DESCRIÇÃO                              | Obrigatório |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Defina a propriedade de tipo como **HDInsightOnDemand**. | Sim      |
 | clusterSize                  | O número de nós de trabalho e de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeçalho, além do número de nós de trabalho que você especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um cluster de nó de 4-worker leva 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, mais 2\*4 = 8 núcleos para nós de cabeçalho). Para obter detalhes sobre a camada de Standard_D3, consulte [Criar clusters do Hadoop com base em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sim      |
@@ -142,7 +142,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 ### <a name="advanced-properties"></a>Propriedades avançadas
 Para a configuração granular do cluster HDInsight sob demanda, você pode especificar as seguintes propriedades:
 
-| Propriedade               | Descrição                              | Obrigatório |
+| Propriedade               | DESCRIÇÃO                              | Obrigatório |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Especifica os parâmetros de configuração do núcleo (core-site.xml) para o cluster HDInsight a ser criado. | Não       |
 | hBaseConfiguration     | Especifica os parâmetros de configuração HBase (hbase-site.xml) para o cluster HDInsight. | Não       |
@@ -195,7 +195,7 @@ Para a configuração granular do cluster HDInsight sob demanda, você pode espe
 ### <a name="node-sizes"></a>Tamanhos dos nós
 Para especificar o tamanho do cabeçalho, dados e nós ZooKeeper, use as seguintes propriedades: 
 
-| Propriedade          | Descrição                              | Obrigatório |
+| Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Define o tamanho do nó de cabeçalho. O valor padrão é **Standard_D3**. Para obter detalhes, consulte [Especificar tamanho de nó](#specify-node-sizes). | Não       |
 | dataNodeSize      | Define o tamanho do nó de dados. O valor padrão é **Standard_D3**. | Não       |
@@ -213,7 +213,7 @@ Se você quiser criar nós de cabeçalho e nós de trabalho com tamanho D4, espe
 
 Se você definir um valor incorreto para essas propriedades, você verá a seguinte mensagem:
 
-  Falha ao criar cluster. Exceção: Não foi possível concluir a operação de criação do cluster. Falha na operação com o código '400'. Cluster deixou para trás estado: “Erro”. Mensagem: 'PreClusterCreationValidationFailure'. 
+  Falha ao criar cluster. Exceção: Não foi possível concluir operação de criação do cluster. Falha na operação com o código '400'. Cluster deixou para trás estado: ‘Erro’. Mensagem: “PreClusterCreationValidationFailure”. 
   
 Se você vir esta mensagem, certifique-se que você está usando o cmdlet e os nomes da API da tabela em [Tamanhos de máquina virtual ](../../virtual-machines/linux/sizes.md).  
 
@@ -255,7 +255,7 @@ Você pode criar um serviço vinculado HDInsight para registrar seu próprio clu
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade          | Descrição                              | Obrigatório |
+| Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Defina a propriedade de tipo como **HDInsight**. | Sim      |
 | clusterUri        | A URI do cluster HDInsight.        | Sim      |
@@ -303,7 +303,7 @@ Outra opção é fornecer a ponta de extremidade **batchUri**. Por exemplo:
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade          | Descrição                              | Obrigatório |
+| Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Defina a propriedade de tipo como **AzureBatch**. | Sim      |
 | accountName       | O nome da conta do Lote.         | Sim      |
@@ -330,7 +330,7 @@ Você pode criar um serviço vinculado do Machine Learning para registrar um pon
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade   | Descrição                              | Obrigatório |
+| Propriedade   | DESCRIÇÃO                              | Obrigatório |
 | ---------- | ---------------------------------------- | -------- |
 | Type       | Defina a propriedade de tipo como **AzureML**. | Sim      |
 | mlEndpoint | A URL de pontuação do lote.                   | Sim      |
@@ -341,7 +341,7 @@ Você pode criar um serviço vinculado do Data Lake Analytics para vincular um s
 
 A tabela a seguir descreve as propriedades genéricas que são usadas na definição JSON:
 
-| Propriedade                 | Descrição                              | Obrigatório                                 |
+| Propriedade                 | DESCRIÇÃO                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | type                 | Defina a propriedade de tipo como **AzureDataLakeAnalytics**. | Sim                                      |
 | accountName          | O nome de conta do Data Lake Analytics.  | Sim                                      |
@@ -360,13 +360,13 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 
 Use a autenticação de entidade de serviço especificando as seguintes propriedades:
 
-| Propriedade                | Descrição                              | Obrigatório |
+| Propriedade                | DESCRIÇÃO                              | Obrigatório |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | A ID do cliente do aplicativo.     | Sim      |
 | servicePrincipalKey | A chave do aplicativo.           | Sim      |
 | locatário              | Especifique as informações de locatário (nome de domínio ou ID do locatário) em que o aplicativo está localizado. Para obter essas informações, passe o mouse no canto superior direito do portal do Azure. | Sim      |
 
-**Exemplo: Autenticação de entidade de serviço**
+**Exemplo: autenticação de entidade de serviço**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -388,12 +388,12 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 #### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Para autenticação de credenciais de usuário para o Data Lake Analytics, especifique as seguintes propriedades:
 
-| Propriedade          | Descrição                              | Obrigatório |
+| Propriedade          | DESCRIÇÃO                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | autorização | No Editor do Data Factory, selecione o botão **Autorizar**. Insira as credenciais que atribuem a URL de autorização gerada automaticamente para essa propriedade. | Sim      |
 | sessionID     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim      |
 
-**Exemplo: Autenticação da credencial do usuário**
+**Exemplo: autenticação de credenciais do usuário**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -416,7 +416,7 @@ O código de autorização gerado usando o botão **Autorizar** expira após um 
 
 Talvez você veja a seguinte mensagem de erro quando o token de autenticação expirar: 
 
-  Erro de operação de credencial: invalid_grant - AADSTS70002: Erro ao validar credenciais. AADSTS70008: A concessão de acesso fornecida expirou ou foi revogada. ID de Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID de Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
+  Erro na operação de credencial: invalid_grant – AADSTS70002: Erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do Rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da Correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21:09:31Z
 
 A tabela a seguir mostra expirações por tipo de conta de usuário: 
 

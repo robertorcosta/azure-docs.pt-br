@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127264"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79164872"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicionar recursos ao ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
 
@@ -20,7 +20,7 @@ Depois de criar um [ambiente do serviço de integração (ISE)](../logic-apps/co
 > [!IMPORTANT]
 > Para que os aplicativos lógicos e as contas de integração trabalhem juntos em um ISE, ambos devem usar o *mesmo ISE* como seu local.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -42,7 +42,7 @@ Para criar aplicativos lógicos que são executados em seu ISE (ambiente do serv
 
    ![Selecionar o ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome** | Sim | O nome do aplicativo lógico a ser criado |
    | **Assinatura** | Sim | O nome da assinatura do Azure a ser usado |
@@ -74,7 +74,7 @@ Para criar uma conta de integração que usa um ISE, siga estas etapas:
 
    ![Selecionar o ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome** | Sim | O nome da conta de integração que você deseja criar |
    | **Assinatura** | Sim | O nome da assinatura do Azure que você deseja usar |
@@ -131,6 +131,6 @@ Para usar conectores personalizados no ISE, crie esses conectores personalizados
 
 1. Para gerenciar conectores personalizados em seu ISE, consulte [gerenciar seu ambiente de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar ambientes de serviço de integração](../logic-apps/ise-manage-integration-service-environment.md)

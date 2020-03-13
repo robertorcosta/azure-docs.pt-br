@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974999"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276758"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
 
@@ -284,7 +284,7 @@ Os caminhos fornecidos para a diretiva `#load` são relativos ao local de seu ar
 
 A diretiva `#load` só funciona com arquivos `.fsx` (script em F#) e não com arquivos `.fs`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
 * [Guia de F#](/dotnet/articles/fsharp/index)

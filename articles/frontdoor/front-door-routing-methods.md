@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382091"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280788"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de roteamento do Front Door
 
@@ -84,7 +84,7 @@ O tempo de vida do cookie é o mesmo que a sessão do usuário, visto que o Fron
 > - A resposta contém um cabeçalho ```Authorization``` que não expirou.
 > - A resposta tem um código de status HTTP 302.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como o Front Door funciona](front-door-routing-architecture.md).

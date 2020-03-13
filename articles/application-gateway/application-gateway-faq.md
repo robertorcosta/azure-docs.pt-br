@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 03/06/2020
 ms.author: victorh
-ms.openlocfilehash: 27048a8464fc7380a5c11ab6bbb543e35c089774
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ad3289d9b93421df6776c685325f388d552bdba4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919593"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279228"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -65,6 +65,8 @@ Consulte a [ordem de processamento de ouvinte](https://docs.microsoft.com/azure/
 ### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Onde encontro o IP e o DNS do gateway de aplicativo?
 
 Se você estiver usando um endereço IP público como um ponto de extremidade, encontrará as informações de IP e DNS no recurso de endereço IP público. Ou encontrá-lo no portal, na página Visão geral do gateway de aplicativo. Se você estiver usando endereços IP internos, localize as informações na página Visão geral.
+
+Para a SKU v2, abra o recurso IP público e selecione **configuração**. O campo **rótulo de nome DNS (opcional)** está disponível para configurar o nome DNS.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quais são as configurações de tempo limite de Keep-Alive e tempo limite de ociosidade de TCP?
 
@@ -130,7 +132,7 @@ Não. As instâncias são distribuídas entre domínios de atualização e domí
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de Aplicativo suporta a drenagem de conexão?
 
-Sim. Você pode configurar o esgotamento de conexão para alterar os membros em um pool de back-end sem interrupções. Para obter mais informações, consulte a [seção descarga de conexão do gateway de aplicativo](overview.md#connection-draining).
+Sim. Você pode configurar o esgotamento de conexão para alterar os membros em um pool de back-end sem interrupções. Para obter mais informações, consulte a [seção descarga de conexão do gateway de aplicativo](features.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso alterar o tamanho da instância de médio para grande sem interrupção?
 
@@ -410,8 +412,8 @@ Mas se você quiser usar o gateway de aplicativo v2 somente com o IP privado, vo
 Exemplo de configuração de NSG para acesso somente IP privado: ![a configuração de NSG do gateway de aplicativo v2 para acesso de IP privado somente](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do gateway de aplicativo dá suporte ao atributo SameSite?
-Sim, a atualização do [Chromium Browser](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) introduziu uma exigência em cookies http sem que o atributo SameSite seja tratado como SameSite = LAX. Isso significa que o cookie de afinidade do gateway de aplicativo não será enviado pelo navegador em um contexto de terceiro Pary. Para dar suporte a esse cenário, o gateway de aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite = None; Proteger*. Esses atributos mantêm sessões adesivas mesmo para solicitações entre origens. Consulte a [seção afinidade baseada em cookie](configuration-overview.md#cookie-based-affinity) para obter mais informações.
+Sim, a atualização do [Chromium Browser](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) introduziu uma exigência em cookies http sem que o atributo SameSite seja tratado como SameSite = LAX. Isso significa que o cookie de afinidade do gateway de aplicativo não será enviado pelo navegador em um contexto de terceiros. Para dar suporte a esse cenário, o gateway de aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite = None; Proteger*. Esses atributos mantêm sessões adesivas mesmo para solicitações entre origens. Consulte a [seção afinidade baseada em cookie](configuration-overview.md#cookie-based-affinity) para obter mais informações.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o gateway de aplicativo, consulte [o que é aplicativo Azure gateway?](overview.md).

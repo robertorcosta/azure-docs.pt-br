@@ -8,11 +8,11 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422232"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280346"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App restrições de acesso de serviço #
 
@@ -129,7 +129,7 @@ A sintaxe JSON para o exemplo anterior é:
 
 As restrições de acesso estão disponíveis para ambos os aplicativos de funções com a mesma funcionalidade que os planos do serviço de aplicativo. Habilitar restrições de acesso desabilitará o editor de código do portal para qualquer IPs não permitido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Restrições de acesso para aplicativos de funções do Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Integração do gateway de aplicativo com pontos de extremidade de serviço](networking/app-gateway-with-service-endpoints.md)

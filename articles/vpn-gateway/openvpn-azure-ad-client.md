@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3559a139ff89c949ee691310ae25af7d6950abdf
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251607"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138953"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: autenticação do Azure AD
 
@@ -184,6 +184,10 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar as marcas de **
 </clientconfig>
 </azvpnprofile>
 ```
+
+> [!NOTE]
+> O cliente OpenVPN do Azure AD utiliza entradas de Tabela de Políticas de Resolução de Nomes de DNS (NRPT), o que significa que os servidores DNS não serão listados na saída de `ipconfig /all`. Para confirmar suas configurações de DNS em uso, consulte [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) no PowerShell.
+>
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como fazer adicionar rotas personalizadas ao cliente VPN?
 

@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: cbfcb097b4fda30bdeed940a5acb609b02f5d788
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387160"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283349"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Criar usuários no Banco de Dados do Azure para MariaDB 
 Este artigo descreve como você pode criar usuários em um servidor de Banco de Dados do Azure para MariaDB.
@@ -82,7 +82,7 @@ Depois de criar o servidor de Banco de Dados do Azure para MariaDB, você poder�
    ```
    Para obter mais informações sobre gerenciamento de contas de usuário, veja a documentação do MariaDB para [Gerenciamento de contas de usuário](https://mariadb.com/kb/en/library/user-account-management/), [Sintaxe de GRANT](https://mariadb.com/kb/en/library/grant/) e [Privilégios](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Abra o firewall para os endereços IP das máquinas os novos usuários para que ele possa se conectar: [Criar e gerenciar regras de firewall para o Banco de Dados do Azure para MariaDB usando o portal do Azure](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

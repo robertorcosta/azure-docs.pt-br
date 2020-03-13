@@ -4,16 +4,16 @@ description: Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azu
 services: openshift
 keywords: os projetos do Red Hat openshift solicitam o autoprovisionador
 author: mjudeikis
-ms.author: b-majude
+ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378221"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139106"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift 
 
@@ -25,11 +25,11 @@ Você pode permitir que os desenvolvedores criem seus próprios projetos. Um pon
 
 Quando uma solicitação de projeto é enviada, a API substitui os seguintes parâmetros no modelo:
 
-| Parâmetro               | Description                                    |
+| Parâmetro               | DESCRIÇÃO                                    |
 | ----------------------- | ---------------------------------------------- |
 | PROJECT_NAME            | O nome do projeto. Obrigatórios.             |
-| PROJECT_DISPLAYNAME     | O nome de exibição do projeto. Pode ficar em branco. |
-| PROJECT_DESCRIPTION     | A descrição do projeto. Pode ficar em branco.  |
+| PROJECT_DISPLAYNAME     | O nome de exibição do projeto. Pode estar vazio. |
+| PROJECT_DESCRIPTION     | A descrição do projeto. Pode estar vazio.  |
 | PROJECT_ADMIN_USER      | O nome do usuário administrador.       |
 | PROJECT_REQUESTING_USER | O nome do usuário do solicitante.           |
 
@@ -124,7 +124,7 @@ Para desabilitar as atualizações para todos os `Templates` e `ImageStreams` no
 
    Qualquer objeto individual no namespace `openshift` pode ser removido do processo de atualização adicionando a anotação `openshift.io/reconcile-protect: "true"` a ele.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Experimente o tutorial:
 > [!div class="nextstepaction"]

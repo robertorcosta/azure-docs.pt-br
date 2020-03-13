@@ -13,11 +13,11 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387427"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281295"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de um banco de dados Cassandra local usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -34,7 +34,7 @@ Você pode copiar dados de um armazenamento de dados local do Cassandra para qua
 ## <a name="supported-versions"></a>Versões com suporte
 O conector Cassandra é compatível com as seguintes versões do Cassandra: 2.X e 3.x. Para a atividade em execução no Integration Runtime Auto-hospedado, o Cassandra 3.x tem suporte desde o IR versão 3.7 e acima.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 Para que o serviço Azure Data Factory consiga se conectar ao seu banco de dados Cassandra local, é necessário instalar o Gateway de Gerenciamento de Dados no mesmo computador que hospeda o banco de dados ou em um computador separado para evitar a concorrência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um componente que conecta as fontes de dados locais aos serviços de nuvem de uma maneira segura e gerenciada. Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados. Consulte o artigo [Mover dados de pontos locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções detalhadas sobre como configurar um pipeline de dados para o gateway a fim de mover dados.
 
 Você deverá usar o gateway para se conectar a um banco de dados Cassandra mesmo se o banco de dados estiver hospedado na nuvem, por exemplo, em uma VM IaaS do Azure. Você pode ter o gateway na mesma VM que hospeda o banco de dados ou em uma VM diferente, desde que o gateway possa se conectar o banco de dados.
@@ -63,13 +63,13 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição de elementos JSON específicos para o serviço vinculado Cassandra.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade type deve ser definida como: **OnPremisesCassandra** |Sim |
 | host |Um ou mais endereços IP ou nomes de host dos servidores Cassandra.<br/><br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar simultaneamente a todos os servidores. |Sim |
 | porta |A porta TCP usada pelo servidor Cassandra para ouvir conexões de cliente. |Não, valor padrão: 9042 |
 | authenticationType |Básica, ou Anônima |Sim |
-| username |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
+| Nome de Usuário |Especifique o nome de usuário da conta de usuário. |Sim, se authenticationType for definida como Básica. |
 | password |Especifique a senha para a conta de usuário. |Sim, se authenticationType for definida como Básica. |
 | gatewayName |O nome do gateway que é usado para se conectar ao servidor Cassandra local. |Sim |
 | encryptedCredential |Credencial criptografada pelo gateway. |Não |
@@ -82,7 +82,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **CassandraTable** tem as seguintes propriedades
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | keyspace |Nome do keyspace ou do esquema no banco de dados Cassandra. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
 | tableName |Nome da tabela no banco de dados Cassandra. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
@@ -94,9 +94,9 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 
 Quando a fonte é do tipo **CassandraSource**, as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Allowed values | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Consulta SQL-92 ou consulta CQL. Veja [Referência ao CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique **keyspace name.table name** para representar a tabela que deseja consultar. |Não (se tableName e keyspace no conjunto de dados estiverem definidos). |
+| Consulta |Utiliza a consulta personalizada para ler os dados. |Consulta SQL-92 ou consulta CQL. Veja [Referência ao CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique **keyspace name.table name** para representar a tabela que deseja consultar. |Não (se tableName e keyspace no conjunto de dados estiverem definidos). |
 | consistencyLevel |O nível de consistência especifica quantas réplicas devem responder a uma solicitação de leitura antes de retornar dados ao aplicativo cliente. O Cassandra verifica o número especificado de réplicas de dados atender à solicitação de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Confira [Configuring data consistency (Configurando a consistência de dados)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes. |Não. O valor padrão é ONE. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Exemplo JSON: copiar dados do Cassandra para o Blob do Azure
@@ -266,14 +266,14 @@ Confira [Propriedades do tipo RelationalSource](#copy-activity-properties) para 
 | BLOB |Byte[] |
 | BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |Duplo |
+| DOUBLE |Double |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
 | timestamp |Datetime |
-| TIMEUUID |{1&gt;Guid&lt;1} |
-| UUID |{1&gt;Guid&lt;1} |
+| TIMEUUID |Guid |
+| UUID |Guid |
 | VARCHAR |String |
 | VARINT |Decimal |
 
@@ -296,10 +296,10 @@ As tabelas virtuais se referem aos dados na tabela real, permitindo que o driver
 
 Você pode usar o [Assistente de Cópia](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) para exibir intuitivamente a lista de tabelas no banco de dados Cassandra (incluindo as tabelas virtuais) e visualizar os dados internos. Também é possível construir uma consulta no Assistente de Cópia e validar para ver o resultado.
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 Por exemplo, "ExampleTable" a seguir é uma tabela de banco de dados Cassandra que contém uma coluna de chave primária de inteiro chamada "pk_int", uma coluna de texto chamado valor, uma coluna de lista, uma coluna de mapa e uma coluna de conjunto (chamada "StringSet").
 
-| pk_int | {1&gt;Valor&lt;1} | Lista | Mapeamento | StringSet |
+| pk_int | Valor | Lista | Mapeamento | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de exemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de exemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -308,7 +308,7 @@ O driver geraria várias tabelas virtuais para representar essa tabela única. A
 
 A primeira tabela virtual é a tabela base chamada "ExampleTable" e é mostrada na tabela a seguir. A tabela base contém os mesmos dados da tabela de banco de dados original, exceto para as coleções, que são omitidas da tabela e expandidas em outras tabelas virtuais.
 
-| pk_int | {1&gt;Valor&lt;1} |
+| pk_int | Valor |
 | --- | --- |
 | 1 |"valor de exemplo 1" |
 | 3 |"valor de exemplo 3" |
@@ -329,17 +329,17 @@ As tabelas a seguir mostram as tabelas virtuais que normalizam novamente os dado
 #### <a name="table-exampletable_vt_map"></a>Tabela "ExampleTable_vt_Map":
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |A |
+| 1 |S1 |Um |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
 #### <a name="table-exampletable_vt_stringset"></a>Tabela "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |A |
+| 1 |Um |
 | 1 |B |
 | 1 |C |
-| 3 |A |
+| 3 |Um |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor

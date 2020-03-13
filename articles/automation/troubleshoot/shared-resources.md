@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372327"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278318"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solucionar erros com recursos compartilhados
 
@@ -162,7 +162,7 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

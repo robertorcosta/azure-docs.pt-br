@@ -3,12 +3,12 @@ title: Desenvolva Azure Functions usando Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484767"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277161"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
 
@@ -299,7 +299,7 @@ Para executar o projeto do Functions localmente, você deve atender a estes requ
 
     | Linguagem | Requisito |
     | -------- | --------- |
-    | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Ferramentas de CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas de CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Depurador para extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou posterior](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084257"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281984"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conectar-se a VMs do Azure após o failover do local 
 
@@ -81,7 +81,7 @@ Para definir o endereço IP interno de uma VM do Azure após o failover, você t
 - **Usar endereço IP diferente**: você pode usar um endereço IP diferente para a VM do Azure.
 
 
-## <a name="retain-ip-addresses"></a>Reter os endereços IP
+## <a name="retain-ip-addresses"></a>Manter os endereços IP
 
 Site Recovery permite que você mantenha os mesmos endereços IP ao fazer failover no Azure. Manter o mesmo endereço IP evita possíveis problemas de rede após o failover, mas introduz alguma complexidade.
 

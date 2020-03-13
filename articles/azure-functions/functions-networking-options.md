@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f06c50c35e25f2f64948c5f18672e00382d4ef42
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: HT
+ms.openlocfilehash: d8c3357325eadefec7bb97faba5d600e9c6793a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892778"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276706"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
 
@@ -54,6 +54,8 @@ Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de u
     * Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
     * Tenha em mente que, com os pontos de extremidade de serviço, sua função ainda tem acesso total de saída à Internet, mesmo com a integração de rede virtual configurada.
 * O acesso ao site privado também está disponível em um Ambiente do Serviço de Aplicativo configurado com um balanceador de carga interno (ILB). Para obter mais informações, consulte [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+
+Para saber como configurar o acesso ao site privado, consulte [estabelecer Azure Functions acesso ao site privado](functions-create-private-site-access.md).
 
 ## <a name="virtual-network-integration"></a>Integração de rede virtual
 
@@ -144,11 +146,11 @@ As restrições de IP de saída estão disponíveis em um plano Premium, plano d
 
 Quando você integra um aplicativo de funções em um plano Premium ou um plano do serviço de aplicativo com uma rede virtual, o aplicativo ainda pode fazer chamadas de saída para a Internet por padrão. Ao adicionar uma configuração de aplicativo `WEBSITE_VNET_ROUTE_ALL=1`, você força todo o tráfego de saída a ser enviado para sua rede virtual, em que as regras do grupo de segurança de rede podem ser usadas para restringir o tráfego.
 
-## <a name="troubleshooting"></a>Solução de problemas 
+## <a name="troubleshooting"></a>solução de problemas 
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre rede e Azure Functions:
 

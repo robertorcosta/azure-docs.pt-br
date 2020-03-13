@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666730"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283934"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Executar operações de dados nos Aplicativos Lógicos do Azure
 
@@ -29,7 +29,7 @@ Essas tabelas resumem as operações de dados que você pode usar e estão organ
 
 Essas ações ajudam você a trabalhar com dados em matrizes.
 
-| Ação | Description |
+| Ação | DESCRIÇÃO |
 |--------|-------------|
 | [**Criar tabela CSV**](#create-csv-table-action) | Crie uma tabela CSV (valores separados por vírgula) a partir de uma matriz. |
 | [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML a partir de uma matriz. |
@@ -42,7 +42,7 @@ Essas ações ajudam você a trabalhar com dados em matrizes.
 
 Essas ações ajudam você a trabalhar com dados em formato JSON (JavaScript Object Notation).
 
-| Ação | Description |
+| Ação | DESCRIÇÃO |
 |--------|-------------|
 | [**Redigir**](#compose-action) | Crie uma mensagem ou cadeia de caracteres a partir de várias entradas que podem ter diversos tipos de dados. Em seguida, é possível usar essa cadeia de caracteres como uma única entrada, em vez de inserir repetidamente as mesmas entradas. Por exemplo, você pode criar uma única mensagem JSON a partir de várias entradas. |
 | [**Analisar JSON**](#parse-json-action) | Crie tokens de dados amigáveis para propriedades em conteúdo JSON para poder usar as propriedades nos aplicativos lógicos com mais facilidade. |
@@ -50,7 +50,7 @@ Essas ações ajudam você a trabalhar com dados em formato JSON (JavaScript Obj
 
 Para criar transformações JSON mais complexas, consulte [Executar transformações JSON avançadas com modelos Liquid](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -707,6 +707,6 @@ Para confirmar se a ação **Selecionar** cria os resultados esperados, envie um
 
    ![E-mail com os resultados da ação "'Selecionar"](./media/logic-apps-perform-data-operations/select-email-results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [Conectores de Aplicativos Lógicos](../connectors/apis-list.md)

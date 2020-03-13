@@ -10,13 +10,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/09/2019
-ms.openlocfilehash: e25b860417333d458bdde870d20968fce7dda715
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: cfa53d480120ec75623a6a372b258b63e6264f92
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892878"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136036"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -41,16 +41,13 @@ Especificamente, este conector da Instância Gerenciada do Banco de Dados SQL do
 >[!NOTE]
 >O Instância Gerenciada do Banco de Dados SQL do Azure [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) não tem suporte neste conector agora. Para solucionar o trabalho, você pode usar um [conector ODBC genérico](connector-odbc.md) e um SQL Server driver ODBC por meio de um Integration Runtime auto-hospedado. Siga [este guia](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) com as configurações de cadeia de conexão e download do driver ODBC.
 
->[!NOTE]
->A entidade de serviço e as autenticações de identidade gerenciada atualmente não são compatíveis com este conector. Para contornar, escolha um conector do banco de dados SQL do Azure e especifique manualmente o servidor da instância gerenciada.
-
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para acessar o [ponto de extremidade público](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)do instância gerenciada do banco de dados SQL do Azure, você pode usar um Azure data Factory tempo de execução de integração do Azure gerenciado. Certifique-se de habilitar o ponto de extremidade público e também permitir o tráfego de ponto de extremidade público no grupo de segurança de rede para que Azure Data Factory possa se conectar ao seu banco de dados. Para obter mais informações, consulte [este guia](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
 Para acessar o ponto de extremidade particular Instância Gerenciada do Banco de Dados SQL do Azure, configure um [tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) que pode acessar o banco de dados. Se você provisionar o tempo de execução de integração auto-hospedado na mesma rede virtual que sua instância gerenciada, certifique-se de que seu computador de tempo de execução de integração esteja em uma sub-rede diferente da instância gerenciada. Se você provisionar o tempo de execução de integração auto-hospedado em uma rede virtual diferente da instância gerenciada, você poderá usar um emparelhamento de rede virtual ou uma rede virtual para a conexão de rede virtual. Para obter mais informações, confira [Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -60,10 +57,10 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenciada do Banco de Dados SQL do Azure:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como **AzureSqlMI**. | Sim |
-| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, confira os exemplos a seguir. <br/>A porta padrão é a 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br> Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, confira os exemplos a seguir. <br/>A porta padrão é 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br> Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | locatário | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
@@ -133,19 +130,19 @@ Para usar uma autenticação de token de aplicativo do Azure AD baseada no servi
     - Chave do aplicativo
     - ID do locatário
 
-3. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SQL Server Management Studio (SSMS), conecte-se ao seu Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. No banco de dados **mestre** , execute o seguinte T-SQL:
+3. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SSMS (SQL Server Management Studio), conecte-se à sua Instância Gerenciada usando uma conta do SQL Server que seja um **sysadmin**. No banco de dados **mestre**, execute o seguinte T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiar os dados, execute o T-SQL a seguir: 
+4. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados do ou para o qual você deseja copiar dados. Execute o seguinte T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+5. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para mais opções, confira [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
@@ -185,19 +182,19 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas.
 
 1. Siga as etapas para [provisionar um administrador de Azure Active Directory para seu instância gerenciada](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
-2. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SQL Server Management Studio (SSMS), conecte-se ao seu Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. No banco de dados **mestre** , execute o seguinte T-SQL:
+2. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SSMS (SQL Server Management Studio), conecte-se à sua Instância Gerenciada usando uma conta do SQL Server que seja um **sysadmin**. No banco de dados **mestre**, execute o seguinte T-SQL:
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-3. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados a partir do ou para o qual você deseja copiar os dados, execute o T-SQL a seguir: 
+3. [Crie usuários de banco de dados independente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) para a identidade gerenciada Azure data Factory. Conecte-se ao banco de dados do ou para o qual você deseja copiar dados. Execute o seguinte T-SQL: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-4. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+4. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para mais opções, confira [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
@@ -229,7 +226,7 @@ Para obter uma lista completa das seções e das propriedades disponíveis para 
 
 Para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure, há suporte para as seguintes propriedades:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | Sim |
 | esquema | Nome do esquema. |Não para fonte, Sim para o coletor  |
@@ -265,12 +262,13 @@ Para obter uma lista completa das seções e propriedades disponíveis para uso 
 
 Para copiar dados de Instância Gerenciada do Banco de Dados SQL do Azure, as propriedades a seguir têm suporte na seção origem da atividade de cópia:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SqlMISource**. | Sim |
 | sqlReaderQuery |Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não |
 | sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
 | storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e o uso de maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| isolationLevel | Especifica o comportamento de bloqueio de transação para a origem do SQL. Os valores permitidos são: **ReadCommitted** (default), **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **snapshot**. Consulte [este documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para obter mais detalhes. | Não |
 
 **Observe os seguintes pontos:**
 
@@ -371,7 +369,7 @@ GO
 
 Para copiar dados para Instância Gerenciada do Banco de Dados SQL do Azure, as propriedades a seguir têm suporte na seção coletor de atividade de cópia:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SqlMISink**. | Sim |
 | writeBatchSize |Número de linhas a serem inseridas na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha.  |Não |
@@ -578,23 +576,23 @@ Quando dados são copiados para e da Instância Gerenciada do Banco de Dados SQL
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
 | image |Byte[] |
-| int |Int32 |
+| INT |Int32 |
 | money |Decimal |
 | NCHAR |String, Char[] |
 | ntext |String, Char[] |
 | numeric |Decimal |
 | NVARCHAR |String, Char[] |
-| real |Individual |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Objeto |
@@ -602,7 +600,7 @@ Quando dados são copiados para e da Instância Gerenciada do Banco de Dados SQL
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Int16 |
-| UNIQUEIDENTIFIER |GUID |
+| UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | Xml |Xml |
@@ -618,5 +616,5 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 
 Para saber detalhes sobre as propriedades, verifique a [atividade GetMetadata](control-flow-get-metadata-activity.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, confira [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

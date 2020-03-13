@@ -10,11 +10,11 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: dc8a870d692108f3a33b89a1c3826d421dfd1f63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824391"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283622"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -40,7 +40,7 @@ Neste artigo, você aprenderá a usar seu DSVM para executar tarefas de ciência
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * É necessária uma assinatura do Azure. Você pode [se inscrever para uma avaliação gratuita](https://azure.microsoft.com/free/).
 * As instruções para o provisionamento de um Máquina Virtual de Ciência de Dados no portal do Azure estão disponíveis na [criação de uma máquina virtual](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
@@ -142,7 +142,7 @@ Você pode implantar modelos de R criados no Máquina Virtual de Ciência de Dad
 
 Use o procedimento e os trechos de código a seguir para configurar, compilar, publicar e consumir um modelo como um serviço Web no Azure Machine Learning.
 
-#### <a name="set-up"></a>Configurar
+#### <a name="set-up"></a>Configuração
 
 Crie um arquivo Settings. JSON em um diretório chamado ```.azureml``` em seu diretório base. Insira os parâmetros do seu espaço de trabalho Azure Machine Learning.
 
@@ -265,7 +265,7 @@ Você pode encontrar mais informações sobre como usar o Git para trabalhar com
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 O armazenamento de BLOBs do Azure é um serviço de armazenamento em nuvem confiável e econômico para dados grandes e pequenos. Esta seção descreve como você pode mover dados para o armazenamento de BLOBs e acessar dados armazenados em um blob do Azure.
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>Prerequisites
 
 * Crie sua conta de armazenamento de BLOBs do Azure do [portal do Azure](https://portal.azure.com).
 
@@ -367,7 +367,7 @@ Os dados são lidos como um quadro de dados:
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Storage é um repositório de hiperescala para cargas de trabalho de Big Data Analytics e é compatível com o Sistema de Arquivos Distribuído do Hadoop (HDFS). Ele funciona com Hadoop, Spark e Azure Data Lake Analytics. Nesta seção, você aprenderá como é possível mover dados para Azure Data Lake Storage e executar análises usando o Azure Data Lake Analytics.
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>Prerequisites
 
 * Crie sua instância de Azure Data Lake Analytics no [portal do Azure](https://portal.azure.com).
 
@@ -452,7 +452,7 @@ As informações do arquivo são exibidas:
 ### <a name="hdinsight-hadoop-clusters"></a>Clusters Hadoop do HDInsight
 O Azure HDInsight é um serviço gerenciado Apache Hadoop, Spark, HBase e Storm na nuvem. Você pode trabalhar facilmente com clusters do Azure HDInsight do Máquina Virtual de Ciência de Dados.
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>Prerequisites
 
 * Crie sua conta de armazenamento de BLOBs do Azure do [portal do Azure](https://portal.azure.com). Essa conta de armazenamento é usada para armazenar dados dos clusters HDInsight.
 

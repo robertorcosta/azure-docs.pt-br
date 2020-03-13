@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca4051e56f7d51ac7ac5fbe534cb8fc536d64a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b43169b59425e97b0aa614eb64a5c86c20179a8d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368678"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136809"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao Azure Maps SDK do Android
 
 O Azure Maps SDK do Android é uma biblioteca de mapas de vetor para Android. Este artigo orienta você pelos processos de instalação do Azure Maps SDK do Android e carregamento de um mapa.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure
 
@@ -109,7 +109,7 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
     * definir as informações de autenticação do Azure Mapas
     * obter a instância de controle de mapeamento no método **onCreate**
 
-    Definir as informações de autenticação na classe `AzureMaps` globalmente usando os métodos `setSubscriptionKey` ou `setAadProperties` faz isso para que você não precise adicionar suas informações de autenticação a cada exibição. 
+    Definir as informações de autenticação globalmente na classe `AzureMaps` usando os métodos `setSubscriptionKey` ou `setAadProperties` faz com que você não precise adicionar suas informações de autenticação a cada exibição. 
 
     O controle de mapa contém os próprios métodos de ciclo de vida para gerenciar o ciclo de vida do OpenGL do Android. Esses métodos de ciclo de vida devem ser chamados diretamente da atividade que a contém. Para que seu aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa. E, você deve chamar o respectivo método de controle de mapa. 
 
@@ -268,12 +268,12 @@ Aqui está um exemplo de mapas do Azure com a linguagem definida como "fr-FR" e 
 
 Uma lista completa de idiomas e exibições regionais compatíveis está documentada [aqui](supported-languages.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como adicionar dados de sobreposição no mapa:
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolo a um mapa do Android](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+> [Adicionar uma camada de símbolo a um mapa do Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Adicionar formas a um mapa do Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

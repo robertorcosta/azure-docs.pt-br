@@ -7,11 +7,11 @@ ms.subservice: process-automation
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: b9808ddc3b61b0055642c5a0f2a82b0dc7553b33
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384848"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278903"
 ---
 # <a name="my-first-powershell-runbook"></a>Meu primeiro runbook do PowerShell
 
@@ -26,7 +26,7 @@ Este tutorial orienta você durante a criação de um [Runbook do PowerShell](au
 >[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -246,7 +246,7 @@ O runbook inicia atualmente a máquina virtual que você codificou no runbook. O
 1. Digite os valores para **VMNAME** e **RESOURCEGROUPNAME** para a máquina virtual que você vai iniciar e clique em **OK**.<br><br> ![Passar parâmetro](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>
 1. Quando o runbook for concluído, verifique se a máquina virtual foi iniciada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](/powershell/scripting/overview).
 * Para começar a usar runbooks gráficos, consulte [meu primeiro runbook gráfico](automation-first-runbook-graphical.md).

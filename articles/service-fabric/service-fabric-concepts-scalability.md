@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378928"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282556"
 ---
 # <a name="scaling-in-service-fabric"></a>Dimensionamento no Service Fabric
 O Azure Service Fabric facilita o build de aplicativos escalonáveis gerenciando os serviços, as partições e as réplicas em todos os nós em um cluster. Executar várias cargas de trabalho no mesmo hardware permite a utilização máxima dos recursos, mas também fornece flexibilidade em termos de como você opta por dimensionar suas cargas de trabalho. Este vídeo do Channel 9 descreve como você pode criar aplicativos de microsserviço escalonáveis:
@@ -140,7 +140,7 @@ Esse padrão de criação dinâmica traz muitos benefícios:
   - Você não vai executar um monte de instâncias de serviços ou réplicas enquanto aguarda os clientes
   - Se um cliente sair, remover suas informações do serviço é tão simples quanto a exclusão de um serviço ou aplicação por um gerente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artigos:
 
 * [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)

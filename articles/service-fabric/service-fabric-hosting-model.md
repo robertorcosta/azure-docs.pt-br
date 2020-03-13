@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391418"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282387"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem do Microsoft Azure Service Fabric
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicativos fornecidos pelo Microsoft Azure Service Fabric e descreve as diferenças entre os modelos de **Processo Compartilhado** e **Processo Exclusivo**. Ele descreve a aparência de um aplicativo implantado em um nó do Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de host de serviço.
@@ -169,7 +169,7 @@ Na ativação de 'MultiTypeServicePackage' para a réplica da partição **P1** 
 
 No exemplo anterior, é possível pensar que, se o 'MyCodePackageA' registrar ambos o 'MyServiceTypeA' e o 'MyServiceTypeB' e não houver 'MyCodePackageB', então, não haverá *CodePackage* redundante em execução. Embora isso esteja correto, esse modelo de aplicativo não está alinhado ao modelo de hospedagem de Processo Exclusivo. Se a meta é colocar cada réplica em seu próprio processo dedicado, não é necessário registrar os *ServiceTypes* do mesmo*CodePackage*. Em vez disso, você simplesmente coloca cada *ServiceType* em seu próprio *ServicePackage*.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 [Empacotar um aplicativo][a4] e prepará-lo para a implantação.
 
 [Implantar e remover aplicativos][a5]. Esse artigo descreve como usar o PowerShell para gerenciar instâncias do aplicativo.

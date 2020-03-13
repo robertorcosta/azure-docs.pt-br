@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c90278eccf889595378d3b6b07de2468910c660c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 5b05cd31a1747da0170556003e7a8534752e2fde
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080869"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137187"
 ---
 # <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Usar o portal do Azure para criar uma conta de serviços de mídia
 
@@ -34,7 +34,7 @@ Para todas as outras tarefas de gerenciamento (por exemplo, [transformações e 
 
 Este artigo mostra como criar uma conta dos Serviços de Mídia usando o portal do Azure.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -44,7 +44,7 @@ Para concluir este tutorial, você precisa de uma conta do Azure. Para obter det
 1. Clique em **+ criar um recurso** > **mídia** > **serviços de mídia**.
 1. Na seção **criar uma conta dos serviços de mídia** , insira os valores necessários.
     
-    | {1&gt;Nome&lt;1} | Descrição |
+    | Nome | DESCRIÇÃO |
     | ---|---|
     |**Nome da Conta**|Insira o nome da nova conta dos serviços de mídia. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3 a 24 caracteres de comprimento.|
     |**Assinatura**|Se você tiver mais de uma assinatura, selecione uma na lista de assinaturas do Azure às quais você tem acesso.|
@@ -54,12 +54,10 @@ Para concluir este tutorial, você precisa de uma conta do Azure. Para obter det
     
 1. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
 1. Clique em **Criar** na parte inferior do formulário.
-   
-    Quando a conta é criada com êxito, a página de visão geral é carregada. Na tabela ponto de extremidade de streaming, a conta terá um ponto de extremidade de streaming padrão no estado **parado** . 
 
     Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para começar a transmitir seu conteúdo e aproveitar o [empacotamento dinâmico](dynamic-packaging-overview.md) e a [criptografia dinâmica](content-protection-overview.md), o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** . 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você planeja acessar a API dos serviços de mídia programaticamente, consulte [acessar a API dos serviços de mídia do Azure com a autenticação do Azure ad](access-api-portal.md).
 

@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 043350db2c5372fc81fbb2b68155a4ac75457208
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373442"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278396"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de Automação do Azure com um webhook
 
@@ -28,12 +28,12 @@ Um webhook permite que um serviço externo inicie um runbook específico na auto
 
 A tabela a seguir descreve as propriedades que devem ser configuradas para um webhook.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| {1&gt;Nome&lt;1} |Nome do webhook. Você pode fornecer qualquer nome desejado, já que ele não é exposto ao cliente. Ele é usado apenas por você para identificar o runbook na Automação do Azure. Como melhor prática, você deve atribuir ao webhook um nome relacionado ao cliente que o utiliza. |
-| {1&gt;URL&lt;1} |URL do webhook. Esse é o endereço exclusivo que um cliente chama com um HTTP POST para iniciar o runbook vinculado ao webhook. Ele é gerado automaticamente quando você cria o webhook. Você não pode especificar uma URL personalizada. <br> <br> A URL contém um token de segurança que permite que um sistema de terceiros invoque o runbook sem autenticação adicional. Por esse motivo, você deve tratar a URL como uma senha. Por motivos de segurança, você só pode exibir a URL no portal do Azure ao criar o webhook. Anote a URL em um local seguro para uso futuro. |
-| Data de expiração | Data de validade do webhook, após o qual ele não pode mais ser usado. Você pode modificar a data de validade após a criação do webhook, desde que o webhook não tenha expirado. |
-| Habilitado | Configuração que indica se o webhook está habilitado por padrão quando é criado. Se você definir essa propriedade como desabilitada, nenhum cliente poderá usar o webhook. Você pode definir essa propriedade ao criar o webhook ou qualquer outra hora após sua criação. |
+| Nome |Nome do webhook. Você pode fornecer qualquer nome desejado, já que ele não é exposto ao cliente. Ele é usado apenas por você para identificar o runbook na Automação do Azure. Como melhor prática, você deve atribuir ao webhook um nome relacionado ao cliente que o utiliza. |
+| URL |URL do webhook. Esse é o endereço exclusivo que um cliente chama com um HTTP POST para iniciar o runbook vinculado ao webhook. Ele é gerado automaticamente quando você cria o webhook. Você não pode especificar uma URL personalizada. <br> <br> A URL contém um token de segurança que permite que um sistema de terceiros invoque o runbook sem autenticação adicional. Por esse motivo, você deve tratar a URL como uma senha. Por motivos de segurança, você só pode exibir a URL no portal do Azure ao criar o webhook. Anote a URL em um local seguro para uso futuro. |
+| Data de validade | Data de validade do webhook, após o qual ele não pode mais ser usado. Você pode modificar a data de validade após a criação do webhook, desde que o webhook não tenha expirado. |
+| habilitado | Configuração que indica se o webhook está habilitado por padrão quando é criado. Se você definir essa propriedade como desabilitada, nenhum cliente poderá usar o webhook. Você pode definir essa propriedade ao criar o webhook ou qualquer outra hora após sua criação. |
 
 ## <a name="parameters-used-when-the-webhook-starts-a-runbook"></a>Parâmetros usados quando o webhook inicia um runbook
 
@@ -45,7 +45,7 @@ Para receber dados do cliente, o runbook dá suporte a um único parâmetro cham
 
 O parâmetro *WebhookData* tem as seguintes propriedades:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | WebhookName | Nome do webhook. |
 | RequestHeader | Tabela de hash que contém os cabeçalhos da solicitação POST de entrada. |
@@ -116,12 +116,12 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de retorno da solicitação POST.
 
-| Código | Texto | Descrição |
+| Código | Texto | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | 202 |Aceita |A solicitação foi aceita e o runbook foi enfileirado com êxito. |
-| 400 |Solicitação Inválida |A solicitação não foi aceita por um dos motivos a seguir: <ul> <li>O webhook expirou.</li> <li>O webhook está desabilitado.</li> <li>O token na URL é inválido.</li>  </ul> |
+| 400 |Solicitação incorreta |A solicitação não foi aceita por um dos motivos a seguir: <ul> <li>O webhook expirou.</li> <li>O webhook está desabilitado.</li> <li>O token na URL é inválido.</li>  </ul> |
 | 404 |Não encontrado |A solicitação não foi aceita por um dos motivos a seguir: <ul> <li>O webhook não foi encontrado.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
-| 500 |Erro Interno do Servidor |A URL era válida, mas ocorreu um erro. Envie a solicitação novamente. |
+| 500 |Erro interno do servidor |A URL era válida, mas ocorreu um erro. Envie a solicitação novamente. |
 
 Supondo que a solicitação foi bem-sucedida, a resposta do webhook contém a ID do trabalho no formato JSON, conforme mostrado abaixo. Ele contém uma única ID de trabalho, mas o formato JSON permite possíveis aprimoramentos futuros.
 
@@ -238,6 +238,6 @@ A imagem a seguir mostra a solicitação sendo enviada do Windows PowerShell e a
 
 ![Botão Webhooks](media/automation-webhooks/webhook-request-response.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como usar a automação do Azure para tomar medidas sobre alertas do Azure, consulte [usar um alerta para disparar um runbook de automação do Azure](automation-create-alert-triggered-runbook.md).

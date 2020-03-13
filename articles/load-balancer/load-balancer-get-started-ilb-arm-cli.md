@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
 ms.openlocfilehash: 8726991682ca8c2eabd628f1539ff940bf94e03d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392019"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284103"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balancear a carga de VMs usando a CLI do Azure
 
@@ -233,5 +233,5 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um Load Balancer Básico, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para saber mais sobre os balanceadores de carga e seus recursos associados, continue para os artigos de instrução.

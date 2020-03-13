@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387494"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281282"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -32,7 +32,7 @@ Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para m
 
 Você pode copiar dados de um armazenamento de dados local do MySQL para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MySQL para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MySQL. 
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 O serviço Data Factory dá suporte à conexão com fontes MySQL locais usando o Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
 
 O gateway é requerido mesmo que o banco de dados MySQL esteja hospedado em uma máquina virtual (VM) IaaS do Azure. Você pode instalar o gateway na mesma VM do armazenamento de dados ou em uma VM diferente, desde que o gateway possa conectar o banco de dados.
@@ -65,11 +65,11 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do MySQL.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade do tipo deve ser definida como: **OnPremisesMySql** |Sim |
-| server |Nome do servidor MySQL. |Sim |
-| banco de dados |Nome do banco de dados MySQL. |Sim |
+| Servidor |Nome do servidor MySQL. |Sim |
+| Banco de Dados |Nome do banco de dados MySQL. |Sim |
 | esquema |Nome do esquema no banco de dados. |Não |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
 | userName |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
@@ -81,7 +81,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties de um conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do MySQL) tem as propriedades a seguir
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do Banco de Dados MySQL à qual o serviço vinculado se refere. |Não (se **query** de **RelationalSource** for especificado) |
 
@@ -92,9 +92,9 @@ Por outro lado, as propriedades disponíveis na seção **typeProperties** da at
 
 Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Allowed values | Obrigatório |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Não (se **tableName** de **dataset** for especificado) |
+| Consulta |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Não (se **tableName** de **dataset** for especificado) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Exemplo de JSON: copiar dados do MySQL para o Blob do Azure
@@ -301,22 +301,22 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | Tipo do Banco de Dados MySQL | Tipo de .NET Framework |
 | --- | --- |
 | bigint unsigned |Decimal |
-| bigint |Int64 |
+| BIGINT |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| {1&gt;bool&lt;1} |Boolean |
+| bool |Boolean |
 | char |String |
 | date |Datetime |
-| datetime |Datetime |
+| DATETIME |Datetime |
 | decimal |Decimal |
-| double precision |Duplo |
-| double |Duplo |
-| {1&gt;enum&lt;1} |String |
-| float |Single |
+| double precision |Double |
+| double |Double |
+| enum |String |
+| FLOAT |Single |
 | int unsigned |Int64 |
-| int |Int32 |
+| INT |Int32 |
 | integer unsigned |Int64 |
-| integer |Int32 |
+| inteiro |Int32 |
 | long varbinary |Byte[] |
 | long varchar |String |
 | longblob |Byte[] |
@@ -326,11 +326,11 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | mediumint |Int32 |
 | mediumtext |String |
 | numeric |Decimal |
-| real |Duplo |
+| real |Double |
 | set |String |
 | smallint unsigned |Int32 |
-| smallint |Int16 |
-| texto |String |
+| SMALLINT |Int16 |
+| text |String |
 | time |TimeSpan |
 | timestamp |Datetime |
 | tinyblob |Byte[] |

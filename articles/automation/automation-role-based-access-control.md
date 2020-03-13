@@ -7,11 +7,11 @@ ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8caf502db91ab09eea48fc8a902dacf6bf40f24c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373043"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278630"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
 
@@ -24,7 +24,7 @@ Na Automação do Azure, o acesso é concedido atribuindo a função apropriada 
 | **Função** | **Descrição** |
 |:--- |:--- |
 | Proprietário |A função Proprietário permite acesso a todos os recursos e ações em uma Conta de Automação, incluindo o fornecimento de acesso a outros usuários, grupos e aplicativos para gerenciar a conta de Automação. |
-| Contribuinte |A função Colaborador permite gerenciar tudo, exceto a modificação de permissões de acesso de outros usuários para uma conta de Automação. |
+| Colaborador |A função Colaborador permite gerenciar tudo, exceto a modificação de permissões de acesso de outros usuários para uma conta de Automação. |
 | Leitor |A função Leitor permite que você veja todos os recursos em uma conta de Automação, mas não permite realizar alterações. |
 | Operador de automação |A função Operador de Automação permite exibir o nome e as propriedades do runbook e criar e gerenciar trabalhos para todos os runbooks em uma conta de Automação. Essa função será útil se você quiser proteger seus recursos de conta de automação, como ativos de credenciais e runbooks, de serem exibidos ou modificados, mas ainda permitir que os membros da sua organização executem esses runbooks. |
 |Operador do Trabalho de Automação|A função Operador do Trabalho de Automação permite criar e gerenciar trabalhos para todos os runbooks em uma conta de Automação.|
@@ -43,11 +43,11 @@ As tabelas a seguir descrevem as permissões específicas fornecidas a cada fun�
 
 O Proprietário pode gerenciar tudo, incluindo o acesso. A tabela a seguir mostra as permissões concedidas para a função:
 
-|Ações|Descrição|
+|Ações|DESCRIÇÃO|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Crie e gerencie recursos de todos os tipos.|
 
-### <a name="contributor"></a>Contribuinte
+### <a name="contributor"></a>Colaborador
 
 Um Colaborador pode gerenciar tudo, exceto o acesso. A tabela a seguir mostra as permissões concedidas e negadas para a função:
 
@@ -212,21 +212,21 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 
 |**Ação**  |**Permissão**  |**Escopo mínimo**  |
 |---------|---------|---------|
-|Gravar nova implantação      | Microsoft.Resources/deployments/*          |Assinatura          |
-|Gravar novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Assinatura          |
-|Criar novo workspace padrão      | Microsoft.OperationalInsights/workspaces/write         | Grupo de recursos         |
-|Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Grupo de recursos         |
+|Gravar nova implantação      | Microsoft.Resources/deployments/*          |Subscription          |
+|Gravar novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Criar novo workspace padrão      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
+|Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Vincular workspace e conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Workspace</br>Conta de automação
-|Criar extensão MMA      | Microsoft.Compute/virtualMachines/write         | Virtual Machine         |
+|Criar extensão MMA      | Microsoft.Compute/virtualMachines/write         | Máquina Virtual         |
 |Criar pesquisa salva      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Criar configuração de escopo      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Verificação do estado da integração – Ler workspace      | Microsoft.OperationalInsights/workspaces/read         | Workspace         |
 |Verificação do estado da integração – Ler propriedade de conta do workspace vinculado     | Microsoft.Automation/automationAccounts/read      | Conta de automação        |
 |Verificação do estado da integração – Ler solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solução         |
-|Verificação do estado da integração – Ler VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
+|Verificação do estado da integração – Ler VM      | Microsoft.Compute/virtualMachines/read         | Máquina Virtual         |
 |Verificação do estado da integração – Ler conta      | Microsoft.Automation/automationAccounts/read  |  Conta de automação   |
-| Verificação de espaço de trabalho de integração para a VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Assinatura         |
-| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Assinatura|
+| Verificação de espaço de trabalho de integração para a VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Subscription|
 
 <sup>1</sup> essa permissão é necessária para integração por meio da experiência do portal de VM.
 
@@ -234,19 +234,19 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 
 |**Ação**  |**Permissão** |**Escopo mínimo**  |
 |---------|---------|---------|
-|Criar nova implantação     | Microsoft.Resources/deployments/*        | Assinatura         |
-|Criar novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Assinatura        |
-|Folha AutomationOnboarding – Criar novo workspace     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
+|Criar nova implantação     | Microsoft.Resources/deployments/*        | Subscription         |
+|Criar novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|Folha AutomationOnboarding – Criar novo workspace     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Folha AutomationOnboarding – Ler workspace vinculado     | Microsoft.Automation/automationAccounts/read        | Conta de automação       |
 |Folha AutomationOnboarding – Ler solução     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solução        |
 |Folha AutomationOnboarding – Ler workspace     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Workspace        |
 |Criar link para o workspace e conta     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
-|Gravar conta para caixa de sapatos      | Microsoft.Automation/automationAccounts/write        | Account        |
+|Gravar conta para caixa de sapatos      | Microsoft.Automation/automationAccounts/write        | Conta        |
 |Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Criar/editar configuração de escopo     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
-| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Assinatura|
+| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Subscription|
 |**Etapa 2 – Integrar várias VMs**     |         |         |
-|Folha de VMOnboarding – Criar extensão MMA     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
+|Folha de VMOnboarding – Criar extensão MMA     | Microsoft.Compute/virtualMachines/write           | Máquina Virtual        |
 |Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |
 |Criar/editar configuração de escopo  | Microsoft.OperationalInsights/workspaces/write   | Workspace|
 
@@ -259,9 +259,9 @@ Gerenciamento de atualizações atinge vários serviços para fornecer seu servi
 |Conta de automação     | Colaborador do Log Analytics       | Conta de automação        |
 |Conta de automação    | Colaborador de Máquina Virtual        | Grupo de recursos para a conta        |
 |Espaço de trabalho do Log Analytics     | Colaborador do Log Analytics| Espaço de trabalho do Log Analytics        |
-|Espaço de trabalho do Log Analytics |Leitor do Log Analytics| Assinatura|
+|Espaço de trabalho do Log Analytics |Leitor do Log Analytics| Subscription|
 |Solução     |Colaborador do Log Analytics         | Solução|
-|Virtual Machine     | Colaborador de Máquina Virtual        | Virtual Machine        |
+|Máquina Virtual     | Colaborador de Máquina Virtual        | Máquina Virtual        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configurar o RBAC para sua conta de automação
 
@@ -423,7 +423,7 @@ Quando um usuário atribuído à função de operador de automação no escopo d
 
 ![Só tem acesso ao iniciar](media/automation-role-based-access-control/automation-only-start.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre como configurar o RBAC para a automação do Azure, consulte [gerenciar RBAC com Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter detalhes de maneiras de iniciar um runbook, consulte [iniciando um runbook](automation-starting-a-runbook.md).

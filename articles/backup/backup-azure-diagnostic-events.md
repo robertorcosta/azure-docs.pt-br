@@ -3,12 +3,12 @@ title: Usando configurações de diagnóstico para cofres dos serviços de recup
 description: Um artigo que descreve como usar os eventos de diagnóstico novos e antigos para o backup do Azure
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e3919d120e5f741af6cd30dd27e5a1dfa2b06cf2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583938"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136932"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Usar configurações de diagnóstico para os Cofres dos Serviços de Recuperação
 
@@ -56,7 +56,9 @@ Depois que os dados fluem para o espaço de trabalho LA, as tabelas dedicadas pa
 
 Tradicionalmente, todos os dados de diagnóstico relacionados ao backup de um cofre estão contidos em um único evento chamado ' AzureBackupReport '. Os seis eventos descritos acima são, em essência, uma decomposição de todos os dados contidos em AzureBackupReport. 
 
-Atualmente, continuamos a dar suporte ao evento AzureBackupReport para compatibilidade com versões anteriores, nos casos em que os usuários têm consultas personalizadas existentes sobre esse evento, por exemplo, alertas de log personalizados, visualizações personalizadas etc. No entanto, é recomendável escolher os novos eventos para todas as novas configurações de diagnóstico no cofre, já que isso torna os dados muito mais fáceis de trabalhar em consultas de log, fornece melhor capacidade de descoberta de esquemas e sua estrutura, melhora o desempenho em ambas as ingestãos latência e tempos de consulta. O suporte ao uso do modo de Diagnóstico do Azure, eventualmente, será dividido e, portanto, a escolha dos novos eventos pode ajudá-lo a evitar migrações complexas em uma data posterior.
+Atualmente, continuamos a dar suporte ao evento AzureBackupReport para compatibilidade com versões anteriores, nos casos em que os usuários têm consultas personalizadas existentes sobre esse evento, por exemplo, alertas de log personalizados, visualizações personalizadas etc. No entanto, **é recomendável mover para os novos eventos o mais cedo possível**, já que isso torna os dados muito mais fáceis de trabalhar em consultas de log, proporciona melhor capacidade de descoberta de esquemas e sua estrutura, melhora o desempenho na latência de ingestão e nos tempos de consulta. O **suporte ao uso do modo de diagnóstico do Azure, eventualmente, será dividido e, portanto, a escolha dos novos eventos pode ajudá-lo a evitar migrações complexas em uma data posterior**.
+
+Use a política interna do backup do Azure para adicionar uma nova configuração de diagnóstico com os 6 novos eventos, para todos os seus cofres em um escopo especificado: [definir configurações de diagnóstico de cofre em escala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 Você pode optar por criar configurações de diagnóstico separadas para AzureBackupReport e os seis novos eventos, até migrar todas as suas consultas personalizadas para usar dados das novas tabelas. A imagem abaixo mostra um exemplo de um cofre com duas configurações de diagnóstico. A primeira configuração, chamada **Setting1** , envia dados do evento AzureBackupReport para um espaço de trabalho la no modo AzureDiagnostics. A segunda configuração, chamada **Setting2** , envia dados dos seis novos eventos de backup do Azure para um espaço de trabalho de la no modo específico do recurso.
 

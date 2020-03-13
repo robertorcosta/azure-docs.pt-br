@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388863"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279748"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquina virtual
 
@@ -168,16 +168,16 @@ A regra denominada **defaultSecurityRules / DenyAllInBound** é o que está impe
 
 Se você usar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), ou o [CLI do Azure](#diagnose-using-azure-cli) para diagnosticar o problema apresentado a [cenário](#scenario) neste artigo, a solução é criar uma regra de segurança de rede com as seguintes propriedades:
 
-| Propriedade                | {1&gt;Valor&lt;1}                                                                              |
+| Propriedade                | Valor                                                                              |
 |---------                |---------                                                                           |
-| Origem                  | Qualquer                                                                                |
+| Fonte                  | Qualquer                                                                                |
 | Intervalos de portas de origem      | Qualquer                                                                                |
 | Destino             | O endereço IP da VM, um intervalo de endereços IP ou todos os endereços na sub-rede. |
 | Intervalos de portas de destino | 80                                                                                 |
 | Protocolo                | TCP                                                                                |
-| Ação                  | Permitir                                                                              |
+| Ação                  | Allow                                                                              |
 | Prioridade                | 100                                                                                |
-| {1&gt;Nome&lt;1}                    | Permitir-HTTP-All                                                                     |
+| Nome                    | Permitir-HTTP-All                                                                     |
 
 Depois de criar a regra, a porta 80 é permitida de entrada da internet, como a prioridade da regra é maior do que a regra de segurança padrão chamada *DenyAllInBound*, que impede que o tráfego. Saiba como [ criar uma regra de segurança ](manage-network-security-group.md#create-a-security-rule). Se os NSGs diferentes estão associados a interface de rede e a sub-rede, você deve criar a mesma regra em ambos os NSGs.
 
@@ -201,7 +201,7 @@ Considere os seguintes pontos ao solucionar problemas de conectividade:
   * Software de firewall em execução no sistema operacional da VM
   * Rotas configuradas para soluções de virtualização ou tráfego local. O tráfego da Internet pode ser redirecionado para sua rede local por meio de [ encapsulamento forçado ](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você forçar o tráfego de internet de túnel em um dispositivo virtual ou no local, você não poderá se conectar à VM da internet. Para saber como diagnosticar problemas de rota que podem impedir o fluxo de tráfego de VM, consulte [diagnosticar um problema de roteamento do tráfego de rede de máquina virtual](diagnose-network-routing-problem.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre todas as tarefas, propriedades e configurações para um [grupo de segurança de rede](manage-network-security-group.md#work-with-network-security-groups) e [as regras de segurança](manage-network-security-group.md#work-with-security-rules).
 - Saiba mais sobre [padrão de regras de segurança](security-overview.md#default-security-rules), [serviço marcas](security-overview.md#service-tags), e [como o Azure processa as regras de segurança para o tráfego de entrada e saída](security-overview.md#network-security-groups) para uma máquina virtual.

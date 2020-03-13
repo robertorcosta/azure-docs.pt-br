@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372405"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278864"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
@@ -32,7 +32,7 @@ Para instalar e configurar um Windows Hybrid Runbook Worker, você pode usar doi
 
 |Sistema operacional  |Tipos de implantação  |
 |---------|---------|
-|Portal     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -51,7 +51,7 @@ Você pode remover um ou mais trabalhadores de runbook híbridos de um grupo ou 
 1. No portal do Azure, vá para sua conta de automação.
 2. Em **Configurações da conta**, selecione **Chaves** e anote os valores para **URL** e **Chave de acesso primária**. Você precisará dessas informações para a próxima etapa.
 
-### <a name="windows"></a>Portal
+### <a name="windows"></a>Windows
 
 Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir ‑ {1}. Use a opção **-Verbose** para obter um log detalhado do processo de remoção.
 
@@ -139,7 +139,7 @@ Para obter uma lista de endereços IP da região em vez de nomes da região, fa�
 >
 > É uma boa ideia fazer o download do novo arquivo XML toda semana. Em seguida, atualize seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para atualizar o anúncio BGP (Border Gateway Protocol) do espaço do Azure na primeira semana de cada mês.
 
-### <a name="update-management"></a>Gerenciamento de atualização
+### <a name="update-management"></a>Gerenciamento de atualizações
 
 Na parte superior dos endereços padrão e portas que exige o Hybrid Runbook Worker, os endereços a seguir são necessários especificamente para Gerenciamento de Atualizações. A comunicação para esses endereços é feita pela porta 443.
 
@@ -149,7 +149,7 @@ Na parte superior dos endereços padrão e portas que exige o Hybrid Runbook Wor
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Para saber como solucionar problemas de seus trabalhadores com runbook híbrido, consulte [Solucionando problemas de trabalhadores com runbook híbrido](troubleshoot/hybrid-runbook-worker.md#general)

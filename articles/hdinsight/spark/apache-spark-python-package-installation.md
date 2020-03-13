@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 98326d23f5aca1264bc47168cc25b427c3db331d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087113"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135948"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerenciar com segurança o ambiente do Python no Azure HDInsight usando a Ação de Script
 
@@ -74,12 +74,38 @@ O cluster HDInsight depende do ambiente interno do Python, Python 2,7 e Python 3
 
     Você pode pesquisar o [índice do pacote](https://pypi.python.org/pypi) para obter uma lista de pacotes que estão disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, você pode instalar pacotes disponibilizados por meio [conda-forge](https://conda-forge.org/feedstocks/).
 
-    -   `seaborn` é o nome do pacote que você deseja instalar.
-    -   `-n py35new` especifique o nome do ambiente virtual que acabou de ser criado. Certifique-se de alterar o nome de forma correspondente com base em sua criação de ambiente virtual.
+    Use o comando abaixo se você quiser instalar uma biblioteca com sua versão mais recente:
+    
+    - Usar canal Conda:
 
-    ```bash
-    sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
-    ```
+        -   `seaborn` é o nome do pacote que você deseja instalar.
+        -   `-n py35new` especifique o nome do ambiente virtual que acabou de ser criado. Certifique-se de alterar o nome de forma correspondente com base em sua criação de ambiente virtual.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
+        ```
+
+    - Ou use o repositório PyPi, altere `seaborn` e `py35new` de forma correspondente:
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        ```        
+
+    Use o comando abaixo se você quiser instalar uma biblioteca com uma versão específica:
+
+    - Usar canal Conda:
+
+        -   `numpy=1.16.1` é o nome do pacote e a versão que você deseja instalar.
+        -   `-n py35new` especifique o nome do ambiente virtual que acabou de ser criado. Certifique-se de alterar o nome de forma correspondente com base em sua criação de ambiente virtual.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
+        ```
+
+    - Ou use o repositório PyPi, altere `numpy==1.16.1` e `py35new` de forma correspondente:
+
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        ```
 
     Se você não souber o nome do ambiente virtual, poderá fazer SSH no nó principal do cluster e executar `/usr/bin/anaconda/bin/conda info -e` para mostrar todos os ambientes virtuais.
 
