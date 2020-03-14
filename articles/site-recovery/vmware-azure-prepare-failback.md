@@ -4,11 +4,11 @@ description: Preparar para failback de VMs do VMware após o failover com Azure 
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498222"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257180"
 ---
 # <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Prepare-se para a nova proteção e failback de VMs VMware
 
@@ -70,6 +70,6 @@ Um número de portas deve estar aberto para nova proteção/failback. O gráfico
 10. Verifique se o host ESXi no qual a VM de destino mestre tem pelo menos um repositório de armazenamento de sistemas de arquivos de máquina virtual (VMFS) anexado a ele. Se nenhum repositório de dados do VMFS estiver anexado, a entrada do repositório do armazenamento nas configurações de nova proteção estará vazia e você não poderá continuar.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Proteger](vmware-azure-reprotect.md) novamente uma VM.

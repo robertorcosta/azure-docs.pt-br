@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954316"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257115"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurar e gerenciar políticas de replicação para a recuperação de desastres do VMware
 
@@ -53,7 +53,7 @@ Edite uma política da seguinte maneira:
 2. Selecione a política de replicação que você deseja modificar.
 3. Clique em **Editar configurações**e atualize os campos tempo de retenção do ponto de recuperação/limite de RPO/frequência de instantâneos consistentes com o aplicativo, conforme necessário.
 4. Se você quiser desativar a geração de pontos de consistência do aplicativo, escolha o valor "desativado" na lista suspensa do campo **frequência do instantâneo consistente com o aplicativo**.
-5. Clique em **Salvar**. A política deve ser atualizada em 30 a 60 segundos.
+5. Clique em **Save** (Salvar). A política deve ser atualizada em 30 a 60 segundos.
 
 
 

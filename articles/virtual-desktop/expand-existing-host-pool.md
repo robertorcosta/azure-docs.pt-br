@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127904"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365212"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
 
@@ -71,7 +71,7 @@ Veja como reimplantar o modelo de Azure Resource Manager para expandir um pool d
 
 ## <a name="run-the-azure-marketplace-offering"></a>Executar a oferta do Azure Marketplace
 
-Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](./create-host-pools-azure-marketplace.md) até que você atinja [executar a oferta do Azure Marketplace para provisionar um novo pool de hosts](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Quando chegar a esse ponto, você precisará inserir as seguintes informações para cada folha:
+Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](./create-host-pools-azure-marketplace.md) até que você atinja [executar a oferta do Azure Marketplace para provisionar um novo pool de hosts](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Quando chegar a esse ponto, você precisará inserir as seguintes informações para cada guia:
 
 ### <a name="basics"></a>Noções básicas
 
@@ -123,7 +123,7 @@ Todos os valores de parâmetro nesta seção devem corresponder ao que você for
 
 Siga as instruções em [executar o modelo de Azure Resource Manager para provisionar um novo pool de hosts](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, exceto o *número de RDSH de instâncias*. Insira o número de VMs de host de sessão que você deseja no pool de hosts depois de executar o modelo. Por exemplo, se você estiver expandindo o pool de hosts de cinco hosts de sessão para oito, digite **8**.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você expandiu o pool de hosts existente, você pode entrar em um cliente de área de trabalho virtual do Windows para testá-los como parte de uma sessão de usuário. Você pode se conectar a uma sessão com qualquer um dos seguintes clientes:
 

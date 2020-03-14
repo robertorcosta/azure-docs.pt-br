@@ -3,16 +3,16 @@ title: Solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 description: Problemas comuns, soluções alternativas e etapas de diagnóstico, ao usar o gatilho de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605079"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365501"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
@@ -41,7 +41,7 @@ Além disso, se você estiver criando manualmente sua própria instância do [cl
 
 A função do Azure falha com a mensagem de erro "a coleção de origem ' Collection-Name ' (no banco de dados ' Database-Name ') ou a coleção de concessão ' Collection2-Name ' (no banco de dados ' Database2-Name ') não existe. Ambas as coleções devem existir antes de o ouvinte ser iniciado. Para criar automaticamente a coleção de concessão, defina ' CreateLeaseCollectionIfNotExists ' como ' true ' "
 
-Isso significa que um ou ambos os contêineres Cosmos do Azure necessários para o gatilho funcionar não existem ou não estão acessíveis para a função do Azure. **O erro em si informará qual contêiner e banco de dados Cosmos do Azure é o gatilho procurando** com base em sua configuração.
+Isso significa que um ou ambos os contêineres Cosmos do Azure necessários para o gatilho funcionar não existem ou não estão acessíveis para a função do Azure. **O erro em si informará qual banco de dados e contêiner do Azure cosmos é o gatilho procurando** com base em sua configuração.
 
 1. Verifique o atributo `ConnectionStringSetting` e se ele **faz referência a uma configuração que existe em seu aplicativo de funções do Azure**. O valor nesse atributo não deve ser a própria cadeia de conexão, mas o nome do parâmetro de configuração.
 2. Verifique se as `databaseName` e `collectionName` existem na sua conta do cosmos do Azure. Se você estiver usando a substituição automática de valor (usando padrões de `%settingName%`), verifique se o nome da configuração existe em seu Aplicativo de funções do Azure.
@@ -51,6 +51,10 @@ Isso significa que um ou ambos os contêineres Cosmos do Azure necessários para
 ### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Falha ao iniciar a função do Azure com "a coleção de produtividade compartilhada deve ter uma chave de partição"
 
 As versões anteriores da extensão de Azure Cosmos DB não tinham suporte usando um contêiner de concessões que foi criado em um [banco de dados de produtividade compartilhado](./set-throughput.md#set-throughput-on-a-database). Para resolver esse problema, atualize a extensão [Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) para obter a versão mais recente.
+
+### <a name="azure-function-fails-to-start-with-partitionkey-must-be-supplied-for-this-operation"></a>Falha na inicialização da função do Azure com "PartitionKey deve ser fornecido para esta operação".
+
+Esse erro significa que você está usando atualmente uma coleção de concessão particionada com uma [dependência de extensão](#dependencies)antiga. Atualize para a versão mais recente disponível. Se você estiver executando o Azure Functions v1 no momento, será necessário atualizar para o Azure Functions v2.
 
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Falha na inicialização da função do Azure com "a coleção de concessão, se particionada, deve ter a chave de partição igual à ID".
 
@@ -70,6 +74,13 @@ Se for a última opção, pode haver algum atraso entre as alterações sendo ar
 3. O contêiner Cosmos do Azure pode ser [limitado por taxa](./request-units.md).
 4. Você pode usar o atributo `PreferredLocations` em seu gatilho para especificar uma lista separada por vírgulas de regiões do Azure para definir uma ordem de conexão preferencial personalizada.
 
+### <a name="some-changes-are-repeated-in-my-trigger"></a>Algumas alterações são repetidas no meu gatilho
+
+O conceito de uma "alteração" é uma operação em um documento. Os cenários mais comuns em que os eventos para o mesmo documento são recebidos são:
+* A conta está usando a consistência eventual. Ao consumir o feed de alterações em um nível de consistência eventual, pode haver eventos duplicados entre operações de leitura do feed de alterações subsequentes (o último evento de uma operação de leitura aparece como o primeiro do próximo).
+* O documento está sendo atualizado. O feed de alterações pode conter várias operações para os mesmos documentos, se esse documento estiver recebendo atualizações, ele poderá pegar vários eventos (um para cada atualização). Uma maneira fácil de distinguir entre diferentes operações para o mesmo documento é controlar a propriedade `_lsn` [para cada alteração](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). Se eles não corresponderem, essas alterações serão diferentes no mesmo documento.
+* Se você estiver identificando documentos apenas por `id`, lembre-se de que o identificador exclusivo de um documento é o `id` e sua chave de partição (pode haver dois documentos com o mesmo `id`, mas com chave de partição diferente).
+
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Algumas alterações estão ausentes no meu gatilho
 
 Se você descobrir que algumas das alterações que ocorreram em seu contêiner Cosmos do Azure não estão sendo coletadas pela função do Azure, há uma etapa de investigação inicial que precisa ocorrer.
@@ -83,26 +94,26 @@ Nesse cenário, o melhor curso de ação é adicionar blocos de `try/catch` em s
 > [!NOTE]
 > Por padrão, o gatilho de Azure Functions para Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
 
-Se você descobrir que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure processasse.
+Se você achar que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure processasse.
 
-Além disso, o cenário pode ser validado, se você souber quantas instâncias do Azure Aplicativo de funções você está executando. Se você inspecionar o contêiner de concessões e contar o número de itens de concessão no, os valores distintos da propriedade `Owner` neles contidos deverão ser iguais ao número de instâncias do seu Aplicativo de funções. Se houver mais de um Proprietário do que as instâncias conhecidas do Aplicativo de funções Azure, significa que estes proprietários extras são os que estão “roubando” as mudanças.
+Além disso, o cenário pode ser validado, se você souber quantas instâncias do Azure Aplicativo de funções você está executando. Se você inspecionar o contêiner de concessões e contar o número de itens de concessão no, os valores distintos da propriedade `Owner` neles contidos deverão ser iguais ao número de instâncias do seu Aplicativo de funções. Se houver mais proprietários do que as instâncias conhecidas do Azure Aplicativo de funções, isso significa que esses proprietários extras são aqueles que "roubam" as alterações.
 
-Uma maneira fácil de solucionar essa situação é aplicar um `LeaseCollectionPrefix/leaseCollectionPrefix` à sua função com um valor novo/diferente ou, como alternativa, testar com um novo contêiner de concessões.
+Uma maneira fácil de contornar essa situação é aplicar um `LeaseCollectionPrefix/leaseCollectionPrefix` à sua função com um valor novo/diferente ou, como alternativa, testar com um novo contêiner de concessões.
 
-### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>É necessário reiniciar e processar novamente todos os itens no meu contêiner a partir do início 
-Para processar novamente todos os itens em um contêiner desde o início:
+### <a name="need-to-restart-and-reprocess-all-the-items-in-my-container-from-the-beginning"></a>É necessário reiniciar e reprocessar todos os itens no meu contêiner desde o início 
+Para reprocessar todos os itens em um contêiner desde o início:
 1. Pare sua função do Azure se ela estiver em execução no momento. 
 1. Excluir os documentos na coleção de concessão (ou excluir e recriar a coleção de concessão para que ela fique vazia)
 1. Defina o atributo [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger em sua função como true. 
 1. Reinicie o Azure function. Agora, ele lerá e processará todas as alterações desde o início. 
 
-Definir [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) como true instruirá a função do Azure a começar a ler as alterações desde o início do histórico da coleção, em vez da hora atual. Isso só funciona quando não há concessões já criadas (ou seja, documentos na coleção de concessões). Definir essa propriedade como true quando houver concessões já criadas não tem efeito; Nesse cenário, quando uma função é interrompida e reiniciada, ela começa a ler do último ponto de verificação, conforme definido na coleção de concessões. Para reprocessar desde o início, siga as etapas acima de 1-4.  
+Definir [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) como true instruirá a função do Azure a começar a ler as alterações desde o início do histórico da coleção, em vez da hora atual. Isso só funciona quando não há concessões já criadas (isto é, documentos na coleção de concessões). Definir essa propriedade como true quando houver concessões já criadas não tem efeito; Nesse cenário, quando uma função é interrompida e reiniciada, ela começa a ler do último ponto de verificação, conforme definido na coleção de concessões. Para reprocessar desde o início, siga as etapas acima de 1-4.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>A associação só pode ser feita com IReadOnlyList\<documento > ou JArray
 
 Esse erro ocorrerá se seu projeto Azure Functions (ou qualquer projeto referenciado) contiver uma referência manual do NuGet para o SDK do Azure Cosmos DB com uma versão diferente daquela fornecida pela [extensão Azure Functions Cosmos DB](./troubleshoot-changefeed-functions.md#dependencies).
 
-Para solucionar essa situação, remova a referência manual do NuGet que foi adicionada e permita que o Azure Cosmos DB referência do SDK seja resolvido por meio do pacote de extensão Azure Functions Cosmos DB.
+Para contornar essa situação, remova a referência manual do NuGet que foi adicionada e permita que a referência do SDK do Azure Cosmos DB seja resolvida por meio do pacote de extensão Azure Functions Cosmos DB.
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Alterando o intervalo de sondagem da função do Azure para a detecção de alterações
 

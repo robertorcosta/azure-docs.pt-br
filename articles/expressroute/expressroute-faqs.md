@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361533"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264915"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -50,7 +50,15 @@ Sim. Um circuito de ExpressRoute, uma vez instalado, permite que você acesse os
 
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>Como os VNets são anunciados no emparelhamento privado do ExpressRoute?
 
-O gateway de ExpressRoute anunciará o *espaço de endereço* da VNet do Azure, você não poderá incluir/excluir no nível de sub-rede. É sempre o espaço de endereço de rede virtual anunciado. Além disso, se o emparelhamento VNet for usado e a VNet emparelhada tiver "usar gateway remoto" habilitada, o espaço de endereço da VNet emparelhada também será anunciado.
+O gateway de ExpressRoute anunciará os *espaços de endereço* da VNet do Azure, você não poderá incluir/excluir no nível de sub-rede. É sempre o espaço de endereço de rede virtual anunciado. Além disso, se o emparelhamento VNet for usado e a VNet emparelhada tiver "usar gateway remoto" habilitada, o espaço de endereço da VNet emparelhada também será anunciado.
+
+### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Quantos prefixos podem ser anunciados de uma VNet para o local no emparelhamento privado do ExpressRoute?
+
+Há um máximo de 200 prefixos anunciados em uma única conexão de ExpressRoute ou por meio de emparelhamento VNet usando o trânsito de gateway. Por exemplo, se você tiver 199 espaços de endereço em uma única VNet conectada a um circuito do ExpressRoute, todos os 199 desses prefixos serão anunciados para o local. Como alternativa, se você tiver uma VNet habilitada para permitir o trânsito de gateway com 1 espaço de endereço e 150 spoke VNets habilitado usando a opção "permitir gateway remoto", a VNet implantada com o gateway anunciará 151 prefixos para local.
+
+### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>O que acontece se eu exceder o limite de prefixo em uma conexão de ExpressRoute?
+
+A conexão entre o circuito de ExpressRoute e o gateway (e VNets emparelhado usando o trânsito de gateway, se aplicável) será desativada. Ele se restabelecerá quando o limite de prefixo não for mais excedido.  
 
 ### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>Posso filtrar as rotas provenientes da minha rede local?
 

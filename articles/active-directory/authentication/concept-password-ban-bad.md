@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848605"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263992"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar senhas incorretas na organização
 
@@ -65,7 +65,7 @@ Por exemplo: Considere um cliente chamado "contoso", que se baseia em Londres e 
 
 Em vez disso, é muito mais eficiente e seguro Bloquear apenas os termos básicos da chave:
 
-- "Contoso"
+- Funcionam
 - Londres
 - Widget
 
@@ -174,7 +174,7 @@ Quando um usuário tentar redefinir uma senha para alguma que seria proibida, a 
 
 Infelizmente, sua senha contém uma palavra, uma frase ou um padrão que pode ser facilmente adivinhado. Tente novamente com uma senha diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar a lista de senhas proibidas personalizada](howto-password-ban-bad.md)
 - [Habilitar agentes de proteção por senha do Azure AD local](howto-password-ban-bad-on-premises-deploy.md)

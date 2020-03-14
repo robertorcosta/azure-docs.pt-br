@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385318"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254242"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights usando um hub de eventos
 
@@ -105,7 +105,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
 * **Saída**: um evento.
 
-    |{1&gt;id&lt;1}|timestamp|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -128,7 +128,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
 * **Saída**: dois eventos.
 
-    |{1&gt;id&lt;1}|timestamp|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|
@@ -201,7 +201,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
     |Oeste dos EUA|manufacturer1|Leste dos EUA|device1|2016-01-08T01:08:00Z|pressão|psi|108.09|
     |Oeste dos EUA|manufacturer1|Leste dos EUA|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Exiba seu ambiente](https://insights.timeseries.azure.com) no time Series insights Explorer.
 

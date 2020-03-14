@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75376283"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257375"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -26,7 +26,7 @@ Você implanta um servidor de configuração local quando você usa o [Azure Sit
 
 O servidor de configuração deve ser configurado como uma VM VMware altamente disponível com determinados requisitos mínimos de hardware e de dimensionamento. Para uma implantação conveniente e fácil, o Site Recovery fornece um modelo de OVA (aplicativo de virtualização aberta) para download para configurar o servidor de configuração que está em conformidade com todos os requisitos obrigatórios listados aqui.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os requisitos mínimos de hardware para um servidor de configuração são resumidos nas seções a seguir.
 
@@ -132,7 +132,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 7. Insira as credenciais a serem usadas pelo servidor de configuração para se conectar ao servidor VMware. O Site Recovery usa essas credenciais para descobrir automaticamente as VMs do VMware que estão disponíveis para replicação. Selecione **Adicionar** > **Continuar**. As credenciais digitadas aqui são salvas localmente.
 8. Em **configurar credenciais da máquina virtual**, insira o nome de usuário e a senha das máquinas virtuais para instalar automaticamente o serviço de mobilidade durante a replicação. Para computadores **Windows**, a conta precisa de privilégios de administrador local nos computadores que você deseja replicar. Para o **Linux**, forneça detalhes para a conta raiz.
 9. Selecione **Finalizar configuração** para concluir o registro.
-10. Após a conclusão do registro, abra o portal do Azure e verifique se o servidor de configuração e o servidor VMware estão listados no **cofre dos serviços de recuperação** > **gerenciar** > **infraestrutura de site Recovery** > servidores de **configuração**.
+10. Após o término do registro, abra o portal do Azure e verifique se o servidor de configuração e o servidor VMware estão listados em **Cofre dos Serviços de Recuperação** > **Gerenciar** > **Infraestrutura do Site Recovery** > **Servidores de Configuração**.
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
@@ -193,6 +193,6 @@ Consulte nosso [artigo de solução de problemas](vmware-azure-troubleshoot-conf
 
 Para obter mais perguntas frequentes sobre servidores de configuração, consulte [perguntas comuns do servidor de configuração](vmware-azure-common-questions.md#configuration-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Configurar a recuperação de desastre de [VMs do VMware](vmware-azure-tutorial.md) para o Azure.

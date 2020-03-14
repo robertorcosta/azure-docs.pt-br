@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376563"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261886"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recurso para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -93,7 +93,7 @@ Para obter mais informações, consulte [comparar grupos](https://docs.microsoft
     |  |  |
     | --- | --- |
     | Segurança | Usado para conceder acesso aos recursos. |
-    | Distribution | Usado para enviar notificações para um grupo de pessoas. |
+    | Distribuição | Usado para enviar notificações para um grupo de pessoas. |
     | O365 | Grupo do Office 365 que não está habilitado para equipes. Usado para colaboração entre usuários, dentro e fora da sua empresa. |
     | Equipe | Grupo do Office 365 habilitado para equipes. Usado para colaboração entre usuários, dentro e fora da sua empresa. |
 
@@ -180,7 +180,7 @@ No gerenciamento de direitos, o Azure AD processará alterações em massa para 
 
 Quando você remove um membro de uma equipe, ele também é removido do grupo do Office 365. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar um grupo básico e adicionar membros usando Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Como configurar a declaração de função emitida no token SAML para aplicativos empresariais](../develop/active-directory-enterprise-app-role-management.md)

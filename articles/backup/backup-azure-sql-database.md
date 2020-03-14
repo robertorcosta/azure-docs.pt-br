@@ -3,16 +3,23 @@ title: Fazer backup de bancos de dados do SQL Server para o Azure
 description: Este artigo explica como fazer backup do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 7305a75852deac466028e6278fca76626d8c1820
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273235"
+ms.locfileid: "79297468"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
-Os bancos de dados SQL Server são cargas de trabalho críticas que exigem um baixo RPO (objetivo de ponto de recuperação) e retenção de longo prazo. É possível fazer backup de bancos de dados do SQL Server em execução em VMs do Azure usando o [Backup do Azure](backup-overview.md).
+O [backup do Azure](backup-overview.md) oferece uma solução especializada baseada em fluxo para fazer backup SQL Server em execução em VMs do Azure. Essa solução se alinha com os benefícios do backup do Azure de backup sem infraestrutura, retenção de longo prazo e gerenciamento central. Além disso, ele fornece as seguintes vantagens especificamente para SQL Server:
+
+1. Backups com reconhecimento de carga de trabalho que dão suporte a todos os tipos de backup-completo, diferencial e log
+2. RPO de 15 minutos (objetivo de ponto de recuperação) com backups de log frequentes
+3. Recuperação pontual de até um segundo
+4. Backup e restauração de nível de banco de dados individual
+
+Para exibir os cenários de backup e restauração aos quais damos suporte hoje, consulte a [matriz de suporte](backup-azure-sql-database.md#scenario-support).
 
 ## <a name="backup-process"></a>Processo de backup
 
@@ -65,11 +72,11 @@ Antes de começar, verifique o que está descrito abaixo:
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Faça backup do comportamento no caso de grupos de disponibilidade Always On
 
-É recomendável que o backup seja configurado em apenas um nó de um grupo de disponibilidade. O backup sempre deve ser configurado na mesma região que o nó primário. Em outras palavras, você sempre precisa que o nó primário esteja presente na região na qual você está configurando o backup. Se todos os nós do grupo de disponibilidade estiverem na mesma região na qual o backup é configurado, não haverá preocupação.
+É recomendável que o backup seja configurado em apenas um nó de um grupo de disponibilidade. O backup sempre deve ser configurado na mesma região que o nó primário. Em outras palavras, você sempre precisa que o nó primário esteja presente na região na qual você está configurando o backup. Se todos os nós do AG estiverem na mesma região em que o backup está configurado, não haverá nenhuma preocupação.
 
 #### <a name="for-cross-region-ag"></a>Para grupos de disponibilidade entre regiões
 
-* Independentemente da preferência de backup, os backups não acontecerão em nós que não estão na mesma região em que o backup é configurado. Isso ocorre porque os backups entre regiões não são compatíveis. Se você tiver apenas dois nós e o nó secundário estiver em outra região; nesse caso, os backups continuarão ocorrendo no nó primário (a menos que sua preferência de backup seja “somente secundária”).
+* Independentemente da preferência de backup, os backups não acontecerão a partir dos nós que não estão na mesma região em que o backup está configurado. Isso ocorre porque os backups entre regiões não são compatíveis. Se você tiver apenas dois nós e o nó secundário estiver na outra região; Nesse caso, os backups continuarão a acontecer a partir do nó primário (a menos que a preferência de backup seja ' somente secundária ').
 * Se ocorresse um failover em uma região diferente da região em que o backup está configurado, eles falhariam nos nós na região de failover.
 
 Dependendo da preferência de backup e os tipos de backups (completo/diferencial/log/somente cópia completos), os backups serão feitos em um nó específico (primário/secundário).
