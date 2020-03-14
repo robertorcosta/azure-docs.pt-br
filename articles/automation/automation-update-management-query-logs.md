@@ -3,14 +3,14 @@ title: Consultar logs de Gerenciamento de Atualizações do Azure
 description: Este artigo descreve como consultar os logs para Gerenciamento de Atualizações em seu espaço de trabalho do Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 01/10/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: f31168d47f31d8e740c95cb3d9e449f473cc78dc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867060"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216841"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Registros de atualização de consulta para Gerenciamento de Atualizações em logs de Azure Monitor
 
@@ -26,7 +26,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 
 É criado um registro com um tipo de `RequiredUpdate` que representa as atualizações exigidas por um computador. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description | 
+| Propriedade | DESCRIÇÃO | 
 |----------|-------------|
 | Computador | Nome de domínio totalmente qualificado da máquina de relatórios. |
 | KBID | ID do artigo da base de dados de conhecimento para o Windows Update. |
@@ -38,16 +38,16 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | SourceSystem | *OperationsManager* | 
 | TenantId | Identificador exclusivo que representa a instância de sua organização do Azure Active Directory. | 
 | TimeGenerated | Data e hora de criação do registro. | 
-| Tipo | *Atualização* | 
+| Type | *Atualização* | 
 | UpdateClassification | Indica o tipo de atualizações que podem ser aplicadas. Para Windows:<br> *Atualizações críticas*<br> *Atualizações de segurança*<br> *Pacotes cumulativos de atualizações*<br> *Pacotes de recursos*<br> *Service Packs*<br> *Atualizações de definições*<br> *Ferramentas*<br> *Atualizações*. Para Linux:<br> *Atualizações críticas e de segurança*<br> *Outros* |
-| UpdateSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderados*<br> *Baixa* |
+| UpdateSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Media*<br> *Pequena* |
 | UpdateTitle | O título da atualização.|
 
 ### <a name="update"></a>Atualizar
 
 É criado um registro com um tipo de `Update` que representa as atualizações disponíveis e seu status de instalação para um computador. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description | 
+| Propriedade | DESCRIÇÃO | 
 |----------|-------------|
 | Aprovação | Aplica-se somente ao sistema operacional Windows. O valor é *Microsoft Update*. |
 | Aprovado | *Verdadeiro* ou *falso* |
@@ -55,7 +55,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | Computador | Nome de domínio totalmente qualificado da máquina de relatórios. |
 | ComputerEnvironment | *Azure* ou *não Azure*. |
 | MSRCBulletinID | Número da ID do boletim de segurança | 
-| MSRCSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderados*<br> *Baixa* |  
+| MSRCSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Media*<br> *Pequena* |  
 | KBID | ID do artigo da base de dados de conhecimento para o Windows Update. |
 | ManagementGroupName | Nome do Operations Manager grupo de gerenciamento ou Log Analytics espaço de trabalho. |
 | UpdateID | Identificador exclusivo da atualização de software. |
@@ -63,7 +63,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | Opcional | *Verdadeiro* ou *falso* | 
 | RebootBehavior | O comportamento de reinicialização após instalar/desinstalar uma atualização. |
 | _ResourceId | Identificador exclusivo do recurso ao qual o registro está associado. |
-| Tipo | *Atualização* |
+| Type | *Atualização* |
 | VMUUID | Identificador exclusivo para a máquina virtual. |
 | MG | Identificador exclusivo para o grupo de gerenciamento ou Log Analytics espaço de trabalho. | 
 | TenantId | Identificador exclusivo que representa a instância de sua organização do Azure Active Directory. | 
@@ -77,14 +77,14 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | SubscriptionId | Identificador exclusivo da assinatura do Azure. | 
 | ResourceGroup | Nome do grupo de recursos do qual o recurso é membro. | 
 | ResourceProvider | Especifica o provedor de recursos. | 
-| Grupos | Nome do recurso. | 
+| Recurso | Nome do recurso. | 
 | ResourceType | Nome do tipo de recurso. | 
 
 ### <a name="update-agent"></a>Atualizar Agente
 
 É criado um registro com um tipo de `UpdateAgent` que fornece detalhes do agente de atualização no computador. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description | 
+| Propriedade | DESCRIÇÃO | 
 |----------|-------------|
 | AgeofOldestMissingRequiredUpdate | | 
 | AutomaticUpdateEnabled | | 
@@ -97,7 +97,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | SourceSystem | *OperationsManager* | 
 | TenantId | Identificador exclusivo que representa a instância de sua organização do Azure Active Directory. |
 | TimeGenerated | Data e hora de criação do registro. |
-| Tipo | *Atualização* | 
+| Type | *Atualização* | 
 | WindowsUpdateAgentVersion | Versão do agente de Windows Update. |
 | WSUSServer | Mostra erros se o agente de Windows Update tiver um problema para auxiliar na solução de problemas. |
 
@@ -105,7 +105,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 
 É criado um registro com um tipo de `UpdateRunProgress` que fornece o status de implantação de atualização de uma implantação agendada por computador. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description | 
+| Propriedade | DESCRIÇÃO | 
 |----------|-------------|
 | Computador | Nome de domínio totalmente qualificado da máquina de relatórios. |
 | ComputerEnvironment | *Azure* ou *não Azure*. | 
@@ -117,7 +117,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | ManagementGroupName | Nome do Operations Manager grupo de gerenciamento ou Log Analytics espaço de trabalho. |
 | OSType | Especifica o tipo de sistema operacional, *Windows* ou *Linux*. | 
 | Produto | Os produtos aos quais a atualização é aplicável. |
-| Grupos | Nome do recurso. | 
+| Recurso | Nome do recurso. | 
 | ResourceId | Identificador exclusivo do recurso ao qual o registro está associado. |
 | ResourceProvider | Especifica o provedor de recursos. | 
 | ResourceType | Nome do tipo de recurso. | 
@@ -128,7 +128,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | SucceededOnRetry | Mostra quando a execução da atualização falhou na primeira tentativa e a operação atual é uma tentativa de repetição. |
 | TimeGenerated | Data e hora de criação do registro. |
 | Title | O título da atualização. |
-| Tipo | *UpdateRunProgress* |
+| Type | *UpdateRunProgress* |
 | UpdateId | Identificador exclusivo da atualização de software. |
 | VMUUID | Identificador exclusivo para a máquina virtual. |
 | _ResourceId | Identificador exclusivo do recurso ao qual o registro está associado. |
@@ -137,18 +137,18 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 
 É criado um registro com um tipo de `UpdateSummary` que fornece o resumo da atualização por computador. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | Description | 
+| Propriedade | DESCRIÇÃO | 
 |----------|-------------|
 | Computador | Nome de domínio totalmente qualificado da máquina de relatórios. |
 | ComputerEnvironment | *Azure* ou *não Azure*. | 
 | CriticalUpdatesMissing | Número de atualizações críticas ausentes aplicáveis. | 
 | ManagementGroupName | Nome do Operations Manager grupo de gerenciamento ou Log Analytics espaço de trabalho. |
 | NETRuntimeVersion | Versão do .NET Framework instalada no computador com Windows. |
-| OldestMissingSecurityUpdateBucket | | 
-| OldestMissingSecurityUpdateInDays | |
+| OldestMissingSecurityUpdateBucket | Os valores são:<br> *Recente*<br> *30 dias atrás*<br> *60 dias atrás*<br> *Velho* | 
+| OldestMissingSecurityUpdateInDays | Número total de dias para a atualização mais antiga detectada, conforme aplicável, que não foi instalado. |
 | OsVersion | A versão do sistema operacional. |
 | OtherUpdatesMissing | Contagem de atualizações detectadas ausentes. |
-| Grupos |  Nome do recurso. | 
+| Recurso |  Nome do recurso. | 
 | ResourceGroup | Nome do grupo de recursos do qual o recurso é membro. |
 | ResourceId | Identificador exclusivo do recurso ao qual o registro está associado. |
 | ResourceProvider | Especifica o provedor de recursos. |
@@ -160,7 +160,7 @@ Registros que são coletados por Gerenciamento de Atualizações para VMs Window
 | SubscriptionId | Identificador exclusivo da assinatura do Azure. |
 | TimeGenerated | Data e hora de criação do registro. |
 | TotalUpdatesMissing | Número total de atualizações ausentes aplicáveis. | 
-| Tipo | *UpdateSummary* |
+| Type | *UpdateSummary* |
 | VMUUID | Identificador exclusivo para a máquina virtual. |
 | WindowsUpdateAgentVersion | Versão do agente de Windows Update. |
 | WindowsUpdateSetting | Mostra o status do agente de Windows Update. Os valores possíveis são:<br> *Instalação agendada*<br> *Notificar antes da instalação*<br> Erro retornado do agente do WUA não íntegro. | 
@@ -409,7 +409,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Use pesquisas de log em [logs de Azure monitor](../log-analytics/log-analytics-log-searches.md) para exibir dados de atualização detalhados.
 * [Criar alertas](automation-tutorial-update-management.md#configure-alerts) para status de implantação de atualização.

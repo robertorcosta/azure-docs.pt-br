@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 28d37ba6796799ea27bbd5338247a504ea82388f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970489"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250420"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs Linux 
 
@@ -54,7 +54,7 @@ Azure Disk Encryption tem suporte em um subconjunto de [distribuições Linux en
 
 As distribuições do servidor Linux que não são endossadas pelo Azure não dão suporte a Azure Disk Encryption; daqueles que são endossados, somente as seguintes distribuições e versões são compatíveis Azure Disk Encryption:
 
-| Distribuição do Linux | {1&gt;Version&lt;1} | Tipo de volume suportado para criptografia|
+| Distribuição do Linux | Versão | Tipo de volume suportado para criptografia|
 | --- | --- |--- |
 | Ubuntu | 18.04| SO e disco de dados |
 | Ubuntu | 16.04| SO e disco de dados |
@@ -81,7 +81,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 > [!NOTE]
 > Há suporte para a nova implementação de Azure Disk Encryption para o sistema operacional RHEL e o disco de dados para imagens RHEL7 de pagamento conforme o uso.  
 >
-> O ADE também tem suporte para imagens Gold traga sua própria assinatura do RHEL, mas somente **depois** que a assinatura tiver sido registrada. Para obter mais informações, consulte [Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> O ADE também tem suporte para imagens Gold traga sua própria assinatura do RHEL, mas somente **depois** que a assinatura tiver sido registrada. Para obter mais informações, consulte [Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## <a name="additional-vm-requirements"></a>Requisitos adicionais de VM
 
@@ -123,7 +123,7 @@ A tabela a seguir define alguns dos termos comuns usados na documentação de cr
 | Cmdlets do PowerShell | Para obter mais informações, confira [cmdlets do Azure PowerShell](/powershell/azure/overview). |
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Início rápido-criar e criptografar uma VM Linux com CLI do Azure](disk-encryption-cli-quickstart.md)
 - [Início rápido-criar e criptografar uma VM do Linux com o Azure PowerShell](disk-encryption-powershell-quickstart.md)

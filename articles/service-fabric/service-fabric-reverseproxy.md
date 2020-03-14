@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127627"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282218"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -149,7 +149,7 @@ Para o cluster local, `Fabric_NodeIPOrFQDN` é definido como "localhost" por pad
 
 Os serviços do Service Fabric executados nos contêineres do Docker Compose exigem uma configuração especial http: ou https: docker-compose.yml *Portas seção*. Para obter mais informações, consulte [Docker Compose suporte à implantação no Azure Service Fabric](service-fabric-docker-compose.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Definir e configurar proxy reverso em um cluster](service-fabric-reverseproxy-setup.md).
 * [Definir encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnosticar eventos de proxy reverso](service-fabric-reverse-proxy-diagnostics.md)

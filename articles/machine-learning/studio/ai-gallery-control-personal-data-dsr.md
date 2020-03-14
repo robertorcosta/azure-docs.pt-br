@@ -11,14 +11,16 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: a4ce383959b10836791ea065ffe8a9c243f6ad0d
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168982"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204538"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Exibir e excluir dados de usuário do produto da Galeria de IA do Azure
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Você pode exibir e excluir seus dados de usuário do produto da Galeria de IA do Azure usando a interface ou a API de Catálogo da Galeria de IA. Este artigo informa como fazer isso.
 
@@ -30,9 +32,9 @@ Você pode exibir e excluir seus dados de usuário do produto da Galeria de IA d
 
 Você pode exibir os itens publicados por meio da interface do usuário do site da Galeria de IA do Azure. Os usuários podem exibir soluções públicas e não listadas, projetos, experiências e outros itens publicados:
 
-1.  Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
-2.  Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
-3.  A página do perfil exibe todos os itens publicados na galeria, incluindo as entradas não listadas.
+1.    Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
+2.    Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
+3.    A página do perfil exibe todos os itens publicados na galeria, incluindo as entradas não listadas.
 
 ## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Use a API do Catálogo da Galeria de IA para exibir seus dados
 
@@ -43,9 +45,9 @@ As respostas de catálogo são retornadas no formato JSON.
 ### <a name="get-an-author-id"></a>Obter uma ID do autor
 A ID do autor baseia-se no endereço de email usado ao publicar na Galeria de IA do Azure. Ela não altera:
 
-1.  Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
-2.  Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
-3.  A URL na barra de endereços exibe a ID alfanumérica após `authorId=`. Por exemplo, para a URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1.    Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
+2.    Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
+3.    A URL na barra de endereços exibe a ID alfanumérica após `authorId=`. Por exemplo, para a URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     ID do autor: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
@@ -55,12 +57,12 @@ Você precisa de um token de acesso para exibir as entidades não listadas por m
 
 Para obter um token de acesso, você precisa inspecionar o `DataLabAccessToken` cabeçalho de uma solicitação HTTP que o navegador faz para a API de catálogo enquanto estiver conectado:
 
-1.  Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
-2.  Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
-3.  Abra o painel Ferramentas para Desenvolvedores do navegador pressionando F12, selecione a guia Rede e atualize a página. 
+1.    Conecte-se à [Galeria de IA do Azure](https://gallery.azure.ai/).
+2.    Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
+3.    Abra o painel Ferramentas para Desenvolvedores do navegador pressionando F12, selecione a guia Rede e atualize a página. 
 4. Filtre solicitações na cadeia de caracteres *catálogo* digitando na caixa de texto Filtro.
-5.  Em solicitações para a URL `https://catalog.cortanaanalytics.com/entities`, localize uma solicitação GET e selecione a guia *cabeçalhos* . Role para baixo até a seção *cabeçalhos de solicitação* .
-6.  Sob o cabeçalho `DataLabAccessToken` está o token alfanumérico. Para ajudar a manter seus dados protegidos, não compartilhe este token.
+5.    Em solicitações para a URL `https://catalog.cortanaanalytics.com/entities`, localize uma solicitação GET e selecione a guia *cabeçalhos* . Role para baixo até a seção *cabeçalhos de solicitação* .
+6.    Sob o cabeçalho `DataLabAccessToken` está o token alfanumérico. Para ajudar a manter seus dados protegidos, não compartilhe este token.
 
 ### <a name="view-user-information"></a>Exibir informações do usuário
 Usando a ID do autor que você obteve nas etapas anteriores, exiba informações no perfil do usuário substituindo `[AuthorId]` na seguinte URL:
@@ -92,9 +94,9 @@ Por exemplo:
 
 Esta consulta exibe apenas entidades públicas. Para exibir todas as suas entidades, incluindo aquelas não listadas, forneça o acesso ao token obtido na seção anterior.
 
-1.  Usando uma ferramenta como [Postman](https://www.getpostman.com), crie uma solicitação HTTP GET para a URL do catálogo, conforme descrito em [Obter o token de acesso](#get-your-access-token).
-2.  Crie um cabeçalho de solicitação HTTP denominado `DataLabAccessToken`, com o valor definido para o token de acesso.
-3.  Envie a solicitação HTTP.
+1.    Usando uma ferramenta como [Postman](https://www.getpostman.com), crie uma solicitação HTTP GET para a URL do catálogo, conforme descrito em [Obter o token de acesso](#get-your-access-token).
+2.    Crie um cabeçalho de solicitação HTTP denominado `DataLabAccessToken`, com o valor definido para o token de acesso.
+3.    Envie a solicitação HTTP.
 
 > [!TIP]
 > Se as entidades não listadas não forem exibidas em respostas da API do catálogo, isso indica que o usuário pode ter um token de acesso inválido ou expirado. Saia da Galeria de IA do Azure e, em seguida, repita as etapas em [Obter o token de acesso](#get-your-access-token) para renovar o token. 

@@ -4,11 +4,11 @@ description: Descreve como fazer backup de VMs do Azure em um cofre de serviços
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363674"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273508"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -171,8 +171,8 @@ O status do trabalho pode variar dependendo dos seguintes cenários:
 Concluído | Em andamento | Em andamento
 Concluído | Ignorado | Concluído
 Concluído | Concluído | Concluído
-Concluído | Falha | Concluído com aviso
-Falha | Falha | Falha
+Concluído | Falhou | Concluído com aviso
+Falhou | Falhou | Falhou
 
 Agora, com esse recurso, para a mesma VM, dois backups podem ser executados em paralelo, mas, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode ser executada. Assim, em cenários, um trabalho de backup em andamento resultou na falha do backup do dia seguinte, com essa funcionalidade de desacoplamento. Os backups do dia seguinte podem ter o instantâneo concluído ao **transferir dados para o cofre** ignorados se o trabalho de backup de um dia anterior estiver em estado de andamento.
 O ponto de recuperação incremental criado no cofre irá capturar toda a rotatividade do último ponto de recuperação criado no cofre. Não há impacto no custo do usuário.
@@ -195,7 +195,7 @@ O Backup do Azure faz backup de VMs do Azure instalando uma extensão para o age
 >
 >**Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com**
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Solucione quaisquer problemas com [agentes de VM do Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou [backup de VM do Azure](backup-azure-vms-troubleshoot.md).
 * [Restaurar](backup-azure-arm-restore-vms.md) VMs do Azure.

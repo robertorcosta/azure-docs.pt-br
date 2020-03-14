@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757392"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252123"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guia de início rápido para o Back no Azure Cloud Shell
 
@@ -52,13 +52,13 @@ az account set --subscription 'my-subscription-name'
 > [!TIP]
 > Sua assinatura será lembrada em sessões futuras com o uso de `/home/<user>/.azure/azureProfile.json`.
 
-### <a name="create-a-resource-group"></a>Criar um grupos de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um novo grupo de recursos no Oeste dos EUA chamado "MyRG".
 ```azurecli-interactive
 az group create --location westus --name MyRG
 ```
 
-### <a name="create-a-linux-vm"></a>Criar uma VM Linux
+### <a name="create-a-linux-vm"></a>Criar uma VM do Linux
 Crie uma VM do Ubuntu em seu novo grupo de recursos. A CLI do Azure criará chaves SSH e configurará a VM com elas. <br>
 
 ```azurecli-interactive
@@ -94,7 +94,7 @@ Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do U
    az group delete -n MyRG
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre como manter arquivos para Bash no Cloud Shell](persisting-shell-storage.md) <br>
 [Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o armazenamento de Arquivos do Azure](../storage/files/storage-files-introduction.md) <br>

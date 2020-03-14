@@ -4,11 +4,11 @@ description: Neste artigo, saiba como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363676"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273300"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -161,7 +161,7 @@ Se o disco RAID tiver outro LVM configurado, use o procedimento anterior para pa
 
 A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de computador e servidor. Ao recuperar arquivos, você não poderá restaurar arquivos para uma versão anterior ou uma versão futura do sistema operacional. Por exemplo, você não pode restaurar um arquivo de uma VM do Windows Server 2016 para um computador Windows Server 2012 ou Windows 8. É possível restaurar arquivos de uma VM para o mesmo sistema operacional do servidor ou para o sistema operacional compatível do cliente.
 
-|Sistema operacional do servidor | Sistema operacional de cliente compatível  |
+|Sistema operacional de servidor | Sistema operacional de cliente compatível  |
 | --------------- | ---- |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
@@ -190,7 +190,7 @@ No Linux, o SO do computador utilizado para restaurar arquivos deve fornecer sup
 
 O script também exige componentes Python e bash para executar e se conectar com segurança ao ponto de recuperação.
 
-|Componente | {1&gt;Version&lt;1}  |
+|Componente | Versão  |
 | --------------- | ---- |
 | bash | 4 e acima |
 | python | 2.6.6 e acima  |
@@ -249,7 +249,7 @@ Como o processo de recuperação de arquivo anexa todos os discos do backup, qua
 - Cada vez que o usuário baixa um script, o backup do Azure inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, esse processo levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do portal/PowerShell/CLI, aguardar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
 - Após a recuperação de arquivos, verifique se você retornou ao portal e clique em **desmontar discos** para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Se você tiver problemas durante a recuperação de arquivos de máquinas virtuais, verifique a tabela a seguir para obter informações adicionais.
 
@@ -301,7 +301,7 @@ Qualquer ACL (lista de controle de acesso) de arquivo presente na VM pai/com bac
 
 O script fornece acesso somente leitura a um ponto de recuperação e é válido por apenas 12 horas. Se você quiser remover o acesso anteriormente, entre no portal do Azure/PowerShell/CLI e execute a **desmontagem de discos** para esse ponto de recuperação específico. O script será invalidado imediatamente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para problemas durante a restauração de arquivos, consulte a seção de [solução de problemas](#troubleshooting)
 - Saiba como [restaurar arquivos por meio do PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)

@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890271"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219726"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrões
 
@@ -137,7 +137,7 @@ Marque texto opcional na expressão usando a sintaxe colchete de expressão regu
 
 As marcas de Pontuação (`?`, `!`, `.`) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de colchetes em padrões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre padrões:
 

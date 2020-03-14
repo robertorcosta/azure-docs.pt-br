@@ -1,24 +1,24 @@
 ---
-title: Diretrizes para ajuste do desempenho
-description: Aprenda a usar recomendações para ajustar manualmente o desempenho da consulta do Banco de Dados SQL do Azure.
+title: Diretrizes de ajuste de desempenho para aplicativos e bancos de dados
+description: Saiba mais sobre como ajustar bancos de dados e aplicativos de banco de dados para desempenho no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: carlrab; jrasnick
+ms.date: 03/10/2020
+ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009094"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255945"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Desempenho de consulta de ajuste manual no Banco de Dados SQL do Azure
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Ajuste os aplicativos e bancos de dados para desempenho no banco de dados SQL do Azure
 
 Depois de identificar um problema de desempenho que você está enfrentando com o Banco de Dados SQL, este artigo foi desenvolvido para ajudá-lo a:
 
@@ -232,6 +232,10 @@ Você pode examinar **sys.resource_stats** para determinar se o recurso para um 
 
 Se uma carga de trabalho tem um conjunto de consultas repetidas, normalmente faz sentido capturar e validar a natureza ideal dessas opções de plano, pois ela orienta a unidade de tamanho mínima de recursos necessária para hospedar o banco de dados. Depois de validar, volte a examinar os planos periodicamente para ter certeza de que eles não degradaram. Saiba mais sobre [dicas de consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
+### <a name="very-large-database-architectures"></a>Arquiteturas de banco de dados muito grandes
+
+Antes do lançamento da camada de serviço de [hiperescala](sql-database-service-tier-hyperscale.md) para bancos de dados individuais no banco de dados SQL do Azure, os clientes usaram para atingir os limites de capacidade para bancos de dados individual. Esses limites de capacidade ainda existem para bancos de dados em pool em pools elásticos e banco de dados de instância em instâncias gerenciadas. As duas seções a seguir discutem duas opções para a solução de problemas com bancos de dados muito grandes no Azure SQL Database quando você não pode usar a camada de serviço de hiperescala.
+
 ### <a name="cross-database-sharding"></a>Fragmentação entre bancos de dados
 
 Como o Banco de Dados SQL do Azure é executado no hardware de mercadoria, há limites inferiores de capacidade para um banco de dados individual em relação a uma instalação do SQL Server local tradicional. Alguns clientes usam técnicas de fragmentação para distribuir operações de banco de dados por vários bancos de dados quando elas não se ajustam aos limites de um banco de dados individual no Banco de Dados SQL do Azure. A maioria dos clientes que usam técnicas de fragmentação no Banco de Dados SQL do Azure divide seus dados em uma única dimensão entre vários bancos de dados. Para esta abordagem, você precisa compreender que aplicativos OLTP executam com frequência transações que se aplicam somente a uma linha ou a um pequeno grupo de linhas no esquema.
@@ -243,7 +247,7 @@ Por exemplo, se um banco de dados contiver o nome do cliente, o pedido e os deta
 
 Embora a fragmentação do banco de dados não reduza a capacidade agregada de recursos de uma solução, ela é altamente eficaz para dar suporte a soluções muito grandes que são distribuídas em vários bancos de dados. Cada banco de dados pode ser executado em um tamanho da computação diferente para compatibilidade com bancos de dados “efetivos” muito grandes, com altos requisitos de recursos.
 
-### <a name="functional-partitioning"></a>Particionamento funcional
+#### <a name="functional-partitioning"></a>Particionamento funcional
 
 Com frequência, os usuários do SQL Server combinam muitas funções em um banco de dados individual. Por exemplo, se um aplicativo tiver lógica para gerenciar o inventário de uma loja, esse banco de dados poderá ter lógica associada ao controle de inventário, acompanhamento de ordens de compra, procedimentos armazenados e exibições indexadas/materializadas que gerenciam os relatórios de final de mês. Essa técnica facilita a administração do banco de dados para operações como backup, mas também requer que você dimensione o hardware para lidar com a carga de pico em todas as funções de um aplicativo.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 02/01/2020
-ms.openlocfilehash: 20c93d214195f8fe389f4982e1d8b10998c7057d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/09/2020
+ms.openlocfilehash: 97ce402045cfd2c990b457c5d4d06888cda632d5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379554"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255984"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos vCore e compra de DTU
 
@@ -85,6 +85,11 @@ Para converter do modelo de compra baseado em DTU para o modelo de compra basead
 
 - Cada DTUs de 100 na camada Standard requer pelo menos 1 vCore na camada de serviço Uso Geral.
 - Cada DTUs de 125 na camada Premium requer pelo menos 1 vCore na camada de serviço Comercialmente Crítico.
+
+> [!NOTE]
+> As diretrizes de DTU para dimensionamento de vCore são aproximadas e são fornecidas para ajudar na estimativa inicial do objetivo do serviço de banco de dados de destino. A configuração ideal do banco de dados de destino é dependente de carga de trabalho. 
+> 
+> Atingir a taxa de preço/desempenho ideal pode exigir o aproveitamento da flexibilidade do modelo vCore para ajustar o número de vCores, a [geração de hardware](sql-database-service-tiers-vcore.md#hardware-generations), as camadas de [serviço](sql-database-service-tiers-vcore.md#service-tiers) e [computação](sql-database-service-tiers-vcore.md#compute-tiers) , bem como o ajuste de outros parâmetros de configuração de banco de dados, como o [grau máximo de paralelismo](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
@@ -167,7 +172,7 @@ Não. Você não precisa colocar o aplicativo offline. As novas camadas de servi
 
 Sim, você pode facilmente converter seu banco de dados para qualquer objetivo de desempenho com suporte usando o portal do Azure, o PowerShell, o CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre o modelo de compra baseado em vCore, consulte [modelo de compra baseado em VCORE](sql-database-service-tiers-vcore.md).
 - Para obter mais informações sobre o modelo de compra baseado em DTU, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).

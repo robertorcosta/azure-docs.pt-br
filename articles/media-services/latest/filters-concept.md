@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388101"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251460"
 ---
-# <a name="filters"></a>Filtros.
+# <a name="filters"></a>Filtros
 
 Ao entregar seu conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade do que o descrito no arquivo de manifesto do ativo padrão. Os serviços de mídia do Azure oferecem [manifestos dinâmicos](filters-dynamic-manifest-overview.md) com base em filtros predefinidos. 
 
@@ -47,7 +47,7 @@ Dependendo do seu cenário, você decide qual tipo de filtro é mais adequado (F
 
 Você usa as seguintes propriedades para descrever os filtros. 
 
-|{1&gt;Nome&lt;1}|Descrição|
+|Nome|DESCRIÇÃO|
 |---|---|
 |firstQuality|A primeira taxa de bits de qualidade do filtro.|
 |presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é usada para filtrar os pontos de início / fim do manifesto, a duração da janela de apresentação e a posição de início ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
@@ -57,7 +57,7 @@ Você usa as seguintes propriedades para descrever os filtros.
 
 Use essa propriedade com **filtros de ativo**. Não é recomendável definir a propriedade com **filtros de conta**.
 
-|{1&gt;Nome&lt;1}|Descrição|
+|Nome|DESCRIÇÃO|
 |---|---|
 |**endTimestamp**|Aplica-se ao Video on Demand (VoD).<br/>Para a apresentação de transmissão ao vivo, ela é silenciosamente ignorada e aplicada quando a apresentação termina e o fluxo se torna VoD.<br/>Esse é um valor longo que representa um ponto de extremidade absoluto da apresentação, arredondado para o próximo início da próxima GOP. A unidade é a escala de tempo, de modo que um carimbo de data/hora de 1800000000 seria por 3 minutos.<br/>Use startTimestamp e EndTimestamp para cortar os fragmentos que estarão na playlist (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e EndTimestamp = 100000000 usando a escala de espera padrão gerará uma lista de reprodução que contém fragmentos entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
 |**forceEndTimestamp**|Aplica-se somente à transmissão ao vivo.<br/>Indica se a propriedade EndTimestamp deve estar presente. Se for true, EndTimestamp deverá ser especificado ou um código de solicitação inadequado será retornado.<br/>Valores permitidos: false, true.|
@@ -66,13 +66,13 @@ Use essa propriedade com **filtros de ativo**. Não é recomendável definir a p
 |**startTimestamp**|Aplica-se a VoD (vídeo por demanda) ou transmissão ao vivo.<br/>Esse é um valor longo que representa um ponto de partida absoluto do fluxo. O valor é arredondado para o próximo início de GOP mais próximo. A unidade é a escala de espera, portanto, um startTimestamp de 150 milhões seria por 15 segundos.<br/>Use startTimestamp e endTimestampp para cortar os fragmentos que estarão na playlist (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e EndTimestamp = 100000000 usando a escala de espera padrão gerará uma lista de reprodução que contém fragmentos entre 4 segundos e 10 segundos da apresentação VoD. Se um fragmento ultrapassar o limite, o fragmento inteiro será incluído no manifesto.|
 |**Escala de tempo**|Aplica-se a todos os carimbos de data/hora e durações em um intervalo de tempo de apresentação, especificado como o número de incrementos em um segundo.<br/>O padrão é 10 milhões-10 milhões incrementos em um segundo, em que cada incremento seria 100 nanossegundos.<br/>Por exemplo, se você quiser definir um startTimestamp em 30 segundos, usará um valor de 300 milhões ao usar a escala de tempo padrão.|
 
-### <a name="tracks"></a>Trilhas
+### <a name="tracks"></a>Faixas
 
 Você especifica uma lista de condições de propriedade de controle de filtro (FilterTrackPropertyConditions) com base nas faixas de seu fluxo (transmissão ao vivo ou vídeo sob demanda) que devem ser incluídas no manifesto criado dinamicamente. Os filtros são combinados usando uma operação lógica **E** e **OU**.
 
 As condições de propriedade da faixa de filtro descrevem tipos de trilha, valores (descritos na tabela a seguir) e operações (Equal, NotEqual). 
 
-|{1&gt;Nome&lt;1}|Descrição|
+|Nome|DESCRIÇÃO|
 |---|---|
 |**Bitrate**|Use a taxa de bits da faixa para filtragem.<br/><br/>O valor recomendado é um intervalo de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora você possa usar um valor de taxa de bits específico, como 250000 (bits por segundo), essa abordagem não é recomendada, pois as taxas de bits exatas podem variar de um ativo para outro.|
 |**FourCC**|Use o valor de FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado na [6381 RFC](https://tools.ietf.org/html/rfc6381). Atualmente, há suporte para os seguintes codecs: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", "ec-3"<br/><br/>Para determinar os valores FourCC para faixas em um ativo, obtenha e examine o arquivo de manifesto.|
@@ -80,7 +80,7 @@ As condições de propriedade da faixa de filtro descrevem tipos de trilha, valo
 |**Nome**|Use o nome da faixa para filtragem.|
 |**Tipo**|Use o tipo da faixa para filtragem.<br/><br/>Os seguintes valores são permitidos: "video", "áudio" ou "texto".|
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 O exemplo a seguir define um filtro de transmissão ao vivo: 
 
@@ -154,7 +154,7 @@ Não é recomendável atualizar a definição de filtros associados a um **local
 
 Se a definição de filtro precisar ser alterada, considere criar um novo filtro e adicioná-lo à URL do **localizador de streaming** ou publicar um novo **localizador de streaming** que faça referência diretamente ao filtro.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Os artigos a seguir mostram como criar filtros programaticamente.  
 

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364949"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258181"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
 
@@ -20,7 +20,7 @@ Service Fabric Explorer (SFX) é uma ferramenta de código-fonte aberto para ins
 
 Use os links a seguir para fazer o download do Service Fabric Explorer como um aplicativo de área de trabalho:
 
-- Portal
+- Windows
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -133,7 +133,7 @@ As seguintes operações são possíveis:
 * Disparar e rastrear a restauração de uma partição.
 
 Para obter mais informações sobre o serviço de backup e restauração, consulte a [referência da API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Gerenciando aplicativos da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implantação de aplicativos de Malha do Serviço usando o PowerShell](service-fabric-deploy-remove-applications.md)
 

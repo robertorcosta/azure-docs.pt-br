@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976954"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221024"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades e sua finalidade no LUIS
 
@@ -37,10 +37,10 @@ As entidades precisam ser rotuladas consistentemente em todos os declarações d
 
  Você pode definir suas próprias entidades ou usar entidades predefinidas para economizar tempo para conceitos comuns, como [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md)e [número de telefone](luis-reference-prebuilt-phonenumber.md).
 
-|Declaração|Entidade|Dados|
+|Enunciado|Entidade|data|
 |--|--|--|
-|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova York|
-|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova York<br>Londres<br>5 de março de 2018|
+|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova Iorque|
+|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova Iorque<br>London<br>5 de março de 2018|
 
 ### <a name="entities-are-optional"></a>As entidades são opcionais
 
@@ -56,7 +56,7 @@ Um expressão pode, opcionalmente, incluir entidades. Por comparação, a previs
 
 Considere os quatro declarações a seguir:
 
-|Declaração|Intenção prevista|Entidades extraídas|Explicação|
+|Enunciado|Intenção prevista|Entidades extraídas|Explicação|
 |--|--|--|--|
 |Ajuda|ajuda|-|Nada para extrair.|
 |Enviar algo|sendSomething|-|Nada para extrair. O modelo não foi treinado para extrair `something` nesse contexto, e não há um destinatário.|
@@ -134,7 +134,7 @@ Se você precisar de mais do que o limite, entre em contato com o suporte. Para 
 
 O portal do LUIS mostra quando a entidade, em um exemplo, expressão, tem uma previsão de entidade diferente da entidade selecionada. Essa pontuação diferente é baseada no modelo treinado atual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Aprenda os conceitos sobre [declarações](luis-concept-utterance.md) boas.
 

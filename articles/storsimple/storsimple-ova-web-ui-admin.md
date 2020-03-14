@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365662"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254723"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar a interface do usuário da Web para administrar o StorSimple Virtual Array
 ![fluxo do processo de instalação](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -109,6 +109,6 @@ Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do u
    
     Enquanto a reinicialização estiver em andamento, você perderá a conexão à interface do usuário. Você pode monitorar a reinicialização atualizando a interface do usuário periodicamente. Como alternativa, você pode monitorar o status de reinicialização do dispositivo por meio do Gerenciador do Hyper-V.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba como [usar o serviço StorSimple Manager para gerenciar seu dispositivo](storsimple-virtual-array-manager-service-administration.md).
 

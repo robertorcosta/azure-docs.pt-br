@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385106"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257895"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantações do Azure Site Recovery
 Este artigo aborda as planilhas contidas no relatório do Excel gerado pelo Planejador de Implantações do Azure Site Recovery em um cenário Hyper-V para Azure.
@@ -356,5 +356,5 @@ Cada tabela de lote fornece um resumo da utilização de rede do lote.
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [estimativa de custo](hyper-v-deployment-planner-cost-estimation.md).

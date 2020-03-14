@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253228"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -77,7 +77,7 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 É possível filtrar os dados de auditoria nos seguintes campos:
 
-- Service
+- Serviço
 - Categoria
 - Atividade
 - Status
@@ -89,14 +89,14 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
-- Tudo
+- Todos
 - UX de gerenciamento do AAD
 - Revisões de acesso
 - Provisionamento de conta de usuário
 - Proxy do Aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Autenticação híbrida
@@ -107,11 +107,11 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 - PIM
 - Gerenciamento de grupos de autoatendimento
 - Gerenciamento de senhas de auto-atendimento
-- Termos de uso
+- Termos de Uso
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
-- Tudo
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
@@ -138,8 +138,8 @@ Você pode obter a lista de todas as atividades de auditoria usando o API do Gra
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
-- Tudo
-- Êxito
+- Todos
+- Sucesso
 - Falha
 
 O filtro de **destino** permite que você procure um destino específico pelo início do nome ou UPN (nome principal do usuário). O nome de destino e o UPN diferenciam maiúsculas de minúsculas. 
@@ -214,7 +214,7 @@ Você pode exibir os logs de atividade do Office 365 no [centro de administraç�
 
 Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Referência das atividades de auditoria do Azure AD](reference-audit-activities.md)
 - [Referência de retenção de relatórios do Azure AD](reference-reports-data-retention.md)

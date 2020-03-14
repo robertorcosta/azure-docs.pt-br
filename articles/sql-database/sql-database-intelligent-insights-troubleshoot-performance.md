@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: c4923e43613653bf3dfe8055754039ab0cf57fca
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: 739bba7ed9ab4770a762c08fccc422ce048ae11d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587372"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214086"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
-Esta página fornece informações sobre problemas de desempenho do Banco de Dados SQL do Azure e da Instância Gerenciada por meio do log de diagnóstico de desempenho de banco de dados do recurso [Intelligent Insights](sql-database-intelligent-insights.md). A telemetria do log de diagnóstico pode ser transmitida para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
+Esta página fornece informações sobre o banco de dados SQL do Azure e Instância Gerenciada problemas de desempenho detectados por meio do log de recursos [Intelligent insights](sql-database-intelligent-insights.md) . Métricas e logs de recursos podem ser transmitidos para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 > [!NOTE]
 > Para obter um guia rápido de solução de problemas de desempenho do Banco de Dados SQL usando o Intelligent Insights, confira o fluxograma [Fluxo recomendado para solução de problemas](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) neste documento.
->
 
 ## <a name="detectable-database-performance-patterns"></a>Padrões detectáveis de desempenho do banco de dados
 
-O Intelligent Insights detecta automaticamente os problemas de desempenho do Banco de Dados SQL e de Instâncias Gerenciadas com base em tempos de espera de execução de consulta, erros ou tempos limite. Ele produz padrões de desempenho detectados para o log de diagnóstico. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
+O Intelligent Insights detecta automaticamente os problemas de desempenho com bancos de dados no Azure SQL Database com base em tempos de espera de execução de consulta, erros ou tempos limite. Intelligent Insights gera padrões de desempenho detectados para o log de recursos do banco de dados SQL. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
 
 | Padrões de desempenho detectáveis | Descrição do Banco de Dados SQL do Azure e dos pools elásticos | Descrição dos bancos de dados na Instância Gerenciada |
 | :------------------- | ------------------- | ------------------- |
@@ -82,7 +81,7 @@ Esse padrão de desempenho identifica problemas causados por aumento da carga de
 
 Essa detecção é feita por uma combinação de várias métricas. A métrica básica medida está detectando um aumento na carga de trabalho em comparação com a linha de base de carga de trabalho anterior. A outra forma de detecção baseia-se em avaliar um grande aumento nos threads de trabalho ativos, grande o suficiente para afetar o desempenho da consulta.
 
-Em sua forma mais grave, a carga de trabalho pode ser continuamente empilhada devido à incapacidade do banco de dados SQL de processar a carga de trabalho. O resultado é o aumento contínuo do tamanho da carga de trabalho, que é a condição de empilhamento da carga de trabalho. Devido a essa condição, o tempo que a carga de trabalho espera para execução aumenta. Essa condição representa um dos mais graves problemas de desempenho do banco de dados. Esse problema é detectado por meio de monitoramento de aumento no número de threads de trabalho anulados. 
+Em sua forma mais grave, a carga de trabalho pode ser continuamente empilhada devido à incapacidade do banco de dados SQL de processar a carga de trabalho. O resultado é o aumento contínuo do tamanho da carga de trabalho, que é a condição de empilhamento da carga de trabalho. Devido a essa condição, o tempo que a carga de trabalho espera para execução aumenta. Essa condição representa um dos mais graves problemas de desempenho do banco de dados. Esse problema é detectado por meio de monitoramento de aumento no número de threads de trabalho anulados.
 
 ### <a name="troubleshooting"></a>solução de problemas
 
@@ -102,29 +101,29 @@ A forma mais grave de pressão de memória é a condição de empilhamento de me
 
 ### <a name="troubleshooting"></a>solução de problemas
 
-O log de diagnóstico gera os detalhes de repositório do objeto na memória, com o administrador (ou seja, o thread de trabalho) marcado como o motivo principal de alto uso de memória e os carimbos de data/hora relevantes. Você pode usar essa informação como a base para a solução de problemas. 
+O log de diagnóstico gera os detalhes de repositório do objeto na memória, com o administrador (ou seja, o thread de trabalho) marcado como o motivo principal de alto uso de memória e os carimbos de data/hora relevantes. Você pode usar essa informação como a base para a solução de problemas.
 
 Você pode otimizar ou remover consultas relacionadas aos administradores com o uso de memória mais alto. Você também pode garantir que não esteja consultando dados que você não planeje usar. A prática recomendada é sempre usar uma cláusula WHERE em suas consultas. Além disso, é recomendável criar índices não clusterizados para buscar os dados, em vez de examiná-lo.
 
 Você também pode reduzir a carga de trabalho otimizando-a ou distribuindo-a em vários bancos de dados. Ou você pode distribuir sua carga de trabalho entre vários bancos de dados. Se essas soluções não forem possíveis, considere aumentar o tipo de preço da sua assinatura do banco de dados SQL para aumentar a quantidade de recursos de memória disponíveis ao banco de dados.
 
-Para sugestões adicionais de solução de problemas, consulte [Reflexão sobre concessões de memória: o misterioso consumidor de memória do SQL Server com vários nomes](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Para sugestões adicionais de solução de problemas, consulte [Reflexão sobre concessões de memória: o misterioso consumidor de memória do SQL Server com vários nomes](https://techcommunity.microsoft.com/t5/sql-server-support/memory-grants-meditation-the-mysterious-sql-server-memory/ba-p/333994).
 
 ## <a name="locking"></a>Bloqueio
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 
-Esse padrão de desempenho indica degradação no desempenho do banco de dados atual em que foi detectado bloqueio excessivo do banco de dados em comparação com a linha de base de desempenho dos últimos sete dias. 
+Esse padrão de desempenho indica degradação no desempenho do banco de dados atual em que foi detectado bloqueio excessivo do banco de dados em comparação com a linha de base de desempenho dos últimos sete dias.
 
 Em RDBMS modernos, o bloqueio é essencial para a implementação de sistemas multithread em que o desempenho é maximizado por meio da execução simultânea de várias transações paralelas de banco de dados e trabalho, quando possível. O bloqueio, neste contexto, refere-se ao mecanismo de acesso interno no qual apenas uma única transação pode acessar com exclusividade linhas, páginas, tabelas e arquivos necessários e não competir com outra transação por recursos. Quando a transação que bloqueou os recursos para uso termina de usá-los, o bloqueio desses recursos é liberado, o que permite que outras transações acessem os recursos necessários. Para obter mais informações sobre bloqueio, consulte [Bloqueio no mecanismo de banco de dados](https://msdn.microsoft.com/library/ms190615.aspx).
 
-Se as transações executadas pelo SQL Engine estiverem aguardando por longos períodos para acessar recursos bloqueados para uso, esse tempo de espera afetará o desempenho de execução da carga de trabalho. 
+Se as transações executadas pelo SQL Engine estiverem aguardando por longos períodos para acessar recursos bloqueados para uso, esse tempo de espera afetará o desempenho de execução da carga de trabalho.
 
 ### <a name="troubleshooting"></a>solução de problemas
 
 O log de diagnóstico gera detalhes de bloqueio que você pode usar como base para solução de problemas. Você pode analisar as consultas de bloqueio relatadas, ou seja, as consultas que apresentam a degradação de desempenho de bloqueio e removê-las. Em alguns casos, talvez a otimização de consultas de bloqueio seja bem-sucedida.
 
-A maneira mais simples e segura de atenuar o problema é manter as transações curtas e reduzir a superfície de bloqueio das consultas mais caras. Você pode dividir um lote grande de operações em operações menores. Uma melhor prática é reduzir a superfície de bloqueio de consulta, tornando a consulta o mais eficiente possível. Reduza verificações grandes, pois elas aumentam as chances de deadlocks e afetam negativamente o desempenho geral do banco de dados. Para consultas identificadas que causam o bloqueio, você pode criar novos índices ou adicionar colunas ao índice existente para evitar as verificações de tabela. 
+A maneira mais simples e segura de atenuar o problema é manter as transações curtas e reduzir a superfície de bloqueio das consultas mais caras. Você pode dividir um lote grande de operações em operações menores. Uma melhor prática é reduzir a superfície de bloqueio de consulta, tornando a consulta o mais eficiente possível. Reduza verificações grandes, pois elas aumentam as chances de deadlocks e afetam negativamente o desempenho geral do banco de dados. Para consultas identificadas que causam o bloqueio, você pode criar novos índices ou adicionar colunas ao índice existente para evitar as verificações de tabela.
 
 Para obter mais sugestões, consulte [Como resolver problemas de bloqueio causados por escalonamento de bloqueios no SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
@@ -136,7 +135,7 @@ Esse padrão de desempenho detectável indica uma condição em que um plano de 
 
 O sistema especialista analisa o desempenho de banco de dados atual em comparação ao período de linha de base. Ele determina se uma consulta em execução anteriormente está sendo executada de modo mais lento que antes porque o plano de execução de consulta está mais paralelizado que deveria estar.
 
-A opção de configuração do servidor MAXDOP no Banco de Dados SQL é usada para controlar o número de núcleos de CPU que podem ser usados para executar a mesma consulta em paralelo. 
+A opção de configuração do servidor MAXDOP no Banco de Dados SQL é usada para controlar o número de núcleos de CPU que podem ser usados para executar a mesma consulta em paralelo.
 
 ### <a name="troubleshooting"></a>solução de problemas
 
@@ -164,7 +163,7 @@ O log de diagnóstico gera detalhes de contenção pagelatch. Você pode usar es
 
 Como um pagelatch é um mecanismo de controle interno do Banco de Dados SQL, ele determina automaticamente quando usá-los. Decisões do aplicativo, incluindo design de esquema, podem afetar o comportamento de pagelatch devido ao comportamento determinista das travas.
 
-Um método de lidar com contenção de trava é substituir uma chave de índice sequencial por uma não sequencial para distribuir uniformemente as inserções em um intervalo de índice. Normalmente, uma coluna à esquerda no índice distribui a carga de trabalho proporcionalmente. Outro método a considerar é o particionamento de tabela. Uma abordagem comum para reduzir a contenção excessiva de travas é criar um esquema de particionamento de hash com uma coluna computada em uma tabela particionada. No caso de contenção de E/S pagelatch, introduzir índices ajuda a reduzir esse problema de desempenho. 
+Um método de lidar com contenção de trava é substituir uma chave de índice sequencial por uma não sequencial para distribuir uniformemente as inserções em um intervalo de índice. Normalmente, uma coluna à esquerda no índice distribui a carga de trabalho proporcionalmente. Outro método a considerar é o particionamento de tabela. Uma abordagem comum para reduzir a contenção excessiva de travas é criar um esquema de particionamento de hash com uma coluna computada em uma tabela particionada. No caso de contenção de E/S pagelatch, introduzir índices ajuda a reduzir esse problema de desempenho.
 
 Para obter mais informações, consulte [Diagnosticar e resolver contenção de trava no SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (download do PDF).
 
@@ -208,13 +207,13 @@ Considere o uso da [Análise de Desempenho de Consultas do Banco de Dados SQL do
 
 Esse padrão de desempenho detectável indica uma degradação de desempenho da carga de trabalho no qual o baixo desempenho de consultas é identificado em comparação com a linha de base da carga de trabalho dos últimos sete dias.
 
-Nesse caso, o sistema não pode classificar as consultas com baixo desempenho em outras categorias de desempenho detectáveis padrão, mas ele detectou a estatística de espera responsável pela regressão. Portanto, ela as considera consultas com *estatísticas de espera elevadas*, em que a estatística de espera responsável pela regressão também é exposta. 
+Nesse caso, o sistema não pode classificar as consultas com baixo desempenho em outras categorias de desempenho detectáveis padrão, mas ele detectou a estatística de espera responsável pela regressão. Portanto, ela as considera consultas com *estatísticas de espera elevadas*, em que a estatística de espera responsável pela regressão também é exposta.
 
 ### <a name="troubleshooting"></a>solução de problemas
 
 O log de diagnóstico gera informações sobre detalhes de tempo de espera elevadas, hashes de consulta das consultas afetadas.
 
-Como o sistema não conseguiu identificar com sucesso a causa raiz das consultas de baixo desempenho, as informações de diagnóstico são um bom ponto de partida para solução de problemas manual. Você pode otimizar o desempenho das consultas. É uma boa prática buscar apenas os dados que você precisa usar e simplificar e dividir consultas complexas em partes menores. 
+Como o sistema não conseguiu identificar com sucesso a causa raiz das consultas de baixo desempenho, as informações de diagnóstico são um bom ponto de partida para solução de problemas manual. Você pode otimizar o desempenho das consultas. É uma boa prática buscar apenas os dados que você precisa usar e simplificar e dividir consultas complexas em partes menores.
 
 Para obter mais informações sobre como otimizar o desempenho da consulta, confira [Ajuste de consulta](https://msdn.microsoft.com/library/ms176005.aspx).
 
@@ -226,15 +225,15 @@ Esse padrão de desempenho detectável indica uma condição de desempenho do ba
 
 ### <a name="troubleshooting"></a>solução de problemas
 
-O log de diagnóstico gera detalhes de contenção de tempDB. Você pode usar as informações como o ponto de partida para solução de problemas. Há duas medidas que você pode adotar para aliviar esse tipo de contenção e aumentar a taxa de transferência da carga de trabalho geral: você pode parar de usar as tabelas temporárias. Você também pode usar tabelas de otimização de memória. 
+O log de diagnóstico gera detalhes de contenção de tempDB. Você pode usar as informações como o ponto de partida para solução de problemas. Há duas medidas que você pode adotar para aliviar esse tipo de contenção e aumentar a taxa de transferência da carga de trabalho geral: você pode parar de usar as tabelas temporárias. Você também pode usar tabelas de otimização de memória.
 
-Para obter mais informações, consulte [Introdução às tabelas com otimização de memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Para obter mais informações, consulte [Introdução às tabelas com otimização de memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
 
 ## <a name="elastic-pool-dtu-shortage"></a>Insuficiência de DTU no pool elástico
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 
-Esse padrão de desempenho detectável indica uma degradação no desempenho de carga de trabalho de banco de dados atual em comparação à linha de base dos últimos sete dias. É devido à falta de DTUs disponíveis no pool elástico de sua assinatura. 
+Esse padrão de desempenho detectável indica uma degradação no desempenho de carga de trabalho de banco de dados atual em comparação à linha de base dos últimos sete dias. É devido à falta de DTUs disponíveis no pool elástico de sua assinatura.
 
 Recursos no Banco de Dados SQL são geralmente conhecidos como [recursos de DTU](sql-database-purchase-models.md#dtu-based-purchasing-model), que consistem em uma medida combinada de recursos de CPU e E/S (E/S de dados e log de transação). [Recursos de pool elástico do Azure](sql-database-elastic-pool.md) são usados como um pool de recursos disponíveis de eDTU compartilhados entre vários bancos de dados para fins de dimensionamento. Quando os recursos de eDTU disponíveis em seu pool elástico não forem suficientemente grandes para dar suporte a todos os bancos de dados no pool, um problema de desempenho de insuficiência de DTU no pool elástico será detectado pelo sistema.
 
@@ -258,13 +257,13 @@ Esse padrão de desempenho detectável combina três casos diferentes de regress
 
 A condição de regressão de novo plano refere-se a um estado no qual o Banco de dados SQL inicia a execução de um novo plano de execução de consulta que não é tão eficiente quanto o plano antigo. A condição de regressão do plano antigo refere-se a um estado em que o Banco de dados SQL troca o plano novo, mais eficiente, pelo plano antigo, que não é tão eficiente quanto o novo. A regressão de carga de trabalho alterada dos planos existentes refere-se ao estado em que os planos antigo e novo alternam-se continuamente, com o saldo indo mais para o plano de baixo desempenho.
 
-Para obter mais informações sobre regressões de plano, consulte [O que é regressão de plano no SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
+Para obter mais informações sobre regressões de plano, consulte [O que é regressão de plano no SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/).
 
 ### <a name="troubleshooting"></a>solução de problemas
 
 O log de diagnóstico gera hashes de consulta, ID de plano bom, ID de plano ruim e IDs de consulta. Você pode usar essa informação como a base para a solução de problemas.
 
-Você pode analisar o plano com melhor desempenho para suas consultas específicas e que você possa identificar com os hashes de consulta fornecidos. Depois de determinar o plano que funciona melhor para suas consultas, você pode forçá-lo manualmente. 
+Você pode analisar o plano com melhor desempenho para suas consultas específicas e que você possa identificar com os hashes de consulta fornecidos. Depois de determinar o plano que funciona melhor para suas consultas, você pode forçá-lo manualmente.
 
 Para obter mais informações, consulte [Saiba como o SQL Server impede regressões de plano](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
@@ -300,7 +299,7 @@ Essa condição será gerada apenas se uma regressão de desempenho for detectad
 
 Esse padrão de desempenho detectável indica uma condição no lado do cliente. Solução de problemas é necessária no aplicativo do lado do cliente ou na rede do lado do cliente. O log de diagnóstico gera hashes de consulta e tempos de espera que parecem estar aguardando ao máximo para que o cliente os consuma dentro das duas últimas horas. Você pode usar essa informação como a base para a solução de problemas.
 
-Você pode otimizar o desempenho do seu aplicativo para consumo dessas consultas. Você também pode considerar possíveis problemas de latência de rede. Uma vez que o problema de degradação de desempenho era baseado em alteração na última linha de base de desempenho de sete dias, você pode investigar se alterações recentes de condição de aplicativo ou de rede causaram esse evento de regressão de desempenho. 
+Você pode otimizar o desempenho do seu aplicativo para consumo dessas consultas. Você também pode considerar possíveis problemas de latência de rede. Uma vez que o problema de degradação de desempenho era baseado em alteração na última linha de base de desempenho de sete dias, você pode investigar se alterações recentes de condição de aplicativo ou de rede causaram esse evento de regressão de desempenho.
 
 ## <a name="pricing-tier-downgrade"></a>Downgrade de Tipo de Preço
 
@@ -318,7 +317,7 @@ Se você tiver reduzido seu tipo de preço e, portanto, os DTUs disponíveis par
 
  Siga o fluxograma para uma abordagem recomendada à solução de problemas de desempenho usando o Intelligent Insights.
 
-Acesse o Intelligent Insights por meio do portal do Azure indo para Análise de SQL do Azure. Tente localizar o alerta de desempenho de entrada e selecione-o. Identifique o que está acontecendo na página de detecções. Observe a análise da causa raiz fornecida do problema, o texto da consulta, as tendências de tempo da consulta e a evolução do incidente. Tente resolver o problema usando a recomendação Intelligent Insights para mitigar o problema de desempenho. 
+Acesse o Intelligent Insights por meio do portal do Azure indo para Análise de SQL do Azure. Tente localizar o alerta de desempenho de entrada e selecione-o. Identifique o que está acontecendo na página de detecções. Observe a análise da causa raiz fornecida do problema, o texto da consulta, as tendências de tempo da consulta e a evolução do incidente. Tente resolver o problema usando a recomendação Intelligent Insights para mitigar o problema de desempenho.
 
 [![Fluxograma de solução de problemas](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
@@ -328,6 +327,7 @@ Acesse o Intelligent Insights por meio do portal do Azure indo para Análise de 
 O Intelligent Insights geralmente precisa de uma hora para executar a análise da causa raiz do problema de desempenho. Se você não puder localizar o problema no Intelligent Insights e ele for crucial para você, use o Repositório de Consultas para identificar manualmente a causa raiz do problema de desempenho. (Normalmente, esses problemas têm menos de uma hora.) Para obter mais informações, consulte [monitorar o desempenho usando o repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Aprenda os conceitos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Use o [log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitore o [Banco de Dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).

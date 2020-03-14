@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620527"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256803"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação de desastre de máquinas virtuais VMware locais ou de servidores físicos para um site secundário
 
@@ -53,11 +53,11 @@ o  Para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recov
 **Replicado** |Disco (Windows e Linux) |Volume – Windows<br> Disco-Linux
 **Cluster de disco compartilhado** |Sem suporte|Suportado
 **Limites de variação de dados (em média)** |Dados de 10 MB/s por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > Dados de 10 MB/s por disco  <br> > Dados de 25MB/s por VM
-**Monitoramento** |Do portal do Azure|Do CX (Servidor de Configuração)
+**Monitoring** |Do portal do Azure|Do CX (Servidor de Configuração)
 **Matriz de suporte** | [Clique aqui para obter detalhes](./vmware-physical-azure-support-matrix.md)|[Baixar a matriz compatível do ASR Scout](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este tutorial:
 
 - [Examine](vmware-physical-secondary-support-matrix.md) os requisitos de suporte de todos os componentes.

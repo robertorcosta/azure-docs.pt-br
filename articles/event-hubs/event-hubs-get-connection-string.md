@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264928"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de conexão dos Hubs de Eventos
 
@@ -55,7 +55,7 @@ Este artigo orienta você pelas diversas maneiras de obter a cadeia de conexão.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode usar [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a cadeia de conexão do nome de política/regra específico, conforme mostrado abaixo:
+Você pode usar o [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a cadeia de conexão para o nome de política/regra específico, conforme mostrado abaixo:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -76,7 +76,7 @@ az eventhubs eventhub authorization-rule keys list --resource-group dummyresourc
 
 Para obter mais informações sobre os comandos da CLI do Azure para Hubs de Eventos, consulte [CLI do Azure para Hubs de Eventos](/cli/azure/eventhubs).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 

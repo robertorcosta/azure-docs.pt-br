@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: f009b438cb0dc227289d65604d89c11fd382b675
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: dce1697ccb40c67f8628c220799018a673be8e09
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892973"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246299"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure) usando Azure Data Factory 
 
@@ -45,7 +45,7 @@ Para a atividade de cópia, este conector do Azure Synapse Analytics dá suporte
 > Se você copiar dados usando o Integration Runtime do Azure Data Factory, configure um [firewall do servidor SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que os serviços do Azure possam acessar o servidor.
 > Se você copiar dados usando um runtime de integração auto-hospedada, configure o firewall do servidor SQL do Azure para permitir o intervalo de IP apropriado. Esse intervalo inclui o IP do computador que é usado para se conectar ao Azure Synapse Analytics.
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 > [!TIP]
 > Para obter o melhor desempenho, use o polybase para carregar dados no Azure Synapse Analytics. A seção [usar o polybase para carregar dados na análise de Synapse do Azure](#use-polybase-to-load-data-into-azure-sql-data-warehouse) tem detalhes. Para obter instruções com um caso de uso, confira [carregar 1 TB no Azure Synapse Analytics em 15 minutos com Azure data Factory](load-azure-sql-data-warehouse.md).
@@ -58,7 +58,7 @@ As seções a seguir fornecem detalhes sobre as propriedades que definem Data Fa
 
 As propriedades a seguir têm suporte para um serviço vinculado do Azure Synapse Analytics:
 
-| Propriedade            | Description                                                  | Obrigatório                                                     |
+| Propriedade            | DESCRIÇÃO                                                  | Obrigatório                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | A propriedade type deve ser definida como  **AzureSqlDW**.             | Sim                                                          |
 | connectionString    | Especifique as informações necessárias para se conectar à instância do Azure Synapse Analytics para a propriedade **ConnectionString** . <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha/chave da entidade de serviço no Azure Key Vault e se sua autenticação do SQL efetua pull da configuração da `password` da cadeia de conexão. Veja o exemplo de JSON abaixo da tabela e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) que fornece mais detalhes. | Sim                                                          |
@@ -219,7 +219,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o conjunto de porta do Azure Synapse Analytics:
 
-| Propriedade  | Description                                                  | Obrigatório                    |
+| Propriedade  | DESCRIÇÃO                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | A propriedade **tipo** do conjunto de dados deve ser definida como  **AzureSqlDWTable**. | Sim                         |
 | esquema | Nome do esquema. |Não para fonte, Sim para o coletor  |
@@ -255,12 +255,13 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Azure Synapse Analytics, defina a propriedade **Type** na origem da atividade de cópia como **SqlDWSource**. As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
-| Propriedade                     | Description                                                  | Obrigatório |
+| Propriedade                     | DESCRIÇÃO                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | A propriedade **tipo** da origem da Atividade de Cópia deve ser configurada para **SqlDWSource**. | Sim      |
 | sqlReaderQuery               | Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. | Não       |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. | Não       |
 | storedProcedureParameters    | Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não       |
+| isolationLevel | Especifica o comportamento de bloqueio de transação para a origem do SQL. Os valores permitidos são: **ReadCommitted** (default), **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **snapshot**. Consulte [este documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para obter mais detalhes. | Não |
 
 **Exemplo: usando a consulta SQL**
 
@@ -363,7 +364,7 @@ A maneira mais rápida e escalonável de carregar dados é por meio do [polybase
 
 Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor em Atividade de Cópia para **SqlDWSink**. As seguintes propriedades são suportadas na seção Copy Activity **sink**:
 
-| Propriedade          | Description                                                  | Obrigatório                                      |
+| Propriedade          | DESCRIÇÃO                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | A propriedade **tipo** do coletor de Atividade de Cópia deve ser definida como **SqlDWSink**. | Sim                                           |
 | allowPolyBase     | Indica se o polybase deve ser usado para carregar dados em SQL Data Warehouse. `allowCopyCommand` e `allowPolyBase` não podem ser ambos verdadeiros. <br/><br/>Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não.<br/>Aplicar ao usar o polybase.     |
@@ -404,7 +405,7 @@ Usar o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/p
 
 As seguintes configurações do polybase têm suporte em `polyBaseSettings` na atividade de cópia:
 
-| Propriedade          | Description                                                  | Obrigatório                                      |
+| Propriedade          | DESCRIÇÃO                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejectValue       | Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção Argumentos de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Os valores permitidos são 0 (padrão), 1, 2 etc. | Não                                            |
 | rejectType        | Especifica se a opção **rejectValue** é um valor literal ou uma porcentagem.<br/><br/>Os valores permitidos são **Valor** (padrão) e **Porcentagem**. | Não                                            |
@@ -627,7 +628,7 @@ O uso da instrução COPY dá suporte à seguinte configuração:
 
 As seguintes configurações de instrução de cópia têm suporte em `allowCopyCommand` na atividade de cópia:
 
-| Propriedade          | Description                                                  | Obrigatório                                      |
+| Propriedade          | DESCRIÇÃO                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | valores de | Especifica os valores padrão para cada coluna de destino no SQL DW.  Os valores padrão na propriedade substituem a restrição padrão definida no data warehouse, e a coluna de identidade não pode ter um valor padrão. | Não |
 | additionalOptions | Opções adicionais que serão passadas para a instrução de cópia do SQL DW diretamente na cláusula "with" na [instrução Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Citar o valor conforme necessário para alinhar com os requisitos da instrução de cópia. | Não |
@@ -747,29 +748,29 @@ Quando você copia dados de ou para o Azure Synapse Analytics, os seguintes mape
 | binary                                | Byte[]                         |
 | bit                                   | Boolean                        |
 | char                                  | String, Char[]                 |
-| date                                  | DateTime                       |
-| Datetime                              | DateTime                       |
-| datetime2                             | DateTime                       |
+| date                                  | Datetime                       |
+| Datetime                              | Datetime                       |
+| datetime2                             | Datetime                       |
 | Datetimeoffset                        | DateTimeOffset                 |
 | Decimal                               | Decimal                        |
 | FILESTREAM attribute (varbinary(max)) | Byte[]                         |
 | Float                                 | Double                         |
 | image                                 | Byte[]                         |
-| int                                   | Int32                          |
+| INT                                   | Int32                          |
 | money                                 | Decimal                        |
 | NCHAR                                 | String, Char[]                 |
 | numeric                               | Decimal                        |
 | NVARCHAR                              | String, Char[]                 |
-| real                                  | Individual                         |
+| real                                  | Single                         |
 | rowversion                            | Byte[]                         |
-| smalldatetime                         | DateTime                       |
+| smalldatetime                         | Datetime                       |
 | SMALLINT                              | Int16                          |
 | SMALLMONEY                            | Decimal                        |
 | time                                  | TimeSpan                       |
 | TINYINT                               | Byte                           |
-| UNIQUEIDENTIFIER                      | GUID                           |
+| UNIQUEIDENTIFIER                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de repositórios de dados com suporte como fontes e repositórios por Atividade de Cópia no Azure Data Factory, consulte [ repositórios de dados e formatos suportados ](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -8,11 +8,11 @@ ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 706f52a6cda2bbcb0e5ca1cfe9372600fa6709d0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388582"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246520"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
@@ -39,7 +39,7 @@ A escrita de procedimentos armazenados, gatilhos e UDFs (funções definidas pel
 > [!TIP]
 > Os procedimentos armazenados são mais adequados para operações que são de gravação pesada e exigem uma transação em um valor de chave de partição. Ao decidir se deseja usar procedimentos armazenados, otimize o encapsulamento da quantidade máxima de gravações possível. Em termos gerais, os procedimentos armazenados não são os meios mais eficientes para fazer grandes quantidades de operações de leitura ou consulta; portanto, o uso de procedimentos armazenados para enviar grandes quantidades de leituras em lotes para retornar ao cliente não produzirá o benefício desejado. Para obter o melhor desempenho, essas operações de leitura pesada devem ser feitas no lado do cliente, usando o SDK do cosmos. 
 
-## <a name="transactions"></a>Transações
+## <a name="transactions"></a>Transactions
 
 A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade ACID**. ACID é um acrônimo bem conhecido que significa: **uma**tomicity, **C**onsistency, **I**solation e **D**urability. 
 
@@ -96,7 +96,7 @@ As UDFs (funções definidas pelo usuário) são usadas para estender a sintaxe 
 
 Além de emitir consultas usando a sintaxe de consulta da API do SQL, o [SDK do servidor](https://azure.github.io/azure-cosmosdb-js-server) permite que você execute consultas usando uma interface JavaScript sem nenhum conhecimento de SQL. A API de consulta do JavaScript permite que você crie consultas de forma programática passando funções de predicado em uma sequência de chamadas de função. As consultas são analisadas pelo runtime do JavaScript e são executadas com eficiência no Azure Cosmos DB. Para saber mais sobre o suporte à API de consulta do JavaScript, confira o artigo [Trabalhando com a API de consulta integrada à linguagem do JavaScript](javascript-query-api.md). Para obter exemplos, confira o artigo [Como escrever procedimentos armazenados e gatilhos usando a API de Consulta do JavaScript](how-to-write-javascript-query-api.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como escrever e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB com os seguintes artigos:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: cc4ead968a0ee2c9890c1cd24a6b70516b2b2e74
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b5ee7f60eab0349378767473c9c80f035a65c9a5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326794"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220727"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento no QnA Maker
 
@@ -36,14 +36,14 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
  
 1. Escolha a opção **Configurações**. Aqui você pode editar o campo obrigatório Nome do Serviço.
   
-    |Objetivo|Ação|
+    |Goal|Ação|
     |--|--|
     |Adicionar URL|Você pode adicionar novos URLs para adicionar novos conteúdos de perguntas frequentes à base de conhecimento clicando em **Gerenciar base de conhecimento -> link "+ Adicionar URL"** .|
     |Excluir URL|Você pode excluir URLs existentes selecionando o ícone de exclusão, a lixeira.|
     |Atualizar conteúdo|Se você quiser que sua base de conhecimento rastreie o conteúdo mais recente de URLs existentes, marque a caixa de seleção **Atualizar**. Isso atualizará a base de dados de conhecimento com o conteúdo da URL mais recente uma vez. Isso não define uma agenda regular de atualizações.|
     |Adicionar arquivo|Você pode adicionar um documento de arquivo suportado para fazer parte de uma base de conhecimento, selecionando **Gerenciar base de conhecimento** e, em seguida, selecionando **+ Adicionar Arquivo**|
-    |Importar|Você também pode importar qualquer base de conhecimento existente, selecionando o botão **Base de dados de Conhecimento Ímport**. |
-    |Atualização|A atualização da base de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de conhecimento. Você também pode atualizar o tipo de gerenciamento no portal do Azure, se necessário.
+    |Importar|Você também pode importar qualquer base de dados de conhecimento existente selecionando o botão **importar base de dados de conhecimento** . |
+    |Atualizar|A atualização da base de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de conhecimento. Você também pode atualizar o tipo de gerenciamento no portal do Azure, se necessário.
 
 1. Quando terminar de fazer alterações na base de conhecimento, selecione **Salvar e treinar** no canto superior direito da página para manter as alterações.    
 

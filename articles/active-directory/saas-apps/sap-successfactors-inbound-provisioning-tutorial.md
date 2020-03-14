@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374783"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249679"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário (versão prévia)
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../app-provisioning/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central.
@@ -117,7 +117,7 @@ Trabalhe com sua equipe de administração do SuccessFactors ou com o parceiro d
   >[!NOTE]
   >Para obter a lista completa de atributos recuperados por este aplicativo de provisionamento, consulte a [referência de atributo SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-* Clique em **Concluído**. Clique em **Salvar alterações**.
+* Clique em **Concluído**. Clique em **Salvar Alterações**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Criar um grupo de permissões para o usuário da API
 
@@ -146,7 +146,7 @@ Trabalhe com sua equipe de administração do SuccessFactors ou com o parceiro d
 * Examine a concessão da função de permissão para o grupo de permissões. 
   > [!div class="mx-imgBorder"]
   > ![a função de permissão e os detalhes do grupo](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Clique em **Salvar alterações**.
+* Clique em **Salvar Alterações**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configurando o provisionamento de usuário do SuccessFactors para o Active Directory
 
@@ -214,7 +214,7 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
   
 1. Agora, será solicitado que você insira as credenciais necessárias para se conectar ao domínio do AD. Na mesma tela, você pode usar **Selecionar prioridade do controlador de domínio** para especificar os controladores de domínio que o agente deve usar para enviar solicitações de provisionamento.
 
-   ![Credenciais de Domínio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   ![Credenciais do domínio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
    
 1. Depois de configurar o domínio, o instalador exibe uma lista de domínios configurados. Nessa tela, você pode repetir as etapas 5 e 6 para adicionar mais domínios ou clicar em **Avançar** para prosseguir para o registro do agente.
 
@@ -346,7 +346,7 @@ Depois que as configurações do aplicativo de provisionamento do SuccessFactors
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
 
-2. Clique em **Salvar**.
+2. Clique em **Save** (Salvar).
 
 3. Esta operação iniciará a sincronização inicial, que pode usar um número variável de horas dependendo de quantos usuários estiverem no locatário SuccessFactors. Você pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 
@@ -357,7 +357,7 @@ Depois que as configurações do aplicativo de provisionamento do SuccessFactors
    > [!div class="mx-imgBorder"]
    > ![barra de progresso de provisionamento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre os atributos SuccessFactors com suporte para o provisionamento de entrada](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Saiba como configurar o Write-back de email para SuccessFactors](sap-successfactors-writeback-tutorial.md)

@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150122"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272559"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
@@ -123,7 +123,7 @@ O parâmetro `hive.exec.reducers.bytes.per.reducer` especifica o número de byte
 
 Uma consulta do Hive é executada em uma ou mais etapas. Se as etapas independentes puderem ser executadas em paralelo, o desempenho da consulta aumentará.
 
-1. Para habilitar a execução de consultas em paralelo, navegue até a guia **Configurações** do Hive e pesquise pela propriedade `hive.exec.parallel`. O valor padrão é falso. Altere o valor para true e pressione **Enter** para salvá-lo.
+1. Para habilitar a execução de consultas em paralelo, navegue até a guia **Configurações** do Hive e pesquise pela propriedade `hive.exec.parallel`. O valor padrão é false. Altere o valor para true e pressione **Enter** para salvá-lo.
 
 1. Para limitar o número de trabalhos a serem executados em paralelo, modifique a propriedade `hive.exec.parallel.thread.number`. O valor padrão é 8.
 
@@ -135,7 +135,7 @@ O Hive processa dados linha por linha. A vetorização instrui o Hive a processa
 
 1. Para habilitar uma execução de consulta vetorizada, navegue até a guia **Configurações** do Hive e pesquise pelo parâmetro `hive.vectorized.execution.enabled`. O valor padrão é true para o Hive 0.13.0 ou posterior.
 
-1. Para habilitar a execução vetorizada para o lado de redução da consulta, defina o parâmetro `hive.vectorized.execution.reduce.enabled` como true. O valor padrão é falso.
+1. Para habilitar a execução vetorizada para o lado de redução da consulta, defina o parâmetro `hive.vectorized.execution.reduce.enabled` como true. O valor padrão é false.
 
     ![Apache Hive execução vetorizada](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -178,13 +178,13 @@ Os tipos de compactação disponíveis são:
 | Formatar | Ferramenta | Algoritmo | Extensão de arquivo | Divisível? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | Não |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | sim |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | Sim |
 | LZO | Lzop | LZO | .lzo | Sim, se indexado |
 | Snappy | N/D | Snappy | Snappy | Não |
 
 Como regra geral, é importante que o método de compactação seja divisível. Caso contrário, poucos mapeadores serão criados. Se os dados de entrada forem texto, `bzip2` será a melhor opção. Para o formato ORC, o Snappy é a opção de compactação mais rápida.
 
-1. Para habilitar a compactação intermediária, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.intermediate` como verdadeiro. O valor padrão é falso.
+1. Para habilitar a compactação intermediária, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.intermediate` como verdadeiro. O valor padrão é false.
 
     ![Compactação intermediária de execução do Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
@@ -214,7 +214,7 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
 A saída final do Hive também pode ser compactada.
 
-1. Para compactar a saída final do Hive, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.output` como verdadeiro. O valor padrão é falso.
+1. Para compactar a saída final do Hive, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.output` como verdadeiro. O valor padrão é false.
 
 1. Para escolher o codec de compactação de saída, adicione a propriedade personalizada `mapred.output.compression.codec` ao painel hive-site personalizado, conforme descrito na etapa 3 da seção anterior.
 
@@ -226,7 +226,7 @@ A execução especulativa inicializa um determinado número de tarefas duplicada
 
 A execução especulativa não deve ser ativada para tarefas MapReduce de execução longa com grandes quantidades de entrada.
 
-* Para habilitar a execução especulativa, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.mapred.reduce.tasks.speculative.execution` como verdadeiro. O valor padrão é falso.
+* Para habilitar a execução especulativa, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.mapred.reduce.tasks.speculative.execution` como verdadeiro. O valor padrão é false.
 
     ![Execução especulativa de tarefas de redução mapred do Hive](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -311,7 +311,7 @@ Dois mecanismos de execução estão disponíveis para executar scripts de Pig: 
 
 De forma semelhante ao Hive, o modo local é usado para acelerar trabalhos com quantidades de dados relativamente menores.
 
-1. Para habilitar o modo local, defina `pig.auto.local.enabled` como **true**. O valor padrão é falso.
+1. Para habilitar o modo local, defina `pig.auto.local.enabled` como **true**. O valor padrão é false.
 
 1. Trabalhos com um tamanho de dados de entrada menor que o valor da propriedade `pig.auto.local.input.maxbytes` são considerados trabalhos pequenos. O valor padrão é 1 GB.
 
@@ -335,13 +335,13 @@ As seguintes configurações de memória podem ajudar a otimizar o desempenho de
 
 O Pig gera arquivos temporários durante a execução do trabalho. Compactar os arquivos temporários resulta em uma melhoria do desempenho ao ler ou gravar arquivos no disco. As configurações a seguir podem ser usadas para compactar arquivos temporários.
 
-* `pig.tmpfilecompression`: quando for true, habilitará a compactação de arquivos temporários. O valor padrão é falso.
+* `pig.tmpfilecompression`: quando for true, habilitará a compactação de arquivos temporários. O valor padrão é false.
 
 * `pig.tmpfilecompression.codec`: o codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compactação recomendados são o [LZO](https://www.oberhumer.com/opensource/lzo/) e o Snappy para menor utilização da CPU.
 
 ### <a name="enable-split-combining"></a>Habilitar combinação de divisão
 
-Quando habilitada, pequenos arquivos são combinados para que haja menos tarefas de mapeamento. Isso aumenta a eficiência de trabalhos com muitos arquivos pequenos. Para habilitar, defina `pig.noSplitCombination` como true. O valor padrão é falso.
+Quando habilitada, pequenos arquivos são combinados para que haja menos tarefas de mapeamento. Isso aumenta a eficiência de trabalhos com muitos arquivos pequenos. Para habilitar, defina `pig.noSplitCombination` como true. O valor padrão é false.
 
 ### <a name="tune-mappers"></a>Ajustar mapeadores
 
@@ -428,7 +428,7 @@ O tamanho do Memstore é definido pelos parâmetros `hbase.regionserver.global.m
 
 ### <a name="set-memstore-local-allocation-buffer"></a>Definir o buffer de alocação local do Memstore
 
-O uso do buffer de alocação local do Memstore é determinado pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando habilitado (true), isso evita a fragmentação do heap durante a operação com uso intenso de gravação. O valor padrão é true.
+O uso do buffer de alocação local do Memstore é determinado pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando habilitado (true), isso evita a fragmentação do heap durante a operação com uso intenso de gravação. O valor padrão é verdadeiro.
 
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 

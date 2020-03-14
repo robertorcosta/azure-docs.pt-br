@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/16/2020
 ms.subservice: alerts
 ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363393"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249003"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -134,7 +134,7 @@ As seções anteriores descreveram como criar, exibir e gerenciar regras de aler
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Compreender como os alertas de métrica funcionam](alerts-metric-overview.md).

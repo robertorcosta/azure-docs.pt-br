@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946021"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258480"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -21,7 +21,7 @@ Este artigo fornece uma visão geral dos requisitos e instalação da extensão,
 > [!IMPORTANT]
 > Aplicativos do Java do Microsoft Service Fabric podem ser desenvolvidos em máquinas Windows, mas podem ser implantados nos clusters do Linux do Azure apenas. Não há suporte para a depuração de aplicativos Java no Windows.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
@@ -55,7 +55,7 @@ Os pré-requisitos a seguir devem ser instalados para o desenvolvimento .NET Cor
 1. Abra o VS Code.
 2. Clique no ícone Extensões na **Barra de Atividades** no lado do Visual Studio Code. Pesquisar “Service Fabric”. Clique em **Instalar** para a extensão do Service Fabric Reliable Services.
 
-## <a name="commands"></a>Commands
+## <a name="commands"></a>Comandos
 A extensão de serviços confiáveis do Service Fabric para VS Code fornece muitos comandos para ajudar os desenvolvedores a criar e implantar projetos do Service Fabric. Você pode chamar comandos da **paleta de comandos** pressionando `(Ctrl + Shift + p)`, digitando o nome do comando na barra de entrada e selecionando o comando desejado da lista de avisos. 
 
 * Microsoft Azure Service Fabric: Criar aplicativo 
@@ -124,7 +124,7 @@ O comando **Microsoft Azure Service Fabric: limpar aplicativo** exclui todos os 
 2.  Selecione o comando **Microsoft Azure Service Fabric: Limpar aplicativo**.
 3.  A saída do processo de compilação é enviada para o terminal integrado.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [Desenvolver aplicativos Service Fabric do C# com Visual Studio Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Saiba como [desenvolver aplicativos Microsoft Azure Service Fabric Java com Visual Studio Code](./service-fabric-develop-java-applications-with-vs-code.md).

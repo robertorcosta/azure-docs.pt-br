@@ -10,11 +10,11 @@ ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397218"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255399"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -24,13 +24,13 @@ Neste artigo de instruções, você aprende a criar uma conta de armazenamento u
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-None.
+Nenhum.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -67,7 +67,7 @@ Você também pode instalar e usar a CLI do Azure localmente. Este artigo de ins
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-None.
+Nenhum.
 
 ---
 
@@ -97,7 +97,7 @@ az login
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-{1&gt;N/A&lt;1}
+N/D
 
 ---
 
@@ -284,7 +284,7 @@ Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de 
 >
 > Se você tentar excluir uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro indicando que a conta de armazenamento ainda está em uso. Para obter ajuda para solucionar esse erro, consulte [solucionar erros ao excluir contas de armazenamento](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo de instruções, você criou uma conta de armazenamento padrão v2 de uso geral. Para saber como carregar e baixar blobs de e para sua conta de armazenamento, continue em um dos guias de início rápido do armazenamento de BLOBs.
 

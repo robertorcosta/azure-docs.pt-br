@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897282"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261561"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre como monitorar Azure AD Connect (sincronização) com Azure AD Connect Health, consulte [usando o Azure ad Connect Health para sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre como monitorar Active Directory Domain Services com Azure AD Connect Health, consulte [usando Azure ad Connect Health com AD DS](how-to-connect-health-adds.md).
@@ -51,7 +51,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 
 |Group By | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
-| Tudo | Mostra a contagem do número total de solicitações processadas por todos os servidores AD FS.|
+| Todos | Mostra a contagem do número total de solicitações processadas por todos os servidores AD FS.|
 | Aplicativo | Agrupa o total de solicitações com base na terceira parte confiável de destino. Esse agrupamento é útil para entender qual aplicativo está recebendo o percentual do tráfego total. |
 |  Servidor |Agrupa o total de solicitações com base no servidor que processa a solicitação. Esse agrupamento é útil para entender a distribuição de carga do tráfego total.
 | Ingresso no local |Agrupa o total de solicitações com base em se as solicitações são provenientes de dispositivos que são ingressados no local (conhecido). Esse agrupamento é útil para compreender se os recursos são acessados usando dispositivos desconhecidos para a infraestrutura de identidades. |
@@ -72,7 +72,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 
 |Group By | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
-|Tudo |Essa métrica fornece uma contagem do número médio de usuários que usam o serviço de federação na fração de tempo selecionada. Os usuários não estão agrupados. <br>A média depende da fração de tempo selecionada. |
+|Todos |Essa métrica fornece uma contagem do número médio de usuários que usam o serviço de federação na fração de tempo selecionada. Os usuários não estão agrupados. <br>A média depende da fração de tempo selecionada. |
 | Aplicativo |Agrupa o número médio de usuários com base no aplicativo de destino (terceira parte confiável). Esse agrupamento é útil para entender a quantos usuários estão usando o aplicativo. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitoramento de desempenho do AD FS
@@ -108,7 +108,7 @@ O grafo fornece as seguintes informações:
 
 O relatório fornece as seguintes informações:
 
-| Item do relatório | Description |
+| Item do relatório | DESCRIÇÃO |
 | --- | --- |
 | Id de Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
 | Tentativas com falha |Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente. |

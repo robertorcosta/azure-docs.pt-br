@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
 ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392574"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271064"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 
@@ -129,7 +129,7 @@ Aqui está um resumo das opções de HA/DR apresentado neste artigo que pode ser
 | Failover manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixa. Você só precisará disparar essa operação no portal.|Nenhum|
 | Entre a alta disponibilidade de região |< 1 minuto|Depende da frequência de replicação de sua solução personalizada de alta disponibilidade|Não|Alta|> 1 vezes o custo do hub do IoT 1|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [O que é o Hub IoT do Azure?](about-iot-hub.md)
 * [Introdução aos Hubs de IoT (guia de início rápido)](quickstart-send-telemetry-dotnet.md)

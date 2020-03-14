@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892914"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244089"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
 
@@ -36,7 +36,7 @@ Você pode encontrar mais detalhes no portal do desenvolvedor na [visão geral d
 
 ![Portal do desenvolvedor do gerenciamento de API – modo admin](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 - Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
 - Importar e publicar uma instância de gerenciamento de API do Azure. Para obter mais informações, consulte [importar e publicar](import-and-publish.md)
@@ -130,7 +130,7 @@ Depois de publicar o portal, você pode acessá-lo na mesma URL do painel admini
 
 Você precisa habilitar o CORS (compartilhamento de recursos entre origens) em suas APIs para permitir que os visitantes do seu portal testem as APIs por meio do console interativo interno. Consulte [Este artigo de documentação](api-management-howto-developer-portal.md#cors) para obter mais detalhes.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o portal do desenvolvedor:
 

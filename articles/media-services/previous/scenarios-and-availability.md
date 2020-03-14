@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366903"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250979"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -33,11 +33,11 @@ Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_
 
 ## <a name="overview"></a>Visão geral
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
-* Uma conta do Azure. Se você não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-portal-create-account.md).
 * O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**.
 
@@ -167,7 +167,7 @@ Esta seção fornece detalhes sobre a disponibilidade de recursos dos Serviços 
 
 ### <a name="ams-accounts"></a>Contas AMS
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
 Para determinar se os Serviços de Mídia estão disponíveis em um data center, navegue até https://azure.microsoft.com/status/ e role para a tabela MÍDIA.
 
@@ -175,16 +175,16 @@ Para determinar se os Serviços de Mídia estão disponíveis em um data center,
 
 Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
-|{1&gt;Nome&lt;1}|Status|Datacenters
+|Nome|Status|Datacenters
 |---|---|---|
-|Standard|GA|Tudo|
-|Premium|GA|Tudo|
+|Standard|GA|Todos|
+|Premium|GA|Todos|
 
 ### <a name="live-encoding"></a>Codificação ativa
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
 Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Oeste da Índia, sul da Índia e Índia Central. 
 
@@ -192,11 +192,11 @@ Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Oeste da �
 
 A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **Fluxo de Trabalho do Media Encoder Premium**. Para obter mais informações, consulte [Visão geral e comparação dos codificadores de mídia sob demanda do Azure](media-services-encode-asset.md). 
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA|Tudo|
+|Media Encoder Standard|GA|Todos|
 |Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
 
 ### <a name="analytics-media-processors"></a>Processadores de mídia da Análise
@@ -206,29 +206,29 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 > [!NOTE]
 > Alguns processadores de mídia de análise serão desativados. Para as datas de desativação, consulte o tópico [componentes herdados](legacy-components.md) .
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Detector de Rostos em Mídias do Azure|{1&gt;Preview&lt;1}|Tudo|
-|Indexador de Mídia do Azure|GA|Tudo|
-|Detector de Movimento em Mídias do Azure|{1&gt;Preview&lt;1}|Tudo|
-|OCR de Mídia do Azure|{1&gt;Preview&lt;1}|Tudo|
-|Azure Media Redactor|GA|Tudo|
-|Miniaturas de Vídeo de Mídia do Azure|{1&gt;Preview&lt;1}|Tudo|
+|Detector de Rostos em Mídias do Azure|Visualização|Todos|
+|Indexador de Mídia do Azure|GA|Todos|
+|Detector de Movimento em Mídias do Azure|Visualização|Todos|
+|OCR de Mídia do Azure|Visualização|Todos|
+|Azure Media Redactor|GA|Todos|
+|Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
 
 ### <a name="protection"></a>Proteção
 
 Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Para obter mais informações, consulte [Protegendo o conteúdo AMS](media-services-content-protection-overview.md).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
 |Criptografia|Status|Datacenters|
 |---|---|---| 
-|Armazenamento|GA|Tudo|
-|Chaves AES-128|GA|Tudo|
-|FairPlay|GA|Tudo|
-|PlayReady|GA|Tudo|
+|Armazenamento|GA|Todos|
+|Chaves AES-128|GA|Todos|
+|FairPlay|GA|Todos|
+|PlayReady|GA|Todos|
 |Widevine|GA|Todos, exceto Alemanha, Governo Federal e China.
 
 ### <a name="reserved-units-rus"></a>Unidades Reservadas (URs)
@@ -237,7 +237,7 @@ O número de unidades reservadas provisionadas determina o número de tarefas de
 
 Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
 Disponível em todos os datacenters.
 
@@ -247,11 +247,11 @@ Uma conta dos Serviços de Mídia está associada a um tipo de Unidade reservada
 
 Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
 
-#### <a name="availability"></a>Availability
+#### <a name="availability"></a>Disponibilidade
 
 |Nome do tipo de UR|Status|Datacenters
 |---|---|---|
-|S1|GA|Tudo|
+|S1|GA|Todos|
 |S2|GA|Todos, exceto sul do Brasil e Oeste da Índia|
 |S3|GA|Todos, exceto Oeste da Índia|
 
@@ -259,7 +259,7 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 * O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
 

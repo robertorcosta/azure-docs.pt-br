@@ -16,11 +16,11 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376409"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253657"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do usuário e Azure AD Connect Health 
 
@@ -96,7 +96,7 @@ A coleta de dados de locatários pode ser retomada no Azure AD Connect Health. �
 5. Siga o [processo de instalação](how-to-connect-health-agent-install.md) para reinstalar o agente nos servidores a serem monitorados e os serviços estarão presentes no portal.  
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Revise a Política de Privacidade da Microsoft na Central de Confiabilidade](https://www.microsoft.com/trustcenter)
 * [Azure AD Connect e Privacidade do Usuário](reference-connect-user-privacy.md)
 

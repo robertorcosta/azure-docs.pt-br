@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 95625894d0eb603ae9a37c96c91d01f3720346b1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920205"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280723"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -578,16 +578,16 @@ Todas as [funções de modelo do Resource Manager](../../../azure-resource-manag
 - resourceId()
 - variables()
 
-As funções a seguir estão disponíveis para uso em uma regra de política, mas diferem do uso em um modelo de Azure Resource Manager:
+A função a seguir está disponível para uso em uma regra de política, mas difere do uso em um modelo de Azure Resource Manager:
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **DateTime**: [Required] String-String no formato de data/hora Universal ISO 8601 ' yyyy-mm-ddThh: mm: SS. fffffffZ '
-  - **numberOfDaysToAdd**: [obrigatório] número inteiro de dias para adicionar
 - `utcNow()`-diferentemente de um modelo do Resource Manager, isso pode ser usado fora do defaultValue.
   - Retorna uma cadeia de caracteres que é definida como a data e a hora atuais no formato universal ISO 8601 DateTime ' YYYY-MM-ddTHH: mm: SS. fffffffZ '
 
 As funções a seguir estão disponíveis apenas em regras de política:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **DateTime**: [Required] String-String no formato de data/hora Universal ISO 8601 ' yyyy-mm-ddThh: mm: SS. fffffffZ '
+  - **numberOfDaysToAdd**: [obrigatório] número inteiro de dias para adicionar
 - `field(fieldName)`
   - **FieldName**: [Required] String-nome do [campo](#fields) a recuperar
   - Retorna o valor desse campo do recurso que está sendo avaliado pela condição if

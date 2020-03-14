@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083373"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272962"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar NATs. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de NAT como um serviço gerenciado. Verifique se seu provedor de conectividade oferece esse serviço. Caso contrário, você deverá atender aos requisitos descritos abaixo. 
@@ -68,9 +68,9 @@ Não há restrições com relação ao tamanho do prefixo IP de NAT anunciado po
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte os requisitos para o [Roteamento](expressroute-routing.md) e [QoS](expressroute-qos.md).
 * Para obter informações sobre o fluxo de trabalho, consulte [Fluxos de trabalho de provisionamento e estados do circuito do ExpressRoute](expressroute-workflows.md).
-* Configurar sua conexão da Rota Expressa.
+* Configurar sua conexão do ExpressRoute.
   
   * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o roteamento](expressroute-howto-routing-portal-resource-manager.md)
-  * [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 

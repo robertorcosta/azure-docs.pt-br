@@ -9,11 +9,11 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360926"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255308"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
@@ -24,16 +24,16 @@ Este artigo descreve os requisitos importantes para o serviço de Importação/E
 Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguintes **sistemas operacionais de 64 bits dão suporte à Criptografia de Unidade de Disco BitLocker**.
 
 
-|Platform |{1&gt;Version&lt;1} |
+|Plataforma |Versão |
 |---------|---------|
-|Portal     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Outro software necessário para clientes do Windows
 
-|Platform |{1&gt;Version&lt;1} |
+|Plataforma |Versão |
 |---------|---------|
-|{1&gt;.NET Framework&lt;1}    | 4.5.1       |
+|.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |
 
 
@@ -59,7 +59,7 @@ Os tipos de armazenamento na lista a seguir têm suporte com o serviço de Impor
 
 |Trabalho  |Serviço de Armazenamento |Suportado  |Sem suporte  |
 |---------|---------|---------|---------|
-|{1&gt;Importar&lt;1}     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de arquivos do Azure       | Blobs de página e Blobs de bloco com suporte <br><br> Arquivos com suporte          |
+|Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de arquivos do Azure       | Blobs de página e Blobs de bloco com suporte <br><br> Arquivos com suporte          |
 |Exportação     |   Armazenamento de Blobs do Azure       | Blobs de blocos, blobs de páginas e blobs de acréscimo com suporte         | Arquivos do Azure sem suporte
 
 
@@ -72,7 +72,7 @@ Para o serviço de Importação/Exportação do Azure, você precisa de discos c
 Os discos na lista a seguir têm suporte para uso com o serviço de Importação/Exportação.
 
 
-|Tipo de disco  |Size  |Suportado |
+|Tipo de disco  |Tamanho  |Suportado |
 |---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
@@ -91,7 +91,7 @@ Um grande número de unidades pode ser distribuído em vários trabalhos e não 
 Ao preparar discos rígidos e copiar os dados usando a ferramenta WAImportExport, você pode usar os adaptadores USB externos a seguir. A maioria dos adaptadores disponíveis no mercado USB 3.0 ou posteriores deve funcionar.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)

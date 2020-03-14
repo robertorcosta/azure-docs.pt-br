@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396899"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257557"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante o failover
 
@@ -161,6 +161,6 @@ A Empresa B não pode efetuar o failover de aplicativos isolados no nível da su
  - Para ter resiliência de aplicativos, a Empresa B precisará colocar cada aplicativo em sua própria VNet do Azure dedicada.
  - Com cada aplicativo em uma VNet separada, a Empresa B pode efetuar failover de aplicativos isolados e encaminhar conexões da origem para a região de destino.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md).

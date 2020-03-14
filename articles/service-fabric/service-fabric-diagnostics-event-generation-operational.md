@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361215"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258532"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 
@@ -31,58 +31,58 @@ Aqui está uma lista desses eventos do Service Fabric organizados por entidade.
 
 Mais detalhes sobre atualizações de cluster podem ser encontrados [aqui](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId | {1&gt;Nome&lt;1} | Categoria | Descrição |Origem (Tarefa) | Nível | 
+| EventId | Nome | Categoria | DESCRIÇÃO |Origem (Tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Atualização | Uma atualização de cluster foi iniciada | CM | Informativo |
-| 29628 | ClusterUpgradeCompleted | Atualização | Uma atualização de cluster foi concluída | CM | Informativo | 
-| 29629 | ClusterUpgradeRollbackStarted | Atualização | A reversão de uma atualização de cluster foi iniciada  | CM | Aviso | 
-| 29630 | ClusterUpgradeRollbackCompleted | Atualização | A reversão de uma atualização de cluster foi concluída | CM | Aviso | 
-| 29631 | ClusterUpgradeDomainCompleted | Atualização | Um domínio de atualização terminou de atualizar durante uma atualização de cluster | CM | Informativo | 
+| 29627 | ClusterUpgradeStarted | Atualizar | Uma atualização de cluster foi iniciada | CM | Informativo |
+| 29628 | ClusterUpgradeCompleted | Atualizar | Uma atualização de cluster foi concluída | CM | Informativo | 
+| 29629 | ClusterUpgradeRollbackStarted | Atualizar | A reversão de uma atualização de cluster foi iniciada  | CM | Aviso | 
+| 29630 | ClusterUpgradeRollbackCompleted | Atualizar | A reversão de uma atualização de cluster foi concluída | CM | Aviso | 
+| 29631 | ClusterUpgradeDomainCompleted | Atualizar | Um domínio de atualização terminou de atualizar durante uma atualização de cluster | CM | Informativo | 
 
 ## <a name="node-events"></a>Eventos de nó
 
 **Eventos de ciclo de vida do nó** 
 
-| EventId | {1&gt;Nome&lt;1} | Categoria | Descrição |Origem (Tarefa) | Nível |
+| EventId | Nome | Categoria | DESCRIÇÃO |Origem (Tarefa) | Nível |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | A desativação de um nó foi concluída | FM | Informativo | 
 | 18603 | NodeUp | StateTransition | O cluster detectou que um nó foi iniciado | FM | Informativo | 
-| 18604 | NodeDown | StateTransition | O cluster detectou que um nó foi encerrado. Durante uma reinicialização do nó, você verá um evento NodeDown seguido por um evento NodeUp |  FM | Error | 
+| 18604 | NodeDown | StateTransition | O cluster detectou que um nó foi encerrado. Durante uma reinicialização do nó, você verá um evento NodeDown seguido por um evento NodeUp |  FM | Erro | 
 | 18605 | NodeAddedToCluster | StateTransition |  Um novo nó foi adicionado ao cluster e o Service Fabric pode implantar aplicativos para este nó | FM | Informativo | 
 | 18606 | NodeRemovedFromCluster | StateTransition |  Um nó foi removido do cluster. O Service Fabric não implantará aplicativos para este nó | FM | Informativo | 
 | 18607 | NodeDeactivateStarted | StateTransition |  A desativação de um nó foi iniciada | FM | Informativo | 
 | 25621 | NodeOpenSucceeded | StateTransition |  O nó foi iniciado com êxito | FabricNode | Informativo | 
-| 25622 | NodeOpenFailed | StateTransition |  Um nó falha ao iniciar e unir o anel | FabricNode | Error | 
+| 25622 | NodeOpenFailed | StateTransition |  Um nó falha ao iniciar e unir o anel | FabricNode | Erro | 
 | 25624 | NodeClosed | StateTransition |  Um nó foi desligado com êxito | FabricNode | Informativo | 
-| 25626 | NodeAborted | StateTransition |  Um nó foi desligado de maneira brusca | FabricNode | Error | 
+| 25626 | NodeAborted | StateTransition |  Um nó foi desligado de maneira brusca | FabricNode | Erro | 
 
 ## <a name="application-events"></a>Eventos de aplicativo
 
 **Eventos do ciclo de vida do aplicativo**
 
-| EventId | {1&gt;Nome&lt;1} | Categoria | Descrição |Origem (Tarefa) | Nível | 
+| EventId | Nome | Categoria | DESCRIÇÃO |Origem (Tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | Ciclo de vida | Um novo aplicativo foi criado | CM | Informativo | 
 | 29625 | ApplicationDeleted | Ciclo de vida | Um aplicativo existente foi excluído | CM | Informativo | 
-| 23083 | ApplicationProcessExited | Ciclo de vida | Um processo dentro de um aplicativo foi encerrado | Hospedagem | Informativo | 
+| 23083 | ApplicationProcessExited | Ciclo de vida | Um processo dentro de um aplicativo foi encerrado | Hosting | Informativo | 
 
 **Eventos de atualização do aplicativo**
 
 Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui](service-fabric-application-upgrade.md).
 
-| EventId | {1&gt;Nome&lt;1} | Categoria | Descrição |Origem (Tarefa) | Nível | 
+| EventId | Nome | Categoria | DESCRIÇÃO |Origem (Tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Atualização | A atualização de um aplicativo foi iniciada | CM | Informativo | 
-| 29622 | ApplicationUpgradeCompleted | Atualização | A atualização de um aplicativo foi concluída | CM | Informativo | 
-| 29623 | ApplicationUpgradeRollbackStarted | Atualização | A reversão de uma atualização de aplicativo foi iniciada |CM | Aviso | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Atualização | A reversão de uma atualização de aplicativo foi concluída | CM | Aviso | 
-| 29626 | ApplicationUpgradeDomainCompleted | Atualização | Um domínio de atualização terminou de atualizar durante uma atualização de aplicativo | CM | Informativo | 
+| 29621 | ApplicationUpgradeStarted | Atualizar | A atualização de um aplicativo foi iniciada | CM | Informativo | 
+| 29622 | ApplicationUpgradeCompleted | Atualizar | A atualização de um aplicativo foi concluída | CM | Informativo | 
+| 29623 | ApplicationUpgradeRollbackStarted | Atualizar | A reversão de uma atualização de aplicativo foi iniciada |CM | Aviso | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Atualizar | A reversão de uma atualização de aplicativo foi concluída | CM | Aviso | 
+| 29626 | ApplicationUpgradeDomainCompleted | Atualizar | Um domínio de atualização terminou de atualizar durante uma atualização de aplicativo | CM | Informativo | 
 
 ## <a name="service-events"></a>Eventos de serviço
 
 **Eventos de ciclo de vida do serviço**
 
-| EventId | {1&gt;Nome&lt;1} | Categoria | Descrição |Origem (Tarefa) | Nível | 
+| EventId | Nome | Categoria | DESCRIÇÃO |Origem (Tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | Ciclo de vida | Um novo serviço foi criado | FM | Informativo | 
 | 18658 | ServiceDeleted | Ciclo de vida | Um serviço existente foi excluído | FM | Informativo | 
@@ -91,7 +91,7 @@ Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui]
 
 **Eventos de movimentação de partição**
 
-| EventId | {1&gt;Nome&lt;1} | Categoria | Descrição |Origem (Tarefa) | Nível | 
+| EventId | Nome | Categoria | DESCRIÇÃO |Origem (Tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | Ciclo de vida | Uma reconfiguração de partição foi concluída | RA | Informativo | 
 
@@ -99,7 +99,7 @@ Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui]
 
 **Eventos de ciclo de vida de réplica**
 
-| EventId | {1&gt;Nome&lt;1} | Categoria | Descrição |Origem (Tarefa) | Nível |
+| EventId | Nome | Categoria | DESCRIÇÃO |Origem (Tarefa) | Nível |
 | --- | --- | ---| --- | --- | --- |
 | 61701 | ReliableDictionaryOpened | Ciclo de vida | O dicionário confiável foi aberto | DistributedDictionary | Informativo |
 | 61702 | ReliableDictionaryClosed | Ciclo de vida | O dicionário confiável foi fechado | DistributedDictionary | Informativo |
@@ -114,7 +114,7 @@ Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui]
 | 63648 | ReliableConcurrentQueueOpened | Ciclo de vida | A fila simultânea confiável foi aberta | ReliableConcurrentQueue | Informativo |
 | 63649 | ReliableConcurrentQueueClosed | Ciclo de vida | A fila simultânea confiável foi fechada | ReliableConcurrentQueue | Informativo |
 | 63650 | ReliableConcurrentQueueCheckpointRecovered | Ciclo de vida | A fila simultânea confiável recuperou seu ponto de verificação | ReliableConcurrentQueue | Informativo |
-| 61687 | TStoreError | Falha | A coleta confiável recebeu um erro inesperado | TStore | Error |
+| 61687 | TStoreError | Falha | A coleta confiável recebeu um erro inesperado | TStore | Erro |
 | 63831 | PrimaryFullCopyInitiated | Ciclo de vida | A réplica primária iniciou uma cópia completa | TReplicator | Informativo |
 | 63832 | PrimaryPartialCopyInitiated | Ciclo de vida | A réplica primária iniciou uma cópia parcial | TReplicator | Informativo |
 | 16831 | BuildIdleReplicaStarted | Ciclo de vida | A réplica primária começou a compilar a réplica ociosa | Replicação | Informativo |
@@ -133,11 +133,11 @@ Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui]
 
 **Eventos de ciclo de vida do contêiner** 
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | Um contêiner for iniciado | Hospedagem | Informativo | 1 |
-| 23075 | ContainerDeactivated | Um contêiner for encerrado | Hospedagem | Informativo | 1 |
-| 23082 | ContainerExited | Um contêiner foi fechado – verifique o sinalizador UnexpectedTermination | Hospedagem | Informativo | 1 |
+| 23074 | ContainerActivated | Um contêiner for iniciado | Hosting | Informativo | 1 |
+| 23075 | ContainerDeactivated | Um contêiner for encerrado | Hosting | Informativo | 1 |
+| 23082 | ContainerExited | Um contêiner foi fechado – verifique o sinalizador UnexpectedTermination | Hosting | Informativo | 1 |
 
 ## <a name="health-reports"></a>Relatórios de integridade
 
@@ -149,21 +149,21 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de relatório de integridade do cluster**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Um novo relatório de integridade do cluster está disponível | HM | Informativo | 1 |
 | 54437 | ClusterHealthReportExpired | Um relatório de integridade de cluster existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade do nó**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Um novo relatório de integridade do nó está disponível | HM | Informativo | 1 |
 | 54432 | NodeHealthReportExpired | Um relatório de integridade do nó existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade do aplicativo**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Um novo relatório de integridade do aplicativo foi criado. É referente a aplicativos não implantados. | HM | Informativo | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Um novo relatório de integridade do aplicativo implantado foi criado | HM | Informativo | 1 |
@@ -174,21 +174,21 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de relatório de integridade do serviço**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Um novo relatório de integridade do serviço foi criado | HM | Informativo | 1 |
 | 54433 | ServiceHealthReportExpired | Um relatório de integridade do serviço existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade da partição**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Um novo relatório de integridade da partição foi criado | HM | Informativo | 1 |
 | 54431 | PartitionHealthReportExpired | Um relatório de integridade da partição existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade da réplica**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Um relatório de integridade da réplica com estado foi criado | HM | Informativo | 1 |
 | 54430 | StatelessInstanceNewHealthReport | Um novo relatório de integridade da réplica sem estado foi criado | HM | Informativo | 1 |
@@ -199,28 +199,28 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de sessão de caos**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | Uma sessão de teste do caos foi iniciada | Capacidade de teste | Informativo | 1 |
 | 50023 | ChaosStopped | Uma sessão de teste do caos foi interrompida | Capacidade de teste | Informativo | 1 |
 
 **Eventos de nó de caos**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | Um nó foi agendado para ser reiniciado como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50087 | ChaosNodeRestartCompleted | A reinicialização de um nó foi concluída como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 
 **Eventos de aplicativo de caos**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | Uma reinicialização do pacote de códigos foi agendada durante um sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Uma reinicialização do pacote de códigos foi concluída durante um sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 
 **Eventos de partição de caos**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | Uma partição primária foi agendada para ser movida como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | Uma partição secundária foi agendada para ser movida como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
@@ -228,7 +228,7 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de réplica de caos**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | Uma reinicialização de réplica foi agendada como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | Uma remoção de réplica foi agendada como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
@@ -238,7 +238,7 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de correlação**
 
-| EventId | {1&gt;Nome&lt;1} | Descrição |Origem (Tarefa) | Nível | {1&gt;Version&lt;1} |
+| EventId | Nome | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | Uma correlação foi detectada | Capacidade de teste | Informativo | 1 |
 
@@ -246,7 +246,7 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 Esta é uma lista abrangente dos eventos fornecidos pelo Service Fabric antes da versão 6.2.
 
-| EventId | {1&gt;Nome&lt;1} | Origem (Tarefa) | Nível |
+| EventId | Nome | Origem (Tarefa) | Nível |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Informativo |
 | 25621 | NodeOpenedSuccess | FabricNode | Informativo |
@@ -260,8 +260,8 @@ Esta é uma lista abrangente dos eventos fornecidos pelo Service Fabric antes da
 | 29629 | ClusterUpgradeRollback | CM | Informativo |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Informativo |
 | 29631 | ClusterUpgradeDomainComplete | CM | Informativo |
-| 23074 | ContainerActivated | Hospedagem | Informativo |
-| 23075 | ContainerDeactivated | Hospedagem | Informativo |
+| 23074 | ContainerActivated | Hosting | Informativo |
+| 23075 | ContainerDeactivated | Hosting | Informativo |
 | 29620 | ApplicationCreated | CM | Informativo |
 | 29621 | ApplicationUpgradeStart | CM | Informativo |
 | 29622 | ApplicationUpgradeComplete | CM | Informativo |
@@ -272,7 +272,7 @@ Esta é uma lista abrangente dos eventos fornecidos pelo Service Fabric antes da
 | 18566 | ServiceCreated | FM | Informativo |
 | 18567 | ServiceDeleted | FM | Informativo |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Obtenha uma visão geral de [diagnóstico no Service Fabric](service-fabric-diagnostics-overview.md)
 * Saiba mais sobre o EventStore na [Visão geral de Eventstore do Service Fabric](service-fabric-diagnostics-eventstore.md)

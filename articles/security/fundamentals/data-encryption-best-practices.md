@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945629"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243491"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados e criptografia do Azure
 Este artigo descreve as práticas recomendadas para segurança e criptografia de dados.
@@ -133,7 +133,7 @@ Essa solução de proteção de informações mantém você no controle de seus 
 
 As organizações que não priorizam a [classificação de dados](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e a proteção de arquivos pode estar mais vulnerável à perda de dados. Com a proteção de arquivos apropriada, você pode analisar os fluxos de dados para obter informações sobre sua empresa, detectar comportamentos de risco e tomar medidas corretivas, controlar o acesso a documentos e assim por diante.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
 

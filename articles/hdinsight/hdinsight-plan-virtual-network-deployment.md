@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387219"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272260"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -69,7 +69,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
 
     Para encontrar a configuração de segurança existente, use os seguintes comandos do Azure PowerShell ou da CLI do Azure:
 
-    * Regras de segurança de rede
+    * Grupos de segurança de rede
 
         Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual e, em seguida, insira o comando:
 
@@ -262,7 +262,7 @@ Por padrão, os clusters do Azure HDInsight aceitam conexões TLS 1,2 em pontos 
 > [!IMPORTANT]
 > A partir de 30 de junho de 2020, o Azure HDInsight impedirá o TLS 1,2 ou versões posteriores para todas as conexões HTTPS. Recomendamos que você verifique se todos os seus clientes estão prontos para lidar com o TLS 1,2 ou versões posteriores. Para obter mais informações, consulte [imposição de TLS 1,2 do Azure HDInsight](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter exemplos de código e exemplos de criação de redes virtuais do Azure, consulte [criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de ponta a ponta de como configurar o HDInsight para se conectar a uma rede local, consulte [Conectar o HDInsight a uma rede local](./connect-on-premises-network.md).

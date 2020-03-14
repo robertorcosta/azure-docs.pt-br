@@ -4,12 +4,12 @@ description: Neste artigo, saiba como criar cofres dos serviços de recuperaçã
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: eb7dcb4038260b1edac57a2163a1c0eae29ee452
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5eac302668c2f322390b38475860c77f1cd40d72
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363667"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247950"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -88,7 +88,15 @@ Para esse processo, há implicações de preço como ele está no nível de arma
 >Antes de começar:
 >
 >- Examine a [matriz de suporte](backup-support-matrix.md#cross-region-restore) para obter uma lista de tipos e regiões gerenciados com suporte.
->- O recurso de CRR (restauração entre regiões) está disponível atualmente apenas nas seguintes regiões: Oeste EUA Central, oeste dos EUA 2, leste da Austrália e sudeste da Austrália. 
+>- O recurso de CRR (restauração entre regiões) está disponível atualmente apenas nas seguintes regiões: 
+>    - Centro-Oeste dos EUA
+>    - Oeste dos EUA 2
+>    - Leste da Austrália
+>    - Sudeste da Austrália
+>    - Leste do Japão
+>    - Oeste do Japão
+>    - Sudeste Asiático
+>    - Sul do Reino Unido
 >- A CRR é um recurso de consentimento de nível de cofre para qualquer cofre GRS (desativado por padrão).
 >- Use o seguinte comando para carregar sua assinatura para este recurso:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

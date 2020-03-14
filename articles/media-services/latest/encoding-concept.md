@@ -14,11 +14,11 @@ ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7f3825a2d87d5948de4bb4a9b86be8e3050f2100
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892809"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251512"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificando vídeo e áudio com os serviços de mídia
 
@@ -149,7 +149,7 @@ Para saber mais, confira os [preços](https://azure.microsoft.com/pricing/detail
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Carregue, codifique e transmita usando os serviços de mídia](stream-files-tutorial-with-api.md).
 * [Codifique a partir de uma URL https usando predefinições internas](job-input-from-http-how-to.md).

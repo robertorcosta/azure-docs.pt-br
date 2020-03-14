@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395177"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271922"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Storm usando o Azure HDInsight
 
@@ -178,7 +178,7 @@ Para resolver, o usuário pode precisar arquivar um tíquete para que os nós se
 
 ---
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

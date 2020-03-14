@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
 ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390166"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219924"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -28,7 +28,7 @@ O vídeo a seguir demonstra como usar esse contêiner.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar o contêiner LUIS, observe os seguintes pré-requisitos:
 
@@ -109,7 +109,7 @@ O diretório de montagem de entrada pode conter os modelos de **produção**, de
 |--|--|--|--|
 |Versão|GET, POST|Somente contêiner|`{APP_ID}_v{APP_VERSION}.gz`|
 |Staging|GET, POST|Azure e contêiner|`{APP_ID}_STAGING.gz`|
-|Production|GET, POST|Azure e contêiner|`{APP_ID}_PRODUCTION.gz`|
+|Produção|GET, POST|Azure e contêiner|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > Não renomeie, altere, substitua ou descompacte os arquivos de pacote LUIS.
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Espaço reservado | {1&gt;Valor&lt;1} |
+| Espaço reservado | Valor |
 |-------------|-------|
 | **{APP_ID}** | A ID de aplicativo do aplicativo LUIS publicado. |
 | **{SLOT_NAME}** | O ambiente do aplicativo LUIS publicado. Use um dos seguintes valores:<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Espaço reservado | {1&gt;Valor&lt;1} |
+| Espaço reservado | Valor |
 |-------------|-------|
 | **{APP_ID}** | A ID de aplicativo do aplicativo LUIS treinado. |
 | **{APP_VERSION}** | A versão do aplicativo do aplicativo LUIS treinado. |
@@ -247,12 +247,12 @@ Use o host, `http://localhost:5000`, para APIs de contêiner.
 
 |Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
 |--|--|--|--|
-|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Publicado|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 |Versão|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
 
-|Parâmetro de consulta|Tipo|Finalidade|
+|Parâmetro de consulta|Type|Finalidade|
 |--|--|--|
 |`query`|string|A declaração do usuário.|
 |`verbose`|booleano|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é false.|
@@ -263,12 +263,12 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 |Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
 |--|--|--|--|
-|Published|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
+|Publicado|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
 |Versão|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
 
 Os parâmetros de consulta configuram como e o que é retornado na resposta da consulta:
 
-|Parâmetro de consulta|Tipo|Finalidade|
+|Parâmetro de consulta|Type|Finalidade|
 |--|--|--|
 |`q`|string|A declaração do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
@@ -355,7 +355,7 @@ Depois que o log é carregado, [examine as declarações do ponto de extremidade
 
 Para desligar o contêiner, no ambiente de linha de comando em que o contêiner estiver em execução, pressione **Ctrl+C**.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Se você executar o contêiner com uma [montagem](luis-container-configuration.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem durante a inicialização ou execução do contêiner.
 
@@ -385,7 +385,7 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 > [!IMPORTANT]
 > Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Revise [Configurar contêineres](luis-container-configuration.md) para configurações.
 * Consulte [limitações de contêiner Luis](luis-container-limitations.md) para obter restrições de funcionalidade conhecidas.

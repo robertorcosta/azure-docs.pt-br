@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380847"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249627"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades gerenciadas no gerenciamento de API do Azure
 
@@ -82,7 +82,7 @@ Por exemplo, um modelo completo do Azure Resource Manager pode ter a seguinte ap
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obter um certificado do Azure Key Vault
 
-#### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+#### <a name="prerequisites"></a>Prerequisites
 1. O Key Vault que contém o certificado pfx deve estar na mesma assinatura do Azure e no mesmo Grupo de recursos que o serviço de Gerenciamento de API. Este é um requisito do modelo do Azure Resource Manager.
 2. O Tipo de conteúdo do segredo deve ser *application/x-pkcs12*. É possível usar o seguinte script para carregar o certificado:
 
@@ -231,7 +231,7 @@ O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seg
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre identidades gerenciadas para recursos do Azure:
 

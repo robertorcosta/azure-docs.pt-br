@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073632"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253787"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensão do Agente Linux de Stackify Retrace
 
@@ -37,7 +37,7 @@ O Retrace é a ÚNICA ferramenta que fornece todos os recursos a seguir em todos
 
 Esta extensão fornece um caminho de instalação para o agente Linux para Retrace. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operacional 
 
@@ -183,7 +183,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 
 ### <a name="error-codes"></a>Códigos do Erro
 
-| Código do erro | Significado | Possível ação |
+| Código do erro | Significado | Ação possível |
 | :---: | --- | --- |
 | 10 | Erro de instalação | wget é obrigatório |
 | 20 | Erro de instalação | phython é obrigatório. |
@@ -191,7 +191,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Erro de instalação | activationKey é obrigatório |
 | 51 | Erro de instalação | Distribuição de sistema operacional não compatível |
 | 60 | Erro de instalação | ambiente é obrigatório |
-| 70 | Erro de instalação | Desconhecido |
+| 70 | Erro de instalação | Unknown (desconhecido) |
 | 80 | Ero de habilitação | Falha na configuração de serviço |
 | 90 | Ero de habilitação | Falha na configuração de serviço |
 | 100 | Desabilitar o erro | Falha na interrupção do serviço |

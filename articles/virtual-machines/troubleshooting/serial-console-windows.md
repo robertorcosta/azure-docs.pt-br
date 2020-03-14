@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381678"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266995"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -32,7 +32,7 @@ Para obter a documentação do console serial para Linux, consulte [console seri
 > O console serial está geralmente disponível em regiões globais do Azure e em visualização pública no Azure governamental. Ele ainda não está disponível na nuvem do Azure na China.
 
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * A instância do conjunto de dimensionamento de máquinas virtuais ou VM deve usar o modelo de implantação do gerenciamento de recursos. Implantações clássicas não são suportadas.
 
@@ -217,7 +217,7 @@ a. Sua imagem provavelmente não está configurada corretamente para acesso ao c
 
 a. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Para obter um guia detalhado dos comandos do CMD e do PowerShell que você pode usar no Windows SAC, consulte [Comandos do Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 * O console serial também está disponível para VMs do [Linux](serial-console-linux.md).
 * Saiba mais sobre [diagnóstico de inicialização](boot-diagnostics.md).

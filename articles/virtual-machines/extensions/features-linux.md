@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073759"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250511"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -37,7 +37,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](custom-script-linux.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para lidar com a extensão na VM, é necessário ter o Agente Linux do Microsoft Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
 
@@ -58,7 +58,7 @@ O agente para Linux executa em vários sistemas operacionais. No entanto, a estr
 
 Algumas extensões não têm suporte em todos os sistemas de operacionais e podem emitir *Código de Erro 51, 'SO sem suporte'* . Consulte a documentação da extensão individual sobre a capacidade de suporte.
 
-#### <a name="network-access"></a>Acesso à rede
+#### <a name="network-access"></a>Acesso de rede
 
 Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se usar a versão com [suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, você não precisará permitir o acesso ao Armazenamento do Microsoft Azure na região da VM, já que poderá usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente. Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
 
@@ -113,7 +113,7 @@ A imagem a seguir mostra a instalação da extensão Script Personalizado do Lin
 
 ![Instalar a extensão de script personalizado](./media/features-linux/installscriptextensionlinux.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
+### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
 É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
@@ -396,7 +396,7 @@ az vm extension delete \
 
 Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 
-1. Selecionar uma máquina virtual.
+1. Selecione uma VM.
 2. Escolha **Extensões**.
 3. Selecione a extensão desejada.
 4. Escolha **Desinstalar**.

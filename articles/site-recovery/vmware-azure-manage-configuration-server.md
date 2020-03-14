@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954353"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257271"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerenciar o servidor de configuração para a recuperação de desastre do servidor físico/VM do VMware
 
@@ -152,18 +152,18 @@ Os links para pacotes cumulativos de atualização para todas as versões do ser
 
 Atualize o servidor da seguinte maneira:
 
-1. No cofre, vá para **Gerenciar**  >  **Infraestrutura de Recuperação do Site**  >  **Servidores de Configuração**.
+1. No cofre, vá para **Gerenciar** > **Infraestrutura de Recuperação do Site** > **Servidores de Configuração**.
 2. Se uma atualização estiver disponível, aparecerá um link no **versão do agente** > coluna.
     ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Baixe o arquivo instalador da atualização no servidor de configuração.
 
-    ![Atualização](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Clique duas vezes para executar o instalador.
 5. O instalador detecta a versão atual em execução no computador. Clique em **Sim** para iniciar a atualização.
 6. Quando a atualização for concluída valida a configuração do servidor.
 
-    ![Atualização](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Clique em **Finish** para fechar o instalador.
 8. Para atualizar o restante dos componentes do Site Recovery, veja as nossas [diretrizes de atualização](https://aka.ms/asr_vmware_upgrades).
@@ -184,23 +184,23 @@ Execute o arquivo de instalação da seguinte maneira:
   ```
 
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-|Nome do Parâmetro| Digite | DESCRIÇÃO| Valores|
+|Nome do Parâmetro| Type | DESCRIÇÃO| Valores|
 |-|-|-|-|
-| /ServerMode|obrigatórios|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
-|/InstallLocation|obrigatórios|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|obrigatórios|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
-|/VaultCredsFilePath|obrigatórios|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
-|/EnvType|obrigatórios|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|obrigatórios|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|obrigatórios|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
-|/PassphraseFilePath|obrigatórios|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
+| /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
+|/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|Obrigatório|O caminho do arquivo no qual as credenciais do servidor MySQL são armazenadas|O arquivo deve ser do formato especificado abaixo|
+|/VaultCredsFilePath|Obrigatório|O caminho do arquivo de credenciais do cofre|Caminho de arquivo válido|
+|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|Obrigatório|Endereço IP da NIC a ser usada para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|Obrigatório|O endereço IP da NIC na qual o servidor de configuração está escutando| Qualquer endereço IP válido|
+|/PassphraseFilePath|Obrigatório|O caminho completo para o local do arquivo de senha|Caminho de arquivo válido|
 |/BypassProxy|Opcional|Especifica se o servidor de gerenciamento se conecta ao Azure sem um proxy|Para obter esse valor de Venu|
 |/ProxySettingsFilePath|Opcional|Configurações de proxy (o proxy padrão exige autenticação ou um proxy personalizado)|O arquivo deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|O número da porta no PSIP a ser usada para dados de replicação| Número da porta válido (o valor padrão é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar verificação de espaço do disco de cache| |
-|/AcceptThirdpartyEULA|obrigatórios|Sinalizar implica na aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|Obrigatório|Sinalizar implica na aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Exibe o EULA de terceiros. Se fornecido como entrada, todos os outros parâmetros serão ignorados| |
 
 
@@ -293,7 +293,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 1. No portal do Azure, navegue para **Cofre de Serviços de Recuperação** > **Gerenciar** > **Infraestrutura de Recuperação do Site** > **Para máquinas VMware e físicas** > **Servidores de Configuração**
 2. Clique no servidor de configuração que você deseja atualizar.
 3. No blade com detalhes do servidor de configuração escolhido, clique em **Mais** >  **Refresh Server**.
-4. Monitore o progresso do trabalho em **Cofre dos Serviços de Recuperação** > **Monitoramento** > **trabalhos do Site Recovery**.
+4. Monitore o progresso do trabalho em **Cofre de Serviços de Recuperação** > **Monitorando** >  **trabalhos de Recuperação do Site**.
 
 ## <a name="failback-requirements"></a>Requisitos de failback
 

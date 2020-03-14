@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
 ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760344"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257674"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre Azure Site Recovery
 
@@ -79,7 +79,7 @@ Sim. Nenhuma instância protegida gera cobranças do Azure Site Recovery durante
 
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, serei cobrado por outras tarifas do Azure?
 
-Sim, mesmo que Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá incorrer em encargos pelo armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também poderá gerar tarifas de computação do Azure.
+Sim, mesmo que Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá incorrer em encargos pelo armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também poderá gerar encargos de computação do Azure.
 
 
 ### <a name="is-there-a-cost-associated-to-perform-disaster-recovery-drillstest-failover"></a>Há um custo associado para executar testes de recuperação de desastres/failover de teste?
@@ -234,6 +234,6 @@ Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Res
 
 [Saiba mais](site-recovery-whats-new.md) sobre novas atualizações e [Obtenha informações de rollup](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Leia a [visão geral do Site Recovery](site-recovery-overview.md)
 

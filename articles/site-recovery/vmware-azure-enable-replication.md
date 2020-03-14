@@ -7,11 +7,11 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495379"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257310"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -23,7 +23,7 @@ Este artigo descreve como habilitar replicação de VMs VMware locais no Azure.
 * O disco do sistema operacional deve ser um disco básico, não um disco dinâmico.
 * Para máquinas virtuais habilitadas para geração 2/UEFI, a família do sistema operacional deve ser Windows e o disco de inicialização deve ter menos de 300 GB.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este artigo supõe que você:
 
@@ -136,7 +136,7 @@ Saiba mais sobre o [Benefício Híbrido do Azure](https://aka.ms/azure-hybrid-be
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois que a máquina virtual atingir um estado protegido, tente um [failover](site-recovery-failover.md) para verificar se seu aplicativo aparece no Azure.
 

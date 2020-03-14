@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394744"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251239"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando as predefinições do Media Encoder Standard  
 
@@ -134,7 +134,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>{1&gt;Exemplo&lt;1}   
+#### <a name="example"></a>Exemplo   
 
 ```csharp
 using System;
@@ -264,7 +264,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Como codificar com uma transformação personalizada usando a CLI](../latest/custom-preset-cli-howto.md)
 - [Codificação com os Serviços de Mídia v3](../latest/encoding-concept.md)

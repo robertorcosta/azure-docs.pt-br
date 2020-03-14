@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
 ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945869"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254359"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -385,10 +385,10 @@ Para perfis com qualquer método de roteamento que não seja de Múltiplos Valor
 |Solicitação de consulta de entrada|     Tipo de ponto de extremidade|     Resposta fornecida|
 |--|--|--|
 |ANY |    A / AAAA / CNAME |    Ponto de extremidade de destino| 
-|A |    A / CNAME |    Ponto de extremidade de destino|
-|A |    AAAA |    NODATA |
+|Um |    A / CNAME |    Ponto de extremidade de destino|
+|Um |    AAAA |    NODATA |
 |AAAA |    AAAA / CNAME |    Ponto de extremidade de destino|
-|AAAA |    A |    NODATA |
+|AAAA |    Um |    NODATA |
 |CNAME |    CNAME |    Ponto de extremidade de destino|
 |CNAME     |A / AAAA |    NODATA |
 |
@@ -398,7 +398,7 @@ Para perfis com o método de roteamento definido como de Múltiplos Valores:
 |Solicitação de consulta de entrada|     Tipo de ponto de extremidade |    Resposta fornecida|
 |--|--|--|
 |ANY |    Combinação de A e AAAA |    Pontos de extremidade de destino|
-|A |    Combinação de A e AAAA |    Somente pontos de extremidade de destino do tipo A|
+|Um |    Combinação de A e AAAA |    Somente pontos de extremidade de destino do tipo A|
 |AAAA    |Combinação de A e AAAA|     Somente pontos de extremidade de destino do tipo AAAA|
 |CNAME |    Combinação de A e AAAA |    NODATA |
 
@@ -497,9 +497,9 @@ O perfil pai não executa verificações de integridade no filho diretamente. Em
 
 A tabela a seguir descreve o comportamento das verificações de integridade do Gerenciador de Tráfego de um ponto de extremidade aninhado.
 
-| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | {1&gt;Observações&lt;1} |
+| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Observações |
 | --- | --- | --- |
-| Desabilitada. O perfil filho foi desabilitado. |Parado |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
+| Desabilitado. O perfil filho foi desabilitado. |Parado |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
 | Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido com um valor muito alto, o ponto de extremidade estará sempre degradado. |
 | Online. Pelo menos, um ponto de extremidade do perfil filho está em um estado Online. Nenhum ponto de extremidade está no estado Degradado. |Veja acima. | |
 | CheckingEndpoints. Pelo menos, um ponto de extremidade do perfil filho é um 'CheckingEndpoint'. Nenhum ponto de extremidade está ‘Online’ ou ‘Degradado’ |Mesmo que acima. | |

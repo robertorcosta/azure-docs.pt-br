@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953638"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256959"
 ---
-# <a name="manage-the-mobility-agent"></a>Gerenciar o agente de mobilidade 
+# <a name="manage-the-mobility-agent"></a>Gerenciar o agente Mobilidade 
 
 Você configura o agente de mobilidade no servidor quando usa Azure Site Recovery para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O agente de mobilidade coordena as comunicações entre o computador protegido, o servidor de configuração/servidor de processo de expansão e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o agente de mobilidade após sua implantação.
 
@@ -37,11 +37,24 @@ Você configura o agente de mobilidade no servidor quando usa Azure Site Recover
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Atualizar o serviço de mobilidade por meio do script do PowerShell no Windows Server
 
+Antes de iniciar, certifique-se de que o servidor de configuração, os servidores de processo de expansão e quaisquer servidores de destino que não façam parte da sua implantação sejam atualizados antes de você atualizar o Serviço de Mobilidade nos computadores protegidos.
+
 Use o script a seguir para atualizar o serviço de mobilidade em um servidor por meio do cmdlet do PowerShell
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
+
+## <a name="update-mobility-service-manually-on-each-protected-server"></a>Atualizar o serviço de mobilidade manualmente em cada servidor protegido
+
+1. Antes de iniciar, certifique-se de que o servidor de configuração, os servidores de processo de expansão e quaisquer servidores de destino que não façam parte da sua implantação sejam atualizados antes de você atualizar o Serviço de Mobilidade nos computadores protegidos.
+
+2. [Localize o instalador do agente](vmware-physical-mobility-service-overview.md#locate-installer-files) com base no sistema operacional do servidor.
+
+>[!IMPORTANT]
+> Se você estiver replicando a VM IaaS do Azure de uma região do Azure para outra, não use esse método. Consulte [nossas diretrizes](azure-to-azure-autoupdate.md) para obter informações sobre todas as opções disponíveis.
+
+3. Copie o arquivo de instalação no computador protegido e execute-o para atualizar o agente de mobilidade.
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Atualizar a conta usada para a instalação por push do serviço de mobilidade
 
@@ -49,12 +62,12 @@ Quando você implantou o Site Recovery para habilitar a instalação por push do
 
 ## <a name="uninstall-mobility-service"></a>Desinstalar o serviço de mobilidade
 
-### <a name="on-a-windows-machine"></a>Em um computador Windows
+### <a name="on-a-windows-machine"></a>Em uma máquina Windows
 
 Desinstale pela interface do usuário ou por um prompt de comando.
 
 - **Pela interface de usuário**: no Painel de Controle do computador, selecione **Programas**. Selecione **Servidor de destino mestre/Serviço de Mobilidade do Microsoft Azure Site Recovery** > **Desinstalar**.
-- **Por um prompt de comando**: Abra uma janela de prompt de comando como administrador no computador local. Execute o seguinte comando: 
+- **Por um prompt de comando**: Abra uma janela de prompt de comando como administrador no computador local. Execute o comando a seguir: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
@@ -62,7 +75,7 @@ Desinstale pela interface do usuário ou por um prompt de comando.
 ### <a name="on-a-linux-machine"></a>Em um computador Linux
 1. No computador Linux, entre como um usuário **raiz**.
 2. Em um terminal, vá para/usr/local/ASR.
-3. Execute o seguinte comando:
+3. Execute o comando a seguir:
     ```
     uninstall.sh -Y
    ```

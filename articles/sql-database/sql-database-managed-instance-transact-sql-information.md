@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 02/10/2020
+ms.date: 03/11/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8c995a40e621f7155ad0741004d10b1146523489
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360075"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256049"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -36,7 +36,7 @@ A maioria desses recursos são restrições de arquitetura e representam recurso
 
 Esta página também explica os [problemas temporários conhecidos](#Issues) que são descobertos na instância gerenciada, que serão resolvidos no futuro.
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilidade
 
 ### <a name="always-on-availability-groups"></a>Always On grupos de disponibilidade
 
@@ -65,7 +65,6 @@ Limitações:
 
 - Com uma instância gerenciada, você pode fazer backup de um banco de dados de instância em um backup com até 32 faixas, o que é suficiente para bancos de dados de até 4 TB se a compactação de backup for usada.
 - Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que é criptografado com o TDE (Transparent Data Encryption gerenciado por serviço). O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup. Use backups automáticos e restauração pontual ou use o [TDE (BYOK) gerenciado pelo cliente](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
-- Os backups manuais para o armazenamento de BLOBs do Azure têm suporte apenas para [contas do BlockBlobStorage](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 - O tamanho máximo de distribuição de backup usando o comando `BACKUP` em uma instância gerenciada é 195 GB, que é o tamanho máximo do blob. Aumente o número de faixas no comando de backup para reduzir o tamanho da faixa individual e permaneça dentro desse limite.
 
     > [!TIP]
@@ -140,8 +139,8 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
     A instância gerenciada dá suporte a entidades de banco de dados do Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Esse recurso também é conhecido como usuários de banco de dados independente do Azure AD.
 
 - Não há suporte para logons do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS`. Use logons e usuário do Microsoft Azure Active Directory.
-- O usuário do Azure AD que criou a instância tem [privilégios de administrador irrestrito](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Usuários de nível de banco de dados não administrador do Azure AD podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [criar usuário... DO provedor externo](sql-database-manage-logins.md#non-administrator-users).
+- O usuário do Azure AD que criou a instância tem [privilégios de administrador irrestrito](sql-database-manage-logins.md).
+- Usuários de nível de banco de dados não administrador do Azure AD podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [criar usuário... DO provedor externo](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
 - As entidades de segurança do servidor do Azure AD (logons) dão suporte a recursos SQL somente em uma instância gerenciada. Recursos que exigem interação entre instâncias, independentemente de estarem dentro do mesmo locatário do Azure AD ou locatários diferentes, não têm suporte para usuários do Azure AD. Exemplos de recursos desse tipo são:
 
   - Replicação transacional do SQL.
@@ -192,7 +191,7 @@ Uma instância gerenciada não pode acessar arquivos, portanto, os provedores cr
 - Não há suporte para a [extensão do pool de buffers](/sql/database-engine/configure-windows/buffer-pool-extension) .
 - Não há suporte para `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`. Consulte [ALTERAR CONFIGURAÇÃO DO SERVIDOR](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Ordenação
+### <a name="collation"></a>Collation
 
 A ordenação de instância padrão é `SQL_Latin1_General_CP1_CI_AS` e pode ser especificada como um parâmetro de criação. Consulte [Ordenações](/sql/t-sql/statements/collations).
 
@@ -236,7 +235,7 @@ As seguintes limitações se aplicam a `CREATE DATABASE`:
 
 Para saber mais, confira [CRIAR BANCO DE DADOS](/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
-#### <a name="alter-database-statement"></a>Instrução ALTER DATABASE
+#### <a name="alter-database-statement"></a>instrução ALTER DATABASE
 
 Algumas propriedades de arquivo não podem ser definidas ou alteradas:
 
@@ -414,7 +413,7 @@ Para obter mais informações sobre como configurar a replicação transacional,
 - [Replicação entre um Publicador e um assinante MI](replication-with-sql-database-managed-instance.md)
 - [Replicação entre um Publicador de MI, um distribuidor de MI e um assinante de SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 
-### <a name="restore-statement"></a>instrução RESTORE 
+### <a name="restore-statement"></a>Instrução RESTAURAR 
 
 - Sintaxe com suporte:
   - `RESTORE DATABASE`
@@ -470,6 +469,7 @@ Não há suporte para agente de serviços entre instâncias:
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
+  - `remote access`
   - `remote data archive`
   - `remote proc trans`
 - Não há suporte para `sp_execute_external_scripts`. Consulte [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
@@ -704,7 +704,7 @@ Os módulos CLR colocados em uma instância gerenciada e servidores vinculados o
 
 **Solução alternativa:** Use conexões de contexto em um módulo CLR, se possível.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre instâncias gerenciadas, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md)
 - Para obter uma lista de recursos e comparação, consulte comparação de recursos [do banco de dados SQL do Azure](sql-database-features.md).

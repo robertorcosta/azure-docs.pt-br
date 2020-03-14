@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365577"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267450"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implantar o serviço Gerenciador de Dispositivo do StorSimple para a Matriz Virtual do StorSimple
 
@@ -122,7 +122,7 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
    
    Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como obter uma [Introdução](storsimple-virtual-array-deploy1-portal-prep.md) com uma Matriz Virtual do StorSimple.
 * Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

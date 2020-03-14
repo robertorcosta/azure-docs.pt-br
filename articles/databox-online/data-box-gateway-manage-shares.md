@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384584"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265435"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Data Box Gateway 
 
@@ -45,9 +45,12 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
 3. Escolha um **Tipo** para o compartilhamento. O tipo pode ser **SMB** ou **NFS**, sendo SMB o padrão. SMB é o padrão para clientes do Windows e NFS é usado para clientes Linux. Dependendo da escolha entre compartilhamentos SMB ou NFS, as opções apresentadas serão ligeiramente diferentes.
 
-4. Forneça um **Conta de armazenamento** na qual o compartilhamento resida. Um contêiner será criado na conta de armazenamento com o nome do compartilhamento se o contêiner já não existir. Se o contêiner já existir, ele será usado.
+4. Forneça um **Conta de armazenamento** na qual o compartilhamento resida. Um contêiner será criado na conta de armazenamento com o nome do compartilhamento se o contêiner já não existir. Se o contêiner já existir, ele será usado.  
 
 5. Escolha o **Serviço de armazenamento** entre blob de blocos, blobs de página ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nesta instância, queremos que os dados residam como blocos de blob no Azure e, portanto, vamos escolher o **Blob de Blocos**. Se estiver escolhendo **Blob de Páginas**, você precisará fazer com que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
+
+   > [!IMPORTANT]
+   > Certifique-se de que a conta de armazenamento do Azure que você usa não tenha políticas de imutabilidade definidas nela se você a estiver usando com um Azure Stack borda ou Gateway do Data Box dispositivo. Para obter mais informações, consulte [definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Esta etapa depende do tipo de compartilhamento criado, SMB ou NFS.
     - **Se estiver criando compartilhamento SMB**: no campo **Todos os usuários locais com privilégios**, escolha **Criar novo** ou **Usar existente**. Se a criação for de um novo usuário local, forneça o **nome de usuário**, a **senha** e então confirme a senha. Isso atribui as permissões ao usuário local. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
@@ -73,7 +76,7 @@ Para excluir um compartilhamento, siga estas etapas no portal do Azure.
 
     ![Clique em Excluir](media/data-box-gateway-manage-shares/delete-2.png)
 
-3. Quando solicitada a confirmação, clique em **Sim**.
+3. Quando solicitado a confirmar, clique em **Sim**.
 
     ![Confirmar exclusão](media/data-box-gateway-manage-shares/delete-3.png)
 
@@ -89,21 +92,21 @@ O recurso de atualização permite que você atualize o conteúdo de um comparti
 
 Para atualizar um compartilhamento, siga estas etapas no portal do Azure.
 
-1.  No portal do Azure, acesse **Compartilhamentos**. Selecione e clique no compartilhamento que você deseja atualizar.
+1.   No portal do Azure, acesse **Compartilhamentos**. Selecione e clique no compartilhamento que você deseja atualizar.
 
     ![Selecionar compartilhamento](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.  Clique em **Atualizar**. 
+2.   Clique em **Atualizar**. 
 
     ![Clique em atualizar](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.  Quando solicitada a confirmação, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local. 
+3.   Quando solicitado a confirmar, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local. 
 
     ![Confirmar atualização](media/data-box-gateway-manage-shares/refresh-3.png)
  
-4.  Enquanto a atualização está em andamento, a opção de atualização fica esmaecida no menu de contexto. Clique na notificação de trabalho para exibir o status do trabalho de atualização.
+4.   Enquanto a atualização está em andamento, a opção de atualização fica esmaecida no menu de contexto. Clique na notificação de trabalho para exibir o status do trabalho de atualização.
 
-5.  O tempo para atualização depende do número de arquivos no contêiner do Azure, bem como dos arquivos no dispositivo. Depois que a atualização tiver sido concluída com êxito, o carimbo de data/hora de compartilhamento será atualizado. Mesmo que a atualização tenha falhas parciais, a operação será considerada bem-sucedida e o carimbo de data/hora será atualizado. 
+5.   O tempo para atualização depende do número de arquivos no contêiner do Azure, bem como dos arquivos no dispositivo. Depois que a atualização tiver sido concluída com êxito, o carimbo de data/hora de compartilhamento será atualizado. Mesmo que a atualização tenha falhas parciais, a operação será considerada bem-sucedida e o carimbo de data/hora será atualizado. 
 
     ![Carimbo de data/hora atualizado](media/data-box-gateway-manage-shares/refresh-4.png)
  
@@ -123,7 +126,7 @@ Execute as seguintes etapas no portal do Azure para sincronizar sua chave de ace
 
      ![Sincronizar chave de armazenamento 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
-3. Clique em **Sim** quando for solicitada a confirmação. Saia da caixa de diálogo depois que a sincronização tiver sido concluída.
+3. Clique em **Sim** quando solicitada a confirmação. Saia da caixa de diálogo depois que a sincronização tiver sido concluída.
 
      ![Sincronizar chave de armazenamento 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
@@ -131,6 +134,6 @@ Execute as seguintes etapas no portal do Azure para sincronizar sua chave de ace
 > Você precisa fazer isso apenas uma vez para uma conta de armazenamento específica. Você não precisa repetir essa ação para todos os compartilhamentos associados com a mesma conta de armazenamento.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [Gerenciar usuários usando o portal do Azure](data-box-gateway-manage-users.md).

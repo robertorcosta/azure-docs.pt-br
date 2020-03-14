@@ -11,11 +11,11 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227995"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256153"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar ponto de extremidade público na instância gerenciada do banco de dados SQL do Azure
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a:
 > - Configurar o grupo de segurança de rede da instância gerenciada para permitir o tráfego para o ponto de extremidade público da instância gerenciada
 > - Obter a cadeia de conexão de ponto de extremidade público da instância gerenciada
 
-## <a name="permissions"></a>permissões
+## <a name="permissions"></a>Permissões
 
 Devido à sensibilidade dos dados que estão em uma instância gerenciada, a configuração para habilitar o ponto de extremidade público da instância gerenciada requer um processo de duas etapas. Essa medida de segurança segue a separação de tarefas (SoD):
 
@@ -94,12 +94,12 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
     |Configuração  |Valor sugerido  |DESCRIÇÃO  |
     |---------|---------|---------|
-    |**Fonte**     |Qualquer endereço IP ou marca de serviço         |<ul><li>Para serviços do Azure como Power BI, selecione a marca de serviço de nuvem do Azure</li> <li>Para seu computador ou VM do Azure, use o endereço IP de NAT</li></ul> |
+    |**Origem**     |Qualquer endereço IP ou marca de serviço         |<ul><li>Para serviços do Azure como Power BI, selecione a marca de serviço de nuvem do Azure</li> <li>Para seu computador ou VM do Azure, use o endereço IP de NAT</li></ul> |
     |**Intervalos de portas de origem**     |*         |Deixe isso para * (qualquer) como as portas de origem geralmente são alocadas dinamicamente e, como tal, imprevisíveis |
     |**Destino**     |Qualquer         |Deixando o destino como qualquer para permitir o tráfego na sub-rede da instância gerenciada |
     |**Intervalos de portas de destino**     |3342         |Porta de destino do escopo para 3342, que é o ponto de extremidade TDS público da instância gerenciada |
     |**Protocolo**     |TCP         |A instância gerenciada usa o protocolo TCP para TDS |
-    |**Ação**     |Permitir         |Permitir o tráfego de entrada para a instância gerenciada por meio do ponto de extremidade público |
+    |**Ação**     |Allow         |Permitir o tráfego de entrada para a instância gerenciada por meio do ponto de extremidade público |
     |**Prioridade**     |1300         |Verifique se essa regra é de prioridade mais alta do que a regra de **deny_all_inbound** |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)

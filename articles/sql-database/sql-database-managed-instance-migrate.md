@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828088"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208938"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de uma Instância do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -72,14 +72,14 @@ Alguns dos parâmetros que você precisa medir em sua instância de SQL Server s
 - Monitore a carga de trabalho e o desempenho de consulta ou sua instância de SQL Server examinando exibições de gerenciamento dinâmico ou Repositório de Consultas se você estiver migrando da versão SQL Server 2016 +. Identifique a duração média e o uso da CPU das consultas mais importantes em sua carga de trabalho para compará-las com as consultas em execução no Instância Gerenciada.
 
 > [!Note]
-> Se você notar algum problema com sua carga de trabalho em SQL Server como alto uso da CPU, pressão de memória constante, problemas de tempdb ou parametrização, você deve tentar resolvê-los em sua instância de SQL Server de origem antes de pegar a linha de base e a migração. A migração de problemas conhecidos para qualquer novo sistema migh causa resultados inesperados e invalida qualquer comparação de desempenho.
+> Se você notar algum problema com sua carga de trabalho em SQL Server como alto uso de CPU, pressão de memória constante, tempdb ou problemas de parametrização, tente resolvê-los em sua instância de SQL Server de origem antes de pegar a linha de base e a migração. A migração de problemas conhecidos para qualquer novo sistema migh causa resultados inesperados e invalida qualquer comparação de desempenho.
 
 Como resultado dessa atividade, você deve ter os valores de média e de pico documentados para uso de CPU, memória e e/s no sistema de origem, bem como a duração média e máxima e o uso da CPU das consultas dominante e mais crítica em sua carga de trabalho. Você deve usar esses valores posteriormente para comparar o desempenho de sua carga de trabalho no Instância Gerenciada com o desempenho de linha de base da carga de trabalho no SQL Server de origem.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implantar em uma instância gerenciada de tamanho ideal
 
 A instância gerenciada é adaptada para cargas de trabalho locais cuja movimentação para a nuvem é planejada. Ela introduz um [novo modelo de compra](sql-database-service-tiers-vcore.md) que oferece maior flexibilidade na seleção do nível certo de recursos para as cargas de trabalho. No ambiente local, você provavelmente está acostumado a dimensionar essas cargas de trabalho usando núcleos físicos e largura de banda de E/S. O modelo de compra para a instância gerenciada baseia-se em núcleos virtuais, ou “vCores”, com armazenamento adicional e E/S disponíveis separadamente. O modelo vCore é uma maneira mais simples de compreender os requisitos de computação na nuvem em relação ao que você utiliza no local atualmente. Esse novo modelo permite que você dimensione adequadamente o ambiente de destino na nuvem. Algumas diretrizes gerais que podem ajudá-lo a escolher a camada de serviço e as características certas são descritas aqui:
-- Com base no uso de CPU de linha de base, você pode provisionar um Instância Gerenciada que corresponda ao número de núcleos que você está usando em SQL Server, tendo em mente que as características da CPU talvez precisem ser dimensionadas para corresponder às [características da VM em que instância gerenciada está instalado ](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- Com base no uso de CPU de linha de base, você pode provisionar um Instância Gerenciada que corresponda ao número de núcleos que você está usando em SQL Server, tendo em mente que as características da CPU talvez precisem ser dimensionadas para corresponder às [características da VM em que instância gerenciada está instalado](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 - Com base no uso de memória de linha de base, escolha [a camada de serviço que tem memória correspondente](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). A quantidade de memória não pode ser escolhida diretamente, portanto, você precisaria selecionar o Instância Gerenciada com a quantidade de vCores que tem memória correspondente (por exemplo, 5,1 GB/vCore em Gen5). 
 - Com base na latência de e/s de linha de base do subsistema de arquivos, escolha entre Uso Geral (latência maior que 5 ms) e Comercialmente Crítico camadas de serviço (latência menor que 3 ms).
 - Com base na taxa de transferência de linha de base, aloque previamente o tamanho dos arquivos de dados ou de log para obter o desempenho esperado de e/s
@@ -176,7 +176,7 @@ O resultado da comparação de desempenho pode ser:
 
 Faça a alteração dos parâmetros ou atualize as camadas de serviço para convergir para a configuração ideal até obter o desempenho da carga de trabalho que atenda às suas necessidades.
 
-### <a name="monitor-performance"></a>Monitorar o desempenho
+### <a name="monitor-performance"></a>Monitorar desempenho
 
 Instância Gerenciada fornece muitas ferramentas avançadas para monitoramento e solução de problemas, e você deve usá-las para monitorar o desempenho em sua instância do. Alguns dos parâmetros que precisam ser monitorados são:
 - O uso da CPU na instância para determinar o número de vCores que você provisionou é a correspondência correta para sua carga de trabalho.

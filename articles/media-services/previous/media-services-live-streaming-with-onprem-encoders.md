@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390515"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251031"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
@@ -119,7 +119,7 @@ Quando você usa um codificador ativo local para gerar um fluxo com múltiplas t
 
 A tabela a seguir mostra como a duração do segmento é calculada:
 
-| Intervalo de quadro-chave | Taxa de empacotamento de segmento HLS (FragmentsPerSegment) | {1&gt;Exemplo&lt;1} |
+| Intervalo de quadro-chave | Taxa de empacotamento de segmento HLS (FragmentsPerSegment) | Exemplo |
 | --- | --- | --- |
 | Menor ou igual a três segundos |3:1 |Se KeyFrameInterval (ou GOP) for de dois segundos, a proporção de empacotamento de segmento HLS padrão será de três para um. Isso cria um segmento HLS de seis segundos. |
 | 3 a 5 segundos |2:1 |Se KeyFrameInterval (ou GOP) for de quatro segundos, a proporção de empacotamento de segmento HLS padrão será de dois para um. Isso cria um segmento HLS de oito segundos. |
@@ -194,7 +194,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 ## <a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-| Standard | {1&gt;Observações&lt;1} |
+| Standard | Observações |
 | --- | --- |
 | CEA-708 e EIA-608 (708/608) |CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ativo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregam o conteúdo com legendas inseridas a seus usuários. |
 | TTML em ismt (faixas de texto de Smooth Streaming) |O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você pode entregar o fluxo apenas a clientes de Smooth Streaming. |

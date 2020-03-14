@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: da8f17da9225da1d2b92bd8515d645bce9a1bbaa
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593644"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252110"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de distribuição de conteúdo
 
@@ -39,7 +39,7 @@ Os perfis da **CDN do Azure Standard da Microsoft** são compatíveis com as oti
 * [Entrega na Web geral](#general-web-delivery). Essa otimização também é usada para streaming de mídia e download de arquivos grandes.
 
 > [!NOTE]
-> Aceleração de site dinâmico da Microsoft é oferecida por meio [o serviço do Azure da frente](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> A aceleração de site dinâmica da Microsoft é oferecida por meio do [serviço de porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 Os perfis da **CDN do Azure Standard da Verizon** e da **CDN do Azure Premium da Verizon** são compatíveis com as otimizações a seguir:
 
@@ -108,7 +108,7 @@ Para os perfis da **CDN do Azure Standard da Microsoft**, **CDN do Azure Standar
 Para obter mais informações sobre a otimização de streaming de mídia, consulte [Otimização de streaming de mídia](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
-> Se o ponto de extremidade da CDN fornecer principalmente o conteúdo de vídeo por demanda, use esse tipo de otimização. A principal diferença entre esse tipo de otimização e o tipo de otimização de streaming de mídia geral é o tempo limite de repetição de conexão. O tempo limite é muito menor para trabalhar com cenários de transmissão ao vivo.
+> Se o ponto de extremidade da CDN fornecer principalmente o conteúdo de vídeo por demanda, use esse tipo de otimização. A principal diferença entre esse tipo de otimização e o tipo de otimização de streaming de mídia geral é o tempo limite de repetição de conexão. O tempo limite é muito mais curto para trabalhar com cenários de transmissão ao vivo.
 >
 
 ### <a name="large-file-download"></a>Download de arquivos grandes
@@ -124,7 +124,7 @@ Para saber mais sobre a otimização de arquivos grandes, consulte [Otimização
  A DSA (aceleração de site dinâmica) está disponível para os perfis da **CDN do Azure Standard da Akamai**, **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**. Essa otimização envolve um valor adicional para ser usado; para obter mais informações, consulte [Preço da Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> Aceleração de site dinâmico da Microsoft é oferecida por meio [o serviço do Azure da frente](https://docs.microsoft.com/azure/frontdoor/front-door-overview) que é um objeto global [anycast](https://en.wikipedia.org/wiki/Anycast) aproveitando privada rede global da Microsoft para entregar suas cargas de trabalho do aplicativo de serviço.
+> A aceleração de site dinâmico da Microsoft é oferecida por meio [do serviço de porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) , que é um serviço de [anycast](https://en.wikipedia.org/wiki/Anycast) global que aproveita a rede global privada da Microsoft para fornecer suas cargas de trabalho de aplicativo.
 
 A DSA inclui várias técnicas que trazem benefícios para a latência e o desempenho do conteúdo dinâmico. As técnicas incluem otimização de rota e de rede, otimização de TCP e muito mais. 
 

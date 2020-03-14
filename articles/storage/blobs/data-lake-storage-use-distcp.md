@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388178"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255529"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Use o DistCp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ ms.locfileid: "78388178"
 
 O DistCp fornece uma variedade de parâmetros de linha de comando e é altamente recomendável que você leia este artigo para otimizar o uso dessa ferramenta. Este artigo mostra a funcionalidade básica com foco no uso para copiar dados em uma conta habilitada para namespace hierárquico.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de Armazenamento do Microsoft Azure existente sem os recursos do Data Lake Storage Gen2 (namespace hierárquico) habilitados**.

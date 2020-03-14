@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: d9375d09219d2655bd9947c0953557f4a1bf8f3c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381191"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250628"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -49,7 +49,7 @@ Estas instruções de instalação e uma [configuração de amostra para downloa
 
 A configuração para download é apenas um exemplo; modifique-a para atender às suas necessidades.
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
 * **CLI do Azure**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
@@ -155,7 +155,7 @@ Esse conjunto de informações de configuração contém informações confidenc
 }
 ```
 
-{1&gt;Nome&lt;1} | {1&gt;Valor&lt;1}
+Nome | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento na qual os dados são gravados pela extensão.
 storageAccountEndPoint | (opcional) O ponto de extremidade que identifica a nuvem na qual existe a conta de armazenamento. Se essa configuração estiver ausente, o LAD utiliza como padrão a nuvem pública do Azure, `https://core.windows.net`. Para usar uma conta de armazenamento no Azure Alemanha, no Azure Governamental ou Azure China, defina este valor corretamente.
@@ -193,9 +193,9 @@ Copie o SAS gerado no campo storageAccountSasToken; remova o ponto de interroga�
 
 Esta seção opcional define os destinos adicionais para os quais a extensão envia as informações coletadas. A matriz "coletor" contém um objeto para cada coletor de dados adicional. O atributo "tipo" determina os outros atributos no objeto.
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
-{1&gt;name&lt;1} | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
+name | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
 type | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias desse tipo.
 
 A extensão de Diagnóstico do Linux versão 3.0 oferece suporte a dois tipos de coletor: EventHub e JsonBlob.
@@ -255,7 +255,7 @@ Essa estrutura contém vários blocos de configurações que controlam as inform
 }
 ```
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
 StorageAccount | O nome da conta de armazenamento na qual os dados são gravados pela extensão. Deve ser o mesmo nome, conforme especificado nas [Configurações protegidas](#protected-settings).
 mdsdHttpProxy | (opcional) O mesmo que nas [Configurações protegidas](#protected-settings). O valor público é substituído pelo valor particular, se tiver sido definido. Coloque as configurações de proxy que contêm um segredo, como uma senha, nas [Configurações protegidas](#protected-settings).
@@ -278,12 +278,12 @@ Os elementos restantes serão descritos em detalhes nas seções a seguir.
 
 Essa estrutura opcional controla a reunião de métricas e logs de entrega para o serviço de Métricas do Azure e outros coletores de dados. Você deve especificar `performanceCounters` ou `syslogEvents`, ou ambos. Você deve especificar a estrutura `metrics`.
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
 eventVolume | (opcional) Controla o número de partições criadas dentro da tabela de armazenamento. Pode ser `"Large"`, `"Medium"` ou `"Small"`. Se esse campo não for especificado, o valor padrão será `"Medium"`.
 sampleRateInSeconds | (opcional) O intervalo padrão entre a coleta de métricas brutas (não agregadas). A menor taxa de amostra com suporte é de 15 segundos. Se esse campo não for especificado, o valor padrão será `15`.
 
-#### <a name="metrics"></a>métricas
+#### <a name="metrics"></a>Métricas
 
 ```json
 "metrics": {
@@ -295,7 +295,7 @@ sampleRateInSeconds | (opcional) O intervalo padrão entre a coleta de métricas
 }
 ```
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
 resourceId | A ID de recurso do Azure Resource Manager da VM ou conjunto de dimensionamento de máquinas virtuais à qual pertence a VM. Essa configuração também deverá ser especificada se algum coletor JsonBlob for usado na configuração.
 scheduledTransferPeriod | A frequência na qual as métricas agregadas serão computadas e transferidas para as Métricas do Azure, expressas como um intervalo de tempo de IS 8601. O menor período de transferência é 60 segundos, ou seja, PT1M. Você deve especificar pelo menos um scheduledTransferPeriod.
@@ -330,16 +330,16 @@ As amostras de métricas especificados na seção performanceCounters são colet
 Essa seção opcional controla a coleção de métricas. As amostras brutas são agregadas para cada [scheduledTransferPeriod](#metrics) para produzir esses valores:
 
 * média
-* minimum
+* mínimo
 * máximo
 * valor coletado por último
 * contagem de amostras brutas usadas para computar a agregação
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métricas agregadas. Todas as métricas agregadas são publicadas em cada coletor listado. Veja [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 type | Identifica o provedor real da métrica.
-{1&gt;classe&lt;1} | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
+class | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
 contador | Junto com "class", identifica a métrica específica dentro do namespace do provedor.
 counterSpecifier | Identifica a métrica específica dentro do namespace de Métricas do Azure.
 condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para saber mais, confira as definições de métricas `builtin`.
@@ -381,7 +381,7 @@ Essa seção opcional controla a coleção de eventos de log do syslog. Se a se�
 
 A coleção syslogEventConfiguration tem uma entrada para cada instalação de syslog de interesse. Se minSeverity for "NENHUM" para um recurso específico, ou se o recurso não aparecer no elemento, nenhum evento desse recurso será capturado.
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
 coletores | Uma lista separada por vírgulas de nomes de coletores nos quais os eventos de log individuais são publicados. Todos os eventos de log correspondentes às restrições em syslogEventConfiguration são publicados em cada coletor listado. Exemplo: "EHforsyslog"
 facilityName | Um nome de recurso de syslog (como "LOG\_USER" ou "LOG\_LOCAL0"). Veja a seção "facility" da [página de manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa.
@@ -410,12 +410,12 @@ Essa seção controla a execução de consultas [OMI](https://github.com/Microso
 ]
 ```
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
 namespace | (opcional) O namespace OMI dentro do qual a consulta deve ser executada. Se não for especificado, o valor padrão será "root/scx", implementado pelos [Provedores de várias plataformas do System Center](https://github.com/Microsoft/SCXcore).
-query | A consulta OMI a ser executada.
+Consulta | A consulta OMI a ser executada.
 tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (veja [Configurações protegidas](#protected-settings)).
-frequency | (opcional) O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é de 15 segundos.
+frequência | (opcional) O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é de 15 segundos.
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores adicionais para os quais os resultados brutos de métricas de amostras devem ser publicados. Nenhuma agregação desses exemplos brutos é calculada pela extensão ou Métricas do Azure.
 
 As informações de "tabela" ou "coletores" ou de ambos devem ser especificadas.
@@ -434,9 +434,9 @@ Controla a captura de arquivos de log. O LAD captura novas linhas de texto, como
 ]
 ```
 
-Elemento | {1&gt;Valor&lt;1}
+Elemento | Valor
 ------- | -----
-arquivo | O nome de caminho completo do arquivo de log a ser observado e capturado. O nome do caminho deve nomear um único arquivo; ele não pode nomear um diretório ou conter curingas.
+file | O nome de caminho completo do arquivo de log a ser observado e capturado. O nome do caminho deve nomear um único arquivo; ele não pode nomear um diretório ou conter curingas.
 tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual novas linhas depois do "final" do arquivo são gravadas.
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores adicionais para os quais as linhas de log são enviadas.
 
@@ -731,7 +731,7 @@ Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Az
 
 Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) correspondente para aprender a consumir mensagens publicadas em um ponto de extremidade de EventHubs.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Criar alertas de métricas no [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas que você coletar.
 * Criar [gráficos de monitoramento](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para suas métricas.

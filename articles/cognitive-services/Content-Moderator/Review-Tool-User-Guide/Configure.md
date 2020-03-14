@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379042"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220122"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a ferramenta de análise
 
@@ -138,6 +138,6 @@ Para usar sua chave do Azure com as APIs de revisão, você precisa recuperar su
 
 Se você tiver inserido sua chave de assinatura em ambos os locais, a chave de avaliação que acompanha a sua conta da ferramenta de revisão não será usada, mas permanecerá disponível.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Siga o guia de [início rápido da ferramenta de revisão](../quick-start.md) para começar a usar a ferramenta de revisão em cenários de moderação de conteúdo.

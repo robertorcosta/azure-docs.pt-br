@@ -12,11 +12,11 @@ ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 0562d609231d69d95f1d2b5b838663b704f8f2f3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972710"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255737"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço de rede virtual para os servidores do banco de dados
 
@@ -110,7 +110,7 @@ O Armazenamento do Azure implementou o mesmo recurso que permite que você limit
 
 O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure de contas do Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase com a conta será interrompida. Para habilitar cenários de importação e exportação do PolyBase com o SQL Data Warehouse do Azure que se conectam ao Armazenamento do Azure protegido para VNet, siga as etapas indicadas abaixo:
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>Prerequisites
 
 - Instalar o Azure PowerShell usando este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário primeiro atualizar para uso geral v2 usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
@@ -224,7 +224,7 @@ Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs R
 
 - [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
 
@@ -278,7 +278,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 O recurso da regra da rede virtual para o Banco de Dados SQL do Azure se tornou disponível no final de setembro de 2017.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Use o PowerShell para criar um ponto de extremidade de serviço de rede virtual e uma regra de rede virtual para o banco de dados SQL do Azure.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r] com APIs REST

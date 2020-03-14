@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
 ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396904"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258077"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar mapeamento de rede e endereçamento IP para VNets
 
 Este artigo descreve como mapear duas instâncias de VNets (redes virtuais) do Azure localizadas em diferentes regiões do Azure e como configurar o endereçamento IP entre redes. O mapeamento de rede fornece um comportamento padrão para a seleção de rede de destino com base na rede de origem no momento da habilitação da replicação.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de mapear as redes, você deverá ter [VNets do Azure](../virtual-network/virtual-networks-overview.md) nas regiões de origem e destino do Azure. 
 
@@ -92,7 +92,7 @@ A rede de destino não é a VNet de failover | -O endereço IP de destino será 
 - Você pode modificar o endereço IP de destino nas configurações **Computação e Rede** da VM.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Revise as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para recuperação de desastre da VM do Azure.
 - [Saiba mais](site-recovery-retain-ip-azure-vm-failover.md) sobre como reter endereços IP após failover.

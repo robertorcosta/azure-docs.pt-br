@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225550"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219968"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Usando chaves de recurso de criação e tempo de execução
 
@@ -58,11 +58,11 @@ Quando você estiver pronto para publicar seu ponto de extremidade de previsão,
 
     ![Criar o recurso de reconhecimento de idioma](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |NOME|Finalidade|
+    |Nome|Finalidade|
     |--|--|
     |Nome do recurso| Um nome personalizado que você escolhe, usado como parte da URL para suas consultas de ponto de extremidade de criação e previsão.|
     |Nome da assinatura| a assinatura que será cobrada para o recurso.|
-    |Grupo de recursos| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem que você agrupe recursos do Azure para acesso e gerenciamento na mesma região.|
+    |Resource group| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem que você agrupe recursos do Azure para acesso e gerenciamento na mesma região.|
     |Localização de criação|A região associada ao seu modelo.|
     |Tipo de preço de criação|O tipo de preço determina a transação máxima por segundo e mês.|
     |Localização do runtime|A região associada ao tempo de execução do ponto de extremidade de previsão publicado.|
@@ -81,7 +81,7 @@ Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view
 
 1. Entre no CLI do Azure:
 
-    ```console
+    ```azurecli
     az login
     ```
 
@@ -89,13 +89,13 @@ Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view
 
 1. Crie um **recurso de criação de Luis**, do tipo `LUIS.Authoring`, chamado `my-luis-authoring-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região de `westus`. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. Crie um **recurso de ponto de extremidade de previsão Luis**, do tipo `LUIS`, chamado `my-luis-prediction-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a região de `westus`. Se você quiser uma taxa de transferência mais alta do que a camada gratuita, altere `F0` para `S0`. Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-boundaries.md#key-limits).
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
@@ -106,9 +106,9 @@ Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view
 
 Você pode atribuir um recurso de criação para um único aplicativo ou para todos os aplicativos no LUIS. O procedimento a seguir atribui todos os aplicativos a um único recurso de criação.
 
-1. Entre no portal do [Luis](https://www.luis.ai).
+1. Entre no portal do [LUIS](https://www.luis.ai).
 1. Na barra de navegação superior, à extrema direita, selecione sua conta de usuário e, em seguida, selecione **configurações**.
-1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Selecione **Salvar**. 
+1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar**. 
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 
@@ -145,13 +145,13 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Digite|Configuração|Valor|
+    |Type|Configuração|Valor|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
     |Cabeçalho|`Content-type`|`application/json`|
     |Querystring|`appid`|A ID do aplicativo de LUIS. 
-    |corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     Quando essa API for bem-sucedida, ela retornará um status 201 – criado. 
 

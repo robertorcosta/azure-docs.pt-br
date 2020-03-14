@@ -15,11 +15,11 @@ ms.date: 11/18/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022776"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252266"
 ---
 > [!NOTE] 
 > As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
@@ -159,7 +159,7 @@ Uma conta de usuário nomeado é útil quando você deseja executar todas as tar
 
 Você também pode usar uma conta de usuário nomeado para executar uma tarefa que defina permissões em recursos externos, como compartilhamentos de arquivos. Com uma conta de usuário nomeado, você controla a identidade do usuário e pode usar a identidade do usuário para definir permissões.  
 
-As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para saber mais sobre tarefas de várias instâncias, confira [Usar tarefas de várias instâncias para executar aplicativos de MPI](batch-mpi.md).
+As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para saber mais sobre tarefas de várias instâncias, confira [Usar tarefas de várias instâncias para executar aplicativos de MPI\-.
 
 ### <a name="create-named-user-accounts"></a>Criar contas de usuário nomeado
 
@@ -333,6 +333,6 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 | `run_elevated` não especificado | Nenhuma atualização é necessária                                                                                                                                  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).

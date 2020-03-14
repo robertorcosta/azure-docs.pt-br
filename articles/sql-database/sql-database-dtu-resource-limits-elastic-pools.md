@@ -12,11 +12,11 @@ ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
 ms.openlocfilehash: 3f6bbef8f274c5efb99d5b98961450aa7b001527
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359898"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256335"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra de DTU
 
@@ -39,7 +39,7 @@ Para pools elásticos do Banco de Dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Opções de máximo de armazenamento por pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento máximo OLTP na memória por pool (GB) | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
 | Número máximo de BDs por pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhos simultâneos (solicitações) por pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -54,7 +54,7 @@ Para pools elásticos do Banco de Dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Armazenamento incluído por pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Opções de máximo de armazenamento por pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
-| Armazenamento máximo OLTP na memória por pool (GB) | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
 | Número máximo de BDs por pool | 100 | 200 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhos simultâneos (solicitações) por pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -69,9 +69,9 @@ Para pools elásticos do Banco de Dados SQL, as tabelas a seguir mostram os recu
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Opções de máximo de armazenamento por pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Armazenamento máximo OLTP na memória por pool (GB) | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} | {1&gt;N/A&lt;1} |
+| Armazenamento máximo OLTP na memória por pool (GB) | N/D | N/D | N/D | N/D | N/D |
 | Número máximo de BDs por pool | 500 | 500 | 500 | 500 | 500 |
-| Máximo de trabalhos simultâneos (solicitações) por pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Máximo de trabalhos simultâneos (solicitações) por pool | 2400 | 3200 | 4000 | 5\.000 | 6000 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opções de mínimo de eDTUs por banco de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opções de máximo de eDTUs por banco de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
@@ -120,14 +120,14 @@ Se todas as DTUs de um pool elástico forem usadas, cada banco de dados no pool 
 
 A tabela a seguir descreve as propriedades dos bancos de dados em pool.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | Máximo de eDTUs por banco de dados |O número máximo de eDTUs que qualquer banco de dados no pool pode usar, se disponível, com base na utilização por outros bancos de dados no pool. O máximo de eDTUs por banco de dados não é uma garantia de recursos para um banco de dados. Essa configuração é uma configuração global que se aplica a todos os bancos de dados no pool. Defina um valor para o máximo de eDTUs por banco de dados que seja alto o suficiente para lidar com picos de utilização do banco de dados. Espera-se um grau de sobrecarga, uma vez que o pool normalmente assume padrões de uso dos bancos de dados com altos e baixos, em que todos os bancos de dados não atingem um pico simultaneamente. Por exemplo, suponha que o pico de utilização por banco de dados seja de 20 eDTUs e apenas 20% dos 100 bancos de dados no pool atinjam o pico simultaneamente. Se o máximo de eDTUs por banco de dados for definido para 20 eDTUs, será razoável sobrecarregar o pool em 5 vezes e definir os eDTUs por pool como 400. |
 | Mínimo de eDTUs por banco de dados |O número mínimo de eDTUs garantido para qualquer banco de dados no pool. Essa configuração é uma configuração global que se aplica a todos os bancos de dados no pool. O mínimo de eDTUs por banco de dados pode ser definido como 0 e também é o valor padrão. Essa propriedade é definida entre 0 e a utilização média de eDTUs por banco de dados. O produto do número de bancos de dados no pool e o mínimo de eDTUs por banco de dados não pode exceder os eDTUs por pool. Por exemplo, se um pool tiver 20 bancos de dados e o mínimo de eDTUs por banco de dados for definido como 10 eDTUs, os eDTUs por pool deverão ser de pelo menos 200 eDTUs. |
 | Armazenamento máximo por banco de dados |O tamanho máximo do banco de dados definido pelo usuário para um banco de dados em um pool. No entanto, os bancos de dados em pool compartilham o armazenamento de pool alocado. Mesmo se o total de armazenamento máximo *por banco de dados* for definido como maior que o espaço total disponível de armazenamento *do conjunto*, o espaço total realmente usado por todos os bancos de dados não poderá exceder o limite de pool disponível. O tamanho máximo por banco de dados refere-se ao tamanho máximo dos arquivos de dados e não inclui o espaço usado pelos arquivos de log. |
 |||
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para limites de recursos vCore para um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compra vCore](sql-database-vcore-resource-limits-single-databases.md)
 - Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra de DTU](sql-database-dtu-resource-limits-single-databases.md)

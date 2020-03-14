@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: 1b084b8cbf87817a4ff12fdb56f44b740a6d6a12
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373326"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248600"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
@@ -42,7 +42,7 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 | Workspace   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2015-03-20 |
 | Fonte de dados | datasources   | 2015-11-01-preview |
-| Solução    | soluções     | 2015-11-01-preview |
+| Solução    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 
@@ -656,7 +656,7 @@ A Galeria de modelos de início rápido do Azure inclui vários modelos para Log
 * [Monitorar o Azure Web Apps usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Adicionar uma conta de armazenamento existente ao Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Implantar agente do Windows a VMs do Azure usando modelos do Gerenciador de Recursos](../../virtual-machines/extensions/oms-windows.md).
 

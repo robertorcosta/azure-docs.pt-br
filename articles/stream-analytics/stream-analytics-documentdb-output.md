@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
 ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364542"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254437"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics para Azure Cosmos DB  
 Azure Stream Analytics pode direcionar [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento aborda algumas práticas recomendadas para implementar essa configuração.
@@ -105,14 +105,14 @@ O uso de Azure Cosmos DB como uma saída no Stream Analytics gera o prompt a seg
 
 ![Campos de informações para um fluxo de saída Azure Cosmos DB](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Campo           | Descrição|
+|Campo           | DESCRIÇÃO|
 |-------------   | -------------|
 |Alias de saída    | Um alias para se referir a essa saída em sua consulta de Stream Analytics.|
-|Assinatura    | A assinatura do Azure.|
+|Subscription    | A assinatura do Azure.|
 |ID da Conta      | O nome ou o URI do ponto de extremidade da conta do Azure Cosmos DB.|
 |Chave de conta     | A chave de acesso compartilhado da conta do Azure Cosmos DB.|
-|Database        | O nome do banco de dados do Azure Cosmos DB.|
-|Nome do recipiente | O nome do contêiner, como `MyContainer`. Um contêiner chamado `MyContainer` deve existir.  |
+|Banco de dados        | O nome do banco de dados do Azure Cosmos DB.|
+|Nome do contêiner | O nome do contêiner, como `MyContainer`. Um contêiner chamado `MyContainer` deve existir.  |
 |ID do documento     | Opcional. O nome da coluna em eventos de saída usado como a chave exclusiva que inserir ou atualizar as operações que devem ser baseadas. Se você deixá-lo vazio, todos os eventos serão inseridos, sem a opção de atualização.|
 
 Depois de configurar a saída de Azure Cosmos DB, você pode usá-la na consulta como o destino de uma [instrução into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Quando você estiver usando uma saída de Azure Cosmos DB dessa forma, [uma chave de partição precisará ser definida explicitamente](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). 

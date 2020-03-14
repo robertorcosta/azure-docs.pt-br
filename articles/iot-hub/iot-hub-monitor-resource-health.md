@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
 ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929700"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271077"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -42,7 +42,7 @@ Para saber mais sobre as métricas e eventos específicos que Azure Monitor insp
 
 O Azure Monitor controla diferentes operações que ocorrem no Hub IoT. Cada categoria tem um esquema que define como os eventos nessa categoria são relatados.
 
-#### <a name="connections"></a>Conexões
+#### <a name="connections"></a>conexões
 
 O dispositivo de faixas de categoria conexões conecta e desconecta eventos um hub IoT, bem como erros. Esta categoria é útil para identificar tentativas de conexão não autorizadas e/ou alertas ao perder a conexão aos dispositivos.
 
@@ -343,9 +343,9 @@ O Hub IoT registra esse log quando uma mensagem que contém propriedades de rast
 
 Aqui, `durationMs` não é calculado, uma vez que o relógio do Hub IoT não pode ser sincronizado com o relógio do dispositivo e, portanto, um cálculo de duração pode ser enganoso. Recomendamos gravar escrever lógica usando carimbos de data/hora na seção `properties` para capturar os picos na latência de dispositivo para nuvem.
 
-| Propriedade | Digite | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Inteiro | O tamanho da mensagem de dispositivo para nuvem em bytes |
+| **messageSize** | Integer | O tamanho da mensagem de dispositivo para nuvem em bytes |
 | **deviceId** | Cadeia de caracteres alfanumérica ASCII de 7 bits | A identidade do dispositivo |
 | **callerLocalTimeUtc** | Carimbo de data/hora UTC | A hora de criação da mensagem conforme relatada pelo relógio local do dispositivo |
 | **calleeLocalTimeUtc** | Carimbo de data/hora UTC | A hora de chegada da mensagem no gateway do Hub IoT conforme relatado pelo relógio do lado do serviço de Hub IoT |
@@ -377,7 +377,7 @@ O Hub IoT registra esse log quando a mensagem que contém as propriedades de ras
 
 Na seção `properties`, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Digite | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
 | **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
@@ -409,7 +409,7 @@ O Hub IoT registra esse log quando [roteamento](iot-hub-devguide-messages-d2c.md
 
 Na seção `properties`, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Digite | DESCRIÇÃO |
+| Propriedade | Type | DESCRIÇÃO |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | O nome do ponto de extremidade de roteamento |
 | **endpointType** | String | O tipo de roteamento o ponto de extremidade |
@@ -540,7 +540,7 @@ O Hub IoT do Azure indica a integridade em um nível regional. Se houver uma int
 
 Para verificar a integridade de seus Hubs IoT, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Vá até **Integridade do Serviço** > **Integridade de Recursos**.
 
