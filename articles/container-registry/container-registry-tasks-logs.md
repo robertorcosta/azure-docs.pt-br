@@ -4,11 +4,11 @@ description: Como exibir e gerenciar logs de execução gerados por tarefas ACR.
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096541"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246962"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Exibir e gerenciar logs de execução de tarefa
 
@@ -95,7 +95,7 @@ az acr task logs --registry mycontainerregistry1220 \
 Você também pode salvar arquivos de log locais no armazenamento do Azure. Por exemplo, use a [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md), a [portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md)ou outros métodos para carregar arquivos em uma conta de armazenamento.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [as tarefas do registro de contêiner do Azure](container-registry-tasks-overview.md)
 

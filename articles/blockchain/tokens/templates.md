@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 9600a6a251552acd319cc68d2bd281584d65546d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360722"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252201"
 ---
 # <a name="azure-blockchain-tokens-templates"></a>Modelos de tokens do Azure Blockchain
 
@@ -86,6 +86,6 @@ Tokens de tíquete têm valor consistente, mas normalmente expiram. Por exemplo,
 
 Tokens de tíquete normalmente têm uma data de expiração que os torna diferentes de um token de mercadoria regular. Por exemplo, um bilhete de avião, um bilhete de concerto ou um bilhete esportivo têm opções de assentos atribuídos com datas específicas de uso. Você não pode trocar tíquetes entre datas ou áreas de assentos facilmente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você precisar de mais flexibilidade para seu cenário, saiba como criar seus próprios modelos de token usando a [composição de tokens](composability.md).

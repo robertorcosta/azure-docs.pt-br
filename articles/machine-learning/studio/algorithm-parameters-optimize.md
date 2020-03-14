@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 33705d0c9f2f405be733fd21c88cb83e96aec781
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168977"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218264"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Escolha os parâmetros para otimizar seus algoritmos no Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este tópico descreve como escolher o conjunto de hiperparâmetros corretos para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de Machine Learning tem parâmetros para serem definidos. Ao treinar um modelo, você precisa fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros do modelo que você escolhe. O processo de localizar o melhor conjunto de parâmetros é conhecido como *seleção de modelo*.
 
@@ -41,7 +43,7 @@ Você pode configurar o parâmetro definido na etapa de inicialização de model
 
 ![Árvore de decisão aumentada de duas classes, parâmetro único](./media/algorithm-parameters-optimize/fig2.png)
 
- Como alternativa, você pode definir os pontos mínimo e máximo da grade e o número total de pontos a serem gerados com **Usar Criador de Intervalo**. Por padrão, os valores de parâmetro são gerados em uma escala linear. Porém, se a opção **Escala Logarítmica** estiver marcada, os valores serão gerados em escala logarítmica (ou seja, a taxa dos pontos adjacentes será constante em vez da diferença). Para parâmetros de inteiros, você pode definir um intervalo usando um hífen. Por exemplo, "1-10" significa que todos os números inteiros entre 1 e 10 (ambos incluídos) formam o conjunto de parâmetros. Um modo misto também tem suporte. Por exemplo, o conjunto de parâmetros "1-10, 20, 50" incluiria os inteiros 1-10, 20 e 50.
+ Como alternativa, você pode definir os pontos mínimo e máximo da grade e o número total de pontos a serem gerados com **Usar Criador de Intervalo**. Por padrão, os valores de parâmetro são gerados em uma escala linear. Porém, se a opção **Escala Logarítmica** estiver marcada, os valores serão gerados em escala logarítmica (ou seja, a taxa dos pontos adjacentes será constante em vez da diferença). Para parâmetros de inteiros, você pode definir um intervalo usando um hífen. Por exemplo, "1-10" significa que todos os inteiros entre 1 e 10 (ambos inclusivos) formam o conjunto de parâmetros. Um modo misto também tem suporte. Por exemplo, o conjunto de parâmetros "1-10, 20, 50" incluiria inteiros 1-10, 20 e 50.
 
 ![Árvore de decisão aumentada de duas classes, intervalo de parâmetros](./media/algorithm-parameters-optimize/fig3.png)
 

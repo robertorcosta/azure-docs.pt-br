@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 4b80004a3d818e66cc2fb61f3d611bbe3e3ded92
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/01/2020
+ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807027"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79285234"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -180,9 +180,9 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
 
 * **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma dessas rotas existe previamente, então nenhuma notificação gêmea é enviada. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se o aplicativo precisar de auditoria e registro em log confiável de todos os estados intermediários, será necessário usar mensagens de dispositivo para nuvem. A mensagem de notificação gêmea inclui propriedades e corpo.
 
-  - propriedades
+  - Propriedades
 
-    | name | Value |
+    | Nome | Valor |
     | --- | --- |
     $content-type | aplicativo/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -245,11 +245,15 @@ Os [SDKs do dispositivo IoT do Azure](iot-hub-devguide-sdks.md) facilitam o uso 
 
 Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* Todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
+* **Chaves**: todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
 
-* Todos os valores em objetos JSON podem ser dos seguintes tipos de JSON: booliano, número, cadeia de caracteres, objeto. Não há permissão para matrizes. O valor máximo dos inteiros é 4503599627370495 e o valor mínimo dos inteiros é -4503599627370496.
+* **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Não há permissão para matrizes.
 
-* Todos os objetos JSON em marcas, propriedades desejadas e relatadas podem ter uma profundidade máxima de 10. Por exemplo, o seguinte objeto é válido:
+    * Os inteiros podem ter um valor mínimo de-4503599627370496 e um valor máximo de 4503599627370495.
+
+    * Os valores de cadeia de caracteres são codificados em UTF-8 e podem ter um comprimento máximo de 4 KB.
+
+* **Profundidade**: a profundidade máxima de objetos JSON em marcas, propriedades desejadas e propriedades relatadas é 10. Por exemplo, o seguinte objeto é válido:
 
    ```json
    {
@@ -281,15 +285,23 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
    }
    ```
 
-* Todos os valores de cadeia de caracteres podem ter no máximo 4 KB de comprimento.
-
 ## <a name="device-twin-size"></a>Tamanho do dispositivo gêmeo
 
-O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported`. Esses totais são exclusivos de elementos somente leitura.
+O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported`. Esses totais são exclusivos de elementos somente leitura, como `$etag`, `$version`e `$metadata/$lastUpdated`.
 
-O tamanho é calculado pela contagem de todos os caracteres, exceto caracteres de controle UNICODE (segmentos C0 e C1) e espaços que estão fora das constantes da cadeia de caracteres.
+O tamanho do papel é calculado da seguinte maneira:
 
-O Hub IoT rejeita com erro todas as operações que podem aumentar o tamanho desses documentos acima do limite.
+* Para cada propriedade no documento JSON, o Hub IoT computa cumulativamente e adiciona o comprimento da chave e do valor da propriedade.
+
+* As chaves de propriedade são consideradas cadeias de caracteres codificadas em UTF8.
+
+* Valores de propriedade simples são considerados cadeias de caracteres codificadas em UTF8, valores numéricos (8 bytes) ou valores Boolianos (4 bytes).
+
+* O tamanho das cadeias de caracteres codificadas em UTF8 é calculado por meio da contagem de todos os caracteres, excluindo caracteres de controle UNICODE (segmentos C0 e C1).
+
+* Valores de propriedade complexos (objetos aninhados) são calculados com base no tamanho agregado das chaves de propriedade e dos valores de propriedade que eles contêm.
+
+O Hub IoT rejeita com um erro todas as operações que aumentariam o tamanho dos documentos `tags`, `properties/desired`ou `properties/reported` acima do limite.
 
 ## <a name="device-twin-metadata"></a>Metadados do dispositivo gêmeo
 
@@ -381,7 +393,7 @@ Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * O artigo [Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu sobre dispositivos gêmeos, pode ser interessante ler os seguintes tópicos do Guia do desenvolvedor do Hub IoT:
 

@@ -5,16 +5,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016741"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279878"
 ---
-# <a name="vpn-gateway-faq"></a>Perguntas frequentes sobre Gateway de VPN
+# <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
 ## <a name="connecting"></a>Conectar-se a redes virtuais
 
@@ -169,6 +169,10 @@ Há suporte para servidores RRAS (Roteamento e Acesso Remoto) do Windows Server 
 
 Outras soluções VPN de software devem funcionar com nosso gateway, contanto que estejam em conformidade com implementações de IPsec padrão do setor. Contate o fornecedor do software para obter instruções de configuração e suporte.
 
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Como fazer alterar o tipo de autenticação para minhas conexões ponto a site?
+
+Você pode alterar o método de autenticação para suas conexões ponto a site acessando a seção **configuração ponto a site** no gateway de VPN e verificando o botão de opção desejado. As opções atuais são **certificado do Azure, autenticação RADIUS e Azure Active Directory**. Observe que os clientes atuais **podem não conseguir se conectar** após a alteração até que o novo perfil seja baixado e configurado no cliente.
+
 ## <a name="P2S"></a>Ponto a Site usando a autenticação de certificado nativa do Azure
 
 Esta seção se aplica ao modelo de implantação do Resource Manager.
@@ -243,7 +247,7 @@ Não. Somente o tráfego com um destino IP contido em intervalos de endereços I
 
 As informações adicionais de rede virtual são exibidas em [Perguntas Frequentes sobre Rede Virtual](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre o Gateway de VPN, veja [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
 * Para saber mais sobre definições de configuração de Gateway de VPN, veja [Sobre definições de configuração do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).

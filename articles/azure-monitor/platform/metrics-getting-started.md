@@ -8,11 +8,11 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394080"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248769"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Metrics Explorer do Azure
 
@@ -44,7 +44,7 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 > [!NOTE]
 > Use o botão **Adicionar métrica** e repita essas etapas se quiser ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.
 
-## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
+## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
 
 Por padrão, o gráfico mostra as últimas 24 horas de dados de métricas. Use o painel **seletor de tempo** para alterar o intervalo de tempo, ampliar ou reduzir seu gráfico. 
 
@@ -67,7 +67,7 @@ Confira [exemplos de gráficos](metric-chart-samples.md) que têm a filtragem e 
 
 Você pode personalizar o estilo do gráfico, o título e modificar as configurações avançadas do gráfico. Quando terminar a personalização, fixe-a em um painel para salvar seu trabalho. Você também pode configurar alertas de métricas. Siga a [documentação do produto](metrics-charts.md) para saber mais sobre esses e outros recursos avançados do Azure monitor métricas Explorer.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre os recursos avançados do Metrics Explorer](metrics-charts.md)
 * [Solução de problemas Metrics Explorer](metrics-troubleshoot.md)

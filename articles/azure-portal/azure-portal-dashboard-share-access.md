@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2020
 ms.author: mblythe
 ms.openlocfilehash: e8d251cef9e67cb8fc0c11df8ce546383f75a679
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900804"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248457"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função
 
@@ -90,7 +90,7 @@ Você pode atribuir um grupo de usuários a uma função para esse painel.
 
     ![funções atribuídas](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma lista de funções, consulte [funções internas para recursos do Azure](../role-based-access-control/built-in-roles.md).
 * Para saber mais sobre como gerenciar recursos, consulte [gerenciar recursos do Azure usando o portal do Azure](resource-group-portal.md).

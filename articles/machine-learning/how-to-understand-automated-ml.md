@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: 69cf79f8258f85f2fb5e787f91aa843837d0a3a1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538482"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283453"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,14 +27,14 @@ Saiba mais sobre:
 + [Métricas, gráficos e grafos para modelos de regressão](#regression)
 + [Importância da interpretação do modelo e do recurso](#explain-model)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Crie um experimento para a execução automatizada do Machine Learning, seja com o SDK ou no Azure Machine Learning Studio.
 
     * Usar o SDK para criar um modelo de [classificação](how-to-auto-train-remote.md) ou um [modelo de regressão](tutorial-auto-train-models.md)
-    * Use o [Azure Machine Learning Studio](how-to-create-portal-experiments.md) para criar um modelo de classificação ou regressão carregando os dados apropriados.
+    * Use o [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) para criar um modelo de classificação ou regressão carregando os dados apropriados.
 
 ## <a name="view-the-run"></a>Exibir a execução
 
@@ -76,7 +76,7 @@ Três as métricas e os gráficos a seguir estão disponíveis para cada modelo 
 
 As métricas a seguir são salvas em cada iteração de execução para uma tarefa de classificação.
 
-Métrica|Description|Cálculo|Parâmetros adicionais
+Métrica|DESCRIÇÃO|Cálculo|Parâmetros adicionais
 --|--|--|--
 AUC_Macro| AUC é a área embaixo da Curva característica operacional do receptor. Macro é a média aritmética do AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC é a área embaixo da Curva característica operacional do receptor. O micro é calculado globalmente combinando os verdadeiros positivos e falsos positivos de cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -89,7 +89,7 @@ balanced_accuracy|Precisão equilibrada é a média aritmética do recolhimento 
 f1_score_macro|Pontuação F1 é a média harmônica de precisão e recuperação. Macro é a média aritmética da Pontuação F1 para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
 f1_score_micro|Pontuação F1 é a média harmônica de precisão e recuperação. O micro é calculado globalmente contando o total de positivos verdadeiros, falsos negativos e falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
 f1_score_weighted|Pontuação F1 é a média harmônica de precisão e recuperação. Média ponderada por frequência de classe ou pontuação F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|Essa é a função de perda usada na regressão logística (multinomial) e nas extensões dela como redes neurais, definidas como a probabilidade logarítmica negativa dos rótulos verdadeiros dadas as previsões de um classificador probabilístico. Para um único exemplo com verdadeiro rótulo YT em {0,1} e a probabilidade estimada YP que YT = 1, a perda de log é-log&#124;P (YT YP) =-(YT log (YP) + (1-YT) log (1-YP)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhum|
+log_loss|Essa é a função de perda usada em regressão logística (multinomial) e extensões de ti, como redes neurais, definidas como a probabilidade negativa de log dos rótulos verdadeiros, dadas as previsões de um classificador probabilística. Para um único exemplo com verdadeiro rótulo YT em {0,1} e a probabilidade estimada YP que YT = 1, a perda de log é-log&#124;P (YT YP) =-(YT log (YP) + (1-YT) log (1-YP)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhum|
 norm_macro_recall|O Recolhimento de macro normalizado é o recolhimento de macro normalizado para que o desempenho aleatório tenha uma pontuação de 0 e o desempenho perfeito tenha uma pontuação de 1. Isso é obtido por norm_macro_recall: = (recall_score_macro-R)/(1-R), em que R é o valor esperado de recall_score_macro para previsões aleatórias (ou seja, R = 0,5 para classificação binária e R = (1/C) para problemas de classificação de classe C).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "macro" |
 precision_score_macro|Precisão é a porcentagem de elementos previstos de forma positiva que são rotulados corretamente. Macro é a média aritmética de precisão para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
 precision_score_micro|Precisão é a porcentagem de elementos previstos de forma positiva que são rotulados corretamente. O micro é computado globalmente, contando os verdadeiros positivos totais e os falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
@@ -190,7 +190,7 @@ Use o gráfico de ganhos cumulativos para ajudar você a escolher o corte de cla
 ### <a name="calibration-chart"></a>Gráfico de calibragem
 
 #### <a name="what-is-a-calibration-chart"></a>O que é um gráfico de calibragem?
-Um gráfico de calibragem é usado para exibir a confiança de um modelo de previsão. Para isso, ele mostra a relação entre a probabilidade prevista e a probabilidade real, em que “probabilidade” representa as chances de uma determinada instância pertencer a algum rótulo.
+Um gráfico de calibragem é usado para exibir a confiança de um modelo de previsão. Ele faz isso mostrando a relação entre a probabilidade prevista e a probabilidade real, em que "probabilidade" representa a probabilidade de uma determinada instância pertencer a algum rótulo.
 #### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>O que o ML automatizado faz com o gráfico de calibragem?
 Em todos os problemas de classificação, você pode examinar a linha de calibração para cada média micro, macro e cada classe de um determinado modelo de previsão.
 
@@ -218,7 +218,7 @@ Três as métricas e os gráficos a seguir estão disponíveis para cada modelo 
 
 As métricas a seguir são salvas em cada iteração de execução para uma tarefa de regressão ou de previsão.
 
-|Métrica|Description|Cálculo|Parâmetros adicionais
+|Métrica|DESCRIÇÃO|Cálculo|Parâmetros adicionais
 --|--|--|--|
 explained_variance|A variação explicada é a proporção na qual um modelo matemático responde pela variação de determinado conjunto de dados. É o percentual de redução na variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, ela é igual à variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
 r2_score|R2 é o coeficiente de determinação ou a redução de percentual em erros quadráticos, comparado a um modelo de linha de base que gera a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|
@@ -266,7 +266,7 @@ Um bom modelo normalmente terá uma curva de sino ou erros em volta de zero.
 O ML automatizado fornece um painel de interpretação de aprendizado de máquina para suas execuções.
 Para obter mais informações sobre como habilitar recursos de interpretação, consulte [como](how-to-machine-learning-interpretability-automl.md) habilitar a interpretabilidade em experimentos de ml automatizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 + Saiba mais sobre o [ml automatizado](concept-automated-ml.md) no Azure Machine Learning.
 + Experimente o [modelo de Machine Learning automatizado explicação](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) dos notebooks de exemplo.

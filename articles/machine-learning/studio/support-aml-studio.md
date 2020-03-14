@@ -9,14 +9,16 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: ee4ef451888638c0ba33d7938c88b836b28f3fe5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f7146db33368877b8eb029e106559477376c5953
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894638"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217897"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Obtenha suporte e treinamento para Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Este artigo fornece informações sobre como saber mais sobre Azure Machine Learning Studio (clássico) e obter suporte para seus problemas e perguntas.
 
@@ -41,4 +43,4 @@ Confira estes recursos de suporte:
 
 + **Stack Overflow**: Visite a comunidade do Microsoft Azure Machine Learning em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) marcada com "Azure-Machine-Learning".
 
-+ [Compartilhe sugestões de produto](https://feedback.azure.com/forums/257792-machine-learning) e solicitações de recurso em nosso **canal de comentários sobre o Azure Machine Learning**. Para compartilhar seus comentários, selecione o botão **Comentários sobre o produto** no final de cada artigo.
++ **Compartilhe sugestões de produto** e solicitações de recurso em nosso [canal de comentários sobre o Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). Para compartilhar seus comentários, selecione o botão **Comentários sobre o produto** no final de cada artigo.

@@ -5,11 +5,11 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363664"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273196"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 
@@ -37,7 +37,7 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | | Colaborador de Máquina Virtual | Recurso de VM |
 | Backup sob demanda de VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | Restaurar VM | Operador de Backup | Cofre dos Serviços de Recuperação |
-| | Contribuinte | Grupo de recursos no qual a VM será implantada |
+| | Colaborador | Grupo de recursos no qual a VM será implantada |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
 | Restaurar backup de VM de discos não gerenciados | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
@@ -45,7 +45,7 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | Restaurar discos gerenciados do backup da VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
 | | Colaborador da Conta de Armazenamento | Conta de armazenamento temporária selecionada como parte da restauração para manter dados do cofre antes de convertê-los em discos gerenciados |
-| | Contribuinte | Grupo de recursos para o qual o disco gerenciado, ou discos, será restaurado |
+| | Colaborador | Grupo de recursos para o qual o disco gerenciado, ou discos, será restaurado |
 | Restaurar arquivos individuais do backup da VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
 | Criar política de backup para backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
@@ -75,7 +75,7 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função cor
 | Cancelar o registro da conta de armazenamento do cofre |Colaborador de Backup | Cofre dos Serviços de Recuperação |
 | |Colaborador da Conta de Armazenamento | Recurso da conta de armazenamento|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
 * Saiba como gerenciar o acesso com:

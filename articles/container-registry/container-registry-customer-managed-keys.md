@@ -4,12 +4,12 @@ description: Saiba mais sobre a criptografia em repouso do registro de contêine
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 8bce77c776fe088e5c317f02cd2757738a287069
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 7bfc4e9a73280ab330efbeeba51a5dcb0a80da10
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096543"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365332"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Criptografia usando chaves gerenciadas pelo cliente
 
@@ -27,9 +27,10 @@ Esse recurso está disponível na camada de serviço do registro de contêiner *
 
 * Atualmente, você pode habilitar esse recurso somente quando você cria um registro.
 * Depois de habilitar uma chave gerenciada pelo cliente em um registro, você não pode desabilitá-la.
+* No momento, não há suporte para [confiança de conteúdo](container-registry-content-trust.md) em um registro criptografado com uma chave gerenciada pelo cliente.
 * Em um registro criptografado com uma chave gerenciada pelo cliente, os logs de execução de [tarefas de ACR](container-registry-tasks-overview.md) são atualmente mantidos por apenas 24 horas. Se você precisar manter os logs por um período mais longo, consulte Diretrizes para [exportar e armazenar logs de execução de tarefa](container-registry-tasks-logs.md#alternative-log-storage).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar as etapas de CLI do Azure neste artigo, você precisa CLI do Azure versão 2.2.0 ou posterior. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -388,7 +389,7 @@ az keyvault delete-policy \
 
 A revogação da chave efetivamente bloqueia o acesso a todos os dados do registro, já que o registro não pode acessar a chave de criptografia. Se o acesso à chave estiver habilitado ou a chave excluída for restaurada, o registro selecionará a chave para que você possa acessar novamente os dados de registro criptografados.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md).
 * Saiba mais sobre as políticas de acesso e como [proteger o acesso a um cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md).

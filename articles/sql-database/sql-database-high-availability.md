@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
 ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732392"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269647"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 
@@ -102,7 +102,7 @@ Um failover pode ser iniciado usando A API REST ou o PowerShell. Para a API REST
 
 O banco de dados SQL do Azure apresenta uma solução interna de alta disponibilidade, que está profundamente integrada à plataforma Azure. Ele depende de Service Fabric para detecção e recuperação de falhas, no armazenamento de BLOBs do Azure para proteção de dados e em Zonas de Disponibilidade para maior tolerância a falhas. Além disso, o banco de dados SQL do Azure aproveita a tecnologia de grupo de disponibilidade Always On de SQL Server para replicação e failover. A combinação dessas tecnologias permite que os aplicativos percebam totalmente os benefícios de um modelo de armazenamento misto e ofereçam suporte aos SLAs mais exigentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md)
 - Saiba mais sobre o [Service Fabric](../service-fabric/service-fabric-overview.md)

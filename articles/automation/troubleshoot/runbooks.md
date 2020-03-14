@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: abe159221846c4820ba9750f62bdbc814521ecc4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 8fd2f808169a0615e1ad5ca338823e3a8e3212ff
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252734"
+ms.locfileid: "79297842"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -609,7 +609,7 @@ As contas Executar como podem não ter as mesmas permissões em relação aos re
 
 ### <a name="issues-passing-parameters-into-webhooks"></a>Problemas ao passar parâmetros para WebHooks
 
-Para obter ajuda com a passagem de parâmetros em WebHooks, consulte [Iniciar um runbook de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Para obter ajuda com a passagem de parâmetros em WebHooks, consulte [Iniciar um runbook de um webhook](../automation-webhooks.md#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### <a name="issues-using-az-modules"></a>Problemas usando módulos AZ
 
@@ -630,7 +630,7 @@ As contas Executar como podem não ter as mesmas permissões em relação aos re
 
 ### <a name="passing-parameters-into-webhooks"></a>Passando parâmetros a webhooks
 
-Para obter ajuda com a passagem de parâmetros em WebHooks, consulte [Iniciar um runbook de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Para obter ajuda com a passagem de parâmetros em WebHooks, consulte [Iniciar um runbook de um webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### <a name="using-az-modules"></a>Usando módulos Az
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 20d07be99aa2f9881218f8d581ac8d429a1fe4d0
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705608"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298794"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -65,11 +65,11 @@ Para entender como baixar logs, vá para a seção ["coletar logs manualmente"](
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -119,7 +119,7 @@ Enquanto estiver excluindo um dispositivo, você poderá encontrar um dos seguin
 2. Exclua o dispositivo específico.  
 
     > [!NOTE]
-    > Você não poderá excluir um dispositivo se os sensores estiverem associados a ele. Para obter mais informações sobre como excluir sensores associados, consulte a seção "excluir sensor" em [obter dados de sensor de parceiros de sensor](get-sensor-data-from-sensor-partner.md).
+    > Você não poderá excluir um dispositivo se os sensores estiverem associados a ele. Para obter mais informações sobre como excluir sensores associados, consulte a seção **excluir sensor** em [obter dados de sensor de parceiros de sensor](get-sensor-data-from-sensor-partner.md).
 
 
 ## <a name="issues-with-jobs"></a>Problemas com trabalhos
@@ -138,7 +138,7 @@ Enquanto estiver excluindo um dispositivo, você poderá encontrar um dos seguin
 
 **Mensagem**: "nenhum usuário correspondente encontrado."
 
-**Ação corretiva**: Verifique a ID de email para a qual você está tentando adicionar uma atribuição de função. A ID de email deve ser uma correspondência exata da ID registrada para esse usuário na Active Directory. Se o erro persistir, adicione a mensagem de erro em uma postagem no fórum do FarmBeats ou entre em contato com FarmBeatsSupport@microsoft.com.
+**Ação corretiva**: Verifique a ID de email para a qual você está tentando adicionar uma atribuição de função. A ID de email deve ser uma correspondência exata da ID, que é registrada para esse usuário na Active Directory. Se o erro persistir, adicione a mensagem de erro em uma postagem no fórum do FarmBeats ou entre em contato com FarmBeatsSupport@microsoft.com.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>Não é possível fazer logon no acelerador
 
@@ -163,6 +163,7 @@ Se o erro persistir, adicione a mensagem de erro em uma postagem no fórum do Fa
 **Problema**: o acelerador de FarmBeats não está mostrando a versão mais recente, mesmo depois de ter atualizado o FarmBeatsDeployment.
 
 **Ação corretiva**: esse erro ocorre devido à persistência do trabalhador do serviço no navegador. Faça o seguinte:
+
 1. Feche todas as guias do navegador que têm o acelerador aberto e feche a janela do navegador.
 2. Inicie uma nova instância do navegador e recarregue o URI do acelerador. Essa ação carrega a nova versão do acelerador.
 
@@ -175,6 +176,7 @@ Se o erro persistir, adicione a mensagem de erro em uma postagem no fórum do Fa
 **Ação corretiva**:
 
 Realize um dos seguintes procedimentos:
+
 - Execute novamente o instalador para atualizar Datahub com o nome de usuário e a senha corretos.
 - Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para um intervalo de datas de 5 a 7 dias e, em seguida, verifique se o trabalho foi bem-sucedido.
 
@@ -198,6 +200,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 1. Se algum trabalho ou pipeline falhar porque a manutenção está sendo executada, envie o trabalho novamente após algum tempo. 
 
    Para obter informações sobre qualquer atividade de manutenção de sentinela planejada ou não planejada, vá para o site de [notícias do hub de acesso do Copernicus Open](https://scihub.copernicus.eu/news/) .  
+
 2. Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para um intervalo de datas de 5 a 7 dias e, em seguida, verifique se o trabalho foi bem-sucedido.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinela: número máximo de conexões atingido
@@ -207,6 +210,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 **Significando**: se um trabalho falhar porque o número máximo de conexões foi atingido, a mesma conta do Sentinel está sendo usada em outra implantação de software.
 
 **Ação corretiva**: Tente uma das seguintes opções:
+
 * Crie uma nova conta do Sentinel e execute novamente o instalador para atualizar o Datahub usando um novo nome de usuário e senha de sentinela.  
 * Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para um intervalo de datas de 5 a 7 dias e, em seguida, verifique se o trabalho foi bem-sucedido.
 
@@ -218,6 +222,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 1. Se algum trabalho ou pipeline falhar porque a manutenção está sendo executada, envie o trabalho novamente após algum tempo. 
 
    Para obter informações sobre qualquer atividade de manutenção de sentinela planejada ou não planejada, vá para o site de [notícias do hub de acesso do Copernicus Open](https://scihub.copernicus.eu/news/) .  
+
 2. Execute novamente o trabalho com falha ou execute um trabalho de índices satélite para um intervalo de datas de 5 a 7 dias e, em seguida, verifique se o trabalho foi bem-sucedido.
 
 ## <a name="collect-logs-manually"></a>Coletar logs manualmente
@@ -225,6 +230,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 [Instalar e implantar Gerenciador de armazenamento do Azure]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Coletar Azure Data Factory logs de trabalho no Datahub
+
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Na caixa de **pesquisa** , procure o grupo de recursos FarmBeats Datahub.
 
@@ -331,6 +337,6 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 2. Selecione o **serviço de aplicativo**.  
 3. Vá para a página escalar verticalmente os [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/)e selecione um tipo de preço apropriado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você ainda estiver enfrentando problemas de FarmBeats, entre em contato com nosso [Fórum de suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats).

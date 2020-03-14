@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148634"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365859"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Como configurar a criptografia de token SAML do Azure AD (versão prévia)
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como configurar a criptografia de token SAML do Azure AD
 
 > [!NOTE]
 > A criptografia de token é um recurso premium do Azure Active Directory (Azure AD). Para saber mais sobre as edições, os recursos e os preços do Azure AD, confira [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -123,26 +123,21 @@ Ao configurar uma keyCredential usando o Graph, o PowerShell ou o manifesto do a
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>Configurar a criptografia de token usando o PowerShell
 
-Essa funcionalidade estará disponível em breve. 
+1. Use o módulo mais recente do PowerShell do Azure AD para se conectar ao seu locatário.
 
-<!--
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. Defina as configurações de criptografia de token usando o comando **[set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Read the token encryption settings using the following commands.
+1. Leia as configurações de criptografia de token usando os comandos a seguir.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
-
--->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Configurar a criptografia de token usando o manifesto do aplicativo
 
@@ -223,7 +218,7 @@ Essa funcionalidade estará disponível em breve.
     }  
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Descubra [Como o Azure AD usa o protocolo SAML](../develop/active-directory-saml-protocol-reference.md)
 * Conheça o formato, as características de segurança e o conteúdo de [Tokens SAML no Azure AD](../develop/reference-saml-tokens.md)

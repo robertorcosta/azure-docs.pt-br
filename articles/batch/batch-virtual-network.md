@@ -10,11 +10,11 @@ ms.date: 04/10/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022759"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247742"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -24,7 +24,7 @@ Quando você cria um pool do Lote do Azure, você pode provisionar o pool em uma
 
 Um pool do Lote do Azure tem configurações que permitem que os nós de computação se comuniquem entre si - por exemplo, para executar tarefas de várias instâncias. Essas configurações não exigem uma rede virtual separada. No entanto, por padrão, os nós não podem se comunicar com máquinas virtuais que não fazem parte do pool do Lote, como um servidor de licença ou um servidor de arquivos. Para permitir que nós de computação do pool se comuniquem de forma segura com outras máquinas virtuais, ou com uma rede local, você pode provisionar o pool em uma sub-rede de uma rede virtual do Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Autenticação**. Para usar uma rede virtual do Azure, a API do cliente do Lote deverá usar a autenticação do Azure Active Directory (AD). O suporte ao Lote do Azure para o Azure AD está documentado em [Autenticar soluções do serviço Lote com o Active Directory](batch-aad-auth.md). 
 
@@ -64,7 +64,7 @@ Quando você adicionar uma rota definida pelo usuário, defina a rota para cada 
 
 ![Rota definida pelo usuário](./media/batch-virtual-network/user-defined-route.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).
 - Para saber mais sobre como criar uma rota definida pelo usuário, consulte [Create a user-defined route – Azure portal](../virtual-network/tutorial-create-route-table-portal.md) (Criar uma rota definida pelo usuário – Portal do Azure).

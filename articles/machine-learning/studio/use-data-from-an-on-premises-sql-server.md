@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 9afac1adef801956f176dd339c795e2df533a2c7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169129"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204175"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Executar análise com Azure Machine Learning Studio (clássico) usando um banco de dados SQL Server local
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Muitas vezes, empresas que trabalham com dados locais gostariam de aproveitar a escala e a agilidade da nuvem para sua cargas de trabalho de aprendizado de máquina. Mas elas não querem interromper seus fluxos de trabalho e processos de negócios atuais, movendo seus dados locais para a nuvem. Azure Machine Learning Studio (clássico) agora dá suporte à leitura de seus dados de um banco de SQL Server local e, em seguida, ao treinamento e à pontuação de um modelo com esses dados. Você não precisa mais copiar manualmente e sincronizar os dados entre a nuvem e o servidor local. Em vez disso, o módulo **importar dados** no Azure Machine Learning Studio (clássico) agora pode ler diretamente do banco de SQL Server local para seus trabalhos de treinamento e pontuação.
 
@@ -51,7 +53,7 @@ Considere o seguinte ao configurar e usar um Integration Runtime auto-hospedado 
 * Você pode instalar apenas uma instância do IR em um computador individual.
 * Você pode usar um único IR para várias fontes de dados locais.
 * Você pode conectar vários IRs em diferentes computadores à mesma fonte de dados local.
-* Você configura um IRs para apenas um espaço de trabalho por vez. No momento, os IRs não podem ser compartilhados entre workspaces.
+* Você configura um IRs para apenas um espaço de trabalho por vez. Atualmente, o IRs não pode ser compartilhado entre espaços de trabalho.
 * Você pode configurar vários IRs para um único workspace. Por exemplo, talvez você queira usar um IR conectado às suas fontes de dados de teste durante o desenvolvimento e um IR de produção quando estiver pronto para colocar em operação.
 * O IR não precisa estar no mesmo computador da fonte de dados. Permanecer próximo à fonte de dados reduz o tempo para o gateway se conectar à fonte de dados. Recomendamos que você instale o IR em um computador diferente daquele que hospeda a fonte de dados local, para que o gateway e a fonte de dados não disputem os recursos.
 * Se você já tiver um IR instalado no computador que atende Power BI ou Azure Data Factory cenários, instale um IR separado para Azure Machine Learning Studio (clássico) em outro computador.
@@ -118,7 +120,7 @@ A primeira etapa é criar e configurar o gateway para acessar o banco de dados S
 Isso conclui o processo de configuração do gateway no Azure Machine Learning Studio (clássico).
 Agora você está pronto para usar seus dados locais.
 
-Você pode criar e configurar vários gateways no Studio (clássico) para cada espaço de trabalho. Por exemplo, você pode ter um gateway que você deseja conectar às suas fontes de dados de teste durante o desenvolvimento e um gateway diferente para suas fontes de dados de produção. Azure Machine Learning Studio (clássico) oferece a flexibilidade para configurar vários gateways, dependendo do ambiente corporativo. Atualmente, não é possível compartilhar um gateway entre workspaces e apenas um gateway pode ser instalado em um único computador. Para obter mais informações, confira [Mover dados entre fontes locais e na nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/tutorial-hybrid-copy-portal.md).
+Você pode criar e configurar vários gateways no Studio (clássico) para cada espaço de trabalho. Por exemplo, você pode ter um gateway que você deseja conectar às suas fontes de dados de teste durante o desenvolvimento e um gateway diferente para suas fontes de dados de produção. Azure Machine Learning Studio (clássico) oferece a flexibilidade para configurar vários gateways, dependendo do ambiente corporativo. No momento, você não pode compartilhar um gateway entre espaços de trabalho e apenas um gateway pode ser instalado em um único computador. Para obter mais informações, confira [Mover dados entre fontes locais e na nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Etapa 2: usar o gateway para ler dados de uma fonte de dados local
 Depois de configurar o gateway, você pode adicionar um módulo **Importar Dados** a um experimento que insere os dados do banco de dados do SQL Server local.

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461569"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268958"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar Sincronização de Dados SQL entre o banco de dados SQL do Azure e o SQL Server local
 
@@ -54,7 +54,7 @@ Para obter exemplos do PowerShell sobre como configurar a Sincronização de Dad
 
    Na página **Criar Grupo de Sincronização de Dados**, altere as seguintes configurações:
 
-   | Configuração                        | Description |
+   | Configuração                        | DESCRIÇÃO |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome do Grupo de Sincronização** | Insira um nome para o novo grupo de sincronização. Esse nome é diferente do nome do banco de dados. |
    | **Sincronizar Banco de Dados de Metadados** | Escolha criar um banco de dados (recomendado) ou usar um banco de dados existente.<br/><br/>Se você escolher **Novo banco de dados**, selecione **Criar novo banco de dados**. Em seguida, na página **Banco de Dados SQL**, nomeie e configure o novo banco de dados e selecione **OK**.<br/><br/>Se você escolher **Usar banco de dados existente**, selecione o banco de dados na lista. |
@@ -82,7 +82,7 @@ Na seção **Banco de Dados Membro**, opcionalmente, adicione um Banco de Dados 
 
   Na página **Configurar Banco de Dados SQL do Azure**, altere as seguintes configurações:
 
-  | Configuração                       | Description |
+  | Configuração                       | DESCRIÇÃO |
   | ----------------------------- | ------------------------------------------------- |
   | **Sincronizar Nome do Membro** | Forneça um nome para o novo membro de sincronização. Esse nome é diferente do nome do banco de dados. |
   | **Assinatura** | Selecione a assinatura associada do Azure para fins de cobrança. |
@@ -169,7 +169,7 @@ Depois que os novos membros do grupo de sincronização forem criados e implanta
 
     ![Sincronização manual](media/sql-database-get-started-sql-data-sync/datasync-sync.png)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 **Com que frequência a Sincronização de Dados pode sincronizar meus dados?**
 
@@ -229,7 +229,7 @@ Depois de exportar um banco de dados como um arquivo *.bacpac* e de importar o a
 
 Para perguntas frequentes sobre o agente cliente, confira [Perguntas frequentes sobre o agente](sql-database-data-sync-agent.md#agent-faq).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Parabéns. Você criou um grupo de sincronização que contém uma instância do Banco de Dados SQL e um banco de dados do SQL Server.
 

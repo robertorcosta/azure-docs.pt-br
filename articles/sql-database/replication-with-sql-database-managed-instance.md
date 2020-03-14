@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096210"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299066"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure
 
@@ -42,7 +42,6 @@ A replicação transacional está em visualização pública na [instância gere
 
 Configurar uma instância gerenciada para funcionar como um Publicador e/ou um distribuidor requer:
 
-- que, no momento, a instância gerenciada não esteja participando de uma relação de replicação geográfica.
 - Que a instância gerenciada pelo Publicador está na mesma rede virtual que o distribuidor e o Assinante, ou o [emparelhamento vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi estabelecido entre as redes virtuais de todas as três entidades. 
 - A conectividade usa Autenticação SQL entre os participantes da replicação.
 - Um compartilhamento da Conta de Armazenamento do Azure para o diretório de trabalho de replicação.

@@ -9,11 +9,11 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389095"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255503"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo
 
@@ -118,10 +118,10 @@ A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de
 |                                           | **Desempenho premium**   | **Camada quente** | **Camada fria**       | **Camada de arquivo morto**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
-| **Disponibilidade** <br> **(Leituras de RA-GRS)**  | {1&gt;N/A&lt;1}                       | 99,99%       | 99,9%               | Offline           |
+| **Disponibilidade** <br> **(Leituras de RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |
 | **Encargos de uso**                         | Custos de armazenamento mais altos, menor acesso e custo da transação | Custos de armazenamento maiores, custos de acesso e de transações menores | Custos de armazenamento menores, custos de acesso e de transações maiores | Custos de armazenamento mais baixos, custos de acesso e de transações mais altos |
-| **Tamanho mínimo do objeto**                   | {1&gt;N/A&lt;1}                       | {1&gt;N/A&lt;1}          | {1&gt;N/A&lt;1}                 | {1&gt;N/A&lt;1}               |
-| **Duração mínima de armazenamento**              | {1&gt;N/A&lt;1}                       | {1&gt;N/A&lt;1}          | 30 dias<sup>1</sup> | 180 dias
+| **Tamanho mínimo do objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
+| **Duração mínima de armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias
 | **Latência** <br> **(Tempo até o primeiro byte)** | Milissegundos de dígito único | milissegundos | milissegundos        | horas<sup>2</sup> |
 
 <sup>1</sup> os objetos na camada fria em contas GPv2 têm uma duração de retenção mínima de 30 dias. As contas de armazenamento de BLOBs não têm uma duração de retenção mínima para a camada fria.
@@ -274,7 +274,7 @@ As ferramentas do portal do Azure, do PowerShell e da CLI e as bibliotecas de cl
 
 O armazenamento de dados junto com outros limites é definido no nível da conta e não por camada de acesso. Você pode optar por usar todo o limite em uma camada ou em todas as três camadas. Para obter mais informações, consulte [escalabilidade e metas de desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Avaliar a quente, a frio e o arquivo em contas de armazenamento de BLOBs e GPv2
 

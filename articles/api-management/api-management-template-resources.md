@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374361"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249497"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso em modelos de portal do desenvolvedor.  
@@ -48,7 +48,7 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
   
 Há suporte para as seguintes opções de localização:
 
-| Localidade    | Linguagem               |
+| Local    | Linguagem               |
 |-----------|------------------------|
 | “pt-br”      | Portuguesa              |
 | "cs"      | "Čeština"              |
@@ -113,28 +113,28 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |PageTitleApis|APIs|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Visualização de aplicativo|  
-|WebApplicationsRequirementsHeader|{1&gt;{2&gt;Requisitos&lt;2}&lt;1}|  
+|WebApplicationsRequirementsHeader|Requisitos|  
 |WebApplicationsScreenshotAlt|Captura de tela|  
 |WebApplicationsScreenshotsHeader|Capturas de tela|  
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Tem certeza de que deseja remover o aplicativo?|  
 |WebDevelopersAppNotPublished|Não publicado|  
 |WebDevelopersAppNotSubmitted|Não enviado|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
-|WebDevelopersAppTableNameHeader|{1&gt;Nome&lt;1}|  
+|WebDevelopersAppTableNameHeader|Nome|  
 |WebDevelopersAppTableStateHeader|Estado|  
 |WebDevelopersEditLink|Editar|  
 |WebDevelopersRegisterAppLink|Registrar aplicativo|  
@@ -144,32 +144,32 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|Aplicativos|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |NoItemsToDisplay|Nenhum resultado encontrado.|  
 |GeneralExceptionMessage|Algo não está correto. Pode ser uma falha temporária ou um bug. Tente novamente.|  
 |GeneralJsonExceptionMessage|Algo não está correto. Pode ser uma falha temporária ou um bug. Recarregue a página e tente novamente.|  
 |ConfirmationMessageUnsavedChanges|Há algumas alterações não salvas. Tem certeza de que deseja descartar as alterações?|  
-|AzureActiveDirectory|Active Directory do Azure|  
+|AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|O corpo da solicitação HTTP é grande demais.|  
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
 |ButtonLabelSave|Salvar|  
 |GeneralExceptionMessage|Algo não está correto. Pode ser uma falha temporária ou um bug. Tente novamente.|  
 |NoItemsToDisplay|Não existem itens a apresentar.|  
-|PagerButtonLabelFirst|First|  
+|PagerButtonLabelFirst|Primeiro|  
 |PagerButtonLabelLast|Último|  
-|PagerButtonLabelNext|Avançar|  
+|PagerButtonLabelNext|Próximo|  
 |PagerButtonLabelPrevious|Prev|  
 |PagerLabelPageNOfM|Página {0} de {1}|  
 |PasswordTooShort|A senha é muito curta|  
@@ -181,11 +181,11 @@ Há suporte para as seguintes opções de localização:
 |PagerLabelPageSize|Tamanho da página|  
 |CurtainLabelLoading|Carregando...|  
 |TablePlaceholderNothingToDisplay|Não há dados para o período e escopo selecionados|  
-|ButtonLabelClose|Fechar|  
+|ButtonLabelClose|Feche|  
   
 ###  <a name="Documentation"></a> Documentação  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Cabeçalho inválido '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|URL da Solicitação Inválida|  
@@ -246,7 +246,7 @@ Há suporte para as seguintes opções de localização:
 |OAuth2AccessToken_ResourceOwnerPasswordCredentialsGrant_TokenResponse|OBRIGATÓRIO. O token de acesso emitido pelo servidor de autorização.|  
 |OAuth2ClientId_AuthorizationCodeGrant_AuthorizationRequest|OBRIGATÓRIO. Identificador de cliente.|  
 |OAuth2ClientId_AuthorizationCodeGrant_TokenRequest|OBRIGATÓRIO se o cliente não estiver se autenticando com o servidor de autorização.|  
-|OAuth2ClientId_ImplicitGrant_AuthorizationRequest|OBRIGATÓRIO. O identificador do cliente.|  
+|OAuth2ClientId_ImplicitGrant_AuthorizationRequest|OBRIGATÓRIO. O identificador de cliente.|  
 |OAuth2Code_AuthorizationCodeGrant_AuthorizationResponse|OBRIGATÓRIO. O código de autorização gerado pelo servidor de autorização.|  
 |OAuth2Code_AuthorizationCodeGrant_TokenRequest|OBRIGATÓRIO. O código de autorização recebido do servidor de autorização.|  
 |OAuth2ErrorDescription_AuthorizationCodeGrant_AuthorizationErrorResponse|OPCIONAL. Texto ASCII legível fornecendo informações adicionais.|  
@@ -324,19 +324,19 @@ Há suporte para as seguintes opções de localização:
 |ButtonLinkOpenConsole|Experimentar|  
 |SectionHeadingRequestBody|Corpo da solicitação|  
 |SectionHeadingRequestParameters|Parâmetros da solicitação|  
-|SectionHeadingRequestUrl|URL da solicitação|  
+|SectionHeadingRequestUrl|URL de Solicitação|  
 |SectionHeadingResponse|Resposta|  
-|SectionHeadingRequestHeaders|Cabeçalhos de solicitações|  
-|FormLabelSubtextOptional|opcionais|  
+|SectionHeadingRequestHeaders|Cabeçalhos da solicitação|  
+|FormLabelSubtextOptional|opcional|  
 |SectionHeadingCodeSamples|Exemplos de código|  
 |TextblockOpenidConnectHeaderDescription|Token de ID do OpenID Connect obtido do <\>{0}</i\>. Tipos de concessão com suporte: < i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
-|LinkLabelBack|back|  
-|LinkLabelHomePage|página inicial|  
+|LinkLabelBack|voltar|  
+|LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|Envie-nos um email|  
 |PageTitleError|Ocorreu um problema ao apresentar a página solicitada|  
 |TextblockPotentialCauseIntermittentIssue|Isso pode ser um problema de acesso a dados intermitente que já não existe mais.|  
@@ -351,7 +351,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemas|  
 |WebIssuesNoActiveSubscriptions|Você não tem nenhuma assinatura ativa. Você precisa assinar um produto para relatar um problema.|  
@@ -362,9 +362,9 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
-|LinkLabelHomePage|página inicial|  
+|LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|envie-nos um email|  
 |PageTitleNotFound|Infelizmente não foi possível localizar a página que você está procurando|  
 |TextblockPotentialCauseMisspelledUrl|Se você digitou a URL, talvez tenha feito isso de maneira incorreta.|  
@@ -377,18 +377,18 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebProductsAgreement|Ao assinar o {0} Produto, concordo com o `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
-|WebProductsLegalTermsLink|Termos de uso|  
-|WebProductsSubscribeButton|Subscribe|  
+|WebProductsLegalTermsLink|Termos de Uso|  
+|WebProductsSubscribeButton|Assinar|  
 |WebProductsUsageLimitsHeader|Limites de uso|  
 |WebProductsYouAreNotSubscribed|Você assinou este produto.|  
 |WebProductsYouRequestedSubscription|Você solicitou a assinatura para este produto.|  
 |ErrorYouNeedToAgreeWithLegalTerms|Você deve concordar com os Termos de Uso antes de continuar.|  
 |ButtonLabelAddSubscription|Adicionar assinatura|  
 |LinkLabelChangeSubscriptionName|alterar|  
-|ButtonLabelConfirm|Confirme|  
+|ButtonLabelConfirm|Confirmar|  
 |TextblockMultipleSubscriptionsCount|Você tem {0} assinaturas para este produto:|  
 |TextblockSingleSubscriptionsCount|Você tem {0} assinatura para este produto:|  
 |TextblockSingleApisCount|Este produto contém {0} API:|  
@@ -399,13 +399,13 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |PageTitleProducts|Produtos|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|A entrada está desabilitada pelos administradores no momento.|  
 |TextboxExternalIdentitiesSigninInvitation|Como alternativa, entre com|  
@@ -413,7 +413,7 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |PrincipalNotFound|A entidade de segurança não foi encontrada ou a assinatura é inválida|  
 |ErrorSsoAuthenticationFailed|Falha na autenticação de SSO|  
@@ -434,7 +434,7 @@ Há suporte para as seguintes opções de localização:
 |ValidationErrorEmailInvalid|Endereço de email inválido|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|O email é obrigatório.|  
-|WebAuthenticationErrorNoticeHeader|Error|  
+|WebAuthenticationErrorNoticeHeader|Erro|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve ser um comprimento máximo de {1}|  
 |TextboxLabelEmailFirstName|Nome|  
 |ValidationErrorFirstNameRequired|O nome é obrigatório.|  
@@ -488,7 +488,7 @@ Há suporte para as seguintes opções de localização:
 |WebAuthenticationGooglePlusNotEnabled|Falha na autenticação. Se você autorizou o aplicativo, entre em contato com o administrador para certificar-se de que a autenticação do Google está configurada corretamente.|  
 |ValidationErrorAllowedTenantIsRequired|Locatário Permitido é obrigatório|  
 |ValidationErrorTenantIsNotValid|O locatário '{0}' do Azure Active Directory Domain Services não é válido.|  
-|WebAuthenticationActiveDirectoryTitle|Active Directory do Azure|  
+|WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
 |WebAuthenticationLoginUsingYourProvider|Faça logon usando sua conta {0}|  
 |WebAuthenticationUserLimitNotice|Este serviço atingiu o número máximo de usuários permitidos. `<a href="mailto:{0}"\>contact the administrator</a\>` para atualizar o serviço deles e habilitar novamente o registro de usuário.|  
 |WebAuthenticationUserLimitNoticeHeader|Registro de usuário desabilitado|  
@@ -504,12 +504,12 @@ Há suporte para as seguintes opções de localização:
 |WebAuthenticationNoAadTenantConfigured|Nenhum locatário do Azure Active Directory configurado para o serviço.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|Eu concordo com o `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.|  
 |TextblockUserRegistrationTermsProvided|Examine `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
-|DialogHeadingTermsOfUse|Termos de uso|  
+|DialogHeadingTermsOfUse|Termos de Uso|  
 |ValidationMessageConsentNotAccepted|Você deve concordar com os Termos de Uso antes de continuar.|  
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Esqueceu sua senha?|  
 |WebAuthenticationIfAdministrator|Se você é um administrador, você deve entrar em `<a href="{0}"\>here</a\>`.|  
@@ -517,25 +517,25 @@ Há suporte para as seguintes opções de localização:
 |WebAuthenticationRemember|Lembrar-me neste computador|  
 |WebAuthenticationSigininWithPassword|Entrar com seu nome de usuário e senha|  
 |WebAuthenticationSigninTitle|Entrar|  
-|WebAuthenticationSignUpNow|Inscreva-se agora|  
+|WebAuthenticationSignUpNow|Inscreva-se agora mesmo|  
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
-|PageTitleSignup|Inscrever-se|  
+|PageTitleSignup|Inscrição|  
 |WebAuthenticationAlreadyAMember|Já é membro?|  
 |WebAuthenticationCreateNewAccount|Criar uma nova conta de Gerenciamento de API|  
 |WebAuthenticationSigninNow|Entrar agora|  
-|ButtonLabelSignup|Inscrever-se|  
+|ButtonLabelSignup|Inscrição|  
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Tem certeza de que deseja cancelar esta assinatura?|  
 |SubscriptionRenewConfirmation|Tem certeza de que deseja renovar esta assinatura?|  
-|WebDevelopersManageSubscriptions|Gerenciar assinaturas|  
+|WebDevelopersManageSubscriptions|Gerenciar Assinaturas|  
 |WebDevelopersPrimaryKey|Chave primária|  
 |WebDevelopersRegenerateLink|Regenerar|  
 |WebDevelopersSecondaryKey|Chave secundária|  
@@ -543,18 +543,18 @@ Há suporte para as seguintes opções de localização:
 |ButtonLabelRenewSubscription|Renew|  
 |WebDevelopersSubscriptionRequested|Solicitado em {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitado|  
-|WebDevelopersSubscriptionTableNameHeader|{1&gt;Nome&lt;1}|  
+|WebDevelopersSubscriptionTableNameHeader|Nome|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  
 |WebDevelopersUsageStatisticsLink|Relatórios de análise|  
 |WebDevelopersYourSubscriptions|Suas assinaturas|  
 |SubscriptionPropertyLabelRequestedDate|Solicitado em|  
 |SubscriptionPropertyLabelStartedDate|Iniciado em|  
 |PageTitleRenameSubscription|Renomear assinatura|  
-|SubscriptionPropertyLabelName|Nome da inscrição|  
+|SubscriptionPropertyLabelName|Nome da assinatura|  
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Deseja para fechar sua conta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -565,14 +565,14 @@ Há suporte para as seguintes opções de localização:
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Atualizar perfil|  
 |PageTitleUpdateProfile|Atualizar informações da conta|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|{1&gt;Nome&lt;1}|Texto|  
+|Nome|Texto|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Alterar informações da conta|  
 |ButtonLabelChangePassword|Alterar senha|  
@@ -590,7 +590,7 @@ Há suporte para as seguintes opções de localização:
 |SubscriptionStateSuspended|Suspenso|  
 |DefaultSubscriptionNameTemplate|{0} (padrão)|  
 |SubscriptionNameTemplate|Acesso do desenvolvedor #{0}|  
-|TextboxLabelSubscriptionName|Nome da inscrição|  
+|TextboxLabelSubscriptionName|Nome da assinatura|  
 |ValidationMessageSubscriptionNameRequired|Não é possível deixar em branco o nome da assinatura.|  
 |ApiManagementUserLimitReached|Este serviço atingiu o número máximo de usuários permitidos. Atualize para um tipo de preço mais alto.|  
   
@@ -603,5 +603,5 @@ Há suporte para as seguintes opções de localização:
   
  Para obter a lista completa de glifos, consulte [Glyphicons do Bootstrap](https://getbootstrap.com/components/#glyphicons).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

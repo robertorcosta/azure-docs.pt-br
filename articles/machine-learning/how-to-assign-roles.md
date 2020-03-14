@@ -12,11 +12,11 @@ author: Blackmist
 ms.date: 03/06/2020
 ms.custom: seodec18
 ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78932666"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270089"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -116,7 +116,7 @@ Para obter mais informações sobre as operações (ações) utilizáveis com fu
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 
-### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>P. Quais são as permissões necessárias para executar várias ações no serviço de Azure Machine Learning?
+### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Quais são as permissões necessárias para executar várias ações no serviço de Azure Machine Learning?
 
 A tabela a seguir é um resumo de Azure Machine Learning atividades e as permissões necessárias para realizá-las no menor escopo. Como exemplo, se uma atividade puder ser executada com um escopo de espaço de trabalho (coluna 4), todo o escopo mais alto com essa permissão também funcionará automaticamente. Todos os caminhos nesta tabela são **caminhos relativos** para `Microsoft.MachineLearningServices/`.
 
@@ -129,7 +129,7 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 | Atividade do plano de dados como envio de execução, acesso a dados, implantação de modelo ou pipeline de publicação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `workspaces/*/write` <br/> Observe que você também precisa de um repositório de dados registrado para o espaço de trabalho para permitir que o MSI acesse o dado em sua conta de armazenamento. |
 
 
-### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>P. Como fazer listar todas as funções personalizadas em minha assinatura?
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Como fazer listar todas as funções personalizadas em minha assinatura?
 
 No CLI do Azure, execute o comando a seguir.
 
@@ -137,7 +137,7 @@ No CLI do Azure, execute o comando a seguir.
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
-### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>P. Como fazer encontrar a definição de função para uma função em minha assinatura?
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Como fazer encontrar a definição de função para uma função em minha assinatura?
 
 No CLI do Azure, execute o comando a seguir. Observe que `<role-name>` deve estar no mesmo formato retornado pelo comando acima.
 
@@ -145,7 +145,7 @@ No CLI do Azure, execute o comando a seguir. Observe que `<role-name>` deve esta
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
-### <a name="q-how-do-i-update-a-role-definition"></a>P. Como fazer atualizar uma definição de função?
+### <a name="q-how-do-i-update-a-role-definition"></a>Q. Como fazer atualizar uma definição de função?
 
 No CLI do Azure, execute o comando a seguir.
 
@@ -157,18 +157,18 @@ Observe que você precisa ter permissões em todo o escopo da nova definição d
 
 > [!NOTE]
 > As atualizações de função podem levar 15 minutos a uma hora para serem aplicadas em todas as atribuições de função nesse escopo.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>P. Posso definir uma função que impede a atualização da edição do espaço de trabalho? 
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. Posso definir uma função que impede a atualização da edição do espaço de trabalho? 
 
 Sim, você pode definir uma função que impede a atualização da edição do espaço de trabalho. Como a atualização do espaço de trabalho é uma chamada de PATCH no objeto de espaço de trabalho, você faz isso colocando a seguinte ação na matriz de `"NotActions"` em sua definição de JSON: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 
-### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>P. Quais permissões são necessárias para executar operações de cota em um espaço de trabalho? 
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quais permissões são necessárias para executar operações de cota em um espaço de trabalho? 
 
 Você precisa de permissões de nível de assinatura para executar qualquer operação relacionada à cota no espaço de trabalho. Isso significa que a definição de cota de nível de assinatura ou cota de nível de espaço de trabalho para seus recursos de computação gerenciados só poderá ocorrer se você tiver permissões de gravação no escopo da assinatura. 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral de segurança corporativa](concept-enterprise-security.md)
 - [Executar experimentos e inferência/Pontuação com segurança dentro de uma rede virtual](how-to-enable-virtual-network.md)

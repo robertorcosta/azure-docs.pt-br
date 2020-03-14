@@ -1,24 +1,18 @@
 ---
 title: Suporte do Azure para VMs de geração 2
 description: Visão geral do suporte do Azure para VMs de geração 2
-services: virtual-machines-linux
-documentationcenter: ''
 author: ju-shim
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 8b1acb4676d97ff16410543828493428059ad0fb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b68179caed4df5efd3696d7d6a3739a1e07a3c80
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392890"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267294"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -86,7 +80,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Recursos de geração 1 versus geração 2
 
-| Capability | Geração 1 | Geração 2 |
+| Recurso | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
 | Disco do sistema operacional > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
@@ -206,6 +200,6 @@ Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento 
     1. Verifique se a propriedade de **geração de VM** está definida como **Gen 2** na guia **avançado** .
     1. Verifique se você está procurando um [tamanho de VM que dá suporte a VMs Gen2](#generation-2-vm-sizes).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [máquinas virtuais de geração 2 no Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

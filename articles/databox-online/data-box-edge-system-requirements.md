@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757859"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260222"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge requisitos do sistema
 
@@ -58,7 +58,7 @@ O Azure IoT Edge permite a comunicação de saíde de um dispositivo do Edge loc
 
 Use a tabela a seguir para a configuração de porta dos servidores que hospedam o runtime do Azure IoT Edge:
 
-| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretriz |
+| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Orientação |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 
@@ -94,9 +94,9 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 | Padrão de URL                      | Componente ou funcionalidade                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registro de Contêiner da Microsoft (obrigatório)               |
+| https:\//mcr.microsoft.com<br></br>https://\*. cdn.mscr.com | Registro de Contêiner da Microsoft (obrigatório)               |
 | https://\*. azure-devices.us              | Acesso do Hub IoT (obrigatório)           |
-| https://\*.azurecr.us                    | Registros de contêiner pessoal e de terceiros (opcional) | 
+| https://\*. azurecr.us                    | Registros de contêiner pessoal e de terceiros (opcional) | 
 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 

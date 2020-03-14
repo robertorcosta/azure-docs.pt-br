@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535179"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260014"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreamento e log de eventos para seu Azure Data Box e Azure Data Box Heavy
 
@@ -64,7 +64,7 @@ Você pode acompanhar o seu pedido por meio do portal do Azure e do site da tran
 
 - Seu Data Box chega em seu local em um estado bloqueado. Você pode usar as credenciais de dispositivo disponíveis no portal do Azure para seu pedido.  
 
-    Quando um Data Box é configurado, talvez seja necessário saber quem todos acessaram as credenciais do dispositivo. Para descobrir quem acessou a folha **credenciais do dispositivo** , você pode consultar os logs de atividade.  Qualquer ação que envolva o acesso aos **detalhes do dispositivo > folha credenciais** será registrada nos `ListCredentials` logs de atividade como ação.
+    Quando um Data Box é configurado, talvez seja necessário saber quem todos acessaram as credenciais do dispositivo. Para descobrir quem acessou a folha **credenciais do dispositivo** , você pode consultar os logs de atividade.  Qualquer ação que envolva o acesso aos **detalhes do dispositivo > folha credenciais** será registrada nos logs de atividade como `ListCredentials` ação.
 
     ![Consultar logs de atividade](media/data-box-logs/query-activity-log-1.png)
 
@@ -147,7 +147,7 @@ Aqui está um exemplo de *Error. xml* para erros diferentes ao copiar para arqui
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-Em cada um dos casos acima, resolva os erros antes de prosseguir para a próxima etapa. Para obter mais informações sobre os erros recebidos durante a cópia de dados para Data Box por meio de protocolos SMB ou NFS, vá para solucionar problemas [Data box e data Box Heavy problemas](data-box-troubleshoot.md). Para obter informações sobre erros recebidos durante a cópia de dados para Data Box por meio do REST, acesse solucionar problemas [Data Box o armazenamento](data-box-troubleshoot-rest.md)de BLOBs.
+Em cada um dos casos acima, resolva os erros antes de prosseguir para a próxima etapa. Para obter mais informações sobre os erros recebidos durante a cópia de dados para Data Box por meio de protocolos SMB ou NFS, vá para [solucionar problemas data box e data Box Heavy problemas](data-box-troubleshoot.md). Para obter informações sobre erros recebidos durante a cópia de dados para Data Box por meio do REST, acesse [solucionar problemas data Box o armazenamento de BLOBs](data-box-troubleshoot-rest.md).
 
 ## <a name="inspect-bom-during-prepare-to-ship"></a>Inspecionar a BOM durante a preparação para o envio
 
@@ -157,7 +157,7 @@ Durante a preparação para o envio, é criada uma lista de arquivos conhecidos 
 - Use esse arquivo para verificar os tamanhos reais dos arquivos.
 - Verifique se *crc64* corresponde a uma cadeia de caracteres diferente de zero. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-Para obter mais informações sobre os erros recebidos durante a preparação para o envio, vá para solucionar problemas [Data box e data Box Heavy problemas](data-box-troubleshoot.md).
+Para obter mais informações sobre os erros recebidos durante a preparação para o envio, vá para [solucionar problemas data box e data Box Heavy problemas](data-box-troubleshoot.md).
 
 ### <a name="bom-or-manifest-file"></a>BOM ou arquivo de manifesto
 
@@ -297,7 +297,7 @@ Depois que os dados são apagados dos discos de Data Box de acordo com as diretr
 
 ### <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria contêm informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando estiver fora do datacenter do Azure. Esses logs estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
+Os logs de auditoria contêm informações sobre como ligar e acessar compartilhamentos no Data Box ou Data Box Heavy quando estiver fora do datacenter do Azure. Esses logs estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
 
 Aqui está um exemplo do log de auditoria de um Data Box:
 
@@ -352,7 +352,7 @@ The authentication information fields provide detailed information about this sp
 ```
 
 
-## <a name="download-order-history"></a>Baixar o histórico de pedidos
+## <a name="download-order-history"></a>Baixar histórico de pedidos
 
 O histórico de pedidos está disponível em portal do Azure. Se o pedido estiver concluído e a limpeza do dispositivo (eliminação de dados dos discos) estiver concluída, vá para a ordem do dispositivo e navegue até **detalhes do pedido**. A opção **Baixar histórico de pedidos** está disponível. Para obter mais informações, consulte [baixar histórico de pedidos](data-box-portal-admin.md#download-order-history).
 

@@ -14,13 +14,13 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 3837b2af31ddab3c35abf877a74f980bd34e933d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78267478"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280216"
 ---
-# <a name="network-security-groups"></a>Regras de segurança de rede
+# <a name="network-security-groups"></a>Grupos de segurança de rede
 <a name="network-security-groups"></a>
 
 Você pode filtrar o tráfego de rede de e para recursos do Azure em uma rede virtual do Azure com um grupo de segurança de rede. Um grupo de segurança de rede contém regras de segurança que permitem ou negam o tráfego de rede de entrada ou de saída em relação a vários tipos de recursos do Azure. Para saber mais sobre quais recursos do Azure podem ser implantados em uma rede virtual e ter grupos de segurança de rede associados a eles, consulte [Integração de rede virtual para serviços do Azure](virtual-network-for-azure-services.md). Para cada regra, você pode especificar origem e destino, porta e protocolo.
@@ -33,7 +33,7 @@ Um grupo de segurança de rede pode conter nenhuma ou quantas regras você desej
 
 |Propriedade  |Explicação  |
 |---------|---------|
-|{1&gt;Nome&lt;1}|Um nome exclusivo dentro do grupo de segurança de rede.|
+|Nome|Um nome exclusivo dentro do grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas na ordem de prioridade, com números mais baixos processados antes de números mais altos, pois os números mais baixos têm prioridade mais alta. Depois que o tráfego corresponde a uma regra, o processamento é interrompido. Assim, as regras existentes com baixa prioridade (números mais altos) que têm os mesmos atributos das regras com prioridades mais altas não são processadas.|
 |Origem ou destino| Qualquer endereço IP ou um endereço IP individual, bloco de CIDR (encaminhamento entre domínios) (10.0.0.0/24, por exemplo), [marca de serviço](service-tags-overview.md) ou [grupo de segurança de aplicativo](#application-security-groups). Se você especificar um endereço para um recurso do Azure, especifique o endereço IP privado atribuído ao recurso. Os grupos de segurança de rede são processados depois que o Azure traduz um endereço IP público em um endereço IP privado para tráfego de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para tráfego de saída. Saiba mais sobre os [endereços IP](virtual-network-ip-addresses-overview-arm.md) do Azure. A especificação de um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicativos permite que você crie menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos (você não pode especificar várias marcas de serviço ou grupos de aplicativos) em uma regra é conhecida como [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar vários endereços IP e intervalos de endereços IP em grupos de segurança de rede criados pelo modelo de implantação clássica. Saiba mais sobre os [modelos de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protocolo     | TCP, UDP, ICMP ou any.|
@@ -54,19 +54,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualquer|Permitir|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Qualquer|Allow|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualquer|Permitir|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Qualquer|Allow|
 
 ##### <a name="denyallinbound"></a>DenyAllInBound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Qualquer|Negar|
 
@@ -74,19 +74,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualquer | Permitir |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Qualquer | Allow |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualquer | Permitir |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Qualquer | Allow |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Qualquer | Negar |
 
@@ -168,6 +168,6 @@ Em relação ao tráfego de saída, o Azure processa as regras em um grupo de se
 
   Se o Azure permitir que você envie emails pela porta 25, a Microsoft não garante que os provedores de email aceitarão emails de entrada provenientes de sua máquina virtual. Se um provedor específico rejeitar um email de sua máquina virtual, trabalhe diretamente com o provedor para resolver entregas de mensagens ou problemas de filtragem de spam, ou use um serviço de retransmissão de SMTP autenticado.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Aprenda a [Criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

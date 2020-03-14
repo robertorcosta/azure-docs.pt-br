@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311381"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284272"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -41,19 +41,19 @@ A tabela a seguir ilustra as ações que podem ser executadas por usuários em c
 | --- | --- | --- | --- |
 | **Tarefas do laboratório** | | | |
 | Adicionar usuários a um laboratório |Não |Sim |Não |
-| Atualizar configurações de custo |Não |sim |Sim |
+| Atualizar configurações de custo |Não |Sim |Sim |
 | **Tarefas de base da VM** | | | |
-| Adicionar e remover imagens personalizadas |Não |sim |Sim |
-| Adicionar, atualizar e excluir fórmulas |Sim |sim |Sim |
-| Incluir imagens do Azure Marketplace na listra branca |Não |sim |Sim |
+| Adicionar e remover imagens personalizadas |Não |Sim |Sim |
+| Adicionar, atualizar e excluir fórmulas |Sim |Sim |Sim |
+| Incluir imagens do Azure Marketplace na listra branca |Não |Sim |Sim |
 | **Tarefas da VM** | | | |
-| Criar VMs |Sim |sim |Sim |
+| Criar VMs |Sim |Sim |Sim |
 | Iniciar, parar e excluir VMs |Somente máquinas virtuais criadas pelo usuário |Sim |Sim |
-| Atualizar políticas de VM |Não |sim |Sim |
+| Atualizar políticas de VM |Não |Sim |Sim |
 | Adicionar/remover discos de dados de/para máquinas virtuais |Somente máquinas virtuais criadas pelo usuário |Sim |Sim |
 | **Tarefas de artefato** | | | |
-| Adicionar e remover repositórios de artefato |Não |sim |Sim |
-| Aplicar artefatos |Sim |sim |Sim |
+| Adicionar e remover repositórios de artefato |Não |Sim |Sim |
+| Aplicar artefatos |Sim |Sim |Sim |
 
 > [!NOTE]
 > Quando um usuário cria uma VM, esse usuário é atribuído automaticamente à função **Proprietário** da VM criada.
@@ -64,14 +64,14 @@ A tabela a seguir ilustra as ações que podem ser executadas por usuários em c
 Os proprietários e os usuários podem ser adicionados no nível do laboratório por meio do portal do Azure. Um usuário pode ser externo com uma [Conta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)válida.
 As etapas a seguir vão orientá-lo durante o processo de adição de um proprietário ou de um usuário a um laboratório nos Azure DevTest Labs:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.
 4. Na folha do laboratório, selecione **Configuração e Políticas**. 
 5. Na página **Configuração e políticas**, selecione **Controle de acesso (IAM)** no menu à esquerda. 
 6. Selecione **Adicionar atribuição de função** na barra de ferramentas para adicionar um usuário a uma função.
 1. Na janela **Adicionar permissões**, execute as ações a seguir: 
-    1. Selecione uma função (por exemplo: Usuário do DevTest Labs). A seção [Ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as diversas ações que podem ser executadas por usuários nas funções Proprietário, Usuário de DevTest e Colaborador.
+    1. Selecione uma função (por exemplo, usuário do DevTest Labs). A seção [Ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as diversas ações que podem ser executadas por usuários nas funções Proprietário, Usuário de DevTest e Colaborador.
     2. Selecione o usuário a ser adicionado à função. 
     3. Clique em **Salvar**. 
 11. Quando você retornar para a folha **Usuários** , o usuário terá sido adicionado.  
@@ -119,7 +119,7 @@ Você pode adicionar outros proprietários a um laboratório por meio da folha d
 
 Para adicionar um proprietário a uma assinatura do Azure, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços** e, em seguida, selecione **Assinaturas** na lista.
 3. Selecione a assinatura desejada.
 4. Selecione o ícone **Acesso** . 

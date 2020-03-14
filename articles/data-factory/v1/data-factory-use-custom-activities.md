@@ -13,11 +13,11 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385343"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265721"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -42,7 +42,7 @@ O passo a passo a seguir fornece instruções para criar uma atividade personali
 > - Não é possível usar o Gateway de Gerenciamento de Dados de uma atividade personalizada para acessar fontes de dados locais. Atualmente, o [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) dá suporte apenas à atividade de cópia e à atividade de procedimento armazenado no Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Passo a passo: criar uma atividade personalizada
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 * Visual Studio 2012/2013/2015/2017
 * Baixar e instalar o [SDK .NET do Azure](https://azure.microsoft.com/downloads/)
 
@@ -627,7 +627,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
     ![Bloco do diagrama](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
 2. Na exibição Diagrama, clique em OutputDataset.
 
-    ![Exibir Diagrama](./media/data-factory-use-custom-activities/diagram.png)
+    ![Modo de Exibição de Diagrama](./media/data-factory-use-custom-activities/diagram.png)
 3. Você verá que as cinco fatias de saída estão no estado Pronto. Se não estiverem no estado Pronto, ainda não foram produzidas.
 
    ![Fatias de saída](./media/data-factory-use-custom-activities/OutputSlices.png)
@@ -712,7 +712,7 @@ A solução de problemas consiste em algumas técnicas básicas:
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
-    Crie o projeto. Exclua o assembly Azure.Storage de versão > 4.3.0 da pasta bin\Debug. Crie um arquivo zip com binários e o arquivo PDB. Substitua o arquivo zip antigo por esse no contêiner de blob (customactivitycontainer). Execute novamente as fatias com falha (clique com o botão direito na fatia e clique em Executar).
+    Compile o projeto. Exclua o assembly Azure.Storage de versão > 4.3.0 da pasta bin\Debug. Crie um arquivo zip com binários e o arquivo PDB. Substitua o arquivo zip antigo por esse no contêiner de blob (customactivitycontainer). Execute novamente as fatias com falha (clique com o botão direito na fatia e clique em Executar).
 8. A atividade personalizada não usa o arquivo **app.config** do seu pacote. Portanto, se seu código lê as cadeias de conexão do arquivo de configuração, ele não funciona no runtime. A prática recomendada ao usar o Lote do Azure é armazenar os segredos em um **Azure KeyVault**, usar uma entidade de serviço com base em certificados para proteger o **keyvault** e distribuir o certificado para o pool do Lote do Azure. A atividade personalizada do .NET pode então acessar segredos no KeyVault no runtime. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
 
    Há uma solução alternativa mais fácil (mas não é uma prática recomendada): você pode criar um **serviço vinculado do SQL Azure** com configurações da cadeia de conexão, criar um conjunto de dados que usa o serviço vinculado e encadear o conjunto de dados como um conjunto de dados de entrada fictício para a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada.

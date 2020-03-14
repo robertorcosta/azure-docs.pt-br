@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713187"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259819"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -53,7 +53,7 @@ Quando você escala ou reduz verticalmente, são adicionadas novas funções de 
 
 Apenas para que o ASE opere, o ASE exige que as seguintes portas sejam abertas:
 
-| Uso | De | Para |
+| Use | De | Para |
 |-----|------|----|
 | Gerenciamento | Endereços de gerenciamento do Serviço de Aplicativo | Sub-rede ASE: 454, 455 |
 |  Comunicação interna ASE | Sub-rede ASE: todas as portas | Sub-rede ASE: todas as portas
@@ -69,7 +69,7 @@ Para a comunicação entre o balanceador de carga do Azure e a sub-rede do ASE, 
 
 As outras portas com as quais você precisa se preocupar são as portas do aplicativo:
 
-| Uso | Portas |
+| Use | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -122,7 +122,7 @@ Se o ASE ILB for o nome de domínio *contoso.appserviceenvironment.net* e o nome
 
 ## <a name="ase-ip-addresses"></a>Endereços IP do ASE ##
 
-Um ASE tem alguns endereços IP para reconhecer. São eles:
+Um ASE tem alguns endereços IP para reconhecer. Eles são:
 
 - **Endereço IP público de entrada**: usado para o tráfego de aplicativo em um ASE externo e o tráfego de gerenciamento em um ASE externo e em um ASE ILB.
 - **IP público de saída**: usado como o IP “de” das conexões de saída do ASE que saem da VNet, que não são roteadas por uma VPN.
@@ -166,7 +166,7 @@ As entradas necessárias em um NSG para que um ASE funcione, são permitir o tr�
 
 A porta DNS não precisa ser adicionada, pois o tráfego para DNS não é afetado pelas regras NSG. Essas portas não incluem as portas que seus aplicativos exigem para uso bem-sucedido. As portas de acesso normais do aplicativo são:
 
-| Uso | Portas |
+| Use | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -200,7 +200,7 @@ Para criar as mesmas rotas manualmente, siga estas etapas:
 
 3. Dentro da interface do usuário da tabela de rota, selecione **Rotas** > **Adicionar**.
 
-4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Selecione **Salvar**.
+4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Clique em **Salvar**.
 
     Então você verá algo semelhante ao que se segue:
 

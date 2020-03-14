@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756310"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261652"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Carimbos de data/hora e sequenciamento de mensagem
 
@@ -46,7 +46,7 @@ O **SequenceNumber** para uma mensagem agendada somente será válido enquanto a
 
 Como o recurso está ancorado em mensagens individuais e as mensagens só podem ser enfileiradas uma vez, o Barramento de Serviço não dá suporte a agendamentos recorrentes para mensagens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

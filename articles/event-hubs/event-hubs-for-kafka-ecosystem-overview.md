@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: fc81226e754178ad0edfff96a494dd7522662261
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395447"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264889"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usar Hubs de Eventos do Azure de aplicativos Apache Kafka
 Os Hubs de Eventos fornecem um ponto de extremidade Kafka que pode ser usado por seus aplicativos baseados em Kafka existentes como uma alternativa para executar seu próprio cluster Kafka. Os Hubs de Eventos dão suporte ao [protocolo 1.0 e posterior do Apache Kafka](https://kafka.apache.org/documentation/) e funciona com aplicativos existentes do Kafka, incluindo o MirrorMaker.  
@@ -30,11 +30,11 @@ Os hubs de eventos e Kafka conceitualmente são quase idênticos: ambos são log
 
 | Conceito de Kafka | Conceito de Hubs de Eventos|
 | --- | --- |
-| Cluster | {1&gt;Namespace&lt;1} |
+| Cluster | Namespace |
 | Tópico | Hub de evento |
-| Partição | Partição|
+| Partition | Partition|
 | Grupo de Consumidores | Grupo de Consumidores |
-| Offset | Offset|
+| Deslocamento | Deslocamento|
 
 ### <a name="key-differences-between-kafka-and-event-hubs"></a>Principais diferenças entre Kafka e Hubs de Eventos
 
@@ -71,7 +71,7 @@ sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-#### <a name="samples"></a>Amostras 
+#### <a name="samples"></a>Exemplos 
 Para obter um **tutorial** com as instruções detalhadas para criar um hub de eventos habilitado para Kafka e acessá-lo usando SAS ou OAuth, consulte [início rápido: streaming de dados com hubs de eventos usando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
 Para obter mais **exemplos** que mostram como usar o OAuth com hubs de eventos para Kafka, consulte [exemplos no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
@@ -93,7 +93,7 @@ Aqui está a lista de recursos de Kafka que ainda não têm suporte:
 *   Suporte a API de Kafta HTTP
 *   Kafka Streams
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo forneceu uma introdução aos Hubs de Eventos para Kafka. Para saber mais, consulte os seguintes links:
 

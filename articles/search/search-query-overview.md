@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793210"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282816"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição no Azure Pesquisa Cognitiva
 
@@ -33,7 +33,7 @@ O exemplo a seguir é uma consulta representativa construída na [API REST](http
 }
 ```
 
-+ **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para construções de consulta avançada, como expressões regulares, pesquisa de proximidade, difusa e pesquisa de curingas, para citar alguns.
++ **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para constructos de consulta avançada, como expressões regulares, pesquisa de proximidade, pesquisa difusa e de curinga, para citar alguns.
 
 + **`search`** fornece os critérios de correspondência, geralmente texto, mas geralmente acompanhados por operadores booleanos. Termos de autônomo único são *termo* consultas. Consultas de várias partes com delimitação de cotação são *consultas de frase-chave*. A pesquisa pode ser indefinida, como em **`search=*`** , mas mais provavelmente consiste em termos, expressões e operadores semelhantes ao que aparece no exemplo.
 
@@ -80,7 +80,7 @@ Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista compl
 
 A tabela a seguir lista as APIs e as abordagens baseadas em ferramentas para enviar consultas.
 
-| Metodologia | Descrição |
+| Metodologia | DESCRIÇÃO |
 |-------------|-------------|
 | [Gerenciador de pesquisa (portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para seleções de versão da API e índice. Os resultados são retornados como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
 | [O postmaster ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste da Web são uma excelente opção para formular chamadas REST. A API REST dá suporte a todas as operações possíveis no Azure Pesquisa Cognitiva. Neste artigo, saiba como configurar um cabeçalho de solicitação HTTP e o corpo para enviar solicitações para o Azure Pesquisa Cognitiva.  |
@@ -157,7 +157,7 @@ Se você quiser que o Azure Pesquisa Cognitiva retorne os resultados ordenados p
 ### <a name="hit-highlighting"></a>Realce de ocorrência
 No Azure Pesquisa Cognitiva, enfatizando a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitada usando os parâmetros **`highlight`** , **`highlightPreTag`** e **`highlightPostTag`** . Você pode especificar quais campos *pesquisáveis* devem ter seu texto correspondente enfatizado, bem como especificar as marcas de cadeia de caracteres exatas a serem acrescentadas ao início e ao fim do texto correspondente que o Azure pesquisa cognitiva retorna.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
 + [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)

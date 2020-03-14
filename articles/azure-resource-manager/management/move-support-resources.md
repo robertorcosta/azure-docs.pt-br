@@ -4,11 +4,11 @@ description: Lista os tipos de recursos do Azure que podem ser movidos para um n
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 8ab194ad240e4f3e0994314ef9ade3bc7159cf81
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387698"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273924"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure é compatível com a operação de movimentação. Ele também fornece informações sobre condições especiais a serem consideradas ao mover um recurso.
@@ -170,30 +170,30 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domainservices | Não | Não |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | tenants | Não | Não |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | configurações | Não | Não |
-> | recomendações | Não | Não |
+> | filmes | Não | Não |
 > | suppressions | Não | Não |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | actionrules | Sim | Sim |
 > | alertas | Não | Não |
@@ -203,35 +203,35 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | servidores | Sim | Sim |
+> | servers | Sim | Sim |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | serviço | Sim | Sim |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | configurationstores | Sim | Sim |
 
 ## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | surge | Sim | Sim |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | apiapps | Não | Não |
 > | appidentities | Não | Não |
@@ -243,12 +243,12 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | CheckAccess | Não | Não |
 > | denyassignments | Não | Não |
 > | findorphanroleassignments | Não | Não |
-> | bloqueios | Não | Não |
+> | locks | Não | Não |
 > | permissões | Não | Não |
 > | policyassignments | Não | Não |
 > | PolicyDefinitions | Não | Não |
@@ -260,7 +260,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | Sim | Sim |
 > | automationaccounts/configurações | Sim | Sim |
@@ -272,14 +272,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | b2cdirectories | Sim | Sim |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hybriddatamanagers | Não | Não |
 > | postgresinstances | Não | Não |
@@ -290,31 +290,31 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registrations | Sim | Sim |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | batchaccounts | Sim | Sim |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Não | Não |
 > | fileservers | Não | Não |
-> | trabalhos | Não | Não |
+> | jobs | Não | Não |
 > | workspaces | Não | Não |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | billingperiods | Não | Não |
 > | billingpermissions | Não | Não |
@@ -325,21 +325,21 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | mapapis | Não | Não |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | biztalk | Não | Não |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | blockchainmembers | Não | Não |
 > | inspetores | Não | Não |
@@ -347,7 +347,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | blueprintassignments | Não | Não |
 > | blueprints | Não | Não |
@@ -355,14 +355,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | botservices | Sim | Sim |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | redis | Sim | Sim |
 
@@ -372,7 +372,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | cdnwebapplicationfirewallpolicies | Sim | Sim |
 > | perfis | Sim | Sim |
@@ -381,7 +381,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | certificateorders | Sim | Sim |
 
@@ -391,7 +391,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domainnames | Sim | Não |
 > | virtualmachines | Sim | Não |
@@ -402,7 +402,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | networksecuritygroups | Não | Não |
 > | reservedips | Não | Não |
@@ -414,7 +414,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storageaccounts | Sim | Não |
 
@@ -424,29 +424,29 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Sim | Sim |
+> | accounts | Sim | Sim |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | Sim | Sim |
 > | diskencryptionsets | Não | Não |
-> | discos | Sim | Sim |
+> | disks | Sim | Sim |
 > | galleries | Não | Não |
 > | galerias/imagens | Não | Não |
 > | galerias/imagens/versões | Não | Não |
 > | hosts | Não | Não |
 > | hosts/hosts | Não | Não |
-> | imagens | Sim | Sim |
+> | images | Sim | Sim |
 > | proximityplacementgroups | Não | Não |
 > | restorepointcollections | Não | Não |
 > | sharedvmimages | Não | Não |
 > | sharedvmimages/versões | Não | Não |
-> | instantâneos | Sim | Sim |
+> | snapshots | Sim | Sim |
 > | virtualmachines | Sim | Sim |
 > | VirtualMachines/extensões | Sim | Sim |
 > | virtualmachinescalesets | Sim | Sim |
@@ -457,7 +457,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | aggregatedcost | Não | Não |
 > | saldos | Não | Não |
@@ -465,7 +465,7 @@ Ir para um namespace do provedor de recursos:
 > | contabiliza | Não | Não |
 > | costtags | Não | Não |
 > | credits | Não | Não |
-> | eventos | Não | Não |
+> | events | Não | Não |
 > | Previsão | Não | Não |
 > | lots | Não | Não |
 > | Marketplaces | Não | Não |
@@ -485,14 +485,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | containergroups | Não | Não |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | containergroups | Não | Não |
 > | serviceassociationlinks | Não | Não |
@@ -500,7 +500,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registries | Sim | Sim |
 > | registros/BuildTasks | Sim | Sim |
@@ -512,7 +512,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | containerservices | Não | Não |
 > | managedclusters | Não | Não |
@@ -521,21 +521,21 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aplicativos | Não | Não |
+> | de dimensionamento da Web | Não | Não |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | alertas | Não | Não |
 > | Orçamentos | Não | Não |
@@ -544,23 +544,23 @@ Ir para um namespace do provedor de recursos:
 > | exporta | Não | Não |
 > | externalsubscriptions | Não | Não |
 > | visto | Não | Não |
-> | query | Não | Não |
+> | Consulta | Não | Não |
 > | reportconfigs | Não | Não |
 > | relatórios | Não | Não |
 > | showbackrules | Não | Não |
-> | exibições | Não | Não |
+> | Modos de exibição | Não | Não |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hubs | Não | Não |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | associações | Não | Não |
 > | resourceproviders | Sim | Sim |
@@ -568,43 +568,43 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | trabalhos | Não | Não |
+> | jobs | Não | Não |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | databoxedgedevices | Não | Não |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspaces | Não | Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | catálogos | Sim | Sim |
+> | catalogs | Sim | Sim |
 > | catálogos de | Não | Não |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | connectionmanagers | Não | Não |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | pacotes | Não | Não |
 > | planos | Não | Não |
@@ -612,82 +612,82 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Sim | Sim |
-> | fábricas | Sim | Sim |
+> | factories | Sim | Sim |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datalakeaccounts | Não | Não |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Sim | Sim |
+> | accounts | Sim | Sim |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Sim | Sim |
+> | accounts | Sim | Sim |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | serviços | Não | Não |
+> | services | Não | Não |
 > | serviços/projetos | Não | Não |
 > | slots | Não | Não |
 
 ## <a name="microsoftdataprotection"></a>Microsoft. dataprotection
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | backupvaults | Não | Não |
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Sim | Sim |
+> | accounts | Sim | Sim |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | servidores | Sim | Sim |
+> | servers | Sim | Sim |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | servidores | Sim | Sim |
+> | servers | Sim | Sim |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | servergroups | Não | Não |
-> | servidores | Sim | Sim |
+> | servers | Sim | Sim |
 > | serversv2 | Sim | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | artifactsources | Sim | Sim |
 > | rollouts | Sim | Sim |
@@ -699,7 +699,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | elasticpools | Não | Não |
 > | elasticpools / iothubtenants | Não | Não |
@@ -709,63 +709,63 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftdevops"></a>Microsoft. DevOps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | pipelines | Sim | Sim |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | controladores | Sim | Sim |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | labcenters | Não | Não |
 > | labs | Sim | Não |
 > | laboratórios/ambientes | Sim | Sim |
 > | laboratórios/perrunners | Sim | Sim |
 > | laboratórios/VirtualMachines | Sim | Não |
-> | agendas | Sim | Sim |
+> | schedules | Sim | Sim |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | digitaltwinsinstances | Não | Não |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | databaseaccounts | Sim | Sim |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | domínios | Sim | Sim |
+> | domains | Sim | Sim |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | serviços | Sim | Sim |
+> | services | Sim | Sim |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | domínios | Sim | Sim |
+> | domains | Sim | Sim |
 > | eventSubscriptions | Não, não pode ser movido de forma independente, mas automaticamente movido com o recurso assinado. | Não, não pode ser movido de forma independente, mas automaticamente movido com o recurso assinado. |
 > | EventSubscriptions | Não, não pode ser movido de forma independente, mas automaticamente movido com o recurso assinado. | Não, não pode ser movido de forma independente, mas automaticamente movido com o recurso assinado. |
 > | extensiontopics | Não | Não |
@@ -774,7 +774,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Sim | Sim |
 > | namespaces | Sim | Sim |
@@ -782,14 +782,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | guestconfigurationassignments | Não | Não |
 > | software | Não | Não |
@@ -799,7 +799,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | Não | Não |
 > | sapmonitors | Sim | Sim |
@@ -807,7 +807,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Sim | Sim |
 
@@ -819,14 +819,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | serviços | Sim | Sim |
+> | services | Sim | Sim |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | maquina | Sim | Sim |
 > | máquinas/extensões | Não | Não |
@@ -834,29 +834,29 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datamanagers | Sim | Sim |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | trabalhos | Sim | Sim |
+> | jobs | Sim | Sim |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | actiongroups | Sim | Sim |
 > | activitylogalerts | Não | Não |
 > | alertrules | Sim | Sim |
 > | autoscalesettings | Sim | Sim |
-> | linha de base | Não | Não |
+> | baseline | Não | Não |
 > | calculatebaseline | Não | Não |
-> | componentes | Sim | Sim |
+> | components | Sim | Sim |
 > | DiagnosticSettings | Não | Não |
 > | diagnosticsettingscategories | Não | Não |
 > | eventtypes | Não | Não |
@@ -867,7 +867,7 @@ Ir para um namespace do provedor de recursos:
 > | metricbaselines | Não | Não |
 > | metricdefinitions | Não | Não |
 > | metricnamespaces | Não | Não |
-> | métricas | Não | Não |
+> | Métricas | Não | Não |
 > | minhas pastas de trabalho | Não | Não |
 > | privatelinkscopes | Sim | Sim |
 > | scheduledqueryrules | Sim | Sim |
@@ -875,7 +875,7 @@ Ir para um namespace do provedor de recursos:
 > | transações | Não | Não |
 > | vminsightsonboardingstatuses | Não | Não |
 > | webtests | Sim | Sim |
-> | pastas de trabalho | Sim | Sim |
+> | workbooks | Sim | Sim |
 > | workbooktemplates | Sim | Sim |
 
 > [!IMPORTANT]
@@ -884,14 +884,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | iotapps | Sim | Sim |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | Sim | Sim |
 > | grafo | Sim | Sim |
@@ -899,7 +899,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | vaults | Sim | Sim |
 
@@ -909,54 +909,54 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftkubernetes"></a>Microsoft. kubernetes
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | connectedclusters | Não | Não |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Sim | Sim |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | labaccounts | Não | Não |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | Não | Não |
 > | integrationaccounts | Sim | Sim |
 > | integrationserviceenvironments | Sim | Não |
 > | integrationserviceenvironments / managedapis | Sim | Não |
 > | isolatedenvironments | Não | Não |
-> | fluxos de trabalho | Sim | Sim |
+> | workflows | Sim | Sim |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | commitmentplans | Sim | Sim |
 > | webservices | Sim | Não |
@@ -965,16 +965,16 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | operationalizationclusters | Não | Não |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 > | contas/espaços de trabalho | Não | Não |
 > | contas/espaços de trabalho/projetos | Não | Não |
 > | teamaccounts | Não | Não |
@@ -984,21 +984,21 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hostingaccounts | Não | Não |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspaces | Não | Não |
 > | espaços de trabalho/computações | Não | Não |
@@ -1006,7 +1006,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | identidades | Não | Não |
 > | userassignedidentities | Não | Não |
@@ -1014,7 +1014,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftmanagedservices"></a>Microsoft. Managedservices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registrationassignments | Não | Não |
 > | registrationdefinitions | Não | Não |
@@ -1022,21 +1022,21 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Sim | Sim |
+> | accounts | Sim | Sim |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | classicdevservices | Não | Não |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | mediaservices | Sim | Sim |
 > | mediaservices/liveevents | Sim | Sim |
@@ -1045,23 +1045,23 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftmicroservices4spring"></a>Microsoft. Microservices4Spring
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | appclusters | Não | Não |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | assessmentprojects | Sim | Sim |
 > | migrateprojects | Sim | Sim |
-> | projetos | Não | Não |
+> | projects | Não | Não |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | netappaccounts | Não | Não |
 > | netappaccounts / backuppolicies | Não | Não |
@@ -1073,7 +1073,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applicationgateways | Não | Não |
 > | applicationgatewaywebapplicationfirewallpolicies | Não | Não |
@@ -1131,7 +1131,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | namespaces | Sim | Sim |
 > | namespaces/notificationhubs | Sim | Sim |
@@ -1139,14 +1139,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | osnamespaces | Sim | Sim |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storageinsightconfigs | Não | Não |
 > | workspaces | Sim | Sim |
@@ -1157,17 +1157,17 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | managementassociations | Não | Não |
 > | managementconfigurations | Sim | Sim |
-> | soluções | Sim | Sim |
-> | exibições | Sim | Sim |
+> | solutions | Sim | Sim |
+> | Modos de exibição | Sim | Sim |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | emparelhamentos | Sim | Sim |
 > | peeringservices | Não | Não |
@@ -1175,7 +1175,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | policyevents | Não | Não |
 > | policystates | Não | Não |
@@ -1185,56 +1185,56 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | painéis de controle | Sim | Sim |
+> | dashboards | Sim | Sim |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | rootresources | Não | Não |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspacecollections | Sim | Sim |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | recursos | Sim | Sim |
+> | capacities | Sim | Sim |
 
 ## <a name="microsoftprojectbabylon"></a>Microsoft. ProjectBabylon
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Não | Não |
+> | accounts | Não | Não |
 
 ## <a name="microsoftproviderhub"></a>Microsoft. ProviderHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | rollouts | Não | Não |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | backupprotecteditems | Não | Não |
 > | replicationeligibilityresults | Não | Não |
@@ -1246,32 +1246,32 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | namespaces | Sim | Sim |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | consultas | Sim | Sim |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | availabilitystatuses | Não | Não |
 > | childavailabilitystatuses | Não | Não |
 > | childresources | Não | Não |
-> | eventos | Não | Não |
-> | notificações | Não | Não |
+> | events | Não | Não |
+> | Notificações | Não | Não |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | deploymentscripts | Não | Não |
 > | links | Não | Não |
@@ -1280,14 +1280,14 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aplicativos | Sim | Não |
+> | de dimensionamento da Web | Sim | Não |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | searchservices | Sim | Sim |
 
@@ -1297,7 +1297,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | adaptivenetworkhardenings | Não | Não |
 > | advancedthreatprotectionsettings | Não | Não |
@@ -1315,7 +1315,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftsecurityinsights"></a>Microsoft. SecurityInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | agregações | Não | Não |
 > | alertrules | Não | Não |
@@ -1333,7 +1333,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | gateways | Não | Não |
 > | nós | Não | Não |
@@ -1341,76 +1341,76 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | namespaces | Sim | Sim |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aplicativos | Não | Não |
+> | de dimensionamento da Web | Não | Não |
 > | clusters | Sim | Sim |
 > | clusters/aplicativos | Não | Não |
 > | containergroups | Não | Não |
 > | containergroupsets | Não | Não |
 > | edgeclusters | Não | Não |
 > | managedclusters | Não | Não |
-> | redes | Não | Não |
+> | networks | Não | Não |
 > | secretstores | Não | Não |
 > | volumes | Não | Não |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | aplicativos | Sim | Sim |
+> | de dimensionamento da Web | Sim | Sim |
 > | gateways | Sim | Sim |
-> | redes | Sim | Sim |
+> | networks | Sim | Sim |
 > | segredos | Sim | Sim |
 > | volumes | Sim | Sim |
 
 ## <a name="microsoftservices"></a>Microsoft. Services
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | rollouts | Não | Não |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | signalr | Sim | Sim |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | hybridusebenefits | Não | Não |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applicationdefinitions | Não | Não |
-> | aplicativos | Não | Não |
+> | de dimensionamento da Web | Não | Não |
 > | jitrequests | Não | Não |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | instancepools | Não | Não |
 > | managedinstances | Não | Não |
 > | ManagedInstances/bancos de dados | Não | Não |
-> | servidores | Sim | Sim |
+> | servers | Sim | Sim |
 > | servidores/bancos de dados | Sim | Sim |
 > | servidores/elasticpools | Sim | Sim |
 > | servidores/jobaccounts | Sim | Sim |
@@ -1423,7 +1423,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | sqlvirtualmachinegroups | Sim | Sim |
 > | sqlvirtualmachines | Sim | Sim |
@@ -1431,49 +1431,49 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | dwvm | Não | Não |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storageaccounts | Sim | Sim |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | Sim | Sim |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | Não | Não |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | Não | Não |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | managers | Não | Não |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | streamingjobs | Sim | Sim |
 
@@ -1483,32 +1483,32 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | ambientes | Não | Não |
+> | environments | Não | Não |
 > | ambientes/EventSources | Não | Não |
-> | instâncias | Não | Não |
+> | instances | Não | Não |
 > | instâncias/ambientes | Não | Não |
 > | instâncias/ambientes/EventSources | Não | Não |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | CreateSubscription | Não | Não |
 
 ## <a name="microsoftsupport"></a>microsoft.support
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | supporttickets | Não | Não |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | providerregistrations | Não | Não |
 > | recursos | Não | Não |
@@ -1516,23 +1516,23 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | ambientes | Sim | Sim |
+> | environments | Sim | Sim |
 > | ambientes/EventSources | Sim | Sim |
 > | ambientes/referencedatasets | Sim | Sim |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | armazenamentos | Sim | Sim |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | account | Não | Não |
 > | conta/extensão | Sim | Sim |
@@ -1544,7 +1544,7 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | dedicatedcloudnodes | Não | Não |
 > | dedicatedcloudservices | Não | Não |
@@ -1553,17 +1553,17 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftvsonline"></a>Microsoft. VSOnline
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Sim | Sim |
+> | accounts | Sim | Sim |
 > | planos | Sim | Sim |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | certificados | Não | Sim |
+> | certificates | Não | Sim |
 > | connectiongateways | Sim | Sim |
 > | connections | Sim | Sim |
 > | customapis | Sim | Sim |
@@ -1580,25 +1580,25 @@ Ir para um namespace do provedor de recursos:
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | deviceservices | Não | Não |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
-> | Tipo de recurso | Grupo de recursos | Assinatura |
+> | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | componentes | Não | Não |
+> | components | Não | Não |
 > | monitorinstances | Não | Não |
-> | monitores | Não | Não |
+> | monitors | Não | Não |
 > | notificationsettings | Não | Não |
 
 ## <a name="third-party-services"></a>Serviços de terceiros
 
 No momento, serviços de terceiros não dão suporte à operação de movimentação.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para ver comandos para mover recursos, confira [Move resources to new resource group or subscription](move-resource-group-and-subscription.md) (Mover recursos para o novo grupo de recursos ou assinatura).
 
 Para obter os mesmos dados como um arquivo de valores separados por vírgula, baixe [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

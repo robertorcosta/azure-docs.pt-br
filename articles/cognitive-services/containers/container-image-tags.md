@@ -10,11 +10,11 @@ ms.topic: reference
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: eed2223dbfeee307b552cdd010530f27c379f5fe
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082164"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219440"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Marcas de imagem de contêiner de serviços cognitivas do Azure
 
@@ -29,7 +29,7 @@ A imagem de contêiner do [detector de anomalias][ad-containers] pode ser encont
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -41,7 +41,7 @@ A imagem de contêiner [Pesquisa Visual computacional][cv-containers] pode ser e
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.011580001-amd64-preview` |       |
@@ -54,7 +54,7 @@ A imagem de contêiner de [face][fa-containers] pode ser encontrada no registro 
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -72,7 +72,7 @@ A imagem de contêiner do [reconhecedor de formulário][fr-containers] pode ser 
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -85,7 +85,7 @@ A imagem de contêiner [Luis][lu-containers] pode ser encontrada na agregação 
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.010330004-amd64-preview` |       |
@@ -103,7 +103,7 @@ A imagem de contêiner de [fala personalizada para texto][sp-cstt] pode ser enco
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem            | {1&gt;Observações&lt;1} |
+| Marcas de imagem            | Observações |
 |-----------------------|:------|
 | `latest`              |       |
 | `2.1.1-amd64-preview` |       |
@@ -117,7 +117,7 @@ A imagem de contêiner de [texto em fala personalizado][sp-ctts] pode ser encont
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem            | {1&gt;Observações&lt;1} |
+| Marcas de imagem            | Observações |
 |-----------------------|:------|
 | `latest`              |       |
 | `1.3.0-amd64-preview` |       |
@@ -128,7 +128,7 @@ A imagem de contêiner de [fala em texto][sp-stt] pode ser encontrada no registr
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                  | {1&gt;Observações&lt;1}                                    |
+| Marcas de imagem                  | Observações                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Imagem de contêiner com a localidade `en-US`. |
 | `2.1.1-amd64-ar-ae-preview` | Imagem de contêiner com a localidade `ar-AE`. |
@@ -410,7 +410,7 @@ A imagem de contêiner de [conversão de texto em fala][sp-tts] pode ser encontr
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                                  | {1&gt;Observações&lt;1}                                                                      |
+| Marcas de imagem                                  | Observações                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Imagem de contêiner com a localidade de `en-US` e `en-US-JessaRUS` voz.        |
 | `1.3.0-amd64-ar-eg-hoda-preview`            | Imagem de contêiner com a localidade de `ar-EG` e `ar-EG-Hoda` voz.            |
@@ -586,7 +586,7 @@ A imagem de contêiner [extração de frases-chave][ta-kp] pode ser encontrada n
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -601,7 +601,7 @@ A imagem de contêiner [detecção de idioma][ta-la] pode ser encontrada na agre
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -616,7 +616,7 @@ A imagem de contêiner [análise de sentimento][ta-se] pode ser encontrada na ag
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | {1&gt;Observações&lt;1} |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |

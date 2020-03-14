@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376131"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253592"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade do Azure AD
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
@@ -43,7 +43,7 @@ O servidor proxy também deve ter as URLs necessárias abertas. A lista oficial 
 
 Dessas URLs, a tabela a seguir é o mínimo absoluto para oferecer a capacidade de se conectar ao AD do Azure. Essa lista não inclui quaisquer recursos opcionais, como write-back de senha ou Azure AD Connect Health. Ela está documentado aqui para ajudar na solução de problemas da configuração inicial.
 
-| {1&gt;URL&lt;1} | Porta | Descrição |
+| URL | Porta | DESCRIÇÃO |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Usada para baixar as listas CRL. |
 | \*.verisign.com |HTTP/80 |Usada para baixar as listas CRL. |
@@ -93,7 +93,7 @@ Se você receber **Não é possível se conectar ao servidor remoto** é porque 
 Se o proxy não estiver configurado corretamente, você receberá um erro: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Error | Texto do erro | Comentário |
+| Erro | Texto do erro | Comentário |
 | --- | --- | --- |
 | 403 |Proibido |O proxy não foi aberto para a URL solicitada. Examine a configuração do proxy e verifique se as [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas. |
 | 407 |Autenticação de proxy necessária |O servidor proxy solicitou uma entrada e nenhuma foi fornecida. Se o servidor proxy exigir autenticação, certifique-se de ter essa configuração definida em Machine. config. Verifique também se você está usando contas de domínio para o usuário que está executando o assistente e para a conta de serviço. |
@@ -113,7 +113,7 @@ Veja um despejo de um log de proxy real e a página do assistente de instalaçã
 
 **Conecte-se ao AD do Azure**
 
-| Tempo | {1&gt;URL&lt;1} |
+| Hora | URL |
 | --- | --- |
 | 11/01/2016 08:31 |connect://login.microsoftonline.com:443 |
 | 11/01/2016 08:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Veja um despejo de um log de proxy real e a página do assistente de instalaçã
 
 **Configurar**
 
-| Tempo | {1&gt;URL&lt;1} |
+| Hora | URL |
 | --- | --- |
 | 11/01/2016 08:43 |connect://login.microsoftonline.com:443 |
 | 11/01/2016 08:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Veja um despejo de um log de proxy real e a página do assistente de instalaçã
 
 **Sincronização inicial**
 
-| Tempo | {1&gt;URL&lt;1} |
+| Hora | URL |
 | --- | --- |
 | 11/01/2016 08:48 |connect://login.windows.net:443 |
 | 11/01/2016 08:49 |connect://adminwebservice.microsoftonline.com:443 |
@@ -235,5 +235,5 @@ Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy o
   ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
 * Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

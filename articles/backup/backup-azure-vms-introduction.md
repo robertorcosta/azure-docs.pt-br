@@ -3,16 +3,22 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 67ff06e882ec61dff58922606469ac27a8bbf7fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363669"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297349"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
 Este artigo descreve como o [serviço de backup do Azure](backup-introduction-to-azure-backup.md) faz backup de VMs (máquinas virtuais) do Azure.
+
+O backup do Azure fornece backups independentes e isolados para proteger contra a destruição indesejada dos dados em suas VMs. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e o dimensionamento são simples, os backups são otimizados e você pode facilmente restaurar conforme necessário.
+
+Como parte do processo de backup, um [instantâneo é obtido](#snapshot-creation)e os dados são transferidos para o cofre dos serviços de recuperação sem afetar as cargas de trabalho de produção. O instantâneo fornece diferentes níveis de consistência, conforme descrito [aqui](#snapshot-consistency).
+
+O backup do Azure também tem ofertas especializadas para cargas de trabalho de banco de dados como [SQL Server](backup-azure-sql-database.md) e [SAP Hana](sap-hana-db-about.md) que têm reconhecimento de carga de trabalho, oferecem RPO de 15 minutos (objetivo de ponto de recuperação) e permitem backup e restauração de bancos de dados individuais.
 
 ## <a name="backup-process"></a>Processo de backup
 
@@ -54,7 +60,7 @@ Os BEKs (segredos) e KEKs (chaves) com backup são criptografados. Eles podem se
 
 Também é feito backup de BEKs. Portanto, se os BEKs forem perdidos, os usuários autorizados poderão restaurar o BEKs para o cofre de chaves e recuperar as VMs criptografadas. Somente os usuários com o nível necessário de permissões podem fazer backup e restaurar VMs criptografadas ou chaves e segredos.
 
-## <a name="snapshot-creation"></a>Criação de instantâneo
+## <a name="snapshot-creation"></a>Criação de instantâneos
 
 O backup do Azure faz instantâneos de acordo com o agendamento de backup.
 
@@ -66,7 +72,7 @@ O backup do Azure faz instantâneos de acordo com o agendamento de backup.
   - Se os scripts anteriores e pós-scripts forem executados com êxito, o backup do Azure marcará o ponto de recuperação como consistente com o aplicativo. No entanto, quando você estiver usando scripts personalizados, você será responsável pela consistência do aplicativo.
   - [Saiba mais](backup-azure-linux-app-consistent.md) sobre como configurar scripts.
 
-### <a name="snapshot-consistency"></a>Consistência do instantâneo
+## <a name="snapshot-consistency"></a>Consistência do instantâneo
 
 A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 
@@ -129,6 +135,6 @@ Disco de dados 2 | 32 TB | 0 GB
 
 O tamanho real da VM neste caso é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora, [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).

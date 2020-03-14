@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379772"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282933"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Como funciona a pesquisa de texto completo no Azure Pesquisa Cognitiva
 
@@ -272,7 +272,7 @@ Para o campo **descrição**, o índice é o seguinte:
 | praia | 1
 | condicionado | 3
 | confortável | 3
-| distance | 1
+| distância | 1
 | ilha | 2
 | kauaʻi | 2
 | local | 2
@@ -286,8 +286,8 @@ Para o campo **descrição**, o índice é o seguinte:
 | beira-mar | 2
 | espaçoso | 1
 | o | 1, 2
-| até | 1
-| modo de exibição | 1, 2, 3
+| para | 1
+| exibição | 1, 2, 3
 | a pé | 1
 | por | 3
 
@@ -379,7 +379,7 @@ Do ponto de vista técnico, a pesquisa de texto completo é altamente complexa, 
 
 Este artigo explorou a pesquisa de texto completo no contexto do Azure Pesquisa Cognitiva. Esperamos que todas essas informações sejam o suficiente para você reconhecer possíveis causas e resoluções para resolver problemas comuns de consulta. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 + Criar o índice de exemplo, experimentar consultas diferentes e examinar os resultados. Para obter instruções, consulte [Criar e consultar um índice no portal](search-get-started-portal.md#query-index).
 
@@ -391,7 +391,7 @@ Este artigo explorou a pesquisa de texto completo no contexto do Azure Pesquisa 
 
 + [Configurar analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para o mínimo de processamento ou processamento especializado em campos específicos.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

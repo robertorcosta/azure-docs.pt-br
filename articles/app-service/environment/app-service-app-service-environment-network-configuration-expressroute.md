@@ -8,11 +8,11 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374993"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243868"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes da configuração de rede para o Ambiente do Serviço de Aplicativo para o PowerApps com o Azure ExpressRoute
 
@@ -85,7 +85,7 @@ Para saber como criar e configurar rotas definidas pelo usuário, consulte [rote
 
 Esta seção mostra um exemplo de configuração da UDR para um Ambiente do Serviço de Aplicativo.
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 * Instale o Azure PowerShell na [página de downloads do Azure][AzureDownloads]. Escolha um download com uma data de junho de 2015 ou posterior. Em **Ferramentas de linha de comando** > **Windows PowerShell**, selecione **Instalar** para instalar os cmdlets mais recentes do PowerShell.
 
@@ -138,7 +138,7 @@ Depois de concluir as etapas de configuração e confirmar a rota, exclua a máq
 
 Agora você está pronto para implantar o Ambiente do Serviço de Aplicativo!
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a usar o Ambiente do Serviço de Aplicativo para PowerApps, consulte [introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment].
 

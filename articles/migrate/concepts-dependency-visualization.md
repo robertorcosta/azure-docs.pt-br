@@ -4,11 +4,11 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço d
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: fd069ed98fa34fd6f281c98a061925f96c7bb2cd
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082626"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269699"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -58,7 +58,7 @@ Há duas opções para implantar a visualização de dependência:
 **Dados coletados** |  A análise de dependência sem agente funciona capturando dados de conexão TCP de computadores nos quais ele está habilitado. Depois que a descoberta de dependência é habilitada, o dispositivo coleta dados de conexão TCP a cada 5 minutos de VMs convidadas. Esses dados são coletados de VMs convidadas por meio de vCenter Server usando APIs vSphere. Os dados coletados são processados no dispositivo para deduzir as informações de dependência e enviadas para migrações para o Azure a cada 6 horas. Os dados a seguir são coletados de cada computador: <br/> -Nomes de processos que têm conexões ativas.<br/> -Nomes de aplicativos que executam o processo com conexões ativas.<br/> -Porta de destino nas conexões ativas.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - [Configurar a visualização de dependência](how-to-create-group-machine-dependencies.md)
 - [Experimente a visualização de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md) para VMs VMware.
 - Examine as [perguntas comuns](common-questions-discovery-assessment.md#what-is-dependency-visualization) sobre a visualização de dependência.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6b11242831e68787fe225d4d0b66638f1388de6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126538"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297978"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal do desenvolvedor do gerenciamento de API do Azure
 
@@ -157,6 +157,12 @@ O console interativo faz uma solicitação de API do lado do cliente do navegado
 </cors>
 ```
 
+Aplique o CORS no escopo global para garantir que ele esteja habilitado para todas as APIs.
+
+1. Navegue até **todas as APIs** na seção **APIs** do serviço de gerenciamento de API no portal do Azure.
+2. Clique no ícone de **</>** na seção **processamento de entrada** .
+3. Insira a política na seção **<inbound>** do arquivo XML. Verifique se o valor de **<origin>** corresponde ao domínio do portal do desenvolvedor.
+
 > [!NOTE]
 > 
 > Se você aplicar a política CORS no escopo do produto, em vez do escopo de API (s), e sua API usar a autenticação de chave de assinatura por meio de um cabeçalho, o console não funcionará.
@@ -207,7 +213,7 @@ A falha de chamada também pode ser causada por um certificado SSL, que é atrib
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual é o suporte do navegador para o portal?
 
-| Navegador.                     | Suportado       |
+| Navegador                     | Suportado       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
@@ -217,7 +223,7 @@ A falha de chamada também pode ser causada por um certificado SSL, que é atrib
 
  <small><sup>1</sup> com suporte nas duas versões de produção mais recentes.</small>
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o novo portal do desenvolvedor:
 

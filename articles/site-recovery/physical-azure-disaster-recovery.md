@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980305"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257921"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
@@ -27,7 +27,7 @@ Este tutorial mostra como configurar a recuperação de desastre de servidores W
 > * Criar uma política de replicação
 > * Habilitar a replicação para um servidor
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
@@ -71,7 +71,7 @@ Configurar uma [rede do Azure](../virtual-network/quick-create-portal.md).
 - A rede deve estar na mesma região que o cofre dos Serviços de Recuperação
 
 
-## <a name="set-up-an-azure-storage-account"></a>Definir uma conta de armazenamento do Azure
+## <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
 
 Configure uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md).
 
@@ -146,7 +146,7 @@ Selecione e verifique os recursos de destino.
 2. Especifique o modelo de implantação de destino.
 3. A Recuperação de Site verifica se você tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
-   ![Escolha o destino](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Destino](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -185,6 +185,6 @@ Habilite a replicação para cada servidor.
 
 Para monitorar os servidores adicionados, você pode verificar o horário da última descoberta em **Servidores de Configuração** > **Último Contato Em**. Para adicionar computadores sem esperar por um período de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Execute uma simulação de recuperação de desastre](tutorial-dr-drill-azure.md).

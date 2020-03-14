@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847478"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281828"
 ---
-# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Failback de VMs VMware após a recuperação de desastre para o Azure
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Fazer failback de VMs VMware após a recuperação de desastre para o Azure
 
 Depois de fazer o failover para o Azure como parte de seu processo de recuperação de falhas, você poderá fazer failback em seu site local. Há dois tipos diferentes de failback que são possíveis com o Azure Site Recovery: 
 

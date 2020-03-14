@@ -16,11 +16,11 @@ ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74966b60cc058837ed8b211961e2bb8a9a2e70f8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375936"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261522"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Catálogo de alerta do Azure Active Directory Connect Health 
 
@@ -30,13 +30,13 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 ## <a name="general-alerts"></a>Alertas gerais
 
-| Nome do alerta | Descrição | Correção |
+| Nome do alerta | DESCRIÇÃO | Correção |
 | --- | --- | ----- |
 | Os dados do serviço de integridade não estão atualizados | O(s) Agente(s) de Integridade executando em um ou mais servidores não está conectado ao Serviço de Integridade e o Serviço de Integridade não está recebendo os dados mais recentes deste servidor. Os últimos dados processados pelo Serviço de Integridade têm mais de 2 horas. | Assegure-se de que os agentes de integridade tenham conectividade de saída para os pontos de extremidade de serviço necessários. [Leia mais](how-to-connect-health-data-freshness.md) |
 
 ## <a name="alerts-for-azure-ad-connect-sync"></a>Alertas do Azure AD Connect (Sincronização)
 
-| Nome do alerta | Descrição | Correção |
+| Nome do alerta | DESCRIÇÃO | Correção |
 | --- | --- | ----- |
 | O Serviço de Sincronização do Azure AD Connect não está em execução | O serviço Windows de Sincronização do Microsoft Azure Active Directory não está em execução ou não pôde iniciar. Como resultado, os objetos não serão sincronizados com o Azure Active Directory. | Iniciar os Serviços de Sincronização do Microsoft Azure Active Directory</b> <ol> <li>Clique em <b>Iniciar</b>, clique em <b>Executar</b>, tipo <b>Services.msc</b> e, em seguida, clique em <b>OK</b>.</li> <li>Localize o <b>serviço de Sincronização do Microsoft Azure Active Directory</b> e, em seguida, verifique se o serviço foi iniciado. Se o serviço não for iniciado, clique com o botão direito do mouse no serviço e em <b>Iniciar</b>. | 
 | A importação do Azure Active Directory falhou | A operação de importação do Azure Active Directory Connector falhou. |  Investigue os erros do log de eventos da operação de importação para obter mais detalhes.  |
@@ -51,7 +51,7 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 | A exportação para o Azure Active Directory foi interrompida. O limite de exclusão acidental foi alcançado | A operação de exportação para o Azure Active Directory falhou. Havia mais objetos a serem excluídos que o limite configurado. Como resultado, nenhum objeto foi exportado. | <li> O número de objetos marcados para exclusão é maior que o limite definido. Assegure-se de que esse resultado é desejado.</li> <li> Para permitir que a exportação continue, execute as seguintes etapas: <ol type="a"> <li>Desabilite o Limite executando Disable-ADSyncExportDeletionThreshold</li> <li>Inicie o Synchronization Service Manager</li> <li>Executar Exportar no Conector com tipo = Azure Active Directory</li> <li>Depois de exportar os objetos com êxito, ative o Limite executando: Enable-ADSyncExportDeletionThreshold</li> </ol> </li> |
 
 ## <a name="alerts-for-active-directory-federation-services"></a>Alertas para os Serviços de Federação do Active Directory (AD FS)
-| Nome do alerta | Descrição | Correção |
+| Nome do alerta | DESCRIÇÃO | Correção |
 | --- | --- | ----- |
 |As Solicitações de Autenticação de Teste (Transações Sintéticas) falharam ao obter um token | As solicitações de autenticação de teste (Transações Sintéticas) iniciadas neste servidor falharam ao obter um token após 5 novas tentativas. Isso pode ser causado devido a problemas de rede transitórios, disponibilidade do Controlador de Domínio do AD DS ou um servidor do AD FS configurado incorretamente.  Como resultado, as solicitações de autenticação processadas pelo serviço de federação podem falhar. O agente usa o contexto de Conta de Computador Local para obter um token do Serviço de Federação. | Assegure-se de que as etapas a seguir sejam executadas para validar a integridade do servidor.<ol><li>Valide se não há alertas adicionais não resolvidos para este ou outros servidores do AD FS no farm.</li><li>Valide se essa condição não é uma falha temporária ao efetuar logon com um usuário de teste da página de logon do AD FS, disponível em https: // {your_adfs_server_name} /adfs/ls/idpinitiatedsignon.aspx</li><li>Vá para <a href="https://testconnectivity.microsoft.com">https://testconnectivity.microsoft.com</a> e escolha a guia ' Office 365 '. Execute o ' teste de logon único do Office 365 '.</li><li>Verifique se o nome do serviço do AD FS pode ser resolvido a partir deste servidor, executando o seguinte comando em um prompt de comando deste servidor. nslookup your_adfs_server_name</li></ol><p>Se o nome do serviço não puder ser resolvido, consulte a seção de perguntas frequentes para obter instruções sobre como adicionar uma entrada de arquivo HOST do serviço do AD FS ao endereço IP deste servidor. Isso permitirá que o módulo de transação sintética executado neste servidor solicite um token</p> | 
 | O servidor proxy não pode acessar o servidor de federação | Este servidor proxy do AD FS não consegue contatar o serviço do AD FS. Como resultado, as solicitações de autenticação processadas por este servidor falharão. | Execute as etapas a seguir para validar a conectividade entre este servidor e o serviço do AD FS. <ol><li> Verifique se o firewall entre este servidor e o serviço do AD FS está configurado com precisão. </li><li> Certifique-se de que a resolução DNS para o nome do serviço do AD FS aponte adequadamente para o serviço do AD FS que reside na rede corporativa. Isso pode ser obtido por meio de um servidor DNS que serve esse servidor na rede de perímetro ou por meio de entradas nos arquivos HOSTS para o nome do serviço do AD FS. </li><li> Valide a conectividade de rede abrindo o navegador neste servidor e acessando o ponto de extremidade de metadados de Federação, que está em `https://<your-adfs-service-name>/federationmetadata/2007-06/federationmetadata.xml` </li> | 
@@ -78,7 +78,7 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 ## <a name="alerts-for-active-directory-domain-services"></a>Alertas para o Active Directory Domain Services
 
-| Nome do alerta | Descrição | Correção |
+| Nome do alerta | DESCRIÇÃO | Correção |
 | --- | --- | ----- |
 | Controlador de domínio inacessível via ping LDAP | O Controlador de Domínio não está acessível via Ping LDAP. Isso pode ser causado devido a problemas de Rede ou de computador. Como resultado, os Pings LDAP falharão. |  <li>Examine a lista de alertas para alertas relacionados, como: Controlador de Domínio não está anunciando. </li><li>Assegure-se de que o Controlador de Domínio afetado tem espaço em disco suficiente. A falta de espaço impedirá que o DC seja anunciado como um servidor LDAP. </li><li> Tente localizar o PDC: executar <br> <i>netdom query fsmo </i> </br> no controlador de domínio afetado. <li> Assegure-se de que a rede física esteja adequadamente configurada/conectada. </li> |
 | Erro de replicação do Active Directory encontrado | Esse controlador de domínio está passando por problemas de replicação, que podem ser localizados acessando o Painel Status de Replicação. Erros de replicação podem ser causados por configuração incorreta ou outros problemas relacionados. Erros de replicação não tratados podem levar a inconsistência de dados. | Consulte os detalhes adicionais para os nomes dos DCs de origem e de destino afetados. Navegue até o painel Status de Replicação e procure os erros ativos nos DCs afetados. Clique no erro para abrir uma folha com mais detalhes sobre como corrigir esse erro específico.| 
@@ -109,5 +109,5 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Perguntas frequentes do Azure AD Connect Health](reference-connect-health-faq.md)

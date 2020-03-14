@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384781"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260365"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ No Gerenciador de Recursos, você encontra todos os recursos (pipelines, conjunt
 
 Consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceituais detalhadas sobre janelas de atividades.
 
-### <a name="diagram-view"></a>Exibição de Diagrama
+### <a name="diagram-view"></a>Exibição de diagrama
 A Exibição de Diagrama de um data factory fornece um único painel no qual você pode monitorar e gerenciar um data factory e seus ativos. Ao selecionar uma entidade Data Factory (conjunto de dados/pipeline) na Exibição de Diagrama, você observa o seguinte:
 
 * a entidade data factory está selecionada no modo de exibição de árvore.
@@ -159,7 +159,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Descrição</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">DESCRIÇÃO</th>
 </tr>
 <tr>
     <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não chegou a hora de a janela de atividades ser executada.</td>
@@ -193,7 +193,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
@@ -204,7 +204,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <tr>
 <td>-</td><td>Falha ao gerar e/ou validar a janela de atividades.</td>
 </tr>
-<td>Pronto</td><td>-</td><td>A janela de atividades está pronta para consumo.</td>
+<td>Ready</td><td>-</td><td>A janela de atividades está pronta para consumo.</td>
 </tr>
 <tr>
 <td>Ignorado</td><td>-</td><td>A janela de atividades não foi processada.</td>

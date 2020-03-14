@@ -5,35 +5,38 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/9/2019
-ms.openlocfilehash: 757a061bff72ca9fc34d408cd94cec9966d1157f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 3/9/2020
+ms.openlocfilehash: 6954f306e0d0a346bd8f39776d987af99f7574dd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191108"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299083"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
 
-## <a name="maximum-connections"></a>Número máximo de conexões
-O número máximo de conexões por tipo de preço e vCores é o seguinte: 
+## <a name="server-parameters"></a>Parâmetros do Servidor
 
-|**Tipo de preço**|**vCore(s)**| **Máximo de conexões**|
-|---|---|---|
-|Basic| 1| 50|
-|Basic| 2| 100|
-|Uso Geral| 2| 600|
-|Uso Geral| 4| 1250|
-|Uso Geral| 8| 2500|
-|Uso Geral| 16| 5\.000|
-|Uso Geral| 32| 10000|
-|Uso Geral| 64| 20000|
-|Otimizado para memória| 2| 1250|
-|Otimizado para memória| 4| 2500|
-|Otimizado para memória| 8| 5\.000|
-|Otimizado para memória| 16| 10000|
-|Otimizado para memória| 32| 20000|
+Os valores mínimo e máximo de vários parâmetros de servidor populares são determinados pelo tipo de preço e vCores. Consulte as tabelas abaixo para obter limites.
+
+### <a name="max_connections"></a>max_connections
+
+|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|---|---|---|---|---|
+|Basic|1|50|10|50|
+|Basic|2|100|10|100|
+|Uso Geral|2|300|10|600|
+|Uso Geral|4|625|10|1250|
+|Uso Geral|8|1250|10|2500|
+|Uso Geral|16|2500|10|5\.000|
+|Uso Geral|32|5\.000|10|10000|
+|Uso Geral|64|10000|10|20000|
+|Otimizado para memória|2|600|10|800|
+|Otimizado para memória|4|1250|10|2500|
+|Otimizado para memória|8|2500|10|5\.000|
+|Otimizado para memória|16|5\.000|10|10000|
+|Otimizado para memória|32|10000|10|20000|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > ERRO 1040 (08004): número excessivo de conexões
@@ -42,6 +45,111 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > Para obter a melhor experiência, recomendamos que você use um pool de conexões como o ProxySQL para gerenciar conexões com eficiência.
 
 A criação de novas conexões de cliente com o MySQL leva tempo e, uma vez estabelecida, essas conexões ocupam recursos do banco de dados, mesmo quando ociosas. A maioria dos aplicativos solicita muitas conexões de curta duração, o que aumenta essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, levando a um desempenho reduzido. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais sobre como configurar o ProxySQL, visite nossa [postagem no blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+
+## <a name="query_cache_size"></a>query_cache_size
+
+O cache de consulta é desativado por padrão. Para habilitar o cache de consulta, configure o parâmetro `query_cache_type`. 
+
+Examine a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) para saber mais sobre esse parâmetro.
+
+> [!NOTE]
+> O cache de consulta foi preterido a partir do MySQL 5.7.20 e foi removido no MySQL 8,0
+
+|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|---|---|---|---|---|
+|Basic|1|Não configurável na camada básica|N/D|N/D|
+|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Uso Geral|2|0|0|16777216|
+|Uso Geral|4|0|0|33554432|
+|Uso Geral|8|0|0|67108864|
+|Uso Geral|16|0|0|134217728|
+|Uso Geral|32|0|0|134217728|
+|Uso Geral|64|0|0|134217728|
+|Otimizado para memória|2|0|0|33554432|
+|Otimizado para memória|4|0|0|67108864|
+|Otimizado para memória|8|0|0|134217728|
+|Otimizado para memória|16|0|0|134217728|
+|Otimizado para memória|32|0|0|134217728|
+
+## <a name="sort_buffer_size"></a>sort_buffer_size
+
+Examine a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) para saber mais sobre esse parâmetro.
+
+|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|---|---|---|---|---|
+|Basic|1|Não configurável na camada básica|N/D|N/D|
+|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Uso Geral|2|524288|32768|4194304|
+|Uso Geral|4|524288|32768|8388608|
+|Uso Geral|8|524288|32768|16777216|
+|Uso Geral|16|524288|32768|33554432|
+|Uso Geral|32|524288|32768|33554432|
+|Uso Geral|64|524288|32768|33554432|
+|Otimizado para memória|2|524288|32768|8388608|
+|Otimizado para memória|4|524288|32768|16777216|
+|Otimizado para memória|8|524288|32768|33554432|
+|Otimizado para memória|16|524288|32768|33554432|
+|Otimizado para memória|32|524288|32768|33554432|
+
+## <a name="join_buffer_size"></a>join_buffer_size
+
+Examine a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) para saber mais sobre esse parâmetro.
+
+|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|---|---|---|---|---|
+|Basic|1|Não configurável na camada básica|N/D|N/D|
+|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Uso Geral|2|262144|128|268435455|
+|Uso Geral|4|262144|128|536870912|
+|Uso Geral|8|262144|128|1073741824|
+|Uso Geral|16|262144|128|2147483648|
+|Uso Geral|32|262144|128|4294967295|
+|Uso Geral|64|262144|128|4294967295|
+|Otimizado para memória|2|262144|128|536870912|
+|Otimizado para memória|4|262144|128|1073741824|
+|Otimizado para memória|8|262144|128|2147483648|
+|Otimizado para memória|16|262144|128|4294967295|
+|Otimizado para memória|32|262144|128|4294967295|
+
+## <a name="max_heap_table_size"></a>max_heap_table_size
+
+Examine a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) para saber mais sobre esse parâmetro.
+
+|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|---|---|---|---|---|
+|Basic|1|Não configurável na camada básica|N/D|N/D|
+|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Uso Geral|2|16777216|16384|268435455|
+|Uso Geral|4|16777216|16384|536870912|
+|Uso Geral|8|16777216|16384|1073741824|
+|Uso Geral|16|16777216|16384|2147483648|
+|Uso Geral|32|16777216|16384|4294967295|
+|Uso Geral|64|16777216|16384|4294967295|
+|Otimizado para memória|2|16777216|16384|536870912|
+|Otimizado para memória|4|16777216|16384|1073741824|
+|Otimizado para memória|8|16777216|16384|2147483648|
+|Otimizado para memória|16|16777216|16384|4294967295|
+|Otimizado para memória|32|16777216|16384|4294967295|
+
+## <a name="tmp_table_size"></a>tmp_table_size
+
+Examine a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) para saber mais sobre esse parâmetro.
+
+|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|---|---|---|---|---|
+|Basic|1|Não configurável na camada básica|N/D|N/D|
+|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Uso Geral|2|16777216|1024|67108864|
+|Uso Geral|4|16777216|1024|134217728|
+|Uso Geral|8|16777216|1024|268435456|
+|Uso Geral|16|16777216|1024|536870912|
+|Uso Geral|32|16777216|1024|1073741824|
+|Uso Geral|64|16777216|1024|1073741824|
+|Otimizado para memória|2|16777216|1024|134217728|
+|Otimizado para memória|4|16777216|1024|268435456|
+|Otimizado para memória|8|16777216|1024|536870912|
+|Otimizado para memória|16|16777216|1024|1073741824|
+|Otimizado para memória|32|16777216|1024|1073741824|
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 

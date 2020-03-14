@@ -11,11 +11,11 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 6e4b5bc6d30f6caa2809b7aa1e72be70ae12dbc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396628"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256582"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW) 
 
@@ -53,7 +53,7 @@ Com o armazenamento e a computação separados, ao usar a análise do SQL, é po
 A análise de SQL aproveita o armazenamento do Azure para manter os dados do usuário seguros.  Como os dados são armazenados e gerenciados pelo armazenamento do Azure, há um encargo separado para o consumo de armazenamento. Os dados são fragmentados em **distribuições** para otimizar o desempenho do sistema. Você pode escolher qual padrão de fragmentação usar para distribuir os dados quando você define a tabela. Esses padrões de fragmentação têm suporte:
 
 * Hash
-* Rodízio
+* Round Robin
 * Replicar
 
 ### <a name="control-node"></a>Nó de controle
@@ -105,7 +105,7 @@ O diagrama a seguir mostra uma tabela replicada que é armazenada em cache na pr
 
 ![Tabela replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabela replicada") 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Agora que você já sabe um pouco sobre o Azure Synapse, saiba como [criar rapidamente um pool do SQL](./sql-data-warehouse-get-started-provision.md) e [carregar dados de exemplo](./sql-data-warehouse-load-sample-databases.md). Se você for novo no Azure, você pode encontrar o [Glossário do Azure](../azure-glossary-cloud-terminology.md) úteis à medida que encontrar nova terminologia. Ou então, veja alguns desses outros recursos do Azure Synapse.  
 
 * [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)

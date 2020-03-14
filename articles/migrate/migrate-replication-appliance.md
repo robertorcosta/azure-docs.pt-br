@@ -4,18 +4,18 @@ description: Saiba mais sobre o dispositivo de replicação de migração do Azu
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901564"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245857"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicação
 
 Este artigo descreve o dispositivo de replicação usado pelas [migrações para Azure:](migrate-services-overview.md#azure-migrate-server-migration-tool) ferramenta de migração de servidor ao migrar VMs VMware, máquinas físicas e VMs de nuvem privada/pública para o Azure, usando a migração baseada em agente. 
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O dispositivo de replicação é implantado quando você configura a migração baseada em agente de VMs VMware ou servidores físicos. Ele é implantado como um único computador local, seja como uma VM VMware ou um servidor físico. Ele é executado:
 
@@ -120,7 +120,7 @@ O dispositivo é atualizado manualmente do Hub migrações para Azure. É recome
 2. Em **servidores de configuração**, um link aparece na **versão do agente** quando uma nova versão do dispositivo de replicação está disponível. 
 3. Baixe o instalador no computador do dispositivo de replicação e instale a atualização. O instalador detecta a versão em execução no momento no dispositivo.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como](tutorial-migrate-vmware-agent.md#set-up-the-replication-appliance) configurar o dispositivo de replicação para migração de VM VMware baseada em agente.
 - [Saiba como](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) configurar o dispositivo de replicação para servidores físicos.

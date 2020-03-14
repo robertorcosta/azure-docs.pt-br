@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 9364c344c58d17f9f6e6404dd8aa850af032cee9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385172"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271805"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -32,7 +32,7 @@ Para iniciar o streaming de dados do sensor, verifique o seguinte:
 Depois de iniciar o streaming de dados do sensor, você pode começar o processo de obter os dados em seu sistema FarmBeats. Forneça as seguintes informações ao seu provedor de dispositivo para habilitar a integração ao FarmBeats:
 
  - Ponto de extremidade de API
- - ID do inquilino
+ - ID do locatário
  - ID do Cliente
  - Segredo do cliente
  - Cadeia de conexão do EventHub
@@ -65,7 +65,7 @@ Você pode gerar as informações acima seguindo estas etapas: (Observe que essa
 
 7. Vá para o diretório onde o arquivo foi carregado. Por padrão, os arquivos são carregados para o diretório base sob o nome de usuário.
 
-8. Execute o script a seguir. O script solicita a ID do locatário que pode ser obtida na página de visão geral de Azure Active Directory >.
+8. Execute o seguinte script. O script solicita a ID do locatário que pode ser obtida na página de visão geral de Azure Active Directory >.
 
     ```azurepowershell-interactive 
 
@@ -82,7 +82,7 @@ Agora você tem as seguintes informações geradas na seção anterior.
  - Cadeia de conexão do EventHub
  - ID do Cliente
  - Segredo do cliente
- - ID do inquilino
+ - ID do locatário
  
 Você precisará fornecer isso ao seu parceiro de dispositivo para vincular o FarmBeats. Vá para o portal de parceiro do dispositivo para fazer o mesmo. Por exemplo, caso você esteja usando dispositivos de instrumentos Davis, vá para a página abaixo:
 
@@ -107,7 +107,7 @@ Siga estas etapas.
   A página **dispositivos** exibe o tipo de dispositivo, o modelo, o status, o farm no qual ele é colocado e a data da última atualização para os metadados. Por padrão, a coluna farm é definida como *NULL*. Você pode optar por atribuir um dispositivo a um farm. Para obter mais informações, consulte [atribuir dispositivos](#assign-devices).
 2. Selecione o dispositivo para exibir as propriedades do dispositivo, telemetria e dispositivos filho conectados ao dispositivo.
 
-    ![Página de dispositivos](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
+    ![Página Dispositivos](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
 
 ### <a name="view-sensors"></a>Exibir sensores
 
@@ -167,6 +167,6 @@ Siga estas etapas.
 
     ![Botão Excluir](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora você tem dados de sensor fluindo para sua instância de FarmBeats do Azure. Agora, saiba como [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para seus farms.

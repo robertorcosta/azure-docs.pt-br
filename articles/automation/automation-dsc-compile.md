@@ -6,11 +6,11 @@ ms.subservice: dsc
 ms.date: 09/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: a4a46837e366caf2860aa0d6597ec7aebc94905a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373551"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278981"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação das configurações DSC na Configuração do Estado de Automação do Azure
 
@@ -182,7 +182,7 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 
 ### <a name="work-with-assets-in-azure-automation-during-compilation"></a>Trabalhar com ativos na automação do Azure durante a compilação
 
-As referências de ativos são as mesmas tanto na configuração de estado da automação do Azure quanto nos runbooks. Para obter mais informações, consulte o seguinte:
+As referências de ativos são as mesmas tanto na configuração de estado da automação do Azure quanto nos runbooks. Para saber mais, consulte o seguinte:
 
 - [Certificados](automation-certificates.md)
 - [Conexões](automation-connections.md)
@@ -276,7 +276,7 @@ Você pode usar o cmdlet [Import-AzAutomationDscNodeConfiguration](/powershell/m
 Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAccount' -ResourceGroupName 'MyResourceGroup' -ConfigurationName 'MyNodeConfiguration' -Path 'C:\MyConfigurations\TestVM1.mof'
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar, consulte [introdução à configuração de estado da automação do Azure](automation-dsc-getting-started.md).
 - Para saber mais sobre como compilar configurações de DSC para que você possa atribuí-las aos nós de destino, consulte [compilando configurações na configuração de estado de automação do Azure](automation-dsc-compile.md).

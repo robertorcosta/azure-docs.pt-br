@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397016"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260638"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 
@@ -26,7 +26,7 @@ O formato JSON tem suporte para os seguintes conectores: [Amazon S3](connector-a
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo DataSet JSON.
 
-| Propriedade         | Descrição                                                  | Obrigatório |
+| Propriedade         | DESCRIÇÃO                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | A propriedade Type do conjunto de conjuntos deve ser definida como **JSON**. | Sim      |
 | local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
@@ -67,7 +67,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **jsonname**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
@@ -76,7 +76,7 @@ As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade 
 
 As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **JSONSink**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela **configurações de gravação JSON** abaixo. | Não       |
@@ -84,7 +84,7 @@ As propriedades a seguir têm suporte na seção de ***\*do coletor*** de ativid
 
 **Configurações de gravação JSON** com suporte em `formatSettings`:
 
-| Propriedade      | Descrição                                                  | Obrigatório                                              |
+| Propriedade      | DESCRIÇÃO                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | O tipo de formatSettings deve ser definido como **JsonWriteSettings**. | Sim                                                   |
 | filePattern |Indique o padrão de dados armazenados em cada arquivo JSON. Os valores permitidos são: **setOfObjects** e **arrayOfObjects**. O valor **padrão** é **setOfObjects**. Veja a seção [Padrões de arquivo JSON](#json-file-patterns) para obter detalhes sobre esses padrões. |Não |
@@ -326,7 +326,7 @@ Selecione **aspas simples** se as barras invertidas forem usadas para escapar ca
 { "json": "record 3" }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Mapeando fluxo de dados](concepts-data-flow-overview.md)

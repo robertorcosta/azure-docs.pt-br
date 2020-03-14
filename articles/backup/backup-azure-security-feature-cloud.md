@@ -3,12 +3,12 @@ title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f89d9ab3ef373ecd9a7d15ef4ec9b2109750f8de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395584"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248067"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
@@ -178,24 +178,23 @@ Siga estas etapas:
 1. Siga as etapas para [desabilitar a exclusão reversível](#disabling-soft-delete).
 2. No portal do Azure, acesse seu cofre, vá para **itens de backup**e escolha a VM com exclusão reversível.
 
-![Escolher VM com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Escolher VM com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. Selecione a opção **restaurar**.
 
-![Escolha restaurar](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
+   ![Escolha restaurar](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 4. Uma janela será exibida. Selecione **restaurar**.
 
-![Selecione restaurar](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Selecione restaurar](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 5. Escolha **excluir dados de backup** para excluir permanentemente os dados de backup.
 
-![Escolha excluir dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha excluir dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
 
-![Digite o nome do item de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do item de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
 
@@ -268,6 +267,10 @@ O backup do Azure permite fazer backup de máquinas virtuais do Azure que contê
 ### <a name="backup-of-encrypted-vms"></a>Backup de VMs criptografadas
 
 Você pode fazer backup e restaurar máquinas virtuais (VMs) do Azure do Windows ou Linux com discos criptografados usando o serviço de backup do Azure. Para obter instruções, consulte [fazer backup e restaurar máquinas virtuais criptografadas com o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## <a name="private-endpoints"></a>Pontos de extremidade privados
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="other-security-features"></a>Outros recursos de segurança
 

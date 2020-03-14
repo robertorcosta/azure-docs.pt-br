@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349690"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282478"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoramento e diagnóstico no Azure Service Fabric
 
@@ -45,7 +45,7 @@ Os diagnósticos fornecidos estão na forma de um conjunto abrangente de eventos
 
 Os eventos são enviados através de canais padrão no Windows e no Linux e podem ser lidos por qualquer ferramenta de monitoramento que os suporte. A solução de Azure Monitor é Azure Monitor logs. Fique à vontade para ler mais sobre nossa [integração de logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md) , que inclui um painel operacional personalizado para seu cluster e algumas consultas de exemplo das quais você pode criar alertas. Mais conceitos de monitoramento de cluster estão disponíveis em [evento de nível de plataforma e geração de log](service-fabric-diagnostics-event-generation-infra.md).
 
-### <a name="health-monitoring"></a>Monitoramento de integridade
+### <a name="health-monitoring"></a>Monitoramento da integridade
 A plataforma do Service Fabric inclui um modelo de integridade, que fornece o relatório de integridade extensível para o status de entidades em um cluster. Cada nó, aplicativo, serviço, partição, réplicas ou instância, tem um status de integridade continuamente atualizável. O status de integridade pode ser "OK", "Aviso" ou "Erro". Pense em eventos do Service Fabric como verbos feitos pelo cluster para várias entidades e health como um adjetivo para cada entidade. Cada vez que a integridade de uma determinada entidade transita, um evento também será emitido. Dessa forma, você pode configurar consultas e alertas para eventos de integridade em sua ferramenta de monitoramento escolhida, assim como qualquer outro evento. 
 
 Além disso, até permitimos que os usuários substituam a integridade de entidades. Se o seu aplicativo estiver passando por uma atualização e você tiver testes de validação com falha, poderá gravar no Service Fabric Health usando a Health API para indicar que seu aplicativo não está mais íntegro e o Service Fabric reverterá automaticamente a atualização! Para obter mais informações sobre o modelo de integridade, confira a introdução [ao monitoramento de integridade do Service Fabric](service-fabric-health-introduction.md)
@@ -83,7 +83,7 @@ Embora as duas soluções que recomendamos, [Azure monitor logs](service-fabric-
 
 Os pontos-chave para qualquer plataforma que você escolher devem incluir o quanto você está confortável com a interface do usuário, os recursos de consulta, as visualizações e painéis personalizados disponíveis e as ferramentas adicionais que eles fornecem para aprimorar sua experiência de monitoramento. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a instrumentar seus aplicativos, consulte [Geração de log e evento de nível de aplicativo](service-fabric-diagnostics-event-generation-app.md).
 * Siga as etapas para configurar o Application Insights para seu aplicativo com [Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).

@@ -10,46 +10,50 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: d6ea318c2745f7d80a49e5fcb1b47381a9f276f7
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 0df2992564dcf90f6b927b5a917993caec18af45
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562950"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79365755"
 landingContent:
-- title: Transcrição de conversa
+- title: Sobre a transcrição de conversas
   linkLists:
   - linkListType: overview
     links:
-    - text: Sobre a transcrição de conversa
+    - text: O que é a transcrição de conversa?
       url: conversation-transcription.md
   - linkListType: how-to-guide
     links:
-    - text: Transcrever uma conversa em tempo real
-      url: how-to-use-conversation-transcription.md
-    - text: Transcrever conversas de maneira assíncrona
-      url: how-to-async-conversation-transcription.md
-    - text: Manipular cenários do Call Center
+    - text: Lidar com cenários de call center
       url: call-center-transcription.md
-- title: Conversa em vários dispositivos
+    - text: Transcrição de conversa em tempo real
+      url: how-to-use-conversation-transcription.md
+    - text: Transcrição de conversas assíncrona
+      url: how-to-async-conversation-transcription.md
+  - linkListType: reference
+    links:
+    - text: Suporte ao idioma de transcrição de conversa
+      url: conversation-transcription.md#language-support
+- title: Sobre a conversa com vários dispositivos
   linkLists:
   - linkListType: overview
     links:
-    - text: Sobre a conversa com vários dispositivos
+    - text: O que é a conversa em vários dispositivos?
       url: multi-device-conversation.md
   - linkListType: quickstart
     links:
     - text: Iniciar uma conversa e ingressar em uma conversa
       url: quickstarts/multi-device-conversation.md
+  - linkListType: reference
+    links:
+    - text: Suporte a idiomas de conversa com vários dispositivos
+      url: multi-device-conversation.md#language-support
 - title: Referência
   linkLists:
   - linkListType: reference
     links:
-    - text: Suporte ao idioma de transcrição de conversa
-      url: conversation-transcription.md#language-support
-    - text: Suporte a idiomas de conversa com vários dispositivos
-      url: multi-device-conversation.md#language-support
-    - text: Preços
+    - text: Preços de transcrição de fala
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

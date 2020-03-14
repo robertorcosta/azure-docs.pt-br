@@ -4,11 +4,11 @@ description: Descreve as abordagens recomendadas para a criação de modelos do 
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248262"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas para modelos do Azure Resource Manager
 
@@ -32,13 +32,13 @@ Você também está limitado a:
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
 Se a região do grupo de recursos está temporariamente indisponível, você não pode atualizar os recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos em outras regiões ainda funcionarão conforme o esperado, mas não será possível atualizá-los. Para minimizar o risco, localize seu grupo de recursos e recursos na mesma região.
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 As informações nesta seção podem ser úteis quando você trabalha com [parâmetros](template-parameters.md).
 
@@ -140,7 +140,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 * Para obter recursos que não estão disponíveis em todos os locais, use um parâmetro separado ou especifique um valor de local literal.
 
-## <a name="variables"></a>Variáveis
+## <a name="variables"></a>variáveis
 
 As seguintes informações podem ser úteis quando você trabalha com [variáveis](template-variables.md):
 
@@ -277,7 +277,7 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
    > 
    > 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre a estrutura do arquivo de modelo do Resource Manager, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
 * Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência nuvem](templates-cloud-consistency.md).

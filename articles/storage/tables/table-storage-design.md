@@ -9,11 +9,11 @@ ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946083"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255139"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projetar tabelas escalonáveis e de alto desempenho
 
@@ -47,9 +47,9 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Nome</th>
 <th>LastName</th>
-<th>Duração</th>
+<th>Idade</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -67,9 +67,9 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Nome</th>
 <th>LastName</th>
-<th>Duração</th>
+<th>Idade</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -104,9 +104,9 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 <td>
 <table>
 <tr>
-<th>FirstName</th>
+<th>Nome</th>
 <th>LastName</th>
-<th>Duração</th>
+<th>Idade</th>
 <th>Email</th>
 </tr>
 <tr>
@@ -146,7 +146,7 @@ EGTs também apresentam uma desvantagem potencial para avaliar em seu design. Ou
 ## <a name="cost-considerations"></a>Considerações de custo
 Armazenamento de tabela é relativamente barato, mas você deve incluir estimativas de custo para a utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução do serviço Tabela. No entanto, em muitos cenários, o armazenamento de dados duplicados ou desnormalizados para melhorar o desempenho ou a escalabilidade de sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Padrões de design de tabela](table-storage-design-patterns.md)
 - [Relações de modelagem](table-storage-design-modeling.md)

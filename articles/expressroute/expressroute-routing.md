@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048176"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273040"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -160,10 +160,10 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Leste dos EUA 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | Oeste dos EUA | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | Oeste dos EUA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| Centro-oeste dos EUA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| Centro-Oeste dos EUA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
 | Centro-Norte dos EUA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
 | Centro-Sul dos Estados Unidos | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
-| EUA Central | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
+| Centro dos EUA | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
 | Canadá Central | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
 | Leste do Canadá | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **América do Sul** | |
@@ -258,7 +258,7 @@ O CRM Online dá suporte ao Dynamics v 8.2 e inferior. Para versões superiores,
 | Skype for Business Online |12076:5130 |
 | Outros serviços Online do Office 365 |12076:5200 |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Configurar sua conexão do ExpressRoute.
   
   * [Criar e modificar um circuito](expressroute-howto-circuit-arm.md)

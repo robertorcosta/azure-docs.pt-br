@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2019
+ms.date: 03/12/2020
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 21e35afc72aa9824baa1076abe0e767ce4935c28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: e629a9dd65a20883aa605e5d1d23248bcde575b4
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279696"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365144"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -42,8 +42,10 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 
 | Marca | Finalidade | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com o Firewall do Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **ActionGroup** | Grupo de ações. | Entrada | Não | Não |
 | **ApiManagement** | Tráfego de gerenciamento para o gerenciamento de API do Azure-implantações dedicadas. <br/><br/>*Observação:* Essa marca representa o ponto de extremidade do serviço de gerenciamento de API do Azure para o plano de controle por região. Isso permite que os clientes executem operações de gerenciamento nas APIs, operações, políticas, NamedValues configuradas no serviço de gerenciamento de API.  | Entrada | Sim | Sim |
 | **ApplicationInsightsAvailability** | Disponibilidade de Application Insights. | Entrada | Não | Não |
+| **AppConfiguration** | Configuração do aplicativo. | Saída | Não | Não |
 | **AppService**    | Serviço de Aplicativo do Azure. Essa marca é recomendada para regras de segurança de saída para front-ends do aplicativo Web. | Saída | Sim | Sim |
 | **AppServiceManagement** | Tráfego de gerenciamento para implantações dedicadas a Ambiente do Serviço de Aplicativo. | Ambos | Não | Sim |
 | **AzureActiveDirectory** | Azure Active Directory. | Saída | Não | Sim |
@@ -59,22 +61,27 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureDatabricks** | Azure Databricks. | Ambos | Não | Não |
 | **AzureDataExplorerManagement** | Gerenciamento de Data Explorer do Azure. | Entrada | Não | Não |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Saída | Não | Sim |
+| **AzureDevSpaces** | Azure Dev Spaces. | Saída | Não | Não |
 | **AzureEventGrid** | Grade de Eventos do Azure. <br/><br/>*Observação:* Esta marca aborda os pontos de extremidade da grade de eventos do Azure no centro-sul dos EUA, leste dos EUA, leste dos EUA 2, oeste dos EUA 2 e Centro dos EUA apenas. | Ambos | Não | Não |
-| **AzureFrontDoor** | Porta frontal do Azure. | Ambos | Não | Não |
-| **AzureInformationProtection** | Proteção de informações do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas **AzureActiveDirectory** e **AzureFrontDoor. frontend** . Além disso, leia a lista de permissões a seguir IPs (essa dependência será removida em breve): 13.107.6.181 & 13.107.9.181. | Saída | Não | Não |
+| **AzureFrontDoor. frontend** <br/> **AzureFrontDoor. backend** <br/> **AzureFrontDoor.FirstParty**  | Porta frontal do Azure. | Ambos | Não | Não |
+| **AzureInformationProtection** | Proteção de informações do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas **AzureActiveDirectory**, **AzureFrontDoor. frontend** e **AzureFrontDoor. FirstParty** . | Saída | Não | Não |
 | **AzureIoTHub** | Hub IoT do Azure. | Saída | Não | Não |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Observação:* Essa marca tem uma dependência na marca **AzureActiveDirectory** . | Saída | Sim | Sim |
 | **AzureLoadBalancer** | O balanceador de carga de infraestrutura do Azure. A marca se traduz no [endereço IP virtual do host](security-overview.md#azure-platform-considerations) (168.63.129.16) onde as investigações de integridade do Azure se originam. Isso não inclui o tráfego para o recurso de Azure Load Balancer. Se você não estiver usando Azure Load Balancer, poderá substituir essa regra. | Ambos | Não | Não |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | Não | Sim |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon e métricas personalizadas (pontos de extremidade GiG).<br/><br/>*Observação:* Por Log Analytics, essa marca tem uma dependência na marca de **armazenamento** . | Saída | Não | Sim |
+| **AzureOpenDatasets** | Conjuntos de os abertos do Azure.<br/><br/>*Observação:* Essa marca tem uma dependência no **AzureFrontDoor. frontend** e na marca de **armazenamento** . | Saída | Não | Não |
 | **AzurePlatformDNS** | O serviço DNS de infraestrutura básica (padrão).<br/><br>Você pode usar essa marca para desabilitar o DNS padrão. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [considerações da plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
 | **AzurePlatformIMDS** | O IMDS (serviço de metadados de instância do Azure), que é um serviço de infraestrutura básico.<br/><br/>Você pode usar essa marca para desabilitar o IMDS padrão. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [considerações da plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
 | **AzurePlatformLKM** | Licenciamento do Windows ou serviço de gerenciamento de chaves.<br/><br/>Você pode usar essa marca para desabilitar os padrões de licenciamento. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [considerações da plataforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
 | **AzureResourceManager** | Azure Resource Manager. | Saída | Não | Não |
-| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas de **armazenamento**, **AzureActiveDirectory**e **EventHub** . | Saída | Não | Não |
+| **AzureSignalR** | Sinalizador do Azure. | Saída | Não | Não |
+| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** e **Storage** . | Saída | Não | Não |
 | **AzureTrafficManager** | Endereços IP de investigação do Gerenciador de tráfego do Azure.<br/><br/>Para obter mais informações sobre endereços IP de investigação do Gerenciador de tráfego, consulte [perguntas frequentes do Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Entrada | Não | Sim |  
 | **BatchNodeManagement** | Tráfego de gerenciamento para implantações dedicadas ao lote do Azure. | Ambos | Não | Sim |
 | **CognitiveServicesManagement** | Os intervalos de endereços para o tráfego para serviços cognitivas do Azure. | Saída | Não | Não |
+| **DataFactory**  | Fábrica de dados do Azure | Saída | Não | Não |
+| **DataFactoryManagement** | Tráfego de gerenciamento para Azure Data Factory. | Entrada | Não | Não |
 | **Dynamics365ForMarketingEmail** | Os intervalos de endereços para o serviço de email de marketing do Dynamics 365. | Saída | Sim | Não |
 | **ElasticAFD** | Porta de recepção do Azure elástica. | Ambos | Não | Não |
 | **EventHub** | Hubs de eventos do Azure. | Saída | Sim | Sim |
@@ -82,13 +89,18 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **GuestAndHybridManagement** | Configuração de convidado e automação do Azure. | Saída | Não | Sim |
 | **HDInsight** | Azure HDInsight. | Entrada | Sim | Não |
 | **Internet** | O espaço de endereço IP que está fora da rede virtual e acessível pela Internet pública.<br/><br/>O intervalo de endereços inclui o [espaço de endereço IP público de Propriedade do Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Ambos | Não | Não |
+| **LogicApps** | Aplicativos lógicos. | Ambos | Não | Não |
+| **LogicAppsManagement** | Tráfego de gerenciamento para aplicativos lógicos. | Entrada | Não | Não |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Saída | Não | Não |
-| **MicrosoftContainerRegistry** | Registro de contêiner para imagens de contêiner da Microsoft. <br/><br/>*Observação:* Além disso, leia a lista de permissões a seguir IP (essa dependência será removida em breve): 204.79.197.219. | Saída | Sim | Sim |
+| **MicrosoftContainerRegistry** | Registro de contêiner para imagens de contêiner da Microsoft. <br/><br/>*Observação:* Essa marca tem uma dependência na marca **AzureFrontDoor. FirstParty** . | Saída | Sim | Sim |
+| **PowerQueryOnline** | Power Query online. | Ambos | Não | Não |
 | **Barramento de Serviço** | O tráfego do barramento de serviço do Azure que usa a camada de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Service Fabric do Azure.<br/><br/>*Observação:* Essa marca representa o ponto de extremidade de serviço Service Fabric para o plano de controle por região. Isso permite que os clientes executem operações de gerenciamento para seus clusters Service Fabric de sua VNET (ponto de extremidade por exemplo). https://westus.servicefabric.azure.com) | Ambos | Não | Não |
 | **Sql** | Banco de dados SQL do Azure, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. Esta marca não se aplica à instância gerenciada do SQL. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gerenciamento para implantações dedicadas do SQL. | Ambos | Não | Sim |
 | **Storage** | Armazenamento do Microsoft Azure. <br/><br/>*Observação:* Essa marca representa o serviço, mas não instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
+| **StorageSyncService** | Serviço de sincronização de armazenamento. | Ambos | Não | Não |
+| **WindowsVirtualDesktop** | Área de trabalho virtual do Windows. | Ambos | Não | Não |
 | **VirtualNetwork** | O espaço de endereço de rede virtual (todos os intervalos de endereços IP definidos para a rede virtual), todos os espaços de endereço locais conectados, redes virtuais [emparelhadas](virtual-network-peering-overview.md) , redes virtuais conectadas a um [Gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), o [endereço IP virtual do host e os](security-overview.md#azure-platform-considerations)prefixos de endereço usados em [rotas definidas pelo usuário](virtual-networks-udr-overview.md). Essa marca também pode conter rotas padrão. | Ambos | Não | Não |
 
 >[!NOTE]

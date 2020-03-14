@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494974"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271896"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 
 Neste documento, conheça as noções básicas de gerenciamento e monitoramento de topologias [Apache Storm](https://storm.apache.org/) em execução no Storm em clusters HDInsight.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster**.
 
@@ -40,7 +40,7 @@ Você pode usar as ferramentas de Data Lake para o Visual Studio C# para enviar 
 
 1. Inicie o Visual Studio.
 
-1. Na janela **Iniciar** , selecione **criar um novo projeto**.
+1. Na janela **Iniciar**, selecione **Criar projeto**.
 
 1. Na janela **criar um novo projeto** , selecione a caixa Pesquisar e digite `Storm`. Em seguida, escolha **exemplo do Storm** na lista de resultados e selecione **Avançar**.
 
@@ -172,7 +172,7 @@ A interface do usuário do Storm fornece uma interface da Web para trabalhar com
 
 A página principal da interface do usuário do Storm fornece as seguintes informações:
 
-| Seção | Description |
+| Seção | DESCRIÇÃO |
 | --- | --- |
 | Resumo do cluster| Informações básicas sobre o cluster do Storm. |
 | Resumo de Nimbus | Uma lista de informações de Nimbus básicas. |
@@ -188,7 +188,7 @@ A página principal da interface do usuário do Storm é semelhante a esta pági
 
 Selecionar um link na seção **Resumo da topologia** exibirá as seguintes informações sobre a topologia:
 
-| Seção | Description |
+| Seção | DESCRIÇÃO |
 | --- | --- |
 | Resumo da topologia | Informações básicas sobre a topologia. |
 | Ações de topologia| Ações de gerenciamento que você pode fazer para a topologia. As ações disponíveis são descritas posteriormente nesta seção. |
@@ -205,13 +205,13 @@ A página de resumo da topologia do Storm é semelhante a esta página da Web:
 
 Na seção **ações de topologia** , você pode selecionar os botões a seguir para executar uma ação:
 
-| Botão | Description |
+| Botão | DESCRIÇÃO |
 | --- | --- |
 | Ativar | Retoma o processamento de uma topologia desativada. |
 | Desativar | Pausa uma topologia em execução. |
 | Rebalanceamento | Ajusta o paralelismo da topologia. Você deve redistribuir topologias em execução depois de alterar o número de nós no cluster. Essa operação permite que a topologia ajuste o paralelismo para compensar o número adicional ou reduzido de nós no cluster.<br/><br/>Para saber mais, consulte <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Noções básicas sobre o paralelismo de uma topologia do Apache Storm</a>.
 | Encerrar | Termina uma topologia do Storm após o tempo limite especificado. |
-| Depuração | Inicia uma sessão de depuração para a topologia em execução. |
+| Depurar | Inicia uma sessão de depuração para a topologia em execução. |
 | Parar depuração | Encerra a sessão de depuração para a topologia em execução. |
 | Alterar nível de log | Modifica o nível de log de depuração. |
 
@@ -219,7 +219,7 @@ Na seção **ações de topologia** , você pode selecionar os botões a seguir 
 
 Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes informações sobre o item selecionado:
 
-| Seção | Description |
+| Seção | DESCRIÇÃO |
 | --- | --- |
 | Resumo do componente | Informações básicas sobre o spout ou o bolt. |
 | Ações de componente | Botões **depurar** e **parar depuração** . |
@@ -249,9 +249,9 @@ O URI de base para a API REST em clusters HDInsight baseados em Linux está disp
 
 Você pode encontrar o FQDN (nome de domínio totalmente qualificado) para o nó principal do cluster de várias maneiras:
 
-| Método de descoberta de FQDN | Description |
+| Método de descoberta de FQDN | DESCRIÇÃO |
 | --- | --- |
-| Sessão SSH | Use o `headnode -f` de comando de uma sessão SSH para o cluster. |
+| Sessão SSH | Use o comando `headnode -f` de uma sessão SSH para o cluster. |
 | Ambari Web | Na página da Web do Ambari cluster (`https://CLUSTERNAME.azurehdinsight.net`), selecione **Serviços** na parte superior da página e, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página. |
 | API REST do Ambari | Use o comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó em que a interface do usuário do Storm e a API REST estão em execução. Substitua as duas instâncias de *ClusterName* pelo nome do cluster. Quando solicitado, insira a senha para a conta de usuário (administrador). Na resposta, a entrada "host_name" da saída JSON contém o FQDN do nó. |
 
@@ -266,7 +266,7 @@ As solicitações para a API REST devem usar a *autenticação básica*, portant
 
 As informações retornadas pela API REST só podem ser usadas dentro do cluster. Por exemplo, o FQDN (nome de domínio totalmente qualificado) retornado para servidores [Apache ZooKeeper](https://zookeeper.apache.org/) não está acessível pela Internet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A seguir, aprenda a [Desenvolver topologias baseadas em Java usando o Apache Maven](apache-storm-develop-java-topology.md).
 

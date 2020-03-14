@@ -3,12 +3,12 @@ title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443119"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259689"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduza os custos de serviço usando o Assistente do Azure
 
@@ -47,6 +47,9 @@ O Azure Advisor detectará Azure Data Factory pipelines que falham repetidamente
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Usar instantâneos padrão para Managed Disks
 Para economizar 60% do custo, é recomendável armazenar seus instantâneos no Armazenamento Standard do Azure, independentemente do tipo de armazenamento do disco principal. Essa opção é a opção padrão para instantâneos de Managed Disks. O assistente do Azure identificará os instantâneos armazenados no armazenamento Premium e recomendará migrar seu instantâneo do Premium para o armazenamento Standard. [Saiba mais sobre os preços do disco gerenciado](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
+## <a name="utilize-lifecycle-management"></a>Utilizar o gerenciamento do ciclo de vida do dispositivo
+O Azure Advisor utilizará inteligência em relação à contagem de objetos do armazenamento de BLOBs do Azure, tamanho total e transações para detectar se uma ou mais de suas contas de armazenamento seriam mais adequadas para permitir o gerenciamento do ciclo de vida para dados de camadas. Ele solicitará que você crie regras de gerenciamento de ciclo de vida para hierarquizar seus dados automaticamente para frio ou arquivo para otimizar os custos de armazenamento e, ao mesmo tempo, manter seus dados no armazenamento de BLOBs do Azure para compatibilidade de aplicativos.
+
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Assistente do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com).
@@ -55,7 +58,7 @@ Para economizar 60% do custo, é recomendável armazenar seus instantâneos no A
 
 1. No painel do **Advisor** , selecione a guia **custo** .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as recomendações do Assistente, consulte:
 * [Introdução ao Advisor](advisor-overview.md)

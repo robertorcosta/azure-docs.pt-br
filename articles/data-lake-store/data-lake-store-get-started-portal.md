@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385694"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265578"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store Gen1 usando o portal do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "78385694"
 
 Saiba como usar o portal do Azure para criar uma conta de Data Lake Storage Gen1 e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações, consulte [visão geral do Azure data Lake Storage Gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
@@ -44,7 +44,7 @@ Antes de começar este tutorial, você deve ter os seguintes itens:
    * **Assinatura**. Selecione a assinatura na qual você deseja criar uma conta do Azure Data Lake Storage Gen1.
    * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Localização**: selecione uma localização onde deseja criar a conta do Data Lake Storage Gen1.
-   * **Configurações de Criptografia**. Existem três opções:
+   * **Configurações de Criptografia**. Há três opções:
 
      * **Não habilite a criptografia**.
      * **Usar chaves gerenciadas pelo Data Lake Storage Gen1**, se você quiser que o Data Lake Storage Gen1 gerencie suas chaves de criptografia.
@@ -123,7 +123,7 @@ Para excluir uma conta do Data Lake Storage Gen1, na folha dele, clique em **Exc
 
 ![Excluir conta de Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Excluir conta do Data Lake")
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Use o Armazenamento de Data Lake do Azure Gen1 para requisitos de big data](data-lake-store-data-scenarios.md)
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)

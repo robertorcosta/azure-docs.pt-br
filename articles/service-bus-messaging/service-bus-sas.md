@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121736"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259468"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -264,17 +264,17 @@ A tabela a seguir mostra os direitos de acesso necessários para diversas opera�
 | Operação | Declaração Obrigatória | Escopo da Declaração |
 | --- | --- | --- |
 | **Namespace** | | |
-| Configurar regra de autorização em um namespace |Gerenciamento |Qualquer endereço de namespace |
+| Configurar regra de autorização em um namespace |Gerenciar |Qualquer endereço de namespace |
 | **Registro do Serviço** | | |
-| Enumerar Políticas de Privacidade |Gerenciamento |Qualquer endereço de namespace |
+| Enumerar Políticas de Privacidade |Gerenciar |Qualquer endereço de namespace |
 | Iniciar a escuta em um namespace |Escutar |Qualquer endereço de namespace |
 | Enviar mensagens a um ouvinte em um namespace |Enviar |Qualquer endereço de namespace |
 | **Fila** | | |
-| Criar uma fila |Gerenciamento |Qualquer endereço de namespace |
-| Excluir uma fila |Gerenciamento |Qualquer endereço de fila válido |
-| Enumerar filas |Gerenciamento |/$Resources/Queues |
-| Obter a descrição da fila |Gerenciamento |Qualquer endereço de fila válido |
-| Configurar regra de autorização para uma fila |Gerenciamento |Qualquer endereço de fila válido |
+| Criar uma fila |Gerenciar |Qualquer endereço de namespace |
+| Excluir uma fila |Gerenciar |Qualquer endereço de fila válido |
+| Enumerar filas |Gerenciar |/$Resources/Queues |
+| Obter a descrição da fila |Gerenciar |Qualquer endereço de fila válido |
+| Configurar regra de autorização para uma fila |Gerenciar |Qualquer endereço de fila válido |
 | Enviar para a fila |Enviar |Qualquer endereço de fila válido |
 | Receber mensagens de uma fila |Escutar |Qualquer endereço de fila válido |
 | Abandonar ou concluir as mensagens após o recebimento da mensagem em modo de bloqueio de pico |Escutar |Qualquer endereço de fila válido |
@@ -284,28 +284,28 @@ A tabela a seguir mostra os direitos de acesso necessários para diversas opera�
 | Definir o estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
 | Agende uma mensagem para entrega posterior; por exemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escutar | Qualquer endereço de fila válido
 | **Tópico** | | |
-| Criar um tópico |Gerenciamento |Qualquer endereço de namespace |
-| Excluir um tópico |Gerenciamento |Qualquer endereço de tópico válido |
-| Enumerar tópicos |Gerenciamento |/$Resources/Topics |
-| Obter a descrição do tópico |Gerenciamento |Qualquer endereço de tópico válido |
-| Configurar regra de autorização para um tópico |Gerenciamento |Qualquer endereço de tópico válido |
+| Criar um tópico |Gerenciar |Qualquer endereço de namespace |
+| Excluir um tópico |Gerenciar |Qualquer endereço de tópico válido |
+| Enumerar tópicos |Gerenciar |/$Resources/Topics |
+| Obter a descrição do tópico |Gerenciar |Qualquer endereço de tópico válido |
+| Configurar regra de autorização para um tópico |Gerenciar |Qualquer endereço de tópico válido |
 | Enviar ao tópico |Enviar |Qualquer endereço de tópico válido |
 | **Assinatura** | | |
-| Criar uma assinatura |Gerenciamento |Qualquer endereço de namespace |
-| Excluir assinatura |Gerenciamento |../myTopic/Subscriptions/mySubscription |
-| Enumerar assinaturas |Gerenciamento |../myTopic/Subscriptions |
-| Obter descrição da assinatura |Gerenciamento |../myTopic/Subscriptions/mySubscription |
+| Criar uma assinatura |Gerenciar |Qualquer endereço de namespace |
+| Excluir assinatura |Gerenciar |../myTopic/Subscriptions/mySubscription |
+| Enumerar assinaturas |Gerenciar |../myTopic/Subscriptions |
+| Obter descrição da assinatura |Gerenciar |../myTopic/Subscriptions/mySubscription |
 | Abandonar ou concluir as mensagens após o recebimento da mensagem em modo de bloqueio de pico |Escutar |../myTopic/Subscriptions/mySubscription |
 | Adiar uma mensagem para recuperação posterior |Escutar |../myTopic/Subscriptions/mySubscription |
 | Colocar uma mensagem nas mensagens mortas |Escutar |../myTopic/Subscriptions/mySubscription |
 | Obter o estado associado a uma sessão de tópico |Escutar |../myTopic/Subscriptions/mySubscription |
 | Definir o estado associado a uma sessão de tópico |Escutar |../myTopic/Subscriptions/mySubscription |
 | **Regras** | | |
-| Criar uma regra |Gerenciamento |../myTopic/Subscriptions/mySubscription |
-| Excluir uma regra |Gerenciamento |../myTopic/Subscriptions/mySubscription |
+| Criar uma regra |Gerenciar |../myTopic/Subscriptions/mySubscription |
+| Excluir uma regra |Gerenciar |../myTopic/Subscriptions/mySubscription |
 | Enumerar regras |Gerenciar ou Escutar |../myTopic/Subscriptions/mySubscription/Rules
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 

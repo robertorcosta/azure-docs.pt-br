@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e8266e5750a14542e7f115e021daa40b2b0bf8f6
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 245bcac81189ac8aa63f81fbe4ed30655a457bc8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129997"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371827"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrar Azure Data Lake Storage de Gen1 para Gen2
 
@@ -120,7 +120,7 @@ Escolha um padrão de migração e, em seguida, modifique esse padrão conforme 
 
 Vamos examinar mais de perto cada padrão.
  
-### <a name="lift-and-shift-pattern"></a>Padrão de comparação de precisão e deslocamento
+### <a name="lift-and-shift-pattern"></a>padrão de comparação de precisão e deslocamento
 
 Esse é o padrão mais simples.
 
@@ -132,7 +132,8 @@ Esse é o padrão mais simples.
 
 4. Descomissionamento de Gen1.
 
-![padrão de comparação de precisão e deslocamento](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
+> [!div class="mx-imgBorder"]
+> ![o padrão de comparação de precisão e deslocamento](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 #### <a name="considerations-for-using-the-lift-and-shift-pattern"></a>Considerações sobre o uso do padrão de comparação de precisão e deslocamento
 
@@ -152,7 +153,8 @@ Esse é o padrão mais simples.
 
 4. Descomissionamento de Gen1.
 
-![Padrão de cópia incremental](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
+> [!div class="mx-imgBorder"]
+> ![padrão de cópia incremental](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
 #### <a name="considerations-for-using-the-incremental-copy-pattern"></a>Considerações sobre o uso do padrão de cópia incremental:
 
@@ -172,7 +174,8 @@ Esse é o padrão mais simples.
 
 4. Interrompa todas as gravações para Gen1 e, em seguida, encerre o Gen1.
 
-![Padrão de pipeline duplo](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
+> [!div class="mx-imgBorder"]
+> ![padrão de pipeline duplo](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
 #### <a name="considerations-for-using-the-dual-pipeline-pattern"></a>Considerações sobre o uso do padrão de pipeline duplo:
 
@@ -190,7 +193,8 @@ Esse é o padrão mais simples.
 
 4. Descomissionamento de Gen1.
 
-![Padrão bidirecional](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
+> [!div class="mx-imgBorder"]
+> ![padrão bidirecional](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
 #### <a name="considerations-for-using-the-bi-directional-sync-pattern"></a>Considerações sobre o uso do padrão de sincronização bidirecional:
 
@@ -198,7 +202,7 @@ Esse é o padrão mais simples.
 
 : heavy_check_mark: o esforço de migração é alto, mas fornece suporte lado a lado para Gen1 e Gen2.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as várias partes da configuração de segurança para uma conta de armazenamento. Consulte o [Guia de segurança do armazenamento do Azure](../common/storage-security-guide.md).
 - Otimize o desempenho para seu Data Lake Store. Consulte [otimizar Azure data Lake Storage Gen2 para desempenho](data-lake-storage-performance-tuning-guidance.md)

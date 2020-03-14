@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.openlocfilehash: 768fa075d4114f467697a23709a3f7d7d4c25f45
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012417"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243400"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
@@ -21,6 +21,6 @@ Se você quiser começar a usar o ultra disks, consulte nosso artigo sobre o ass
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
-Para obter mais informações sobre instantâneos, confira a seção sobre instantâneos [Visão geral dos discos gerenciados](managed-disks-overview.md).
+Para obter mais informações sobre instantâneos, confira a seção sobre instantâneos [Visão geral de discos gerenciados](managed-disks-overview.md).
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]

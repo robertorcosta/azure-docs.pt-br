@@ -7,11 +7,11 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: c6cad29b6cc392746a2e56323302521302835b2f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394959"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274548"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -31,7 +31,7 @@ Há suporte para os seguintes produtos/serviços ITSM. Selecione o produto para 
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto System Center Service Manager ao ITSMC no Azure.
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
@@ -97,7 +97,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da assinatura do Azure
 - Nome do grupo de recursos
-- Local
+- Location
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de usuário e senha)
 - Prefixo de nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
@@ -159,7 +159,7 @@ Use o procedimento a seguir para definir a configuração de ouvinte para a cone
 
 3. Faça logon com suas credenciais do Azure e selecione sua assinatura em que a conexão híbrida foi criada.
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 Sua conexão híbrida foi conectada com êxito.
 
@@ -176,7 +176,7 @@ O exemplo a seguir mostra os detalhes de uma conexão bem-sucedida:
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto ServiceNow ao ITSMC no Azure.
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 Verifique se os seguintes pré-requisitos foram atendidos:
 - ITSMC instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versões com suporte do ServiceNow: Nova York, Madri, Londres, Kingston, Jacarta, Istambul, Helsinque, Geneva.
@@ -282,7 +282,7 @@ Depois que o usuário é criado com êxito, o status de **lista de verificação
 As seções a seguir fornecem detalhes sobre como conectar seu produto Provance ao ITSMC no Azure.
 
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
@@ -335,7 +335,7 @@ Saiba mais: [ Crie itens de trabalho ITSM a partir de alertas do Azure ](../../a
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto Cherwell ao ITSMC no Azure.
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
@@ -394,5 +394,5 @@ Para gerar o chave/ID do cliente para Cherwell, use o procedimento a seguir:
     ![Id de usuário do Cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
  - [Criar itens de trabalho de ITSM desde alertas do Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

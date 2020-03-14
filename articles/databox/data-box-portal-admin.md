@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987480"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259988"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy
 
@@ -67,7 +67,7 @@ Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Exec
 
 3. Insira o nome do pedido quando solicitado a confirmar a exclusão de um pedido. Clique em **Excluir**.
 
-## <a name="download-shipping-label"></a>Baixar etiqueta de remessa
+## <a name="download-shipping-label"></a>Faça o download da etiqueta de remessa
 
 Talvez você precise baixar a etiqueta de remessa se a exibição de tinta virtual do Data Box não estiver funcionando e não exibir a etiqueta de remessa de devolução. Não há nenhuma exibição eletrônica na Data Box Heavy e, portanto, esse fluxo de trabalho não se aplica a Data Box Heavy.
 
@@ -75,9 +75,9 @@ Execute as etapas a seguir para baixar uma etiqueta de remessa.
 
 1.  Vá para **Visão geral > Baixar etiqueta de remessa**. Essa opção fica disponível somente depois que o dispositivo é enviado. 
 
-    ![Baixar etiqueta de remessa](media/data-box-portal-admin/download-shipping-label.png)
+    ![Faça o download da etiqueta de remessa](media/data-box-portal-admin/download-shipping-label.png)
 
-2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Salve a etiqueta e imprimi-a. Dobre e insira a etiqueta na abertura do dispositivo. Verifique se a etiqueta está visível. Remova todos os adesivos do dispositivo referentes ao envio anterior.
+2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Salve o rótulo e imprima-o. Dobre e insira o rótulo na manga vazia do dispositivo. Verifique se a etiqueta está visível. Remova todos os adesivos do dispositivo referentes ao envio anterior.
 
     ![Etiqueta de remessa de exemplo](media/data-box-portal-admin/example-shipping-label.png)
 
@@ -110,7 +110,7 @@ Execute as etapas a seguir para editar os detalhes de notificação.
     ![Editar detalhes da notificação 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
-## <a name="download-order-history"></a>Baixar o histórico de pedidos
+## <a name="download-order-history"></a>Baixar histórico de pedidos
 
 Depois que o pedido do Data Box estiver completo, os dados nos discos do dispositivo serão apagados. Quando a limpeza de dispositivo for concluída, você poderá baixar o histórico de pedidos no portal do Azure.
 
@@ -197,19 +197,19 @@ Você também pode exibir a cadeia de logs de custódia que incluem os logs de a
 
 Quando o status do dispositivo for alterado no portal, você será notificado por email.
 
-|Status do pedido |Descrição |
+|Status do pedido |DESCRIÇÃO |
 |---------|---------|
 |Encomendado     | Pedido feito com êxito. <br>Se o dispositivo estiver disponível, a Microsoft identificará um dispositivo para envio e o preparará. <br> Se o dispositivo não estiver disponível imediatamente, o pedido apenas será processado quando o dispositivo estiver disponível. O pedido pode levar de vários dias a alguns meses para ser processado. Se o pedido não puder ser processado em até 90 dias, ele será cancelado e você será notificado.         |
 |Processado     | O processamento de pedidos foi concluído. De acordo com seu pedido, o dispositivo está preparado para o envio no data center.         |
 |Expedido     | O pedido foi enviado. Use a ID de acompanhamento exibida no pedido no portal para acompanhar a remessa.        |
 |Entregue     | A remessa foi entregue no endereço especificado no pedido.        |
-|Recebido     |A remessa de devolução foi recolhida e verificada pela transportadora.         |
+|Recolhido     |A remessa de devolução foi recolhida e verificada pela transportadora.         |
 |Recebido     | O dispositivo foi recebido e verificado no datacenter do Azure. <br> Depois que a remessa for inspecionada, o upload do dispositivo será iniciado.      |
 |Cópia de dados     | Cópia de dados em andamento. Acompanhe o progresso de cópia do pedido no portal do Azure. <br> Aguarde até que a cópia de dados seja concluída. |
 |Concluído       |Pedido concluído com êxito.<br> Verifique se os dados estão no Azure antes de excluir os dados locais dos servidores.         |
 |Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Consulte [exemplos de logs de cópia quando o upload for concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
 |Concluído com avisos| A cópia de dados foi concluída, mas os dados foram modificados. Os dados tinham erros não críticos de BLOB ou de nome de arquivo que foram corrigidos alterando os nomes de arquivo ou BLOB. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote as modificações em seus dados. Consulte [exemplos de logs de cópia quando o upload for concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Cancelada            |Pedido cancelado. <br> Você cancelou o pedido ou ocorreu um erro e o serviço cancelou o pedido. Se o pedido não puder ser processado em até 90 dias, ele também será cancelado e você será notificado.     |
+|Canceled            |Pedido cancelado. <br> Você cancelou o pedido ou ocorreu um erro e o serviço cancelou o pedido. Se o pedido não puder ser processado em até 90 dias, ele também será cancelado e você será notificado.     |
 |Limpar | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
 
 

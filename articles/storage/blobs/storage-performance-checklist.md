@@ -9,11 +9,11 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749226"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255425"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs
 
@@ -36,8 +36,8 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Rede |[Os dispositivos cliente têm um link de rede de alta qualidade?](#link-quality) |
 | &nbsp; |Rede |[O aplicativo cliente está na mesma região que a conta de armazenamento?](#location) |
 | &nbsp; |Acesso direto do cliente |[Você está usando SAS (assinaturas de acesso compartilhado) e CORS (compartilhamento de recursos entre origens) para habilitar o acesso direto ao Armazenamento do Azure?](#sas-and-cors) |
-| &nbsp; |Caching |[O aplicativo armazena em cache os dados que são frequentemente acessados e raramente alterados?](#reading-data) |
-| &nbsp; |Caching |[O aplicativo faz atualizações em lote armazenando-as no cliente e, em seguida, carregando-as em conjuntos maiores?](#uploading-data-in-batches) |
+| &nbsp; |Cache |[O aplicativo armazena em cache os dados que são frequentemente acessados e raramente alterados?](#reading-data) |
+| &nbsp; |Cache |[O aplicativo faz atualizações em lote armazenando-as no cliente e, em seguida, carregando-as em conjuntos maiores?](#uploading-data-in-batches) |
 | &nbsp; |Configuração do .NET |[Você está usando o .NET Core 2.1 ou posterior para obter um desempenho ideal?](#use-net-core) |
 | &nbsp; |Configuração do .NET |[Você configurou seu cliente para usar uma quantidade suficiente de conexões simultâneas?](#increase-default-connection-limit) |
 | &nbsp; |Configuração do .NET |[Para aplicativos .NET, você configurou o .NET para usar um número suficiente de threads?](#increase-minimum-number-of-threads) |
@@ -52,7 +52,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Usar metadados |[Você armazena os metadados sobre blobs usados com frequência?](#use-metadata) |
 | &nbsp; |Carregando rapidamente |[Ao tentar carregar um blob rapidamente, você carrega blocos paralelamente?](#upload-one-large-blob-quickly) |
 | &nbsp; |Carregando rapidamente |[Ao tentar carregar muitos blobs rapidamente, você carrega blocos paralelamente?](#upload-many-blobs-quickly) |
-| &nbsp; |Tipo de blob |[Você usa blobs de página ou de bloco quando necessário?](#choose-the-correct-type-of-blob) |
+| &nbsp; |Tipo de BLOB |[Você usa blobs de página ou de bloco quando necessário?](#choose-the-correct-type-of-blob) |
 
 ## <a name="scalability-targets"></a>Metas de escalabilidade
 
@@ -131,7 +131,7 @@ No caso da largura de banda, muitas vezes o problema está relacionado às funci
 
 Como acontece com qualquer uso de rede, tenha em mente que as condições de rede que resultam em erros e a perda do pacote desacelerarão a taxa de transferência efetiva.  Usar WireShark ou NetMon pode ajudar a identificar esse problema.  
 
-### <a name="location"></a>Local
+### <a name="location"></a>Location
 
 Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com o mínimo de latência, o melhor local para o cliente é a região na qual o Azure se encontra. Por exemplo, se tiver um aplicativo Web do Azure que usa o Armazenamento do Azure, localize-os dentro de uma única região, como o Oeste dos EUA ou o Sudeste Asiático. Colocalizar recursos reduz a latência e o custo, pois o uso de largura de banda em uma única região é gratuito.  
 
@@ -151,7 +151,7 @@ Por exemplo, suponha que um aplicativo Web em execução no Azure faça uma soli
   
 SAS e CORS podem ajudar você a evitar uma carga desnecessária em seu aplicativo Web.  
 
-## <a name="caching"></a>Caching
+## <a name="caching"></a>Cache
 
 O Caching desempenha um papel importante no desempenho. As seções a seguir abordam as práticas recomendadas de cache.
 
@@ -283,8 +283,8 @@ Os blobs de acréscimo são semelhantes aos blobs de blocos, pois são compostos
 
 Os blobs de páginas são apropriados se o aplicativo precisar executar gravações aleatórias nos dados. Por exemplo, os discos de máquina virtual do Azure são armazenados como BLOBs de página. Para obter mais informações, consulte [noções básicas sobre blobs de blocos, blobs de acréscimo e blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- [Escalabilidade e metas de desempenho para o armazenamento de BLOBs](scalability-targets.md)
-- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Metas de escalabilidade e desempenho do Armazenamento de Blobs](scalability-targets.md)
+- [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

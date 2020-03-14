@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982241"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280229"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
 
@@ -35,7 +35,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 - A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões](#permissions).
 
-## <a name="create-a-virtual-network"></a>Crie uma rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 1. Clique em **+Criar um recurso** > **Rede** > **Rede virtual**.
 2. Insira ou selecione valores para as seguintes configurações e selecione **Criar**:
@@ -177,7 +177,7 @@ Para executar tarefas em redes virtuais, sua conta deve ser atribuída à funç�
 |Microsoft.Network/virtualNetworks/write  |   Criar ou atualizar uma rede virtual  |
 |Microsoft.Network/virtualNetworks/delete |   Excluir uma rede virtual            |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Criar uma rede virtual usando [PowerShell](powershell-samples.md) ou os scripts de exemplo da [CLI do Azure](cli-samples.md) ou usando os modelos do [Azure Resource Manager](template-samples.md)
 - Criar e aplicar a [Política do Azure](policy-samples.md) para redes virtuais

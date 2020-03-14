@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: bc1f40760c1602d81da042bf6909e44a540d35de
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612148"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283752"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Ferramentas de desenvolvimento no Máquina Virtual de Ciência de Dados do Azure
 
@@ -35,7 +35,7 @@ O Máquina Virtual de Ciência de Dados (DSVM) agrupa várias ferramentas popula
 > [!NOTE]
 > Você poderá receber uma mensagem informando que o período de avaliação expirou. Insira suas credenciais de conta da Microsoft. Ou crie uma nova conta gratuita para obter acesso ao Visual Studio Community.
 
-## <a name="visual-studio-code"></a>Código do Visual Studio 
+## <a name="visual-studio-code"></a>Visual Studio Code 
 
 |    |           |
 | ------------- | ------------- |

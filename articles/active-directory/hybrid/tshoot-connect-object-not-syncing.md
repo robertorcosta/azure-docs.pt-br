@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376198"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253527"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure Active Directory
 
@@ -54,7 +54,7 @@ O processo de sincronização envolve as seguintes etapas:
 
 5. **Exportar para o Azure AD:** Após a sincronização, os objetos são exportados do Azure AD CS para o Azure AD.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Para encontrar os erros, verifique diferentes lugares, na seguinte ordem:
 
@@ -79,7 +79,7 @@ A coluna **Status** traz as informações mais importantes e mostra o problema m
 | stopped-error-limit |Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros. |
 | completed-\*-errors |A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. |
 | completed-\*-warnings |A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, essa mensagem indicará apenas um sintoma. Não investigue os avisos até que tenha resolvido os erros. |
-| success |Nenhum problema. |
+| sucesso |Nenhum problema. |
 
 Quando você seleciona uma linha, a parte inferior da guia **Operações** é atualizada para mostrar os detalhes dessa execução. Na extremidade esquerda desta área, pode haver uma lista intitulada **Etapa Nº**. Essa lista só será exibida se você tiver vários domínios na floresta, e cada domínio for representado por uma etapa. O nome de domínio pode ser encontrado sob o título **Partição**. No cabeçalho **Estatísticas de Sincronização**, é possível encontrar mais informações sobre o número de alterações que foram processadas. Selecione os links para obter uma lista dos objetos alterados. Se houver objetos com erros, estes aparecerão no cabeçalho **Erros de Sincronização**.
 
@@ -142,7 +142,7 @@ Na imagem anterior, é possível ver que na coluna **PasswordSync** o espaço co
 
 Na guia **Linhagem**, é possível acessar o metaverso clicando em [**Propriedades de Objeto do Metaverso**](#mv-attributes).
 
-### <a name="preview"></a>{1&gt;Preview&lt;1}
+### <a name="preview"></a>Visualização
 No canto inferior esquerdo da janela **Propriedades de Objeto do Espaço Conector**, veja o botão **Visualização**. Selecione esse botão para abrir a página **Visualização**, onde será possível sincronizar um único objeto. Essa página será útil se você estiver solucionando problemas de algumas regras de sincronização personalizadas e desejar ver o efeito de uma alteração em um único objeto. Você pode selecionar uma **sincronização completa** ou uma **sincronização Delta**. Você também pode selecionar **gerar visualização**, que mantém apenas a alteração na memória. Ou selecionar **Visualização de Confirmação**, o que atualiza o metaverso e prepara todas as alterações para os espaços conectores de destino.  
 
 ![Captura de tela da página Visualização, com o item Iniciar Visualização selecionado](./media/tshoot-connect-object-not-syncing/preview.png)  
@@ -208,6 +208,6 @@ Se você não tiver o conector do Azure AD, confira a seção [Atributos do MV](
 
 Na guia **Conectores**, também é possível acessar o [objeto do espaço conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre a [ Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md).
 - Saiba mais sobre [identidades híbridas](whatis-hybrid-identity.md).

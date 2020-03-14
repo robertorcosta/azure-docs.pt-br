@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: a7d8891c6f925cfac326685f01ba5f6149a1b233
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262853"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278058"
 ---
 # <a name="http-features"></a>Recursos de HTTP
 
@@ -41,11 +41,11 @@ Consulte o [artigo APIs http](durable-functions-http-api.md) para obter uma desc
 
 A [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar conteúdos de resposta http convenientes. Por exemplo, ele pode criar uma resposta que contém links para APIs de gerenciamento para uma instância de orquestração específica. Os exemplos a seguir mostram uma função HTTP-Trigger que demonstra como usar essa API para uma nova instância de orquestração:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
@@ -114,7 +114,7 @@ A partir do Durable Functions 2,0, as orquestrações podem consumir nativamente
 
 O código de exemplo a seguir mostra uma função de orquestrador que faz uma solicitação HTTP de saída:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ Durable Functions nativamente dá suporte a chamadas para APIs que aceitam token
 
 O código a seguir é um exemplo de uma função de orquestrador do .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual usando a [API REST de Azure Resource Manager máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -286,7 +286,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre entidades duráveis](durable-functions-entities.md)

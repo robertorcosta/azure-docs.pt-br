@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384166"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275614"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -46,7 +46,7 @@ Clique em um gráfico para selecionar outras medidas que são exibidas, ou adici
 ## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
 Há várias métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
 
-### <a name="requests"></a>Solicitações
+### <a name="requests"></a>Requests
 O número de solicitações de HTTP receberam em um período especifico. Compare isso com os resultados em outros reatórios para ver como seu aplicativo se comporta conforme a carga varia.
 
 As solicitações HTTP incluem todas as solicitações GET ou POST para páginas, dados e imagens.

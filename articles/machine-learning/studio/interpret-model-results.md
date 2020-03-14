@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 2d13385b63802bc0037c3fbe32cd38ed5caaf1c6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168595"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218059"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo em Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Este tópico explica como Visualizar e interpretar os resultados de previsão em Azure Machine Learning Studio (clássico). Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
 
@@ -115,7 +117,7 @@ Figura 7. Visualizar os resultados do modelo de pontuação na classificação m
 
 **Interpretação de resultado**
 
-As 16 colunas à esquerda representam os valores do recurso do conjunto de teste. As colunas com nomes como Probabilidades Pontuadas para a Classe "XX" são como a coluna Probabilidades Pontuadas no caso de duas classes. Elas mostram a probabilidade de que a entrada correspondente se encaixe em uma determinada classe. Por exemplo, para a primeira entrada, há a probabilidade de 0,003571 que seja um "A", a probabilidade de 0,000451 que seja um "B", e assim por diante. A última coluna (Rótulos Pontuados) é a mesma que Rótulos Pontuados no caso de duas classes. Ela seleciona a classe com a maior probabilidade de pontuação como a classe prevista da entrada correspondente. Por exemplo, para a primeira entrada, o rótulo de pontuação é "F", pois ele tem a maior probabilidade de ser um "F" (0,916995).
+As 16 colunas à esquerda representam os valores do recurso do conjunto de teste. As colunas com nomes como Probabilidades Pontuadas para a Classe "XX" são como a coluna Probabilidades Pontuadas no caso de duas classes. Elas mostram a probabilidade de que a entrada correspondente se encaixe em uma determinada classe. Por exemplo, para a primeira entrada, há 0, 3571 probabilidade de que seja uma probabilidade "A", 0, 451, que é um "B" e assim por diante. A última coluna (Rótulos Pontuados) é a mesma que Rótulos Pontuados no caso de duas classes. Ela seleciona a classe com a maior probabilidade de pontuação como a classe prevista da entrada correspondente. Por exemplo, para a primeira entrada, o rótulo pontuado é "F", pois ele tem a maior probabilidade de ser um "F" (0,916995).
 
 **Publicação de serviço Web**
 
@@ -129,7 +131,7 @@ Figura 8. Código R para extração de Rótulos Pontuados e das probabilidades a
 
 Figura 9. Teste de pontuação final do problema de classificação multiclasse de reconhecimento de letra
 
-Após a publicação e a execução do serviço Web e a inserção de alguns valores de característica de entrada, o resultado será semelhante à Figura 10. Essa letra manuscrita, com seus 16 recursos extraídos, é prevista para ser um "T" com probabilidade de 0,9715.
+Após a publicação e a execução do serviço Web e a inserção de alguns valores de característica de entrada, o resultado será semelhante à Figura 10. Essa letra escrita à mão, com seus 16 recursos extraídos, é prevista para ser um "T" com probabilidade de 0,9715.
 
 ![Modelo de pontuação de interpretação do teste](./media/interpret-model-results/9_1.png)
 
@@ -177,13 +179,13 @@ Figura 14. Resultado do serviço Web de um problema de regressão do preço de a
 ## <a name="clustering"></a>Clustering
 **Teste de exemplo**
 
-Vamos usar novamente o conjunto de dados Íris para criar um teste de clustering. Aqui, é possível filtrar os rótulos de classe no conjunto de dados para que ele tenha apenas as características e possa ser usado para clustering. Neste caso de uso de Íris, especifique o número de clusters como dois durante o processo de treinamento, o que significa que você agruparia as flores em duas classes. O teste é mostrado na Figura 15.
+Vamos usar o conjunto de dados íris novamente para criar um experimento de clustering. Aqui, é possível filtrar os rótulos de classe no conjunto de dados para que ele tenha apenas as características e possa ser usado para clustering. Neste caso de uso de Íris, especifique o número de clusters como dois durante o processo de treinamento, o que significa que você agruparia as flores em duas classes. O teste é mostrado na Figura 15.
 
 ![Teste do problema de clustering de íris](./media/interpret-model-results/15.png)
 
 Figura 15. Teste do problema de clustering de íris
 
-O clustering difere da classificação no conjunto de dados de treinamento que não tem rótulos de zero verdadeiro por si só. O Clustering agrupa as instâncias de conjunto de dados de treinamento em clusters distintos. Durante o processo de treinamento, o modelo rotula as entradas aprendendo as diferenças entre os seus recursos. Depois disso, o modelo treinado pode usado para classificar com mais detalhes as entradas futuras. Há duas partes do resultado nas quais estamos interessados dentro de um problema de clustering. A primeira parte é a identificação do conjunto de dados de treinamento, e a segundo é a classificação de um novo conjunto de dados com o modelo treinado.
+O clustering difere da classificação, pois o conjunto de dados de treinamento não tem rótulos de verdade de terra por si só. O Clustering agrupa as instâncias de conjunto de dados de treinamento em clusters distintos. Durante o processo de treinamento, o modelo rotula as entradas aprendendo as diferenças entre os seus recursos. Depois disso, o modelo treinado pode usado para classificar com mais detalhes as entradas futuras. Há duas partes do resultado nas quais estamos interessados dentro de um problema de clustering. A primeira parte é a identificação do conjunto de dados de treinamento, e a segundo é a classificação de um novo conjunto de dados com o modelo treinado.
 
 A primeira parte do resultado pode ser visualizada clicando na porta de saída à esquerda do [modelo de cluster de treinamento][train-clustering-model] e, em seguida, clicando em **Visualizar**. A visualização é mostrada na Figura 16.
 

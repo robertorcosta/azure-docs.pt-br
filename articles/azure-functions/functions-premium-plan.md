@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161560"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276901"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` com um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [`<REGION>`com suporte ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, inclua a opção `--is-linux`.
+Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` com um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [`<REGION>`com suporte ](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Para criar um plano Premium que ofereça suporte ao Linux, inclua a opção `--is-linux`.
 
 Com o plano criado, você pode usar [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) para criar seu aplicativo de funções. No portal, o plano e o aplicativo são criados ao mesmo tempo. Para obter um exemplo de um script de CLI do Azure completo, consulte [criar um aplicativo de funções em um plano Premium](scripts/functions-cli-create-premium-plan.md).
 
@@ -65,7 +65,7 @@ Instâncias de computação adicionais são adicionadas automaticamente para seu
 
 ### <a name="longer-run-duration"></a>Duração de execução mais longa
 
-Azure Functions em um plano de consumo são limitados a 10 minutos para uma única execução.  No plano Premium, o padrão de duração da execução é de 30 minutos para evitar execuções de fuga. No entanto, você pode [Modificar a configuração de host. JSON](./functions-host-json.md#functiontimeout) para fazer isso 60 minutos para aplicativos de plano Premium.
+Azure Functions em um plano de consumo são limitados a 10 minutos para uma única execução.  No plano Premium, o padrão de duração da execução é de 30 minutos para evitar execuções de fuga. No entanto, você pode [Modificar a configuração de host. JSON](./functions-host-json.md#functiontimeout) para torná-la desassociada para aplicativos de plano Premium (garantido 60 minutos).
 
 ## <a name="plan-and-sku-settings"></a>Configurações de plano e SKU
 
@@ -99,46 +99,44 @@ A execução em um computador com mais memória nem sempre significa que seu apl
 
 Por exemplo, um aplicativo de funções JavaScript é restrito pelo limite de memória padrão no node. js. Para aumentar esse limite de memória fixa, adicione a configuração do aplicativo `languageWorkers:node:arguments` com um valor de `--max-old-space-size=<max memory in MB>`.
 
-## <a name="regions"></a>Regiões
+## <a name="region-max-scale-out"></a>Scale Out máxima da região
 
-Abaixo estão as regiões com suporte no momento para cada sistema operacional.
+Abaixo estão os valores máximos de escala horizontal atualmente com suporte para um único plano em cada região e configuração de so. Para solicitar um aumento, abra um tíquete de suporte.
 
-|Região| Portal | Linux |
+Veja a disponibilidade regional completa das funções aqui: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
+
+|Região| Windows | Linux |
 |--| -- | -- |
-|Austrália Central| ✔<sup>1</sup> | |
-|Austrália Central 2| ✔<sup>1</sup> | |
-|Leste da Austrália| ✔ | ✔<sup>1</sup> |
-|Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
-|Sul do Brasil| ✔<sup>2</sup> | ✔<sup>1</sup> |
-|Canadá Central| ✔ | ✔<sup>1</sup> |
-|Centro dos EUA| ✔ | ✔<sup>1</sup> |
-|Leste da Ásia| ✔ | ✔<sup>1</sup> |
-|Leste dos EUA | ✔ | ✔<sup>1</sup> |
-|Leste dos EUA 2| ✔ | ✔<sup>1</sup> |
-|França Central| ✔ | ✔<sup>1</sup> |
-|Centro-oeste da Alemanha| ✔ | |
-|Leste do Japão| ✔ | ✔<sup>1</sup> |
-|Oeste do Japão| ✔ | ✔<sup>1</sup> |
-|Coreia Central| ✔ | ✔<sup>1</sup> |
-|Centro Norte dos EUA| ✔ | ✔<sup>1</sup> |
-|Norte da Europa| ✔ | ✔<sup>1</sup> |
-|Leste da Noruega| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|Centro-Sul dos Estados Unidos| ✔ | ✔<sup>1</sup> |
-|Sul da Índia | ✔ | |
-|Sudeste Asiático| ✔ | ✔<sup>1</sup> |
-|Sul do Reino Unido| ✔ | ✔<sup>1</sup> |
-|Oeste do Reino Unido| ✔ | ✔<sup>1</sup> |
-|Europa Ocidental| ✔ | ✔<sup>1</sup> |
-|Oeste da Índia| ✔ | ✔<sup>1</sup> |
-|Centro-Oeste dos EUA| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|Oeste dos EUA| ✔ | ✔<sup>1</sup> |
-|Oeste dos EUA 2| ✔ | ✔<sup>1</sup> |
+|Austrália Central| 20 | Não disponível |
+|Austrália Central 2| 20 | Não disponível |
+|Leste da Austrália| 100 | 20 |
+|Sudeste da Austrália | 100 | 20 |
+|Sul do Brasil| 60 | 20 |
+|Canadá Central| 100 | 20 |
+|Centro dos EUA| 100 | 20 |
+|Leste da Ásia| 100 | 20 |
+|Leste dos EUA | 100 | 20 |
+|Leste dos EUA 2| 100 | 20 |
+|França Central| 100 | 20 |
+|Centro-oeste da Alemanha| 100 | Não disponível |
+|Leste do Japão| 100 | 20 |
+|Oeste do Japão| 100 | 20 |
+|Coreia Central| 100 | 20 |
+|Centro-Norte dos EUA| 100 | 20 |
+|Norte da Europa| 100 | 20 |
+|Leste da Noruega| 20 | 20 |
+|Centro-Sul dos Estados Unidos| 100 | 20 |
+|Sul da Índia | 100 | Não disponível |
+|Sudeste Asiático| 100 | 20 |
+|Sul do Reino Unido| 100 | 20 |
+|Oeste do Reino Unido| 100 | 20 |
+|Europa Ocidental| 100 | 20 |
+|Oeste da Índia| 100 | 20 |
+|Centro-Oeste dos EUA| 20 | 20 |
+|Oeste dos EUA| 100 | 20 |
+|Oeste dos EUA 2| 100 | 20 |
 
-<sup>1</sup> Redução máxima limitada a 20 instâncias.  
-<sup>2</sup> Expansão máxima limitada a 60 instâncias.
-
-
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

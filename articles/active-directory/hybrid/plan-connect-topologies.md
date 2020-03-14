@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376099"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253826"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -29,7 +29,7 @@ Este artigo descreve várias topologias locais e do Azure Active Directory (Azur
 
 Aqui está a legenda para imagens neste artigo:
 
-| Descrição | Símbolo |
+| DESCRIÇÃO | Símbolo |
 | --- | --- |
 | Floresta do Active Directory local |![Floresta do Active Directory local](./media/plan-connect-topologies/LegendAD1.png) |
 | Active Directory local com importação filtrada |![Active Directory com importação filtrada](./media/plan-connect-topologies/LegendAD2.png) |
@@ -37,7 +37,7 @@ Aqui está a legenda para imagens neste artigo:
 | “Modo de preparo” do servidor de sincronização do Azure AD Connect |![“Modo de preparo” do servidor de sincronização do Azure AD Connect](./media/plan-connect-topologies/LegendSync2.png) |
 | GALSync com o Forefront Identity Manager (FIM) 2010 ou o Microsoft Identity Manager (MIM) 2016 |![GALSync com o FIM 2010 ou MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
 | Servidor do Azure AD Connect Sync detalhado |![Servidor do Azure AD Connect Sync detalhado](./media/plan-connect-topologies/LegendSync4.png) |
-| AD do Azure |![Active Directory do Azure](./media/plan-connect-topologies/LegendAAD.png) |
+| AD do Azure |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
 | Cenário sem suporte |![Cenário sem suporte](./media/plan-connect-topologies/LegendUnsupported.png) |
 
 
@@ -120,7 +120,7 @@ Nesse cenário, uma (ou mais) floresta de recursos confia em todas as florestas 
 ## <a name="office-365-and-topology-considerations"></a>Office 365 e considerações de topologia
 Algumas cargas de trabalho do Office 365 têm certas restrições em topologias com suporte:
 
-| Carga de trabalho | {1&gt;Restrições&lt;1} |
+| Carga de trabalho | Restrições |
 | --------- | --------- |
 | Exchange Online | Para obter mais informações sobre topologias híbridas com suporte pelo Exchange Online, consulte [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Para obter mais informações, confira [Requisitos ambientais para Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
@@ -192,7 +192,7 @@ Os locatários do Azure AD são isolados por design. Estas tarefas não têm sup
 
 Você pode usar o FIM 2010 ou MIM 2016 local para sincronizar usuários (via GALSync) entre duas organizações do Exchange. Os usuários em uma organização aparecem como usuários/contatos externos na outra organização. Essas instâncias locais diferentes do Active Directory poderão então ser sincronizadas para seus próprios locatários do Azure AD.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber como instalar o Azure AD Connect para esses cenários, veja [Instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
 
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .

@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 6a82c4d6eecec3a3a9ef690536988c8402444ffc
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 882b52b74603465bd0a55a12fd9ef03f7b625046
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168540"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204317"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 **[Galeria de AI do Azure](https://gallery.azure.ai)** é um site voltado para a comunidade para descobrir e compartilhar soluções criadas com o AI do Azure.
 A Galeria tem vários recursos que você pode usar para desenvolver suas próprias soluções de análise.
@@ -86,7 +88,7 @@ Além disso, você pode fazer logon com uma ferramenta de discussão, como o Dis
 
 1. Na lista de ações abaixo da tela do experimento, selecione **Publicar na Galeria**.
 
-1. Na Galeria, insira um **Nome** e **Marcas** que sejam descritivas. Realce as técnicas usadas ou o problema do mundo real resolvido. Um exemplo de um título de experimento descritivo é “Classificação binária: Análise de Sentimento do Twitter”.
+1. Na Galeria, insira um **Nome** e **Marcas** que sejam descritivas. Realce as técnicas usadas ou o problema do mundo real resolvido. Um exemplo de um título de experimento descritivo é "classificação binária: Análise de Sentimento do Twitter".
 
 1. Na caixa **RESUMO**, digite um resumo do seu experimento. Descreva resumidamente o problema que o experimento resolve e como você o abordou.
 
