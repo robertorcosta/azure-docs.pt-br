@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442975"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244388"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerenciar recursos de Armazenamento de Blobs com o Gerenciador de Armazenamento do Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "67442975"
 O [Armazenamento de Blobs do Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS.
 Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento do Azure para trabalhar com blobs e contêineres de blobs.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
@@ -46,7 +46,7 @@ As etapas a seguir ilustram como criar um contêiner de blobs no Gerenciador de 
 3. Clique com botão direito em **Contêineres de Blob** e, no menu de contexto, selecione **Criar Contêiner de Blobs**.
 
    ![Menu de contexto Criar contêineres de blob][0]
-4. Uma caixa de texto será exibida abaixo da pasta **Contêineres de Blob** . Insira o nome de seu contêiner de blobs. Ver [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter informações sobre regras e restrições sobre como nomear os contêineres de blob.
+4. Uma caixa de texto será exibida abaixo da pasta **Contêineres de Blob** . Insira o nome de seu contêiner de blobs. Consulte [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter informações sobre regras e restrições sobre como nomear contêineres de BLOB.
 
    ![Caixa de texto Criar Contêineres de Blob][1]
 5. Pressione **Enter** quanto terminar de criar o contêiner de blobs ou **Esc** para cancelar. Após a criação do contêiner de blobs, ele será exibido na pasta **Contêineres de Blob** da conta de armazenamento selecionada.
@@ -186,7 +186,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      2. Na caixa de diálogo **Carregar arquivos**, escolha o botão de reticências ( **...** ) no lado direito da caixa de texto **Arquivos** para selecionar os arquivos que você deseja carregar.
 
         ![Opções de Carregar arquivos][16]
-     3. Especifique o tipo de **Tipo de blob**. Ver [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
+     3. Especifique o tipo de **Tipo de blob**. Consulte [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
      4. Como opção, especifique uma pasta de destino na qual os arquivos selecionados serão carregados. Se a pasta de destino não existir, ela será criada.
      5. Escolha **Carregar**.
    * **Carregar uma pasta em um contêiner de blobs**
@@ -197,7 +197,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      2. Na caixa de diálogo **Carregar pasta**, escolha o botão de reticências ( **...** ) no lado direito da caixa de texto **Pasta** para selecionar a pasta cujo conteúdo você deseja carregar.
 
         ![Opções de Carregar pasta][18]
-     3. Especifique o tipo de **Tipo de blob**. Ver [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
+     3. Especifique o tipo de **Tipo de blob**. Consulte [criar um contêiner](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
      4. Como opção, especifique uma pasta de destino na qual o conteúdo da pasta selecionada será carregado. Se a pasta de destino não existir, ela será criada.
      5. Escolha **Carregar**.
    * **Baixar um blob em seu computador local**

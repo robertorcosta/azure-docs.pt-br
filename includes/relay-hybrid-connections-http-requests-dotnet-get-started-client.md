@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ce29cd03de46e1d93d7f1f28f9f5184cd59a57e7
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172511"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79199776"
 ---
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
@@ -82,6 +82,7 @@ N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framewo
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net.Http;
     using Microsoft.Azure.Relay;
    
     namespace Client

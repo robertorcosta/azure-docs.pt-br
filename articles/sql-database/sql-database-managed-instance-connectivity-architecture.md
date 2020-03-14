@@ -12,11 +12,11 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
 ms.openlocfilehash: ec1430e7dd79378473cce9dbb77bedecd14600c8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228279"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256777"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada no banco de dados SQL do Azure
 
@@ -103,24 +103,24 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de entrada obrigatórias com configuração de sub-rede auxiliada pelo serviço 
 
-| {1&gt;Nome&lt;1}       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Permitir |
-|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Permitir |
-|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|SUB-REDE DA MI  |Permitir |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Allow |
+|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|SUB-REDE DA MI  |Allow |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de saída obrigatórias com configuração de sub-rede auxiliada por serviço 
 
-| {1&gt;Nome&lt;1}       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
-|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo usuário com configuração de sub-rede auxiliada por serviço 
 
-|{1&gt;Nome&lt;1}|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede para vnetlocal|SUB-REDE DA MI|Rede virtual|
 |Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -298,18 +298,18 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatórias
 
-| {1&gt;Nome&lt;1}       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Permitir |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Allow |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
 
-| {1&gt;Nome&lt;1}       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
-|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
 
 > [!IMPORTANT]
 > Verifique se há apenas uma regra de entrada para as portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 443, 12000. Instância Gerenciada provisionamento por meio de implantações de Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se essas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy`
@@ -323,7 +323,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="user-defined-routes"></a>rotas definidas pelo usuário
 
-|{1&gt;Nome&lt;1}|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SUB-REDE DA MI|Rede virtual|
 |Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -427,7 +427,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 |Mi-216-220-208-20-nexthop-Internet|216.220.208.0/20|Internet|
 ||||
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, confira [segurança de dados avançada do SQL Database](sql-database-managed-instance.md).
 - Saiba como [Configurar uma nova rede virtual do Azure](sql-database-managed-instance-create-vnet-subnet.md) ou uma [rede virtual do Azure existente](sql-database-managed-instance-configure-vnet-subnet.md) onde você pode implantar instâncias gerenciadas.

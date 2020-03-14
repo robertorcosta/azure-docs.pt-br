@@ -8,11 +8,11 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361868"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255113"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -55,7 +55,7 @@ Para habilitar o recurso de sincronização no Windows Server, você deve instal
 ### <a name="operating-system-requirements"></a>Requisitos do sistema operacional
 Há suporte para Sincronização de Arquivos do Azure com as seguintes versões do Windows Server:
 
-| {1&gt;Version&lt;1} | SKUs com suporte | Opções de implantação com suporte |
+| Versão | SKUs com suporte | Opções de implantação com suporte |
 |---------|----------------|------------------------------|
 | Windows Server 2019 | Datacenter, padrão e IoT | Completo e central |
 | Windows Server 2016 | Datacenter, padrão e servidor de armazenamento | Completo e central |
@@ -136,7 +136,7 @@ Somente volumes NTFS têm suporte; Não há suporte para ReFS, FAT, FAT32 e outr
 
 A tabela a seguir mostra o estado de interoperabilidade dos recursos do sistema de arquivos NTFS: 
 
-| Recurso | Status de suporte | {1&gt;Observações&lt;1} |
+| Recurso | Status de suporte | Observações |
 |---------|----------------|-------|
 | ACLs (listas de controle de acesso) | suporte completo | As listas de controle de acesso condicional de estilo do Windows são preservadas por Sincronização de Arquivos do Azure e são impostas pelo Windows Server em pontos de extremidade de servidor. As ACLs também podem ser impostas ao montar diretamente o compartilhamento de arquivos do Azure, no entanto, isso requer configuração adicional. Consulte a [seção identidade](#identity) para obter mais informações. |
 | Links físicos | Ignorado | |
@@ -161,7 +161,7 @@ A tabela a seguir mostra o estado de interoperabilidade dos recursos do sistema 
 | \*.laccdb | Arquivo de bloqueio do banco de dados do Access|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Arquivo de sincronização interno|
 | \\Informações de Volume do Sistema | Pasta específica do volume |
-| $RECYCLE.BIN| Folder |
+| $RECYCLE.BIN| Pasta |
 | \\SyncShareState | Pasta para sincronização |
 
 ### <a name="failover-clustering"></a>Clustering de failover
@@ -170,7 +170,7 @@ O clustering de failover do Windows Server tem suporte pela Sincronização de A
 > [!Note]  
 > O agente de Sincronização de Arquivos do Azure deve ser instalado em cada nó em um Cluster de Failover para a sincronização funcionar corretamente.
 
-### <a name="data-deduplication"></a>Eliminação de Duplicação de Dados
+### <a name="data-deduplication"></a>Eliminação de duplicação de dados
 **Windows server 2016 e Windows server 2019**   
 A eliminação de duplicação de dados tem suporte em volumes com a camada de nuvem habilitada no Windows Server 2016 e Windows Server 2019. Habilitar a eliminação de duplicação de dados em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento. 
 
@@ -199,7 +199,7 @@ Sincronização de Arquivos do Azure não dá suporte à eliminação de duplica
     
     Observação: as definições de configuração do Sincronização de Arquivos do Azure no servidor são mantidas quando o agente é desinstalado e reinstalado.
 
-### <a name="distributed-file-system-dfs"></a>DFS (Sistema de Arquivos Distribuídos)
+### <a name="distributed-file-system-dfs"></a>DFS (Sistema de Arquivos Distribuído)
 A Sincronização de Arquivos do Azure fornece suporte para interoperabilidade com Namespaces de DFS (DFS-N) e Replicação do DFS (DFS-R).
 
 **DFS-N (Namespaces de DFS)** : a Sincronização de arquivos do Azure é totalmente suportada em servidores DFS-N. É possível instalar o agente Sincronização de arquivos do Azure em um ou mais membros DFS-N para sincronizar dados entre os pontos de extremidade de servidor e o ponto de extremidade da nuvem. Para obter mais informações, consulte [visão geral de Namespaces de DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
@@ -226,7 +226,7 @@ Se a opção de camadas em nuvem estiver habilitada em um ponto de extremidade d
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (Gerenciamento de Armazenamento Hierárquico)
 Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos do Azure.
 
-## <a name="identity"></a>Identity
+## <a name="identity"></a>Identidade
 Sincronização de Arquivos do Azure trabalha com sua identidade padrão baseada em AD sem qualquer configuração especial além de configurar a sincronização. Quando você está usando Sincronização de Arquivos do Azure, a expectativa geral é que a maioria dos acessos percorra os servidores de cache Sincronização de Arquivos do Azure, em vez de usar o compartilhamento de arquivos do Azure. Como os pontos de extremidade do servidor estão localizados no Windows Server, e o Windows Server tem suporte para ACLs de estilo do AD e do Windows há muito tempo, nada é necessário além de garantir que os servidores de arquivos do Windows registrados com o serviço de sincronização de armazenamento estejam ingressados no domínio. Sincronização de Arquivos do Azure armazenará ACLs nos arquivos no compartilhamento de arquivos do Azure e os replicará para todos os pontos de extremidade do servidor.
 
 Embora as alterações feitas diretamente no compartilhamento de arquivos do Azure demorem mais para serem sincronizadas com os pontos de extremidade do servidor no grupo de sincronização, você também pode querer garantir que você possa impor suas permissões do AD em seu compartilhamento de arquivos diretamente na nuvem. Para fazer isso, você deve ingressar o domínio em sua conta de armazenamento no AD local, assim como os servidores de arquivos do Windows são ingressados no domínio. Para saber mais sobre o ingresso no domínio de sua conta de armazenamento para um Active Directory de Propriedade do cliente, consulte [visão geral dos arquivos do Azure Active Directory](storage-files-active-directory-overview.md).
@@ -295,12 +295,12 @@ Sincronização de Arquivos do Azure está disponível nas seguintes regiões:
 | Público | Austrália | Leste da Austrália | `australiaeast` |
 | Público | Austrália | Sudeste da Austrália | `australiasoutheast` |
 | Público | Brasil | Sul do Brasil | `brazilsouth` |
-| Público | Canadá | Canadá Central | `canadacentral` |
-| Público | Canadá | Leste do Canadá | `canadaeast` |
+| Público | Canada | Canadá Central | `canadacentral` |
+| Público | Canada | Leste do Canadá | `canadaeast` |
 | Público | Europa | Norte da Europa | `northeurope` |
 | Público | Europa | Europa Ocidental | `westeurope` |
-| Público | France | França Central | `francecentral` |
-| Público | France | Sul da França * | `francesouth` |
+| Público | França | França Central | `francecentral` |
+| Público | França | Sul da França * | `francesouth` |
 | Público | Índia | Índia Central | `centralindia` |
 | Público | Índia | Sul da Índia | `southindia` |
 | Público | Japão | Leste do Japão | `japaneast` |
@@ -313,17 +313,17 @@ Sincronização de Arquivos do Azure está disponível nas seguintes regiões:
 | Público | EAU | Norte dos EAU | `uaenorth` |
 | Público | Reino Unido | Sul do Reino Unido | `uksouth` |
 | Público | Reino Unido | Oeste do Reino Unido | `ukwest` |
-| Público | US | Centro dos EUA | `centralus` |
-| Público | US | Leste dos EUA | `eastus` |
-| Público | US | Leste dos EUA 2 | `eastus2` |
-| Público | US | Centro Norte dos EUA | `northcentralus` |
-| Público | US | Centro-Sul dos Estados Unidos | `southcentralus` |
-| Público | US | Centro-Oeste dos EUA | `westcentralus` |
-| Público | US | Oeste dos EUA | `westus` |
-| Público | US | Oeste dos EUA 2 | `westus2` |
-| Gov dos EUA | US | Governo dos EUA do Arizona | `usgovarizona` |
-| Gov dos EUA | US | Governo dos EUA do Texas | `usgovtexas` |
-| Gov dos EUA | US | Gov. dos EUA – Virgínia | `usgovvirginia` |
+| Público | EUA | Centro dos EUA | `centralus` |
+| Público | EUA | Leste dos EUA | `eastus` |
+| Público | EUA | Leste dos EUA 2 | `eastus2` |
+| Público | EUA | Centro-Norte dos EUA | `northcentralus` |
+| Público | EUA | Centro-Sul dos Estados Unidos | `southcentralus` |
+| Público | EUA | Centro-Oeste dos EUA | `westcentralus` |
+| Público | EUA | Oeste dos EUA | `westus` |
+| Público | EUA | Oeste dos EUA 2 | `westus2` |
+| Gov dos EUA | EUA | Governo dos EUA do Arizona | `usgovarizona` |
+| Gov dos EUA | EUA | Governo dos EUA do Texas | `usgovtexas` |
+| Gov dos EUA | EUA | Gov. dos EUA – Virgínia | `usgovvirginia` |
 
 A Sincronização de Arquivos do Azure é compatível apenas com um compartilhamento de arquivo do Azure que esteja na mesma região que o Serviço de Sincronização de Armazenamento.
 
@@ -368,7 +368,7 @@ Se você estiver usando uma solução de backup local, os backups devem ser exec
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Considere as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
 * [Implantar os Arquivos do Azure](storage-files-deployment-guide.md)

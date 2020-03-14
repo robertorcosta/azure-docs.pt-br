@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980765"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268607"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
@@ -62,7 +62,7 @@ A lista a seguir contém recomendações para melhorar o desempenho durante o pr
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Otimizar o desempenho após a migração ser concluída
 
-[Atualize as estatísticas](https://msdn.microsoft.com/library/ms187348.aspx) com uma verificação completa após a migração ser concluída.
+[Atualize as estatísticas](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) com uma verificação completa após a migração ser concluída.
 
 ## <a name="method-2-use-transactional-replication"></a>Método 2: usar replicação transacional
 
@@ -118,7 +118,7 @@ Além de pesquisar na Internet e usar esses recursos, use os [fóruns da comunid
 > [!IMPORTANT]
 > A Instância Gerenciada do Banco de Dados SQL permite que você migre uma instância existente do SQL Server e seus bancos de dados com o mínimo ou sem problemas de compatibilidade. Consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Use o script no blog dos Engenheiros EMEA do Azure SQL para [Monitorar o uso de tempdb durante migração](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
 - Use o script no blog dos Engenheiros EMEA do Azure SQL para [Monitorar o espaço de log de transações do banco de dados enquanto a migração está ocorrendo](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).

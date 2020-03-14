@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390755"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252448"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -23,7 +23,7 @@ O backup do Azure pode restaurar SQL Server bancos de dados que estão em execu�
 - Restaurar para uma data ou hora específica (para o segundo) usando backups de log de transações. O backup do Azure determina automaticamente o backup diferencial completo apropriado e a cadeia de backups de log que são necessários para restaurar com base na hora selecionada.
 - Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de restaurar um banco de dados, observe o seguinte:
 
@@ -112,24 +112,25 @@ Para restaurar os dados de backup como arquivos. bak, em vez de em um banco de d
 2. Selecione o nome de SQL Server para o qual você deseja restaurar os arquivos de backup.
 3. No **caminho de destino no servidor** , insira o caminho da pasta no servidor selecionado na etapa 2. Esse é o local onde o serviço irá despejar todos os arquivos de backup necessários. Normalmente, um caminho de compartilhamento de rede, ou caminho de um compartilhamento de arquivos do Azure montado quando especificado como o caminho de destino, permite o acesso mais fácil a esses arquivos por outros computadores na mesma rede ou com o mesmo compartilhamento de arquivos do Azure montado neles.<BR>
 
->Para restaurar os arquivos de backup de banco de dados em um compartilhamento de arquivos do Azure montado na VM registrada de destino, verifique se NT AUTHORITY\SYSTEM tem acesso ao compartilhamento de arquivos. Você pode executar as etapas fornecidas abaixo para conceder as permissões de leitura/gravação para o AFS montado na VM:
->- Execute `PsExec -s cmd` para entrar no Shell NT AUTHORITY\SYSTEM
->   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
->   - Verificar o acesso com `dir \\<storageacct>.file.core.windows.net\<filesharename>`
->- Disparar uma restauração como arquivos do cofre de backup para `\\<storageacct>.file.core.windows.net\<filesharename>` como o caminho<BR>
-Você pode baixar o PsExec por meio do <https://docs.microsoft.com/sysinternals/downloads/psexec>
+    >Para restaurar os arquivos de backup de banco de dados em um compartilhamento de arquivos do Azure montado na VM registrada de destino, verifique se NT AUTHORITY\SYSTEM tem acesso ao compartilhamento de arquivos. Você pode executar as etapas fornecidas abaixo para conceder as permissões de leitura/gravação para o AFS montado na VM:
+    >
+    >- Execute `PsExec -s cmd` para entrar no Shell NT AUTHORITY\SYSTEM
+    >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+    >   - Verificar o acesso com `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >- Disparar uma restauração como arquivos do cofre de backup para `\\<storageacct>.file.core.windows.net\<filesharename>` como o caminho<BR>
+    Você pode baixar o PsExec por meio do <https://docs.microsoft.com/sysinternals/downloads/psexec>
 
 4. Selecione **OK**.
 
-![Selecione restaurar como arquivos](./media/backup-azure-sql-database/restore-as-files.png)
+    ![Selecione restaurar como arquivos](./media/backup-azure-sql-database/restore-as-files.png)
 
 5. Selecione o **ponto de restauração** correspondente ao qual todos os arquivos. bak disponíveis serão restaurados.
 
-![Selecionar um ponto de restauração](./media/backup-azure-sql-database/restore-point.png)
+    ![Selecionar um ponto de restauração](./media/backup-azure-sql-database/restore-point.png)
 
 6. Todos os arquivos de backup associados ao ponto de recuperação selecionado são despejados no caminho de destino. Você pode restaurar os arquivos como um banco de dados em qualquer computador em que estejam presentes usando SQL Server Management Studio.
 
-![Arquivos de backup restaurados no caminho de destino](./media/backup-azure-sql-database/sql-backup-files.png)
+    ![Arquivos de backup restaurados no caminho de destino](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurar a um ponto específico no tempo
 
@@ -164,6 +165,9 @@ Se você tiver selecionado **Completo e Diferencial** como o tipo de restauraç�
 
     ![Escolha um ponto de recuperação completo](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
+    >[!NOTE]
+    > Por padrão, os pontos de recuperação dos últimos 30 dias são exibidos. Você pode exibir pontos de recuperação com mais de 30 dias clicando em **Filtrar** e selecionando um intervalo personalizado.
+
 1. No menu **Configuração avançada** , se você quiser manter o banco de dados não operacional após a restauração, habilite **RESTORE WITH NORECOVERY**.
 1. Se quiser alterar a localização de restauração no servidor de destino, insira um novo caminho de destino.
 1. Selecione **OK**.
@@ -181,6 +185,6 @@ Se o tamanho total da cadeia de caracteres de arquivos em um banco de dados for 
 
   ![Restaurar banco de dados com arquivo grande](./media/backup-azure-sql-database/restore-large-files.jpg)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar e monitorar](manage-monitor-sql-database-backup.md) SQL Server bancos de dados que são submetidos a backup pelo backup do Azure.

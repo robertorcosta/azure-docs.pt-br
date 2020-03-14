@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 tags: connectors
 ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247274"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure
 
@@ -36,7 +36,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura, poderá se [inscrever para uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -58,7 +58,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
    ![Gatilho de solicitação](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | DESCRIÇÃO |
    |---------------|--------------------|----------|-------------|
    | **URL HTTP POST** | {none} | Sim | A URL do ponto de extremidade que é gerada depois que você salva o aplicativo lógico e é usada para chamar seu aplicativo lógico |
    | **Esquema JSON do corpo da solicitação** | `schema` | Não | O esquema JSON que descreve as propriedades e os valores no corpo da solicitação de entrada |
@@ -157,7 +157,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
 1. Para especificar propriedades adicionais, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros que você deseja adicionar.
 
-   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | DESCRIÇÃO |
    |---------------|--------------------|----------|-------------|
    | **Método** | `method` | Não | O método que a solicitação de entrada deve usar para chamar o aplicativo lógico |
    | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que a URL do ponto de extremidade do aplicativo lógico pode aceitar |
@@ -189,10 +189,10 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
 Veja mais informações sobre as saídas do gatilho de solicitação:
 
-| Nome da propriedade JSON | Tipo de dados | Descrição |
+| Nome da propriedade JSON | Tipo de dados | DESCRIÇÃO |
 |--------------------|-----------|-------------|
-| `headers` | Object | Um objeto JSON que descreve os cabeçalhos da solicitação |
-| `body` | Object | Um objeto JSON que descreve o conteúdo do corpo da solicitação |
+| `headers` | Objeto | Um objeto JSON que descreve os cabeçalhos da solicitação |
+| `body` | Objeto | Um objeto JSON que descreve o conteúdo do corpo da solicitação |
 ||||
 
 <a name="add-response"></a>
@@ -231,7 +231,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    Aqui estão mais informações sobre as propriedades que podem ser definidas na ação de resposta. 
 
-   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | DESCRIÇÃO |
    |---------------|--------------------|----------|-------------|
    | **Código de status** | `statusCode` | Sim | O código de status a ser retornado na resposta |
    | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos a serem incluídos na resposta |
@@ -242,6 +242,6 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
 1. Quando terminar, salve o aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Conectores para aplicativos lógicos](../connectors/apis-list.md)

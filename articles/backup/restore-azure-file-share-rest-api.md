@@ -4,11 +4,11 @@ description: Saiba como usar a API REST para restaurar compartilhamentos de arqu
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393175"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252500"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar compartilhamentos de arquivos do Azure usando a API REST
 

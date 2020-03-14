@@ -9,18 +9,18 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: kfollis
-ms.openlocfilehash: 6218a1089352ce9ee3e2d1d10f3282e64eae8c51
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547652"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248483"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
-Os clientes do Azure podem criar e gerenciar solicitações de suporte no [portal do Azure](https://portal.azure.com).
+O Azure permite que você crie e gerencie solicitações de suporte, também conhecidas como tíquetes de suporte. Você pode criar e gerenciar solicitações no [portal do Azure](https://portal.azure.com), que é abordado neste artigo. Você também pode criar e gerenciar solicitações programaticamente, usando a [API REST do tíquete de suporte do Azure](/rest/api/support).
 
 > [!NOTE]
 > A URL de portal do Azure é específica para a nuvem do Azure onde sua organização está implantada.
@@ -41,15 +41,15 @@ Com base nos comentários dos clientes, atualizamos a experiência de solicitaç
 
 Você pode obter **ajuda + suporte** no portal do Azure. Ele está disponível no menu portal do Azure, no cabeçalho global ou no menu de recursos de um serviço. Antes de poder arquivar uma solicitação de suporte, você deve ter as permissões apropriadas.
 
-### <a name="role-based-access-control"></a>Controle de acesso baseado em funções
+### <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-Para criar uma solicitação de suporte, você deve ser um administrador ou ser atribuído à função de [colaborador de solicitação de suporte](../../role-based-access-control/built-in-roles.md#support-request-contributor) .
+Para criar uma solicitação de suporte, você deve ser um administrador ou ser atribuído à função de [colaborador de solicitação de suporte](../../role-based-access-control/built-in-roles.md#support-request-contributor) no nível de assinatura.
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Vá para ajuda + suporte no cabeçalho global
 
 Para iniciar uma solicitação de suporte de qualquer lugar no portal do Azure:
 
-1. Selecione o ícone **?** no cabeçalho global. Em seguida, selecione **ajuda + suporte**.
+1. Selecione o **?** no cabeçalho global. Em seguida, selecione **ajuda + suporte**.
 
    ![Ajuda e Suporte](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -124,7 +124,7 @@ Para saber mais sobre as opções de suporte de auto-ajuda no Azure, Assista a e
 
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Envie-nos seus comentários e sugestões](https://feedback.azure.com/forums/266794-support-feedback)
 * Entre em contato conosco no [Twitter](https://twitter.com/azuresupport)

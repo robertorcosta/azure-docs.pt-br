@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082184"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256790"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
 
@@ -61,22 +61,22 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 - Sistema de arquivos (EXT3, ETX4, ReiserFS, XFS).
 - Software Multipath – Mapeador de dispositivos.
 - Gerenciador de volumes (LVM2).
-- Não há suporte para servidores físicos com o armazenamento do controlador HP CCISS.
+- Não há suporte a servidores físicos com o armazenamento de controlador HP CCISS.
 - O sistema de arquivos ReiserFS só tem suporte no SUSE Linux Enterprise Server 11 SP3.
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - VM Host/Convidada
 
 **Configuração** | **Com suporte**  
 --- | --- 
-Host - Agrupamento NIC | sim 
-Host - VLAN | sim 
-Host - IPv4 | sim 
+Host - Agrupamento NIC | Sim 
+Host - VLAN | Sim 
+Host - IPv4 | Sim 
 Host - IPv6 | Não 
 VM Convidada - Agrupamento NIC | Não
-VM Convidada - IPv4 | sim
+VM Convidada - IPv4 | Sim
 VM Convidada - IPv6 | Não
-VM convidada – Windows/Linux – Endereço IP estático | sim
-VM Convidada - Multi-NIC | sim
+VM convidada – Windows/Linux – Endereço IP estático | Sim
+VM Convidada - Multi-NIC | Sim
 
 
 ## <a name="storage"></a>Armazenamento
@@ -85,29 +85,29 @@ VM Convidada - Multi-NIC | sim
 
 **Armazenamento (host)** | **Com suporte** 
 --- | --- 
-NFS | sim 
+NFS | Sim 
 SMB 3.0 | N/D 
-SAN (ISCSI) | sim 
-Múltiplos caminhos (MPIO) | sim 
+SAN (ISCSI) | Sim 
+Múltiplos caminhos (MPIO) | Sim 
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
 **Configuração** | **Com suporte** 
 --- | --- 
-VMDK | sim 
+VMDK | Sim 
 VHD/VHDX | N/D 
 VM ger 2 | N/D 
-Disco de cluster compartilhado | sim 
+Disco de cluster compartilhado | Sim 
 Disco criptografado | Não 
-UEFI| sim 
+UEFI| Sim 
 NFS | Não 
 SMB 3.0 | Não 
-RDM | sim 
-Disco > 1 TB | sim 
-Volume com discos distribuídos > 1 TB<br/><br/> LVM | sim 
+RDM | Sim 
+Disco > 1 TB | Sim 
+Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim 
 Espaços de Armazenamento | Não 
-Adição/remoção de disco a quente | sim 
-Exclusão de disco | sim 
+Adição/remoção de disco a quente | Sim 
+Exclusão de disco | Sim 
 Múltiplos caminhos (MPIO) | N/D 
 
 ## <a name="vaults"></a>Cofres

@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/9/2019
 ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976291"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251499"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Como configurar os parâmetros do servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -39,28 +39,28 @@ Pool de buffers InnoDB e Máximo de Conexões não são configuráveis e são as
 
 |**Tipo de preço**| **vCore(s)**|**Pool de Buffers InnoDB (MB)**|
 |---|---|---|
-|Basic| 1| 1\.024|
+|Basic| 1| 1024|
 |Basic| 2| 2560|
-|Propósito geral| 2| 3584|
-|Propósito geral| 4| 7680|
-|Propósito geral| 8| 15360|
-|Propósito geral| 16| 31232|
-|Propósito geral| 32| 62976|
-|Propósito geral| 64| 125952|
-|Memória Otimizada| 2| 7168|
-|Memória Otimizada| 4| 15360|
-|Memória Otimizada| 8| 30720|
-|Memória Otimizada| 16| 62464|
-|Memória Otimizada| 32| 125952|
+|Uso Geral| 2| 3584|
+|Uso Geral| 4| 7680|
+|Uso Geral| 8| 15360|
+|Uso Geral| 16| 31232|
+|Uso Geral| 32| 62976|
+|Uso Geral| 64| 125952|
+|Otimizado para memória| 2| 7168|
+|Otimizado para memória| 4| 15360|
+|Otimizado para memória| 8| 30720|
+|Otimizado para memória| 16| 62464|
+|Otimizado para memória| 32| 125952|
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 
 |**Parâmetro**|**Valor fixo**|
 | :------------------------ | :-------- |
-|innodb_file_per_table na camada Básica|DESATIVADO|
+|innodb_file_per_table na camada Básica|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512 MB|
+|innodb_log_file_size|512MB|
 
 Outros parâmetros de servidor que não estão listados aqui são definidos como seus valores padrão prontos para MariaDB para [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
 

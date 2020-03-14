@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895789"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256933"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
 
@@ -33,7 +33,7 @@ Algumas práticas recomendadas gerais para a recuperação de desastre em larga 
 - **Identificar requisitos de destino**: estimar as necessidades de capacidade e recursos no Azure antes de configurar a recuperação de desastre.
 - **Planejar site Recovery componentes**: descubra quais site Recovery componentes (servidor de configuração, servidores de processo) você precisa para atender à sua capacidade estimada.
 - **Configurar um ou mais servidores de processo de escalabilidade horizontal**: não use o servidor de processo que está sendo executado por padrão no servidor de configuração. 
-- **Execute as atualizações mais recentes**: a equipe de site Recovery lança novas versões de componentes do site Recovery regularmente, e você deve verificar se está executando as versões mais recentes. Para ajudar com isso, acompanhe as [novidades](site-recovery-whats-new.md) das atualizações e [habilite e instale as atualizações ](service-updates-how-to.md) à medida que elas são lançadas.
+- **Execute as atualizações mais recentes**: a equipe de site Recovery lança novas versões de componentes do site Recovery regularmente, e você deve verificar se está executando as versões mais recentes. Para ajudar com isso [, acompanhe as novidades das](site-recovery-whats-new.md) atualizações e [habilite e instale as atualizações](service-updates-how-to.md) à medida que elas são lançadas.
 - **Monitorar de forma proativa**: à medida que você obtém a recuperação de desastre em funcionamento, você deve monitorar proativamente o status e a integridade de máquinas replicadas e recursos de infraestrutura.
 - **Análise de recuperação de desastres**: você deve executar análises de recuperação de desastre regularmente. Isso não afeta o ambiente de produção, mas ajuda a garantir que o failover para o Azure funcione conforme o esperado quando necessário.
 
@@ -101,7 +101,7 @@ O que significa conformidade? Para iniciar uma VM do Azure, o Azure requer algun
 **O computador está em conformidade com o Azure?** | **Limites de VM do Azure (failover de disco gerenciado)**
 --- | --- 
 Sim | 2000
-Não | 1\.000
+Não | 1000
 
 - Os limites pressupõem que outros trabalhos mínimos estão em andamento na região de destino da assinatura.
 - Algumas regiões do Azure são menores e podem ter limites ligeiramente menores.
@@ -218,7 +218,7 @@ Para executar um failover em larga escala, recomendamos o seguinte:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Site Recovery de monitor](site-recovery-monitor-and-troubleshoot.md)

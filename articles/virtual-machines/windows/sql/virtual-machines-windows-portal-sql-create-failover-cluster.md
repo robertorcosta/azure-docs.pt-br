@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388744"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249796"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server em máquinas virtuais do Azure
 
@@ -157,7 +157,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
 1. Depois que o Azure criar suas máquinas virtuais, conecte-se a cada uma usando o RDP.
 
-   Quando você se conecta pela primeira vez a uma máquina virtual usando o RDP, um prompt pergunta se você deseja permitir que o computador seja detectável na rede. Selecione **Sim**.
+   Quando você se conecta pela primeira vez a uma máquina virtual usando o RDP, um prompt pergunta se você deseja permitir que o computador seja detectável na rede. Selecione **Sim** na barra superior.
 
 1. Se você estiver usando uma das imagens de máquina virtual com base em SQL Server, remova a instância de SQL Server.
 
@@ -174,7 +174,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
    Em cada máquina virtual, abra essas portas no firewall do Windows:
 
-   | Finalidade | Porta TCP | {1&gt;Observações&lt;1}
+   | Finalidade | Porta TCP | Observações
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente.
    | Investigação de integridade | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.  
@@ -499,7 +499,7 @@ Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. No Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo que o armazenamento esteja disponível. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Configurar Espaços de Armazenamento Diretos com a área de trabalho remota (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

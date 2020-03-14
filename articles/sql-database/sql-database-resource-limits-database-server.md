@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
 ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391090"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255919"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos do banco de dados SQL e governança de recursos
 
@@ -29,7 +29,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 
 | Recurso | Limite |
 | :--- | :--- |
-| Bancos de dados por servidor | 5000 |
+| Bancos de dados por servidor | 5\.000 |
 | Número padrão de servidores por assinatura por região | 20 |
 | Número máximo padrão de servidores por assinatura por região | 200 |  
 | DTU / cota de eDTU por servidor | 54.000 |  
@@ -118,7 +118,7 @@ As taxas de geração de log reais impostas em tempo de execução também podem
 
 A modelagem de tráfego do administrador da taxa de log é apresentada por meio dos seguintes tipos de espera (expostos na DMV [Sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
 
-| Tipo de Espera | {1&gt;Observações&lt;1} |
+| Tipo de Espera | Observações |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Limitação de banco de dados |
 | POOL_LOG_RATE_GOVERNOR | Limitação de pool |
@@ -132,7 +132,7 @@ Ao encontrar um limite de taxa de log que está atrasando a escalabilidade desej
 - Se os dados que estão sendo carregados forem transitórios, como dados de preparo em um processo de ETL, eles poderão ser carregados em tempdb (que é minimamente registrado). 
 - Para cenários analíticos, carregue em uma tabela coberta por columnstore clusterizado. Isso reduz a taxa de log necessária devido à compactação. Essa técnica aumenta a utilização da CPU e só é aplicável a conjuntos de dados que se beneficiam de índices columnstore clusterizados. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Para saber mais sobre DTUs e eDTUs, confira [DTUs e eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).

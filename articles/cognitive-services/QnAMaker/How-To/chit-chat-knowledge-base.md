@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901205"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220705"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
 
@@ -31,7 +31,7 @@ Para a consulta do usuário de `When is your birthday?`, cada personalidade tem 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalidade|Exemplo|
 |--|--|
-|Profissional|A idade não se aplica de fato a mim.|
+|Professional|A idade não se aplica de fato a mim.|
 |Amigável|Eu realmente não tenho uma idade.|
 |Voluntariay|Sou sem idade.|
 |Preocupar|Não tenho uma idade.|
@@ -39,11 +39,11 @@ Para a consulta do usuário de `When is your birthday?`, cada personalidade tem 
 ||
 
 
-## <a name="language-support"></a>Suporte de idiomas
+## <a name="language-support"></a>Suporte ao idioma
 
 Chit-os conjuntos de dados de chat têm suporte nos seguintes idiomas:
 
-|Idioma|
+|Linguagem|
 |--|
 |Chinês|
 |Inglês|
@@ -81,11 +81,11 @@ Selecione sua KB e, em seguida, navegue para a página **Configurações**. Sua 
 
 ![Excluir o bate-papo da KB](../media/qnamaker-how-to-chit-chat/delete-chit-chat.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Importar uma base de dados de conhecimento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Consulte 
+## <a name="see-also"></a>Confira também 
 
 [Visão geral do QnA Maker](../Overview/overview.md)

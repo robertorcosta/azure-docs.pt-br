@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280896"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220969"
 ---
 # <a name="intents-in-your-luis-app"></a>Tentativas em seu aplicativo LUIS
 
@@ -29,7 +29,7 @@ Intenções do aplicativo de viagem   |   Exemplo de enunciados   |
  BookFlight     |   "Reserve um voo para mim para o Rio na semana que vem" <br/> "Coloque-me num voo para o Rio no dia 24" <br/> "Preciso de uma passagem de avião no próximo domingo para o Rio de Janeiro"    |
  Saudação     |   "Oi" <br/>"Olá" <br/>"Bom dia"  |
  CheckWeather | "Como está o clima em Boston?" <br/> "Mostre-me a previsão para este fim de semana" |
- nenhum         | "Encontre uma receita de biscoitos para mim"<br>"Os Lakers venceram?" |
+ Nenhum         | "Encontre uma receita de biscoitos para mim"<br>"Os Lakers venceram?" |
 
 Todos os aplicativos vêm com a intenção predefinida, "[None](#none-intent)", que é a tentativa de fallback. 
 
@@ -53,9 +53,9 @@ A intenção representa a ação que o aplicativo deve executar para o usuário 
 
 Crie uma intenção quando a _intenção_ do usuário dispararia uma ação em seu aplicativo cliente, como uma chamada para a função checkweather (). Em seguida, crie entidades para representar os parâmetros necessários para executar a ação. 
 
-|Intenção   | Entidade | Exemplo de enunciado   | 
+|Intencional   | Entidade | Exemplo de enunciado   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Como está o clima em `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Qual é o clima como no `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Mostre-me a previsão para `this weekend` | 
 ||||
 

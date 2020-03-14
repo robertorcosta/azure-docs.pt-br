@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd9e41418eac670bd1cb52be40dbd25c17af6fac
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360082"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255685"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure?
 
@@ -68,7 +68,7 @@ O banco de dados SQL oferece os seguintes modelos de compra:
 O banco de dados SQL do Azure oferece três camadas de serviço que são projetadas para diferentes tipos de aplicativos:
 - Camada de serviço [uso geral/Standard](sql-database-service-tier-general-purpose.md) projetada para cargas de trabalho comuns. Ele oferece opções de armazenamento e computação balanceadas e voltadas para o orçamento.
 - Camada de serviço [comercialmente crítico/Premium](sql-database-service-tier-business-critical.md) projetada para aplicativos OLTP com alta taxa de transação e e/s de latência mais baixa. Ele oferece a resiliência mais alta para falhas usando várias réplicas isoladas.
-- Camada de serviço de [hiperescala](sql-database-service-tier-hyperscale.md) projetada para banco de dados OLTP muito grande e a capacidade de dimensionar automaticamente o armazenamento e dimensionar a computação de forma fluida. 
+- Camada de serviço de [hiperescala](sql-database-service-tier-hyperscale.md) projetada para banco de dados OLTP muito grande e a capacidade de dimensionar automaticamente o armazenamento e dimensionar a computação de forma fluida.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools elásticos para maximizar a utilização de recursos
 
@@ -76,7 +76,7 @@ Para muitas empresas e aplicativos, ser capaz de criar bancos de dados únicos e
 
    ![Gráfico que mostra pools elásticos nas edições Basic, Standard e Premium](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Com os pools elásticos, você não precisa se concentrar em expandir ou reduzir o desempenho do banco de dados conforme a demanda de recursos flutua. Os bancos de dados em pool consomem os recursos de desempenho do pool elástico conforme necessário. Os bancos de dados em pool consomem, mas não excedem os limites do pool. Portanto, o custo permanece previsível, mesmo que o uso do banco de dados individual não permaneça.
+Com os pools elásticos, você não precisa se concentrar na discagem e redução do desempenho do banco de dados, pois a demanda por recursos flutua. Os bancos de dados em pool consomem os recursos de desempenho do pool elástico conforme necessário. Os bancos de dados em pool consomem, mas não excedem os limites do pool, para que seu custo permaneça previsível mesmo que o uso individual do banco de dados não.
 
 Você pode [Adicionar e Remover bancos de dados para o pool](sql-database-elastic-pool-manage-portal.md), dimensionando seu aplicativo de alguns bancos de dados para milhares, tudo isso dentro de um orçamento que você controla. Você também pode controlar os recursos mínimo e máximo disponíveis para bancos de dados no pool, para garantir que nenhum banco de dados no pool use todos os recursos de pool e que cada banco de dados em pool tenha uma quantidade mínima garantida de recursos. Para saber mais sobre padrões de design para aplicativos SaaS (software como serviço) que usam pools elásticos, consulte [padrões de design para aplicativos SaaS multilocatários com o banco de dados SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
@@ -95,7 +95,7 @@ O banco de dados SQL do Azure fornece recursos avançados de monitoramento e sol
  - Os recursos de monitoramento internos fornecidos pela versão mais recente do SQL Server Mecanismo de Banco de Dados. Eles permitem que você encontre informações de desempenho em tempo real. 
  - Recursos de monitoramento de PaaS fornecidos pelo Azure que permitem que você monitore e solucione problemas de um grande número de instâncias de banco de dados.
 
-[Repositório de consultas](sql-database-operate-query-store.md), um recurso interno de monitoramento de SQL Server, registra o desempenho de suas consultas em tempo real e permite que você identifique os possíveis problemas de desempenho e os principais consumidores de recursos. O ajuste automático e as recomendações fornecem conselhos sobre as consultas com o desempenho regressivo e índices ausentes ou duplicados. O ajuste automático no banco de dados SQL permite que você aplique manualmente os scripts que podem corrigir os problemas ou deixe que o banco de dados SQL aplique a correção. O banco de dados SQL também pode testar e verificar se a correção fornece algum benefício e reter ou reverter a alteração dependendo do resultado. Além dos recursos de Repositório de Consultas e de ajuste automático, você pode usar [DMVs e XEvent](sql-database-monitoring-with-dmvs.md) padrão para monitorar o desempenho da carga de trabalho.
+[Repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), um recurso interno de monitoramento de SQL Server, registra o desempenho de suas consultas em tempo real e permite que você identifique os possíveis problemas de desempenho e os principais consumidores de recursos. O ajuste automático e as recomendações fornecem conselhos sobre as consultas com o desempenho regressivo e índices ausentes ou duplicados. O ajuste automático no banco de dados SQL permite que você aplique manualmente os scripts que podem corrigir os problemas ou deixe que o banco de dados SQL aplique a correção. O banco de dados SQL também pode testar e verificar se a correção fornece algum benefício e reter ou reverter a alteração dependendo do resultado. Além dos recursos de Repositório de Consultas e de ajuste automático, você pode usar [DMVs e XEvent](sql-database-monitoring-with-dmvs.md) padrão para monitorar o desempenho da carga de trabalho.
 
 O Azure fornece ferramentas [internas de monitoramento](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) de desempenho, combinadas com classificações de desempenho, que permitem monitorar o status de milhares de bancos de dados. Usando essas ferramentas, você pode avaliar rapidamente o impacto de escalar ou reduzir verticalmente, com base em suas necessidades de desempenho atuais ou projetadas. Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
 
@@ -157,7 +157,7 @@ Dois aspectos de ajuste automático estão [disponíveis no banco de dados SQL](
 
 ### <a name="adaptive-query-processing"></a>Processamento de consulta adaptável
 
-Você pode usar o [processamento de consulta adaptável](/sql/relational-databases/performance/intelligent-query-processing), incluindo a execução intercalada para funções com valor de tabela de várias instruções, comentários de concessão de memória de modo de lote e junções adaptáveis de modo de lote. Cada um desses recursos de processamento de consulta adaptável aplica técnicas "aprender e adaptar" semelhantes, ajudando a solucionar problemas de otimização de consulta relacionados a problemas de otimização de consultas historicamente problemáticos.
+Você pode usar o [processamento de consulta adaptável](/sql/relational-databases/performance/intelligent-query-processing), incluindo a execução intercalada para funções com valor de tabela de várias instruções, comentários de concessão de memória de modo de lote e junções adaptáveis de modo de lote. Cada um desses recursos de processamento de consulta adaptável aplica técnicas de "aprendizado e adaptação" semelhantes, ajudando a resolver problemas de desempenho relacionados a problemas de otimização de consulta historicamente inmanejáveis.
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
@@ -256,7 +256,7 @@ Os clientes do banco de dados SQL têm os seguintes direitos associados ao Benef
 - [Comentários](https://aka.ms/sqlfeedback): Relatar bugs e solicitar o recurso.
 - [Reddit](https://www.reddit.com/r/SQLServer/): discutir SQL Server.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte a [página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para obter comparações de custo e calculadoras referentes a bancos de dados individuais e pools elásticos.
 - Consulte estes guias de início rápido para começar:

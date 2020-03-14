@@ -1,41 +1,56 @@
 ---
 title: Excluir dados do Azure Data Explorer
-description: Este artigo descreve os cenários de exclusão em massa no Azure Data Explorer, incluindo limpeza e exclusões com base em retenção.
+description: Este artigo descreve os cenários de exclusão no Azure Data Explorer, incluindo limpeza, descarte de extensões e exclusões baseadas em retenção.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: avneraa
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 9c1b21e119a38c6d306b9c564ab7958ba21a1c41
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 03/12/2020
+ms.openlocfilehash: 681cfd71d2666630b192935d66ba32eaf16c92de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445661"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204606"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Excluir dados do Azure Data Explorer
 
-O Azure Data Explorer dá suporte a várias abordagens de exclusão em massa, que abordamos neste artigo. Ele não dá suporte à exclusão por registro em tempo real, porque é otimizado para acesso rápido para leitura.
+O Azure Data Explorer dá suporte a vários cenários de exclusão descritos neste artigo. 
 
-* Se uma ou mais tabelas não forem necessárias, exclua-as usando os comandos “soltar tabela” ou “soltar tabelas”.
+## <a name="delete-data-using-the-retention-policy"></a>Excluir dados usando a política de retenção
 
-    ```Kusto
-    .drop table <TableName>
+O Azure Data Explorer exclui automaticamente os dados com base na [política de retenção](/azure/kusto/management/retentionpolicy). Esse método é a maneira mais eficiente e sem complicações de excluir dados. Defina a política de retenção no nível do banco de dados ou da tabela.
 
-    .drop tables (<TableName1>, <TableName2>,...)
+Considere um banco de dados ou tabela que é definida para 90 dias de retenção. Se forem necessários apenas 60 dias de dados, exclua os dados mais antigos da seguinte maneira:
+
+```kusto
+.alter-merge database <DatabaseName> policy retention softdelete = 60d
+
+.alter-merge table <TableName> policy retention softdelete = 60d
+```
+
+## <a name="delete-data-by-dropping-extents"></a>Excluir dados ao remover extensões
+
+A [extensão (fragmento de dados)](/azure/kusto/management/extents-overview) é a estrutura interna na qual os dados são armazenados. Cada extensão pode conter até milhões de registros. As extensões podem ser excluídas individualmente ou como um grupo usando [comandos de soltar extensões](/azure/kusto/management/extents-commands#drop-extents). 
+
+### <a name="examples"></a>Exemplos
+
+Você pode excluir todas as linhas de uma tabela ou apenas uma extensão específica.
+
+* Excluir todas as linhas de uma tabela:
+
+    ```kusto
+    .drop extents from TestTable
     ```
 
-* Se os dados antigos não forem mais necessários, exclua-os alterando o período de retenção no nível do banco de dados ou tabela.
+* Excluir uma extensão específica:
 
-    Considere um banco de dados ou tabela que é definida para 90 dias de retenção. As necessidades de negócios mudam, então agora somente 60 dias de dados são necessários. Nesse caso, exclua os dados mais antigos de uma das seguintes maneiras.
-
-    ```Kusto
-    .alter-merge database <DatabaseName> policy retention softdelete = 60d
-
-    .alter-merge table <TableName> policy retention softdelete = 60d
+    ```kusto
+    .drop extent e9fac0d2-b6d5-4ce3-bdb4-dea052d13b42
     ```
 
-    Para obter mais informações, consulte [Política de retenção](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
+## <a name="delete-individual-rows-using-purge"></a>Excluir linhas individuais usando limpar
 
-Se você precisar de auxílio com problemas de exclusão de dados, abra uma solicitação de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+A [limpeza de dados](/azure/kusto/management/data-purge) pode ser usada para excluir linhas de indivíduos. A exclusão não é imediata e requer recursos significativos do sistema. Como tal, ele é recomendado apenas para cenários de conformidade.  
+

@@ -4,11 +4,11 @@ description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389160"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219682"
 ---
 # <a name="importing-from-data-sources"></a>Importar de fontes de dados
 
@@ -28,7 +28,7 @@ O conjunto de conteúdo do Chit Chat QnA é oferecido como uma fonte de dados de
 
 Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um arquivo de `.tsv` estruturado que contenha perguntas e respostas. Essas informações ajudam a QnA Maker agrupar os conjuntos de respostas de perguntas e os atributos para uma determinada fonte de dados.
 
-| Pergunta  | Resposta  | Origem| Metadados (1 chave: 1 valor) |
+| Pergunta  | Resposta  | Fonte| Metadados (1 chave: 1 valor) |
 |-----------|---------|----|---------------------|
 | Pergunta1 | Resposta1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Pergunta2 | Resposta2 | Editorial|    `Key:Value`       |
@@ -58,12 +58,12 @@ O **displayOrder** é numérico e o **exibirtexto** é texto que não deve inclu
 
 Se você não tiver certeza de como representar o conjunto de QnA no arquivo de `.tsv`, crie o conjunto no portal de QnA Maker, salve e, em seguida, exporte a base de dados de conhecimento para obter um exemplo de como representar o conjunto.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Ciclo de vida de desenvolvimento de uma base de dados de conhecimento](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 Use a [referência de redução](../reference-markdown-format.md) QnA Maker para ajudá-lo a Formatar suas respostas.
 

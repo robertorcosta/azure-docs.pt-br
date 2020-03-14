@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620611"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257934"
 ---
 # <a name="about-migration"></a>Sobre a migração
 
@@ -26,7 +26,7 @@ Veja o que você pode migrar com a Site Recovery:
 - **Migrar AWS**: Migrar instâncias do Windows AWS para VMs do IaaS do Azure. 
 
 > [!NOTE]
-> Agora você pode migrar do local para o Azure usando o serviço migrações para Azure. [Saiba mais](../migrate/migrate-overview.md).
+> Agora, você pode migrar do local para o Azure usando o serviço de Migrações para Azure. [Saiba mais](../migrate/migrate-overview.md).
 
 ## <a name="what-do-we-mean-by-migration"></a>O que queremos dizer por migração?
 

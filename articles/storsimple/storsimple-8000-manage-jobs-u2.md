@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395861"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254866"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Use o serviço do Gerenciador de Dispositivos do StorSimple para exibir e gerenciar trabalhos (Atualização 3 e posterior)
 
@@ -77,15 +77,15 @@ Realize as etapas a seguir para cancelar um trabalho em execução.
 
 
 ### <a name="to-cancel-a-job"></a>Para cancelar um trabalho
-1. Na página **Trabalhos**, exiba o(s) trabalho(s) em execução que você deseja cancelar executando uma consulta com os filtros apropriados. Selecione o trabalho.
+1. Na página **Trabalhos** , exiba os trabalhos em execução que você deseja cancelar executando uma consulta com os filtros apropriados. Selecione o trabalho.
 
 2. Clique com botão direito do mouse sobre o trabalho selecionado para invocar o menu de contexto e clique em **Cancelar**.
 
     ![Detalhes do trabalho](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
-3. Quando solicitada a confirmação, clique em **Sim**. Este trabalho agora está cancelado.
+3. Quando solicitado a confirmar, clique em **Sim**. Este trabalho agora está cancelado.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [gerenciar as políticas de backup do StorSimple](storsimple-8000-manage-backup-policies-u2.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

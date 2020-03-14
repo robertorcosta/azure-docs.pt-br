@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 6a8cbabfd4e47c50d2c2e6f4a23c50a931e645a0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945309"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220639"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -64,7 +64,7 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
 A solicitação POST usa:
 
 * [Parâmetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) necessários
-* [Propriedade de cabeçalho](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)necessária, `Authorization`, para segurança
+* Propriedade de cabeçalho necessária, `Authorization`, para segurança
 * [Propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias.
 
 A URL GenerateAnswer tem o seguinte formato:
@@ -245,7 +245,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
 
 ## <a name="common-http-errors"></a>Erros comuns de HTTP
 
-|Codificar|Explicação|
+|Código|Explicação|
 |:--|--|
 |2xx|Sucesso|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
@@ -255,7 +255,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
 |404|O KB não existe|
 |410|Essa API foi preterida e não está mais disponível|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A página **publicar** também fornece informações para [gerar uma resposta com o](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) postmaster ou a ondulação.
 

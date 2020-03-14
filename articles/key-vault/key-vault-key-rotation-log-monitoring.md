@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f7fbc82c08d89d73d671a49fb31b9d3cca01c721
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6962a264787bd8a55b6f6a2ebdb6eeb615c33d5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195508"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218410"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com a rotação de chaves e auditoria
 
@@ -23,21 +23,16 @@ ms.locfileid: "78195508"
 
 Depois de ter um cofre de chaves, você pode começar a usá-lo para armazenar chaves e segredos. Seus aplicativos não precisam manter suas chaves ou segredos, mas podem solicitá-los do cofre conforme necessário. Um cofre de chaves permite que você atualize chaves e segredos sem afetar o comportamento do seu aplicativo, o que abre uma amplitude de possibilidades para o gerenciamento de chave e segredo.
 
->[!IMPORTANT]
-> Os exemplos neste artigo são fornecidos apenas para fins ilustrativos. Eles não são destinados ao uso em produção. 
+Este artigo explica como implementar uma rotação agendada de chaves de conta de armazenamento, monitorar os logs de auditoria do cofre de chaves e gerar alertas quando solicitações inesperadas são feitas. 
 
-Este artigo guia você por:
+Primeiro, você deve criar um cofre de chaves usando o método de sua escolha:
 
-- Um exemplo de como usar o Azure Key Vault para armazenar um segredo. Neste artigo, o segredo armazenado é a chave de conta de armazenamento do Azure acessada por um aplicativo. 
-- Como implementar uma rotação agendada dessa chave de conta de armazenamento.
-- Como monitorar os logs de auditoria do cofre de chaves e gerar alertas quando solicitações inesperadas são feitas.
+- [Definir e recuperar um segredo de Azure Key Vault usando CLI do Azure](quick-create-cli.md)
+- [Definir e recuperar um segredo de Azure Key Vault usando Azure PowerShell](quick-create-powershell.md)
+- [Definir e recuperar um segredo de Azure Key Vault usando portal do Azure](quick-create-portal.md)
 
-> [!NOTE]
-> Este artigo não explica em detalhes a configuração inicial do cofre de chaves. Para obter essa informação, confira [O que é o Azure Key Vault?](key-vault-overview.md). Para obter instruções de interface de linha de comando de plataforma cruzada, consulte [gerenciar Key Vault usando o CLI do Azure](key-vault-manage-with-cli2.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="set-up-key-vault"></a>Configurar o Cofre de Chaves
+## <a name="store-a-secret"></a>Armazenar um segredo
 
 Para permitir que um aplicativo recupere um segredo do Cofre de Chaves, primeiro crie o segredo e carregue-o no cofre.
 

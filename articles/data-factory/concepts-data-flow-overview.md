@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/19/2019
 ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395951"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243790"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 
@@ -147,7 +147,7 @@ Se você ocultar o grafo, poderá navegar pelos nós de transformação posterio
 
 ![Botões anterior e próximo](media/data-flow/showhide.png "botões anterior e próximo")
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como criar uma [transformação de origem](data-flow-source.md).
 * Saiba como criar fluxos de dados no [modo de depuração](concepts-data-flow-debug-mode.md).

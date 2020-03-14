@@ -1,14 +1,14 @@
 ---
 title: Fazer backup de bancos de dados do SQL Server para o Azure
-description: Este artigo explica como fazer backup de SQL Server no Azure. O artigo também explica a recuperação do SQL Server.
+description: Este artigo explica como fazer backup do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462580"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273235"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
@@ -41,7 +41,7 @@ Antes de começar, verifique o que está descrito abaixo:
 **Suporte** | **Detalhes**
 --- | ---
 **Implantações com suporte** | Há suporte para VMs do Azure no Marketplace do SQL e VMs que não são do Marketplace (do SQL Server instaladas manualmente).
-**Áreas geográficas com suporte** | ASE (Sudeste da Austrália), AE (Leste da Austrália), Leste da Austrália, AC (Austrália Central), AC (Austrália Central 2) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), Leste do Canadá (CE)<br> Sudeste Asiático (SEA), Leste da Ásia (EA) <br> Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Centro-Oeste dos EUA (WCUS), Oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) Centro-Norte dos EUA (NCUS) EUA Central (CUS) Centro-Sul dos EUA (SCUS) <br> INC (Índia Central), INS (Sul da Índia), Oeste da Índia <br> Oeste do Japão (JPE), Leste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Norte da Europa (NE), Oeste da Europa <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov – Arizona, US Gov – Virgínia, US Gov – Texas, US DoD Central, US DoD Leste <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça <br> França Central <br> Leste da China, Leste da China 2, Norte da China, Norte da China 2
+**Áreas geográficas com suporte** | ASE (Sudeste da Austrália), AE (Leste da Austrália), Leste da Austrália, AC (Austrália Central), AC (Austrália Central 2) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), Leste do Canadá (CE)<br> Sudeste da Ásia (SEA), Leste da Ásia (EA) <br> Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Centro-Oeste dos EUA (WCUS), Oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) Centro-Norte dos EUA (NCUS) EUA Central (CUS) Centro-Sul dos EUA (SCUS) <br> INC (Índia Central), INS (Sul da Índia), Oeste da Índia <br> Oeste do Japão (JPE), Leste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Norte da Europa (NE), Oeste da Europa <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov – Arizona, US Gov – Virgínia, US Gov – Texas, Região Central do US DoD, Leste do US DoD <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça <br> França Central <br> Leste da China, Leste da China 2, Norte da China, Norte da China 2
 **Sistemas operacionais com suporte** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Não há suporte para Linux no momento.
 **Versões do SQL Server com suporte** | SQL Server 2019, SQL Server 2017, conforme detalhado na [página Pesquisar ciclo de vida de produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer e Express.
 **Versões do .NET com suporte** | .NET Framework 4.5.2 ou posterior instalado na VM
@@ -76,38 +76,38 @@ Dependendo da preferência de backup e os tipos de backups (completo/diferencial
 
 * **Preferência de backup: primária**
 
-**Tipo de backup** | **Node**
+**Tipo de backup** | **Nó**
     --- | ---
-    Completo | Primário
-    Diferencial | Primário
-    Registro |  Primário
-    Completo somente de cópia |  Primário
+    Completo | Primária
+    Diferencial | Primária
+    Log |  Primária
+    Completo somente de cópia |  Primária
 
 * **Preferência de backup: somente secundário**
 
-**Tipo de backup** | **Node**
+**Tipo de backup** | **Nó**
 --- | ---
-Completo | Primário
-Diferencial | Primário
-Registro |  Secundário
+Completo | Primária
+Diferencial | Primária
+Log |  Secundário
 Completo somente de cópia |  Secundário
 
 * **Preferência de backup: secundária**
 
-**Tipo de backup** | **Node**
+**Tipo de backup** | **Nó**
 --- | ---
-Completo | Primário
-Diferencial | Primário
-Registro |  Secundário
+Completo | Primária
+Diferencial | Primária
+Log |  Secundário
 Completo somente de cópia |  Secundário
 
 * **Nenhuma preferência de Backup**
 
-**Tipo de backup** | **Node**
+**Tipo de backup** | **Nó**
 --- | ---
-Completo | Primário
-Diferencial | Primário
-Registro |  Secundário
+Completo | Primária
+Diferencial | Primária
+Log |  Secundário
 Completo somente de cópia |  Secundário
 
 ## <a name="set-vm-permissions"></a>Definir permissões da VM

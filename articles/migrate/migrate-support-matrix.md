@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: raynew
 ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361755"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245792"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
@@ -52,7 +52,7 @@ Migração de Servidor das Migrações para Azure | NA | Migre [VMs VMware](tuto
 
 **Suporte** | **Detalhes**
 --- | ---
-Assinatura | Você pode ter vários projetos de migrações para Azure em uma assinatura.
+Subscription | Você pode ter vários projetos de migrações para Azure em uma assinatura.
 Permissões do Azure | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
 VMs VMware  | Avalie até 35.000 VMs VMware em um único projeto.
 VMs Hyper-V | Avalie até 35.000 VMs do Hyper-V em um único projeto.
@@ -79,13 +79,13 @@ Azure Government | Gov. dos EUA – Virgínia
 Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
-Canadá | Canadá central ou leste do Canadá
+Canada | Canadá central ou leste do Canadá
 Europa | Norte da Europa ou Europa Ocidental
-France | França Central
+França | França Central
 Índia | Índia central ou sul da Índia
 Japão |  Leste do Japão ou oeste do Japão
 Coreia do Sul | Coreia central ou sul da Coreia
-Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
+United Kingdom | Sul do Reino Unido ou Oeste do Reino Unido
 Estados Unidos | EUA Central ou oeste dos EUA 2
 
 
@@ -111,7 +111,7 @@ Há duas versões do serviço de Migrações para Azure:
 - **Versão atual**: usando esta versão, você pode criar novos projetos de migrações para Azure, descobrir avaliações locais e orquestrações e migrações. [Saiba mais](whats-new.md#release-version-july-2019).
 - **Versão anterior**: para o cliente que usa a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Na versão anterior, você não pode criar novos projetos de migrações para Azure ou executar novas descobertas.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Avalie as VMs do VMware](tutorial-assess-vmware.md) para migração.
 - [Avalie as VMs do Hyper-V](tutorial-assess-hyper-v.md) para migração.

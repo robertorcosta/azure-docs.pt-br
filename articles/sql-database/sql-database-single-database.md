@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7bca36bdb41c5800a8718f76d48afcfde6f9333e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820933"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208833"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -25,7 +25,7 @@ A opção de implantação de banco de dados individual cria um banco de dados n
 > [!IMPORTANT]
 > O banco de dados individual é uma das três opções de implantação para o Banco de Dados SQL do Azure. As outras duas são [pools elásticos](sql-database-elastic-pool.md) e [instância gerenciada](sql-database-managed-instance.md).
 > [!NOTE]
-> Para obter um glossário de termos no Banco de Dados SQL do Azure, veja [Glossário de termos de banco de dados SQL](sql-database-glossary-terms.md)
+> Para obter um glossário de termos no Banco de Dados SQL do Azure, consulte [Glossário de termos do Banco de Dados SQL](sql-database-glossary-terms.md)
 
 ## <a name="dynamic-scalability"></a>Dimensionamento dinâmico
 
@@ -37,7 +37,7 @@ Um banco de dados individual pode ser movido de ou para um [pool elástico](sql-
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 
-Use as ferramentas de [monitoramento de desempenho interno](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Além disso, o Banco de Dados SQL pode [emitir métrica e logs de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar o monitoramento.
+Use as ferramentas de [monitoramento de desempenho interno](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Além disso, o banco de dados SQL pode [emitir métricas e logs de recursos](sql-database-metrics-diag-logging.md) para facilitar o monitoramento.
 
 ## <a name="availability-capabilities"></a>Recursos de disponibilidade
 

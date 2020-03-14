@@ -8,11 +8,11 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719544"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257440"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns - sobre a replicação do VMware para Azure
 
@@ -357,7 +357,7 @@ Sim. Você pode automatizar fluxos de trabalho de Site Recovery usando a API RES
 
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Analisar](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
 - [Configurar](vmware-azure-tutorial.md) replicação de VMware para o Azure.

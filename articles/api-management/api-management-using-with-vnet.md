@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
 ms.openlocfilehash: 62e8c174cd10a003657093b805291e003a9ede1b
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968369"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244050"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -31,7 +31,7 @@ O Gerenciamento de API do Azure pode ser implantado na VNET (rede virtual) para 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -205,7 +205,7 @@ Os endereços IP são divididos pelo **ambiente do Azure**. Ao permitir que as s
 | Público do Azure| Coreia Central| 40.82.157.167|
 | Público do Azure| Oeste do Reino Unido| 51.137.136.0|
 | Público do Azure| Oeste do Japão| 40.81.185.8|
-| Público do Azure| Centro Norte dos EUA| 40.81.47.216|
+| Público do Azure| Centro-Norte dos EUA| 40.81.47.216|
 | Público do Azure| Sul do Reino Unido| 51.145.56.125|
 | Público do Azure| Oeste da Índia| 40.81.89.24|
 | Público do Azure| Leste dos EUA| 52.224.186.99|

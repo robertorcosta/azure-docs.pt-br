@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487735"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220045"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com 1.000 declarações no portal do LUIS
 
@@ -110,7 +110,7 @@ LUIS rastreia o estado do último teste de cada conjunto de dados. Isso inclui o
 
 <a name="sections-of-the-results-chart"></a>
 
-## <a name="batch-test-results"></a>Resultados de teste de lote
+## <a name="batch-test-results"></a>Resultados do teste em lote
 
 O resultado do teste em lote é um gráfico de dispersão, conhecido como matriz de erro. Esse gráfico é uma comparação de 4 vias das declarações no arquivo de lote, intenção prevista do modelo atual e entidades. 
 
@@ -120,7 +120,7 @@ Os pontos de dados nas seções **Falso Positivo** e **Falso Negativo** indicam 
 
 Esse gráfico ajuda a encontrar as declarações que o LUIS prevê incorretamente com base em seu treinamento atual. Os resultados são exibidos por região do gráfico. Selecione os pontos individuais no gráfico para examinar as informações de declaração ou selecione o nome da região para examinar os resultados da declaração nessa região.
 
-![Teste de lote](./media/luis-concept-batch-test/batch-testing.png)
+![Teste em lote](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>Erros nos resultados
 

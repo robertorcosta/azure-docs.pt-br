@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
 ms.openlocfilehash: 4bbadd7e10f0fd6896932dd79a5ca42d9906d2a2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393505"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251317"
 ---
 # <a name="azure-storage-accounts"></a>Contas de armazenamento do Azure
 
@@ -44,7 +44,7 @@ Nos serviços de mídia v3, as APIs de armazenamento são usadas para carregar a
 
 Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia v3:
 
-|Opção de criptografia|Descrição|Serviços de Mídia v3|
+|Opção de criptografia|DESCRIÇÃO|Serviços de Mídia v3|
 |---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia| Criptografia AES-256, chave gerenciada pelos Serviços de Mídia|Não é compatível<sup>(1)</sup>|
 |[Criptografia do Serviço de Armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Suportado|
@@ -67,6 +67,6 @@ Veja a seguir os principais cenários que fariam com que a conta de Serviços de
 
 Os serviços de mídia do Azure não dão suporte a contas de armazenamento com o Firewall do armazenamento do Azure ou [pontos de extremidade privados](https://docs.microsoft.com/azure/storage/common/storage-network-security) habilitados.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como anexar uma conta de armazenamento para sua conta de Serviços de Mídia, consulte [Criar uma conta](create-account-cli-quickstart.md).

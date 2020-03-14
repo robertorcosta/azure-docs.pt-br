@@ -7,11 +7,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.openlocfilehash: 566b6db829c9694a7e5e83cc25695e71ada0bc8d
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461446"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249939"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
 
@@ -184,7 +184,7 @@ Se você quiser apenas essa opção disponível ao desenvolver localmente, é po
 
 O SDK do servidor do Node.js do azure-mobile-apps fornece mecanismos para expor tabelas de dados armazenadas no Banco de Dados SQL do Azure como uma API Web. Ele fornece cinco operações:
 
-| Operação | Descrição |
+| Operação | DESCRIÇÃO |
 | --- | --- |
 | GET /tables/*tablename* |Obter todos os registros na tabela. |
 | GET /tables/*tablename*/:id |Obter um registro específico na tabela. |
@@ -362,9 +362,9 @@ Recomendamos que você adicione **azureMobile.js** ao arquivo **.gitignore** (ou
 
 A maioria das configurações no arquivo azureMobile.js tem uma Configuração do Aplicativo equivalente no [Azure portal]. Use a lista a seguir para configurar seu aplicativo nas **Configurações de Aplicativo**:
 
-| Configurações de aplicativo | Configuração azureMobile.js | Descrição | Valores válidos |
+| Configurações de aplicativo | Configuração azureMobile.js | DESCRIÇÃO | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |{1&gt;name&lt;1} |Nome do aplicativo |string |
+| **MS_MobileAppName** |name |Nome do aplicativo |string |
 | **MS_MobileLoggingLevel** |logging.level |Nível de log mínimo das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, simples |
 | **MS_DebugMode** |depurar |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
 | **MS_TableSchema** |data.schema |Nome do esquema padrão para tabelas SQL |cadeia de caracteres (padrão: dbo) |
@@ -381,7 +381,7 @@ Para definir uma configuração de Aplicativo:
 1. Role até a seção **Configurações de aplicativo**.
 1. Se a configuração do seu aplicativo já existir, selecione o valor da configuração de aplicativo para editar o valor.
    Se a configuração do seu aplicativo não existir, insira a configuração de aplicativo na caixa **Chave** e o valor na caixa **Valor**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 A alteração da maioria das Configurações do Aplicativo requer o reinício do serviço.
 

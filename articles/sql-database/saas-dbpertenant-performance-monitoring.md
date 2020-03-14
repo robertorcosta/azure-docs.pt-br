@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e2e752ec37f71ea501dcee586e7daf0fc950919d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34c50795567615637e31446ad3dc51a5e1b355f6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822226"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214459"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, consulte [Implantar e explorar o aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gerenciamento de desempenho de SaaS
@@ -52,11 +52,11 @@ Os pools e os bancos de dados nos pools, devem ser monitorados para garantir que
 * Para evitar precisar monitorar o desempenho manualmente, é mais eficaz **definir alertas que são disparados quando os bancos de dados ou os pools se desviam dos intervalos normais**.
 * Para responder às flutuações de curto prazo no tamanho da computação agregado de um pool, o **nível de eDTU do pool pode ser aumentado ou reduzido**. Se esse flutuação ocorre de maneira regular ou previsível, **o dimensionamento do pool pode ser agendado para ocorrer automaticamente**. Por exemplo, reduzir verticalmente quando você souber que sua carga de trabalho é leve, talvez durante a noite ou durante os finais de semana.
 * Para responder a flutuações de longo prazo ou alterações no número de bancos de dados, **os bancos de dados individuais podem ser movidos para outros pools**.
-* Para responder a aumentos de curto prazo na carga de um banco de dados *individual*, **bancos de dados individuais podem ser retirados de um pool e serem atribuídos a um tamanho da computação individual**. Depois que a carga for reduzida, o banco de dados poderá ser retornado ao pool. Quando isso é conhecido com antecedência, os bancos de dados podem ser movidos preventivamente para garantir que o banco de dados sempre tenha os recursos necessários e para evitar o impacto em outros bancos de dados no pool. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
+* Para responder a aumentos de curto prazo na carga de um banco de dados *individual*, **bancos de dados individuais podem ser retirados de um pool e serem atribuídos a um tamanho da computação individual**. Depois que a carga for reduzida, o banco de dados poderá ser retornado ao pool. Quando isso é conhecido com antecedência, os bancos de dados podem ser movidos preemptivamente para garantir que o banco de dados sempre tenha os recursos de que precisa e para evitar o impacto em outros bancos de dados no pool. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados e pools. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são muito convenientes ao trabalhar com muitos recursos.
 
-Para cenários de alto volume, nos quais você está trabalhando com muitos recursos, [Azure monitor logs](saas-dbpertenant-log-analytics.md) podem ser usados. Esse é um serviço do Azure separado que fornece análise sobre telemetria e logs de diagnóstico emitidos coletados em um espaço de trabalho Log Analytics. Os logs de Azure Monitor podem coletar telemetria de vários serviços e serem usados para consultar e definir alertas.
+Para cenários de alto volume, nos quais você está trabalhando com muitos recursos, [Azure monitor logs](saas-dbpertenant-log-analytics.md) podem ser usados. Esse é um serviço do Azure separado que fornece análise sobre logs emitidos coletados em um espaço de trabalho Log Analytics. Os logs de Azure Monitor podem coletar telemetria de vários serviços e serem usados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
@@ -206,7 +206,7 @@ Este exercício simula o efeito do Contoso Concert Hall experimentando uma alta 
 
 1. Inspecione o gráfico **Monitoramento do pool elástico** e procure o aumento do uso de eDTUs do pool. Após um ou dois minutos, a carga maior deverá começar a fazer efeito e rapidamente você verá que o pool atinge 100% de utilização.
 2. Inspecione a exibição **Monitoramento do banco de dados elástico** que mostra os bancos de dados mais ativos na última hora. O banco de dados *contosoconcerthall* logo deve aparecer como um dos cinco bancos de dados mais ativos.
-3. **Clique no** **gráfico** Monitoramento do banco de dados elástico e ele abrirá a página **Utilização de Recursos do Banco de Dados**, em que você pode monitorar um dos bancos de dados. Isso permite isolar a exibição do banco de dados *contosoconcerthall*.
+3. **Clique no gráfico de monitoramento de banco de dados elástico** **chart** e ele abrirá a página de **utilização de recursos do banco de dados** , na qual você pode monitorar qualquer um dos bancos. Isso permite isolar a exibição do banco de dados *contosoconcerthall*.
 4. Na lista de bancos de dados, clique em **contosoconcerthall**.
 5. Clique em **Tipo de Preço (DTUs em escala)** para abrir a página **Configurar desempenho**, na qual é possível definir um tamanho da computação para o banco de dados.
 6. Clique na guia **Standard** para abrir as opções de escala na camada Standard.
@@ -218,7 +218,7 @@ Depois que a carga alta no banco de dados contosoconcerthall diminuir, você dev
 
 ## <a name="other-performance-management-patterns"></a>Outros padrões de gerenciamento de desempenho
 
-**Dimensionamento preemptivo** No exercício acima, em que você explorou como dimensionar um banco de dados isolado, você sabia qual banco de dados procurar. Se o gerenciamento do Contoso Concert Hall tivesse informado o Wingtips sobre a venda iminente de ingressos, o banco de dados poderia ter sido movido para fora do pool preventivamente. Caso contrário, ele provavelmente exigiria um alerta no pool ou no banco de dados para observar o que estava acontecendo. Você não gostaria de saber sobre isso por meio dos outros locatários do pool reclamando a respeito de degradação do desempenho. E se o locatário puder prever quanto tempo ele precisará de recursos adicionais você poderá configurar um runbook de Automação do Azure para mover o banco de dados para fora do pool e, em seguida, retorná-lo em um agendamento definido.
+**Dimensionamento preemptivo** No exercício acima, em que você explorou como dimensionar um banco de dados isolado, você sabia qual banco de dados procurar. Se o gerenciamento da Contoso Concert Hall tiver informado wingtips da venda de tíquete iminente, o banco de dados poderia ter sido movido para fora do pool de forma preventiva. Caso contrário, ele provavelmente exigiria um alerta no pool ou no banco de dados para observar o que estava acontecendo. Você não gostaria de saber sobre isso por meio dos outros locatários do pool reclamando a respeito de degradação do desempenho. E se o locatário puder prever quanto tempo ele precisará de recursos adicionais você poderá configurar um runbook de Automação do Azure para mover o banco de dados para fora do pool e, em seguida, retorná-lo em um agendamento definido.
 
 **Dimensionamento de autoatendimento de locatário** Como o dimensionamento é uma tarefa facilmente chamada por meio da API de gerenciamento, você pode criar a capacidade de dimensionar bancos de dados de locatário em seu aplicativo voltado para o locatário e oferecê-lo como um recurso do seu serviço SaaS. Por exemplo, permita que os locatários autoadministrem o escalonamento e a redução vertical, talvez vinculado diretamente à cobrança deles!
 

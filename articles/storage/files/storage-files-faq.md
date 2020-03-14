@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361869"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268178"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -81,6 +81,9 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
   **eu realmente quero ver um recurso específico adicionado aos arquivos do Azure. Você pode adicioná-lo?**  
     A equipe do serviço Arquivos do Azure quer ouvir todos os comentários que você tem a fazer sobre nosso serviço. Vote nas solicitações de recurso no [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Estamos ansiosos para surpreendê-lo com muitos recursos novos.
 
+  **Os arquivos do Azure dão suporte ao bloqueio de arquivos?**  
+    Sim, os arquivos do Azure dão suporte total ao bloqueio de arquivo de estilo SMB/Windows, [Consulte detalhes](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+    
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 
 * <a id="afs-region-availability"></a>
@@ -211,6 +214,11 @@ posso **aproveitar os arquivos do azure AD DS autenticação do Azure ou autenti
 
     Sim, você pode habilitar o Azure AD DS ou a autenticação do AD em um compartilhamento de arquivos gerenciado pela sincronização de arquivos do Azure. As alterações nas ACLs de NTFS de diretório/arquivo em servidores de arquivos locais serão enfileiradas em arquivos do Azure e vice-versa.
 
+* <a id="ad-aad-smb-files"></a>
+**como posso verificar se eu habilitei a autenticação do AD na minha conta de armazenamento e as informações de domínio do AD?**
+
+    Você pode consultar as instruções fornecidas [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) para validar se a autenticação do AD do Azure files está habilitada em sua conta de armazenamento e recuperar as informações de domínio do AD.
+    
 * <a id="encryption-at-rest"></a>
 **Como garantir que o compartilhamento de arquivos do Azure está criptografado em repouso?**  
 
@@ -385,7 +393,7 @@ posso **configurar compartilhamentos aninhados? Em outras palavras, um compartil
 **Como posso usar os Arquivos do Azure com o IBM MQ?**  
     A IBM liberou um documento que ajuda clientes do IBM MQ a configurar o Arquivos do Azure juntamente com o serviço IBM. Para obter mais informações, consulte [Como configurar o gerenciador de filas com várias instâncias do IBM MQ com o serviço Arquivos do Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Solucionar problemas do Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas do Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

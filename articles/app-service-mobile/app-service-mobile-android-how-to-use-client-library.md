@@ -7,11 +7,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374229"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249380"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de Aplicativos Móveis do Azure para Android
 
@@ -153,8 +153,8 @@ O fundamental do SDK de Aplicativos Móveis do Azure é fornecer acesso aos dado
 
 Para acessar dados de tabelas do SQL Azure, defina as classes de dados do cliente que correspondem às tabelas no back-end de aplicativo móvel. Os exemplos deste tópico pressupõem a existência de uma tabela denominada **MyDataTable** com as seguintes colunas:
 
-* {1&gt;id&lt;1}
-* texto
+* id
+* text
 * concluído
 
 O objeto tipado do lado do cliente correspondente reside em um arquivo chamado **MyDataTable.java**:

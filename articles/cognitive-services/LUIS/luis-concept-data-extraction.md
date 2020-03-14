@@ -5,11 +5,11 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361069"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221079"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto expressão com intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
@@ -73,7 +73,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-|Objeto de dados|Tipo de Dados|Local dos dados|{1&gt;Valor&lt;1}|
+|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|
 |Intencional|String|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -135,7 +135,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
-|Objeto de dados|Tipo de Dados|Local dos dados|{1&gt;Valor&lt;1}|Pontuação|
+|Objeto de dados|Tipo de Dados|Local dos dados|Valor|Pontuação|
 |--|--|--|--|:--|
 |Intencional|String|intents[0].intent|"GetStoreInfo"|0,984749258|
 |Intencional|String|intents[1].intent|"None"|0,0168218873|
@@ -196,7 +196,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-|Domínio|Objeto de dados|Tipo de Dados|Local dos dados|{1&gt;Valor&lt;1}|
+|Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|--|
 |Utilidades|Intencional|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |Comunicação|Intencional|String|intents[1].intent|<b>Communication</b>.StartOver"|
@@ -1266,6 +1266,6 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.

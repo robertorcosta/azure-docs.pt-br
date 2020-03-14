@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392922"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254112"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Proteção de instância para instâncias do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -52,7 +52,7 @@ Você pode aplicar a proteção de scale-in por meio do portal do Azure a uma in
 1. Selecione o nome da instância que você deseja proteger.
 1. Selecione a guia **política de proteção** .
 1. Na folha **política de proteção** , selecione a opção **proteger do Scale-in** .
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
 ### <a name="rest-api"></a>API REST
 
@@ -120,7 +120,7 @@ Você pode aplicar a proteção contra ações do conjunto de dimensionamento po
 1. Selecione o nome da instância que você deseja proteger.
 1. Selecione a guia **política de proteção** .
 1. Na folha **política de proteção** , selecione a opção **proteger do conjunto de dimensionamento de ações** .
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
 ### <a name="rest-api"></a>API REST
 
@@ -176,7 +176,7 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 ### <a name="no-protectionpolicy-on-scale-set-model"></a>Nenhum protectionPolicy no modelo de conjunto de dimensionamento
 A proteção de instância só é aplicável em instâncias de conjunto de dimensionamento e não no modelo de conjunto de dimensionamento.
 
@@ -188,5 +188,5 @@ Você pode aplicar a proteção de instância a instâncias de conjunto de dimen
 ### <a name="not-able-to-apply-instance-protection"></a>Não é possível aplicar a proteção de instância
 A proteção de instância só tem suporte com a versão de API 2019-03-01 e superior. Verifique a versão da API que está sendo usada e atualize conforme necessário. Talvez você também precise atualizar o PowerShell ou a CLI para a versão mais recente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Aprenda como [Implantar o aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais

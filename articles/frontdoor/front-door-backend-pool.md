@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229025"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272845"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-ends e pools de back-end no Azure Front Door Service
 Este artigo descreve os conceitos sobre como mapear sua implantação de aplicativo com o serviço de porta frontal do Azure. Ele também explica os diferentes termos na configuração de porta frontal em relação aos back-ends do aplicativo.
@@ -67,7 +67,7 @@ Um pool de back-end define como os back-ends diferentes devem ser avaliados por 
 ### <a name="health-probes"></a>Investigações de integridade
 O serviço de porta frontal envia solicitações de investigação HTTP/HTTPS periódicas para cada um dos back-ends configurados. As solicitações de investigação determinam a proximidade e a integridade de cada back-end para balancear a carga de suas solicitações do usuário final. As configurações de investigação de integridade para um pool de back-end definem como Sondamos o status de integridade dos back-ends do aplicativo. As configurações a seguir estão disponíveis para a configuração de balanceamento de carga:
 
-- **Caminho**. A URL usada para solicitações de investigação para todos os back-ends no pool de back-end. Por exemplo, se um de seus back-ends for contoso-westus.azurewebsites.net e o caminho for definido como/Probe/Test.aspx, os ambientes de serviço de porta frontal, supondo que o protocolo está definido como HTTP, enviará solicitações de investigação de integridade para http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+- **Path**. A URL usada para solicitações de investigação para todos os back-ends no pool de back-end. Por exemplo, se um de seus back-ends for contoso-westus.azurewebsites.net e o caminho for definido como/Probe/Test.aspx, os ambientes de serviço de porta frontal, supondo que o protocolo está definido como HTTP, enviará solicitações de investigação de integridade para http\://contoso-westus.azurewebsites.net/probe/test.aspx.
 
 - **Protocolo**. Define se as solicitações de investigação de integridade devem ser enviadas do serviço de porta frontal para seus back-ends com o protocolo HTTP ou HTTPS.
 

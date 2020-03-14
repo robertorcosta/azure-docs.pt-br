@@ -4,14 +4,14 @@ description: Saiba como habilitar a autenticação baseada em identidade sobre S
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/11/2020
 ms.author: rogarana
-ms.openlocfilehash: 1f904435622c8128810bb0e381308c8a308dd360
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d9d2e06cc3beae8a7bb8ea1b4eee15fb1641ddd4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128999"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255217"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Habilitar a autenticação de Active Directory sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -34,7 +34,7 @@ Quando você habilita o AD para compartilhamentos de arquivos do Azure via SMB, 
 
 As identidades do AD usadas para acessar compartilhamentos de arquivos do Azure devem ser sincronizadas com o Azure AD para impor permissões de arquivo de nível de compartilhamento por meio do modelo [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) padrão. As [DACLs de estilo do Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) em arquivos/diretórios transferidos de servidores de arquivos existentes serão preservadas e impostas. Esse recurso oferece integração direta com sua infraestrutura de domínio do AD corporativo. Ao substituir servidores de arquivos locais por compartilhamentos de arquivos do Azure, os usuários existentes podem acessar compartilhamentos de arquivos do Azure de seus clientes atuais com uma experiência de logon único, sem nenhuma alteração nas credenciais em uso.  
  
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1} 
+## <a name="prerequisites"></a>Prerequisites 
 
 Antes de habilitar a autenticação do AD para compartilhamentos de arquivos do Azure, verifique se você concluiu os seguintes pré-requisitos: 
 
@@ -129,7 +129,8 @@ Connect-AzAccount
 #Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
-#Register the target storage account with your active directory environment under the target OU
+#Register the target storage account with your active directory environment under the target OU (for example: "OU=ComputersOU,DC=prod,DC=corp,DC=contoso,DC=com")
+#You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
 join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
 ```
 
@@ -150,7 +151,7 @@ Depois de ter essa chave, crie uma conta de serviço ou de computador em sua UO.
 
 Se sua UO impõe a expiração de senha, você deve atualizar a senha antes da duração máxima da senha para evitar falhas de autenticação ao acessar compartilhamentos de arquivos do Azure. Consulte [atualizar a senha da conta do AD](#update-ad-account-password) para obter detalhes.
 
-Mantenha o SID da conta recém-criada, você precisará dela para a próxima etapa.
+Mantenha o SID da conta recém-criada, você precisará dela para a próxima etapa. A identidade do AD que você acabou de criar que representa a conta de armazenamento não precisa ser sincronizada com o Azure AD.
 
 ##### <a name="c-enable-the-feature-on-your-storage-account"></a>c. Habilitar o recurso em sua conta de armazenamento
 
@@ -195,7 +196,7 @@ Para disparar a rotação de senha, você pode executar o comando `Update-AzStor
 Update-AzStorageAccountADObjectPassword -RotateToKerbKey kerb2 -ResourceGroupName "your-resource-group-name-here" -StorageAccountName "your-storage-account-name-here"
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre os arquivos do Azure e como usar o AD sobre SMB, consulte estes recursos:
 

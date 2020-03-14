@@ -4,17 +4,17 @@ description: Saiba mais sobre o suporte para a avaliação do Hyper-V com migra�
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 9c1228992d71e56b9118e88967478e619c14959a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834460"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245805"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
 Este artigo resume as configurações de suporte e as limitações para avaliar as VMs do Hyper-V com as [migrações para Azure: avaliação do servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Se você estiver procurando informações sobre como migrar VMs do Hyper-V para o Azure, examine a [matriz de suporte de migração](migrate-support-matrix-hyper-v-migration.md).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Para avaliar as máquinas locais para migração para o Azure com este artigo, você adiciona a ferramenta migrações do Azure: Server Assessment a um projeto de migrações para Azure. Você implanta o [dispositivo migrações para Azure](migrate-appliance.md). O dispositivo descobre continuamente computadores locais e envia dados de configuração e desempenho para o Azure. Após a descoberta de máquina, você coleta computadores descobertos em grupos e executa uma avaliação de um grupo.
 
@@ -82,6 +82,6 @@ A [visualização de dependência](concepts-dependency-visualization.md) ajuda a
 **Conectividade com a Internet** | Se os computadores não estiverem conectados à Internet, você precisará instalar o Log Analytics gateway neles.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Preparar a avaliação de VM do Hyper-V](tutorial-prepare-hyper-v.md)

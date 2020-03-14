@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: d6174459237399ea370ee9c36ba537391104a917
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 7b4b869695eb2073121a889cd81d99c4fc06d4b9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168569"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218044"
 ---
 # <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (clássico): Estenda seu experimento com o R 
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Você pode estender a funcionalidade do Azure Machine Learning Studio (clássico) por meio da linguagem R usando o módulo [Executar script r][execute-r-script] .
 
 Esse módulo aceita vários conjuntos de dados de entrada e produz um único conjunto de dados como saída. Você pode digitar um script R no parâmetro de **script r** do módulo [Executar script r][execute-r-script] .

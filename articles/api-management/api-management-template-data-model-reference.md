@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374497"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243933"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo do Gerenciamento de API do Azure
 Este tópico descreve as representações de entidade e tipo para itens comuns usados nos modelos de dados para os modelos de portal do desenvolvedor no Gerenciamento de API do Azure.  
@@ -59,7 +59,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="API"></a> API  
  A entidade `API` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificador de recurso. Identifica exclusivamente a API na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{id}` em que `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
 |`name`|string|O nome da API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -73,7 +73,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="APISummary"></a> Resumo da API  
  A entidade `API summary` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificador de recurso. Identifica exclusivamente a API na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{id}` em que `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
 |`name`|string|O nome da API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -82,7 +82,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Application"></a> Aplicativo  
  A entidade `application` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Id`|string|O identificador exclusivo do aplicativo.|  
 |`Title`|string|O título do aplicativo.|  
@@ -100,7 +100,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Attachment"></a> Anexo  
  A entidade `attachment` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`UniqueId`|string|O identificador exclusivo do anexo.|  
 |`Url`|string|A URL do recurso.|  
@@ -109,7 +109,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
   
 ##  <a name="Sample"></a> Exemplo de código  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`title`|string|O nome da operação.|  
 |`snippet`|string|Essa propriedade foi preterida e não deve ser usada.|  
@@ -127,7 +127,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Comment"></a> Comentário  
  A entidade `API` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Id`|número|A ID do comentário.|  
 |`CommentText`|string|O corpo do comentário. Pode incluir HTML.|  
@@ -137,7 +137,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Issue"></a> Problema  
  A entidade `issue` tem as seguintes propriedades.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Id`|string|O identificador exclusivo do problema.|  
 |`ApiID`|string|A ID da API para a qual esse problema foi relatado.|  
@@ -153,7 +153,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Filtering"></a> Filtragem  
  A entidade `filtering` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Pattern`|string|O termo de pesquisa atual ou `null` se não houver nenhum termo de pesquisa.|  
 |`Placeholder`|string|O texto a ser exibido na caixa de pesquisa quando não há nenhum termo de pesquisa especificado.|  
@@ -161,7 +161,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Header"></a> Cabeçalho  
  Esta seção descreve a representação de `parameter`.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome do parâmetro.|  
 |`description`|string|Descrição do parâmetro.|  
@@ -174,7 +174,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="HTTPRequest"></a> Solicitação HTTP  
  Esta seção descreve a representação de `request`.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`description`|string|Descrição da solicitação de operação.|  
 |`headers`|matriz de entidades de [Cabeçalho](#Header).|Cabeçalhos de solicitação.|  
@@ -184,7 +184,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="HTTPResponse"></a> Resposta HTTP  
  Esta seção descreve a representação de `response`.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`statusCode`|número inteiro positivo|Código de status de resposta da operação.|  
 |`description`|string|Descrição da resposta da operação.|  
@@ -193,7 +193,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Operation"></a> Operação  
  A entidade `operation` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificador de recurso. Identifica exclusivamente a operação na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{aid}/operations/{id}` em que `{aid}` é um identificador de API e `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
 |`name`|string|Nome da operação. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -208,7 +208,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Menu"></a> Menu de operação  
  A entidade `operation menu` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`ApiId`|string|A ID da API atual.|  
 |`CurrentOperationId`|string|A ID da operação atual.|  
@@ -218,7 +218,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="MenuItem"></a> Item de menu de operação  
  A entidade `operation menu item` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Id`|string|A ID da operação.|  
 |`Title`|string|A descrição da operação.|  
@@ -227,7 +227,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Paging"></a> Paginação  
  A entidade `paging` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Page`|número|O número da página atual.|  
 |`PageSize`|número|O número máximo de resultados a serem exibidos em uma única página.|  
@@ -238,7 +238,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Parameter"></a> Parâmetro  
  Esta seção descreve a representação de `parameter`.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome do parâmetro.|  
 |`description`|string|Descrição do parâmetro.|  
@@ -246,15 +246,15 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`options`|matriz de cadeias de caracteres|Valores definidos para os valores de parâmetro de consulta.|  
 |`required`|booleano|Especifica se o parâmetro é necessário ou não.|  
 |`kind`|número|Se esse parâmetro for um parâmetro de caminho (1) ou um parâmetro de cadeia de caracteres de consulta (2).|  
-|`typeName`|string|Tipo do parâmetro.|  
+|`typeName`|string|Tipo de parâmetro.|  
   
 ##  <a name="Product"></a> Produto  
  A entidade `product` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificador de recurso. Identifica exclusivamente o produto na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `products/{pid}` em que `{pid}` é um identificador de produto. Essa propriedade é somente leitura.|  
-|`Title`|string|Nome do produto. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
+|`Title`|string|O nome do produto. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
 |`Description`|string|Descrição do produto. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
 |`Terms`|string|Termos de uso do produto. Os desenvolvedores que tentarem assinar o produto verão e deverão aceitar esses termos para concluir o processo de assinatura.|  
 |`ProductState`|número|Especifica se o produto está publicado ou não. Os produtos publicados são detectáveis por desenvolvedores no portal do desenvolvedor. Os produtos não publicados são visíveis apenas para administradores.<br /><br /> Os valores permitidos para o estado do produto são:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
@@ -264,7 +264,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Provider"></a> Provedor  
  A entidade `provider` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Properties`|dicionário de cadeia de caracteres|Propriedades desse provedor de autenticação.|  
 |`AuthenticationType`|string|O tipo de provedor. (Azure Active Directory, logon do Facebook, Conta do Google, Conta da Microsoft, Twitter).|  
@@ -273,7 +273,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Representation"></a> Representação  
  Esta seção descreve uma `representation`.  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`contentType`|string|Especifica um tipo de conteúdo registrado ou personalizado para essa representação, por exemplo, `application/xml`.|  
 |`sample`|string|Um exemplo da representação.|  
@@ -281,11 +281,11 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="Subscription"></a> Assinatura  
  A entidade `subscription` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificador de recurso. Identifica exclusivamente a assinatura na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `subscriptions/{sid}` em que `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
 |`ProductId`|string|O identificador de recurso do produto assinado. O valor é uma URL relativa válida no formato de `products/{pid}` em que `{pid}` é um identificador de produto.|  
-|`ProductTitle`|string|Nome do produto. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
+|`ProductTitle`|string|O nome do produto. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
 |`ProductDescription`|string|Descrição do produto. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
 |`ProductDetailsUrl`|string|A URL relativa para os detalhes do produto.|  
 |`state`|string|O estado da assinatura. Os possíveis estados são:<br /><br /> - `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br /><br /> - `1 - active` – a assinatura está ativa.<br /><br /> - `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br /><br /> - `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br /><br /> - `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br /><br /> - `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
@@ -307,7 +307,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="SubscriptionSummary"></a> Resumo da assinatura  
  A entidade `subscription summary` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificador de recurso. Identifica exclusivamente a assinatura na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `subscriptions/{sid}` em que `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
 |`DisplayName`|string|O nome de exibição da assinatura|  
@@ -315,7 +315,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="UserAccountInfo"></a> Informações de conta de usuário  
  A entidade `user account info` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`FirstName`|string|Nome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
 |`LastName`|string|Sobrenome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -328,7 +328,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="UseSignIn"></a> Entrada do usuário  
  A entidade `user sign in` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`Email`|string|Endereço de email. Não deve estar vazio e deve ser exclusivo dentro da instância do serviço. O comprimento máximo é de 254 caracteres.|  
 |`Password`|string|Senha da conta de usuário.|  
@@ -346,7 +346,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 ##  <a name="UserSignUp"></a> Inscrição do usuário  
  A entidade `user sign up` tem as seguintes propriedades:  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|booleano|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
 |`Password`|string|Senha da conta de usuário.|  
@@ -361,5 +361,5 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`NameIdentifier`|string|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
 |`ProviderName`|string|Nome do provedor de autenticação.|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

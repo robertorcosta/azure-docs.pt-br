@@ -4,15 +4,15 @@ description: Saiba como configurar chaves gerenciadas pelo cliente para sua cont
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 02b1009a69a8a408581ce23b3845881bba6bb51e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392398"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252006"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure cosmos com Azure Key Vault
 
@@ -189,6 +189,22 @@ New-AzResourceGroupDeployment `
     -keyVaultKeyUri $keyVaultKeyUri
 ```
 
+### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
+
+Ao criar uma nova conta do Azure Cosmos por meio da CLI do Azure, passe o URI da chave de Azure Key Vault que você copiou anteriormente no parâmetro **--Key-URI** .
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --key-uri $keyVaultKeyUri
+```
+
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="is-there-any-additional-charge-for-using-customer-managed-keys"></a>Há algum custo adicional para usar chaves gerenciadas pelo cliente?
@@ -233,7 +249,7 @@ Como alternativa, para revogar todas as chaves de uma instância de Azure Key Va
 
 A única operação possível quando a chave de criptografia foi revogada é a exclusão da conta.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [criptografia de dados em Azure Cosmos DB](./database-encryption-at-rest.md).
 - Obtenha uma visão geral de [acesso seguro aos dados no cosmos DB](secure-access-to-data.md).

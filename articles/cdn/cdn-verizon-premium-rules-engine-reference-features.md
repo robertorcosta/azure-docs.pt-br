@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381837"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247573"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure da Verizon Premium
 
@@ -24,7 +24,7 @@ A terceira parte de uma regra é o recurso. Um recurso define o tipo de ação q
 
 Esses recursos são projetados para controlar o acesso ao conteúdo.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Negar acesso (403)](#deny-access-403) | Determina se todas as solicitações são rejeitadas com uma resposta 403 Proibido.
 [Autenticação de Token](#token-auth) | Determina se a autenticação baseada em Token será aplicada a uma solicitação.
@@ -36,7 +36,7 @@ Esses recursos são projetados para controlar o acesso ao conteúdo.
 
 Esses recursos são projetados para personalizar quando e como o conteúdo é armazenado.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Parâmetros de Largura de Banda](#bandwidth-parameters) | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) estarão ativos.
 [Limitação de Largura de Banda](#bandwidth-throttling) | Limita a largura de banda para a resposta fornecida pelo ponto de presença (POP).
@@ -66,7 +66,7 @@ Esses recursos são projetados para personalizar quando e como o conteúdo é ar
 
 Esse recurso foi criado para fornecer informações adicionais dentro de uma regra.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Comentário](#comment) | Permite que uma anotação seja adicionada a uma regra.
 
@@ -74,7 +74,7 @@ Esse recurso foi criado para fornecer informações adicionais dentro de uma reg
 
 Esses recursos são projetados para adicionar, modificar ou excluir os cabeçalhos da solicitação ou da resposta.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Cabeçalho de Resposta de Idade](#age-response-header) | Determina se um cabeçalho de resposta de idade será incluído na resposta enviada ao solicitante.
 [Depurar Cabeçalhos de Resposta do Cache](#debug-cache-response-headers) | Determina se uma resposta pode incluir o cabeçalho de resposta X-EC-Debug, que fornece informações sobre a política de cache para o recurso solicitado.
@@ -86,7 +86,7 @@ Esses recursos são projetados para adicionar, modificar ou excluir os cabeçalh
 
 Esses recursos são projetados para personalizar os dados armazenados em arquivos de log brutos.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Campo de Log Personalizado 1](#custom-log-field-1) | Determina o formato e o conteúdo atribuído ao campo de log personalizado em um arquivo de log bruto.
 [Cadeia de Caracteres de Consulta de Log](#log-query-string) | Determina se uma cadeia de caracteres de consulta é armazenada juntamente com a URL nos logs de acesso.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Esses recursos são criados para controlar como a CDN se comunica com um servidor de origem.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Máximo de Solicitações Keep-Alive](#maximum-keep-alive-requests) | Define o número máximo de solicitações para uma conexão Keep-Alive antes de ser fechado.
 [Cabeçalhos Especiais de Proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de solicitação CDN específicos que é encaminhado de um POP para um servidor de origem.
@@ -149,7 +149,7 @@ Esses recursos são criados para controlar como a CDN se comunica com um servido
 
 Esses recursos fornecem funcionalidade avançada para usuários avançados.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Métodos HTTP Armazenáveis em Cache](#cacheable-http-methods) | Determina o conjunto de métodos HTTP adicionais que podem ser armazenados em cache na rede.
 [Tamanho do Corpo da Solicitação Armazenável em Cache](#cacheable-request-body-size) | Define o limite para determinar se uma resposta POST pode ser armazenada em cache.
@@ -159,7 +159,7 @@ Esses recursos fornecem funcionalidade avançada para usuários avançados.
 
 Esses recursos permitem que uma solicitação seja redirecionada ou reescrita em uma URL diferente.
 
-{1&gt;Nome&lt;1} | Finalidade
+Nome | Finalidade
 -----|--------
 [Seguir Redirecionamentos](#follow-redirects) | Determina se as solicitações podem ser redirecionadas para o nome do host definido no cabeçalho Local retornado por um servidor de origem do cliente.
 [Redirecionamento de URL](#url-redirect) | Redireciona as solicitações por meio do cabeçalho Local.
@@ -173,9 +173,9 @@ Esses recursos permitem que uma solicitação seja redirecionada ou reescrita em
 
 **Finalidade**: determina se um cabeçalho de resposta de idade será incluído na resposta enviada ao solicitante.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
-Habilitado | O cabeçalho de resposta Age será incluído na resposta enviada ao solicitante.
+habilitado | O cabeçalho de resposta Age será incluído na resposta enviada ao solicitante.
 Desabilitado | O cabeçalho de resposta Age será excluído da resposta enviada ao solicitante.
 
 **Comportamento Padrão**: Desabilitado.
@@ -192,9 +192,9 @@ Desabilitado | O cabeçalho de resposta Age será excluído da resposta enviada 
 
 Os parâmetros de limitação de largura de banda determinam se a taxa de transferência de dados para uma solicitação do cliente é limitada a uma taxa personalizada.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
-Habilitado|Permite que os POPs cumpram as solicitações de limitação de largura de banda.
+habilitado|Permite que os POPs cumpram as solicitações de limitação de largura de banda.
 Desabilitado|Faz com que os POPs ignorem os parâmetros de limitação de largura de banda. O conteúdo solicitado é servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento padrão:** habilitado.
@@ -211,7 +211,7 @@ Desabilitado|Faz com que os POPs ignorem os parâmetros de limitação de largur
 
 As duas opções a seguir devem ser definidas para configurar corretamente a limitação de largura de banda.
 
-{1&gt;Opção&lt;1}|Descrição
+Opção|DESCRIÇÃO
 --|--
 Kbytes por segundo|Defina essa opção como a largura de banda máxima (Kb por segundo) que pode ser usada para fornecer a resposta.
 Segundos de Prebuf|Defina essa opção para o número de segundos que os POPs devem aguardar até a largura de banda ser limitada. A finalidade desse período de tempo de largura de banda irrestrita é impedir que um player de mídia sofra problemas de intermitência ou de buffer devido à limitação de largura de banda.
@@ -228,9 +228,9 @@ Segundos de Prebuf|Defina essa opção para o número de segundos que os POPs de
 
 **Finalidade:** Determina se a solicitação deve ignorar o cache.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
-Habilitado|Faz com que todas as solicitações sejam passadas para o servidor de origem, mesmo que o conteúdo tenha sido armazenado em cache anteriormente nos POPs.
+habilitado|Faz com que todas as solicitações sejam passadas para o servidor de origem, mesmo que o conteúdo tenha sido armazenado em cache anteriormente nos POPs.
 Desabilitado|Faz com que os POPs armazenem ativos em cache de acordo com a política de cache definida em seus cabeçalhos de resposta.
 
 **Comportamento padrão:**
@@ -296,7 +296,7 @@ Informações de chave:
 
 A maneira mais fácil de obter esse tipo de configuração é colocar os recursos de Tratamento de Cabeçalho Max-Age Externo e Cache-Control na mesma instrução.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
 Overwrite|Garante que as seguintes ações ocorrerão:<br/> - Substitui o cabeçalho `Cache-Control` gerado pelo servidor de origem. <br/>- Adiciona o cabeçalho `Cache-Control` produzido pelo recurso externo Max-Age à resposta.
 Passagem|Garante que o cabeçalho `Cache-Control` produzido pelo recurso externo Max-Age nunca seja adicionado à resposta. <br/> Se o servidor de origem produzir um cabeçalho `Cache-Control`, ele será passado para o usuário final. <br/> Se o servidor de origem não produzir um cabeçalho `Cache-Control`, essa opção poderá fazer com que o cabeçalho de resposta não contenha um cabeçalho `Cache-Control`.
@@ -320,7 +320,7 @@ Informações de chave:
 - Especifique um ou mais nomes de parâmetros de cadeia de caracteres de consulta e separe cada nome de parâmetro com um único espaço.
 - Este recurso determina se parâmetros de cadeia de caracteres de consulta são incluídos ou excluídos da chave de cache. Informações adicionais são fornecidas para cada opção na tabela a seguir.
 
-Tipo|Descrição
+Type|DESCRIÇÃO
 --|--
  Incluir|  Indica que cada parâmetro especificado deve ser incluído no cache-key. Uma chave de cache exclusiva é gerada para cada solicitação que contém um valor exclusivo para um parâmetro de cadeia de caracteres de consulta definido neste recurso.
  Incluir Todos  |Indica que uma chave de cache exclusiva é criada para cada solicitação para um recurso que inclui uma cadeia de caracteres de consulta exclusiva. Esse tipo de configuração geralmente não é recomendado porque pode resultar a uma pequena porcentagem de ocorrências no cache. Um número baixo de ocorrências no cache aumenta a carga no servidor de origem, porque deve atender a mais solicitações. Essa configuração duplica o comportamento de cache conhecido como "unique-cache" na página de Cache de Query-String.
@@ -397,7 +397,7 @@ Um cache-key é o caminho relativo que identifica um ativo para fins de cache. E
 
 Configure esse recurso definindo as duas seguintes opções:
 
-{1&gt;Opção&lt;1}|Descrição
+Opção|DESCRIÇÃO
 --|--
 Caminho Original| Defina o caminho relativo para os tipos de solicitações cuja chave de cache é regravada. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão.
 Novo Caminho|Defina o caminho relativo para o novo cache-key. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão. Esse caminho relativo pode ser construído dinamicamente com o uso de [variáveis HTTP](cdn-http-variables.md).
@@ -441,9 +441,9 @@ Um erro de cache parcial normalmente ocorre depois que um usuário anula um down
 
 Mantenha a configuração padrão para a plataforma HTTP Grande, pois isso reduzir a carga no servidor de origem do cliente e aumenta a velocidade com a qual os clientes baixam o conteúdo.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
-Habilitado|Restaura o comportamento padrão. O comportamento padrão é forçar o POP a iniciar uma busca em segundo plano do ativo do servidor de origem. Depois disso, o ativo estará no cache local do POP.
+habilitado|Restaura o comportamento padrão. O comportamento padrão é forçar o POP a iniciar uma busca em segundo plano do ativo do servidor de origem. Depois disso, o ativo estará no cache local do POP.
 Desabilitado|Impede que um POP realize uma busca em segundo plano para o ativo. O resultado é que a próxima solicitação desse ativo dessa região faz com que um POP solicite-o do servidor de origem do cliente.
 
 **Comportamento padrão:** habilitado.
@@ -456,14 +456,14 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - CNAME do Microsoft Edge
 - Domínio de Referência
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método Request
+- Método de Solicitação
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -482,10 +482,10 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 
 Um formato de arquivo pode ser especificado usando o tipo de mídia da Internet (por exemplo, Content-Type). O tipo de mídia da Internet são metadados independentes de plataforma que permitem que os servidores identifiquem o formato de arquivo de determinado ativo. Uma lista dos tipos comuns de mídia da Internet é fornecida abaixo.
 
-Tipo de Mídia da Internet|Descrição
+Tipo de Mídia da Internet|DESCRIÇÃO
 --|--
 texto/sem formatação|Arquivos de texto sem formatação
-texto/html| arquivos HTML
+texto/html| Arquivos HTML
 texto/css|Folhas de Estilo em Cascata (CSS)
 aplicativo/x-javascript|Javascript
 aplicativo/javascript|Javascript
@@ -514,7 +514,7 @@ Por padrão, o campo de log personalizado é chamado de "x-ec_custom-1". O nome 
 
 O formato para especificar cabeçalhos de solicitação e resposta é definido da seguinte forma:
 
-Tipo de Cabeçalho|Formato|Exemplos
+Tipo de Cabeçalho|Formatar|Exemplos
 -|-|-
 Cabeçalho da Solicitação|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
 Cabeçalho de Resposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
@@ -551,9 +551,9 @@ Cabeçalhos de resposta de cache de depuração podem ser solicitados incluindo-
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 -|-
-Habilitado|Solicitações para cabeçalhos de resposta do cache de depuração retornarão uma resposta que inclui o cabeçalho X-EC-Debug.
+habilitado|Solicitações para cabeçalhos de resposta do cache de depuração retornarão uma resposta que inclui o cabeçalho X-EC-Debug.
 Desabilitado|O cabeçalho de resposta X-EC-Debug será excluído da resposta.
 
 **Comportamento padrão:** desabilitado.
@@ -588,14 +588,14 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método Request
+- Método de Solicitação
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -612,9 +612,9 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 
 **Finalidade**: determina se todas as solicitações são rejeitadas com uma resposta 403 Proibido.
 
-{1&gt;Valor&lt;1} | Resultado
+Valor | Result
 ------|-------
-Habilitado| Faz com que todas as solicitações que atendem aos critérios de correspondência sejam rejeitadas com uma resposta 403 Proibido.
+habilitado| Faz com que todas as solicitações que atendem aos critérios de correspondência sejam rejeitadas com uma resposta 403 Proibido.
 Desabilitado| Restaura o comportamento padrão. O comportamento padrão é permitir que o servidor de origem determine o tipo de resposta que será retornado.
 
 **Comportamento Padrão**: Desabilitado
@@ -634,7 +634,7 @@ Desabilitado| Restaura o comportamento padrão. O comportamento padrão é permi
 
 A maneira mais fácil de obter esse tipo de configuração é colocar os recursos de Tratamento de Cabeçalho Max-Age Externos e Expires na mesma instrução.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
 Overwrite|Garante que as seguintes ações ocorrerão:<br/>- Substitui o cabeçalho `Expires` gerado pelo servidor de origem.<br/>- Adiciona o cabeçalho `Expires` produzido pelo recurso externo Max-Age à resposta.
 Passagem|Garante que o cabeçalho `Expires` produzido pelo recurso externo Max-Age nunca seja adicionado à resposta. <br/> Se o servidor de origem produzir um cabeçalho `Expires`, ele será passado para o usuário final. <br/>Se o servidor de origem não produzir um cabeçalho `Expires`, essa opção poderá fazer com que o cabeçalho de resposta não contenha um cabeçalho `Expires`.
@@ -678,9 +678,9 @@ Informações de chave:
 
 - As solicitações só podem ser redirecionadas para CNAMEs de borda que correspondam à mesma plataforma.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 -|-
-Habilitado|As solicitações podem ser redirecionadas.
+habilitado|As solicitações podem ser redirecionadas.
 Desabilitado|As solicitações não serão redirecionadas.
 
 **Comportamento padrão:** desabilitado.
@@ -715,14 +715,14 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método Request
+- Método de Solicitação
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -758,9 +758,9 @@ Informações de chave:
 
 Uma solicitação no-cache ocorre quando o cliente HTTP envia um cabeçalho `Cache-Control: no-cache` e/ou `Pragma: no-cache` na solicitação HTTP.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
-Habilitado|Permite que solicitações no-cache de um cliente HTTP sejam encaminhadas ao servidor de origem, e o servidor de origem retornará os cabeçalhos de resposta e o corpo por meio do POP para o cliente HTTP.
+habilitado|Permite que solicitações no-cache de um cliente HTTP sejam encaminhadas ao servidor de origem, e o servidor de origem retornará os cabeçalhos de resposta e o corpo por meio do POP para o cliente HTTP.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é impedir que solicitações de cache sejam encaminhadas para o servidor de origem.
 
 Para todo o tráfego de produção, é altamente recomendável deixar esse recurso em seu estado padrão desabilitado. Caso contrário, os servidores de origem não serão protegidos de usuários finais que podem disparar inadvertidamente muitas solicitações no-cache durante a atualização de páginas da Web ou de muitos players de mídia mais populares que são codificados para enviar um cabeçalho no-cache com cada solicitação de vídeo. No entanto, esse recurso pode ser útil para ser aplicado a determinados diretórios de teste que não sejam de produção, para permitir que o conteúdo novo seja obtido sob demanda do servidor de origem.
@@ -799,14 +799,14 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método Request
+- Método de Solicitação
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -825,9 +825,9 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 
 Por padrão, esse código de status é retornado quando a solicitação de intervalo de bytes especificado não pode ser satisfeita por um POP e um campo de cabeçalho de solicitação If-Range não foi especificado.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 -|-
-Habilitado|Impede que os POPs respondam a uma solicitação inválida de intervalo de bytes com um código de status 416 Intervalo Solicitado Insatisfatório. Em vez disso, os servidores distribuirão o ativo solicitado e retornarão uma resposta 200 OK ao cliente.
+habilitado|Impede que os POPs respondam a uma solicitação inválida de intervalo de bytes com um código de status 416 Intervalo Solicitado Insatisfatório. Em vez disso, os servidores distribuirão o ativo solicitado e retornarão uma resposta 200 OK ao cliente.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é cumprir o código de status 416 Intervalo Solicitado Insatisfatório.
 
 **Comportamento padrão:** desabilitado.
@@ -867,14 +867,14 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método Request
+- Método de Solicitação
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -891,9 +891,9 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 
 **Finalidade:** determina se uma cadeia de caracteres de consulta será armazenada juntamente com a URL nos logs de acesso.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 -|-
-Habilitado|Permite o armazenamento de cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso. Se uma URL não contiver uma cadeia de caracteres de consulta, essa opção não terá efeito.
+habilitado|Permite o armazenamento de cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso. Se uma URL não contiver uma cadeia de caracteres de consulta, essa opção não terá efeito.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é ignorar as cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso.
 
 **Comportamento padrão:** desabilitado.
@@ -934,11 +934,11 @@ As solicitações encaminhadas para um servidor de origem refletirão as altera�
 
 Uma das seguintes ações pode ser realizada em um cabeçalho de solicitação:
 
-{1&gt;Opção&lt;1}|Descrição|{1&gt;Exemplo&lt;1}
+Opção|DESCRIÇÃO|Exemplo
 -|-|-
-Append|O valor especificado será adicionado ao fim do valor de cabeçalho de solicitação existente.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Valor1<br/>**Valor de cabeçalho (mecanismo de regras) da solicitação:**<br/>Value2 <br/>**Valor do cabeçalho da nova solicitação:** <br/>Value1Value2
-Overwrite|O valor de cabeçalho de solicitação será definido com o valor especificado.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Valor1<br/>**Valor de cabeçalho (mecanismo de regras) da solicitação:**<br/>Value2<br/>**Valor do cabeçalho da nova solicitação:**<br/> Value2 <br/>
-Excluir|Exclui o cabeçalho de solicitação especificado.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Valor1<br/>**Modificar a configuração de cabeçalho de solicitação do cliente:**<br/>Exclua o cabeçalho da solicitação em questão.<br/>**Resultado:**<br/>O cabeçalho de solicitação especificado não será encaminhado ao servidor de origem.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de solicitação existente.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Value1<br/>**Valor de cabeçalho (mecanismo de regras) da solicitação:**<br/>Value2 <br/>**Valor do cabeçalho da nova solicitação:** <br/>Value1Value2
+Overwrite|O valor de cabeçalho de solicitação será definido com o valor especificado.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Value1<br/>**Valor de cabeçalho (mecanismo de regras) da solicitação:**<br/>Value2<br/>**Valor do cabeçalho da nova solicitação:**<br/> Value2 <br/>
+Excluir|Exclui o cabeçalho de solicitação especificado.|**Valor de cabeçalho (cliente) da solicitação:**<br/>Value1<br/>**Modificar a configuração de cabeçalho de solicitação do cliente:**<br/>Exclua o cabeçalho da solicitação em questão.<br/>**Resultado:**<br/>O cabeçalho de solicitação especificado não será encaminhado ao servidor de origem.
 
 Informações de chave:
 
@@ -974,11 +974,11 @@ Por padrão, os valores de cabeçalho de resposta são definidos por um servidor
 
 Uma das seguintes ações pode ser realizada em um cabeçalho de resposta:
 
-{1&gt;Opção&lt;1}|Descrição|{1&gt;Exemplo&lt;1}
+Opção|DESCRIÇÃO|Exemplo
 -|-|-
-Append|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**Valor de cabeçalho de resposta (cliente):**<br />Valor1<br/>**Valor de cabeçalho de resposta (mecanismo de regras):**<br/>Value2<br/>**Valor do cabeçalho da nova resposta:**<br/>Value1Value2
-Overwrite|O valor de cabeçalho de resposta será definido com o valor especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Valor1<br/>**Valor de cabeçalho de resposta (mecanismo de regras):**<br/>Value2 <br/>**Valor do cabeçalho da nova resposta:**<br/>Value2 <br/>
-Excluir|Exclui o cabeçalho de resposta especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Valor1<br/>**Modificar a configuração de cabeçalho da resposta do cliente:**<br/>Exclua o cabeçalho da resposta em questão.<br/>**Resultado:**<br/>O cabeçalho de resposta especificado não será encaminhado ao solicitante.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**Valor de cabeçalho de resposta (cliente):**<br />Value1<br/>**Valor de cabeçalho de resposta (mecanismo de regras):**<br/>Value2<br/>**Valor do cabeçalho da nova resposta:**<br/>Value1Value2
+Overwrite|O valor de cabeçalho de resposta será definido com o valor especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Value1<br/>**Valor de cabeçalho de resposta (mecanismo de regras):**<br/>Value2 <br/>**Valor do cabeçalho da nova resposta:**<br/>Value2 <br/>
+Excluir|Exclui o cabeçalho de resposta especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Value1<br/>**Modificar a configuração de cabeçalho da resposta do cliente:**<br/>Exclua o cabeçalho da resposta em questão.<br/>**Resultado:**<br/>O cabeçalho de resposta especificado não será encaminhado ao solicitante.
 
 Informações de chave:
 
@@ -996,10 +996,10 @@ Informações de chave:
     - content-length
     - content-range
     - date
-    - server
+    - Servidor
     - trailer
     - transfer-encoding
-    - upgrade
+    - atualização
     - vary
     - via
     - aviso
@@ -1017,9 +1017,9 @@ Informações de chave:
 
 Esse cache parcial pode ser usado para atender a novas solicitações desse conteúdo até que o conteúdo solicitado seja totalmente armazenado em cache.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 -|-
-Habilitado|As solicitações podem gerar conteúdo parcialmente em cache.
+habilitado|As solicitações podem gerar conteúdo parcialmente em cache.
 Desabilitado|As solicitações só podem gerar uma versão totalmente em cache do conteúdo solicitado.
 
 **Comportamento padrão:** desabilitado.
@@ -1081,9 +1081,9 @@ Os cabeçalhos HTTP a seguir estão incluídos na lista padrão:
 
 Os valores válidos são:
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 --|--
-Habilitado|Faz o POP buscar novamente o ativo do servidor de origem.
+habilitado|Faz o POP buscar novamente o ativo do servidor de origem.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é fornecer ativos de cache válidos mediante solicitação.
 
 Este recurso não é necessário para o armazenamento em cache e o fornecimento de conteúdo corretos, mas pode ser útil como solução alternativa. Por exemplo, geradores de conteúdo dinâmicos em servidores de origem inadvertidamente podem fazer com que respostas de 0 byte sejam enviadas aos POPs. Esses tipos de respostas normalmente são armazenados em cache pelos POPs. Se você souber que uma resposta de 0 byte nunca é uma resposta válida para tal conteúdo, esse recurso poderá impedir que esses tipos de ativos sejam servidos para seus clientes.
@@ -1148,9 +1148,9 @@ Certifique-se de que o nome do cabeçalho especificado não corresponde a nenhum
 
 **Finalidade:** Determina se o conteúdo armazenado em cache expirado será entregue quando ocorre um erro durante a revalidação do cache ou ao recuperar o conteúdo solicitado do servidor de origem do cliente.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 -|-
-Habilitado|Conteúdo obsoleto será fornecido ao solicitante quando ocorrer um erro durante a conexão com um servidor de origem.
+habilitado|Conteúdo obsoleto será fornecido ao solicitante quando ocorrer um erro durante a conexão com um servidor de origem.
 Desabilitado|O erro do servidor de origem será encaminhado ao solicitante.
 
 **Comportamento Padrão:** Desabilitado
@@ -1192,9 +1192,9 @@ A chave de criptografia que será usada para criptografar e descriptografar valo
 
 Este recurso toma precedência sobre os recursos com a exceção do recurso de Regenerar URL.
 
-{1&gt;Valor&lt;1} | Resultado
+Valor | Result
 ------|---------
-Habilitado | Protege o conteúdo solicitado com Autenticação Baseada em Token. Somente as solicitações de clientes que fornecerem um token válido e atenderem aos requisitos serão respeitadas. Transações de FTP são excluídas da Autenticação Baseada em Token.
+habilitado | Protege o conteúdo solicitado com Autenticação Baseada em Token. Somente as solicitações de clientes que fornecerem um token válido e atenderem aos requisitos serão respeitadas. Transações de FTP são excluídas da Autenticação Baseada em Token.
 Desabilitado| Restaura o comportamento padrão. O comportamento padrão é permitir que sua configuração de Autenticação Baseada em Token determine se uma solicitação será protegida.
 
 #### <a name="compatibility"></a>Compatibilidade
@@ -1213,12 +1213,12 @@ Não use a Autenticação de Token com a condição de correspondência Sempre.
 
 Os códigos de resposta disponíveis estão listados na tabela a seguir.
 
-Código de Resposta|Nome da Resposta|Descrição
+Código de Resposta|Nome da Resposta|DESCRIÇÃO
 -------------|-------------|--------
 301|Movido Permanentemente|Esse código de status redireciona os usuários não autorizados para a URL especificada no cabeçalho de Local.
 302|Encontrado|Esse código de status redireciona os usuários não autorizados para a URL especificada no cabeçalho de Local. Esse código de status é o método padrão do setor para executar um redirecionamento.
 307|Redirecionamento Temporário|Esse código de status redireciona os usuários não autorizados para a URL especificada no cabeçalho de Local.
-401|Não Autorizada|Combinar esse código de status ao cabeçalho de resposta WWW-Authenticate permite solicitar autenticação ao usuário.
+401|Não Autorizado|Combinar esse código de status ao cabeçalho de resposta WWW-Authenticate permite solicitar autenticação ao usuário.
 403|Proibido|Esta é a mensagem de status padrão 403 Proibido que um usuário não autorizado verá ao tentar acessar conteúdo protegido.
 404|Arquivo Não Encontrado|Esse código de status indica que o cliente HTTP pôde se comunicar com o servidor, mas o conteúdo solicitado não foi encontrado.
 
@@ -1270,9 +1270,9 @@ Os parâmetros afetados por esse recurso são:
 
 Os valores válidos são:
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 ---|----
-Habilitado|Faz com que o POP ignore maiúsculas e minúsculas durante a comparação de URLs para os parâmetros de Autenticação Baseada em Token.
+habilitado|Faz com que o POP ignore maiúsculas e minúsculas durante a comparação de URLs para os parâmetros de Autenticação Baseada em Token.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é que comparações de URL para Autenticação de Token diferenciem maiúsculas de minúsculas.
 
 **Comportamento padrão:** desabilitado.
@@ -1293,9 +1293,9 @@ Informações de chave:
 - A opção Value não pode ser definida como "ec_token".
 - Certifique-se de que o nome definido na opção Valor contém apenas caracteres de URL válidos.
 
-{1&gt;Valor&lt;1}|Resultado
+Valor|Result
 ----|----
-Habilitado|A opção Value define o nome do parâmetro de cadeia de caracteres de consulta por meio do qual os tokens devem ser definidos.
+habilitado|A opção Value define o nome do parâmetro de cadeia de caracteres de consulta por meio do qual os tokens devem ser definidos.
 Desabilitado|Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta indefinido na URL da solicitação.
 
 **Comportamento padrão:** desabilitado. Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta indefinido na URL da solicitação.
@@ -1312,7 +1312,7 @@ Desabilitado|Um token pode ser especificado como um parâmetro de cadeia de cara
 
 A configuração deste recurso requer a definição das seguintes opções:
 
-{1&gt;Opção&lt;1}|Descrição
+Opção|DESCRIÇÃO
 -|-
 Código|Selecione o código de resposta que será retornado ao solicitante.
 Origem e Padrão| Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser redirecionadas. Serão redirecionadas somente as solicitações cuja URL atender aos seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/><br/> **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> – Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. <br/> – Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas.
@@ -1358,7 +1358,7 @@ Informações de chave:
 
 - A configuração deste recurso requer a definição das seguintes opções:
 
-{1&gt;Opção&lt;1}|Descrição
+Opção|DESCRIÇÃO
 -|-
  Origem e Padrão | Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser reconfiguradas. Serão regravadas somente as solicitações cuja URL atender aos seguintes critérios: <br/><br/>  - **Origem (ou ponto de acesso de conteúdo):** selecione um caminho relativo que identifique um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/><br/> - **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas.
  Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. selecionando um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. definindo um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - [Variáveis HTTP](cdn-http-variables.md) <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor.
@@ -1419,7 +1419,7 @@ Esse recurso inclui critérios de correspondência que devem ser atendidos para 
 
 </br>
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Referência do mecanismo de regras](cdn-verizon-premium-rules-engine-reference.md)
 - [Expressões condicionais do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)

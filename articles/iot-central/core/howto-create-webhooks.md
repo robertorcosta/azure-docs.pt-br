@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: db4e48a7bff9127810b051a9ab63bbe9d78cf6da
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394170"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271610"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook em regras no Microsoft Azure IoT Central
 
@@ -39,7 +39,7 @@ Neste exemplo, você se conecta ao RequestBin para ser notificado quando as regr
 
 Agora, quando a regra for disparada, você verá que uma nova solicitação aparecerá em RequestBin.
 
-## <a name="payload"></a>Carga
+## <a name="payload"></a>Carga útil
 
 Quando uma regra é disparada, uma solicitação HTTP POST é feita à URL de retorno de chamada que contém uma carga JSON com os detalhes de telemetria, dispositivo, regra e aplicativo. O conteúdo pode ser semelhante ao seguinte:
 
@@ -84,6 +84,6 @@ Atualmente não há nenhuma maneira programática de assinar/cancelar a assinatu
 
 Se você tiver ideias sobre como melhorar esse recurso, poste suas sugestões em nosso [Fórum de voz do usuário](https://feedback.azure.com/forums/911455-azure-iot-central).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como configurar e usar WebHooks, a próxima etapa sugerida é explorar a [configuração Azure monitor grupos de ação](howto-use-action-groups.md).

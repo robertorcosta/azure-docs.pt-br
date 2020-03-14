@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804046"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243530"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -63,7 +63,7 @@ Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure 
 
 As chaves de criptografia e os segredos são protegidos em sua [assinatura do Azure Key Vault](../../key-vault/key-vault-overview.md). Usando o serviço Backup do Azure, você pode fazer backup e restaurar VMs (máquinas virtuais) criptografadas que usam a configuração KEK (chave de criptografia de chave).
 
-### <a name="azure-storage-service-encryption"></a>Criptografia de Serviço de Armazenamento do Azure
+### <a name="azure-storage-service-encryption"></a>Criptografia do Serviço de Armazenamento do Azure
 
 Os dados em repouso no Armazenamento de Blobs do Azure e nos compartilhamentos de arquivos do Azure podem ser criptografados em cenários do servidor e do lado do cliente.
 
@@ -87,7 +87,7 @@ Por fim, use também a Biblioteca de Clientes do Armazenamento do Azure para Jav
 
 O [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overview.md) é um serviço de banco de dados relacional de uso geral no Azure que dá suporte a estruturas como dados relacionais e espaciais, JSON e XML. O Banco de Dados SQL dá suporte à criptografia no servidor por meio do recurso TDE (Transparent Data Encryption) e à criptografia do lado do cliente por meio do recurso Always Encrypted.
 
-#### <a name="transparent-data-encryption"></a>Transparent Data Encryption
+#### <a name="transparent-data-encryption"></a>Criptografia de Dados Transparente
 
 A [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é usada para criptografar arquivos de dados do [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overview.md) e [SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real usando uma DEK (chave de criptografia de banco de dados), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação.
 
@@ -181,7 +181,7 @@ Use uma conexão do Gateway de VPN site a site para conectar a rede local a uma 
 
 Configure uma conexão VPN site a site com uma rede virtual usando o portal do Azure, o PowerShell ou a CLI do Azure.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 [Criar uma conexão site a site no portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
@@ -201,7 +201,7 @@ Sem a proteção e o gerenciamento de chaves adequados, a criptografia é inúti
 
 O Key Vault alivia as organizações da necessidade de configurar, aplicar patch e manter HSMs (módulos de segurança de hardware) e um software de gerenciamento de chaves. Quando você usa o Key Vault, você mantém o controle. A Microsoft nunca vê suas chaves, e os aplicativos não têm acesso direto a elas. Você também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral de segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança de rede do Azure](network-overview.md)

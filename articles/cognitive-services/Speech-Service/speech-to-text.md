@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: erhopf
 ms.openlocfilehash: 8518f92a4f4df1686d4b338783a93d969e04d219
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388308"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219539"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
 
@@ -55,7 +55,7 @@ Além do modelo de serviço de fala padrão, você pode criar modelos personaliz
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 - [Obtenha o SDK de fala](speech-sdk.md)

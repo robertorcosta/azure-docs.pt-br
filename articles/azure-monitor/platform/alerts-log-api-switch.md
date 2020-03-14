@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668002"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249432"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
 
@@ -111,7 +111,7 @@ Além do mais, se o workspace do Log Analytics especificado ainda não tiver sid
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Azure Monitor – Alertas de log](alerts-unified-log.md).
 - Saiba como criar [alertas de log nos alertas do Azure](alerts-log.md).

@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818976"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256179"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de bancos de dados individuais e em pool no Banco de Dados SQL do Azure
 
@@ -91,7 +91,7 @@ Para saber mais sobre a recuperação de desastres, consulte: [Azure SQL Db Disa
 
 O Banco de Dados SQL leva muito a sério a segurança e a privacidade. A segurança no Banco de Dados SQL do Microsoft Azure está disponível no nível do banco de dados e no nível da plataforma e é melhor compreendida quando categorizada em várias camadas. Em cada camada, você tem que controlar e fornecer segurança ideal para seu aplicativo. As camadas são:
 
-- Identidade e autenticação ([autenticação do Windows/SQL e autenticação do Azure Active Directory [AAD]](sql-database-control-access.md)).
+- Autenticação de & de identidade (autenticação do[SQL e autenticação do Azure Active Directory [AAD]](sql-database-manage-logins.md)).
 - Atividade de monitoramento ([Auditoria](sql-database-auditing.md) e [detecção de ameaças](sql-database-threat-detection.md)).
 - Proteção de dados reais ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlando o acesso a dados confidenciais e privilegiados ([Segurança em nível de linha](/sql/relational-databases/security/row-level-security) e [Máscara de Dados Dinâmicos do Banco de Dados SQL](/sql/relational-databases/security/dynamic-data-masking)).
@@ -100,10 +100,10 @@ A [Central de Segurança do Azure](https://azure.microsoft.com/services/security
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Quais métodos de autenticação de usuários são oferecidos no Banco de Dados SQL
 
-Há [dois métodos de autenticação](sql-database-control-access.md#authentication) oferecidos no Banco de Dados SQL:
+Há dois métodos de autenticação oferecidos no banco de dados SQL:
 
 - [Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
-- Autenticação do SQL
+- [Autenticação do SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 Não há suporte para a Autenticação Integrada do Windows. O Azure Active Directory (AD) é um serviço de gerenciamento de identidades e acesso centralizado. Com isso você pode fornecer muito convenientemente um acesso de logon único (SSO) para todo o pessoal em sua organização. Isso significa que as credenciais são compartilhadas entre todos os serviços do Azure para autenticação mais simples. O ADD oferece suporte a [MFA (Autenticação multifator)](sql-database-ssms-mfa-authentication.md) e, com [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md), pode ser integrado ao Windows Server Active Directory. A autenticação do SQL funciona exatamente como você o vinha usando no passado. Você fornece uma nome de usuário/senha e pode autenticar usuários para qualquer banco de dados em um determinado servidor do Banco de Dados SQL. Isso também permite que o Banco de Dados SQL e o SQL Data Warehouse ofereçam autenticação multifator e contas de usuário convidado em um domínio do Azure AD. Se você já tiver um Active Directory local, poderá federar o diretório com o Azure Active Directory para estender seu diretório do Azure.
 
@@ -189,7 +189,7 @@ A [segurança em nível de linha](/sql/relational-databases/security/row-level-s
 
 Há opções de gerenciamento de chaves para Always Encrypted (criptografia no lado do cliente) e Transparent Data Encryption (criptografia em repouso). É recomendável que você regularmente gire as chaves de criptografia. A frequência de rotação deve ser alinhada com os regulamentos internos da organização e requisitos de conformidade.
 
-#### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
+#### <a name="transparent-data-encryption-tde"></a>Criptografia de Dados Transparente (TDE)
 
 Há uma hierarquia de duas chaves na TDE – os dados em cada banco de dados do usuário são criptografados por uma DEK (chave de criptografia de banco de dados) exclusiva do banco de dados AES-256 simétrica que, por sua vez, é criptografada por uma chave mestra assimétrica RSA 2048 exclusiva do servidor. A chave mestra pode ser gerenciada:
 
@@ -226,7 +226,7 @@ A Rota Expressa permite aumentar até 2 vezes o limite da largura de banda adqui
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>O Banco de Dados SQL está em conformidade com os requisitos regulatórios? Como isso ajuda na conformidade da minha organização?
 
-O Banco de Dados SQL atende a várias regras de conformidade regulatória. Para exibir o conjunto mais recente de conformidades que foram atendidas pelo banco de dados SQL, visite a [central de confiabilidade da Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e faça uma busca detalhada das conformidades que são importantes para sua organização para ver se o banco de dados SQL está incluído nos serviços compatíveis do Azure. É importante observar que, embora o Banco de Dados SQL possa ser certificado como um serviço em conformidade, ele ajuda na conformidade do serviço de sua organização, mas não garante essa conformidade automaticamente.
+O banco de dados SQL é compatível com uma variedade de compliancies regulatórias. Para exibir o conjunto mais recente de compliancies que foram atendidos pelo banco de dados SQL, visite a [central de confiabilidade da Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e faça uma busca detalhada nos compliancies que são importantes para sua organização para ver se o banco de dados SQL está incluído nos serviços compatíveis do Azure. É importante observar que, embora o Banco de Dados SQL possa ser certificado como um serviço em conformidade, ele ajuda na conformidade do serviço de sua organização, mas não garante essa conformidade automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoramento e manutenção de banco de dados inteligente após a migração
 
@@ -274,11 +274,11 @@ Nesse gráfico, você também pode configurar alertas por recurso. Esses alertas
 
 É possível consultar o modo de exibição de gerenciamento dinâmico [sys.DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para retornar o histórico de estatísticas de consumo de recursos na última hora e o modo de exibição de catálogo do sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para retornar o histórico dos últimos 14 dias.
 
-#### <a name="query-performance-insight"></a>Análise de desempenho de consultas
+#### <a name="query-performance-insight"></a>Análise de Desempenho de Consultas
 
 A [Análise de Desempenho de Consultas](sql-database-query-performance.md) permite visualizar um histórico das principais consultas de consumo de recursos e consultas de longa execução para um banco de dados específico. Você pode identificar rapidamente as PRINCIPAIS consultas por utilização de recursos, duração e frequência de execução. Você pode acompanhar as consultas e detectar de regressão. Este recurso requer que o [Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) esteja habilitado e ativo para o banco de dados.
 
-![Análise de desempenho de consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
+![Análise de Desempenho de Consultas](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Análise de SQL do Azure (versão prévia) nos logs do Azure Monitor
 
@@ -302,7 +302,7 @@ O Banco de Dados SQL oferece várias camadas de serviço: Básica, Standard e Pr
 
 |**Camada de serviço**|**Cenários de caso de uso comuns**|
 |---|---|
-|**Básico**|Aplicativos com usuários de uma série e um banco de dados que não tem requisitos de alta simultaneidade, escala e desempenho. |
+|**Basic**|Aplicativos com usuários de uma série e um banco de dados que não tem requisitos de alta simultaneidade, escala e desempenho. |
 |**Standard**|Aplicativos com requisitos de simultaneidade considerável, escala e desempenho juntamente com baixas a médias demandas de E/S. |
 |**Premium**|Aplicativos com muitos usuários simultâneos, alto consumo de CPU/memória e altas demandas de E/S. Aplicativos confidenciais de alta simultaneidade, alta taxa de transferência e latência podem aproveitar o nível Premium. |
 |||

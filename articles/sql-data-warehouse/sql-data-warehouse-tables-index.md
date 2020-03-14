@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 5167c897109f9e4f050ac6f7416ecabbbb28a4a9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389542"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256543"
 ---
 # <a name="indexing-tables-in-sql-analytics"></a>Indexando tabelas na análise de SQL
 
@@ -285,6 +285,6 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 
 Para obter mais detalhes sobre como recriar partições usando o CTAS, consulte [usando partições na análise de SQL](sql-data-warehouse-tables-partition.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como desenvolver tabelas, consulte [Desenvolvendo tabelas](sql-data-warehouse-tables-overview.md).

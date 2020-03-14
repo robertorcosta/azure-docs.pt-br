@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60815148"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220100"
 ---
 # <a name="command-line-interface"></a>Interface de Linha de Comando
 
@@ -30,7 +30,7 @@ A interface de linha de comando do KES (Serviço de Exploração de Conhecimento
 
 <a name="build_index-command"></a>
 
-## <a name="buildindex-command"></a>Comando build_index
+## <a name="build_index-command"></a>Comando build_index
 
 O comando **build_index** cria um arquivo de índice binário de um arquivo de definição de esquema e um arquivo de dados de objetos a serem indexados.  O arquivo de índice resultante pode ser usado para avaliar as expressões de consulta estruturada, ou para gerar interpretações de consultas em linguagem natural em conjunto com um arquivo de gramática compilados.
 
@@ -55,7 +55,7 @@ Por padrão, o índice é criado no computador local.  Fora do ambiente do Azure
 
 <a name="build_grammar-command"></a>
 
-## <a name="buildgrammar-command"></a>Comando build_grammar
+## <a name="build_grammar-command"></a>Comando build_grammar
 
 O comando **build_grammar** compila uma gramática especificada em XML para um arquivo de gramática binária.  O arquivo de gramática resultante pode ser usado em conjunto com um arquivo de índice para gerar interpretações de consultas em linguagem natural.
 
@@ -70,7 +70,7 @@ Esses arquivos podem ser especificados por caminhos de arquivo local ou caminhos
 
 <a name="host_service-command"/>
 
-## <a name="hostservice-command"></a>Comando host_service
+## <a name="host_service-command"></a>Comando host_service
 
 O comando **host_service** hospeda uma instância do serviço KES no computador local.
 
@@ -82,13 +82,13 @@ O comando **host_service** hospeda uma instância do serviço KES no computador 
 | `<indexFile>`   | Caminho de entrada de índice binário           |
 | `--port <port>` | Número da porta local.  Padrão: 8000 |
 
-Esses arquivos podem ser especificados por caminhos de arquivo local ou caminhos de URL para blobs do Azure.  Um serviço web será hospedado em http://localhost:&lt ; porta&gt; /.  Consulte [APIs da Web](WebAPI.md) para obter uma lista de operações com suporte.
+Esses arquivos podem ser especificados por caminhos de arquivo local ou caminhos de URL para blobs do Azure.  Um serviço web será hospedado em http://localhost:&lt; porta&gt;/.  Consulte [APIs da Web](WebAPI.md) para obter uma lista de operações com suporte.
 
 Fora do ambiente do Azure, os serviços hospedados localmente são limitados aos arquivos de índice de até 1 MB em tamanho, 10 solicitações por segundo e total de 1000 chamadas.  Para superar essas limitações, execute **host_service** dentro de uma VM do Azure, ou implantar um serviço de nuvem do Azure usando **deploy_service**.
 
 <a name="deploy_service-command"/>
 
-## <a name="deployservice-command"></a>Comando deploy_service
+## <a name="deploy_service-command"></a>Comando deploy_service
 
 O comando **deploy_service** implanta uma instância do serviço KES para um serviço de nuvem do Azure.
 
@@ -108,7 +108,7 @@ Por padrão, o serviço é implantado no ambiente de preparação, opcionalmente
 
 <a name="describe_index-command"/>
 
-## <a name="describeindex-command"></a>Comando describe_index
+## <a name="describe_index-command"></a>Comando describe_index
 
 O comando **describe_index** gera informações sobre um arquivo de índice, inclusive o esquema e a descrição.
 
@@ -122,7 +122,7 @@ Esse arquivo pode ser especificado por um caminho de arquivo local ou um caminho
 
 <a name="describe_grammar-command"/>
 
-## <a name="describegrammar-command"></a>Comando describe_grammar
+## <a name="describe_grammar-command"></a>Comando describe_grammar
 
 O comando **describe_grammar** gera a especificação de gramática original usada para construir a gramática binária.
 

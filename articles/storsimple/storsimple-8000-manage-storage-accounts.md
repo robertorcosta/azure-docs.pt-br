@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366687"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254853"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
@@ -110,7 +110,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
     ![Salvar as credenciais editadas da conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
-4. Quando solicitada a confirmação, clique em **Sim**. 
+4. Quando solicitado a confirmar, clique em **Sim**. 
 
     ![Confirmar modificações](./media/storsimple-8000-manage-storage-accounts/editstorageacct4.png)
 
@@ -168,7 +168,7 @@ Para informar o serviço do Gerenciador de Dispositivos do StorSimple da altera�
 Você será notificado depois que a chave tiver sido sincronizada com êxito.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Para sincronizar as chaves para contas de armazenamento fora da assinatura do serviço
-1. Na página **Serviços**, clique na guia **Configurar**.
+1. Na página **Serviços** clique na guia **Configurar**.
 2. Clique em **Adicionar/Editar Contas de Armazenamento**.
 3. Na caixa de diálogo, faça o seguinte:
    
@@ -176,7 +176,7 @@ Você será notificado depois que a chave tiver sido sincronizada com êxito.
    2. Será necessário atualizar a chave de acesso de armazenamento no serviço do Gerenciador de Dispositivos do StorSimple. Nesse caso, você pode ver a chave de acesso de armazenamento. Insira a nova chave na caixa **Chave de Acesso da Conta de Armazenamento**. 
    3. Salve suas alterações. Sua chave de acesso da conta de armazenamento deve estar atualizada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [segurança do StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

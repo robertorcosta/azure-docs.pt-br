@@ -4,11 +4,11 @@ description: Aborda perguntas comuns sobre como fazer backup de arquivos e pasta
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673070"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273417"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre como fazer backup de arquivos e pastas
 
@@ -98,7 +98,7 @@ O tamanho da pasta de cache determina a quantidade de dados submetida a backup.
 1. Por padrão, a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verifique se o caminho do local da pasta de rascunho corresponde aos valores das entradas da chave do registro mostradas abaixo:
 
-    | Caminho do registro | Chave do Registro | {1&gt;Valor&lt;1} |
+    | Caminho do registro | Chave do Registro | Valor |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de cache* |
@@ -113,7 +113,7 @@ O tamanho da pasta de cache determina a quantidade de dados submetida a backup.
 4. Copie a pasta `\Scratch` inteira para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo seja copiado, não movido.
 5. Atualize as entradas de registro a seguir com o caminho da pasta de rascunho recentemente movida.
 
-    | Caminho do registro | Chave do Registro | {1&gt;Valor&lt;1} |
+    | Caminho do registro | Chave do Registro | Valor |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Novo local da pasta de rascunho* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Novo local da pasta de rascunho* |
@@ -139,7 +139,7 @@ Os seguintes locais para a pasta de cache não são recomendados:
 
 Os atributos a seguir, ou suas combinações, não têm suporte para a pasta de cache:
 
-* Criptografada
+* Criptografado
 * Eliminação de duplicação
 * Compressed
 * Esparsos
@@ -151,14 +151,14 @@ A pasta de cache e o VHD de metadados não têm os atributos necessários para o
 
 Sim, você pode usar a opção **alterar propriedades** no agente Mars para ajustar a largura de banda e o tempo. [Saiba mais](backup-windows-with-mars-agent.md#enable-network-throttling).
 
-## <a name="restore"></a>Restauração
+## <a name="restore"></a>Restaurar
 
 ### <a name="manage"></a>Gerenciar
 
 **Posso recuperar se esqueci minha frase secreta?**
 O agente de backup do Azure requer uma frase secreta (que você forneceu durante o registro) para descriptografar os dados de backup durante a restauração. Examine os cenários abaixo para entender suas opções de tratamento de uma senha perdida:
 
-| Computador original <br> *(computador de origem onde os backups foram feitos)* | Frase secreta | Opções Disponíveis |
+| Computador original <br> *(computador de origem onde os backups foram feitos)* | Senha | Opções Disponíveis |
 | --- | --- | --- |
 | Disponível |Excluído |Se o computador original (em que os backups foram feitos) estiver disponível e ainda estiver registrado no mesmo cofre dos serviços de recuperação, você poderá regenerar a senha seguindo estas [etapas](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
 | Excluído |Excluído |Não é possível recuperar os dados ou os dados não estão disponíveis |
@@ -177,7 +177,7 @@ Considere as seguintes condições:
 
 Se você tiver a mesma senha (que você forneceu durante o registro) da máquina original, poderá restaurar os dados de backup para um computador alternativo. Examine os cenários abaixo para entender as opções de restauração.
 
-| Computador original | Frase secreta | Opções Disponíveis |
+| Computador original | Senha | Opções Disponíveis |
 | --- | --- | --- |
 | Excluído |Disponível |Você pode instalar e registrar o agente MARS em outro computador com a mesma senha que você forneceu durante o registro do computador original. Escolha a **opção de recuperação** > **outro local** para executar a restauração. Para obter mais informações, veja este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Excluído |Excluído |Não é possível recuperar os dados ou os dados não estão disponíveis |
@@ -193,6 +193,6 @@ Se um trabalho de restauração em andamento for cancelado, o processo de restau
 * Para a opção de recuperação de volume, o agente MARS fornece uma opção para ignorar a restauração de permissões de ACL para o arquivo ou pasta que está sendo recuperada
 * Para a opção de recuperação de arquivo e pastas individuais, o agente MARS será restaurado com permissões de ACL (não há nenhuma opção para ignorar a restauração de ACL).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba](tutorial-backup-windows-server-to-azure.md) como fazer backup de um computador Windows.

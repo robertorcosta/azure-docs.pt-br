@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: feb49b4e12bd304b49e0c50cd43ed0be52761532
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838783"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204436"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para iniciantes, vídeo 1: As cinco perguntas que a ciência de dados responde
 Obtenha uma breve introdução à ciência de dados com *Ciência de dados para iniciantes* em cinco vídeos curtos de um grande cientista de dados. Esses vídeos são básicos, mas úteis, esteja você interessado em fazer a ciência de dados ou trabalhar com os cientistas de dados.
@@ -32,9 +32,9 @@ Este primeiro vídeo é sobre os tipos de perguntas que a ciência de dados pode
 
 * Vídeo 1: As cinco perguntas que a ciência de dados responde
 * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
-* Video 3: [Faça uma pergunta que você possa responder com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
-* Vídeo 4: [Preveja uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
-* Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
+* Vídeo 3: [faça uma pergunta que você possa responder com os dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Vídeo 4: [prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
+* Vídeo 5: [copiar o trabalho de outras pessoas para a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos e 18 segundos)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Transcrição: As cinco perguntas que a ciência de dados responde
 Olá! Bem-vindo à série de vídeos *Ciência de dados para iniciantes*.
@@ -83,7 +83,7 @@ Se você tiver um cartão de crédito, já terá se beneficiado da detecção de
 Essa questão pode ser útil de várias formas. Por exemplo:
 
 * Se você tiver um carro com medidores de pressão, talvez queira saber: Esse medidor está lendo normalmente?
-* Se você estiver monitorando internet, talvez queria saber: Esta mensagem da internet é normal?
+* Se você estiver monitorando a Internet, convém saber: esta é a mensagem da Internet típica?
 
 A detecção de anomalias sinaliza comportamentos ou eventos incomuns ou inesperados. Ela dá dicas sobre onde procurar problemas.
 
@@ -102,7 +102,7 @@ Eles ajudam a responder qualquer pergunta cuja resposta seja um número.
 ## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Pergunta 4: Como isso é organizado? usa algoritmos de clustering
 Agora, as duas últimas perguntas são um pouco mais avançadas.
 
-Às vezes, você deseja compreender a estrutura de um conjunto de dados - Como isso é organizado? Para essa pergunta, não há exemplos para os quais você já conhece os resultados.
+Às vezes, você deseja compreender a estrutura de um conjunto de dados - Como isso é organizado? Para essa pergunta, você não tem exemplos dos quais já conhece os resultados.
 
 Há muitas maneiras de revelar a estrutura dos dados. Uma abordagem é o clustering. Ele separa os dados em "grupos" naturais, para facilitar a interpretação. Com o clustering, não há uma resposta correta.
 
@@ -124,7 +124,7 @@ Normalmente, o aprendizado de reforço é uma boa opção para sistemas automati
 
 ![Algoritmos de aprendizado de reforço: O que devo fazer agora?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
-As perguntas que eles respondem são sempre sobre qual ação deve ser executada, geralmente por um computador ou um robô. Os exemplos abrangem:
+As perguntas que eles respondem são sempre sobre qual ação deve ser executada, geralmente por um computador ou um robô. São exemplos:
 
 * Se eu for um sistema de controle de temperatura de uma casa: ajusto a temperatura ou deixo como está?  
 * Se eu for um carro automático: no farol amarelo, freio ou acelero?  

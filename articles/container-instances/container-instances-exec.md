@@ -4,11 +4,11 @@ description: Saiba como executar um comando em um contêiner que está sendo exe
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374543"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247196"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Executar um comando em uma Instância de Contêiner do Azure
 
@@ -80,11 +80,11 @@ Por exemplo, no grupo de contêiner *mynginx* há dois contêineres, *nginx-app*
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
 ```
 
-## <a name="restrictions"></a>{1&gt;Restrições&lt;1}
+## <a name="restrictions"></a>Restrições
 
 Atualmente, as instâncias de contêiner do Azure dão suporte à inicialização de um único processo com [AZ container exec][az-container-exec], e você não pode passar argumentos de comando. Por exemplo, não é possível encadear comandos, como em `sh -c "echo FOO && echo BAR"`, ou executar `echo FOO`.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre outras ferramentas de solução de problemas e problemas comuns de implantação em [Solucionar problemas de contêiner e implantação em Instâncias de Contêiner do Azure](container-instances-troubleshooting.md).
 

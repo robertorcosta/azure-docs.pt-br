@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365594"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254489"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor iSCSI por meio do portal do Azure
 
@@ -201,10 +201,10 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
    
     ![selecionar dispositivo de destino](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. No host do Windows, aperte a tecla do logotipo do Windows + X e depois clique em **Executar**.
-7. Na caixa de diálogo **Executar**, digite **Diskmgmt.msc**. Clique em **OK** e a caixa de diálogo **Gerenciamento de disco** será exibida. O painel do lado direito exibirá os volumes do seu host.
-8. Na janela **Gerenciamento de Disco**, os volumes montados serão exibidos conforme mostrado na ilustração. Clique com o botão direito do mouse no volume descoberto (clique no nome do disco) e, em seguida, clique em **Online**.
+7. Na caixa de diálogo **Executar**, digite **Diskmgmt.msc**. Clique em **OK** e a caixa de diálogo **Gerenciamento de Disco** será exibida. O painel do lado direito exibirá os volumes do seu host.
+8. Na janela **Gerenciamento de Disco** , os volumes montados serão exibidos conforme exibido na ilustração a seguir. Clique com o botão direito no volume descoberto (clique no nome do disco) e depois clique em **Online**.
    
-    ![gerenciamento de disco](./media/storsimple-virtual-array-deploy3-iscsi-setup/image26.png)
+    ![Gerenciamento de Disco](./media/storsimple-virtual-array-deploy3-iscsi-setup/image26.png)
 9. Clique com o botão direito do mouse e selecione **Inicializar Disco**.
    
     ![inicializar disco 1](./media/storsimple-virtual-array-deploy3-iscsi-setup/image27.png)
@@ -217,7 +217,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
 12. Atribua uma letra da unidade ao volume e clique em **Avançar**.
     
     ![assistente de novo volume 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image30.png)
-13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.** Defina o tamanho da unidade de alocação como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em sua Matriz Virtual StorSimple. Clique em **Avançar**.
+13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.** Defina o tamanho da unidade de alocação como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em sua Matriz Virtual StorSimple. Clique em **Próximo**.
     
     ![assistente de novo volume 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/image31.png)
 14. Verifique os valores do volume e clique em **Concluir**.
@@ -228,7 +228,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
     
     ![volumes online](./media/storsimple-virtual-array-deploy3-iscsi-setup/image33.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
@@ -241,7 +241,7 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 1. Inicie o iniciador Microsoft iSCSI no host do Windows.
 2. Na janela **Propriedades do Iniciador iSCSI**, na guia **Configuração** selecione e copie a cadeia de caracteres do campo **Nome do Iniciador**.
    
-    ![Propriedades do iniciador iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
+    ![Propriedades do Iniciador iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. Salve esta cadeia de caracteres.
 
 <!--Reference link-->

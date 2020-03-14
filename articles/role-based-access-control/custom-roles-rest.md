@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 145bc45e1b7faeddc23cf5f0662337e15ab51c29
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392479"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245688"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando a API REST
 
@@ -38,7 +38,7 @@ Para listar todas as funções personalizadas em um diretório, use as [definiç
 
 1. Substitua *{Filter}* pelo tipo de função.
 
-    | Filtro | Descrição |
+    | Filtrar | DESCRIÇÃO |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrar com base no tipo CustomRole |
 
@@ -54,15 +54,15 @@ Para listar funções personalizadas em um escopo, use as [definições de funç
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Assinatura |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{Filter}* pelo tipo de função.
 
-    | Filtro | Descrição |
+    | Filtrar | DESCRIÇÃO |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrar com base no tipo CustomRole |
 
@@ -78,15 +78,15 @@ Para obter informações sobre uma função personalizada por seu nome de exibi�
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Assinatura |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{Filter}* pelo nome de exibição da função.
 
-    | Filtro | Descrição |
+    | Filtrar | DESCRIÇÃO |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use a forma codificada da URL do nome de exibição exato da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -104,10 +104,10 @@ Para obter informações sobre uma função personalizada por seu identificador 
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Assinatura |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função.
@@ -152,10 +152,10 @@ Para criar uma função personalizada, use [Definições de Função - Criar ou 
 
 1. Dentro da URI, substita *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Assinatura |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
@@ -217,10 +217,10 @@ Para atualizar uma função personalizada, use [Definições de Função - Criar
 
 1. Dentro da URI, substita *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Assinatura |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
@@ -301,15 +301,15 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja excluir a função personalizada.
 
-    | Escopo | Tipo |
+    | Escopo | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Assinatura |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST](role-assignments-rest.md)

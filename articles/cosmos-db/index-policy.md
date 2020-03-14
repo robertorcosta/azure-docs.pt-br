@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
 ms.openlocfilehash: 86dbcee7150adacd0e961dbe07cf66ad117d2041
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129338"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251993"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -255,7 +255,7 @@ Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o 
 - nenhum caminho incluído e
 - `/*` como o único caminho excluído.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Leia mais sobre indexação nos artigos a seguir:
 

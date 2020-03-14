@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384837"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254476"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Instalar a atualização 1.1 na sua matriz virtual StorSimple
 
@@ -76,7 +76,7 @@ Execute as etapas a seguir para baixar a atualização 1.1 do catálogo do Micro
    
     ![Pesquisar o catálogo](./media/storsimple-virtual-array-install-update-11/download1.png)
 
-4. Clique em **Baixar**.
+4. Clique em **Download**.
 
 5. Baixe os dois arquivos para uma pasta. Você também pode copiar a pasta para um compartilhamento de rede que é acessível do dispositivo.
 
@@ -125,6 +125,6 @@ Esse procedimento leva cerca de 4 minutos para ser concluído. Execute as etapas
 6. Repita as etapas 2 a 4 para instalar as correções de segurança do Windows usando arquivo `Windows8.1-KB4284815-x64`. A matriz virtual reinicia após a instalação e você precisa entrar na interface do usuário da Web local.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a [administração de sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

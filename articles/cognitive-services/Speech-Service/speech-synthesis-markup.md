@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/05/2020
 ms.author: dapine
-ms.openlocfilehash: b39b8712f3e8b869d7dbe496dd30f0599aa4150d
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 68691ad60542c55db4d381e2923a9f928a22995a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254786"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220496"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -329,7 +329,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 | Atributo | DESCRIÇÃO | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `alphabet` | Especifica o alfabeto fonético a ser usado ao resumir a pronúncia da cadeia de caracteres no atributo `ph`. A cadeia de caracteres que especifica o alfabeto deve ser especificada em letras minúsculas. A seguir estão os possíveis alfabetos que você pode especificar.<ul><li>IPA &ndash; alfabeto fonético internacional</li><li>&ndash; SAPI Speech API conjunto de telefone</li><li>Conjunto de telefone universal &ndash; ups</li></ul>O alfabeto aplica-se somente ao fonema no elemento. Para obter mais informações, consulte [referência de alfabeto fonético](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Opcional |
+| `alphabet` | Especifica o alfabeto fonético a ser usado ao resumir a pronúncia da cadeia de caracteres no atributo `ph`. A cadeia de caracteres que especifica o alfabeto deve ser especificada em letras minúsculas. A seguir estão os possíveis alfabetos que você pode especificar.<ul><li>`ipa` &ndash; alfabeto fonético internacional</li><li>alfabeto fonético `sapi` &ndash; Speech Service</li><li>`ups` &ndash; conjunto de telefone universal</li></ul><br>O alfabeto aplica-se somente ao `phoneme` no elemento. Para obter mais informações, consulte [referência de alfabeto fonético](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). | Opcional |
 | `ph` | Uma cadeia de caracteres que contém telefones que especificam a pronúncia da palavra no elemento `phoneme`. Se a cadeia de caracteres especificada contiver telefones não reconhecidos, o serviço de conversão de texto em fala (TTS) rejeitará todo o documento SSML e produzirá nenhuma saída de fala especificada no documento. | Necessário se estiver usando fonemas. |
 
 **Exemplos**
@@ -418,13 +418,11 @@ Could you help leave a message to Robert Benigni for me?
 - Tamanho do arquivo: o limite máximo de tamanho de arquivo léxico personalizado é 100 KB, se além desse tamanho, a solicitação de síntese falhará.
 - Atualização do cache léxico: o léxico personalizado será armazenado em cache com o URI como chave no serviço de TTS quando ele for carregado pela primeira vez. O léxico com o mesmo URI não será recarregado dentro de 15 minutos, portanto, a alteração de léxico personalizada precisa esperar no máximo 15 minutos para entrar em vigor.
 
-**Conjunto de telefones SAPI**
+**Conjuntos fonéticos do serviço de fala**
 
-No exemplo acima, estamos usando o conjunto de telefones da IPA (Associação Fonética Internacional). Sugerimos que os desenvolvedores usem o IPA, porque o IPA é o padrão internacional. 
+No exemplo acima, estamos usando o alfabeto fonético internacional, também conhecido como o conjunto de telefone IPA. Sugerimos que os desenvolvedores usem o IPA, pois ele é o padrão internacional. Considerando que o IPA não é fácil de lembrar, o serviço de fala define um conjunto fonético para sete idiomas (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`e `zh-TW`).
 
-Considerando que o IPA não é fácil de lembrar, a Microsoft define o conjunto de telefones SAPI para sete idiomas (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`e `zh-TW`). Para obter mais informações do alfabeto, consulte a [referência do alfabeto fonético](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx).
-
-Você pode usar o conjunto de telefone SAPI com léxicos personalizados, conforme demonstrado abaixo. Defina o valor do alfabeto com **SAPI**.
+Você pode usar o `sapi` como vale para o atributo `alphabet` com léxicos personalizados, conforme demonstrado abaixo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-16"?>
@@ -445,7 +443,7 @@ Você pode usar o conjunto de telefone SAPI com léxicos personalizados, conform
 </lexicon>
 ```
 
-Para obter mais informações sobre o alfabeto SAPI detalhado, consulte a [referência do alfabeto SAPI](sapi-phoneset-usage.md).
+Para obter mais informações sobre o alfabeto fonético do serviço de fala detalhado, consulte os [conjuntos fonéticos do serviço de fala](speech-ssml-phonetic-sets.md).
 
 ## <a name="adjust-prosody"></a>Ajustar Prosody
 

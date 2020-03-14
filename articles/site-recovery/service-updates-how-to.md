@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910469"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257817"
 ---
 # <a name="service-updates-in-site-recovery"></a>Atualizações de serviço no Site Recovery
 
@@ -48,7 +48,7 @@ Site Recovery notifica sobre os componentes expirados (ou próximos à expiraç�
 
 As notificações de emails são enviadas da seguinte maneira.
 
-**Time** | **Frequência**
+**Hora** | **Frequência**
 --- | ---
 60 dias antes da expiração do componente | Uma vez por semana
 Próximos 53 dias | Uma vez por semana
@@ -118,7 +118,7 @@ O exemplo na tabela mostra como isso funciona.
 |9.16 |  9.18 | Não obrigatório|
 |9.16 | 9.19 | Não obrigatório|
 | 9.16 | 9.20 | Não obrigatório
- | 9.16 | 9.21 | Obrigatório.<br/><br/> Atualize para 9,20 e reinicialize antes de atualizar para o 9,21.
+ | 9.16 | 9.21 | Mandatory.<br/><br/> Atualize para 9,20 e reinicialize antes de atualizar para o 9,21.
 
 ## <a name="hyper-v-vm-disaster-recovery-to-azure"></a>Recuperação de desastre da VM do Hyper-V para o Azure
 

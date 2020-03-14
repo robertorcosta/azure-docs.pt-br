@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082445"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256998"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 
@@ -38,7 +38,7 @@ O acesso ao Banco de Dados SQL do Azure é protegido por logons e firewalls. O B
 
 Saiba mais sobre [como gerenciar o acesso e o logon em banco de dados](sql-database-manage-logins.md).
 
-## <a name="connections"></a>Conexões
+## <a name="connections"></a>conexões
 
 Em sua lógica de conexão de cliente, substitua o tempo limite padrão para ser 30 segundos. O padrão de 15 segundos é muito curto para conexões que dependem da Internet.
 

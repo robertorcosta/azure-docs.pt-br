@@ -3,12 +3,12 @@ title: Exibir dados dinâmicos (versão prévia) com Azure Monitor para contêin
 description: Este artigo descreve a exibição em tempo real de logs de kubernetes, eventos e métricas de Pod sem usar kubectl em Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404749"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216566"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como exibir logs de kubernetes, eventos e métricas de pod em tempo real
 
@@ -26,7 +26,7 @@ Para obter ajuda sobre como configurar ou solucionar problemas do recurso de dad
 
 ## <a name="live-data-preview-functionality-overview"></a>Visão geral da funcionalidade de dados dinâmicos (visualização)
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Search
 
 ![Exemplo de filtro do painel do console de dados dinâmicos](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -84,7 +84,7 @@ Após a autenticação bem-sucedida, o painel de console dados dinâmicos (vers�
     
 Se o objeto selecionado era um contêiner, selecione a opção **eventos** no painel. Se você selecionou um nó, Pod ou controlador, a exibição de eventos será selecionada automaticamente. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![Painel de propriedades do controlador exibir eventos](./media/container-insights-livedata-overview/controller-properties-live-event.png)  
 
 O título do painel mostra o nome do pod com o qual o contêiner é agrupado.
 
@@ -111,7 +111,7 @@ Após a autenticação bem-sucedida, o painel de console dados dinâmicos (vers�
 
 ![Exibir exemplo de métricas de Pod](./media/container-insights-livedata-overview/pod-properties-live-metrics.png)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para continuar aprendendo a usar o Azure Monitor e monitorar outros aspectos do cluster do AKS, confira [Exibir integridade do Serviço de Kubernetes do Azure](container-insights-analyze.md).
 

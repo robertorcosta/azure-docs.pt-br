@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666300"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245454"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de Pontuação a um índice de Pesquisa Cognitiva do Azure
 
@@ -232,9 +232,9 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 > [!NOTE]  
 >  Uma função de pontuação somente pode ser aplicada a campos filtráveis.  
 
-|Atributo|Descrição|  
+|Atributo|DESCRIÇÃO|  
 |---------------|-----------------|  
-|`name`|Obrigatório. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. O nome deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode iniciar com a frase "azureSearch" (diferencia maiúsculas de minúsculas).|  
+|`name`|Obrigatórios. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. O nome deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode iniciar com a frase "azureSearch" (diferencia maiúsculas de minúsculas).|  
 |`text`|Contém a propriedade pesos.|  
 |`weights`|Opcional. Contém pares de nome-valor que especificam um nome de campo e um peso relativo. O peso relativo deve ser um inteiro positivo ou o número de ponto flutuante.<br /><br /> Os pesos são usados para indicar a importância de um campo pesquisável em relação a outro.|  
 |`functions`|Opcional. Uma função de pontuação somente pode ser aplicada a campos filtráveis.|  
@@ -284,7 +284,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Consulte  
+## <a name="see-also"></a>Confira também  
    [REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/)  
  [Criar índice &#40;pesquisa cognitiva API&#41; REST do Azure](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [SDK do .NET Pesquisa Cognitiva do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

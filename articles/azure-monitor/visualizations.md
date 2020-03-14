@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/24/2018
 ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372261"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274106"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -47,7 +47,7 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 ## <a name="azure-monitor-views"></a>Modos de exibição do Monitor do Azure
 As [exibições no Azure Monitor](platform/view-designer.md) permitem que você crie visualizações personalizadas com os dados de log. Elas são usadas pelas [soluções de monitoramento](insights/solutions.md) para apresentar os dados coletados.
 
-![Exibir](media/visualizations/view.png)
+![Visualizar](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados de log.
@@ -130,7 +130,7 @@ Você pode acessar os dados nos dados de log e métrica do Azure Monitor por mei
 - Esforço significativo de engenharia necessários.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Aprenda sobre os [dados coletados pelo Azure Monitor](platform/data-platform.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).

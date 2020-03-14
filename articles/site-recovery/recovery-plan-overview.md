@@ -4,11 +4,11 @@ description: Saiba mais sobre planos de recuperação no Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396981"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257765"
 ---
 # <a name="about-recovery-plans"></a>Sobre planos de recuperação
 

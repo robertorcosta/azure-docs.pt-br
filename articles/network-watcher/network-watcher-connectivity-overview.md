@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842862"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283271"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à solução de problemas de conexão no Observador de Rede do Azure
 
@@ -29,7 +29,7 @@ O recurso de solução de problemas de conexão do Observador de Rede fornece a 
 
 A tabela a seguir mostra as propriedades retornadas quando a solução de problemas de conexão conclui a execução.
 
-|Propriedade  |Description  |
+|Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |ConnectionStatus     | O status da verificação de conectividade. Os resultados possíveis são **Acessível** e **Inacessível**.        |
 |AvgLatencyInMs     | Latência média durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
@@ -72,7 +72,7 @@ O seguinte é um exemplo de um problema encontrado em um salto.
 
 A solução de problemas de conexão retorna tipos de falha sobre a conexão. A tabela a seguir fornece uma lista dos tipos de falhas atuais retornados.
 
-|Tipo  |Description  |
+|Type  |DESCRIÇÃO  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
 |Memória     | Alta utilização de memória.       |
@@ -81,6 +81,6 @@ A solução de problemas de conexão retorna tipos de falha sobre a conexão. A 
 |NetworkSecurityRule    | O tráfego é bloqueado por uma Regra NSG (a Regra é retornada)        |
 |UserDefinedRoute|O tráfego é descartado devido a uma rota do sistema ou definida pelo usuário. |
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Próximas etapas
 
 Saiba como solucionar problemas de conexão usando o [portal do Azure](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), o [CLI do Azure](network-watcher-connectivity-cli.md), ou [API REST](network-watcher-connectivity-rest.md).

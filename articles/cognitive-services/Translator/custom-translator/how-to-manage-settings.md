@@ -1,5 +1,5 @@
 ---
-title: Como gerenciar configurações? -Tradutor personalizado
+title: Como gerenciar configurações? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Como gerenciar configurações, criar workspace, compartilhar workspace e gerenciar a chave de assinatura no Tradutor Personalizado.
 author: swmachan
@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219506"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -53,7 +53,7 @@ Se você não tem uma assinatura, siga as etapas abaixo:
 
 ## <a name="manage-your-workspace"></a>Gerenciar seu workspace
 
-Um workspace é uma área de trabalho para compor e construir seu sistema de tradução personalizado. Um workspace pode conter vários projetos, modelos e documentos.
+Um workspace é uma área de trabalho para compor e construir o sistema de tradução personalizado. Um workspace pode conter vários projetos, modelos e documentos.
 
 Se uma parte diferente do seu trabalho precisar ser compartilhada com pessoas diferentes, a criação de vários workspaces poderá ser útil.
 
@@ -85,9 +85,9 @@ No tradutor Personalizado você pode compartilhar seu workspace com outras pesso
 
 ## <a name="sharing-permissions"></a>Permissões de compartilhamento
 
-1.  **Leitor:** um leitor no workspace poderá exibir todas as informações no workspace.
+1.  **Leitor:** Um leitor no workspace poderá visualizar todas as informações no workspace.
 
-2.  **Editor:** um editor no workspace poderá adicionar documentos, treinar modelos e excluir documentos e projetos. Eles podem adicionar uma chave de assinatura, mas não podem modificar com quem o workspace é compartilhado, excluir o workspace ou alterar o nome do workspace.
+2.  **Editor:** Um editor no workspace poderá adicionar documentos, treinar modelos e excluir documentos e projetos. Eles podem adicionar uma chave de assinatura, mas não podem modificar com quem o workspace é compartilhado, excluir o workspace ou alterar o nome do workspace.
 
 3.  **Proprietário:** um proprietário tem permissões totais para o workspace.
 
@@ -103,4 +103,4 @@ Quando um workspace é compartilhado, a seção “Configurações de compartilh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda [como migrar seu workspace e projeto](how-to-migrate.md) de [Microsoft Translator Hub](https://hub.microsofttranslator.com)
+- Aprenda [como migrar seu workspace e projeto](how-to-migrate.md) do [Microsoft Translator Hub](https://hub.microsofttranslator.com)

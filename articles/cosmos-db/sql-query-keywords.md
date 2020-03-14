@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
 ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898783"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246572"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
 Este artigo fornece detalhes sobre palavras-chave que podem ser usadas em Azure Cosmos DB consultas SQL.
@@ -38,7 +38,7 @@ Na API do SQL, ao contrário do SQL ANSI, você pode expressar consultas de inte
 > [!TIP]
 > Para tempos de execução de consulta mais rápidos, crie uma política de indexação que usa um tipo de índice de intervalo em qualquer propriedade numérica ou caminho que a cláusula BETWEEN filtra.
 
-## <a name="distinct"></a>DISTINCT
+## <a name="distinct"></a>DISTINTO
 
 A palavra-chave DISTINCT elimina duplicatas na projeção da consulta.
 
@@ -130,7 +130,7 @@ A API do SQL fornece suporte para [iteração em matrizes JSON](sql-query-object
 
 Se você incluir sua chave de partição no filtro de `IN`, sua consulta será filtrada automaticamente somente para as partições relevantes.
 
-## <a name="top"></a>TOP
+## <a name="top"></a>INÍCIO
 
 A palavra-chave TOP retorna o primeiro `N` número de resultados da consulta em uma ordem indefinida. Como prática recomendada, use TOP com a cláusula ORDER BY para limitar os resultados ao primeiro `N` número de valores ordenados. Combinar essas duas cláusulas é a única maneira de indicar de forma previsível quais linhas afetam os principais.
 
@@ -163,7 +163,7 @@ Os resultados são:
     }]
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Guia de Introdução](sql-query-getting-started.md)
 - [Junções](sql-query-join.md)

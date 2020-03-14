@@ -12,11 +12,11 @@ ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361070"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220078"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para seu modelo e suas chaves do LUIS
 O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS.
@@ -62,7 +62,7 @@ O seguinte deve ser exclusivo em um aplicativo LUIS:
 * Nome da versão
 * intenção
 * entidade
-* funções
+* roles
 
 O seguinte deve ser exclusivo dentro do escopo aplicado:
 
@@ -72,7 +72,7 @@ O seguinte deve ser exclusivo dentro do escopo aplicado:
 
 Não use os seguintes caracteres nos nomes a seguir.
 
-|Object|Excluir caracteres|
+|Objeto|Excluir caracteres|
 |--|--|
 |Nomes de intenção, entidade e função|`:`<br>`$` <br> `&`|
 |Nome da versão|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
@@ -102,7 +102,7 @@ As chaves de recurso têm limites diferentes para criação e ponto de extremida
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 
-|Entrada de teclado | Descrição |
+|Entrada de teclado | DESCRIÇÃO |
 |--|--|
 |Control+E|alterna entre tokens e entidades na lista de declarações|
 

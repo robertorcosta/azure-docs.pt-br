@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365767"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255009"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo de bateria de backup no dispositivo StorSimple
 
 ## <a name="overview"></a>Visão geral
-O módulo de energia e refrigeração (PCM) do compartimento primário no dispositivo Microsoft Azure StorSimple tem um pacote de bateria adicional. Esse pacote fornece energia para que o dispositivo StorSimple possa salvar dados caso haja perda de energia CA no compartimento primário. Esse pacote de bateria é referido como o *módulo de bateria de backup*. O módulo de bateria de backup existe somente para o compartimento primário em seu dispositivo StorSimple (o compartimento EBOD não contém um módulo de bateria de backup).
+O módulo de energia e refrigeração (PCM) do compartimento primário no dispositivo Microsoft Azure StorSimple tem um pacote de bateria adicional. Esse pacote fornece energia para que o dispositivo StorSimple possa salvar dados caso haja perda de energia CA no compartimento primário. Esse pacote de bateria é conhecido como *módulo de bateria de backup*. O módulo de bateria de backup existe somente para o compartimento primário em seu dispositivo StorSimple (o compartimento EBOD não contém um módulo de bateria de backup).
 
 Este tutorial explica como:
 
@@ -32,14 +32,14 @@ Este tutorial explica como:
 O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade substituível no local. Antes de ser instalado no PCM, o módulo de bateria deve ser armazenado em seu pacote original. Execute as etapas a seguir para remover a bateria de backup.
 
 #### <a name="to-remove-the-backup-battery-module"></a>Para remover o módulo de bateria de backup
-1. No Portal do Azure, acesse sua folha do serviço do Gerenciador de Dispositivos do StorSimple. Acesse **Dispositivos** e selecione seu dispositivo na lista de dispositivos. Navegue até **Monitorar** > **Integridade de hardware**. Em **Componentes Compartilhados**, observe o status da bateria.
+1. No Portal do Azure, acesse sua folha do serviço do Gerenciador de Dispositivos do StorSimple. Acesse **Dispositivos** e selecione seu dispositivo na lista de dispositivos. Navegue até **Monitorar** > **Integridade de hardware**. Em **Componentes compartilhados**, observe o status da bateria.
 2. Identifique o PCM no qual a bateria falhou. A Figura 1 mostra a parte traseira do dispositivo StorSimple.
    
-    ![Plano posterior de módulos do compartimento primário do dispositivo](./media/storsimple-battery-replacement/IC740994.png)
+    ![Backplane dos módulos do compartimento primário do dispositivo](./media/storsimple-battery-replacement/IC740994.png)
    
     **Figura 1** Parte traseira do dispositivo primário mostrando os módulos de controlador e PCM
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -48,11 +48,11 @@ O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade subs
    
     Conforme mostrado pelo número 3 na Figura 2, o LED indicador de monitoramento no PCM 0 que corresponde à **Falha de bateria** deve estar aceso.
    
-    ![Plano posterior dos LEDS indicadores de monitoramento do PCM do dispositivo](./media/storsimple-battery-replacement/IC740992.png)
+    ![Backplane dos LEDs indicadores de monitoramento de PCM do dispositivo](./media/storsimple-battery-replacement/IC740992.png)
    
     **Figura 2** Parte traseira do PCM mostrando os LEDs indicadores de monitoramento
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    |:--- |:--- |
    | 1 |Falha de energia CA |
    | 2 |Falha do ventilador |
@@ -81,7 +81,7 @@ Execute as etapas a seguir para instalar o módulo de bateria de reposição no 
 ## <a name="maintain-the-backup-battery-module"></a>Realizar manutenção no módulo de bateria de backup
 No seu dispositivo StorSimple, o módulo de bateria de backup fornece energia ao controlador durante um evento de perda de energia. Ele permite que o dispositivo StorSimple salve dados críticos antes de encerrar de maneira controlada. Com duas baterias completamente carregadas nos PCMs, o sistema pode manipular dois eventos consecutivos de perda.
 
-No Portal do Azure, a **Integridade de hardware** abaixo da folha **Monitorar** indica se a bateria está com defeito ou se ela está próxima do fim do tempo de vida. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes Compartilhados**. Essa folha mostrará um estado **DEGRADADO** quando ela estiver próxima do fim do tempo de vida e **FALHA** quando atingir o fim do tempo de vida.
+No Portal do Azure, a **Integridade de hardware** abaixo da folha **Monitorar** indica se a bateria está com defeito ou se ela está próxima do fim do tempo de vida. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes compartilhados**. Essa folha mostrará um estado **DEGRADADO** quando ela estiver próxima do fim do tempo de vida e **FALHA** quando atingir o fim do tempo de vida.
 
 > [!NOTE]
 > A bateria pode relatar **FALHA** quando precisar apenas ser carregada.
@@ -98,6 +98,6 @@ Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
 > [!IMPORTANT]
 > Descarte a bateria com falha de acordo com as regulamentações nacionais e regionais.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
 

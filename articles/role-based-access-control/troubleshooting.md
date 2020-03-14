@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
 ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980981"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245519"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solução de problemas com o RBAC para recursos do Azure
 
@@ -56,7 +56,7 @@ Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Atribuições de função com entidade de segurança desconhecida
 
-Se você atribuir uma função a uma entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) e, posteriormente, excluir essa entidade de segurança sem remover a atribuição de função, o tipo de entidade de segurança para a atribuição de função será listado como **desconhecido**. A captura de tela a seguir mostra um exemplo no portal do Azure. O nome da entidade de segurança está listado como **identidade excluída** e a **identidade não existe mais**. 
+Se você atribuir uma função a uma entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) e, posteriormente, excluir essa entidade de segurança sem remover a atribuição de função, o tipo de entidade de segurança para a atribuição de função será listado como **desconhecido**. A captura de tela a seguir mostra um exemplo na portal do Azure. O nome da entidade de segurança está listado como **identidade excluída** e a **identidade não existe mais**. 
 
 ![Grupo de recursos do aplicativo Web](./media/troubleshooting/unknown-security-principal.png)
 
@@ -162,7 +162,7 @@ As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, con
 
 Estes itens exigem acesso para **gravação** na **Máquina virtual**:
 
-* Pontos de Extremidade  
+* Pontos de extremidade  
 * Endereços IP  
 * Discos  
 * Extensões  
@@ -183,7 +183,7 @@ Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) e
 
 Um leitor pode clicar na guia **Recursos da plataforma** e, em seguida, clicar em **Todas as configurações** para exibir algumas configurações relacionadas a um aplicativo de funções (semelhante a um aplicativo Web), mas não pode modificar essas configurações. Para acessar esses recursos, você precisará da função de [colaborador](built-in-roles.md#contributor) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Solucionar problemas de usuários convidados](role-assignments-external-users.md#troubleshoot)
 - [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](role-assignments-portal.md)

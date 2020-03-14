@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d024382f816e98fb5cb83331dd417f0c41362bc4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: b7c26a40d5c5feebe122db911b88dc5a0caa9042
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207040"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254203"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -409,7 +409,7 @@ Windows Defender ATP e EDR | Exibir e investigar alertas. Quando você ativa o c
 Os usuários com essa função podem abrir solicitações de suporte com a Microsoft para serviços do Azure e do Office 365 e exibir o painel de serviço e o centro de mensagens no [portal do Azure](https://portal.azure.com) e [Microsoft 365 centro de administração](https://admin.microsoft.com). Mais informações em [sobre funções de administrador](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> Na API do Microsoft Graph e no Azure AD PowerShell, essa função é identificada como "administrador de suporte de serviço". É "administrador de serviços" na [portal do Azure](https://portal.azure.com), no [centro de administração de Microsoft 365](https://admin.microsoft.com)e no portal do Intune.
+> Anteriormente, essa função era chamada de "administrador de serviços" em [portal do Azure](https://portal.azure.com) e [Microsoft 365 centro de administração](https://admin.microsoft.com). Nós o renomeamos para "administrador de suporte de serviço" para alinhar com o nome dos na API Microsoft Graph, no Azure AD API do Graph e no Azure AD PowerShell.
 
 ### <a name="sharepoint-administrator"></a>[Administrador do SharePoint](#sharepoint-service-administrator-permissions)
 
@@ -990,18 +990,19 @@ Pode gerenciar todos os aspectos do produto Exchange.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | Microsoft. Directory/groups/Unified/appRoleAssignments/Update | Atualize a propriedade groups.unified no Active Directory do Azure. |
 | Microsoft. Directory/groups/Unified/Basic/Update | Atualizar as propriedades básicas de Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Create | Criar Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Delete | Excluir Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Members/Update | Atualizar associação de Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Owners/Update | Atualizar a propriedade de Grupos do Office 365. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
-| microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerencie todos os aspectos do Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="external-identity-provider-administrator-permissions"></a>Permissões de administrador do provedor de identidade externo
 
@@ -1101,7 +1102,6 @@ Pode gerenciar todos os aspectos de grupos e configurações de grupo, como pol�
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 
 ### <a name="guest-inviter-permissions"></a>Permissões do convite do convidado
 Pode convidar usuários convidados independentemente da configuração "membros podem convidar pessoas".
@@ -1212,10 +1212,12 @@ Pode gerenciar todos os aspectos do produto Skype for Business.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerencie todos os aspectos do Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+
 
 ### <a name="message-center-privacy-reader-permissions"></a>Permissões do leitor de privacidade do centro de mensagens
 
@@ -1260,7 +1262,6 @@ Pode gerenciar os serviços de nuvem dos aplicativos do Office, incluindo gerenc
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | Microsoft. office365. usercommunications/myentities/TaskId | Leia e atualize a visibilidade das mensagens novas. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
@@ -1442,7 +1443,6 @@ Pode criar e gerenciar todos os aspectos das configurações do Microsoft Search
 | microsoft.office365.search/allEntities/allProperties/allTasks | Criar e excluir todos os recursos, e ler e atualizar todas as propriedades no Microsoft. office365. Search. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="search-editor-permissions"></a>Permissões do editor de pesquisa
@@ -1458,7 +1458,6 @@ Pode criar e gerenciar o conteúdo editorial, como indicadores, p e as, Location
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.search/content/allProperties/allTasks | Criar e excluir conteúdo, e ler e atualizar todas as propriedades no Microsoft. office365. Search. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 
 ### <a name="security-administrator-permissions"></a>Permissões de administrador de segurança
 
@@ -1507,7 +1506,6 @@ Cria e gerencia eventos de segurança.
 | microsoft.azure.advancedThreatProtection/allEntities/read | Leia e configure a proteção avançada contra ameaças do Azure AD. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Ler e configurar Centro de Conformidade e Segurança. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Leia e configure a proteção avançada contra ameaças do Windows Defender. |
 
 ### <a name="security-reader-permissions"></a>Permissões de leitor de segurança
@@ -1560,18 +1558,19 @@ Pode gerenciar todos os aspectos do serviço SharePoint.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | Microsoft. Directory/groups/Unified/appRoleAssignments/Update | Atualize a propriedade groups.unified no Active Directory do Azure. |
 | Microsoft. Directory/groups/Unified/Basic/Update | Atualizar as propriedades básicas de Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Create | Criar Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Delete | Excluir Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Members/Update | Atualizar associação de Grupos do Office 365. |
 | Microsoft. Directory/groups/Unified/Owners/Update | Atualizar a propriedade de Grupos do Office 365. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
-| microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | Microsoft.office365.SharePoint/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar propriedades padrão em microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="teams-communications-administrator-permissions"></a>Permissões de administrador de comunicações de equipes
 
@@ -1741,7 +1740,7 @@ Editor de pesquisa | Editor de pesquisa | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Administrador de segurança | Administrador de segurança | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Operador de segurança | Operador de segurança | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Leitor de segurança | Leitor de segurança | 5d6b6bb7-de71-4623-b4af-96380a352509
-Administrador de suporte a serviço | Administrador de serviço | f023fd81-a637-4b56-95fd-791ac0226033
+Administrador de suporte a serviço | Administrador de suporte a serviço | f023fd81-a637-4b56-95fd-791ac0226033
 Administrador de serviços do SharePoint | Administrador do SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Administrador de Comunicações do Teams | Administrador de Comunicações do Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Engenheiro de Suporte de Comunicações do Teams | Engenheiro de Suporte de Comunicações do Teams | f70938a0-fc10-4177-9e90-2178f8765737

@@ -13,11 +13,11 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375696"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244284"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -86,7 +86,7 @@ Os grupos de conectores facilitam o gerenciamento de grandes implantações. Ele
 
 Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em redes e locais separados usando grupos de conector](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Planejamento de capacidade
+## <a name="capacity-planning"></a>planejamento de capacidade
 
 É importante você confirmar se planejou capacidade suficiente entre os conectores para lidar com o volume de tráfego esperado. Recomendamos que cada grupo de conectores tenha pelo menos dois conectores para fornecer alta disponibilidade e escala. Ter três conectores é ideal caso você precise atender a um computador em qualquer ponto.
 
@@ -178,7 +178,7 @@ Você pode examinar o estado do serviço na janela Serviços. O conector é comp
 
  ![Exemplo: janela de serviços mostrando serviços do Azure AD local](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Publicar aplicativos em redes e locais separados usando grupos de conectores](application-proxy-connector-groups.md)
 - [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)

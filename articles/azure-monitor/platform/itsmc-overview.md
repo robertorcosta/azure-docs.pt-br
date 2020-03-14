@@ -7,11 +7,11 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373341"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274535"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -112,7 +112,7 @@ Depois de criar a conexão de ITSM, crie itens de trabalho na ferramenta de ITSM
 
 Os Grupos de Ações fornecem uma maneira modular e reutilizável de disparar ações para os Alertas do Azure. Use Grupos de Ação com alertas de métricas, alertas do Log de Atividades e alertas do Azure Log Analytics no portal do Azure.
 
-Use o seguinte procedimento:
+Use este procedimento:
 
 1. No portal do Azure, clique em **Monitorar**.
 2. No painel esquerdo, clique em **Grupos de ações**. A janela **Adicionar grupo de ações** é exibida.
@@ -160,7 +160,7 @@ Se estiver usando a solução Mapa do Serviço, exiba os itens da central de ser
 Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
 
 
-## <a name="additional-information"></a>{1&gt;{2&gt;Informações adicionais&lt;2}&lt;1}
+## <a name="additional-information"></a>Informações adicionais
 
 ### <a name="data-synced-from-itsm-product"></a>Dados sincronizados do produto de ITSM
 Os incidentes e as solicitações de alteração são sincronizados do produto de ITSM para o espaço de trabalho do Log Analytics, de acordo com a configuração da conexão.
@@ -186,14 +186,14 @@ ServiceDeskWorkItemType_s="Incident"
 - Criado por
 - Resolvido por
 - Fechado por
-- Origem
+- Fonte
 - Atribuído a
 - Categoria
-- {1&gt;Título&lt;1}
-- Descrição
-- Data de Criação
-- Data de Fechamento
-- Data da Resolução
+- Title
+- DESCRIÇÃO
+- Data de criação
+- Data de fechamento
+- Data de resolução
 - Data da última modificação
 - Computador
 
@@ -207,10 +207,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID da Central de Serviços
 - Criado por
 - Fechado por
-- Origem
+- Fonte
 - Atribuído a
-- {1&gt;Título&lt;1}
-- Tipo
+- Title
+- Type
 - Categoria
 - Estado
 - Escalonamento
@@ -220,15 +220,15 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Risco
 - Impacto
 - Atribuído a
-- Data de Criação
-- Data de Fechamento
+- Data de criação
+- Data de fechamento
 - Data da última modificação
 - Data de solicitação
 - Data de início prevista
 - Data de término prevista
 - Data de início do trabalho
 - Data de término do trabalho
-- Descrição
+- DESCRIÇÃO
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
@@ -247,7 +247,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Atribuído a  |
 | Category_s | Categoria |
 | Title_s|  Descrição breve |
-| Description_s|  {1&gt;Observações&lt;1} |
+| Description_s|  Observações |
 | CreatedDate_t|  Aberto |
 | ClosedDate_t| closed|
 | ResolvedDate_t|Resolvido|
@@ -262,7 +262,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Descrição breve |
-| Type_s|  Tipo |
+| Type_s|  Type |
 | Category_s|  Categoria |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
@@ -275,7 +275,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
-| Description_s | Descrição |
+| Description_s | DESCRIÇÃO |
 | Computador  | Item de Configuração |
 
 
@@ -302,5 +302,5 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 Em caso de dúvidas ou comentários sobre o Conector de Gerenciamento de Serviço de TI, entre em contato conosco pelo email [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 [Adicionar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-connections.md).

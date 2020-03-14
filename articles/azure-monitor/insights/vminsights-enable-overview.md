@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
 ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361761"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249198"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -24,7 +24,7 @@ Para configurar Azure Monitor para VMs:
 * Habilite duas ou mais VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais em uma assinatura ou um grupo de recursos especificado usando o PowerShell.
 * Habilite Azure Monitor para VMs para monitorar VMs ou computadores físicos hospedados em sua rede corporativa ou em outro ambiente de nuvem.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se você compreende as informações descritas nas seções a seguir. 
 
@@ -42,7 +42,7 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Leste dos EUA
 - Leste dos EUA 2
 - Centro dos EUA
-- Centro Norte dos EUA
+- Centro-Norte dos EUA
 - Canadá Central
 - Sul do Reino Unido
 - Norte da Europa
@@ -165,7 +165,7 @@ Em um ambiente híbrido, você pode baixar e instalar o agente de dependência m
 
 A tabela a seguir descreve as fontes conectadas para as quais o recurso Mapa dá suporte em um ambiente híbrido.
 
-| Fonte conectada | Suportado | Descrição |
+| Fonte conectada | Suportado | DESCRIÇÃO |
 |:--|:--|:--|
 | Agentes do Windows | Sim | Junto com o [agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
 | Agentes do Linux | Sim | Junto com o [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
@@ -173,9 +173,9 @@ A tabela a seguir descreve as fontes conectadas para as quais o recurso Mapa dá
 
 Você pode baixar o Dependency Agent nestes locais:
 
-| Arquivo | Sistema operacional | {1&gt;Version&lt;1} | SHA-256 |
+| Arquivo | Sistema operacional | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Portal | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
@@ -188,7 +188,7 @@ Para obter mais informações sobre como controlar o acesso a um espaço de trab
 
 Habilite Azure Monitor para VMs usando um dos métodos descritos nesta tabela:
 
-| Estado da implantação | Método | Descrição |
+| Estado da implantação | Método | DESCRIÇÃO |
 |------------------|--------|-------------|
 | Uma única VM do Azure ou conjunto de dimensionamento de máquinas virtuais | [Habilitar da VM](vminsights-enable-single-vm.md) | Você pode habilitar uma única VM do Azure selecionando **insights (versão prévia)** diretamente do conjunto de dimensionamento de máquinas virtuais ou VM. |
 | Várias VMs do Azure ou conjuntos de dimensionamento de máquinas virtuais | [Habilitar por meio de Azure Policy](vminsights-enable-at-scale-policy.md) | Você pode habilitar várias VMs do Azure usando Azure Policy e definições de política disponíveis. |
@@ -206,38 +206,38 @@ Azure Monitor para VMs configura um espaço de trabalho Log Analytics para colet
 
 |Nome do objeto |Nome do contador |
 |------------|-------------|
-|LogicalDisk |% de espaço livre |
+|LogicalDisk |% de Espaço Livre |
 |LogicalDisk |Média de disco s/leitura |
 |LogicalDisk |Média de disco s/transferência |
 |LogicalDisk |Média de disco s/gravação |
 |LogicalDisk |Bytes de Disco/s |
-|LogicalDisk |Bytes de Leitura de Disco/s |
+|LogicalDisk |Bytes Lidos no Disco/s |
 |LogicalDisk |Leituras de Disco/s |
-|LogicalDisk |Transferências do disco/s |
-|LogicalDisk |Bytes de Gravação de Disco/s |
+|LogicalDisk |Transferências de Disco/s |
+|LogicalDisk |Bytes Gravados no Disco/s |
 |LogicalDisk |Gravações de Disco/s |
-|LogicalDisk |Megabytes livres |
+|LogicalDisk |Megabytes Livres |
 |Memória |MBytes Disponíveis |
 |Adaptador de rede |Bytes Recebidos/s |
 |Adaptador de rede |Bytes Enviados/s |
-|Processador |% do tempo do processador |
+|Processador |% Tempo do Processador |
 
 ### <a name="linux-performance-counters"></a>Contadores de desempenho do Linux
 
 |Nome do objeto |Nome do contador |
 |------------|-------------|
-|Disco Lógico |% de espaço utilizado |
-|Disco Lógico |Bytes de Leitura de Disco/s |
+|Disco Lógico |% de Espaço Usado |
+|Disco Lógico |Bytes Lidos no Disco/s |
 |Disco Lógico |Leituras de Disco/s |
-|Disco Lógico |Transferências do disco/s |
-|Disco Lógico |Bytes de Gravação de Disco/s |
+|Disco Lógico |Transferências de Disco/s |
+|Disco Lógico |Bytes Gravados no Disco/s |
 |Disco Lógico |Gravações de Disco/s |
-|Disco Lógico |Megabytes livres |
-|Disco Lógico |Bytes de disco lógico/s |
-|Memória |Memória de mBytes disponível |
+|Disco Lógico |Megabytes Livres |
+|Disco Lógico |Bytes de Disco Lógico/s |
+|Memória |MBytes de Memória Disponíveis |
 |Rede |Total de Bytes Recebidos |
 |Rede |Total de Bytes Transmitidos |
-|Processador |% do tempo do processador |
+|Processador |% Tempo do Processador |
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
@@ -257,6 +257,6 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 
 Agora que você habilitou o monitoramento para sua VM, as informações de monitoramento estão disponíveis para análise no Azure Monitor para VMs.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como usar o recurso de monitoramento de desempenho, consulte [exibir Azure monitor para VMs desempenho](vminsights-performance.md). Para exibir as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).

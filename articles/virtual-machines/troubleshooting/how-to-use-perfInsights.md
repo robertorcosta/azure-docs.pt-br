@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389539"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250121"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -76,7 +76,7 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | IOPS         | Solicitações de dados/s             |
 |              | Solicitações de leitura/s             |
 |              | Solicitações de gravação/s            |
-| Latência      | Média de solicitação de dados/s         |
+| Latency      | Média de solicitação de dados/s         |
 |              | Média de leitura/s                 |
 |              | Média de gravação/s                |
 | Tamanho de E/S      | Média de bytes/solicitação de dados       |
@@ -85,7 +85,7 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | Produtividade   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
-| Comprimento da Fila | Comprimento médio da fila de leitura        |
+| Comprimento da fila | Comprimento médio da fila de leitura        |
 |              | Comprimento médio da fila de gravação       |
 |              | Comprimento médio da fila de dados        |
 
@@ -303,7 +303,7 @@ Diskspd é um gerador de carga de armazenamento e ferramenta de teste de desempe
 
 XPerf é uma ferramenta de linha de comando para capturar rastreamentos do Kit de Ferramentas de Desempenho do Windows. Para obter mais informações, consulte [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode carregar relatórios e logs de diagnóstico para o Suporte da Microsoft para análise. O Suporte poderá solicitar que você transmita a saída que é gerada pelo PerfInsights para auxiliar no processo de solução de problemas.
 

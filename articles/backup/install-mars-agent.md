@@ -3,12 +3,12 @@ title: Instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 description: Saiba como instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: cf6b332c308bb0224dbfed546f8b3ba819abcb02
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673060"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247755"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalar o agente MARS do backup do Azure
 
@@ -98,6 +98,10 @@ Para obter mais informações, consulte [requisitos de roteamento do ExpressRout
 > O emparelhamento público foi preterido para novos circuitos.
 
 Todas as URLs e endereços IP anteriores usam o protocolo HTTPS na porta 443.
+
+### <a name="private-endpoints"></a>Pontos de extremidade privados
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="download-the-mars-agent"></a>Baixar o agente MARS
 

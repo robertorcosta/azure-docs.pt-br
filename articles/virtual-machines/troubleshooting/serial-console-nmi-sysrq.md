@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393527"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250082"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
@@ -51,7 +51,7 @@ Para tornar a configuração do SysReq persistente, você pode fazer o seguinte 
 ### <a name="command-keys"></a>Teclas de Comando
 No Guia do Administrador do SysRq acima:
 
-|{1&gt;Comando&lt;1}| Função
+|Comando| Função
 | ------| ----------- |
 |``b``  |   Reiniciará imediatamente o sistema sem sincronizar ou desmontar os discos.
 |``c``  |   Executará uma falha do sistema por meio de uma desreferência de ponteiro NULL. Um despejo de memória será utilizado se configurado.
@@ -127,7 +127,7 @@ Para obter mais informações sobre configurações de kernel do Linux, incluind
 ### <a name="coreos"></a>CoreOS
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * A página principal da documentação do Linux do Console Serial está localizada [aqui](serial-console-linux.md).
 * Usar o Console Serial para inicializar em [GRUB e entrar no modo de usuário único](serial-console-grub-single-user-mode.md)
 * O Console Serial também está disponível para VMs do [Windows](serial-console-windows.md)

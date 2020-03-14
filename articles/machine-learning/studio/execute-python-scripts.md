@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: ec210fcdf521413438edd256cc3ee988b67f293f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168657"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218075"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Executar scripts do Python Machine Learning no Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 O Python é uma ferramenta valiosa na conjunto de ferramentas de muitos cientistas de dados. Ele é usado em todos os estágios de fluxos de trabalho de aprendizado de máquina típicos, incluindo exploração de dados, extração de recursos, treinamento e validação de modelo e implantação.
 
@@ -71,7 +73,7 @@ O back-end usado para executar o Python é baseado em [Anaconda](https://www.ana
 
 Um caso de uso comum é incorporar scripts Python existentes em experimentos de estúdio (clássicos). O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no runtime e o conteúdo é adicionado ao caminho da biblioteca do interpretador de Python. A função do ponto de entrada `azureml_main` pode, então, importar esses módulos diretamente. 
 
-Por exemplo, considere o arquivo Hello.py que contém uma função simples "Hello, World".
+Como exemplo, considere o arquivo Hello.py que contém uma função "Hello, World" simples.
 
 ![Função definida pelo usuário no arquivo Hello.py](./media/execute-python-scripts/figure4.png)
 

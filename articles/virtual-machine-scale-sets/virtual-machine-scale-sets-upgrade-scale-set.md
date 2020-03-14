@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimckitt
 ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082432"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250797"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -449,5 +449,5 @@ Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balance
 > Esses comandos pressupõem que há apenas um balanceador de carga e uma configuração de IP no conjunto de dimensionamento. Se houver vários, você precisará usar um índice de lista diferente de *0*.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Também é possível executar tarefas comuns de gerenciamento em conjuntos de dimensionamento com a [CLI do Azure](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ms.openlocfilehash: b88557468c386bc07c2432e154a82fd1f4fcb438
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380029"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255789"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: adicionar um banco de dados SQL do Azure para um grupo de failover
 
@@ -27,7 +27,7 @@ Configure um grupo de failover para um banco de dados SQL do Azure e failover de
 > - Crie um [grupo de failover](sql-database-auto-failover-group.md) para um único banco de dados entre dois SQL Servers lógicos.
 > - Failover de teste.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para concluir este tutorial, verifique se você tem: 
@@ -157,7 +157,7 @@ Crie seu grupo de failover e adicione seu banco de dados individual a ele usando
 
 Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor do Banco de Dados SQL que hospeda bancos de dados individuais e pools elásticos. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor lógico. | 
@@ -188,7 +188,7 @@ Crie seu grupo de failover e adicione seu banco de dados individual a ele usando
 
 Esta parte do tutorial usa os seguintes cmdlets do AZ CLI:
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor do Banco de Dados SQL que hospeda bancos de dados individuais e pools elásticos. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de um servidor. | 
@@ -277,7 +277,7 @@ Reverta o grupo de failover de volta para o servidor primário:
 
 Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtém ou lista os grupos de failover do Banco de Dados SQL do Azure. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executa um failover de um grupo de failover do Banco de Dados SQL do Azure. |
@@ -313,7 +313,7 @@ Reverta o grupo de failover de volta para o servidor primário:
 
 Esta parte do tutorial usa os seguintes cmdlets do AZ CLI:
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Lista grupos de failover em um servidor. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Define o primário do grupo de failover fazendo failover de todos os bancos de dados do servidor primário atual. | 
@@ -346,7 +346,7 @@ Exclua o grupo de recursos usando o PowerShell.
 
 Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos | 
 
@@ -363,7 +363,7 @@ Exclua o grupo de recursos usando AZ CLI.
 
 Esta parte do tutorial usa os seguintes cmdlets do AZ CLI:
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
@@ -382,7 +382,7 @@ Esta parte do tutorial usa os seguintes cmdlets do AZ CLI:
 
 Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor do Banco de Dados SQL que hospeda bancos de dados individuais e pools elásticos. |
@@ -401,7 +401,7 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| {1&gt;Comando&lt;1} | {1&gt;Observações&lt;1} |
+| Comando | Observações |
 |---|---|
 | [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Define uma assinatura como a assinatura ativa atual. | 
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
@@ -420,7 +420,7 @@ Não há nenhum script disponível para o portal do Azure.
 
 Você pode encontrar outros scripts do banco de dados SQL do Azure aqui: [Azure PowerShell](sql-database-powershell-samples.md) e [CLI do Azure](sql-database-cli-samples.md). 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você adicionou um banco de dados do banco de dados SQL do Azure a um grupo de failover e testou o failover. Você aprendeu a: 
 

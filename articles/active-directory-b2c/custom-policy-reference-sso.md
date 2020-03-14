@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bdea51c6cb53222f31a07906785a94073a0293a1
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 80cf0d101a29de7fca9d4dd36e188a500d35e290
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226799"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246026"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78226799"
 
 O gerenciamento de sessão de SSO (logon único) no Azure Active Directory B2C (Azure AD B2C) permite que um administrador controle a interação com um usuário depois que o usuário já tiver se autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes de conta local precisam ser inseridos novamente. Este artigo descreve como definir as configurações de SSO para o Azure AD B2C.
 
-O gerenciamento de sessão de SSO tem duas partes. A primeira lida com interações do usuário diretamente com o Azure AD B2C e a outra lida com interações do usuário com parceiros externos, como Facebook. O Azure AD B2C não substitui ou ignora as sessões de SSO que podem ser mantidas por parceiros externos. Em vez disso, a rota por meio do Azure AD B2C para chegar ao parceiro externo é “lembrada”, evitando a necessidade de solicitar novamente que o usuário selecione seu provedor de identidade social ou empresarial. A decisão de SSO final permanece com o parceiro externo.
+O gerenciamento de sessão de SSO tem duas partes. A primeira lida com interações do usuário diretamente com o Azure AD B2C e a outra lida com interações do usuário com parceiros externos, como Facebook. O Azure AD B2C não substitui ou ignora as sessões de SSO que podem ser mantidas por parceiros externos. Em vez disso, a rota por meio de Azure AD B2C para chegar à parte externa é "lembrada", evitando a necessidade de solicitar novamente que o usuário selecione seu provedor de identidade social ou empresarial. A decisão de SSO final permanece com o parceiro externo.
 
 O gerenciamento de sessão de SSO usa a mesma semântica que qualquer outro perfil técnico em políticas personalizadas. Quando uma etapa de orquestração é executada, o perfil técnico associado à etapa é consultado quanto a uma referência `UseTechnicalProfileForSessionManagement`. Se existir uma, o provedor de sessão de SSO referenciado será verificado para ver se o usuário é um participante da sessão. Se sim, o provedor de sessão de SSO será usado para popular novamente a sessão. Da mesma forma, quando a execução de uma etapa de orquestração for concluída, o provedor será usado para armazenar informações na sessão se um provedor de sessão de SSO tiver sido especificado.
 
@@ -118,7 +118,7 @@ Esse provedor é usado para suprimir a tela "escolher provedor de identidade". N
 
 #### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição|
+| Atributo | Obrigatório | DESCRIÇÃO|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | Não | Não usado no momento, pode ser ignorado. |
 
@@ -138,7 +138,7 @@ Esse provedor é usado para gerenciar o Azure AD B2C sessões SAML entre um apli
 
 Ao usar o provedor para armazenar a sessão de SAML do B2C, o `RegisterServiceProviders` deve ser definido como `true`. O logoff da sessão de SAML requer que `SessionIndex` e `NameID` sejam concluídos.
 
-O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico do emissor SAML](connect-with-saml-service-providers.md)
+O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico do emissor SAML](saml-issuer-technical-profile.md)
 
 ```XML
 <TechnicalProfile Id="SM-Saml-sp">
@@ -148,7 +148,7 @@ O perfil técnico de `SM-Saml-idp` a seguir é usado pelo [perfil técnico do em
 ```
 #### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição|
+| Atributo | Obrigatório | DESCRIÇÃO|
 | --- | --- | --- |
 | IncludeSessionIndex | Não | Não usado no momento, pode ser ignorado.|
 | RegisterServiceProviders | Não | Indica que o provedor deve registrar todos os provedores de serviço SAML que emitiram uma declaração. Valores possíveis: `true` (padrão) ou `false`.|

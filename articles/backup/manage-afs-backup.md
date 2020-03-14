@@ -4,11 +4,11 @@ description: Este artigo descreve as tarefas comuns para gerenciar e monitorar o
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382525"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247651"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gerenciar backups de compartilhamento de arquivos do Azure
 
@@ -163,6 +163,6 @@ Para cancelar o registro da conta de armazenamento:
 
    ![Selecione cancelar registro](./media/manage-afs-backup/select-unregister.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte [Troubleshoot Azure File shares backup](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).

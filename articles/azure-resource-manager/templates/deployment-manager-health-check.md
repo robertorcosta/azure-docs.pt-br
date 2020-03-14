@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
 ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484799"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273794"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir a distribuição de integração de integridade para o Azure Deployment Manager (visualização pública)
 
@@ -138,7 +138,7 @@ Neste ponto, o Azure Deployment Manager sabe como consultar a integridade do seu
 
     1. Após a conclusão de uma operação de implantação, as VMs podem ser reinicializadas, reconfiguradas com base em novos dados ou até serem iniciadas pela primeira vez. Também leva tempo para que os serviços comecem a emitir sinais de integridade para serem agregados pelo provedor de monitoramento de integridade em algo útil. Durante esse processo de tumultuada, talvez não faça sentido verificar a integridade do serviço, pois a atualização ainda não atingiu um estado estável. Na verdade, o serviço pode ser oscillating entre Estados íntegros e não íntegros à medida que os recursos são liquidados. 
     1. Durante a fase de espera, a integridade do serviço não é monitorada. Isso é usado para permitir que os recursos implantados detortam antes de iniciar o processo de verificação de integridade. 
-1. Elasticidade
+1. Elástico
 
     1. Como é impossível saber em todos os casos quanto tempo os recursos levarão para serem disparados antes de se tornarem estáveis, a fase elástica permite um período de tempo flexível entre o momento em que os recursos são potencialmente instáveis e quando eles são necessários para manter uma integridade estável status.
     1. Quando a fase elástica começa, o Azure Deployment Manager começa a sondar o ponto de extremidade REST fornecido para integridade do serviço periodicamente. O intervalo de sondagem é configurável. 
@@ -147,12 +147,12 @@ Neste ponto, o Azure Deployment Manager sabe como consultar a integridade do seu
     1. Assim, a duração especificada para a fase elástica é a quantidade máxima de tempo que pode ser gasta sondando a integridade do serviço antes que uma resposta íntegra seja considerada obrigatória. 
 1. HealthyState
 
-    1. Durante a fase HealthyState, a integridade do serviço é pesquisada continuamente no mesmo intervalo da fase Elástica. 
+    1. Durante a fase Íntegrostate, a integridade do serviço é sondada continuamente no mesmo intervalo da fase elástica. 
     1. Espera-se que o serviço mantenha sinais íntegros do provedor de monitoramento de integridade para toda a duração especificada. 
     1. Se a qualquer momento uma resposta não íntegra for detectada, o Azure Deployment Manager interromperá toda a distribuição e retornará a resposta REST que está realizando os sinais de serviço não íntegros.
     1. Depois que a duração de Íntegrostate terminar, o healthCheck estará concluído e a implantação continuará na próxima etapa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre como integrar o monitoramento de integridade no Azure Deployment Manager. Vá para o próximo artigo para saber como implantar com o Gerenciador de implantação.
 

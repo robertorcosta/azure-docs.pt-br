@@ -10,29 +10,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
-ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360983"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214717"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos Serviços de Nuvem do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidas com o SO convidado do Azure. Você pode usar o .NET no SO convidado para configurar as funções Web e de trabalho de seu serviço de nuvem.
 
-Por exemplo, você pode instalar o .NET 4.6.2 na família de SOs Convidados 4, que não é fornecida com nenhuma versão do .NET 4.6. (A família de sistemas operacionais convidados 5 vem com o .NET 4,6.) Para obter as informações mais recentes sobre as versões do sistema operacional convidado do Azure, consulte [notícias de versão do SO convidado do Azure](cloud-services-guestos-update-matrix.md). 
+Por exemplo, você pode instalar .NET Framework 4.6.2 na família de sistemas operacionais convidados 4, que não vem com nenhuma versão do .NET Framework 4,6. (A família de sistemas operacionais convidados 5 vem com .NET Framework 4,6.) Para obter as informações mais recentes sobre as versões do sistema operacional convidado do Azure, consulte [notícias de versão do SO convidado do Azure](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->O SDK 2.9 do Azure contém uma restrição da implantação do .NET 4.6 na família de SOs convidados 4 ou inferior. Uma correção para essa restrição está disponível no site [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
+>O SDK 2,9 do Azure contém uma restrição sobre a implantação de .NET Framework 4,6 na família de sistemas operacionais convidados 4 ou anterior. Uma correção para essa restrição está disponível no site [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 Para instalar o .NET em suas funções web e de trabalho, inclua o instalador Web do .NET como parte de seu projeto de serviço de nuvem. Inicie o instalador como parte das tarefas de inicialização da função. 
 
 ## <a name="add-the-net-installer-to-your-project"></a>Adicione o instalador do .NET ao seu projeto
 Para baixar o instalador da Web para o .NET Framework, escolha a versão que você deseja instalar:
 
-* [Instalador da Web do .NET 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
-* [Instalador da Web do .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [Instalador da Web do .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
+* [Instalador da Web do .NET Framework 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Instalador da Web do .NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [Instalador da Web do .NET Framework 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Para adicionar o instalador para uma função *web*:
   1. No **Gerenciador de Soluções**, em **Funções** no projeto do serviço de nuvem, clique com o botão direito do mouse em sua função *web* e selecione **Adicionar** > **Nova Pasta**. Crie uma pasta chamada **bin**.
@@ -44,7 +44,7 @@ Para adicionar o instalador para uma função de *trabalho*:
 Quando arquivos são adicionados dessa forma à pasta de conteúdo da função, eles são adicionados automaticamente ao seu pacote de serviço de nuvem. Em seguida, os arquivos são implantados em um local consistente na máquina virtual. Repita esse processo para cada função Web e de trabalho em seu serviço de nuvem para que todas as funções tenham uma cópia do instalador.
 
 > [!NOTE]
-> Você deve instalar o .NET 4.6.2 em sua função de serviço de nuvem mesmo que o aplicativo seja voltado ao .NET 4.6. O SO convidado inclui a [atualização 3098779](https://support.microsoft.com/kb/3098779) e a [atualização 3097997](https://support.microsoft.com/kb/3097997) da Base de Dados de Conhecimento. Problemas podem ocorrer quando você executar aplicativos .NET se o .NET 4.6 estiver instalado sobre as atualizações da Base de Dados de Conhecimento. Para evitar esses problemas, instale o .NET 4.6.2 em vez da versão 4.6. Para obter mais informações, consulte o [Artigo 3118750 da Base de Dados de Conhecimento](https://support.microsoft.com/kb/3118750) e [4340191](https://support.microsoft.com/kb/4340191).
+> Você deve instalar .NET Framework 4.6.2 em sua função de serviço de nuvem mesmo que seu aplicativo tenha como destino .NET Framework 4,6. O SO convidado inclui a [atualização 3098779](https://support.microsoft.com/kb/3098779) e a [atualização 3097997](https://support.microsoft.com/kb/3097997) da Base de Dados de Conhecimento. Poderão ocorrer problemas quando você executar seus aplicativos .NET se o .NET Framework 4,6 estiver instalado sobre as atualizações da base de dados de conhecimento. Para evitar esses problemas, instale .NET Framework 4.6.2 em vez da versão 4,6. Para obter mais informações, consulte o [Artigo 3118750 da Base de Dados de Conhecimento](https://support.microsoft.com/kb/3118750) e [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
@@ -82,7 +82,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
 
 2. Crie um arquivo chamado **install.cmd** e adicione o seguinte script de instalação a ele.
 
-   O script verifica se a versão especificada do .NET Framework já está instalada no computador consultando o registro. Se a versão do .NET não estiver instalada, o instalador da Web do .NET será aberto. Para ajudar com a solução de problemas, o script registra todas as atividades no arquivo startuptasklog-(data e hora atual).txt colocado no armazenamento local **InstallLogs**.
+   O script verifica se a versão especificada do .NET Framework já está instalada no computador consultando o registro. Se a versão do .NET Framework não estiver instalada, o instalador da Web do .NET Framework será aberto. Para ajudar com a solução de problemas, o script registra todas as atividades no arquivo startuptasklog-(data e hora atual).txt colocado no armazenamento local **InstallLogs**.
    
    > [!IMPORTANT]
    > Use um editor de texto básico, como o Bloco de Notas do Windows, para criar o arquivo install.cmd. Se você usar o Visual Studio para criar um arquivo de texto e alterar a extensão para .cmd, o arquivo ainda poderá conter uma marca de ordem de byte de UTF-8. Essa marca pode causar um erro quando a primeira linha do script for executada. Para evitar esse erro, faça com que a primeira linha do script seja uma instrução REM, que pode ser ignorada pelo processamento de ordem de byte. 

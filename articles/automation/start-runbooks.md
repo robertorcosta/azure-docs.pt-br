@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 71dd83db02537ed12dc2e711127e32d90603af6f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373119"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252643"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Inicie um runbook na Automação do Azure
 
@@ -82,7 +82,7 @@ O serviço Web da Automação do Azure fornece uma funcionalidade especial para 
 
 Se o parâmetro é do tipo de dados [object], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores nomeados: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}* . Esses valores devem ser tipos simples. O runbook recebe o parâmetro como um [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) com propriedades que correspondem a cada valor nomeado.
 
-Considere o seguinte runbook de teste que aceita um parâmetro chamado user.
+Considere o runbook de teste a seguir que aceita um parâmetro chamado user.
 
 ```powershell
 Workflow Test-Parameters
@@ -119,7 +119,7 @@ Smith
 
 Se o parâmetro é uma matriz, como [array] ou [string[]], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores: *[Value1, Value2, Value3]* . Esses valores devem ser tipos simples.
 
-Considere o seguinte runbook de teste que aceita um parâmetro chamado *usuário*.
+Considere o runbook de teste a seguir que aceita um parâmetro chamado *user*.
 
 ```powershell
 Workflow Test-Parameters
@@ -155,7 +155,7 @@ Smith
 
 Se o parâmetro é do tipo de dados **PSCredential**, você pode fornecer o nome de um [ativo de credenciais](automation-credentials.md)da Automação do Azure . O runbook recupera as credenciais com o nome que você especifica.
 
-Considere o seguinte runbook de teste que aceita um parâmetro chamado credential.
+Considere o runbook de teste a seguir que aceita um parâmetro chamado credential.
 
 ```powershell
 Workflow Test-Parameters
@@ -179,7 +179,7 @@ Supondo que o nome de usuário nas credenciais era *vmonte*, o resultado será o
 jsmith
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * A arquitetura de runbook no artigo atual oferece uma visão geral de alto nível do gerenciamento de recursos de runbooks no Azure e localmente com o Hybrid Runbook Worker. Para saber mais sobre a execução de runbooks de Automação em seu datacenter, consulte [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
 * Para saber mais sobre a criação de runbooks modulares a serem usados em outros runbooks para funções específicas ou comuns, consulte [Runbooks filho](automation-child-runbooks.md).

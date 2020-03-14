@@ -4,11 +4,11 @@ description: Saiba como gerenciar atribuições de plano gráfico com o módulo 
 ms.date: 09/30/2019
 ms.topic: how-to
 ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973638"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280710"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerenciar atribuições com o PowerShell
 
@@ -377,7 +377,7 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 #endregion
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).

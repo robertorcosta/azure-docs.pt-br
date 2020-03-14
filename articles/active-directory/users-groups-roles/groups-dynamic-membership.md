@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374765"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253072"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -70,7 +70,7 @@ Uma regra de associação que preenche automaticamente um grupo de usuários ou 
 
 - Propriedade
 - Operador
-- {1&gt;Valor&lt;1}
+- Valor
 
 A ordem das partes dentro de uma expressão é importante para evitar erros de sintaxe.
 
@@ -86,14 +86,14 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 
 ### <a name="properties-of-type-boolean"></a>Propriedades de tipo booliano
 
-| {1&gt;Propriedades&lt;1} | Allowed values | Uso |
+| Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | accountEnabled |verdadeiro, falso |user.accountEnabled -eq true |
 | dirSyncEnabled |verdadeiro, falso |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo cadeia de caracteres
 
-| {1&gt;Propriedades&lt;1} | Allowed values | Uso |
+| Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou *null* |(user.city -eq "valor") |
 | country |Qualquer valor de cadeia de caracteres ou *null* |(user.country -eq "valor") |
@@ -104,7 +104,7 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |user.facsimileTelephoneNumber -eq ("valor") |
 | givenName |Qualquer valor de cadeia de caracteres ou *null* |user.givenName -eq ("valor") |
 | jobTitle |Qualquer valor de cadeia de caracteres ou *null* |(user.jobTitle - eq "valor") |
-| email |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
+| mail |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
 | Serviço Móvel |Qualquer valor de cadeia de caracteres ou *null* |(user.mobile -eq "valor") |
 | objectId |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
@@ -122,9 +122,9 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 | userPrincipalName |Qualquer valor de cadeia de caracteres |(user.userPrincipalName -eq "alias@domain") |
 | userType |member guest *null* |(ser.userType -eq "Membro") |
 
-### <a name="properties-of-type-string-collection"></a>Propriedades do tipo coleção de cadeia de caracteres
+### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeias de caracteres de tipo
 
-| {1&gt;Propriedades&lt;1} | Allowed values | Uso |
+| Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Qualquer valor de cadeia de caracteres |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -138,15 +138,15 @@ A tabela a seguir lista os operadores com suporte e sua sintaxe para uma única 
 | Operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| Igual a |-eq |
+| É igual a |-eq |
 | Não começa com |-notStartsWith |
-| Inicia com |-startsWith |
+| Começa com |-startsWith |
 | Não contém |-notContains |
 | Contém |-contains |
 | Não corresponde |-notMatch |
 | Corresponder a |-match |
-| Em | -in |
-| Não Está em | -notIn |
+| No | -in |
+| Não está em | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Usando os operadores -in e -notIn
 
@@ -249,7 +249,7 @@ Uma regra de associação pode consistir em expressões complexas, onde as propr
 
 As propriedades de vários valores são coleções de objetos do mesmo tipo. Eles podem ser usados para criar regras de associação usando a opção - any e - todos os operadores lógicos.
 
-| {1&gt;Propriedades&lt;1} | Valores | Uso |
+| Propriedades | Valores | Uso |
 | --- | --- | --- |
 | assignedPlans | Cada objeto na coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP:alias@domainsmtp:alias@domain | (user.proxyAddresses -qualquer (\_ -contém "contoso")) |
@@ -374,7 +374,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 
 Os seguintes atributos de dispositivo podem ser usados.
 
- Atributo do dispositivo  | Valores | {1&gt;Exemplo&lt;1}
+ Atributo do dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
  accountEnabled | verdadeiro, falso | (device.accountEnabled -eq true)
  displayName | Um valor de cadeia de caracteres. |(device.displayName -eq "Rob iPhone")
@@ -395,7 +395,7 @@ Os seguintes atributos de dispositivo podem ser usados.
 > [!Note]  
 > Para o deviceOwnership ao criar grupos dinâmicos para dispositivos, é necessário definir o valor igual a "Company". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Esses artigos fornecem mais informações sobre grupos no Azure Active Directory.
 

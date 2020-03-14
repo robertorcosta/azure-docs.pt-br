@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376303"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253540"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de hash de senha com a sincronização do Azure AD Connect
 
@@ -229,7 +229,7 @@ Para solucionar problemas em que nenhuma senha esteja sincronizada para um usuá
 
 3. Execute `Import-Module ADSyncDiagnostics`.
 
-4. Execute o seguinte cmdlet:
+4. Execute o cmdlet a seguir:
 
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
@@ -351,16 +351,16 @@ Você pode solucionar problemas de sincronização de hash de senha problemas fa
 
 A coluna de status pode ter os seguintes valores:
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 | --- | --- |
-| Êxito |A senha foi sincronizada com êxito. |
+| Sucesso |A senha foi sincronizada com êxito. |
 | FilteredByTarget |A senha está definida para **O usuário deve alterar a senha no próximo logon**. A senha não foi sincronizada. |
 | NoTargetConnection |Nenhum objeto no metaverso ou no espaço conector do AD do Azure. |
 | SourceConnectorNotPresent |Nenhum objeto encontrado no espaço conector do Active Directory local. |
 | TargetNotExportedToDirectory |O objeto no espaço conector do AD do Azure ainda não foi exportado. |
 | MigratedCheckDetailsForMoreInfo |A entrada de log foi criada antes da versão 1.0.9125.0 e é mostrada em seu estado herdado. |
-| Error |O serviço retornou um erro desconhecido. |
-| Desconhecido |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
+| Erro |O serviço retornou um erro desconhecido. |
+| Unknown (desconhecido) |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
 | MissingAttribute |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estão disponíveis. |
 | RetryRequestedByTarget |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estavam disponíveis anteriormente. É feita uma tentativa de sincronizar novamente o hash de senha do usuário. |
 
@@ -442,7 +442,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Implementação de sincronização de hash de senha com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md)
 * [Sincronização do Azure AD Connect: personalizando as opções de sincronização](how-to-connect-sync-whatis.md)

@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: danlep
 ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364983"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247131"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para Instâncias de Contêiner do Azure nas regiões do Azure
 
@@ -30,10 +30,10 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | -------- | -- | :---: | :-----------: | :---: |
 | Sul do Brasil, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2 | Linux | 4 | 16 | 50 |
 | Leste da Austrália, Leste do Japão | Linux | 2 | 8 | 50 |
-| Centro Norte dos EUA | Linux | 2 | 3,5 | 50 |
-| Sul do Brasil, leste do Japão, Europa Ocidental | Portal | 4 | 16 | 20 |
-| Leste dos EUA, Oeste dos EUA | Portal | 4 | 14 | 20 |
-| Leste da Austrália, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA 2, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, oeste dos EUA 2 | Portal | 2 | 3,5 | 20 |
+| Centro-Norte dos EUA | Linux | 2 | 3,5 | 50 |
+| Sul do Brasil, leste do Japão, Europa Ocidental | Windows | 4 | 16 | 20 |
+| Leste dos EUA, Oeste dos EUA | Windows | 4 | 14 | 20 |
+| Leste da Austrália, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA 2, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, oeste dos EUA 2 | Windows | 2 | 3,5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade – Implantações do Windows Server 2019 LTSC, 1809 (versão prévia)
 
@@ -41,8 +41,8 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 
 | Regiões | Sistema operacional | CPU máxima | Memória máxima (GB) | Armazenamento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
-| Leste da Austrália, sul do Brasil, centro-Canadá, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste do Japão, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Europa Ocidental | Portal | 4 | 16 | 20 |
-| Leste dos EUA 2, oeste dos EUA 2 | Portal | 2 | 3,5 | 20 |
+| Leste da Austrália, sul do Brasil, centro-Canadá, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste do Japão, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Europa Ocidental | Windows | 4 | 16 | 20 |
+| Leste dos EUA 2, oeste dos EUA 2 | Windows | 2 | 3,5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilidade-implantação de rede virtual
@@ -61,7 +61,7 @@ As seguintes regiões e recursos máximos estão disponíveis para um grupo de c
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Informe à equipe se você gostaria de ver outras regiões ou uma maior disponibilidade de recursos em [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 

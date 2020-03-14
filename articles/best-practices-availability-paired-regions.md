@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jeconnoc
-ms.openlocfilehash: 0e47bde280e9483f3c265e0d3147eadcbb128612
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271005"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248249"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -26,7 +26,7 @@ Um par regional consiste em duas regiões na mesma geografia. O Azure serializa 
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Alguns serviços do Azure aproveitam ainda mais as regiões emparelhadas para garantir a continuidade dos negócios e proteger contra perda de dados.  O Azure fornece várias [soluções de armazenamento](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) que aproveitam regiões emparelhadas para garantir a disponibilidade dos dados. Por exemplo, o [armazenamento com redundância geográfica do Azure](/storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replica os dados para uma região secundária automaticamente, garantindo que os dados sejam duráveis mesmo no caso de a região primária não ser recuperável. 
+Alguns serviços do Azure aproveitam ainda mais as regiões emparelhadas para garantir a continuidade dos negócios e proteger contra perda de dados.  O Azure fornece várias [soluções de armazenamento](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) que aproveitam regiões emparelhadas para garantir a disponibilidade dos dados. Por exemplo, o [armazenamento com redundância geográfica do Azure](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replica os dados para uma região secundária automaticamente, garantindo que os dados sejam duráveis mesmo no caso de a região primária não ser recuperável. 
 
 Observe que nem todos os serviços do Azure replicam dados automaticamente, nem todos os serviços do Azure fazem fallback automaticamente de uma região com falha para seu par.  Nesses casos, a recuperação e a replicação devem ser configuradas pelo cliente.
 
@@ -52,19 +52,19 @@ Não. Os clientes podem aproveitar os serviços do Azure para arquitetar um serv
 | Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
 | Brasil |Sul do Brasil |Centro-Sul dos Estados Unidos |
-| Canadá |Canadá Central |Leste do Canadá |
+| Canada |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
 | Europa |Europa Setentrional (Irlanda) |Europa Ocidental (Países Baixos) |
-| France |França Central|Sul da França|
-| Germany |Alemanha Central |Nordeste da Alemanha |
+| França |França Central|Sul da França|
+| Alemanha |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia do Sul |Coreia Central |Sul da Coreia |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
 | América do Norte |Leste dos EUA 2 |Centro dos EUA |
-| América do Norte |Centro Norte dos EUA |Centro-Sul dos Estados Unidos |
+| América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA |
 | Noruega | Leste da Noruega | Oeste da Noruega |
 | África do Sul | Norte da África do Sul |Oeste da África do Sul |

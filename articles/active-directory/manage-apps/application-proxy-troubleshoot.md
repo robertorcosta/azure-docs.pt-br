@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375695"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244219"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solucionar problemas e mensagens de erro do Proxy do Aplicativo
 
@@ -49,7 +49,7 @@ Se o registro falhar durante a instalação do assistente do Conector, há duas 
 
 Depois de encontrar o erro do Conector no log de eventos, use esta tabela de erros comuns para resolver o problema:
 
-| Error | Etapas recomendadas |
+| Erro | Etapas recomendadas |
 | ----- | ----------------- |
 | Falha no registro de conector: verifique se você habilitou o Proxy de Aplicativo no Portal de Gerenciamento do Azure e se inseriu o nome de usuário e a senha do Active Directory corretamente. Erro: "ocorreram um ou mais erros”. | Se você fechou a janela de registro sem entrar no Azure AD, execute o assistente do Conector novamente e registrar o Conector. <br><br> Se a janela de registro abrir e fechar imediatamente sem permitir que você faça logon, você provavelmente receberá esse erro. Esse erro ocorre quando há algum erro de rede em seu sistema. Certifique-se de que é possível conectar-se de um navegador a um site público e que as portas estejam abertas conforme especificado nos [pré-requisitos do proxy de aplicativo](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Apagar erro é apresentado na janela de registro. Não é possível continuar | Caso esse erro seja exibido e a janela fechar, você inseriu o nome de usuário e a senha incorretos. Tente novamente. |
@@ -63,7 +63,7 @@ Depois de encontrar o erro do Conector no log de eventos, use esta tabela de err
 
 Esta tabela cobre os erros mais comuns resultantes da instalação e configuração do Kerberos e inclui sugestões para resolução.
 
-| Error | Etapas recomendadas |
+| Erro | Etapas recomendadas |
 | ----- | ----------------- |
 | Falha ao recuperar a política de execução atual para executar scripts do PowerShell. | Se a instalação do Conector falhar, verifique se a política de execução do PowerShell não está desabilitada.<br><br>1. Abra o editor de Política de Grupo.<br>2. vá para **configuração do computador** > **modelos administrativos** > **componentes do Windows** > **Windows PowerShell** e clique duas vezes em **Ativar execução de script**.<br>3. a política de execução pode ser definida como **não configurada** ou **habilitada**. Se estiver definido como **Habilitado**, verifique se a Política de Execução em Opções está definida como **Permitir scripts locais e scripts remotos assinados** ou como **Permitir todos os scripts**. |
 | 12008 - O Azure AD excedeu o número máximo de tentativas de autenticação Kerberos permitidas para o servidor back-end. | Esse erro pode indicar uma configuração incorreta entre o Azure AD e o servidor de aplicativos back-end ou um problema na configuração de data e hora nos dois computadores. O servidor back-end recusou o tíquete Kerberos criado pelo AD do Azure. Verifique se o Azure AD e o servidor de aplicativos de back-end estão configurados corretamente. Verifique se a configuração de data e hora no AD do Azure e no servidor de aplicativos back-end estão sincronizadas. |
@@ -76,7 +76,7 @@ Esta tabela cobre os erros mais comuns resultantes da instalação e configuraç
 
 Esta lista cobre os erros que os usuários finais podem encontrar quando tentam acessar o aplicativo e falham. 
 
-| Error | Etapas recomendadas |
+| Erro | Etapas recomendadas |
 | ----- | ----------------- |
 | O site não pode exibir a página. | O usuário poderá receber esse erro ao tentar acessar o aplicativo publicado se o aplicativo for um aplicativo IWA. O SPN definido para esse aplicativo pode estar incorreto. Para aplicativos IWA, certifique-se de que o SPN configurado para este aplicativo esteja correto. |
 | O site não pode exibir a página. | O usuário poderá ver esse erro ao tentar acessar o aplicativo publicado se o aplicativo for um aplicativo OWA. Isso pode ser causado por um dos seguintes motivos:<br><li>O SPN definido para este aplicativo está incorreto. Certifique-se de que o SPN configurado para este aplicativo esteja correto.</li><li>O usuário que tentou acessar o aplicativo está usando uma conta da Microsoft em vez da conta corporativa apropriada para entrar, ou o usuário é um usuário convidado. Verifique se o usuário faz logon usando sua conta corporativa correspondente ao domínio do aplicativo publicado. Convidados e usuários de Conta da Microsoft não podem acessar aplicativos IWA.</li><li>O usuário que tentou acessar o aplicativo não está definido corretamente para este aplicativo no lado local. Verifique se esse usuário tem as permissões apropriadas, conforme definido para esse aplicativo de back-end no computador local. |
@@ -89,7 +89,7 @@ Esta lista cobre os erros que os usuários finais podem encontrar quando tentam 
 
 Se você encontrar um erro ou problema com o Proxy de Aplicativo do Azure AD que não está listado neste guia de solução de problemas, conte-nos. Envie um email para nossa [equipe de comentários](mailto:aadapfeedback@microsoft.com) com os detalhes do erro encontrado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Habilitar o Proxy de Aplicativo para o Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publique aplicativos com proxy de aplicativo](application-proxy-add-on-premises-application.md)
 * [Habilitar logon único](application-proxy-configure-single-sign-on-with-kcd.md)

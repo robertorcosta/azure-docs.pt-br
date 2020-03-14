@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376239"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253735"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -126,7 +126,7 @@ A experiência de conexão do Azure AD depende da capacidade do Azure AD de corr
 O Azure AD Connect lista os sufixos UPN que estão definidos para os domínios e tenta correspondê-los a um domínio personalizado no Azure AD. Em seguida, ele ajuda você com a ação apropriada que precisa ser tomada.
 A página de conexão do Azure AD lista os sufixos UPN definidos para o Active Directory local e exibe o status correspondente em cada sufixo. Os valores de status podem ser um dos seguintes:
 
-| Estado | Descrição | Ação necessária |
+| Estado | DESCRIÇÃO | Ação necessária |
 |:--- |:--- |:--- |
 | Verificado |O Azure AD Connect encontrou uma correspondência de domínio verificado no Azure AD. Todos os usuários deste domínio podem se conectar usando suas credenciais locais. |Nenhuma ação é necessária. |
 | Não verificado |O Azure AD Connect encontrou uma correspondência de domínio personalizado, mas ele não é verificado. O sufixo UPN dos usuários desse domínio será alterado para o sufixo .onmicrosoft.com padrão após a sincronização, caso o domínio não seja verificado. | [Verifique o domínio personalizado no Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
@@ -179,17 +179,17 @@ Se você selecionou a opção de conexão do usuário **Federação com o AD FS*
 
 Na próxima página, você deverá fornecer as credenciais do Azure AD.
 
-![Conectar ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2.png)
+![Conecte-se ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2.png)
 
 Na página **Entrada de usuário**, selecione a entrada do usuário desejada.
 
-![Conectar ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2a.png)
+![Conecte-se ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
 > Se estiver fazendo apenas uma mudança temporária para a sincronização de hash de senha, marque a caixa de seleção **Não converter contas de usuário**. Não marcar a opção converterá cada usuário em federado, o que pode levar várias horas.
 >
 >
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
 - Saiba mais sobre os [conceitos de design do Azure AD Connect](plan-connect-design-concepts.md).

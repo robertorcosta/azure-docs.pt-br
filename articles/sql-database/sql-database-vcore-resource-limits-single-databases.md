@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 01/22/2020
-ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 03/11/2020
+ms.openlocfilehash: a8f62a24ff2c6571b5267fdbf4f23bd9e05ee499
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515013"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255750"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra vCore
 
@@ -38,7 +38,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Tamanho da computação|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
 |:--- | --: |--: |--: |--: |--: |
 |Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|
-|VCores mín. máx.|0.5-1|0.5-2|0,5-4|0,75 a 6|1.0-8|
+|VCores mín. máx.|0,5-1|0.5-2|0,5-4|0,75 a 6|1,0 a 8|
 |Memória mín. máx. (GB)|2.02-3|2.05-6|2.10-12|2,25-18|3,00-24|
 |Mínimo de atraso de pausa automática (minutos)|60|60|60|60|60|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|
@@ -76,7 +76,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|3200|3840|4480|5120|
 |Taxa máxima de logs (MBps)|30|30|30|30|
-|Máximo de trabalhos simultâneos (solicitações)|750|900|1050|1200|
+|Máximo de trabalhos simultâneos (solicitações)|750|900|1\.050|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|
@@ -102,8 +102,9 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Tamanho máximo de dados de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |
 |IOPS de dados máximo *|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
+|Taxa máxima de logs (MBps)|105 |105 |105 |105 |105 |105 |
 |Latência de E/S (aproximada)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1\.000|1200|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -126,6 +127,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Tamanho máximo de dados de TempDB (GB)|224|256|288|320|512|768|
 |Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |
 |IOPS de dados máximo *|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
+|Taxa máxima de logs (MBps)|105 |105 |105 |105 |105 |105 |
 |Latência de E/S (aproximada)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|
 |Máximo de trabalhos simultâneos (solicitações)|1\.400|1600|1800|2000|3200|4800|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -145,7 +147,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
-|Memória (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memória (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |[RBPEX](sql-database-service-tier-hyperscale.md#compute) Tamanho|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|3X de memória|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -154,8 +156,9 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Tamanho máximo de dados de TempDB (GB)|64|128|192|256|320|384|448|
 |Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |
 |IOPS de dados máximo *|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
+|Taxa máxima de logs (MBps)|105 |105 |105 |105 |105 |105 |105 |
 |Latência de E/S (aproximada)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1\.000|1200|1\.400|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|1\.400|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secundárias|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -180,6 +183,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Tamanho máximo de dados de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |[Observação 1](#notes) |
 |IOPS de dados máximo *|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
+|Taxa máxima de logs (MBps)|105 |105 |105 |105 |105 |105 |105 |
 |Latência de E/S (aproximada)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|[Observação 3](#notes)|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -220,7 +224,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|320|640|960|1280|1600|1920|
 |Taxa máxima de logs (MBps)|3,75|7.5|11,25|15|18,75|22,5|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1\.000|1200|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -262,7 +266,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
-|Memória (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memória (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -272,7 +276,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|640|1280|1920|2560|3200|3840|4480|
 |Taxa máxima de logs (MBps)|7.5|15|22,5|30|30|30|30|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1\.000|1200|1\.400|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|1\.400|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -355,8 +359,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo *|4\.000|8,000|12.000|16.000|20,000|24.000|
 |Taxa máxima de logs (MBps)|8|16|24|32|40|48|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1\.000|1200|
-|Máximo de logons simultâneos|200|400|600|800|1\.000|1200|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|
+|Máximo de logons simultâneos|200|400|600|800|1000|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -399,7 +403,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
-|Memória (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memória (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|1,57|3.14|4,71|6,28|8,65|11, 2|13,39|
 |Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -409,8 +413,8 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo *|8000|16.000|24.000|32.000|40.000|48.000|56.000|
 |Taxa máxima de logs (MBps)|24|48|72|96|96|96|96|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1\.000|1200|1\.400|
-|Máximo de logons simultâneos|200|400|600|800|1\.000|1200|1\.400|
+|Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|1\.400|
+|Máximo de logons simultâneos|200|400|600|800|1000|1200|1\.400|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -476,7 +480,7 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para os limites de recursos de DTU para um único banco de dados, consulte [limites de recursos para bancos de dados individuais usando o modelo de compra de DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Para limites de recursos vCore para pools elásticos, consulte [limites de recursos para pools elásticos usando o modelo de compra vCore](sql-database-vcore-resource-limits-elastic-pools.md)

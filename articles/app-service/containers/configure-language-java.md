@@ -11,11 +11,11 @@ ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 455ebcb28ea6cc8b43431f96a4bc3929a759c2d0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373815"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280086"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -324,7 +324,7 @@ O serviço de aplicativo Linux roteia solicitações de entrada para a porta 80,
 
 Essas instruções se aplicam a todas as conexões de banco de dados. Você precisará preencher os espaços reservados com nome de classe do driver do banco de dados escolhido e o arquivo JAR. É fornecida uma tabela com nomes de classe e downloads de driver para bancos de dados comuns.
 
-| Database   | Nome de Classe do Driver                             | Driver JDBC                                                                      |
+| Banco de dados   | Nome de Classe do Driver                             | Driver JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (Selecione "Independente de Plataforma") |
@@ -497,7 +497,7 @@ Para usar o Tomcat com Redis, você deve configurar seu aplicativo para usar uma
 
 1. Abra um terminal Bash e use `<variable>=<value>` para definir cada uma das variáveis de ambiente a seguir.
 
-    | Variável                 | {1&gt;Valor&lt;1}                                                                      |
+    | Variável                 | Valor                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | O nome do grupo de recursos que contém a instância do serviço de aplicativo.       |
     | WEBAPP_NAME              | O nome da instância do serviço de aplicativo.                                     |
@@ -644,7 +644,7 @@ Se um runtime do Java com suporte for desativado, os desenvolvedores do Azure qu
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Acesse a central para [Desenvolvedores do Azure para Java](/java/azure/) para conferir inícios rápidos, tutoriais e documentação de referência do Java.
 

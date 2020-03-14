@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7ebe76fde344b1dabca9a3aee2d0cc9e1edb8df4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602331"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247820"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -21,6 +21,7 @@ Para obter mais informações sobre o processo e as limitações de backup, cons
 Para configurar a proteção para um banco de dados SQL Server em uma máquina virtual, você deve instalar a extensão **AzureBackupWindowsWorkload** nessa máquina virtual. Se você receber o erro **UserErrorSQLNoSysadminMembership**, isso significa que sua instância de SQL Server não tem as permissões de backup necessárias. Para corrigir esse erro, siga as etapas em [definir permissões de VM](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="troubleshoot-discover-and-configure-issues"></a>Solucionar problemas de descoberta e configuração
+
 Depois de criar e configurar um cofre dos serviços de recuperação, descobrir bancos de dados e configurar o backup é um processo de duas etapas.<br>
 
 ![sql](./media/backup-azure-sql-database/sql.png)
@@ -35,9 +36,25 @@ Durante a configuração de backup, se a VM do SQL e suas instâncias não estiv
 
 - Se o cofre no qual a VM do SQL está registrada no mesmo cofre usado para proteger os bancos de dados, siga as etapas [Configurar backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) .
 
-Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro cancelado do cofre antigo.  O cancelamento do registro de uma VM do SQL do cofre exige que todas as fontes de dados protegidas sejam interrompidas e, em seguida, você pode excluir os dados de backup. A exclusão de dados de backup é uma operação destrutiva.  Depois de examinar e tomar todas as precauções para cancelar o registro da VM do SQL, registre essa mesma VM com um novo cofre e repita a operação de backup.
+Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro cancelado do cofre antigo.  O cancelamento do registro de uma VM do SQL do cofre requer que todas as fontes de dados protegidas sejam interrompidas e, em seguida, você possa excluir os dados de backup. A exclusão de dados de backup é uma operação destrutiva.  Depois de examinar e tomar todas as precauções para cancelar o registro da VM do SQL, registre essa mesma VM com um novo cofre e repita a operação de backup.
 
+## <a name="troubleshoot-backup-and-recovery-issues"></a>Solucionar problemas de backup e recuperação  
 
+Às vezes, qualquer falha aleatória pode ocorrer em operações de backup e restauração ou essas operações podem ficar presas. Isso pode ser devido a programas antivírus em sua VM. Como prática recomendada, sugerimos as seguintes etapas:
+
+1. Exclua as seguintes pastas da verificação antivírus:
+
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+
+    Substitua `C:\` pela letra de sua *systemdrive*.
+
+1. Exclua os três processos a seguir em execução em uma VM da verificação antivírus:
+
+    - IaasWLPluginSvc. exe
+    - IaasWorkloadCoordinaorService. exe
+    - TriggerExtensionJob. exe
+
+1. O SQL também oferece algumas diretrizes para trabalhar com programas antivírus. Confira [este artigo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) para obter detalhes.
 
 ## <a name="error-messages"></a>Mensagens de erro
 
@@ -149,7 +166,6 @@ A operação está bloqueada porque o cofre atingiu seu limite máximo para essa
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
 A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou serviços de Azure Active Directory.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure para o serviço de backup do Azure, armazenamento do Azure ou serviços de Azure Active Directory. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy que esteja bloqueando chamadas para os três serviços de destino acima.
-
 
 ## <a name="re-registration-failures"></a>Falhas de novo registro
 

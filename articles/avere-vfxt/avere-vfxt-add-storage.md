@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372201"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252604"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -125,12 +125,12 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
 
 1. Preencha as informações a seguir para criar uma credencial para o arquivista central de nuvem:
 
-   | Campo | {1&gt;Valor&lt;1} |
+   | Campo | Valor |
    | --- | --- |
    | Nome da credencial | qualquer nome descritivo |
    | Tipo de serviço | (selecione a chave de acesso de armazenamento do Azure) |
    | Locatário | nome da conta de armazenamento |
-   | Assinatura | ID da assinatura |
+   | Subscription | ID da assinatura |
    | Chave de Acesso de Armazenamento | Chave de conta de Armazenamento do Azure (copiada na etapa anterior) |
 
    Clique em **Enviar**.
@@ -151,7 +151,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    * Definir **Conteúdos do Bucket** como **Vazio**
    * Mude **Verificação de certificado** para **Desabilitada**
    * Mude **Modo de compactação** para **Nenhum**
-   * Clique em **Avançar**.
+   * Clique em **Próximo**.
    * Na quarta página, digite o nome do contêiner em **Nome do Bucket** como *storage_account_name*/*container_name*.
    * Opcionalmente, defina **Tipo de Criptografia** como **Nenhum**.  O Armazenamento do Azure é criptografado por padrão.
    * Clique em **Adicionar Arquivista**.
@@ -176,7 +176,7 @@ Siga estas etapas na interface do painel de controle do avere:
 * Forneça um caminho de namespace que comece com / (barra), como ``/vfxt/data``.
 * Escolha seu arquivista central.
 * Escolha a exportação do arquivista central.
-* Clique em **Avançar**.
+* Clique em **Próximo**.
 
   ![Captura de tela da página "Adicionar nova junção" com os campos preenchidos para junção, arquivista central e exportação](media/avere-vfxt-add-junction.png)
 
@@ -184,7 +184,7 @@ A junção será exibida após alguns segundos. Crie junções adicionais confor
 
 Depois que a junção tiver sido criada, os clientes usarão o caminho do namespace para acessar os arquivos do sistema de armazenamento.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Montar o cluster do Avere vFXT](avere-vfxt-mount-clients.md)
 * Aprenda maneiras eficientes de [mover dados para um novo contêiner de BLOBs](avere-vfxt-data-ingest.md)

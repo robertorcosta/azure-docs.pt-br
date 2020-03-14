@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
 ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774435"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258051"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -80,7 +80,7 @@ ILB | Sim | Sim
 ELB | Sim | Sim
 Gerenciador de Tráfego do Azure | Sim | Sim
 NIC múltipla | Sim | Sim
-IP reservado | Sim | Sim
+IP Reservado | Sim | Sim
 IPv4 | Sim | Sim
 Manter endereço IP de origem | Sim | Sim
 Pontos de extremidade de serviço de Rede Virtual do Azure<br/> (sem Firewalls de Armazenamento do Azure) | Sim | Sim
@@ -91,7 +91,7 @@ Rede Acelerada | Não | Não
 
 **Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
-NFS | ND | ND
+NFS | NA | NA
 SMB 3.0 | Sim | Sim
 SAN (ISCSI) | Sim | Sim
 Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM para CLARiiON | Sim | Sim
@@ -100,15 +100,15 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 **Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
-VMDK | ND | ND
+VMDK | NA | NA
 VHD/VHDX | Sim | Sim
 VM geração 2 | Sim | Sim
 EFI/UEFI<br></br>A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS. A VM deve estar executando apenas o Windows Server 2012 e posterior. O disco do sistema operacional deve ter até cinco partições ou menos e o tamanho do disco do sistema operacional deve ser inferior a 300 GB.| Sim | Sim
 Disco de cluster compartilhado | Não | Não
 Disco criptografado | Não | Não
-NFS | ND | ND
+NFS | NA | NA
 SMB 3.0 | Não | Não
-RDM | ND | ND
+RDM | NA | NA
 Disco >1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: setor de lógica e física de 4K | Não compatível: Gen 1/Gen 2 | Não compatível: Gen 1/Gen 2
 Disco: 4K lógico e 512-bytes de setor físico | Sim |  Sim
@@ -128,13 +128,13 @@ Armazenamento com redundância geográfica | Sim | Sim
 Armazenamento com redundância geográfica com acesso de leitura | Sim | Sim
 Armazenamento frio | Não | Não
 Armazenamento quente| Não | Não
-Blobs de blocos | Não | Não
+Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
 Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenciados)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
-Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e habilitar novamente a recuperação de desastres. | Não
+Modificar a conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e habilitar novamente a recuperação de desastres. | Não
 
 
 ## <a name="azure-compute-features"></a>Recursos de computação do Azure
@@ -143,7 +143,7 @@ Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de de
 --- | --- | ---
 Conjuntos de disponibilidade | Sim | Sim
 HUB | Sim | Sim  
-Managed Disks | Sim, para failover.<br/><br/> O failback de discos gerenciados não é compatível. | Sim, para failover.<br/><br/> O failback de discos gerenciados não é compatível.
+Discos gerenciados | Sim, para failover.<br/><br/> O failback de discos gerenciados não é compatível. | Sim, para failover.<br/><br/> O failback de discos gerenciados não é compatível.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -190,5 +190,5 @@ Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicaç�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastre de VMs locais do Hyper-V.

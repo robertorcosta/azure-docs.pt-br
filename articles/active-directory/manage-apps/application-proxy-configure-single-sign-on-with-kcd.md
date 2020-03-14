@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668682"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253449"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -43,7 +43,7 @@ Este diagrama explica o fluxo quando um usuário tenta acessar um aplicativo loc
 7. O Conector envia a solicitação original para o servidor de aplicativos usando o token Kerberos recebido do AD.
 8. O aplicativo envia a resposta para o Conector, que é retornada para o serviço de Proxy de Aplicativo e, finalmente, para o usuário.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 Antes de começar com o logon único para aplicativos da IWA, verifique se seu ambiente está preparado com as seguintes configurações e definições:
 
 * Seus aplicativos, como os aplicativos Web do SharePoint, são definidos para usar a Autenticação Integrada do Windows. Para sabe rmais, veja [Habilitar suporte para autenticação Kerberos](https://technet.microsoft.com/library/dd759186.aspx), ou para o SharePoint, consulte [Planejar a autenticação Kerberos no SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -88,11 +88,11 @@ A configuração do Active Directory varia, dependendo de se o conector do Proxy
    Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
    ```
 
-## <a name="configure-single-sign-on"></a>Configurar logon único 
-1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-add-on-premises-application.md). Certifique-se de selecionar **Active Directory do Azure** como o **Método de pré-autenticação**.
+## <a name="configure-single-sign-on"></a>Configurar o logon único 
+1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-add-on-premises-application.md). Certifique-se de selecionar **Azure Active Directory** como o **Método de Pré-autenticação**.
 2. Depois que o aplicativo aparecer na lista de aplicativos empresariais, selecione-o e clique em **Logon único**.
 3. Defina o modo de logon único como **Autenticação Integrada do Windows**.  
-4. Insira o **SPN do aplicativo interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/www.contoso.com. Esse SPN precisa estar na lista de serviços aos quais o conector pode apresentar credenciais delegadas. 
+4. Insira o **SPN do Aplicativo Interno** do servidor de aplicativos. Neste exemplo, o SPN para nosso aplicativo publicado é http/www.contoso.com. Esse SPN precisa estar na lista de serviços aos quais o conector pode apresentar credenciais delegadas. 
 5. Escolha a **Identidade de Logon Delegada** para que o conector use em nome de seus usuários. Para obter mais informações, consulte [Trabalhando com identidades diferentes de nuvem e local](#working-with-different-on-premises-and-cloud-identities)
 
    ![Configuração de Aplicativo Avançada](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
@@ -152,7 +152,7 @@ Se a identidade de logon delegada for usada, o valor não poderá ser exclusivo 
 Se houver um erro no processo de SSO, ele aparecerá no log de eventos do computador do conector, conforme explicado na [Solução de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Porém, em alguns casos, a solicitação será enviada com êxito para o aplicativo de back-end embora este aplicativo responderá em várias outras respostas HTTP. Nesses casos, a solução de problemas deve começar examinando o número de evento 24029 no computador do conector, no log de eventos da sessão do Proxy do Aplicativo. A identidade do usuário que foi usada para delegação será exibida no campo "usuário" nos detalhes do evento. Para ativar o log de sessão, selecione **Mostrar logs analíticos e de depuração** no menu de exibição do visualizador de eventos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como configurar um aplicativo de Proxy de Aplicativo para usar a Delegação restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)

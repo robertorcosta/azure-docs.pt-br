@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: e3937241724aab63f770ad56cbf96d2e1b45f00e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 96b3e602011f4d3f237f29ce9b2fcad8bd0b8300
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251352"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251382"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos serviços de mídia
 
@@ -89,7 +89,7 @@ Ao criar um Evento ao vivo, você pode especificar as seguintes opções:
 * O nome de evento ativo máximo é de 32 caracteres.
 * O nome deve seguir este padrão de [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-Consulte também as [convenções de nomenclatura de pontos de extremidade de streaming](streaming-endpoint-concept.md#naming-convention).
+Consulte também [convenções de nomenclatura de pontos de extremidade de streaming](streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > Para garantir a exclusividade do seu nome de evento ao vivo, você pode gerar um GUID e, em seguida, remover todos os hifens e chaves (se houver). A cadeia de caracteres será exclusiva em todos os eventos ao vivo e seu comprimento será garantido como 32.
