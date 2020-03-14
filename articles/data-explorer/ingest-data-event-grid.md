@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: ec218b1638183db463ff09488c988cad64d78c6d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096425"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370433"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
@@ -26,7 +26,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e escalon�
 
 Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do Azure](/azure/event-grid/overview) e a rotear eventos para o Azure data Explorer por meio de um hub de eventos. Para começar, você precisa ter uma conta de armazenamento com uma assinatura da grade de eventos que envie notificações para os Hubs de Eventos do Azure. Então, você criará uma conexão de dados da Grade de Eventos e verá o fluxo de dados pelo sistema.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/).
 * [Um cluster e um banco de dados](create-cluster-database-portal.md).
@@ -69,7 +69,7 @@ Crie uma tabela no Azure Data Explorer em que os Hubs de Eventos enviarão dados
 
 1. Copie o seguinte comando na janela e selecione **Executar** para criar a tabela (TestTable) que receberá os dados ingeridos.
 
-    ```Kusto
+    ```kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
@@ -77,7 +77,7 @@ Crie uma tabela no Azure Data Explorer em que os Hubs de Eventos enviarão dados
 
 1. Copie o seguinte comando na janela e selecione **Executar** para mapear os dados JSON de entrada para os tipos de dados e nomes de coluna da tabela (TestTable).
 
-    ```Kusto
+    ```kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.TimeStamp"},{"column":"Value","path":"$.Value"},{"column":"Source","path":"$.Source"}]'
     ```
 
@@ -130,11 +130,11 @@ Nós trabalharemos com um pequeno script shell que emite alguns comandos básico
 
 Salve os dados em um arquivo e carregue-o com este script:
 
-```Json
+```json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
 ```
 
-```bash
+```azurecli
 #!/bin/bash
 ### A simple Azure Storage example script
 
@@ -187,7 +187,7 @@ Essas propriedades podem ser definidas:
 > [!NOTE]
 > O Azure Data Explorer tem uma política de agregação (envio em lote) para a ingestão de dados, criada para otimizar o processo de ingestão.
 Por padrão, a política é configurada como 5 minutos.
-Você poderá alterar a política em um momento posterior se necessário. Neste artigo, você pode esperar uma latência de alguns minutos.
+Você poderá alterar a política posteriormente, se necessário. Neste artigo, você pode esperar uma latência de alguns minutos.
 
 1. No portal do Azure, em sua grade de eventos, você vê o pico de atividade enquanto o aplicativo está em execução.
 
@@ -195,14 +195,14 @@ Você poderá alterar a política em um momento posterior se necessário. Neste 
 
 1. Para verificar quantas mensagens chegaram ao banco de dados até o momento, execute a consulta a seguir em seu banco de dados de teste.
 
-    ```Kusto
+    ```kusto
     TestTable
     | count
     ```
 
 1. Para ver o conteúdo das mensagens, execute a consulta a seguir em seu banco de dados de teste.
 
-    ```Kusto
+    ```kusto
     TestTable
     ```
 
@@ -224,6 +224,6 @@ Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg**
 
 1. Na nova janela, insira o nome do grupo de recursos para excluir (*test-hub-rg*) e, em seguida, selecione **Excluir**.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Consultar dados no Azure Data Explorer](web-query-data.md)

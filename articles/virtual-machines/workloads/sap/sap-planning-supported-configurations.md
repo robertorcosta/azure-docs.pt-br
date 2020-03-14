@@ -13,17 +13,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28a9de63bb04a95fc2e655b05727963feaa3ec40
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599178"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137621"
 ---
-# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho do SAP em cenários com suporte de máquina virtual do Azure
+# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho do SAP em cenários compatíveis com a máquina virtual do Azure
 A criação da arquitetura de sistemas SAP NetWeaver, Business One, `Hybris` ou S/4HANA no Azure abre muitas oportunidades diferentes para várias arquiteturas e ferramentas a serem usadas para chegar a uma implantação escalonável, eficiente e altamente disponível. Embora dependam do sistema operacional ou do DBMS usado, há restrições. Além disso, nem todos os cenários com suporte no local têm suporte da mesma maneira no Azure. Este documento orientará as configurações de não alta disponibilidade e as arquiteturas e configurações de alta disponibilidade com suporte usando VMs do Azure exclusivamente. Para cenários com suporte com [instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), verifique o artigo [cenários com suporte para instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
 
 
@@ -66,7 +66,8 @@ Esse tipo de implantação de DBMS tem suporte para:
 - SQL Server no Windows
 - IBM DB2. Localizar detalhes no artigo [várias instâncias (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - Para Oracle. Para obter detalhes, consulte [Nota de suporte sap #1778431](https://launchpad.support.sap.com/#/notes/1778431) e notas SAP relacionadas
-- Por SAP HANA, várias instâncias em uma VM, o SAP chama esse método de implantação MCOS, tem suporte. Para obter detalhes, consulte o artigo da SAP [vários SAP Hana Systems em um host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/b2751fd43bec41a9a14e01913f1edf18.html)
+- Por SAP HANA, várias instâncias em uma VM, o SAP chama esse método de implantação MCOS, tem suporte. Para obter detalhes, consulte o artigo do SAP [vários SAP HANA Systems em um host (MCOS)] (https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
+- /b2751fd43bec41a9a14e01913f1edf18.html)
 
 Executando várias instâncias de banco de dados em um host, você precisa certificar-se de que as diferentes instâncias não estão competindo por recursos e, portanto, excedem os limites de recursos físicos da VM. Isso é especialmente verdadeiro para a memória em que você precisa limitar a memória que qualquer um das instâncias que compartilham a VM pode alocar. Isso também pode ser verdadeiro para os recursos de CPU que as diferentes instâncias de banco de dados podem aproveitar. Todo o DBMS mencionado tem configurações que permitem limitar a alocação de memória e os recursos de CPU em um nível de instância.
 Para ter suporte para essa configuração para VMs do Azure, espera-se que os discos ou volumes que são usados para os arquivos de log de dados e de log/restauração dos bancos de dados gerenciados pelas instâncias diferentes sejam separados. Ou, em outras palavras, os arquivos de log/restauração de dados ou logs de bancos de dado gerenciados por instância diferente do DBMS não devem compartilhar os mesmos discos ou volumes. 
@@ -121,6 +122,8 @@ Para VMs do Azure, há suporte para as seguintes configurações de alta disponi
 
 > [!IMPORTANT]
 > Para nenhum dos cenários descritos acima, damos suporte a configurações de várias instâncias de DBMS em uma VM. Significa que, em cada um dos casos, apenas uma instância de banco de dados pode ser implantada por VM e protegida com os métodos de alta disponibilidade descritos. **Não** há suporte para a proteção de várias instâncias de DBMS no mesmo cluster de failover do Windows ou pacemaker neste momento. Também há suporte para o Oracle Data Guard somente para casos de implantação de instância única por VM. 
+
+Vários sistemas de banco de dados permitem hospedar vários bancos de dados em uma instância DBMS. Como no caso de SAP HANA, vários bancos de dados podem ser hospedados em vários contêineres de banco de dados (MDC). Para casos em que essas configurações de vários bancos de dados estão funcionando em um recurso de cluster de failover, há suporte para essas configurações. As configurações que não são suportadas são casos em que vários recursos de cluster seriam necessários. Para configurações em que você definiria vários grupos de disponibilidade SQL Server, em uma instância de SQL Server.
 
 
 ![Configuração de HA do DBMS](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)

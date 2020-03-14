@@ -1,19 +1,19 @@
 ---
-title: Link privado para o método de instalação da CLI do banco de dados do Azure para MySQL (versão prévia)
+title: Link privado-CLI do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar o link privado para o banco de dados do Azure para MySQL do CLI do Azure
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d9a401bfbf1f0c63995c8f7773abb6e8e874e7e
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561690"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368002"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL (versão prévia) usando a CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando a CLI
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste artigo, você aprenderá a usar o CLI do Azure para criar uma VM em uma rede virtual do Azure e um servidor de banco de dados do Azure para MySQL com um ponto de extremidade privado do Azure.
 

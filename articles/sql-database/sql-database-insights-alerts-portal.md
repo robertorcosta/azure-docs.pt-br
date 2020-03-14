@@ -3,39 +3,40 @@ title: Alertas e notificações de instalação (portal do Azure)
 description: Use o portal do Azure para criar alertas do Banco de Dados SQL, que podem disparar notificações ou automação quando as condições especificadas são atendidas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/02/2018
-ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/10/2020
+ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745943"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209547"
 ---
-# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse usando o portal do Azure
+# <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Criar alertas para bancos de dados SQL do Azure e Azure Synapse Analytics usando portal do Azure
 
-## <a name="overview"></a>Visão Geral
-Este artigo mostra como configurar alertas do Banco de Dados SQL do Azure e do Data Warehouse usando o Portal do Azure. Os alertas podem enviar a você um email ou chamar um webhook quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atinge o limite. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.    
+## <a name="overview"></a>Visão geral
+
+Este artigo mostra como configurar alertas para bancos de dados únicos, em pool e data warehouse no banco de dados SQL do Azure e no Azure Synapse Analytics (anteriormente, o Azure SQL Data Warehouse) usando o portal do Azure. Os alertas podem enviar a você um email ou chamar um webhook quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atinge o limite. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.
 
 > [!IMPORTANT]
 > Esse recurso ainda não está disponível na Instância Gerenciada. Como alternativa, você pode usar o SQL Agent para enviar alertas por email para algumas métricas com base em [Exibições de Gerenciamento Dinâmico](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
-* **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.    
+* **Valores da métrica** - o alerta dispara quando o valor de uma métrica especificada ultrapassa um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.
 * **Eventos do log de atividades** - um alerta pode disparar em *cada* evento ou somente quando ocorre determinado número de eventos.
 
 Você pode configurar um alerta para fazer o seguinte quando ele dispara:
 
-* enviar um email para o administrador de serviços e os coadministradores
-* enviar email para outros emails que você especificar.
-* chamar um webhook
+* Enviar notificações por email para o administrador e coadministradores de serviços
+* Enviar um email para outros emails que você especificar.
+* Chamar um webhook
 
 Você pode configurar e obter informações sobre o uso de regras de alerta
 
@@ -45,78 +46,29 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
+
 1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
-2. Selecione **Alertas (Clássicos)** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
-   
-     ![Monitoramento](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
+2. Selecione **alertas** na seção monitoramento. O texto e o ícone podem variar um pouco para recursos diferentes.  
+
+   ![Monitoramento](media/sql-database-insights-alerts-portal/Alerts.png)
   
-   - **SQL DW SOMENTE**: Clique no gráfico **DWU Usage**. Selecione **exibir alertas clássicos**
+3. Selecione o botão **nova regra de alerta** para abrir a página **criar regra** .
+  ![Criar regra](media/sql-database-insights-alerts-portal/create-rule.png)
 
-3. Selecione o botão **adicionar alerta de métrica (clássico)** preencha os campos.
-   
-    ![Adicionar alerta](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
-4. Dê um **Nome** para o alerta de regra e escolha uma **Descrição**, que também mostre os emails de notificação.
-5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procurar CPU acima de 80%, o alerta disparará quando a **média** da CPU estiver consistentemente acima de 80% por 5 minutos. Após a ocorrência do primeiro disparo, ele disparará novamente quando a média da CPU estiver abaixo de 80% durante 5 minutos. A medição da CPU ocorre a cada um minuto. Consulte a tabela abaixo para ver janelas de tempo com suporte e o tipo de agregação que cada alerta usa – nem todos os alertas usam o valor médio.   
-6. Verifique **Proprietários de email...** se quiser que os administradores e coadministradores recebem um email quando o alerta disparar.
-7. Se você quiser que outros emails recebam uma notificação quando o alerta for disparado, adicione-os ao campo **Email(s) de administrador adicionais** . Separe vários emails com ponto-e-vírgulas- *email\@contoso. com; email2\@contoso.com*
-8. Coloque um URI válido no campo **Webhook** se você quiser chamá-lo quando o alerta for disparado.
-9. Selecione **OK** ao concluir a criação do alerta.   
+4. Na seção **condição** , clique em **Adicionar**.
+  ![definir a condição](media/sql-database-insights-alerts-portal/create-rule.png)
+5. Na página **Configurar lógica de sinal** , selecione um sinal.
+  ![selecionar](media/sql-database-insights-alerts-portal/select-signal.png)de sinal.
+6. Depois de selecionar um sinal, como **percentual de CPU**, a página **Configurar lógica de sinal** será exibida.
+  ![configurar a lógica de sinal](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
+7. Nessa página, configure esse tipo de limite, operador, tipo de agregação, valor de limite, granularidade de agregação e frequência de avaliação. Em seguida, clique em **Concluído**.
+8. Na **regra criar**, selecione um grupo de **ações** existente ou crie um novo grupo. Um grupo de ações permite que você defina a ação a ser executada quando ocorrer uma condição de alerta.
+  ![definir o grupo de ações](media/sql-database-insights-alerts-portal/action-group.png)
 
-Em alguns minutos, o alerta estará ativo e disparará conforme descrito anteriormente.
+9. Defina um nome para a regra, forneça uma descrição opcional, escolha um nível de severidade para a regra, escolha se deseja habilitar a regra na criação de regra e clique em **criar alerta de regra** para criar o alerta de regra de métrica.
 
-## <a name="managing-your-alerts"></a>Gerenciar seus alertas
-Depois de criar um alerta, você poderá selecioná-lo e:
+Em 10 minutos, o alerta está ativo e é disparado conforme descrito anteriormente.
 
-* Exibir um grafo mostrando o limite de métrica e os valores reais do dia anterior.
-* Editar ou exclui-lo.
-* **Desabilitar** ou **Habilitar** se você quiser interromper temporariamente ou continuar recebendo notificações do alerta.
+## <a name="next-steps"></a>Próximas etapas
 
-
-## <a name="sql-database-alert-values"></a>Valores de alerta do Banco de Dados SQL
-
-| Tipo de recurso | Nome da métrica | Nome amigável | Tipo de agregação | Janela de tempo mínimo de alerta|
-| --- | --- | --- | --- | --- |
-| Banco de dados SQL | cpu_percent | Percentual de CPU | Média | 5 minutos |
-| Banco de dados SQL | physical_data_read_percent | Porcentagem de E/S de dados | Média | 5 minutos |
-| Banco de dados SQL | log_write_percent | Porcentagem de E/S de log | Média | 5 minutos |
-| Banco de dados SQL | dtu_consumption_percent | Porcentagem de DTU | Média | 5 minutos |
-| Banco de dados SQL | temporário | Tamanho total do banco de dados | Máximo | 30 minutos |
-| Banco de dados SQL | connection_successful | Conexões bem sucedidas | Total | 10 minutos |
-| Banco de dados SQL | connection_failed | Conexões com falha | Total | 10 minutos |
-| Banco de dados SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
-| Banco de dados SQL | deadlock | Deadlocks | Total | 10 minutos |
-| Banco de dados SQL | storage_percent | Percentual de tamanho do banco de dados | Máximo | 30 minutos |
-| Banco de dados SQL | xtp_storage_percent | Percentual (Visualização) de armazenamento do OLTP na memória | Média | 5 minutos |
-| Banco de dados SQL | workers_percent | Porcentagem de funcionários | Média | 5 minutos |
-| Banco de dados SQL | sessions_percent | Porcentagem de sessões | Média | 5 minutos |
-| Banco de dados SQL | dtu_limit | Limite de DTU | Média | 5 minutos |
-| Banco de dados SQL | dtu_used | DTU usado | Média | 5 minutos |
-||||||
-| Pool elástico | cpu_percent | Percentual de CPU | Média | 10 minutos |
-| Pool elástico | physical_data_read_percent | Porcentagem de E/S de dados | Média | 10 minutos |
-| Pool elástico | log_write_percent | Porcentagem de E/S de log | Média | 10 minutos |
-| Pool elástico | dtu_consumption_percent | Porcentagem de DTU | Média | 10 minutos |
-| Pool elástico | storage_percent | Porcentagem de armazenamento | Média | 10 minutos |
-| Pool elástico | workers_percent | Porcentagem de funcionários | Média | 10 minutos |
-| Pool elástico | eDTU_limit | Limite de eDTU | Média | 10 minutos |
-| Pool elástico | storage_limit | Limite de armazenamento | Média | 10 minutos |
-| Pool elástico | eDTU_used | eDTU usado | Média | 10 minutos |
-| Pool elástico | storage_used | Armazenamento usado | Média | 10 minutos |
-||||||               
-| SQL Data Warehouse | cpu_percent | Percentual de CPU | Média | 10 minutos |
-| SQL Data Warehouse | physical_data_read_percent | Porcentagem de E/S de dados | Média | 10 minutos |
-| SQL Data Warehouse | connection_successful | Conexões bem sucedidas | Total | 10 minutos |
-| SQL Data Warehouse | connection_failed | Conexões com falha | Total | 10 minutos |
-| SQL Data Warehouse | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
-| SQL Data Warehouse | service_level_objective | Camada de serviço do banco de dados | Total | 10 minutos |
-| SQL Data Warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |
-| SQL Data Warehouse | dwu_consumption_percent | Porcentagem de DWU | Média | 10 minutos |
-| SQL Data Warehouse | dwu_used | DWU usado | Média | 10 minutos |
-||||||
-
-
-## <a name="next-steps"></a>Próximos passos
-* [Obter uma visão geral do monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
 * Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Tenha uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) e colete métricas detalhadas de alta frequência em seu serviço.
-* Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.

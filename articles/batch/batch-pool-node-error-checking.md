@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 95f7d4d03fbac6ec7c27630f1210ef999ddc776c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484121"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369260"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -137,8 +137,21 @@ O tamanho da unidade temporária depende do tamanho da VM. Uma consideração ao
 
 Para arquivos gravados por cada tarefa, um tempo de retenção pode ser especificado para cada tarefa que determina por quanto tempo os arquivos de tarefa são mantidos antes de serem limpos automaticamente. O tempo de retenção pode ser reduzido para reduzir os requisitos de armazenamento.
 
-Se o espaço em disco temporário for preenchido, no momento, o nó interromperá a execução das tarefas. No futuro, um [erro de nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) será relatado.
+Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó será movido para o estado [inutilizável](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) e um erro de nó (usar o link já lá) será relatado dizendo que o disco está cheio.
 
+### <a name="what-to-do-when-a-disk-is-full"></a>O que fazer quando um disco está cheio
+
+Determine por que o disco está cheio: se você não tiver certeza do que está ocupando espaço no nó, é recomendável remoto para o nó e investigar manualmente onde o espaço acabou. Você também pode usar a API de [arquivos de lista de lotes](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) para examinar arquivos em pastas gerenciadas do lote (por exemplo, saídas de tarefa). Observe que essa API só lista os arquivos nos diretórios gerenciados do lote e se suas tarefas criaram arquivos em outro lugar, você não os verá.
+
+Certifique-se de que todos os dados necessários foram recuperados do nó ou carregados em um repositório durável. Toda a mitigação do problema completo de disco envolve a exclusão de dados para liberar espaço.
+
+### <a name="recovering-the-node"></a>Recuperando o nó
+
+1. Se o pool for um pool de [C. loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) , você poderá recriar a imagem do nó por meio da [API de recriação do lote](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Isso limpará todo o disco. A recriação de imagem não tem suporte no momento para pools [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
+
+2. Se o pool for um [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), você poderá remover o nó do pool usando a [API remover nós](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Em seguida, você pode aumentar o pool novamente para substituir o nó insatisfatório por um novo.
+
+3.  Excluir trabalhos antigos concluídos ou tarefas concluídas antigas cujos dados de tarefa ainda estão nos nós. Para obter uma dica sobre quais dados de trabalho/tarefas estão nos nós, você pode procurar na [coleção RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) no nó ou nos arquivos do [nó](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). A exclusão do trabalho excluirá todas as tarefas no trabalho e a exclusão das tarefas no trabalho disparará os dados nos diretórios de tarefas no nó a ser excluído, liberando assim o espaço. Depois de liberar espaço suficiente, reinicialize o nó e ele deverá sair do estado "inutilizável" e para "ocioso" novamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

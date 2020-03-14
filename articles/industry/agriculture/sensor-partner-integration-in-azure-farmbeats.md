@@ -5,27 +5,27 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 48a2ed5e4774ac07b4b8fa72a5ee0be86811cfb2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132824"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298726"
 ---
 # <a name="sensor-partner-integration"></a>Integração com parceiros de sensor
 
 Este artigo fornece informações sobre o componente Azure FarmBeats **Translator** , que habilita a integração de parceiros de sensor.
 
-Usando esse componente, os parceiros podem se integrar com o FarmBeats usando APIs de Hub de dados do FarmBeats e enviar dados de dispositivo do cliente e telemetria para o Hub de dados do FarmBeats. Depois que os dados estiverem disponíveis no FarmBeats, eles serão visualizados usando o acelerador FarmBeats e poderão ser usados para a fusão de dados e para a criação de modelos de inteligência artificial/aprendizado de máquina.
+Usando esse componente, os parceiros podem se integrar ao FarmBeats usando as APIs Datahub do FarmBeats e enviar dados e telemetria do dispositivo do cliente para FarmBeats Datahub. Depois que os dados estiverem disponíveis no FarmBeats, eles serão visualizados usando o acelerador FarmBeats e poderão ser usados para a fusão de dados e para a criação de modelos de inteligência artificial/aprendizado de máquina.
 
 ## <a name="before-you-start"></a>Antes de começar
 
 Para desenvolver o componente do tradutor, você precisará das seguintes credenciais que permitirão o acesso às APIs do FarmBeats.
 
 - Ponto de extremidade de API
-- ID do inquilino
-- ID do cliente
-- Segredo do Cliente
+- ID do locatário
+- ID do Cliente
+- Segredo do cliente
 - Cadeia de conexão do EventHub
 
 Consulte esta seção para obter as credenciais acima: [habilitar a integração do dispositivo](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
@@ -50,10 +50,10 @@ O FarmBeats usa a autenticação Microsoft Azure Active Directory. O serviço 
 
 Para obter mais informações, consulte [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais:
-   - ID do cliente
+FarmBeats Datahub usa a autenticação de portador, que precisa das seguintes credenciais:
+   - ID do Cliente
    - Segredo do cliente
-   - ID do inquilino
+   - ID do locatário
 
 Usando essas credenciais, o chamador pode solicitar um token de acesso. O token precisa ser enviado nas solicitações de API subsequentes, na seção de cabeçalho, da seguinte maneira:
 
@@ -85,14 +85,14 @@ access_token = token_response.get('accessToken') 
 
 **Cabeçalhos de solicitação HTTP**
 
-Aqui estão os cabeçalhos de solicitação mais comuns que precisam ser especificados quando você faz uma chamada à API para o Hub de dados FarmBeats.
+Aqui estão os cabeçalhos de solicitação mais comuns que precisam ser especificados quando você faz uma chamada à API para FarmBeats Datahub.
 
 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
-Content-Type | O formato da solicitação (Content-Type: Application/<format>). Para APIs de Hub de dados FarmBeats, o formato é JSON. Content-Type: application/json
+Tipo de conteúdo | O formato da solicitação (Content-Type: Application/<format>). Para APIs FarmBeats Datahub, o formato é JSON. Content-Type: application/json
 Autorização | Especifica o token de acesso necessário para fazer uma chamada à API. Autorização: portador de acesso < token >
-Aceitar | O formato da resposta. Para APIs de Hub de dados FarmBeats, o formato é JSON. Aceitar: aplicativo/JSON
+Aceitar | O formato da resposta. Para APIs FarmBeats Datahub, o formato é JSON. Aceitar: aplicativo/JSON
 
 **Solicitações de API**
 
@@ -119,7 +119,7 @@ JSON é um formato de dados comum independente de linguagem que fornece uma repr
 
 ## <a name="metadata-specifications"></a>Especificações de metadados
 
-O FarmBeats data Hub tem as seguintes APIs que permitem que os parceiros de dispositivo criem e gerenciem metadados de dispositivo ou sensor.
+FarmBeats Datahub tem as seguintes APIs que permitem que os parceiros de dispositivo criem e gerenciem metadados de dispositivo ou sensor.
 
 - /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é o gateway ou o nó.
 - **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm.
@@ -132,18 +132,18 @@ O FarmBeats data Hub tem as seguintes APIs que permitem que os parceiros de disp
   Fabricante  | Nome do fabricante |
   ProductCode  | Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor # 6800. |
   Portas  | Nome da porta e tipo, que é digital ou analógica.  |
-  {1&gt;Nome&lt;1}  | Nome para identificar o recurso. Por exemplo, nome do modelo ou nome do produto. |
-  Descrição  | Forneça uma descrição significativa do modelo. |
-  {1&gt;Propriedades&lt;1}  | Propriedades adicionais do fabricante. |
+  Nome  | Nome para identificar o recurso. Por exemplo, nome do modelo ou nome do produto. |
+  DESCRIÇÃO  | Forneça uma descrição significativa do modelo. |
+  Propriedades  | Propriedades adicionais do fabricante. |
   **Dispositivo** |  |
   DeviceModelId  |ID do modelo de dispositivo associado. |
   HardwareID   |ID exclusiva para o dispositivo, como um endereço MAC.  |
   ReportingInterval |Intervalo de relatórios em segundos. |
-  Local    |Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros). |
+  Location    |Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros). |
   ParentDeviceId | ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, se um nó estiver conectado a um gateway, o nó terá parentDeviceID como o gateway. |
-  {1&gt;Nome&lt;1}  | Nome para identificar o recurso. Os parceiros de dispositivo precisam enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo usuário no lado do parceiro do dispositivo, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.  |
-  Descrição  | Forneça uma descrição significativa.  |
-  {1&gt;Propriedades&lt;1}  |Propriedades adicionais do fabricante.  |
+  Nome  | Nome para identificar o recurso. Os parceiros de dispositivo precisam enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo usuário no lado do parceiro do dispositivo, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.  |
+  DESCRIÇÃO  | Forneça uma descrição significativa.  |
+  Propriedades  |Propriedades adicionais do fabricante.  |
   **SensorModel** |  |
   Tipo (analógico, digital)  |Mencione o sensor analógico ou digital.|
   Fabricante  | Nome do fabricante. |
@@ -155,18 +155,18 @@ O FarmBeats data Hub tem as seguintes APIs que permitem que os parceiros de disp
   Agregatype de > SensorMeasures  | Nenhum, médio, máximo, mínimo ou i.
   Profundidade de > de SensorMeasures  | A profundidade do sensor em centímetros. Por exemplo, a medida de umidade de 10 cm sob a base.
   Descrição de > SensorMeasures  | Forneça uma descrição significativa da medida.
-  {1&gt;Nome&lt;1}  | Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
-  Descrição  | Forneça uma descrição significativa do modelo.
-  {1&gt;Propriedades&lt;1}  | Propriedades adicionais do fabricante.
+  Nome  | Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
+  DESCRIÇÃO  | Forneça uma descrição significativa do modelo.
+  Propriedades  | Propriedades adicionais do fabricante.
   **Sensores**  |  |
   HardwareID  | ID exclusiva do sensor definido pelo fabricante.
   SensorModelId  | ID do modelo de sensor associado.
-  Local  | Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).
+  Location  | Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).
   Nome da > de porta  |Nome e tipo da porta à qual o sensor está conectado no dispositivo. Deve ser o mesmo nome definido no modelo do dispositivo.
   deviceId  | ID do dispositivo ao qual o sensor está conectado.
-  {1&gt;Nome&lt;1}  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou o nome do produto e o número do modelo ou o código do produto.
-  Descrição  | Forneça uma descrição significativa.
-  {1&gt;Propriedades&lt;1}  | Propriedades adicionais do fabricante.
+  Nome  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou o nome do produto e o número do modelo ou o código do produto.
+  DESCRIÇÃO  | Forneça uma descrição significativa.
+  Propriedades  | Propriedades adicionais do fabricante.
 
  Para obter informações sobre cada um dos objetos e suas propriedades, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -230,11 +230,11 @@ O formato de mensagem canônica é o seguinte:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -293,8 +293,8 @@ Depois que os clientes compraram e implantaram dispositivos ou sensores, eles po
 
    - Nome de exibição (um campo opcional para os usuários definirem um nome para essa integração)
    - Ponto de extremidade de API
-   - ID do inquilino
-   - ID do cliente
+   - ID do locatário
+   - ID do Cliente
    - Segredo do cliente
    - Cadeia de conexão do EventHub
    - Data de início
@@ -304,7 +304,7 @@ Depois que os clientes compraram e implantaram dispositivos ou sensores, eles po
 
 ## <a name="unlink-farmbeats"></a>Desvincular FarmBeats
 
-Os parceiros de dispositivo podem permitir que os clientes desvinculem uma integração existente do FarmBeats. A desvinculação de FarmBeats não deve excluir nenhum metadado de dispositivo ou sensor criado no Hub de dados FarmBeats. A desvinculação faz o seguinte:
+Os parceiros de dispositivo podem permitir que os clientes desvinculem uma integração existente do FarmBeats. A desvinculação de FarmBeats não deve excluir nenhum metadado de dispositivo ou sensor criado no FarmBeats Datahub. A desvinculação faz o seguinte:
 
    - Interrompe o fluxo de telemetria.
    - Exclui e apaga as credenciais de integração no parceiro do dispositivo.
@@ -343,6 +343,6 @@ Fabricantes de dispositivos ou parceiros podem usar a seguinte lista de verifica
    - Verifique se uma chamada à API é realizada com êxito com o token de acesso recebido.
    - Verifique se a conexão do cliente EventHub foi estabelecida.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre a API REST, consulte [REST API](rest-api-in-azure-farmbeats.md).

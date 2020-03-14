@@ -2,13 +2,13 @@
 title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.openlocfilehash: 64c1d3c6f30a4f817abbea5001852df3eeeb9327
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.date: 03/12/2020
+ms.openlocfilehash: f419cc766b7886297ae5d63e6b2ff01cf6e95181
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109359"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297638"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -26,10 +26,12 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
 | Microsoft.ApiManagement | [Gerenciamento de API](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | core |
+| Microsoft. AppPlatform | [Nuvem do Azure Spring](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Attestation | Serviço de atestado do Azure |
 | Microsoft.Authorization | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automação](../../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
+| Microsoft. AzureData | Registro de SQL Server |
 | Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.Billing | [Gerenciamento de custos e cobrança](/azure/billing/) |
@@ -59,12 +61,12 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft. CustomerLockbox | Sistema de Proteção de Dados do Cliente para Microsoft Azure |
 | Microsoft.CustomProviders | [Provedores personalizados do Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
-| Microsoft.DataBoxEdge | [Borda da caixa de dados do Azure](../../databox-online/data-box-edge-overview.md) |
+| Microsoft.DataBoxEdge | [Borda do Azure Stack](../../databox-online/data-box-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Catálogo de dados](/azure/data-catalog/) |
 | Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |
 | Microsoft.DataLakeAnalytics | [Data Lake Analytics](/azure/data-lake-analytics/) |
-| Microsoft.DataLakeStore | [Azure Data Lake Store](../../storage/blobs/data-lake-storage-introduction.md) |
+| Microsoft.DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft.DataMigration | [Serviço de migração de banco de dados do Azure](/azure/dms/) |
 | Microsoft. DataShare | [Compartilhamento de dados do Azure](/azure/data-share/) |
 | Microsoft.DBforMariaDB | [Banco de dados do Azure para MariaDB](/azure/mariadb/) |
@@ -72,19 +74,19 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.DBforPostgreSQL | [Banco de dados do Azure para PostgreSQL](/azure/postgresql/) |
 | Microsoft. DesktopVirtualization | [Área de trabalho virtual do Windows](/azure/virtual-desktop/) |
 | Microsoft.DeploymentManager | [Deployment Manager do Azure](../templates/deployment-manager-overview.md) |
-| Microsoft.Devices | [Hub IoT](/azure/iot-hub/)<br />[Serviço de Provisionamento de Dispositivos no Hub IoT](/azure/iot-dps/) |
+| Microsoft.Devices | [Hub IoT do Azure](/azure/iot-hub/)<br />[Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps/) |
 | Microsoft. DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
+| Microsoft. DigitalTwins | [Gêmeos Digitais do Azure](../../digital-twins/about-digital-twins.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [Serviço de aplicativo](/azure/app-service/) |
 | Microsoft.EnterpriseKnowledgeGraph | Grafo de conhecimento corporativo |
 | Microsoft.EventGrid | [Grade de eventos](/azure/event-grid/) |
 | Microsoft.EventHub | [Hubs de Evento](../../event-hubs/index.yml) |
 | Microsoft.Features | [Azure Resource Manager](../index.yml) |
-| Microsoft.Genomics | [Microsoft Genomics](/azure/genomics/) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.HanaOnAzure | [SAP HANA no Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
+| Microsoft.HanaOnAzure | [SAP HANA em Instâncias Grandes do Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [HSM Dedicado do Azure](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
@@ -92,14 +94,16 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.HybridData | [StorSimple](/azure/storsimple/) |
 | Microsoft.ImportExport | [Importação/exportação do Azure](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.IoTCentral | [IoT Central](/azure/iot-central/) |
+| Microsoft.IoTCentral | [IoT Central do Azure](/azure/iot-central/) |
 | Microsoft.IoTSpaces | [Gêmeos digital do Azure](../../digital-twins/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
+| Microsoft. kubernetes | [AKS (Serviço de Kubernetes do Azure)](/azure/aks/) |
 | Microsoft.Kusto | [Data Explorer do Azure](../../data-explorer/index.yml) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Aplicativos Lógicos](../../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningServices | [Serviço de Machine Learning](../../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
+| Microsoft. Maintenance | [Manutenção do Azure](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft.ManagedIdentity | [Identidades gerenciadas para os recursos do Azure](../../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft. Managedservices | [Azure Lighthouse](/azure/lighthouse/) |
 | Microsoft.Management | [Grupos de Gerenciamento](/azure/governance/management-groups/) |
@@ -116,45 +120,47 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.OffAzure | [Migrações para Azure](../../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.Peering | Serviço de emparelhamento Microsoft Azure |
+| Microsoft.Peering | [Serviço de emparelhamento do Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.Portal | [Azure portal](/azure/azure-portal/) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
-| Microsoft.RecoveryServices | [Recuperação de Site](../../site-recovery/index.yml) |
+| Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
+| Microsoft. RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 | Microsoft.Relay | [Retransmissão do Azure](../../service-bus-relay/relay-what-is-it.md) |
 | Microsoft.ResourceGraph | [Grafo de recursos do Azure](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | [Integridade do Serviço do Azure](../../service-health/index.yml)|
 | Microsoft.Resources | [Azure Resource Manager](../index.yml) |
 | Microsoft.SaaS | core |
 | Microsoft.Scheduler | [Agendador](/azure/scheduler/) |
-| Microsoft.Search | [Azure Search](../../search/index.yml) |
+| Microsoft.Search | [Pesquisa Cognitiva do Azure](../../search/index.yml) |
 | Microsoft.Security | [Central de segurança](../../security-center/index.yml) |
 | Microsoft. SecurityInsights | [Sentinela do Azure](/azure/sentinel/) |
-| Microsoft. SerialConsole | [Console serial do Azure](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft. SerialConsole | [Console serial do Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Barramento de Serviço](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Malha do Service Fabric](../../service-fabric-mesh/index.yml) |
 | Microsoft.SignalRService | [Serviço Azure SignalR](../../azure-signalr/index.yml) |
-| Microsoft.SiteRecovery | [Recuperação de Site](../../site-recovery/index.yml) |
+| Microsoft. SoftwarePlan | Licença |
 | Microsoft.Solutions | [Aplicativos gerenciados do Azure](../managed-applications/index.yml) |
-| Microsoft.Sql | [Banco de Dados SQL do Azure](../../sql-database/index.yml)<br />[SQL Data Warehouse](/azure/sql-data-warehouse/) |
+| Microsoft.Sql | [Banco de Dados SQL do Azure](../../sql-database/index.yml)<br />[Análise de Synapse do Azure](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server nas Máquinas Virtuais do Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageCache | [Cache do HPC do Azure](/azure/hpc-cache/) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
-| Microsoft.StreamAnalytics | [Stream Analytics](../../stream-analytics/index.yml) |
+| Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
 | microsoft.support | core |
-| Microsoft.TimeSeriesInsights | [Time Series Insights](../../time-series-insights/index.yml) |
+| Microsoft. Synapse | [Análise de Synapse do Azure](/azure/sql-data-warehouse/) |
+| Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.VirtualMachineImages | [Construtor de imagens do Azure](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [DevOps do Azure](/azure/devops/?view=azure-devops) |
 | Microsoft.VMwareCloudSimple | [Solução do Azure VMware por CloudSimple](/azure/vmware-cloudsimple/) |
-| Microsoft.Web | [Serviço de Aplicativo](../../app-service/index.yml)<br />[Funções](../../azure-functions/index.yml) |
+| Microsoft.Web | [Serviço de Aplicativo](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft.WindowsIoT | [Serviços do Windows 10 IoT Core](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre provedores de recursos, consulte [tipos e provedores de recursos do Azure](resource-providers-and-types.md)

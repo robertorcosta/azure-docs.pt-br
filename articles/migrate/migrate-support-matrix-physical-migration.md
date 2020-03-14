@@ -4,18 +4,18 @@ description: Saiba mais sobre o suporte para migração de servidor físico nas 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030231"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269543"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidor físico
 
 Este artigo resume as configurações de suporte e as limitações para a migração de servidores físicos com o [migrações para Azure: migração de servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) . Se você estiver procurando informações sobre como avaliar servidores físicos para migração para o Azure, examine a [matriz de suporte de avaliação](migrate-support-matrix-physical.md).
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Você pode migrar computadores locais como servidores físicos, usando a replicação baseada em agente. Usando essa ferramenta, você pode migrar uma ampla variedade de computadores para o Azure:
 
@@ -26,7 +26,7 @@ Você pode migrar computadores locais como servidores físicos, usando a replica
 - VMs em execução em nuvens públicas, como Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
 
-## <a name="migration-limitations"></a>Limitações da migração
+## <a name="migration-limitations"></a>Limitações de migração
 
 Você pode selecionar até 10 máquinas de uma só vez para a replicação. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10.
 
@@ -54,13 +54,13 @@ A tabela resume o suporte para servidores físicos que você deseja migrar usand
 **NFS** | Volumes NFS montados como volumes nos computadores não serão replicados.
 **destinos iSCSI** | Não há suporte para computadores com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Com suporte
+**VMotion de armazenamento** | Suportado
 **NICs agrupadas** | Sem suporte.
-**IPv6** | Sem suporte.
+**Protocolo** | Sem suporte.
 
 
 
-## <a name="replication-appliance-requirements"></a>Requisitos do dispositivo de replicação
+## <a name="replication-appliance-requirements"></a>Requisitos de dispositivo para replicação
 
 Se você configurar o dispositivo de replicação manualmente em um servidor físico, verifique se ele está em conformidade com os requisitos resumidos na tabela. Quando você configura o dispositivo de replicação de migrações para Azure como uma VM VMware usando o modelo OVA fornecido no Hub migrações para Azure, o dispositivo é configurado com o Windows Server 2016 e está em conformidade com os requisitos de suporte. 
 
@@ -89,6 +89,6 @@ Conectar após a migração-Windows | Para se conectar às VMs do Azure que exec
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Migrar](tutorial-migrate-physical-virtual-machines.md) servidores físicos.

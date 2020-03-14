@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/29/2020
-ms.openlocfilehash: 091ca4d632d89405d85c66e264aff9867979fcd4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 03/13/2020
+ms.openlocfilehash: b83828c3c78913598c103730e11222969fe1fddb
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905238"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370161"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -49,7 +49,7 @@ Nenhuma alteração de comportamento para esta versão. Para se preparar para as
 As seguintes alterações ocorrerão em versões futuras. 
 
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>Uma VM de 4 núcleos mínima é necessária para o nó de cabeçalho 
-Uma VM de 4 núcleos mínima é necessária para o nó de cabeçalho para garantir a alta disponibilidade e a confiabilidade dos clusters HDInsight. A partir de 6 de abril de 2020, os clientes podem escolher apenas 4 núcleos ou acima da VM como nó principal para os novos clusters HDInsight. Os clusters existentes continuarão sendo executados conforme o esperado. 
+Uma VM de 4 núcleos mínima é necessária para o nó de cabeçalho para garantir a alta disponibilidade e a confiabilidade dos clusters HDInsight. A partir de 6 de abril de 2020, os clientes podem escolher apenas 4 núcleos ou acima da VM como nó principal para os novos clusters HDInsight. Os clusters existentes continuarão a ser executados conforme o esperado. 
 
 ### <a name="esp-spark-cluster-node-size-change"></a>Alteração do tamanho do nó do cluster do Spark do ESP 
 Na próxima versão, o tamanho mínimo de nó permitido para o cluster do Spark do ESP será alterado para Standard_D13_V2. As VMs da série a podem causar problemas de cluster ESP devido à capacidade relativamente baixa de CPU e memória. As VMs da série A serão preteridas para a criação de novos clusters ESP.
@@ -65,38 +65,3 @@ O HDInsight continua a tornar as melhorias de desempenho e confiabilidade do clu
 
 ## <a name="component-version-change"></a>Alteração de versão do componente
 Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para o HDInsight 4,0 Ad HDInsight 3,6 aqui.
-
-## <a name="known-issues"></a>Problemas conhecidos
-
-A partir de 29 de janeiro de 2020, há um problema ativo no qual você pode receber um erro ao tentar usar um notebook Jupyter. Use as etapas abaixo para corrigir o problema. Você também pode consultar esta [postagem do MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) ou esta [postagem do StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) para obter informações atualizadas ou para fazer perguntas adicionais. Esta página será atualizada quando o problema for corrigido.
-
-**Erros**
-
-* ValueError: não é possível converter o bloco de anotações em V5 porque essa versão não existe
-* Erro ao carregar o bloco de anotações ocorreu um erro desconhecido ao carregar este bloco de anotações. Esta versão pode carregar formatos de bloco de anotações v4 ou anterior
-
-**Causa** 
-
-O arquivo _version. py no cluster foi atualizado para 5. x, em vez de 4.4. x. # # ou Ambari precisa ser reiniciado.
-
-**Solução**
-
-Se você criar um novo notebook Jupyter e receber um dos erros listados acima, execute as etapas a seguir para corrigir o problema.
-
-1. Abra o Ambari em um navegador da Web acessando `https://CLUSTERNAME.azurehdinsight.net`, em que CLUSTERname é o nome do cluster.
-1. No Ambari, no menu à esquerda, clique em **Jupyter**e, em seguida, em **ações de serviço**, clique em **parar**.
-1. SSH no cluster cabeçalho onde o serviço Jupyter está em execução.
-1. Abra o seguinte arquivo/usr/bin/Anaconda/lib/python2.7/site-Packages/nbformat/_version. py no modo sudo.
-1. Verifique o valor de version_info.
-1. Se o valor de version_info for definido como: 
-
-    version_info = (5, 0, 3)
-
-    Em seguida, modifique a entrada para: 
-    
-    version_info = (4, 4, 0)
-
-    E salve o arquivo. 
-
-    Se version_info já estiver definido como (4, 4, 0), prossiga para a próxima etapa, já que apenas Ambari precisa ser reiniciado, nenhuma alteração adicional é necessária.
-1. Volte para Ambari e, em **ações de serviço**, clique em **reiniciar tudo**.

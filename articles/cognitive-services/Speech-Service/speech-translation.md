@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f2f0b277fb9dc6270e9015b5bf3205cc8aceaa0a
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815466"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371232"
 ---
 # <a name="what-is-speech-translation"></a>O que é tradução de fala?
 
@@ -29,23 +29,23 @@ Hoje, a Microsoft usa o NMT para tradução para as linguagens mais populares. T
 
 Aqui estão os recursos disponíveis por meio do SDK de fala e APIs REST:
 
-| Caso de uso | SDK | REST |
+| Caso de uso | . | REST |
 |----------|-----|------|
-| Tradução de conversão de fala em texto com resultados de reconhecimento. | SIM | Não |
-| Conversão de fala em fala. | SIM | Não |
-| Resultados de tradução e de reconhecimento provisórios. | SIM | Não |
+| Tradução de conversão de fala em texto com resultados de reconhecimento. | Sim | Não |
+| Conversão de fala em fala. | Sim | Não |
+| Resultados de tradução e de reconhecimento provisórios. | Sim | Não |
 
 ## <a name="get-started-with-speech-translation"></a>Introdução à tradução de fala
 
 Oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido de tradução de fala organizados por idioma.
 
-| Início Rápido | Plataforma | Referência da API |
+| Guia de Início Rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C#.NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Procurar](https://aka.ms/csspeech/cppref)|
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -59,7 +59,7 @@ Se seus aplicativos, ferramentas ou produtos estiverem usando o [API de traduç�
 
 * [Migrar do API de Tradução de Fala para o serviço de fala](how-to-migrate-from-translator-speech-api.md)
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Documentos de Referência
 
 * [SDK da fala](speech-sdk-reference.md)
 * [SDK de Dispositivos de Fala](speech-devices-sdk.md)
@@ -67,7 +67,7 @@ Se seus aplicativos, ferramentas ou produtos estiverem usando o [API de traduç�
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)
 * [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)

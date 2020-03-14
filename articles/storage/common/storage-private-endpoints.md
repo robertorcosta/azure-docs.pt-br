@@ -1,32 +1,35 @@
 ---
-title: Usando pontos de extremidade privados com o armazenamento do Azure | Microsoft Docs
+title: Usar pontos de extremidade privados
+titleSuffix: Azure Storage
 description: Visão geral de pontos de extremidade privados para acesso seguro a contas de armazenamento de redes virtuais.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252657"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299049"
 ---
-# <a name="using-private-endpoints-for-azure-storage-preview"></a>Usando pontos de extremidade privados para o armazenamento do Azure (visualização)
+# <a name="use-private-endpoints-for-azure-storage"></a>Usar pontos de extremidade privados para o armazenamento do Azure
 
 Você pode usar [pontos de extremidade privados](../../private-link/private-endpoint-overview.md) para suas contas de armazenamento do Azure para permitir que clientes em uma rede virtual (VNet) acessem dados com segurança por meio de um [link privado](../../private-link/private-link-overview.md). O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu serviço de conta de armazenamento. O tráfego de rede entre os clientes na VNet e a conta de armazenamento atravessa a VNet e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública.
 
 O uso de pontos de extremidade privados para sua conta de armazenamento permite que você:
+
 - Proteja sua conta de armazenamento Configurando o firewall de armazenamento para bloquear todas as conexões no ponto de extremidade público para o serviço de armazenamento.
 - Aumente a segurança para a VNet (rede virtual), permitindo que você bloqueie vazamento de dados da VNet.
 - Conecte-se com segurança a contas de armazenamento de redes locais que se conectam à VNet usando [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [expressroute ao qual](../../expressroute/expressroute-locations.md) com emparelhamento privado.
 
 ## <a name="conceptual-overview"></a>Visão geral conceitual
-![Visão geral dos pontos de extremidade privados para o armazenamento do Azure](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
+
+![Visão geral de pontos de extremidade privados para o armazenamento do Azure](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
 Um ponto de extremidade privado é uma interface de rede especial para um serviço do Azure em sua [rede virtual](../../virtual-network/virtual-networks-overview.md) (VNet). Quando você cria um ponto de extremidade privado para sua conta de armazenamento, ele fornece conectividade segura entre clientes em sua VNet e seu armazenamento. O ponto de extremidade privado recebe um endereço IP do intervalo de endereços IP de sua VNet. A conexão entre o ponto de extremidade privado e o serviço de armazenamento usa um link privado seguro.
 
@@ -43,7 +46,7 @@ Os proprietários da conta de armazenamento podem gerenciar solicitações de co
 
 Você pode proteger sua conta de armazenamento para aceitar somente conexões de sua VNet, [Configurando o firewall de armazenamento](storage-network-security.md#change-the-default-network-access-rule) para negar o acesso por meio de seu ponto de extremidade público por padrão. Você não precisa de uma regra de firewall para permitir o tráfego de uma VNet que tem um ponto de extremidade privado, já que o firewall de armazenamento controla apenas o acesso por meio do ponto de extremidade público. Em vez disso, pontos de extremidade privados dependem do fluxo de autorização para conceder acesso de sub-redes ao serviço de armazenamento.
 
-### <a name="private-endpoints-for-storage-service"></a>Pontos de extremidade privados para o serviço de armazenamento
+### <a name="private-endpoints-for-azure-storage"></a>Pontos de extremidade privados para o armazenamento do Azure
 
 Ao criar o ponto de extremidade privado, você deve especificar a conta de armazenamento e o serviço de armazenamento ao qual ele se conecta. Você precisa de um ponto de extremidade privado separado para cada serviço de armazenamento em uma conta de armazenamento que você precisa acessar, ou seja, [BLOBs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [arquivos](../files/storage-files-introduction.md), [filas](../queues/storage-queues-introduction.md), [tabelas](../tables/table-storage-overview.md)ou [sites estáticos](../blobs/storage-blob-static-website.md).
 
@@ -51,8 +54,6 @@ Ao criar o ponto de extremidade privado, você deve especificar a conta de armaz
 > Crie um ponto de extremidade privado separado para a instância secundária do serviço de armazenamento para melhor desempenho de leitura em contas RA-GRS.
 
 Para acesso de leitura à região secundária com uma conta de armazenamento configurada para armazenamento com redundância geográfica, você precisa de pontos de extremidade privados separados para as instâncias primária e secundária do serviço. Você não precisa criar um ponto de extremidade privado para a instância secundária para **failover**. O ponto de extremidade privado se conectará automaticamente à nova instância primária após o failover. Para obter mais informações sobre opções de redundância de armazenamento, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
-
-#### <a name="resources"></a>Recursos
 
 Para obter informações mais detalhadas sobre como criar um ponto de extremidade privado para sua conta de armazenamento, consulte os seguintes artigos:
 
@@ -111,8 +112,6 @@ Os nomes de zona DNS recomendados para pontos de extremidade privados para servi
 | Serviço tabela          | `privatelink.table.core.windows.net` |
 | Sites estáticos        | `privatelink.web.core.windows.net`   |
 
-#### <a name="resources"></a>Recursos
-
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 
 - [Resolução de nomes para recursos em redes virtuais do Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
@@ -124,16 +123,23 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https:/
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
+Tenha em mente os seguintes problemas conhecidos sobre pontos de extremidade privados para o armazenamento do Azure.
+
 ### <a name="copy-blob-support"></a>Copiar suporte de BLOB
 
-Durante a versão prévia, não há suporte para comandos [Copy blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) emitidos para contas de armazenamento acessadas por meio de pontos de extremidade privados quando a conta de armazenamento de origem é protegida por um firewall.
+Se a conta de armazenamento estiver protegida por um firewall e a conta for acessada por meio de pontos de extremidade privados, essa conta não poderá servir como a origem de uma operação de [cópia de blob](/rest/api/storageservices/copy-blob) .
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Restrições de acesso de armazenamento para clientes no VNets com pontos de extremidade privados
 
-Os clientes no VNets com pontos de extremidade privados existentes enfrentam restrições ao acessar outras contas de armazenamento que têm pontos de extremidade privados. Por exemplo, suponha que uma VNet N1 tenha um ponto de extremidade privado para uma conta de armazenamento a1 para, digamos, o serviço BLOB. Se a conta de armazenamento a2 tiver um ponto de extremidade privado em um N2 de VNet para o serviço BLOB, os clientes na VNet N1 também deverão acessar o serviço BLOB da conta a2 usando um ponto de extremidade privado. Se a conta de armazenamento a2 não tiver nenhum ponto de extremidade privado para o serviço BLOB, os clientes na VNet N1 poderão acessar seu serviço blob sem um ponto de extremidade privado.
+Os clientes no VNets com pontos de extremidade privados existentes enfrentam restrições ao acessar outras contas de armazenamento que têm pontos de extremidade privados. Por exemplo, suponha que uma VNet N1 tenha um ponto de extremidade privado para uma conta de armazenamento a1 para o armazenamento de BLOBs. Se a conta de armazenamento a2 tiver um ponto de extremidade privado em um N2 de VNet para o armazenamento de BLOBs, os clientes na VNet N1 também deverão acessar o armazenamento de blob na conta a2 usando um ponto de extremidade privado. Se a conta de armazenamento a2 não tiver nenhum ponto de extremidade privado para o armazenamento de BLOBs, os clientes na VNet N1 poderão acessar o armazenamento de BLOBs nessa conta sem um ponto de extremidade privado.
 
 Essa restrição é um resultado das alterações de DNS feitas quando a conta a2 cria um ponto de extremidade privado.
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede para sub-redes com pontos de extremidade privados
 
 No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../../virtual-network/security-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado são aplicadas ao ponto de extremidade privado. Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure](storage-network-security.md)
+- [Recomendações de segurança para o armazenamento de BLOBs](../blobs/security-recommendations.md)

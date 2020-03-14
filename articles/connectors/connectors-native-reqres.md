@@ -1,20 +1,20 @@
 ---
-title: Receber e responder a chamadas HTTPS
-description: Manipular solicitações e eventos HTTPS em tempo real usando aplicativos lógicos do Azure
+title: Receber e responder a chamadas usando HTTPS
+description: Manipular solicitações HTTPS de entrada de serviços externos usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247274"
+ms.locfileid: "79297281"
 ---
-# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure
+# <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos aplicativos lógicos do Azure
 
 Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a ação de resposta ou gatilho de solicitação interna, você pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem a solicitações HTTPS de entrada. Por exemplo, você pode ter seu aplicativo lógico:
 
@@ -202,6 +202,19 @@ Veja mais informações sobre as saídas do gatilho de solicitação:
 Você pode usar a ação de resposta para responder com uma carga (dados) a uma solicitação HTTPS de entrada, mas somente em um aplicativo lógico que é disparado por uma solicitação HTTPS. Você pode adicionar a ação de resposta em qualquer ponto do fluxo de trabalho. Para obter mais informações sobre a definição de JSON subjacente para esse gatilho, consulte o [tipo de ação de resposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` ao chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente uma resposta de `202 ACCEPTED` para o chamador.
+
+> [!IMPORTANT]
+> Se uma ação de resposta incluir esses cabeçalhos, os aplicativos lógicos removerão esses cabeçalhos da mensagem de resposta gerada sem mostrar nenhum aviso ou erro:
+>
+> * `Allow`
+> * `Content-*` com essas exceções: `Content-Disposition`, `Content-Encoding`e `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Embora os aplicativos lógicos não parem de salvar os aplicativos lógicos que têm uma ação de resposta com esses cabeçalhos, os aplicativos lógicos ignoram esses cabeçalhos.
 
 1. No designer do aplicativo lógico, na etapa em que você deseja adicionar uma ação de resposta, selecione **nova etapa**.
 

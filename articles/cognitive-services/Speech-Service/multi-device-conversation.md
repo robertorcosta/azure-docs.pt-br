@@ -1,5 +1,5 @@
 ---
-title: Sobre a conversa com vários dispositivos (visualização) – serviço de fala
+title: Conversa de vários dispositivos (visualização)-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560806"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371351"
 ---
-# <a name="about-multi-device-conversation-preview"></a>Sobre a conversa com vários dispositivos (visualização)
+# <a name="what-is-multi-device-conversation-preview"></a>O que é conversa com vários dispositivos (versão prévia)?
 
 A **conversa de vários dispositivos** facilita a criação de uma conversa de fala ou de texto entre vários clientes e coordena as mensagens enviadas entre eles.
 
@@ -75,8 +75,8 @@ Cada cliente pode enviar áudio ou mensagens instantâneas. O serviço usará o 
 Uma **conversa** é uma sessão que um usuário inicia para os outros usuários participantes ingressarem. Todos os clientes se conectam à conversa usando o **código de conversa**de cinco letras.
 
 Cada conversa cria metadados que incluem:
--   Carimbos de data/hora de quando a conversa foi iniciada e encerrada
--   Lista de todos os participantes na conversa, que inclui o apelido escolhido de cada usuário e o idioma principal para a entrada de texto ou de fala.
+-    Carimbos de data/hora de quando a conversa foi iniciada e encerrada
+-    Lista de todos os participantes na conversa, que inclui o apelido escolhido de cada usuário e o idioma principal para a entrada de texto ou de fala.
 
 
 Há dois tipos de usuários em uma conversa: **host** e **participante**.

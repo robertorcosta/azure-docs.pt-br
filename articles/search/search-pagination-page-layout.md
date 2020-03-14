@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e83ecb3888ed4b19933233f3ab511d1e86fb37af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721567"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136983"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva
 Este artigo fornece orientação sobre como implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação. As opções relacionadas à página que contribuem com dados ou informações para os resultados da pesquisa são especificadas por meio das solicitações de [documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao serviço de pesquisa cognitiva do Azure. 
@@ -25,7 +25,7 @@ Para gerar rapidamente uma página de pesquisa para seu cliente, explore estas o
 + Use o [gerador de aplicativos](search-create-app-portal.md) no portal para criar uma página HTML com uma barra de pesquisa, navegação facetada e área de resultados.
 + Siga o tutorial [criar seu primeiro aplicativo C# em](tutorial-csharp-create-first-app.md) para criar um cliente funcional.
 
-Vários exemplos de código incluem uma interface de front-end da Web, que pode ser encontrada aqui: [aplicativo de demonstração de trabalhos de cidade de Nova York](https://azjobsdemo.azurewebsites.net/), [código de exemplo de JavaScript com um site de demonstração ao vivo](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Vários exemplos de código incluem uma interface de front-end da Web, que pode ser encontrada aqui: [aplicativo de demonstração de trabalhos de cidade de Nova York](https://aka.ms/azjobsdemo), [código de exemplo de JavaScript com um site de demonstração ao vivo](https://github.com/liamca/azure-search-javascript-samples)e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Para obter mais informações sobre a sintaxe de solicitação, consulte [APIs REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice).
@@ -53,7 +53,7 @@ A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica 
 
     GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>{1&gt;Layout&lt;1}
+## <a name="layout"></a>Layout
 
 Talvez você queira mostrar em uma página de resultados da pesquisa uma imagem em miniatura, um subconjunto dos campos e um link para uma página completa sobre um produto.
 

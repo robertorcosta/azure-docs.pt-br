@@ -3,17 +3,17 @@ title: Carregar um VHD no Azure usando o Azure PowerShell
 description: Saiba como carregar um VHD em um disco gerenciado do Azure e copiar um disco gerenciado entre regiões, usando Azure PowerShell, por meio do carregamento direto.
 author: roygara
 ms.author: rogarana
-ms.date: 05/06/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 883fea1e25ded26c35e96d11edd8f417e96db30e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459992"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369549"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Carregar um VHD no Azure usando o Azure PowerShell
 
@@ -23,11 +23,11 @@ Se você estiver fornecendo uma solução de backup para VMs IaaS no Azure, reco
 
 Atualmente, o carregamento direto tem suporte para discos gerenciados HDD padrão, SSD Standard e SSD Premium. Ainda não há suporte para o ultra SSDs.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Baixe a versão mais recente [do AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
-- Se você pretende carregar um VHD do local: um VHD que foi [preparado para o Azure](prepare-for-upload-vhd-image.md), armazenado localmente.
+- Se você pretende carregar um VHD do local: um VHD de tamanho fixo que foi [preparado para o Azure](prepare-for-upload-vhd-image.md), armazenado localmente.
 - Ou, um disco gerenciado no Azure, se você pretende executar uma ação de cópia.
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
@@ -77,8 +77,6 @@ Esse carregamento tem a mesma taxa de transferência que o [HDD padrão](disks-t
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
-Se sua SAS expirar durante o carregamento e você ainda não tiver chamado `revoke-access`, poderá obter uma nova SAS para continuar o carregamento usando `grant-access`, novamente.
-
 Depois que o upload for concluído e você não precisar mais gravar mais dados no disco, revogue a SAS. A revogação da SAS alterará o estado do disco gerenciado e permitirá que você anexe o disco a uma VM.
 
 ```powershell
@@ -124,7 +122,7 @@ Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você carregou com êxito um VHD em um disco gerenciado, você pode anexar o disco a uma VM e começar a usá-lo.
 

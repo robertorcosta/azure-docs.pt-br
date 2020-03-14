@@ -9,16 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906551"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370467"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto de extremidade do armazenamento de BLOBs do Azure
 
 Você pode mapear um domínio personalizado para um ponto de extremidade de serviço BLOB ou um ponto de extremidade de [site estático](storage-blob-static-website.md) . 
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Esse mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com`). Se desejar que o ponto de extremidade da Web esteja disponível no domínio raiz (por exemplo: `contoso.com`), você precisará usar a CDN do Azure. Para obter diretrizes, consulte a seção [mapear um domínio personalizado com https habilitado](#enable-https) deste artigo. Como você vai para essa seção deste artigo para habilitar o domínio raiz do seu domínio personalizado, a etapa dentro dessa seção para habilitar HTTPS é opcional. 
@@ -62,7 +64,7 @@ O nome do host é a URL do ponto de extremidade de armazenamento sem o identific
 
 4. Remova o identificador de protocolo (*por exemplo*, HTTPS) e a barra à direita dessa cadeia de caracteres. A tabela a seguir contém exemplos.
 
-   | Tipo de ponto de extremidade |  endpoint | nome do host |
+   | Tipo de ponto de extremidade |  endpoint | nome de host |
    |------------|-----------------|-------------------|
    |serviço blob  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |site estático  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
@@ -148,7 +150,7 @@ O nome do host é a URL do ponto de extremidade de armazenamento sem o identific
 
 4. Remova o identificador de protocolo (*por exemplo*, HTTPS) e a barra à direita dessa cadeia de caracteres. A tabela a seguir contém exemplos.
 
-   | Tipo de ponto de extremidade |  endpoint | nome do host |
+   | Tipo de ponto de extremidade |  endpoint | nome de host |
    |------------|-----------------|-------------------|
    |serviço blob  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |site estático  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
@@ -231,7 +233,7 @@ Por exemplo, para acessar um formulário da web no contêiner *myforms* no subdo
 
 Para remover um mapeamento de domínio personalizado, cancele o registro do domínio personalizado. Use um dos procedimentos a seguir.
 
-#### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para remover a configuração do domínio personalizado, faça o seguinte:
 
@@ -246,7 +248,7 @@ Para remover a configuração do domínio personalizado, faça o seguinte:
 
 Depois que o domínio personalizado tiver sido removido com êxito, você verá uma notificação do portal de que sua conta de armazenamento foi atualizada com êxito
 
-#### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+#### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para remover um registro de domínio personalizado, use o comando da CLI [az storage account](https://docs.microsoft.com/cli/azure/storage/account) e, em seguida, especifique uma cadeia vazia (`""`) para o valor do argumento `--custom-domain`.
 
@@ -268,7 +270,7 @@ Para remover um registro de domínio personalizado, use o comando da CLI [az sto
       --custom-domain ""
   ```
 
-#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -324,6 +326,6 @@ Para mapear um domínio personalizado e habilitar o acesso HTTPS, faça o seguin
 
    * [Preços e cobrança ao usar o armazenamento de BLOBs com a CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Saiba mais sobre hospedagem de site estático no armazenamento de BLOBs do Azure](storage-blob-static-website.md)

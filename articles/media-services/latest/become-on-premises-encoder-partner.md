@@ -1,6 +1,6 @@
 ---
 title: Torne-se um parceiro de codificador local-serviços de mídia do Azure
-description: Torne-se um parceiro de codificador local com os serviços de mídia do Azure.
+description: Este artigo discute como verificar seus codificadores de transmissão ao vivo local.
 services: media-services
 author: johndeu
 manager: johndeu
@@ -8,18 +8,20 @@ ms.author: johndeu
 ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6b00e430f960195e1badd2a73f9291997b94c833
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252968"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298624"
 ---
-# <a name="become-an-on-premises-encoder-partner"></a>Torne-se um parceiro de codificador local
+# <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Como verificar seu codificador de transmissão ao vivo local
 
 Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Serviços de Mídia promovem seu produto, recomendando seu codificador aos clientes corporativos. Para tornar-se um parceiro de codificador local, é necessário verificar a compatibilidade do seu codificador local com os Serviços de Mídia. Para fazer isso, conclua as seguintes verificações.
 
-### <a name="pass-through-live-event-verification"></a>Verificação de evento ao vivo de passagem
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="pass-through-live-event-verification"></a>Verificação de evento ao vivo de passagem
 
 1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
 2. Crie e inicie um evento ao vivo de **passagem**. <br/> Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
@@ -38,7 +40,7 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 15. Reinicie o estado do evento ao vivo após criar cada exemplo.
 16. Repita as etapas de 5 a 15 para todas as configurações compatíveis com o codificador (com e sem sinalização de anúncios, legendas ou diferentes velocidades de codificação).
 
-### <a name="live-encoding-live-event-verification"></a>Verificação do evento ao vivo de codificação ativa
+## <a name="live-encoding-live-event-verification"></a>Verificação do evento ao vivo de codificação ativa
 
 1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
 2. Crie e inicie o evento ao vivo de **codificação ativa**. <br/> Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
@@ -57,17 +59,17 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 15. Reinicie o estado do evento ao vivo após criar cada exemplo.
 16. Repita as etapas de 5 a 15 para todas as configurações compatíveis com o codificador (com e sem sinalização de anúncios, legendas ou diferentes velocidades de codificação).
 
-### <a name="longevity-verification"></a>Verificação de longevidade
+## <a name="longevity-verification"></a>Verificação de longevidade
 
 Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#pass-through-live-event-verification), exceto pela etapa 11. <br/>Em vez de dez minutos, execute o codificador dinâmico por uma semana ou mais. Use um player como o [Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para assistir à transmissão ao vivo periodicamente (ou um ativo arquivado) para verificar se a reprodução não tem falhas visíveis.
 
-### <a name="email-your-recorded-settings"></a>Envie suas configurações registradas por email
+## <a name="email-your-recorded-settings"></a>Envie suas configurações registradas por email
 
 Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amshelp@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
 ## <a name="see-also"></a>Confira também
 
-[Codificadores ativos locais recomendados](recommended-on-premises-live-encoders.md)
+[Codificadores locais testados](recommended-on-premises-live-encoders.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

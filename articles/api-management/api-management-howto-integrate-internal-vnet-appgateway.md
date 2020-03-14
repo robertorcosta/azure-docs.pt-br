@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 129f407dd66b32ea097daf4ed9110ffbba23660c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017592"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298042"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo
 
-## <a name="overview"></a> Visão geral
+## <a name="overview"> </a> Visão geral
 
 O serviço de Gerenciamento de API pode ser configurado em uma rede virtual no modo interno, o que o torna acessível apenas de dentro da Rede Virtual. O Gateway de Aplicativo do Aplicativo Azure AD é um Serviço PAAS que fornece um balanceador de carga de Camada 7. Ele atua como um serviço de proxy reverso e fornece também um firewall do aplicativo Web (WAF).
 
@@ -35,7 +35,7 @@ Combinar o Gerenciamento de API provisionado em uma rede virtual interna com o f
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Para seguir as etapas descritas neste artigo, você precisa ter:
 
 * Certificados - pfx e cer para o nome do host de API e o pfx para o nome de host do portal do desenvolvedor.
 
-## <a name="scenario"></a> Cenário do
+## <a name="scenario"> </a> Cenário do
 
 Este artigo aborda como usar um único serviço de gerenciamento de API para consumidores internos e externos e fazer com que ele atue como um único front-end para APIs locais e na nuvem. Você também verá como expor somente um subconjunto de suas APIs (destacadas em verde no exemplo) para Consumo Externo usando a funcionalidade de roteamento disponível no Gateway de Aplicativo.
 
@@ -55,7 +55,7 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 
 ![roteamento de url](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> Antes de começar
+## <a name="before-you-begin"> </a> Antes de começar
 
 * Use a versão mais recente do Azure PowerShell. Consulte as instruções de instalação em [instalar Azure PowerShell](/powershell/azure/install-az-ps). 
 
@@ -69,7 +69,7 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 * **Investigação de Integridade Personalizada:** o gateway de aplicativo, por padrão, usa investigações baseadas em endereço IP para entender quais servidores no BackendAddressPool estão ativos. O serviço de Gerenciamento de API responde apenas às solicitações que têm o cabeçalho de host correto, portanto, as investigações padrão falham. Uma investigação de integridade personalizada precisa ser definida para ajudar o gateway de aplicativo a determinar que o serviço está ativo e, assim, encaminhar as solicitações.
 * **Certificado de domínio personalizado:** para acessar o Gerenciamento de API da Internet, você precisa fazer um mapeamento do nome do host de CNAME para o nome DNS de front-end do Gateway de Aplicativo. Isso garante que o certificado e o cabeçalho do nome do host enviados ao Gateway de Aplicativo que são encaminhados ao Gerenciamento de API possam ser reconhecidos e validados pelo APIM. Neste exemplo, usaremos dois certificados – para o back-end e para o portal do desenvolvedor.  
 
-## <a name="overview-steps"></a> Etapas necessárias para integrar o gerenciamento de API e o gateway de aplicativo
+## <a name="overview-steps"> </a> Etapas necessárias para integrar o gerenciamento de API e o gateway de aplicativo
 
 1. Criar um grupo de recursos para o Gerenciador de Recursos.
 2. Crie uma rede virtual, uma sub-rede e um IP público para o gateway de aplicativo. Crie outra sub-rede para o gerenciamento de API.
@@ -84,7 +84,7 @@ No primeiro exemplo de instalação, todas as suas APIs são gerenciadas somente
 Neste guia, também irá expor o **portal do desenvolvedor** ao público externo por meio do Gateway de Aplicativo. Ele requer etapas adicionais para criar o ouvinte, teste, configurações e regras do portal do desenvolvedor. Todos os detalhes são fornecidos nas respectivas etapas.
 
 > [!WARNING]
-> Se você usa o Azure AD ou autenticação de terceiros, habilite o recurso [afinidade de sessão baseada em cookie](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) no Gateway de Aplicativo.
+> Se você usa o Azure AD ou autenticação de terceiros, habilite o recurso [afinidade de sessão baseada em cookie](../application-gateway/features.md#session-affinity) no Gateway de Aplicativo.
 
 > [!WARNING]
 > Para impedir que o WAF do gateway de aplicativo quebre o download da especificação do OpenAPI no portal do desenvolvedor, você precisa desabilitar a regra de firewall `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
@@ -363,10 +363,10 @@ O nome DNS do gateway de aplicativo deve ser usado para criar um registro CNAME,
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"></a> Resumo
+## <a name="summary"> </a> Resumo
 O gerenciamento de API do Azure configurado em uma VNET fornece uma única interface de gateway para todas as APIs configuradas, estejam elas hospedadas localmente ou na nuvem. Integrar o Gateway de Aplicativo com o Gerenciamento de API fornece a flexibilidade de ativar seletivamente as APIs específicas que serão acessíveis na Internet, além de fornecer um Firewall do Aplicativo Web como um front-end para sua instância de Gerenciamento de API.
 
-## <a name="next-steps"></a> Próximas etapas
+## <a name="next-steps"> </a> Próximas etapas
 * Saiba mais sobre o Gateway de Aplicativo do Azure
   * [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
   * [Firewall do Aplicativo Web do Gateway de Aplicativo (visualização)](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

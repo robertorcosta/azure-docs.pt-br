@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
-ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.date: 3/11/2020
+ms.openlocfilehash: 5c36dbfbe63314ef97edfa3dfbaae34667db002d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131959"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268698"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de dados SQL sem servidor do Azure
 
@@ -66,7 +66,7 @@ A tabela a seguir resume as diferenças entre a camada de computação sem servi
 | | **Computação sem servidor** | **Computação provisionada** |
 |:---|:---|:---|
 |**Padrão de uso do banco de dados**| Uso intermitente e imprevisível com menor utilização média de computação ao longo do tempo. |  Padrões de uso mais regulares com maior utilização média de computação ao longo do tempo ou a vários bancos de dados usando pools elásticos.|
-| **Esforço de gerenciamento de desempenho** |Minúsculos|Superior|
+| **Esforço de gerenciamento de desempenho** |Inferior|Superior|
 |**Dimensionamento de computação**|Automático|Manual|
 |**Capacidade de resposta de computação**|Inferior após períodos de inatividade|Imediata|
 |**Granularidade de cobrança**|Por segundo|Por hora|
@@ -126,7 +126,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 |Recurso|Gatilho de retomada automática|
 |---|---|
-|Autenticação e autorização|Login|
+|Autenticação e autorização|Logon|
 |Detecção de ameaças|Habilitação/desabilitação das configurações de detecção de ameaças no nível do banco de dados ou do servidor.<br>Modificar as configurações de detecção de ameaças no nível do banco de dados ou do servidor.|
 |Descoberta e classificação de dados|Adicionar, modificar, excluir ou exibir os rótulos de confidencialidade|
 |Auditoria|Exibir os registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
@@ -145,9 +145,13 @@ O reinício retomado também é disparado durante a implantação de algumas atu
 
 Se um banco de dados sem servidor for pausado, o primeiro logon retomará o banco de dados e retornará um erro informando que o banco de dados está indisponível com o código de erro 40613. Depois que o banco de dados for retomado, o logon deve ser repetido para estabelecer a conectividade. Os clientes do banco de dados com lógica de repetição de conexão não devem ser modificados.
 
-### <a name="latency"></a>Latência
+### <a name="latency"></a>Latency
 
 A latência para retomar e pausar a autopausa em um banco de dados sem servidor geralmente é uma ordem de 1 minuto para retomar e 1-10 minutos para pausar a autopausa.
+
+### <a name="customer-managed-transparent-data-encryption-byok"></a>BYOK (Transparent Data Encryption) gerenciada pelo cliente
+
+Se estiver usando BYOK ( [Transparent Data Encryption) gerenciada pelo cliente](transparent-data-encryption-byok-azure-sql.md) e o banco de dados sem servidor for pausado automaticamente quando ocorrer a exclusão ou revogação da chave, o banco de dados permanecerá no estado de pausa automática.  Nesse caso, ao continuar a próxima tentativa, o banco de dados permanece em pausa até que seu status faça a transição para inacessível após cerca de 10 minutos ou menos.  Depois que o banco de dados se tornar inacessível, o processo de recuperação será o mesmo para bancos de dados de computação provisionados.  Se o banco de dados sem servidor estiver online quando ocorrer a exclusão ou revogação de chave, o banco de dados também se tornará inacessível após aproximadamente 10 minutos ou menos da mesma maneira que com bancos de dados de computação provisionados.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Integração na camada de computação sem servidor
 
@@ -271,20 +275,20 @@ O pacote do aplicativo é o limite externo de gerenciamento de recursos de um ba
 
 O pool de recursos do usuário é o limite interno de gerenciamento de recursos de um banco de dados, independentemente de se o banco de dados está em uma camada de computação sem servidor ou provisionada. O pool de recursos do usuário tem como escopo a CPU e a e/s para a carga de trabalho do usuário gerada por consultas DDL, como criar e alterar e consultas DML, como selecionar, inserir, atualizar e excluir. Essas consultas geralmente representam a proporção mais substancial de utilização dentro do pacote do aplicativo.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>Métricas
 
 As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool de usuários de um banco de dados sem servidor são listadas na tabela a seguir:
 
-|Entidade|Métrica|Descrição|Unidades|
+|Entidade|Métrica|DESCRIÇÃO|Unidades|
 |---|---|---|---|
-|Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Percentual|
+|Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Porcentagem|
 |Pacote do Aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo do máximo de CPU usado e a memória usada por segundo. Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e de memória, a quantidade mínima provisionada será cobrada. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|Segundos de vCore|
-|Pacote do Aplicativo|app_memory_percent|Percentual de memória usada pelo aplicativo em relação ao máximo de memória permitida para o aplicativo.|Percentual|
-|Pool de usuários|cpu_percent|Percentual de vCores usados pela carga de trabalho do usuário em relação ao máximo de vCores permitido para a carga de trabalho do usuário.|Percentual|
-|Pool de usuários|data_IO_percent|Percentual de IOPS de dados usados pela carga de trabalho do usuário em relação ao máximo de IOPS de dados permitido para a carga de trabalho do usuário.|Percentual|
-|Pool de usuários|log_IO_percent|Percentual de MB/s de log usados pela carga de trabalho do usuário em relação ao máximo de MB/s de log permitido para a carga de trabalho do usuário.|Percentual|
-|Pool de usuários|workers_percent|Percentual de funções de trabalho usadas pela carga de trabalho do usuário em relação ao máximo de funções de trabalho permitidas para a carga de trabalho do usuário.|Percentual|
-|Pool de usuários|sessions_percent|Percentual de sessões usadas pela carga de trabalho do usuário em relação ao máximo de sessões permitidas para a carga de trabalho do usuário.|Percentual|
+|Pacote do Aplicativo|app_memory_percent|Percentual de memória usada pelo aplicativo em relação ao máximo de memória permitida para o aplicativo.|Porcentagem|
+|Pool de usuários|cpu_percent|Percentual de vCores usados pela carga de trabalho do usuário em relação ao máximo de vCores permitido para a carga de trabalho do usuário.|Porcentagem|
+|Pool de usuários|data_IO_percent|Percentual de IOPS de dados usados pela carga de trabalho do usuário em relação ao máximo de IOPS de dados permitido para a carga de trabalho do usuário.|Porcentagem|
+|Pool de usuários|log_IO_percent|Percentual de MB/s de log usados pela carga de trabalho do usuário em relação ao máximo de MB/s de log permitido para a carga de trabalho do usuário.|Porcentagem|
+|Pool de usuários|workers_percent|Percentual de funções de trabalho usadas pela carga de trabalho do usuário em relação ao máximo de funções de trabalho permitidas para a carga de trabalho do usuário.|Porcentagem|
+|Pool de usuários|sessions_percent|Percentual de sessões usadas pela carga de trabalho do usuário em relação ao máximo de sessões permitidas para a carga de trabalho do usuário.|Porcentagem|
 
 ### <a name="pause-and-resume-status"></a>Pausar e retomar status
 
@@ -352,7 +356,7 @@ Benefício Híbrido do Azure (AHB) e os descontos de capacidade reservada não s
 
 A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Norte do Reino Unido, Sul do Reino Unido 2, Oeste EUA Central e US Gov central (Iowa).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar, consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 - Para limites de recursos, consulte [Limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

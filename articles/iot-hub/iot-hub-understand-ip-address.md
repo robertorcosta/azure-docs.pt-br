@@ -7,16 +7,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772156"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367560"
 ---
 # <a name="iot-hub-ip-addresses"></a>Endereços IP do Hub IoT
 
-Os prefixos de endereço IP dos pontos de extremidade públicos do Hub IoT são publicados periodicamente na [marca de serviço](../virtual-network/service-tags-overview.md) _AzureIoTHub_ . Você pode usar esses prefixos de endereço IP para controlar a conectividade entre o Hub IoT e seus dispositivos ou ativos de rede, a fim de implementar uma variedade de metas de isolamento de rede:
+Os prefixos de endereço IP dos pontos de extremidade públicos do Hub IoT são publicados periodicamente na [marca de serviço](../virtual-network/service-tags-overview.md) _AzureIoTHub_ .
+
+> [!NOTE]
+> Para dispositivos que são implantados dentro de redes locais, o Hub IoT do Azure dá suporte à integração de conectividade VNET com pontos de extremidade privados. Consulte [suporte do Hub IOT para VNET](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) para obter mais informações.
+
+
+Você pode usar esses prefixos de endereço IP para controlar a conectividade entre o Hub IoT e seus dispositivos ou ativos de rede, a fim de implementar uma variedade de metas de isolamento de rede:
 
 | Goal | Cenários aplicáveis | Abordagem |
 |------|-----------|----------|

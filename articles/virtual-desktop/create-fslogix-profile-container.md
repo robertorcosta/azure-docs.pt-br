@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b29dbd7a034123b17b34b1c0fd4c8649e30810bd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 7cd989d944a35af8b1fd932643826e1aedd03962
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128164"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370195"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files
 
@@ -33,7 +33,7 @@ As instruções neste guia são específicas para usuários da área de trabalho
 >[!NOTE]
 >Se você estiver procurando material de comparação sobre as diferentes opções de armazenamento de contêiner de perfil FSLogix no Azure, consulte [Opções de armazenamento para contêineres de perfil FSLogix](store-fslogix-profile.md).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de criar um contêiner de perfil do FSLogix para um pool de hosts, você deve:
 
@@ -73,7 +73,7 @@ Para começar, você precisa configurar uma conta de Azure NetApp Files.
 7. Selecione **Azure NetApp files** nos resultados da pesquisa e, em seguida, selecione **criar**.
 
 8. Selecione o botão **Adicionar**.
-9. Quando a folha **nova conta do NetApp** for aberta, insira os seguintes valores:
+9. Quando a guia **nova conta do NetApp** for aberta, insira os seguintes valores:
 
     - Para **nome**, insira o nome da conta do NetApp.
     - Para **assinatura**, selecione a assinatura para a conta de armazenamento que você configurou na etapa 4 no menu suspenso.
@@ -92,7 +92,7 @@ Em seguida, crie um novo pool de capacidade:
 1. Vá para o menu Azure NetApp Files e selecione sua nova conta.
 2. No menu conta, selecione **pools de capacidade** em serviço de armazenamento.
 3. Selecione **Adicionar pool**.
-4. Quando a folha **novo pool de capacidade** for aberta, insira os seguintes valores:
+4. Quando a **nova guia pool de capacidade** for aberta, insira os seguintes valores:
 
     - Para **nome**, insira um nome para o novo pool de capacidade.
     - Para **nível de serviço**, selecione o valor desejado no menu suspenso. Recomendamos o **Premium** para a maioria dos ambientes.
@@ -127,7 +127,7 @@ Em seguida, você precisará criar um novo volume.
 
 1. Selecione **volumes**e, em seguida, selecione **Adicionar volume**.
 
-2. Quando a folha **criar um volume** for aberta, insira os seguintes valores:
+2. Quando a guia **criar um volume** for aberta, insira os seguintes valores:
 
     - Para **nome do volume**, insira um nome para o novo volume.
     - Para **pool de capacidade**, selecione o pool de capacidade que você acabou de criar no menu suspenso.
@@ -231,6 +231,6 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
    ![Uma captura de tela do conteúdo da pasta no caminho de montagem. Inside é um único arquivo VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode usar contêineres de perfil FSLogix para configurar um compartilhamento de perfil de usuário. Para saber como criar compartilhamentos de perfil de usuário com seus novos contêineres, confira [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md).

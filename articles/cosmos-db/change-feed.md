@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 898dfe7a619981b93af98effa942fdecbeb42dde
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445585"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368121"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed de alterações no Azure Cosmos DB – visão geral
 
-O suporte ao feed de alterações no Azure Cosmos DB funciona ouvindo um contêiner Cosmos do Azure para qualquer alteração. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. As alterações são mantidas e podem ser processadas de maneira assíncrona e incremental, enquanto a saída pode ser distribuída em um ou mais consumidores para processamento paralelo. 
+O suporte para feed de alterações no Azure Cosmos DB funciona ouvindo um contêiner do Azure Cosmos DB para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. As alterações são mantidas, podem ser processadas de maneira assíncrona e incremental e a saída pode ser distribuída em um ou mais consumidores para processamento paralelo. 
 
 O Azure Cosmos DB é adequado para IoT, jogos, varejo e aplicativos de log operacional. Um padrão de design comum nesses aplicativos é usar as alterações nos dados para disparar ações adicionais. Os exemplos de ações adicionais incluem:
 
@@ -35,18 +35,22 @@ No momento, o recurso é compatível com os seguintes SDKs do cliente e APIs do 
 
 | **Drivers do cliente** | **CLI do Azure** | **API do SQL** | **API do Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | ND | Sim | Sim | Sim | Sim | Não |
-|Java|ND|Sim|Sim|Sim|Sim|Não|
-|Python|ND|Sim|Sim|Sim|Sim|Não|
-|Nó/JS|ND|Sim|Sim|Sim|Sim|Não|
+| .NET | NA | Sim | Sim | Sim | Sim | Não |
+|Java|NA|Sim|Sim|Sim|Sim|Não|
+|Python|NA|Sim|Sim|Sim|Sim|Não|
+|Nó/JS|NA|Sim|Sim|Sim|Sim|Não|
 
 ## <a name="change-feed-and-different-operations"></a>Feed de alterações e operações diferentes
 
-Hoje você pode ver todas as operações no feed de alterações. A funcionalidade em que é possível controlar o feed de alterações, para operações específicas como apenas atualizações e não inserções ainda não está disponível. É possível adicionar um "marcador suave" no item para atualizações e filtrar com base no nisso ao processar itens no feed de alterações. No momento, o feed de alterações não registra exclusões. Semelhante ao exemplo anterior, é possível adicionar um marcador suave nos itens que estão sendo excluídos, por exemplo, é possível adicionar um atributo no item chamado "excluído" e defini-lo como "true" e definir uma TTL no item para que ele possa ser excluído automaticamente. Você pode ler o feed de alterações para itens históricos (a alteração mais recente correspondente ao item, não inclui as alterações intermediárias), por exemplo, itens que foram adicionados cinco anos atrás. Se o item não for excluído, será possível ler o feed de alterações no que diz respeito à origem do seu contêiner.
+Hoje você pode ver todas as operações no feed de alterações. A funcionalidade em que é possível controlar o feed de alterações, para operações específicas como apenas atualizações e não inserções ainda não está disponível. Você pode adicionar um "marcador flexível" no item para atualizações e filtrar com base no que se processam itens no feed de alterações. Atualmente, o feed de alterações não registra exclusões. Semelhante ao exemplo anterior, é possível adicionar um marcador suave nos itens que estão sendo excluídos, por exemplo, é possível adicionar um atributo no item chamado "excluído" e defini-lo como "true" e definir uma TTL no item para que ele possa ser excluído automaticamente. Você pode ler o feed de alterações para itens históricos (a alteração mais recente correspondente ao item, não inclui as alterações intermediárias), por exemplo, itens que foram adicionados cinco anos atrás. Se o item não for excluído, será possível ler o feed de alterações no que diz respeito à origem do seu contêiner.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordem de classificação de itens no feed de alterações
 
 Os itens do feed de alterações são organizados na ordem da hora de modificação. Essa ordem de classificação é garantida por chave de partição lógica.
+
+### <a name="consistency-level"></a>Nível de consistência
+
+Ao consumir o feed de alterações em um nível de consistência eventual, pode haver eventos duplicados entre operações de leitura do feed de alterações subsequentes (o último evento de uma operação de leitura aparece como o primeiro do próximo).
 
 ### <a name="change-feed-in-multi-region-azure-cosmos-accounts"></a>Feed de alterações em contas do Azure Cosmos em várias regiões
 
@@ -64,7 +68,7 @@ O formato de _etag é interno e você não deve assumir uma dependência dele, p
 
 O feed de alterações permite o processamento eficiente de grandes conjuntos de dados com um alto volume de gravações. O feed de alterações também oferece uma alternativa para consultar todo um conjunto de dados para identificar o que foi alterado.
 
-### <a name="use-cases"></a>Use casos
+### <a name="use-cases"></a>Casos de uso
 
 Por exemplo, com o feed de alterações, é possível executar as seguintes tarefas com eficiência:
 
@@ -126,7 +130,7 @@ A funcionalidade do feed de alterações é inserida como fluxo de alteração n
 
 O Apache Cassandra nativo fornece a captura de dados de alteração (CDC), um mecanismo para sinalizar tabelas específicas para arquivamento, bem como rejeitar gravações para essas tabelas assim que um tamanho configurável no disco para o log CDC for atingido. O recurso de feed de alterações na API Azure Cosmos DB para Cassandra aprimora a capacidade de consultar as alterações com o predicado por meio de CQL. Para saber mais sobre os detalhes da implementação, consulte [o feed de alterações na API de Azure Cosmos DB para Cassandra](cassandra-change-feed.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora, você pode prosseguir para saber mais sobre o feed de alterações nos seguintes artigos:
 

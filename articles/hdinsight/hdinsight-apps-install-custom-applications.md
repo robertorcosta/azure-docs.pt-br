@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c109f5309837de8c9b4bd3e4bc5a5da0a6da534e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806857"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366250"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos personalizados do Apache Hadoop no HDInsight do Azure
 
@@ -21,9 +21,9 @@ Neste artigo, você aprenderá a instalar um aplicativo [Apache Hadoop](https://
 
 Um aplicativo do HDInsight é um aplicativo que os usuários podem instalar em um cluster do HDInsight.  Esses aplicativos podem ser desenvolvidos pela Microsoft, por ISVs (fornecedores independentes de software) ou por conta própria.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Se você quiser instalar aplicativos do HDInsight em um cluster HDInsight existente, precisará ter um cluster HDInsight. Para criar um, confira [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Você também pode instalar aplicativos do HDInsight quando cria um cluster HDInsight.
+Se você quiser instalar aplicativos do HDInsight em um cluster HDInsight existente, precisará ter um cluster HDInsight. Para criar um, confira [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md). Você também pode instalar aplicativos do HDInsight quando cria um cluster HDInsight.
 
 ## <a name="install-hdinsight-applications"></a>Instalar aplicativos do HDInsight
 
@@ -83,7 +83,7 @@ Para **matiz**, você pode usar as seguintes etapas:
 1. Selecione **matiz** na lista para exibir as propriedades.  
 1. Selecione o link da página da Web para validar o site.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Substitua `CLUSTERNAME`e `RESOURCEGROUP` pelos valores relevantes e, em seguida, insira os comandos abaixo:
 
@@ -131,7 +131,7 @@ Se a instalação de um aplicativo falhar, você poderá ver as mensagens de err
 1. Clique com o botão direito do mouse no aplicativo que você deseja remover e selecione **excluir**.
 1. Clique em **Sim** para confirmar.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 Substitua `NAME`, `CLUSTERNAME`e `RESOURCEGROUP` pelos valores relevantes e, em seguida, insira o comando a seguir:
 
@@ -139,7 +139,7 @@ Substitua `NAME`, `CLUSTERNAME`e `RESOURCEGROUP` pelos valores relevantes e, em 
 az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): saiba como desenvolver modelos do Resource Manager para implantar aplicativos do HDInsight.
 * [Instalar aplicativos do HDInsight](hdinsight-apps-install-applications.md): saiba como instalar um aplicativo do HDInsight em seus clusters.

@@ -1,21 +1,21 @@
 ---
-title: Link privado para o banco de dados do Azure para PostgreSQL – servidor único (visualização)
+title: Link privado-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como o link privado funciona para o banco de dados do Azure para PostgreSQL-servidor único.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: e3667a60a326838b490f9082fd55bdc92d038cf9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/10/2020
+ms.openlocfilehash: 4216abdf8cc8aae00e3ba0c57961c4b8b7403672
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898359"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371674"
 ---
-# <a name="private-link-for-azure-database-for-postgresql-single-server-preview"></a>Link privado para o banco de dados do Azure para PostgreSQL – servidor único (visualização)
+# <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para o banco de dados do Azure para PostgreSQL-servidor único
 
-O link privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um ponto de extremidade privado. O link privado do Azure essencialmente traz os serviços do Azure dentro de sua VNet (rede virtual privada). Os recursos de PaaS podem ser acessados usando o endereço IP privado, assim como qualquer outro recurso na VNet.
+O link privado permite criar pontos de extremidade privados para o banco de dados do Azure para PostgreSQL-servidor único e, por isso, traz os serviços do Azure dentro de sua VNet (rede virtual privada). O ponto de extremidade privado expõe um IP privado que você pode usar para se conectar ao servidor de banco de dados, assim como qualquer outro recurso na VNet.
 
 Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de link privado, examine a [documentação](https://docs.microsoft.com/azure/private-link/index)do link privado. Um ponto de extremidade privado é um endereço IP privado em uma [VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e sub-rede específicas.
 
@@ -57,10 +57,7 @@ Pontos de extremidade privados são necessários para habilitar o link privado. 
 * [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Processo de aprovação
-Depois que o administrador de rede cria o ponto de extremidade privado (PE), o administrador do PostgreSQL pode gerenciar a conexão de ponto de extremidade privado (PEC) para o banco de dados do Azure para PostgreSQL.
-
-> [!NOTE]
-> Atualmente, o banco de dados do Azure para PostgreSQL único Server dá suporte apenas à aprovação automática para o ponto de extremidade privado.
+Depois que o administrador de rede cria o ponto de extremidade privado (PE), o administrador do PostgreSQL pode gerenciar a conexão de ponto de extremidade privado (PEC) para o banco de dados do Azure para PostgreSQL. Essa separação de tarefas entre o administrador de rede e o DBA é útil para o gerenciamento da conectividade do banco de dados do Azure para PostgreSQL. 
 
 * Navegue até o recurso de servidor banco de dados do Azure para PostgreSQL no portal do Azure. 
     * Selecione as conexões de ponto de extremidade privado no painel esquerdo
@@ -83,7 +80,7 @@ Depois que o administrador de rede cria o ponto de extremidade privado (PE), o a
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Casos de uso de link privado para o banco de dados do Azure para PostgreSQL
 
-Os clientes podem se conectar ao ponto de extremidade privado na mesma VNET, VNET emparelhada na mesma região ou por meio da conexão VNET a VNET entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
+Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, rede virtual emparelhada na mesma região ou via conexão VNet a VNet entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
 ![Selecione a visão geral do ponto de extremidade privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
@@ -110,7 +107,20 @@ As seguintes situações e resultados são possíveis quando você usa o link pr
 
 * Se você não configurar nenhum tráfego público ou ponto de extremidade de serviço e criar pontos de extremidades privados, o servidor de banco de dados do Azure para PostgreSQL só poderá ser acessado por meio de pontos de extremidade privados. Se você não configurar o tráfego público ou um ponto de extremidade de serviço, depois que todos os pontos de extremidades particulares aprovados forem rejeitados ou excluídos, nenhum tráfego poderá acessar o banco de dados do Azure para PostgreSQL servidor único.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Negar acesso público para banco de dados do Azure para PostgreSQL servidor único
+
+Se você quiser confiar apenas nos pontos de extremidade privados para acessar o banco de dados do Azure para PostgreSQL servidor único, você pode desabilitar a configuração de todos os pontos de extremidade públicos ([regras de firewall](concepts-firewall-rules.md) e pontos de extremidade de [serviço de VNet](concepts-data-access-and-security-vnet.md)) definindo a configuração de **acesso de rede pública Deny** no servidor de banco de dados. 
+
+Quando essa configuração é definida como *Sim* , somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para PostgreSQL. Quando essa configuração é definida como *nenhum* cliente pode se conectar ao banco de dados do Azure para PostgreSQL com base em sua configuração de ponto de extremidade de serviço de rede virtual ou firewall. Além disso, quando o valor do acesso à rede privada é definido como os clientes não podem adicionar e/ou atualizar a regra ' regras de firewall ' e ' ponto de extremidade de serviço VNet ' existente
+
+> [!Note]
+> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL-o servidor único dá suporte a tipos de preço Uso Geral e com otimização de memória.
+>
+> Essa configuração não tem nenhum impacto sobre as configurações de SSL e TLS para o banco de dados do Azure para PostgreSQL servidor único.
+
+Para saber como definir o **acesso de rede pública Deny** para seu banco de dados do Azure para PostgreSQL servidor único do portal do Azure, consulte [como configurar o acesso de rede pública Deny](howto-deny-public-network-access.md).
+
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre os recursos de segurança de servidor único do banco de dados do Azure para PostgreSQL, confira os seguintes artigos:
 

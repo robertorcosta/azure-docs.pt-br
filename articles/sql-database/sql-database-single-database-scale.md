@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 92d6dccec3ce6483072a81c8739b65e81ce2c7fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359957"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268568"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
@@ -46,7 +46,7 @@ Alterar a camada de serviço ou o tamanho da computação envolve principalmente
 > [!IMPORTANT]
 > Nenhum dado é perdido durante qualquer etapa no fluxo de trabalho. Verifique se você implementou alguma [lógica de repetição](sql-database-connectivity-issues.md) nos aplicativos e componentes que estão usando o banco de dados SQL do Azure enquanto a camada de serviço é alterada.
 
-## <a name="latency"></a>Latência 
+## <a name="latency"></a>Latency 
 
 A latência estimada para alterar a camada de serviço ou redimensionar o tamanho de computação de um único banco de dados ou pool elástico é parametrizada da seguinte maneira:
 
@@ -106,10 +106,11 @@ Você será cobrado pelas horas em que um banco de dados existir usando a camada
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-- O armazenamento pode ser provisionado até o limite de tamanho máximo com incrementos de 1 GB. O armazenamento de dados configurável mínimo é de 5 GB
-- É possível provisionar o armazenamento para um único banco de dados aumentando ou diminuindo seu tamanho máximo usando o [Portal do Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [CLI do Azure](/cli/azure/sql/db#az-sql-db-update) ou [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- O banco de dados SQL automaticamente aloca 30% do armazenamento adicional para os arquivos de log e 32 GB por vCore para TempDB, mas não deve exceder 384 GB. O TempDB está localizado em um SSD anexado em todas as camadas de serviço.
-- O preço do armazenamento para um único banco de dados é a soma das quantidades de armazenamento de dados e armazenamento de log multiplicada pelo preço unitário do armazenamento da camada de serviço. O custo de TempDB está incluído no preço de vCore. Para obter detalhes sobre o preço de armazenamento extra, confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- O armazenamento pode ser provisionado para o limite de tamanho máximo de armazenamento de dados usando incrementos de 1 GB. O armazenamento de dados mínimo configurável é de 1 GB. Consulte páginas de documentação de limite de recursos para bancos de dados [individuais](sql-database-vcore-resource-limits-single-databases.md) e [pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md) para obter os limites de tamanho máximo de armazenamento em cada objetivo de serviço.
+- O armazenamento de dados para um único banco de dado pode ser provisionado aumentando ou diminuindo seu tamanho máximo usando o [portal do Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [CLI do Azure](/cli/azure/sql/db#az-sql-db-update)ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/update). Se o valor de tamanho máximo for especificado em bytes, ele deverá ser um múltiplo de 1 GB (1073741824 bytes).
+- A quantidade de dados que pode ser armazenada nos arquivos de dados de um banco de dado é limitada pelo tamanho máximo do armazenamento de dados configurado. Além desse armazenamento, o banco de dados SQL aloca automaticamente 30% mais armazenamento a ser usado para o log de transações.
+- O banco de dados SQL aloca automaticamente 32 GB por vCore para o banco de dados `tempdb`. `tempdb` está localizado no armazenamento SSD local em todas as camadas de serviço.
+- O preço do armazenamento de um único banco de dados ou de um pool elástico é a soma das quantidades de armazenamento e armazenamento dos logs de transações multiplicadas pelo preço unitário de armazenamento da camada de serviço. O custo de `tempdb` está incluído no preço. Para obter detalhes sobre o preço de armazenamento, consulte [preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
@@ -137,6 +138,6 @@ Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em 
   - Atualizando o banco de dados primário em uma relação de replicação geográfica: alterar o tamanho máximo para mais de 1 TB em um banco de dados primário disparará a mesma alteração no banco de dados secundário. As duas atualizações devem ser bem-sucedidas para que a alteração no primário entre em vigor. Há limitações de região para a opção superior a 1 TB. Se o secundário estiver em uma região que não oferece suporte a mais de 1 TB, o primário não será atualizado.
 - Não há suporte para o uso do serviço de Importação/Exportação para carregar bancos de dados P11/P15 com mais de 1 TB. Use SqlPackage.exe para [importar](sql-database-import.md) e [exportar](sql-database-export.md) dados.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber os limites gerais de recursos, confira [Limites de recurso baseados em vCore do Banco de Dados SQL – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseados em DTU do Banco de Dados SQL – pools elásticos](sql-database-dtu-resource-limits-single-databases.md).

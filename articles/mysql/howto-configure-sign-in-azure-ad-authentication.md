@@ -1,17 +1,17 @@
 ---
-title: Usar o Azure Active Directory-banco de dados do Azure para MySQL-servidor único
-description: Saiba mais sobre como configurar o Azure Active Directory (Azure AD) para autenticação com o banco de dados do Azure para MySQL-servidor único
+title: Usar o Azure Active Directory-banco de dados do Azure para MySQL
+description: Saiba mais sobre como configurar o Azure Active Directory (Azure AD) para autenticação com o banco de dados do Azure para MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: bb3a8c94b377fb9c9150945ec4cf5980e006dd34
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110618"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298998"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usar Azure Active Directory para autenticar com o MySQL
 
@@ -200,12 +200,12 @@ A maioria dos drivers tem suporte, no entanto, certifique-se de usar as configur
 * Perl
   * DBD:: MySQL: com suporte
   * NET:: MySQL: sem suporte
-* Ir
+* Go
   * Go-SQL-Driver: com suporte, adicione `?tls=true&allowCleartextPasswords=true` à cadeia de conexão
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-* Examine os conceitos gerais para [Azure Active Directory autenticação com o banco de dados do Azure para MySQL-servidor único](concepts-azure-ad-authentication.md)
+* Examine os conceitos gerais de [autenticação de Azure Active Directory com o banco de dados do Azure para MySQL](concepts-azure-ad-authentication.md)
 
 <!--Image references-->
 

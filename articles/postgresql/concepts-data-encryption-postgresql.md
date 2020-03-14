@@ -1,17 +1,17 @@
 ---
-title: Azure Database para PostgreSQL criptografia de dados de servidor único com uma chave gerenciada pelo cliente
+title: Criptografia de dados com chave gerenciada pelo cliente – banco de dados do Azure para PostgreSQL-servidor único
 description: O banco de dados do Azure para PostgreSQL Data Encryption de servidor único com uma chave gerenciada pelo cliente permite que você Bring Your Own Key (BYOK) para proteção de dados em repouso. Ele também permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198693"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297015"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para PostgreSQL criptografia de dados de servidor único com uma chave gerenciada pelo cliente
 
@@ -32,9 +32,9 @@ O Key Vault é um sistema de gerenciamento de chaves externas baseado em nuvem. 
 O servidor único do banco de dados do Azure para PostgreSQL fornece os seguintes benefícios:
 
 * O acesso a dados é totalmente controlado por você pela capacidade de remover a chave e torná-lo inacessível 
-*   Controle total sobre o ciclo de vida da chave, incluindo a rotação da chave para se alinhar com as políticas corporativas
-*   Gerenciamento central e organização de chaves no Azure Key Vault
-*   Capacidade de implementar a separação de tarefas entre os gerentes de segurança e DBA e administradores do sistema
+*    Controle total sobre o ciclo de vida da chave, incluindo a rotação da chave para se alinhar com as políticas corporativas
+*    Gerenciamento central e organização de chaves no Azure Key Vault
+*    Capacidade de implementar a separação de tarefas entre os gerentes de segurança e DBA e administradores do sistema
 
 ## <a name="terminology-and-description"></a>Descrição e terminologia
 

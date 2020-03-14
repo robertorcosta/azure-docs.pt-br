@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 9349969f1f9b037a271cb727233517daba999acd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e1b6ee0bd6c392804915fac6ff23278a00b6d33
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446989"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367832"
 ---
-# <a name="custom-commands-preview"></a>Comandos personalizados (versão prévia)
+# <a name="what-are-custom-commands-preview"></a>O que são comandos personalizados (versão prévia)?
 
 Os aplicativos de voz, como os [assistentes de voz](voice-assistants.md) , ouvem os usuários e tomam uma ação em resposta, muitas vezes falando de volta. Eles usam a [fala para o texto](speech-to-text.md) para transcrever a fala do usuário e, em seguida, tomar medidas sobre a compreensão do idioma natural do texto. Essa ação geralmente inclui a saída falada do Assistente gerado com [conversão de texto em fala](text-to-speech.md). Os dispositivos se conectam aos assistentes com o objeto `DialogServiceConnector` do SDK de fala.
 
@@ -48,7 +48,7 @@ Depois de concluir os guias de início rápido, Explore nosso "How-tos".
 - [Adicionar uma confirmação a um comando personalizado](./how-to-custom-speech-commands-confirmations.md)
 - [Adicionar uma correção de uma etapa a um comando personalizado](./how-to-custom-speech-commands-one-step-correction.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 * [Vá para o Speech Studio para experimentar comandos personalizados](https://speech.microsoft.com)

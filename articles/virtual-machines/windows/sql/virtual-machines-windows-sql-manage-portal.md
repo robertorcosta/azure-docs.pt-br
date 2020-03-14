@@ -14,11 +14,11 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 244ad7d079fd7baf25f8079557576c42d25ca785
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102057"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243205"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerenciar VMs SQL Server no Azure usando o portal do Azure
 
@@ -39,7 +39,7 @@ Para acessar o recurso de **máquinas virtuais do SQL** , faça o seguinte:
 1. Abra o [Portal do Azure](https://portal.azure.com). 
 1. Selecione **Todos os Serviços**. 
 1. Insira as **máquinas virtuais do SQL** na caixa de pesquisa.
-1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais do SQL** para adicionar essa opção ao menu **favoritos** . 
+1. (Opcional): selecione a estrela ao lado de **máquinas virtuais do SQL** para adicionar essa opção ao menu **favoritos** . 
 1. Selecione **máquinas virtuais do SQL**. 
 
    ![Localizar SQL Server máquinas virtuais em todos os serviços](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
@@ -64,7 +64,7 @@ Para acessar a guia de **configuração de SQL Server** preterida, vá para o re
 1. Abra o [Portal do Azure](https://portal.azure.com). 
 1. Selecione **Todos os Serviços**. 
 1. Insira **máquinas virtuais** na caixa de pesquisa.
-1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais** para adicionar essa opção ao menu **favoritos** . 
+1. (Opcional): selecione a estrela ao lado de **máquinas virtuais** para adicionar essa opção ao menu **favoritos** . 
 1. Selecione **Máquinas virtuais**. 
 
    ![Pesquisar máquinas virtuais](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
@@ -76,7 +76,7 @@ Para acessar a guia de **configuração de SQL Server** preterida, vá para o re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, confira os seguintes artigos: 
+Para obter mais informações, consulte os seguintes artigos: 
 
 * [Visão geral do SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Perguntas frequentes para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)

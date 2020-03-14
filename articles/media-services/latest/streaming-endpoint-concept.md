@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c71643adf3b34954ea5ce020351559abbfc60fab
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562353"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298930"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos de extremidade de streaming (origem) nos serviços de mídia do Azure
 
@@ -116,7 +116,7 @@ Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremi
     > [!NOTE]
     > Os pontos de extremidade de streaming localizados no mesmo data center não podem compartilhar o mesmo nome de host personalizado.
 
-    Atualmente, os serviços de mídia não dão suporte a SSL com domínios personalizados.
+    Atualmente, os Serviços de Mídia não são compatíveis com o SSL com domínios personalizados.
 
 - `maxCacheAge`-substitui o cabeçalho de controle de cache HTTP Max-age padrão definido pelo ponto de extremidade de streaming em fragmentos de mídia e manifestos sob demanda. O valor é definido em segundos.
 - `resourceState` -
@@ -150,7 +150,7 @@ Um único ponto de extremidade de streaming pode transmitir vídeos ao vivo e so
 
     Considere um cenário no qual os clientes estão principalmente assistindo ao conteúdo ao vivo, mas estão apenas observando o conteúdo sob demanda e são servidos do mesmo ponto de extremidade de streaming. O baixo uso do conteúdo sob demanda ocuparia o espaço em cache que seria melhor salvo para o conteúdo ao vivo. Nesse cenário, recomendamos fornecer o conteúdo ao vivo de um ponto de extremidade de streaming e o conteúdo de cauda longa de outro ponto de extremidade de streaming. Isso melhorará o desempenho do conteúdo do evento ao vivo.
     
-## <a name="scaling-streaming-with-cdn"></a>Dimensionamento de streaming com CDN
+## <a name="scaling-streaming-with-cdn"></a>Dimensionando o streaming com CDN
 
 Veja os artigos a seguir:
 
@@ -163,4 +163,4 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O exemplo [neste repositório](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) mostra como iniciar o ponto de extremidade de streaming padrão com .NET.
+[Gerenciar pontos de extremidade de streaming](manage-streaming-endpoints-howto.md)

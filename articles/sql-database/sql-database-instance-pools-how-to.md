@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754045"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299355"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guia de instruções do banco de dados SQL do Azure (visualização)
 
@@ -41,7 +41,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas a pools de ins
 
 Comandos disponíveis do [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)
 
-|Cmdlet |Description |
+|Cmdlet |DESCRIÇÃO |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Cria um pool de instâncias do banco de dados SQL do Azure. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Retorna informações sobre o pool de instâncias do SQL do Azure. |
@@ -50,7 +50,7 @@ Comandos disponíveis do [PowerShell](https://docs.microsoft.com/powershell/modu
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Retorna informações sobre o uso do pool de instâncias do SQL do Azure. |
 
 
-Para usar o PowerShell, [Instale a versão mais recente do PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core)e siga as instruções para [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para usar o PowerShell, [Instale a versão mais recente do PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)e siga as instruções para [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 Para operações relacionadas a instâncias dentro de pools e instâncias únicas, use os [comandos de instância gerenciada](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances)padrão, mas a propriedade de *nome do pool de instâncias* deve ser preenchida ao usar esses comandos para uma instância em um pool.
 
@@ -267,7 +267,7 @@ Para mover bancos de dados existentes:
 Se houver vários bancos de dados, repita o processo para cada um.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
 - Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).

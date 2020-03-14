@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 3f1d0e13d9b76c7ef06edb953b59ebfa73c302de
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366209"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79296839"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -204,6 +204,12 @@ As principais vantagens de usar pipelines para seus fluxos de trabalho de aprend
 |**Acompanhamento e controle de versão**|Em vez de acompanhar manualmente os caminhos de dados e resultados durante a iteração, use o SDK de pipelines para fornecer explicitamente o nome e a versão de fontes de dados, entradas e saídas. Você também pode gerenciar os scripts e os dados separadamente para aumentar a produtividade.|
 | **Modularidade** | Separar áreas de preocupações e isolar alterações permite que o software evolua a uma taxa mais rápida com maior qualidade. | 
 |**Colaboração**|Os pipelines permitem que os cientistas de dados colaborem em todas as áreas do processo de design do Machine Learning, ao mesmo tempo em que podem trabalhar simultaneamente em etapas de pipeline.|
+
+### <a name="choosing-the-proper-pipelinestep-subclass"></a>Escolhendo a subclasse PipelineStep apropriada
+
+A `PythonScriptStep` é a subclasse mais flexível da `PipelineStep`abstrata. Outras subclasses, como `EstimatorStep` subclasses e `DataTransferStep` podem realizar tarefas específicas com menos código. Por exemplo, um `EstimatorStep` pode ser criado simplesmente passando um nome para a etapa, um `Estimator`e um destino de computação. Ou, você pode substituir entradas e saídas, parâmetros de pipeline e argumentos. Para obter mais informações, consulte [treinar modelos com Azure Machine Learning usando o estimador](how-to-train-ml-models.md). 
+
+O `DataTransferStep` facilita a movimentação de dados entre fontes de dados e coletores. O código para fazer isso manualmente é simples, mas repetitivo. Em vez disso, você pode apenas criar um `DataTransferStep` com um nome, referências a uma fonte de dados e um coletor de dados e um destino de computação. O bloco de anotações [Azure Machine Learning pipeline com DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) demonstra essa flexibilidade.
 
 ## <a name="modules"></a>Módulos
 

@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 85403442119f73b363fee98a9c225b9c0ec18119
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e67a8f6b9cc175932b09e6f576148656dd9da9ba
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026855"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298811"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conecte-se ao Azure IoT Central
 
 Este artigo apresenta os principais conceitos relacionados à conectividade de dispositivo no Microsoft Azure IoT Central.
 
-O Azure IoT Central usa o [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../../iot-dps/about-iot-dps.md) para gerenciar todo o registro e a conexão do dispositivo.
+O Azure IoT Central usa o [DPS (Serviço de Provisionamento de Dispositivos no Hub IoT do Azure)](../../iot-dps/about-iot-dps.md) para gerenciar todo o registro e a conexão do dispositivo.
 
-O uso do DPS permite:
+O uso do DPS permite que:
 
-- IoT Central para dar suporte à integração e à conexão de dispositivos em escala.
-- Você deve gerar credenciais de dispositivo e configurar os dispositivos offline sem registrar os dispositivos por meio da interface do usuário do IoT Central.
+- O IoT Central dê suporte à integração e à conexão de dispositivos em escala.
+- Você gere credenciais de dispositivo e configure os dispositivos offline sem registrar os dispositivos por meio da interface do usuário do IoT Central.
 - Dispositivos para se conectar usando SAS (assinaturas de acesso compartilhado).
-- Dispositivos para se conectar usando certificados X. 509 padrão do setor.
-- Você usa suas próprias IDs de dispositivo para registrar dispositivos no IoT Central. O uso de suas próprias IDs de dispositivo simplifica a integração com sistemas de Back-Office existentes.
-- Uma maneira única e consistente de conectar dispositivos a IoT Central.
+- Os dispositivos se conectem usando certificados X.509 padrão do setor.
+- Você use as próprias identificações do dispositivo para registrar dispositivos no IoT Central. O uso das próprias identificações do dispositivo simplifica a integração aos sistemas de back-office existentes.
+- Uma só maneira consistente de conectar dispositivos ao IoT Central.
 
 Este artigo descreve os seguintes casos de uso:
 
@@ -194,6 +194,9 @@ Quando um dispositivo real se conecta ao seu aplicativo IoT Central, o status do
     - Dispositivos não registrados manualmente na página **dispositivos** conectados com credenciais válidas, mas sem especificar a ID do modelo durante o registro.  
 O operador pode associar um dispositivo a um modelo da página **dispositivos** usando o botão **migrar** .
 
+## <a name="best-practices"></a>Práticas recomendadas 
+1.  Ao usar o DPS para conectar dispositivos ao IoT Central, verifique se a cadeia de conexão do dispositivo (Hub IoT) não é persistente ou armazenada em cache. Para reconectar dispositivos, percorra o fluxo de registro do dispositivo DPS comum para obter a cadeia de conexão de dispositivo correta. Se a cadeia de conexão for armazenada em cache, o software do dispositivo correrá o risco de ter uma cadeia de conexão obsoleta nos cenários em que IoT Central atualizou o Hub IoT subjacente do Azure. 
+
 ## <a name="sdk-support"></a>Suporte a SDK
 
 Os SDKs de dispositivo do Azure oferecem a maneira mais fácil de implementar o código do dispositivo. Estão disponíveis os SDKs do dispositivo a seguir:
@@ -237,7 +240,7 @@ Se o dispositivo não puder usar nenhum dos protocolos com suporte, será possí
 
 Todos os dados trocados entre dispositivos e o Azure IoT Central são criptografados. O Hub IoT autentica todas as solicitações de um dispositivo que conecta a qualquer ponto de extremidade do Hub IoT voltado para o dispositivo. Para evitar a troca de credenciais pela rede, um dispositivo usa tokens assinados para autenticar. Para obter mais informações, consulte [Controlar o acesso ao Hub IoT](../../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu sobre a conectividade do dispositivo no Azure IoT Central, aqui estão as próximas etapas sugeridas:
 

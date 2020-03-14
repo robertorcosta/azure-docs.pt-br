@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 9219c9a72ce9e1cfba3504b0b8e16ade77f8a5e5
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394823"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369889"
 ---
-# <a name="about-voice-assistants"></a>Sobre assistentes de voz
+# <a name="what-is-a-voice-assistant"></a>O que é um assistente de voz?
 
 Os assistentes de voz que usam o serviço de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências.
 
@@ -56,9 +56,9 @@ Se você escolher comandos de [fala de linha direta](direct-line-speech.md) ou [
 
 Oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido do assistente de voz, organizadas por idioma.
 
-| Guia de Início Rápido | Platform | Referência de API |
+| Guia de Início Rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
-| C#, UWP | Portal | [Procurar](https://aka.ms/csspeech/csharpref) |
+| C#, UWP | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Procurar](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Procurar](https://aka.ms/csspeech/javaref) |
 
@@ -85,7 +85,7 @@ Os assistentes de voz criados com o uso do serviço de fala podem usar a gama co
 * [SDK da fala](speech-sdk-reference.md)
 * [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 * [Obtenha o SDK de fala](speech-sdk.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b76edb2d0db806d8ff4935d2b093fee3c2bb34d7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0713f59889962960b4f3ad5eba58ddb7b32e95ff
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248535"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369736"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -60,7 +60,7 @@ Todos os volumes de Azure NetApp Files são criptografados usando o padrão FIPS
 
 O gerenciamento de chaves para Azure NetApp Files é tratado pelo serviço. Uma chave de criptografia de dados XTS-AES-256 exclusiva é gerada para cada volume. Uma hierarquia de chave de criptografia é usada para criptografar e proteger todas as chaves de volume. Essas chaves de criptografia nunca são exibidas ou relatadas em um formato não criptografado. As chaves de criptografia são excluídas imediatamente quando um volume é excluído.
 
-Atualmente, não há suporte para chaves gerenciadas pelo usuário (Traga suas próprias chaves).
+O suporte para chaves gerenciadas pelo usuário (Traga suas próprias chaves) usando o HSM dedicado do Azure está disponível de acordo com as regiões do leste dos EUA, US West2 e centro-sul dos EUA.  O cliente pode solicitar acesso em anffeedback@microsoft.come, à medida que a capacidade estiver disponível, as solicitações serão aprovadas.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Posso configurar as regras da política de exportação do NFS para controlar o acesso ao destino de montagem do serviço Azure NetApp Files?
 

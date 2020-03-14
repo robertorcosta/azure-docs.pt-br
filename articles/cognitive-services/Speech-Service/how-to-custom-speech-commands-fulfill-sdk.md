@@ -1,23 +1,23 @@
 ---
-title: Como atender a comandos personalizados no cliente com o SDK de fala
+title: Como atender a comandos de um cliente com o SDK de fala
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, explicamos como lidar com atividades de comandos personalizados no cliente com o SDK de fala.
+description: Neste artigo, explicamos como lidar com atividades de comandos personalizados em um cliente com o SDK de fala.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/12/2020
 ms.author: donkim
-ms.openlocfilehash: b55bb1c8379cf0a80a95aa0ba1a29297154d5831
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156498"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367731"
 ---
-# <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Como: preencher comandos no cliente com o SDK de fala (versão prévia)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Preencher comandos de um cliente com o SDK de fala (versão prévia)
 
 Para concluir tarefas usando um aplicativo de comandos personalizados, você pode enviar cargas personalizadas para um dispositivo de cliente conectado.
 
@@ -26,7 +26,7 @@ Neste artigo, você vai:
 - Definir e enviar uma carga JSON personalizada de seu aplicativo de comandos personalizados
 - Receber e visualizar o conteúdo da carga JSON personalizada de C# um aplicativo cliente do SDK de fala do UWP
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Uma chave de assinatura do Azure para o serviço de fala
@@ -49,7 +49,7 @@ Este artigo descreve, passo a passo, como fazer um aplicativo cliente se comunic
    > [!div class="mx-imgBorder"]
    > ![regra de conclusão de atividade de envio](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Configuração | Valor sugerido | Description |
+   | Configuração | Valor sugerido | DESCRIÇÃO |
    | ------- | --------------- | ----------- |
    | Nome da Regra | UpdateDeviceState | Um nome que descreve a finalidade da regra |
    | Condições | Parâmetro necessário-`OnOff` e `SubjectDevice` | Condições que determinam quando a regra pode ser executada |
@@ -131,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Faça o teste
+## <a name="try-it-out"></a>Experimentar
 
 1. Iniciar o aplicativo
 1. Selecione habilitar microfone
@@ -139,7 +139,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Digamos `turn on the tv`
 1. O estado visual da TV deve mudar para "on"
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Como: Adicionar validações a parâmetros de comando personalizados (visualização)](./how-to-custom-speech-commands-validations.md)

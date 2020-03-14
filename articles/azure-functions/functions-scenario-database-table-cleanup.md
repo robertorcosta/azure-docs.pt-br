@@ -4,12 +4,12 @@ description: Use o Azure Functions para agendar uma tarefa que se conecta ao ban
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972227"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366795"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
 
@@ -17,7 +17,7 @@ Este artigo mostra como usar Azure Functions para criar um trabalho agendado que
 
 Se esta for sua primeira experiência trabalhando com funções C#, você deverá ler a [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conclua as etapas no artigo [criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de função local que tenha como destino a versão 2. x ou uma versão posterior do tempo de execução. Você também precisa ter publicado seu projeto em um aplicativo de funções no Azure.
 
@@ -43,7 +43,7 @@ Um aplicativo de funções hospeda a execução de suas funções no Azure. Como
 
 Você precisa ter publicado o aplicativo anteriormente no Azure. Se você ainda não fez isso, [publique o aplicativo de funções no Azure](functions-develop-vs.md#publish-to-azure).
 
-1. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **publicar** > **gerenciar configurações do aplicativo...** . Selecione **Adicionar configuração**, em **novo aplicativo nome da configuração**, digite `sqldb_connection`e selecione **OK**.
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo de funções e escolha **publicar** > **Editar Azure app configurações do serviço**. Selecione **Adicionar configuração**, em **Novo nome de configuração do aplicativo**, digite `sqldb_connection` e selecione **OK**.
 
     ![Configurações de aplicativo para o aplicativo de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -122,7 +122,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 
 Se você planeja [publicar essa função](functions-develop-vs.md#publish-to-azure), lembre-se de alterar o atributo `TimerTrigger` para uma [agenda de Cron](functions-bindings-timer.md#ncrontab-expressions) mais razoável do que a cada 15 segundos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Em seguida, aprenda como usar. Functions com Aplicativos Lógicos para integração com outros serviços.
 

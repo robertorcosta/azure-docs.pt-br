@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 36b3857f8827f8a33e5fc0981b22a49128f7c193
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535321"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298607"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de identidade e acesso do Azure Active Directory
 
@@ -170,7 +170,7 @@ Se você estiver usando uma ferramenta, como [Microsoft Identity Manager](https:
 Os proprietários de recursos podem acreditar que o grupo **todos os usuários** contém apenas **funcionários empresariais** quando eles podem realmente conter funcionários e **convidados** **corporativos** . Como resultado, você deve tomar cuidado especial ao usar o grupo **todos os usuários** para atribuição de aplicativos e conceder acesso a recursos, como conteúdo ou aplicativos do SharePoint.
 
 > [!IMPORTANT]
-> Se o grupo **todos os usuários** estiver habilitado e usado para políticas de acesso condicional, aplicativo ou atribuição de recursos, certifique-se de [proteger o grupo](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) se não quiser que ele inclua usuários convidados. Além disso, você deve corrigir suas atribuições de licenciamento criando e atribuindo a grupos que contêm somente **funcionários da empresa** . Por outro lado, se você achar que o grupo **todos os usuários** está habilitado, mas não está sendo usado para conceder acesso a recursos, certifique-se de que a orientação operacional da sua organização seja usar intencionalmente esse grupo (que inclui funcionários e **convidados** **empresariais** ).
+> Se o grupo **todos os usuários** estiver habilitado e usado para políticas de acesso condicional, aplicativo ou atribuição de recursos, certifique-se de [proteger o grupo](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) se não quiser que ele inclua usuários convidados. Além disso, você deve corrigir suas atribuições de licenciamento criando e atribuindo a grupos que contêm somente **funcionários da empresa** . Por outro lado, se você achar que o grupo **todos os usuários** está habilitado, mas não está sendo usado para conceder acesso a recursos, certifique-se de que a orientação operacional da sua organização seja usar intencionalmente esse grupo (que inclui funcionários e **convidados** **empresariais** ).
 
 ### <a name="automated-user-provisioning-to-apps"></a>Provisionamento automatizado de usuários para aplicativos
 
@@ -201,6 +201,6 @@ Há cinco aspectos para uma infraestrutura de identidade segura. Essa lista ajud
 - Simplifique o gerenciamento de licenças e a atribuição de aplicativos.
 - Automatize o provisionamento de usuário para aplicativos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Introdução às [verificações e ações de gerenciamento de autenticação](active-directory-ops-guide-auth.md).

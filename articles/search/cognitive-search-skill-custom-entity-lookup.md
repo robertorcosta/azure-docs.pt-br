@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651331"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369770"
 ---
-#    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Habilidade cognitiva de pesquisa de entidade personalizada (versão prévia)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Habilidade cognitiva de pesquisa de entidade personalizada (versão prévia)
 
 > [!IMPORTANT] 
 > Esta habilidade está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). No momento, não há suporte para Portal ou SDK do .NET.
@@ -38,9 +38,9 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
-| entitiesDefinitionUri | Caminho para um arquivo JSON ou CSV que contém todo o texto de destino para correspondência. Esta definição de entidade é lida no início de uma execução de indexador; as atualizações para esse arquivo mid-Run não serão realizadas até as execuções subsequentes. Essa configuração deve ser acessível via HTTPS. Consulte formato de [definição de entidade personalizada](#custom-entity-definition-format) "abaixo para obter o esquema CSV ou JSON esperado.|
+| entitiesDefinitionUri    | Caminho para um arquivo JSON ou CSV que contém todo o texto de destino para correspondência. Esta definição de entidade é lida no início de uma execução de indexador; as atualizações para esse arquivo mid-Run não serão realizadas até as execuções subsequentes. Essa configuração deve ser acessível via HTTPS. Consulte formato de [definição de entidade personalizada](#custom-entity-definition-format) "abaixo para obter o esquema CSV ou JSON esperado.|
 |inlineEntitiesDefinition | Definições de entidade JSON embutida. Esse parâmetro substitui o parâmetro entitiesDefinitionUri, se presente. No máximo 10 KB de configuração podem ser fornecidos embutidos. Consulte a [definição de entidade personalizada](#custom-entity-definition-format) abaixo para obter o esquema JSON esperado. |
-|defaultLanguageCode |  Adicional Código de idioma do texto de entrada usado para indexar e delinear o texto de entrada. Há suporte para os seguintes idiomas: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (`en`). Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.  |
+|defaultLanguageCode |    Adicional Código de idioma do texto de entrada usado para indexar e delinear o texto de entrada. Há suporte para os seguintes idiomas: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (`en`). Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.  |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -48,13 +48,13 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | Nome de entrada      | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | text          | O texto para analisar.          |
-| languageCode  | Opcional. O padrão é `"en"`.  |
+| languageCode    | Opcional. O padrão é `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 
-| Nome de saída     | DESCRIÇÃO                   |
+| Nome de saída      | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | entidades | Uma matriz de objetos que contém informações sobre as correspondências que foram encontradas e os metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: a entidade de nível superior identificada. A entidade representa o formulário "normalizado". </li> <li> *ID*: um identificador exclusivo para a entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *Descrição*: Descrição da entidade conforme definida pelo usuário no "formato de definição de entidade personalizada". </li> <li> *tipo:* Tipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li> <li> *subtipo:* Subtipo de entidade, conforme definido pelo usuário no "formato de definição de entidade personalizada".</li>  <li> *corresponde*: coleção que descreve cada uma das correspondências para essa entidade no texto de origem. Cada correspondência terá os seguintes membros: </li> <ul> <li> *texto*: a correspondência de texto bruto do documento de origem. </li> <li> *offset*: o local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: o comprimento do texto correspondente. </li> <li> *matchDistance*: o número de caracteres diferente dessa correspondência era do nome ou alias da entidade original.  </li> </ul> </ul>
   |
@@ -168,7 +168,7 @@ As tabelas a seguir descrevem mais detalhadamente os diferentes parâmetros de c
 Em alguns casos, pode ser mais conveniente fornecer a lista de entidades personalizadas para fazer a correspondência embutida diretamente na definição de habilidades. Nesse caso, você pode usar um formato JSON semelhante ao descrito acima, mas ele é embutido na definição de habilidade.
 Somente as configurações com menos de 10 KB de tamanho (tamanho serializado) podem ser definidas em linha. 
 
-##  <a name="sample-definition"></a>Definição de exemplo
+##    <a name="sample-definition"></a>Definição de exemplo
 
 Uma definição de habilidade de exemplo usando um formato embutido é mostrada abaixo:
 
@@ -231,7 +231,7 @@ Como alternativa, se você decidir fornecer um ponteiro para o arquivo de defini
 
 ```
 
-##  <a name="sample-input"></a>Entrada de exemplo
+##    <a name="sample-input"></a>Entrada de exemplo
 
 ```json
 {
@@ -248,7 +248,7 @@ Como alternativa, se você decidir fornecer um ponteiro para o arquivo de defini
 }
 ```
 
-##  <a name="sample-output"></a>Saída de exemplo
+##    <a name="sample-output"></a>Saída de exemplo
 
 ```json
   { 
@@ -295,6 +295,12 @@ Como alternativa, se você decidir fornecer um ponteiro para o arquivo de defini
     ] 
   } 
 ```
+
+## <a name="errors-and-warnings"></a>Erros e avisos
+
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Aviso: capacidade máxima atingida para correspondências, ignorando todas as correspondências duplicadas adicionais.
+
+Esse aviso será emitido se o número de correspondências detectadas for maior que o máximo permitido. Nesse caso, vamos parar de incluir correspondências duplicadas. Se isso for inaceitável para você, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com seu caso de uso individual.
 
 ## <a name="see-also"></a>Confira também
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392023"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299338"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Práticas recomendadas do Azure para segurança de rede
 Este artigo discute uma coleção de práticas recomendadas do Azure para aprimorar sua segurança de rede. Essas práticas recomendadas derivam da nossa experiência de rede do Azure e da experiência de clientes como você.
@@ -55,7 +55,7 @@ As práticas recomendadas para segmentar logicamente sub-redes incluem:
 **Prática recomendada**: segmente o espaço de endereço maior em sub-redes.   
 **Detalhe**: Use [princípios de sub-redes baseados no CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para criar suas sub-redes.
 
-**Prática recomendada**: crie controles de acesso à rede entre sub-redes. O roteamento entre sub-redes acontece automaticamente e você não precisa configurar manualmente as tabelas de roteamento. Por padrão, não há nenhum controle de acesso à rede entre as sub-redes que você cria em uma rede virtual do Azure.   
+**Prática recomendada**: crie controles de acesso à rede entre sub-redes. O roteamento entre sub-redes ocorre automaticamente e você não precisa configurar manualmente as tabelas de roteamento. Por padrão, não há nenhum controle de acesso à rede entre as sub-redes que você cria em uma rede virtual do Azure.   
 **Detalhe**: Use um [grupo de segurança de rede](/azure/virtual-network/virtual-networks-nsg) para proteger contra tráfego não solicitado em sub-redes do Azure. Os grupos de segurança de rede são dispositivos de inspeção de pacote simples e com estado que usam a abordagem de 5 tuplas (IP de origem, porta de origem, IP de destino, porta de destino e protocolo de camada 4) para criar regras de permissão/negação para o tráfego de rede. Você permite ou nega o tráfego de e para um único endereço IP, de e para vários endereços IP ou para e de sub-redes inteiras.
 
 Ao usar grupos de segurança de rede para controle de acesso à rede entre sub-redes, você pode colocar os recursos que pertencem à mesma zona ou função de segurança em suas próprias sub-redes.
@@ -111,7 +111,7 @@ Os dispositivos de segurança de rede do Azure podem oferecer uma segurança mel
 * Antivírus
 * Proteção botnet
 
-Para encontrar dispositivos de segurança de rede virtual do Azure disponíveis, vá para [Azure Marketplace](https://azure.microsoft.com/marketplace/) e pesquise por "segurança" e "segurança de rede".
+Para localizar os dispositivos de segurança de rede virtual do Azure disponíveis, vá para o [Azure Marketplace](https://azure.microsoft.com/marketplace/) e pesquise "segurança" e "segurança de rede".
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Implantação de redes de perímetro para zonas de segurança
 Uma [rede de perímetro](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (também conhecida como DMZ) é um segmento de rede físico ou lógico que fornece uma camada adicional de segurança entre seus ativos e a Internet. Os dispositivos especializados de controle de acesso à rede na extremidade de uma rede de perímetro permitem apenas o tráfego desejado na sua rede virtual.
@@ -122,7 +122,7 @@ Embora esse seja o design básico de uma rede de perímetro, há muitos designs 
 
 Com base no conceito de confiança zero mencionado anteriormente, recomendamos que você considere o uso de uma rede de perímetro para todas as implantações de alta segurança para aprimorar o nível de segurança de rede e controle de acesso para seus recursos do Azure. Você pode usar o Azure ou uma solução de terceiros para fornecer uma camada adicional de segurança entre seus ativos e a Internet:
 
-- Controles nativos do Azure. O [Firewall do Azure](/azure/firewall/overview) e o [Firewall do aplicativo Web no gateway de aplicativo](/azure/application-gateway/overview#web-application-firewall) oferecem segurança básica com um firewall totalmente monitorado como um serviço, alta disponibilidade interna, escalabilidade de nuvem IRRESTRITA, filtragem de FQDN, suporte para conjuntos de regras principais do OWASP e instalação e configuração simples.
+- Controles nativos do Azure. O [Firewall do Azure](/azure/firewall/overview) e o [Firewall do aplicativo Web no gateway de aplicativo](../../application-gateway/features.md#web-application-firewall) oferecem segurança básica com um firewall totalmente monitorado como um serviço, alta disponibilidade interna, escalabilidade de nuvem IRRESTRITA, filtragem de FQDN, suporte para conjuntos de regras principais do OWASP e instalação e configuração simples.
 - Ofertas de terceiros. Pesquise no [Azure Marketplace](https://azuremarketplace.microsoft.com/) o firewall de próxima geração (NGFW) e outras ofertas de terceiros que fornecem ferramentas de segurança familiares e níveis significativamente aprimorados de segurança de rede. A configuração pode ser mais complexa, mas uma oferta de terceiros pode permitir que você use funcionalidades e habilidades existentes.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Evite a exposição à Internet com links WAN dedicados
@@ -130,7 +130,7 @@ Muitas organizações escolheram a rota de TI híbrida. Com a ti híbrida, algun
 
 Em um cenário de ti híbrido, geralmente há algum tipo de conectividade entre locais. A conectividade entre instalações permite que a empresa conecte suas redes locais às redes virtuais do Azure. Duas soluções de conectividade entre locais estão disponíveis:
 
-* [VPN site a site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). é uma tecnologia estabelecida e confiável, mas a conexão ocorre pela Internet. A largura de banda é restrita a um máximo de cerca de 1,25 Gbps. A VPN site a site é uma opção desejável em alguns cenários.
+* [VPN site a site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). É uma tecnologia confiável, confiável e estabelecida, mas a conexão ocorre pela Internet. A largura de banda é restrita a um máximo de cerca de 1,25 Gbps. A VPN site a site é uma opção desejável em alguns cenários.
 * **Azure ExpressRoute**. é recomendável usar o [ExpressRoute](../../expressroute/expressroute-introduction.md) para a conectividade entre locais. O ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de conexão privada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Azure, o Office 365 e o Dynamics 365. O ExpressRoute é um link WAN dedicado entre seu local ou um provedor de hospedagem do Microsoft Exchange. Como essa é uma conexão Telco, seus dados não viajam pela Internet, portanto, não são expostos aos riscos potenciais das comunicações da Internet.
 
 O local da conexão do ExpressRoute pode afetar a capacidade do firewall, a escalabilidade, a confiabilidade e a visibilidade do tráfego de rede. Você precisará identificar onde terminar o ExpressRoute em redes existentes (locais). Você pode:
@@ -158,7 +158,7 @@ Essa distribuição de tráfego aumenta a disponibilidade porque, se um dos serv
 **Cenário**: você precisa carregar as conexões de entrada da Internet entre seus servidores localizados em uma rede virtual do Azure. Os cenários são quando você:
 
 - Tiver aplicativos sem monitoração de estado que aceitam solicitações de entrada da internet.
-- Não requerem sessões Autoadesivas ou descarregamento SSL. As sessões temporárias é um método usado com balanceamento de carga do aplicativo, para alcançar a afinidade do servidor.
+- Não exigir sessões adesivas ou descarregamento de SSL. As sessões temporárias é um método usado com balanceamento de carga do aplicativo, para alcançar a afinidade do servidor.
 
 **Opção de balanceamento de carga**: use o portal do Azure para[ criar um balanceador de carga externo](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que distribua solicitações de entrada em várias VMs para fornecer um nível mais alto de disponibilidade.
 
@@ -175,7 +175,7 @@ Essa distribuição de tráfego aumenta a disponibilidade porque, se um dos serv
 Por exemplo, se o usuário fizer uma solicitação ao seu serviço a partir da UE, a conexão será direcionada para os serviços localizados em um datacenter da UE. Esta parte do balanceamento de carga global do Gerenciador de Tráfego ajuda a melhorar o desempenho porque a conexão com o datacenter mais próximo é mais rápida do que conectar-se a data centers que estejam distantes.
 
 ## <a name="disable-rdpssh-access-to-virtual-machines"></a>Desativar o acesso RDP / SSH às máquinas virtuais
-É possível acessar as máquinas virtuais do Azure usando [Protocolo RDP (Remote Desktop Protocol)](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) e o protocolo [Secure Shell ](https://en.wikipedia.org/wiki/Secure_Shell) (SSH). Esses protocolos permitem o gerenciamento de VMs de locais remotos e são padrão na computação de data center.
+É possível alcançar as máquinas virtuais do Azure usando [protocolo RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) e o protocolo [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH). Esses protocolos permitem o gerenciamento de VMs de locais remotos e são padrão na computação de data center.
 
 O problema de segurança em potencial ao usar esses protocolos pela Internet é que os invasores podem usar as técnicas de [força bruta](https://en.wikipedia.org/wiki/Brute-force_attack) para obter acesso às máquinas virtuais do Azure. Depois que os invasores tiverem acesso, eles poderão usar sua VM como ponto de partida para comprometer outras máquinas em sua rede virtual ou até mesmo atacar dispositivos em rede fora do Azure.
 
@@ -187,12 +187,12 @@ Recomendamos que você desabilite o acesso RDP e SSH direto às máquinas virtua
 A VPN ponto-a-ponto é mais segura do que as conexões RDP ou SSH diretas porque o usuário precisa autenticar duas vezes antes de se conectar a uma VM. Primeiro, o usuário precisa autenticar (e ser autorizado) para estabelecer a conexão VPN ponto-a-ponto. Segundo, o usuário precisa autenticar (e ser autorizado) para estabelecer a sessão RDP ou SSH.
 
 **Cenário**: permite que os usuários em sua rede local se conectem a VMs em sua rede virtual do Azure.   
-**Opção**: Uma [VPN site-to-site](/azure/vpn-gateway/vpn-gateway-site-to-site-create) conecta uma rede inteira a outra rede pela Internet. Você pode usar uma VPN site a site para conectar sua rede local a uma rede virtual do Azure. Os usuários em sua rede local se conectam usando o protocolo RDP ou SSH pela conexão VPN site a site. Você não precisa permitir acesso RDP ou SSH direto pela Internet.
+**Opção**: Uma [VPN site-to-site](/azure/vpn-gateway/vpn-gateway-site-to-site-create) conecta uma rede inteira a outra rede pela Internet. Você pode usar uma VPN site a site para conectar sua rede local a uma rede virtual do Azure. Os usuários em sua rede local se conectam usando o protocolo RDP ou SSH pela conexão VPN site a site. Você não precisa permitir acesso direto de RDP ou SSH pela Internet.
 
 **Cenário**: use um link WAN dedicado para fornecer funcionalidade semelhante à VPN site a site.   
 **Opção**: Use [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Ele fornece uma funcionalidade semelhante à VPN site a site. As principais diferenças são:
 
-- O link dedicado da WAN não atravessa a Internet.
+- O link WAN dedicado não atravessa a Internet.
 - Os links de WAN dedicados geralmente são mais estáveis e apresentam melhor desempenho.
 
 ## <a name="secure-your-critical-azure-service-resources-to-only-your-virtual-networks"></a>Proteja seus recursos de serviço críticos do Azure somente para suas redes virtuais
@@ -210,4 +210,4 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 Para saber mais sobre os pontos de extremidade de serviços e os serviços e regiões do Azure aos quais os pontos de extremidade de serviço estão disponíveis, consulte [Pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
+Veja [padrões e práticas recomendadas de segurança do Azure](best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar suas soluções de nuvem usando o Azure.

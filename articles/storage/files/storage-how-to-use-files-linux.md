@@ -8,11 +8,11 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: b2469a2b5819b3011f919a2b483933bb030eed70
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925479"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268191"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -34,7 +34,7 @@ Se você estiver usando uma distribuição do Linux não listada na tabela acima
 uname -r
 ```
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Verifique se o pacote CIFS-utils está instalado.**  
@@ -199,7 +199,7 @@ Para montar um compartilhamento de arquivos do Azure no Linux, a porta 445 deve 
 
 A partir do kernel do Linux 4,18, o módulo kernel SMB, chamado `cifs` por motivos herdados, expõe um novo parâmetro de módulo (muitas vezes conhecido como *Parm* por várias documentações externas), chamado `disable_legacy_dialects`. Embora introduzido no kernel do Linux 4,18, alguns fornecedores têm reportado essa alteração para os kernels mais antigos aos quais dão suporte. Para sua conveniência, a tabela a seguir detalha a disponibilidade desse parâmetro de módulo em distribuições comuns do Linux.
 
-| Distribution | Pode desabilitar o SMB 1 |
+| Distribuição | Pode desabilitar o SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04 – 16.04 | Não |
 | Ubuntu 18.04 | Sim |
@@ -278,7 +278,7 @@ Usuários do Linux, queremos ouvir sua opinião!
 
 O grupo do Arquivos do Azure para usuários do Linux oferece um fórum para que você possa compartilhar comentários à medida que você avalia e adota o Armazenamento de Arquivos no Linux. Envie um email para [Usuários do Linux do Arquivos do Azure](mailto:azurefiles@microsoft.com) para ingressar no grupo de usuários.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)

@@ -1,19 +1,19 @@
 ---
-title: Link privado para o método de instalação do portal do banco de dados do Azure para MySQL (versão prévia)
+title: Link privado-portal do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar o link privado para o banco de dados do Azure para MySQL do portal do Azure
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 193227ff98accb31c15e388c810aea7460a2cb5d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561656"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371912"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL (versão prévia) usando o portal
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando o portal
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste artigo, você aprenderá a usar o portal do Azure para criar uma VM em uma rede virtual do Azure e um servidor de banco de dados do Azure para MySQL com um ponto de extremidade privado do Azure.
 
@@ -126,13 +126,13 @@ Nesta seção, você criará um servidor de banco de dados do Azure para MySQL n
 
 Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremidade privado a ele. 
 
-1. No lado superior esquerdo da tela no portal do Azure, selecione **Criar um recurso** > **Rede** > **Central de Link Privado (Versão Prévia)** .
+1. No lado superior esquerdo da tela na portal do Azure, selecione **criar um recurso** > **rede** > **link privado**.
 
 2. Em **Central de Link Privado – Visão Geral**, na opção **Criar uma conexão privada com um serviço**, selecione **Iniciar**.
 
     ![Visão geral do link privado](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. Em **Criar um ponto de extremidade privado (versão prévia) – noções básicas**, insira ou selecione estas informações:
+1. Em **criar um ponto de extremidade privado-noções básicas**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -156,7 +156,7 @@ Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremi
     |Sub-recurso de destino |Selecionar *MySqlServer*|
     |||
 7. Selecione **Avançar: configuração**.
-8. Em **Criar um ponto de extremidade privado (versão prévia) – configuração**, insira ou selecione estas informações:
+8. Em **criar um ponto de extremidade privado-configuração**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |

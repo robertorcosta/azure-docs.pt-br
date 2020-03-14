@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 209ed755a7ef83b67170ef75911f93cdda742caa
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283518"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368189"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Com o Azure Machine Learning, você pode treinar seu modelo em uma variedade de 
 Você pode criar e gerenciar um destino de computação usando a extensão Azure Machine Learning SDK, Azure Machine Learning Studio, CLI do Azure ou Azure Machine Learning VS Code. Se você tiver destinos de computação criados por meio de outro serviço (por exemplo, um cluster HDInsight), poderá usá-los anexando-os ao seu espaço de trabalho do Azure Machine Learning.
  
 Neste artigo, você aprende a usar vários destinos de computação para treinamento do modelo.  As etapas para todos os destinos de computação seguem o mesmo fluxo de trabalho:
-1. Escolha __Criar__ um destino de computação se você ainda não tiver um.
+1. __Crie__ um destino de computação se você ainda não tiver um.
 2. Escolha __Anexar__ o destino de computação a seu workspace.
 3. Escolha __Configurar__ o destino de computação para que ele contenha as dependências de pacote e ambiente Python exigidas pelo seu script.
 
@@ -89,7 +89,7 @@ Use as seções a seguir para configurar estes destinos de computação:
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
-Agora que você anexou um computador e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
+Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
 ### <a id="amlcompute"></a>Computação do Azure Machine Learning
 
@@ -114,7 +114,7 @@ A Computação do Machine Learning do Azure tem limites padrão como o número d
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
 
-Agora que você anexou um computador e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
+Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
 #### <a id="persistent"></a>Computação persistente
 
@@ -136,7 +136,7 @@ Uma Computação do Azure Machine Learning pode ser reutilizada em trabalhos. El
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
-Agora que você anexou um computador e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
+Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
 
 ### <a id="vm"></a>Máquinas virtuais remotas
@@ -154,15 +154,30 @@ Use a DSVM (Máquina Virtual de Ciência de Dados) do Azure como a VM do Azure d
 
 1. **Anexar**: para anexar uma máquina virtual existente como um destino de computação, você deve fornecer o nome de domínio totalmente qualificado (FQDN), o nome de usuário e a senha para a máquina virtual. No exemplo, substitua \<fqdn> com o FQDN público do VM ou o endereço IP público. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha.
 
+    > [!IMPORTANT]
+    > As seguintes regiões do Azure não dão suporte à anexação de uma máquina virtual usando o endereço IP público da VM. Em vez disso, use a ID de Azure Resource Manager da VM com o parâmetro `resource_id`:
+    >
+    > * Leste dos EUA
+    > * Oeste dos EUA 2
+    > * Centro-Sul dos EUA
+    >
+    > A ID de recurso da VM pode ser criada usando a ID da assinatura, o nome do grupo de recursos e o nome da VM usando o seguinte formato de cadeia de caracteres: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -184,7 +199,7 @@ Use a DSVM (Máquina Virtual de Ciência de Dados) do Azure como a VM do Azure d
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
-Agora que você anexou um computador e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
+Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
 ### <a id="hdinsight"></a>Azure HDInsight 
 
@@ -198,6 +213,15 @@ O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma
 
 1. **Anexar**: para anexar um cluster do hdinsight como um destino de computação, você deve fornecer o nome do host, o nome de usuário e a senha para o cluster HDInsight. O exemplo a seguir usa o SDK para anexar um cluster ao seu workspace. No exemplo, substitua \<clustername> pelo nome do seu cluster. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha do cluster.
 
+    > [!IMPORTANT]
+    > As seguintes regiões do Azure não dão suporte à anexação de um cluster HDInsight usando o endereço IP público do cluster. Em vez disso, use a ID de Azure Resource Manager do cluster com o parâmetro `resource_id`:
+    >
+    > * Leste dos EUA
+    > * Oeste dos EUA 2
+    > * Centro-Sul dos EUA
+    >
+    > A ID de recurso do cluster pode ser criada usando a ID da assinatura, o nome do grupo de recursos e o nome do cluster usando o seguinte formato de cadeia de caracteres: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -208,6 +232,11 @@ O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -225,7 +254,7 @@ O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
-Agora que você anexou um computador e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
+Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
 
 ### <a id="azbatch"></a>Lote do Azure 
@@ -234,9 +263,9 @@ O lote do Azure é usado para executar aplicativos de HPC (computação de alto 
 
 Para anexar o lote do Azure como um destino de computação, você deve usar o SDK do Azure Machine Learning e fornecer as seguintes informações:
 
--   **Nome de computação do lote do Azure**: um nome amigável a ser usado para a computação no espaço de trabalho
--   **Nome da conta do lote do Azure**: o nome da conta do lote do Azure
--   **Grupo de recursos**: o grupo de recursos que contém a conta do lote do Azure.
+-    **Nome de computação do lote do Azure**: um nome amigável a ser usado para a computação no espaço de trabalho
+-    **Nome da conta do lote do Azure**: o nome da conta do lote do Azure
+-    **Grupo de recursos**: o grupo de recursos que contém a conta do lote do Azure.
 
 O código a seguir demonstra como anexar o lote do Azure como um destino de computação:
 

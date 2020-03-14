@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 3b7a75ac1c0876d562dc49e9253fe734475a551a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268189"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298947"
 ---
-# <a name="recommended-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo locais recomendados
+# <a name="tested-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo locais testados
 
 Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para processamento de conteúdo de streaming dinâmico. O Evento ao vivo recebe fluxos de entrada dinâmicos em uma de duas maneiras.
 
@@ -24,10 +24,12 @@ Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com
 
     Se você estiver usando fluxos de várias taxas de bits para o evento de passagem ao vivo, o tamanho do vídeo GOP e os fragmentos de vídeo em taxas de bits diferentes devem ser sincronizados para evitar um comportamento inesperado no lado da reprodução.
 
-  > [!NOTE]
+  > [!TIP]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
  
 * Um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo que está habilitado para executar a codificação ativa com os serviços de mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O evento ao vivo, em seguida, executa a codificação ativa do fluxo de entrada de taxa de bits única para um fluxo de vídeo de múltiplas taxas de bits (adaptável).
+
+Este artigo aborda codificadores de transmissão ao vivo locais testados. Para obter instruções sobre como verificar seu codificador ao vivo local, consulte [verificar seu codificador local](become-on-premises-encoder-partner.md)
 
 Para obter informações detalhadas sobre a codificação ativa com os Serviços de Mídia, consulte [Transmissão ao vivo com Serviços de Mídia v3](live-streaming-overview.md).
 
@@ -97,10 +99,10 @@ Para reproduzir conteúdo, os fluxos de áudio e de vídeo devem estar presentes
 - A alteração da configuração do codificador após ela ter começado a efetuar push tem efeitos negativos sobre o evento. As alterações na configuração podem fazer o evento ficar instável. 
 - Reserve bastante tempo para configurar seu evento. Para eventos em alta escala, recomendamos que você comece a configuração uma hora antes do evento.
 
-## <a name="see-also"></a>Consulte também
-
-[Torne-se um parceiro de codificador local](become-on-premises-encoder-partner.md)
-
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="see-also"></a>Confira também
 
 [Transmissão ao vivo com os Serviços de Mídia v3](live-streaming-overview.md)
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Como verificar seu codificador](become-on-premises-encoder-partner.md)

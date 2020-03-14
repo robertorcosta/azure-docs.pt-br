@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278370"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366829"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -33,7 +33,7 @@ Você pode criar um novo runbook na Automação do Azure usando um dos portais d
 
 ### <a name="create-a-runbook-with-powershell"></a>Criar um runbook com o PowerShell
 
-Você pode usar o cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um [runbook de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks)vazio. Use o parâmetro de *tipo* para especificar um dos tipos de runbook definidos para **New-AzAutomationRunbook**.
+Você pode usar o cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um [runbook de fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks)vazio. Use o parâmetro `Type` para especificar um dos tipos de runbook definidos para `New-AzAutomationRunbook`.
 
 O exemplo a seguir mostra como criar um novo runbook vazio.
 
@@ -75,7 +75,7 @@ Você pode usar o procedimento a seguir para importar um arquivo de script para 
 
 ### <a name="import-a-runbook-from-a-script-file-with-windows-powershell"></a>Importar um runbook de um arquivo de script com o Windows PowerShell
 
-Use o cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um arquivo de script como um runbook de fluxo de trabalho do PowerShell de rascunho. Se o runbook já existir, a importação falhará, a menos que você use o parâmetro *Force* com o cmdlet.
+Use o cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um arquivo de script como um runbook de fluxo de trabalho do PowerShell de rascunho. Se o runbook já existir, a importação falhará, a menos que você use o parâmetro `Force` com o cmdlet.
 
 O exemplo a seguir mostra como importar um arquivo de script para um runbook.
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando você testa um runbook, a [Versão de rascunho](#publish-a-runbook) é executada e as ações que ela realiza são concluídas. Nenhum histórico de trabalho é criado, mas os fluxos de [saída](automation-runbook-output-and-messages.md#output-stream) e de [aviso e de erro](automation-runbook-output-and-messages.md#message-streams) são exibidos no painel saída de teste. As mensagens para o [fluxo detalhado](automation-runbook-output-and-messages.md#message-streams) serão exibidas no painel de saída somente se a variável *VerbosePreference* ] (Automation-runbook-output-and-messages. MD # preference-Variables) estiver definida como **continuar**.
+Quando você testa um runbook, a [Versão de rascunho](#publish-a-runbook) é executada e as ações que ela realiza são concluídas. Nenhum histórico de trabalho é criado, mas os fluxos de [saída](automation-runbook-output-and-messages.md#output-stream) e de [aviso e de erro](automation-runbook-output-and-messages.md#message-streams) são exibidos no painel saída de teste. As mensagens para o [fluxo detalhado](automation-runbook-output-and-messages.md#message-streams) serão exibidas no painel de saída somente se a variável de `VerbosePreference`] (Automation-runbook-output-and-messages. MD # preference-Variables) estiver definida como continuar.
 
 Mesmo que a versão de rascunho esteja em execução, o runbook ainda será executado normalmente e executará qualquer ação nos recursos do ambiente. Por esse motivo, você deve testar apenas runbooks nos recursos de não produção.
 

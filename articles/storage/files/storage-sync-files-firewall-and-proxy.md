@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 93681813c12f0df99909c849e57153e7a64c78fb
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268035"
+ms.locfileid: "79299304"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
 A Sincronização de arquivos do Azure se conecta seus servidores locais para arquivos do Azure, permitindo camadas de recursos de nuvem e sincronização de vários locais. Como tal, um servidor local deve estar conectado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
@@ -144,6 +144,55 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 > - https:\//kailani.one.microsoft.com (ponto de extremidade primário: oeste dos EUA)
 > - https:\//kailani1.one.microsoft.com (região de failover emparelhada: leste dos EUA)
 > - https:\//tm-kailani.one.microsoft.com (URL de descoberta da região primária)
+
+### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista de permissões para endereços IP de Sincronização de Arquivos do Azure
+Se o firewall local exigir a adição de endereços IP específicos a uma lista de permissões para se conectar ao Sincronização de Arquivos do Azure, você poderá adicionar os seguintes intervalos de endereços IP com base nas regiões às quais você está se conectando.
+
+| Região | Intervalos de endereços IP |
+|--------|-------------------|
+| Centro dos EUA | 52.176.149.179/32, 20.37.157.80/29 |
+| Leste dos EUA 2 | 40.123.47.110/32, 20.41.5.144/29 |
+| Leste dos EUA | 104.41.148.238/32, 20.42.4.248/29 |
+| Centro-Norte dos EUA | 65.52.62.167/32, 40.80.188.24/29 |
+| Centro-Sul dos Estados Unidos | 104.210.219.252/32, 13.73.248.112/29 |
+| Oeste dos EUA 2 | 52.183.27.204/32, 20.42.131.224/29 |
+| Centro-Oeste dos EUA | 52.161.25.233/32, 52.150.139.104/29 |
+| Oeste dos EUA | 40.112.150.67/32, 40.82.253.192/29 |
+| Canadá Central | 52.228.42.41/32, 52.228.81.248/29 |
+| Leste do Canadá | 52.235.36.119/32, 40.89.17.232/29 |
+| Sul do Brasil | 191.237.253.115/32, 191.235.225.216/29 |
+| Norte da Europa | 40.113.94.67/32, 20.38.85.152/29 |
+| Europa Ocidental | 104.40.191.8/32, 20.50.1.0/29 |
+| França Central | 52.143.166.54/32, 20.43.42.8/29 |
+| Sul da França | 52.136.131.99/32, 51.105.88.248/29 |
+| Sul do Reino Unido | 51.140.67.72/32, 51.104.25.224/29 |
+| Oeste do Reino Unido | 51.140.202.34/32, 51.137.161.240/29 |
+| Norte da Suíça | 51.107.48.224/29 |
+| Oeste da Suíça | 51.107.144.216/29 |
+| Oeste da Noruega | 51.120.224.216/29 |
+| Leste da Noruega | 51.120.40.224/29 |
+| Leste da Ásia | 23.102.225.54/32, 20.189.108.56/29 |
+| Sudeste Asiático | 13.76.81.46/32, 20.43.131.40/29 |
+| Austrália Central | 20.37.224.216/29 |
+| Austrália Central 2 | 20.36.120.216/29 |
+| Leste da Austrália | 13.75.153.240/32, 20.37.195.96/29 |
+| Sudeste da Austrália | 13.70.176.196/32, 20.42.227.128/29 |
+| Sul da Índia | 104.211.231.18/32, 20.41.193.160/29 |
+| Oeste da Índia | 52.136.48.216/29 |
+| Leste do Japão | 104.41.161.113/32, 20.43.66.0/29 |
+| Oeste do Japão | 23.100.106.151/32, 40.80.57.192/29 |
+| Coreia Central | 52.231.67.75/32, 20.41.65.184/29 |
+| Sul da Coreia | 52.231.159.38/32, 40.80.169.176/29 |
+| DoD do Leste dos EUA | 20.140.72.152/29 |
+| Governo dos EUA do Arizona | 20.140.64.152/29 |
+| Governo dos EUA do Arizona | 52.244.75.224/32, 52.244.79.140/32 |
+| US Gov Iowa | 52.244.79.140/32, 52.244.75.224/32 |
+| Governo dos EUA do Texas | 52.238.166.107/32, 52.238.79.29/32 |
+| Gov. dos EUA – Virgínia | 13.72.17.152/32, 52.227.153.92/32 |
+| Norte da África do Sul | 102.133.175.72/32 |
+| Oeste da África do Sul | 102.133.75.173/32, 102.133.56.128/29, 20.140.48.216/29 |
+| EAU Central | 20.45.71.151/32, 20.37.64.216/29, 20.140.48.216/29 |
+| Norte dos EAU | 40.123.216.130/32, 20.38.136.224/29, 20.140.56.136/29 |
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade de rede para pontos de extremidade de serviço
 Depois que um servidor é registrado com o serviço de Sincronização de Arquivos do Azure, o cmdlet Test-StorageSyncNetworkConnectivity e o ServerRegistration. exe podem ser usados para testar as comunicações com todos os pontos de extremidade (URLs) específicos desse servidor. Esse cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor trabalhe totalmente com Sincronização de Arquivos do Azure e pode ser usado para ajustar as configurações de proxy e firewall.

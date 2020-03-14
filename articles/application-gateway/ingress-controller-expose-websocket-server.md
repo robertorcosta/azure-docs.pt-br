@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 01fde82e69917f59f6519524c4c8828feb84a4f9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795962"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297825"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Expor um servidor WebSocket ao gateway de aplicativo
 
-Conforme descrito na documentação do Application Gateway v2, ele [fornece suporte nativo para os protocolos WebSocket e http/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic). Observe que, para o gateway de aplicativo e a entrada kubernetes-não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket.
+Conforme descrito na documentação do Application Gateway v2, ele [fornece suporte nativo para os protocolos WebSocket e http/2](features.md#websocket-and-http2-traffic). Observe que, para o gateway de aplicativo e a entrada kubernetes-não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket.
 
 O YAML de implantação kubernetes abaixo mostra a configuração mínima usada para implantar um servidor WebSocket, que é o mesmo que implantar um servidor Web normal:
 ```yaml
@@ -75,7 +75,7 @@ spec:
               servicePort: 80
 ```
 
-Considerando que todos os pré-requisitos são atendidos e você tem um gateway de aplicativo controlado por uma entrada kubernetes em seu AKS, a implantação acima resultaria em um servidor WebSockets exposto na porta 80 do IP público do seu gateway de aplicativo e no `ws.contoso.com` controlador.
+Considerando que todos os pré-requisitos são atendidos e você tem um gateway de aplicativo controlado por uma entrada kubernetes em seu AKS, a implantação acima resultaria em um servidor WebSockets exposto na porta 80 do IP público do seu gateway de aplicativo e no domínio `ws.contoso.com`.
 
 O comando de rotação a seguir testaria a implantação do servidor WebSocket:
 ```sh

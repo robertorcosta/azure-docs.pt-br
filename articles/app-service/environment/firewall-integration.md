@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391807"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243855"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -114,7 +114,7 @@ As informações a seguir só são necessárias se você deseja configurar um di
 
 | Ponto de extremidade |
 |----------|
-| Azure SQL |
+| SQL do Azure |
 | Armazenamento do Azure |
 | Hub de Eventos do Azure |
 
@@ -272,7 +272,7 @@ O Linux não está disponível em regiões US Gov e, portanto, não está listad
 
 | Ponto de extremidade |
 |----------|
-| Azure SQL |
+| SQL do Azure |
 | Armazenamento do Azure |
 | Hub de Eventos do Azure |
 

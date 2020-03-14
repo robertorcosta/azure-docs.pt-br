@@ -3,12 +3,12 @@ title: Exibir métricas em tempo real com Azure Monitor para contêineres | Micr
 description: Este artigo descreve a exibição em tempo real de métricas sem usar o kubectl com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404944"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216583"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como exibir métricas em tempo real
 
@@ -24,7 +24,7 @@ Este artigo fornece uma visão geral detalhada e ajuda você a entender como usa
 
 Para obter ajuda com a configuração ou solução de problemas do recurso de dados dinâmicos (versão prévia), examine nosso [Guia de instalação](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Como isso funciona 
+## <a name="how-it-works"></a>Como funciona 
 
 O recurso de dados dinâmicos (versão prévia) acessa diretamente a API kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
@@ -34,7 +34,7 @@ Esse recurso executa uma operação de sondagem em relação aos pontos de extre
 
 O intervalo de sondagem é configurado na lista suspensa **definir intervalo** , permitindo que você defina sondagem para novos dados a cada 1, 5, 15 e 30 segundos. 
 
-![Ir para intervalo de sondagem suspensa de ativação](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![Ir para intervalo de sondagem suspensa de ativação](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >É recomendável definir o intervalo de sondagem para um segundo enquanto soluciona um problema por um curto período de tempo. Essas solicitações podem afetar a disponibilidade e a limitação da API kubernetes no cluster. Depois, reconfigure para um intervalo de sondagem mais longo. 
@@ -82,6 +82,6 @@ Esse gráfico de desempenho é mapeado para um equivalente de invocar `kubectl g
 >[!NOTE]
 >Os nomes de status como interpretados pelo `kubectl` podem não corresponder exatamente ao gráfico. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para criar alertas, visualizações ou executar análise adicional de seus clusters.

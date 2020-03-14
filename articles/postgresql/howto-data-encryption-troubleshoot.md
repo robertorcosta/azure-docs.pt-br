@@ -1,17 +1,17 @@
 ---
-title: Solucionar problemas de criptografia de dados no banco de dado do Azure para PostgreSQL-servidor único
+title: Solucionar problemas de criptografia de dados-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como solucionar problemas de criptografia de dados no banco de dado do Azure para PostgreSQL-servidor único
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: bd3303117bae307bb562390cec1fdfb62c01b7c6
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 2902ff17ac14a48f1a11259339c2ab1bc4595980
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851070"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299253"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Solucionar problemas de criptografia de dados no banco de dado do Azure para PostgreSQL-servidor único
 

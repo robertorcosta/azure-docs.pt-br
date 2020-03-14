@@ -1,17 +1,17 @@
 ---
-title: Banco de dados do Azure para MySQL Data Encryption com uma chave gerenciada pelo cliente
+title: Criptografia de dados com chave gerenciada pelo cliente-banco de dado do Azure para MySQL
 description: O banco de dados do Azure para MySQL Data Encryption com uma chave gerenciada pelo cliente permite que você Bring Your Own Key (BYOK) para proteção de dados em repouso. Ele também permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210424"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299117"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Banco de dados do Azure para MySQL Data Encryption com uma chave gerenciada pelo cliente
 

@@ -5,20 +5,20 @@ author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 47da8146d3984982a9024b3bd084a1ab384c944f
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392734"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298777"
 ---
 # <a name="manage-users"></a>Gerenciar usuários
 
 O Azure FarmBeats inclui gerenciamento de usuário para pessoas que fazem parte da sua instância do Azure Active Directory (Azure AD). Você pode adicionar usuários à instância do FarmBeats do Azure para acessar as APIs, exibir os mapas gerados e telemetria do sensor de acesso do farm.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
-- Uma instalação do FarmBeats do Azure é necessária. Para obter mais informações, consulte [instalar o Azure FarmBeats](install-azure-farmbeats.md).
+- A instalação do FarmBeats do Azure é necessária. Para obter mais informações, consulte [instalar o Azure FarmBeats](install-azure-farmbeats.md).
 - As IDs de email dos usuários que você deseja adicionar ou remover da instância FarmBeats do Azure.
 
 ## <a name="manage-azure-farmbeats-users"></a>Gerenciar usuários do Azure FarmBeats
@@ -26,6 +26,8 @@ O Azure FarmBeats inclui gerenciamento de usuário para pessoas que fazem parte 
 O Azure FarmBeats usa o Azure AD para autenticação, controle de acesso e funções. Você pode adicionar usuários no locatário do Azure AD como usuários no Azure FarmBeats.
 
 > [!NOTE]
+> Se um usuário não for um usuário de locatário do Azure AD, siga as instruções na seção **Adicionar usuários do Azure ad** para concluir a instalação.
+
 > Se um usuário que você está tentando adicionar como um usuário FarmBeats do Azure não estiver presente no locatário do Azure AD, conclua a configuração seguindo as instruções na seção "adicionar usuários do Azure AD".
 
 O Azure FarmBeats dá suporte a dois tipos de funções de usuário:
@@ -63,7 +65,7 @@ Para remover usuários do sistema FarmBeats do Azure:
 ## <a name="add-azure-ad-users"></a>Adicionar usuários do Microsoft Azure Active Directory
 
 > [!NOTE]
-> Os usuários do Azure FarmBeats precisam existir no locatário do Azure AD antes que você possa atribuí-los a aplicativos e funções. Se um usuário que você deseja adicionar ao Azure FarmBeats ainda não existir no locatário do Azure AD, siga as instruções nesta seção. Se o usuário existir no locatário do Azure AD, você poderá ignorar estas instruções.
+> Os usuários do Azure FarmBeats precisam existir no locatário do Azure AD antes de atribuí-los a aplicativos e funções. Se um usuário não existir no locatário do Azure AD, siga as instruções nesta seção. Ignore as instruções se já existir um usuário no locatário do Azure AD.
 
 Para adicionar usuários ao Azure AD, faça o seguinte:
 
@@ -82,6 +84,6 @@ Para adicionar usuários ao Azure AD, faça o seguinte:
 
 Para obter informações sobre como gerenciar usuários do Azure AD, consulte [Adicionar ou excluir usuários no Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Você adicionou usuários com êxito à instância do Azure FarmBeats. Agora, saiba como [criar e gerenciar farms](manage-farms-in-azure-farmbeats.md#create-farms).

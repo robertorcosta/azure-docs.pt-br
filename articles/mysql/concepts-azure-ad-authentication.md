@@ -1,17 +1,17 @@
 ---
-title: Autenticação Active Directory-banco de dados do Azure para MySQL-servidor único
-description: Saiba mais sobre os conceitos de Azure Active Directory para autenticação com o banco de dados do Azure para MySQL-servidor único
+title: Autenticação Active Directory-banco de dados do Azure para MySQL
+description: Saiba mais sobre os conceitos de Azure Active Directory para autenticação com o banco de dados do Azure para MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: eb26bc09ce273280b55a023c563427b5b323ace9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706096"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299015"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usar Azure Active Directory para autenticar com o MySQL
 
@@ -87,10 +87,10 @@ Depois de autenticado no Active Directory, você recupera um token. Esse token �
 - Se o administrador do Azure AD for removido do servidor, o servidor não será mais associado a um locatário do Azure AD e, portanto, todos os logons do Azure AD serão desabilitados para o servidor. Adicionar um novo administrador do Azure AD do mesmo locatário reabilitará os logons do Azure AD.
 - O banco de dados do Azure para MySQL corresponde a tokens de acesso para o usuário do banco de dados do Azure para MySQL usando a ID de usuário exclusiva do Azure AD do usuário, em vez de usar o nome de usuários. Isso significa que se um usuário do Azure AD for excluído do Azure AD e um novo usuário criado com o mesmo nome, o banco de dados do Azure para MySQL considerará que um usuário diferente. Portanto, se um usuário for excluído do Azure AD e um novo usuário com o mesmo nome for adicionado, o novo usuário não poderá se conectar com o usuário existente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o banco de dados do Azure para MySQL, consulte [configurar e entrar com o Azure ad para o banco de dados do Azure para MySQL](howto-configure-sign-in-azure-ad-authentication.md).
-- Para obter uma visão geral dos logons e dos usuários do banco de dados do Azure para MySQL, consulte [criar usuários no banco de dados do Azure para MySQL-servidor único](howto-create-users.md).
+- Para obter uma visão geral de logons e usuários de banco de dados do Azure para MySQL, consulte [criar usuários no banco de dados do Azure para MySQL](howto-create-users.md).
 
 <!--Image references-->
 

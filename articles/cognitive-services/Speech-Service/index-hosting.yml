@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação de hospedagem
+title: Documentação de hosting
 summary: Os contêineres de serviço de fala estão disponíveis para cenários de conversão de texto em texto e de textos em fala, que abrangem modelos padrão ou personalizados.
 metadata:
   title: Documentação de hospedagem-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
@@ -10,32 +10,32 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ead45759891d4b2a41a380c88cf32f4e504b6e2c
-  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/28/2020
-  ms.locfileid: "77920868"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79366693"
 landingContent:
-- title: Introdução
+- title: Sobre hospedagem
   linkLists:
   - linkListType: concept
     links:
-    - text: Contêineres de serviço de fala
+    - text: Instalar e executar contêineres de fala
       url: speech-container-howto.md
-    - text: Contêineres de serviço de fala com kubernetes
+    - text: Contêineres de fala com kubernetes e Helm
       url: speech-container-howto-on-premises.md
-    - text: Contêineres de serviço de fala em instâncias de contêiner do Azure
+    - text: Contêineres de fala em instâncias de contêiner do Azure
       url: deploy-speech-on-container-instances.md
-- title: Guias passo a passo
+- title: Criar e configurar
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Criar um recurso de fala do Azure
       url: get-started.md#new-resource
-    - text: Configurar contêineres
+    - text: Configurar contêineres de fala
       url: speech-container-configuration.md
 - title: Referência
   linkLists:
@@ -43,5 +43,5 @@ landingContent:
     links:
     - text: Regiões com suporte
       url: regions.md
-    - text: Nuvens soberanass
+    - text: Nuvens soberanas
       url: sovereign-clouds.md

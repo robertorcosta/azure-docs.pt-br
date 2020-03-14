@@ -1,5 +1,5 @@
 ---
-title: Sobre o SDK de dispositivos de fala-serviço de fala
+title: SDK de dispositivos de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Introdução ao SDK de Dispositivos de Fala. O serviço de fala funciona com uma ampla variedade de dispositivos e fontes de áudio. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 40179c7d421a26fd9a77b435668f75ec6fde8ab1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136966"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370637"
 ---
-# <a name="about-the-speech-devices-sdk"></a>Sobre os dispositivos de fala do SDK
+# <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos dispositivos de fala?
 
 O [serviço de fala](overview.md) funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, você pode levar os aplicativos de fala para o próximo nível com hardware e software correspondentes. O SDK de Dispositivos de Fala é uma biblioteca pré-ajustada emparelhada com kits de desenvolvimento de matriz de microfone criados para um fim específico.
 

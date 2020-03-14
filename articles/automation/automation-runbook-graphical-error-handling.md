@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4f975af233973ce5fac75ca46e334af5d91e8edc
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246271"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367057"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos na Automação do Azure
 
@@ -48,7 +48,7 @@ A prática recomendada é criar um runbook de tratamento de erros dedicado com f
 1. Envia uma notificação sobre esse problema.
 2. Inicia outro runbook que provisiona automaticamente uma nova VM em vez disso.
 
-Uma solução é ter um link de erro no runbook apontando para uma atividade que lida com a etapa um. Por exemplo, o runbook pode conectar o cmdlet **Write-Warning** a uma atividade para a etapa dois, como o cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
+Uma solução é ter um link de erro no runbook apontando para uma atividade que lida com a etapa um. Por exemplo, o runbook pode conectar o cmdlet `Write-Warning` a uma atividade para a etapa dois, como o cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
 
 Você também pode generalizar esse comportamento para uso em muitos runbooks, colocando essas duas atividades em um runbook de tratamento de erros separado. Antes que o runbook original Chame esse runbook de tratamento de erros, ele pode construir uma mensagem personalizada de seus dados e, em seguida, passá-la como um parâmetro para o runbook de tratamento de erros.
 
@@ -60,9 +60,9 @@ Depois de habilitar a definição de configuração, faça com que o runbook cri
 
 No exemplo a seguir, um runbook recupera uma variável que contém o nome do computador de uma VM. Em seguida, ele tenta iniciar a VM com a próxima atividade.<br><br> ![Exemplo de tratamento de erro de runbook de automação](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-A atividade **Get-AutomationVariable** e o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) são configurados para converter exceções em erros. Se houver problemas ao obter a variável ou iniciar a VM, o código gerará erros.<br><br> ![configurações de atividade de tratamento de erro do runbook de automação](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
+A atividade de `Get-AutomationVariable` e o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) são configurados para converter exceções em erros. Se houver problemas ao obter a variável ou iniciar a VM, o código gerará erros.<br><br> ![configurações de atividade de tratamento de erro do runbook de automação](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
 
-Links de erro fluem dessas atividades para uma única atividade de código de **Gerenciamento de erro** . Essa atividade é configurada com uma expressão simples do PowerShell que usa a palavra-chave **throw** para interromper o processamento, juntamente com `$Error.Exception.Message` para obter a mensagem que descreve a exceção atual.<br><br> exemplo de código de tratamento de erro do runbook de automação ![](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+Links de erro fluem dessas atividades para uma única atividade de `error management` de código. Essa atividade é configurada com uma expressão simples do PowerShell que usa a palavra-chave `throw` para parar o processamento, juntamente com `$Error.Exception.Message` para obter a mensagem que descreve a exceção atual.<br><br> exemplo de código de tratamento de erro do runbook de automação ![](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

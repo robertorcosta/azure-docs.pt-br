@@ -1,6 +1,6 @@
 ---
-title: Como solucionar problemas de falhas no trabalho de U-SQL Azure Data Lake Analytics devido à atualização do .NET 4.7.2
-description: Solucionar falhas de trabalho do U-SQL devido à atualização para o .NET 4.7.2.
+title: Como solucionar problemas de falhas no trabalho de U-SQL Azure Data Lake Analytics devido à atualização do .NET Framework 4.7.2
+description: Solucionar falhas de trabalho do U-SQL devido à atualização para .NET Framework 4.7.2.
 services: data-lake-analytics
 author: guyhay
 ms.author: guyhay
@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873226"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213578"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics está atualizando para o .NET Framework v 4.7.2
 
@@ -22,12 +22,12 @@ O tempo de execução padrão do Azure Data Lake Analytics está atualizando de 
 
 Essa atualização de .NET Framework 4.5.2 para a versão 4.7.2 significa que o .NET Framework implantado em um tempo de execução do U-SQL (o tempo de execução padrão) agora será sempre 4.7.2. Não há uma opção lado a lado para versões de .NET Framework.
 
-Depois que essa atualização para o .NET 4.7.2 for concluída, o código gerenciado do sistema será executado como a versão 4.7.2, as bibliotecas fornecidas pelo usuário, como os assemblies personalizados do U-SQL, serão executadas no modo compatível com versões anteriores para a versão que o assembly foi gerado fins.
+Depois que essa atualização para .NET Framework 4.7.2 for concluída, o código gerenciado do sistema será executado como a versão 4.7.2, as bibliotecas fornecidas pelo usuário, como os assemblies personalizados do U-SQL, serão executadas no modo compatível com versões anteriores para a versão em que o assembly foi gerado para.
 
 - Se as DLLs do assembly forem geradas para a versão 4.5.2, a estrutura implantada as tratará como bibliotecas 4.5.2, fornecendo (com algumas exceções) a semântica 4.5.2.
 - Agora você pode usar assemblies personalizados do U-SQL que usam recursos da versão 4.7.2, se você direcionar para o .NET Framework 4.7.2.
 
-Devido a essa atualização para o .NET 4.7.2, há um potencial para introduzir alterações significativas em seus trabalhos do U-SQL que usam assemblies personalizados do .NET. Sugerimos que você verifique se há problemas de compatibilidade com versões anteriores usando o procedimento abaixo.
+Devido a essa atualização para .NET Framework 4.7.2, há um potencial para introduzir alterações significativas em seus trabalhos do U-SQL que usam assemblies personalizados do .NET. Sugerimos que você verifique se há problemas de compatibilidade com versões anteriores usando o procedimento abaixo.
 
 ## <a name="how-to-check-for-backwards-compatibility-issues"></a>Como verificar se há problemas de compatibilidade com versões anteriores
 
@@ -57,49 +57,49 @@ Você pode enviar seu trabalho contra a versão de tempo de execução antiga (q
 
 ### <a name="what-are-the-most-common-backwards-compatibility-issues-you-may-encounter"></a>Quais são os problemas mais comuns de compatibilidade com versões anteriores que você pode encontrar
 
-As incompatibilidades com versões anteriores mais comuns que o verificador provavelmente identificarão são (geramos essa lista executando o verificador em nossos próprios trabalhos ADLA internos), quais bibliotecas são afetadas (Observação: você pode chamar as bibliotecas somente indiretamente, portanto, é é importante tomar as medidas necessárias #1 para verificar se os trabalhos foram afetados) e as possíveis ações a serem corrigidas. Observação: em quase todos os casos para nossos próprios trabalhos, os avisos desativados como falsos positivos devido à natureza estreita da maioria das alterações mais recentes.
+As incompatibilidades mais comuns que o verificador é provável de identificar são (geramos essa lista executando o verificador em nossos próprios trabalhos ADLA internos), quais bibliotecas são impactadas (Observação: você pode chamar as bibliotecas somente indiretamente, portanto, é importante tomar as medidas necessárias #1 para verificar se os trabalhos são afetados) e as ações possíveis para corrigir. Observação: em quase todos os casos para nossos próprios trabalhos, os avisos desativados como falsos positivos devido à natureza estreita da maioria das alterações mais recentes.
 
-- A propriedade IAsyncResult.CompletedSynchronously deve estar correta para a tarefa resultante a ser concluída
-  - Ao chamar TaskFactory.FromAsync, a implementação da propriedade IAsyncResult.CompletedSynchronously deve estar correta para a tarefa resultante a ser concluída. Isto é, a propriedade deverá retornar true se, e apenas se, a implementação for concluída de modo síncrono. Anteriormente, a propriedade não foi marcada.
+- A propriedade IAsyncResult. CompletedSynchronously deve estar correta para que a tarefa resultante seja concluída
+  - Ao chamar TaskFactory. FromAsync, a implementação da propriedade IAsyncResult. CompletedSynchronously deve estar correta para que a tarefa resultante seja concluída. Ou seja, a propriedade deve retornar true se, e somente If, a implementação tiver sido concluída de forma síncrona. Anteriormente, a propriedade não foi verificada.
   - Bibliotecas afetadas: mscorlib, System. Threading. Tasks
   - Ação sugerida: Verifique se TaskFactory. FromAsync retorna true corretamente
 
-- DataObject.GetData agora recupera dados como UTF-8
-  - Para aplicativos direcionados ao .NET Framework 4 ou que são executados no .NET Framework 4.5.1 ou versões anteriores, o DataObject.GetData recupera dados formatados em HTML como uma cadeia de caracteres ASCII. Como resultado, caracteres não ASCII (caracteres cujos códigos ASCII são maiores que 0x7F) são representados por dois caracteres aleatórios. #N # #N # para aplicativos direcionados para o .NET Framework 4,5 ou posterior e executados no .NET Framework 4.5.2, `DataObject.GetData` recupera dados formatados em HTML como UTF-8, que representa caracteres maiores que 0x7F corretamente.
+- DataObject. GetData agora recupera dados como UTF-8
+  - Para aplicativos direcionados para o .NET Framework 4 ou executados no .NET Framework 4.5.1 ou versões anteriores, DataObject. GetData recupera dados formatados em HTML como uma cadeia de caracteres ASCII. Como resultado, caracteres não ASCII (caracteres cujos códigos ASCII são maiores que 0x7F) são representados por dois caracteres aleatórios. #N # #N # para aplicativos direcionados para o .NET Framework 4,5 ou posterior e executados no .NET Framework 4.5.2, `DataObject.GetData` recupera dados formatados em HTML como UTF-8, que representa caracteres maiores que 0x7F corretamente.
   - Bibliotecas afetadas: Glo
   - Ação sugerida: Verifique se os dados recuperados são do formato que você deseja
 
-- XmlWriter é gerado com pares alternativos inválidos
-  - Em aplicativos direcionados ao NET Framework 4.5.2 ou versões anteriores, escrever um par alternativo inválido usando o tratamento de fallback de exceção nem sempre gera uma exceção. Em aplicativos destinados ao .NET Framework 4.6, tentar escrever um par alternativo inválido gera `ArgumentException`.
+- O XmlWriter é acionado em pares substitutos inválidos
+  - Para aplicativos direcionados para o .NET Framework 4.5.2 ou versões anteriores, escrever um par alternativo inválido usando a manipulação de fallback de exceção nem sempre gera uma exceção. Para aplicativos direcionados para o .NET Framework 4,6, a tentativa de gravar um par substituto inválido gera um `ArgumentException`.
   - Bibliotecas afetadas: System. xml, System. xml. ReaderWriter
   - Ação sugerida: Verifique se você não está gravando um par substituto inválido que causará exceção de argumento
 
-- HtmlTextWriter não renderiza o elemento `<br/>` corretamente
-  - A partir do .NET Framework 4.6, chamar `HtmlTextWriter.RenderBeginTag()` e `HtmlTextWriter.RenderEndTag()` com um elemento `<BR />` vai inserir corretamente apenas um `<BR />` (em vez de dois)
+- HtmlTextWriter não processa `<br/>` elemento corretamente
+  - A partir do .NET Framework 4,6, chamar `HtmlTextWriter.RenderBeginTag()` e `HtmlTextWriter.RenderEndTag()` com um elemento `<BR />` inserirá corretamente apenas um `<BR />` (em vez de dois)
   - Bibliotecas afetadas: System. Web
   - Ação sugerida: Verifique se você está inserindo a quantidade de `<BR />` esperada para ver que nenhum comportamento aleatório é visto no trabalho de produção
 
-- Chamada para CreateDefaultAuthorizationContext com um argumento nulo foi alterada
-  - A implementação de AuthorizationContext retornado por uma chamada a `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` com um argumento authorizationPolicies nulo mudou sua implementação no .NET Framework 4.6.
+- A chamada a CreateDefaultAuthorizationContext com um argumento nulo foi alterada
+  - A implementação do AuthorizationContext retornado por uma chamada para o `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` com um argumento authorizationPolicies nulo alterou sua implementação no .NET Framework 4,6.
   - Bibliotecas afetadas: System. IdentityModel
   - Ação sugerida: Verifique se você está lidando com o novo comportamento esperado quando há uma política de autorização nula
   
-- Agora, RSACng carrega corretamente as chaves RSA de tamanho não padrão
-  - Nas versões do .NET Framework anteriores a 4.6.2, os clientes com tamanhos de chave não padrão para certificados RSA não conseguiam acessá-las por meio dos métodos de extensão `GetRSAPublicKey()` e `GetRSAPrivateKey()`. Uma `CryptographicException` com a mensagem "o tamanho da chave solicitada não é suportada" é lançada. Com o .NET Framework 4.6.2, esse problema foi corrigido. Da mesma forma, `RSA.ImportParameters()` e `RSACng.ImportParameters()` agora funcionam com tamanhos de chave não padrão sem lançar `CryptographicException`.
+- RSACng agora carrega corretamente chaves RSA de tamanho de chave não padrão
+  - Em versões .NET Framework anteriores ao 4.6.2, os clientes com tamanhos de chave não padrão para certificados RSA não podem acessar essas chaves por meio dos métodos de extensão `GetRSAPublicKey()` e `GetRSAPrivateKey()`. Uma `CryptographicException` com a mensagem "o tamanho da chave solicitada não é suportada" é lançada. Com o .NET Framework 4.6.2, esse problema foi corrigido. Da mesma forma, `RSA.ImportParameters()` e `RSACng.ImportParameters()` agora funcionam com tamanhos de chave não padrão sem lançar `CryptographicException`.
   - Bibliotecas afetadas: mscorlib, System. Core
   - Ação sugerida: Verifique se as chaves RSA estão funcionando conforme o esperado
 
-- Verificações de dois-pontos em caminhos estão mais rigorosas
-  - No .NET Framework 4.6.2, uma série de alterações foram feitas para dar suporte aos caminhos incompatíveis anteriormente (em termos de comprimento e formato). As verificações de sintaxe do separador de unidades (dois-pontos) correto foram aperfeiçoadas, o que teve como efeito colateral o bloqueio de alguns caminhos de URI em algumas APIs de Caminho selecionadas em que eles costumavam ser aceitos.
+- As verificações de dois pontos de caminho são mais rígidas
+  - No .NET Framework 4.6.2, várias alterações foram feitas para dar suporte a caminhos anteriormente não suportados (tanto no comprimento quanto no formato). Verifica se a sintaxe apropriada do separador de unidade (dois-pontos) foi feita mais corretamente, o que teve o efeito colateral de bloquear alguns caminhos de URI em algumas APIs de caminho Select, nas quais costumava ser tolerado.
   - Bibliotecas afetadas: mscorlib, System. Runtime. Extensions
   - Ação sugerida:
 
 - Chamadas para construtores ClaimsIdentity
-  - A partir do .NET Framework 4.6.2, haverá uma alteração na maneira como os construtores `T:System.Security.Claims.ClaimsIdentity` com um parâmetro `T:System.Security.Principal.IIdentity` configuram a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor`. Se o argumento `T:System.Security.Principal.IIdentity` for um objeto `T:System.Security.Claims.ClaimsIdentity` e a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` desse objeto `T:System.Security.Claims.ClaimsIdentity` não for `null`, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` será anexada usando o método `M:System.Security.Claims.ClaimsIdentity.Clone`. No Framework 4.6.1 e versões anteriores, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` é anexada como uma referência existente. Por causa dessa alteração, começando com o .NET Framework 4.6.2, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` do novo objeto `T:System.Security.Claims.ClaimsIdentity` não é igual à propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` do argumento de `T:System.Security.Principal.IIdentity` do construtor. No .NET Framework 4.6.1 e nas versões anteriores, ele é igual.
+  - Começando com o .NET Framework 4.6.2, há uma alteração em como `T:System.Security.Claims.ClaimsIdentity` construtores com um parâmetro `T:System.Security.Principal.IIdentity` definem a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor`. Se o argumento `T:System.Security.Principal.IIdentity` for um objeto `T:System.Security.Claims.ClaimsIdentity` e a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` desse objeto `T:System.Security.Claims.ClaimsIdentity` não for `null`, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` será anexada usando o método `M:System.Security.Claims.ClaimsIdentity.Clone`. No Framework 4.6.1 e versões anteriores, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` é anexada como uma referência existente. Por causa dessa alteração, começando com o .NET Framework 4.6.2, a propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` do novo objeto `T:System.Security.Claims.ClaimsIdentity` não é igual à propriedade `P:System.Security.Claims.ClaimsIdentify.Actor` do argumento de `T:System.Security.Principal.IIdentity` do construtor. No .NET Framework 4.6.1 e versões anteriores, é igual.
   - Bibliotecas afetadas: mscorlib
   - Ação sugerida: Verifique se ClaimsIdentity está funcionando conforme o esperado no novo tempo de execução
 
-- Serialização de caracteres de controle com DataContractJsonSerializer agora é compatível com ECMAScript V6 e V8
-  - No .NET Framework 4.6.2 e versões anteriores, o DataContractJsonSerializer não serializava alguns caracteres de controle especiais, como \b, \f e \t, de forma que fosse compatível com os padrões ECMAScript V6 e V8. A partir do .NET Framework 4.7, a serialização desses caracteres de controle é compatível com o ECMAScript V6 e V8.
+- A serialização de caracteres de controle com DataContractJsonSerializer agora é compatível com ECMAScript V6 e V8
+  - No .NET Framework 4.6.2 e versões anteriores, o DataContractJsonSerializer não serializava alguns caracteres de controle especiais, como \b, \f e \t, de forma que fosse compatível com os padrões ECMAScript V6 e V8. A partir do .NET Framework 4,7, a serialização desses caracteres de controle é compatível com ECMAScript V6 e V8.
   - Bibliotecas afetadas: System. Runtime. Serialization. JSON
   - Ação sugerida: Verifique o mesmo comportamento com DataContractJsonSerializer

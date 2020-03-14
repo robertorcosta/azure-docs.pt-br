@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883703"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220309"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Pesquisando entidades com a API de Entidade do Bing
 
@@ -234,7 +234,7 @@ Um resultado de local inclui o nome, o endereço, o número de telefone e a URL 
 
 ## <a name="data-attribution"></a>Atribuição de dados
 
-As respostas da API de Entidade do Bing contêm informações pertencentes a terceiros. Você é responsável por garantir o uso apropriado, por exemplo, respeitando qualquer licença Creative Commons da qual sua experiência do usuário pode depender.
+As respostas da API de Entidade do Bing contêm informações pertencentes a terceiros. Você é responsável por garantir o uso apropriado, por exemplo, respeitando qualquer licença Creative Commons da qual sua experiência do usuário possa depender.
 
 Se uma resposta ou um resultado incluir os campos `contractualRules`, `attributions` ou `provider`, os dados precisarão ser atribuídos. Se a resposta não incluir nenhum desses campos, nenhuma atribuição será necessária. Se a resposta incluir o campo `contractualRules` e os campos `attributions` e/ou `provider`, você precisará usar as regras contratuais para atribuir os dados.
 
@@ -269,7 +269,7 @@ O exemplo a seguir mostra uma entidade que inclui uma regra contratual MediaAttr
 
 Se uma regra contratual incluir o campo `targetPropertyName`, a regra se aplicará somente ao campo de destino. Caso contrário, a regra se aplicará ao objeto pai que contém o campo `contractualRules`.
 
-No exemplo a seguir, a regra `LinkAttribution` inclui o campo `targetPropertyName` e, portanto, a regra se aplica ao campo `description`. Para as regras que se aplicam a campos específicos, é necessário incluir uma linha imediatamente após os dados de destino que contenha um hiperlink para o site do provedor. Por exemplo, para atribuir a descrição, inclua uma linha imediatamente após o texto de descrição que contenha um hiperlink para os dados no site do provedor; nesse caso, crie um link para contoso.com.
+No exemplo a seguir, a regra `LinkAttribution` inclui o campo `targetPropertyName` e, portanto, a regra se aplica ao campo `description`. No caso das regras que se aplicam a campos específicos, é necessário incluir uma linha imediatamente após os dados de destino que contenha um hiperlink para o site do provedor. Por exemplo, para atribuir a descrição, inclua uma linha imediatamente após o texto de descrição que contenha um hiperlink para os dados no site do provedor; nesse caso, crie um link para contoso.com.
 
 ```json
 "entities": {
@@ -310,7 +310,7 @@ Veja a seguir um exemplo que inclui regras `LinkAttribution` e `TextAttribution`
 
 ### <a name="media-attribution"></a>Atribuição de mídia
 
-Se a entidade incluir uma imagem e você exibi-la, você precisará fornecer um link clickthrough para o site do provedor. Se a entidade incluir uma regra [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mediaattribution), use a URL da regra para criar o link para clicar. Caso contrário, use a URL incluída no campo `provider` da imagem para criar o link para clicar.
+Se a entidade incluir uma imagem e você exibi-la, você precisará fornecer um link para clicar para o site do provedor. Se a entidade incluir uma regra [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mediaattribution), use a URL da regra para criar o link para clicar. Caso contrário, use a URL incluída no campo `provider` da imagem para criar o link para clicar.
 
 Veja a seguir um exemplo que inclui o campo `provider` e as regras contratuais de uma imagem. Como o exemplo inclui a regra contratual, ignore o campo `provider` da imagem e aplique a regra `MediaAttribution`.
 

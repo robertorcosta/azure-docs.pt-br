@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: f7d993799fed637fbec55afc8f06d90c8fc6910f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726774"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217217"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para proteger bancos de dados de PaaS no Azure
 
@@ -30,7 +30,7 @@ O Banco de Dados SQL do Azure e o SQL Data Warehouse fornecem um serviço de ban
 
 - Autenticação do Azure Active Directory (em vez da autenticação do SQL Server)
 - Firewall do SQL do Azure
-- Transparent Data Encryption (TDE)
+- Criptografia de Dados Transparente (TDE)
 
 ## <a name="use-a-centralized-identity-repository"></a>Usar um repositório de identidades centralizado
 Os bancos de dados SQL do Azure podem ser configurados para usar um dos dois tipos de autenticação:
@@ -68,7 +68,7 @@ As restrições de endereço IP de origem do Banco de Dados SQL permitem o acess
 
 Para saber mais sobre as restrições de IP e o Firewall do SQL do Azure, consulte:
 
-- [Controle de acesso ao SQL Data Warehouse e ao Banco de Dados SQL do Azure](../../sql-database/sql-database-control-access.md)
+- [Controle de acesso ao SQL Data Warehouse e ao Banco de Dados SQL do Azure](../../sql-database/sql-database-manage-logins.md)
 - [Regras de firewall do SQL Data Warehouse e do Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md)
 
 

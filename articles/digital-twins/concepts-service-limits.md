@@ -8,28 +8,22 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 8658bc44e41f61e717cf228a6d8e7cee6b477022
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264943"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370365"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
-Durante a visualização pública, os Gêmeos Digitais do Azure tem os seguintes limites de assinatura, instância e taxa temporários.
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Essas restrições existem para ajudar a simplificar o aprendizado sobre o novo serviço e seus diversos recursos.
-
-> [!NOTE]
-> Esses limites serão aumentados ou removidos pela disponibilidade geral (GA).
+Durante a visualização pública, o Azure digital gêmeos tem a seguinte assinatura, instância e limites de taxa temporários para clientes existentes. Essas restrições existem para ajudar a simplificar o aprendizado sobre o novo serviço e seus diversos recursos e serão aumentadas ou removidas por GA (disponibilidade geral).
 
 ## <a name="per-subscription-limits"></a>Limites por assinatura
 
-Durante a visualização pública, cada assinatura do Azure pode criar ou executar apenas uma instância dos Gêmeos Digitais do Azure por vez.
-
-> [!TIP]
-> Se você excluir sua instância, poderá criar uma nova.
+Durante a visualização pública, cada assinatura do Azure pode criar ou executar apenas uma instância dos Gêmeos Digitais do Azure por vez. Se você excluir sua instância, poderá criar uma nova.
 
 ## <a name="per-instance-limits"></a>Limites por instância
 
@@ -71,8 +65,8 @@ Os limites a seguir definem o número total de todas as chamadas de função def
 Os limites a seguir limitam o número total de todas as mensagens que seus dispositivos podem enviar para sua instância dos Gêmeos Digitais do Azure:
 
 - 100 mensagens por segundo em todos os dispositivos
--   25 mensagens por segundo por dispositivo
+-    25 mensagens por segundo por dispositivo
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para testar um exemplo de Gêmeos Digitais do Azure,vá para [Início Rápido para encontrar salas disponíveis](./quickstart-view-occupancy-dotnet.md).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: eef67ca8111983adb4d9994894ba215240daee6f
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: b0eed8fe9d548ee54698d187e192960bb3b44e44
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78253742"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368801"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
@@ -33,10 +33,10 @@ A automação do Azure dá suporte a três tipos de controle do código-fonte:
 
 * Um repositório de controle do código-fonte (GitHub ou Azure Repos)
 * Uma [conta Executar como](manage-runas-account.md)
-* Os [módulos do Azure mais recentes](automation-update-azure-modules.md) em sua conta de automação, incluindo o módulo **AZ. Accounts** (módulo AZ equivalente de AzureRM. Profile)
+* Os [módulos mais recentes do Azure](automation-update-azure-modules.md) em sua conta de automação, incluindo o módulo de `Az.Accounts` (módulo AZ equivalente de `AzureRM.Profile`)
 
 > [!NOTE]
-> Os trabalhos de sincronização de controle do código-fonte são executados sob a conta de automação do usuário e são cobrados com a mesma taxa de outros trabalhos de automação.
+> Os trabalhos de sincronização de controle do código-fonte são executados na conta de automação do usuário e são cobrados com a mesma taxa de outros trabalhos de automação.
 
 ## <a name="configuring-source-control"></a>Configurando controle do código-fonte
 
@@ -54,15 +54,15 @@ Use este procedimento para configurar o controle do código-fonte usando o porta
 
 3. Uma janela do navegador é aberta e solicita que você entre. Siga os prompts para concluir a autenticação.
 
-4. Na página **Resumo do controle do código-fonte** , use os campos para preencher as propriedades de controle do código-fonte definidas abaixo. Clique em **Salvar** ao terminar. 
+4. Na página Resumo do controle do código-fonte, use os campos para preencher as propriedades de controle do código-fonte definidas abaixo. Clique em **Salvar** ao terminar. 
 
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
     |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte. Esse nome deve conter apenas letras e números.        |
-    |Tipo de controle do código-fonte     | Tipo de mecanismo de controle do código-fonte. As opções disponíveis são:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
+    |Tipo de controle do código-fonte     | Tipo de mecanismo de controle do código-fonte. As opções disponíveis são:</br> * GitHub</br>* Azure Repos (git)</br> * Azure Repos (TFVC)        |
     |Repositório     | Nome do repositório ou do projeto. Os primeiros 200 repositórios são recuperados. Para pesquisar um repositório, digite o nome no campo e clique em **Pesquisar no GitHub**.|
     |Branch     | Ramificação da qual os arquivos de origem são extraídos. O direcionamento de Branch não está disponível para o tipo de controle do código-fonte TFVC.          |
-    |Caminho da pasta     | Pasta que contém os runbooks a serem sincronizados, por exemplo,/Runbooks. Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.        |
+    |Caminho da pasta     | Pasta que contém os runbooks a serem sincronizados, por exemplo, **/Runbooks**. Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.        |
     |Sincronização automática<sup>1</sup>     | Configuração que ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório do controle do código-fonte.        |
     |Publicar runbook     | Configuração de on If os runbooks são publicados automaticamente após a sincronização do controle do código-fonte e fora do contrário.           |
     |DESCRIÇÃO     | Texto que especifica detalhes adicionais sobre o controle do código-fonte.        |
@@ -72,7 +72,7 @@ Use este procedimento para configurar o controle do código-fonte usando o porta
    ![Resumo do controle do código-fonte](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Seu logon para o repositório do controle do código-fonte pode ser diferente do seu logon para o portal do Azure. Verifique se você está conectado com a conta correta para seu repositório de controle do código-fonte ao configurar o controle do código-fonte. Se houver dúvida, abra uma nova guia no seu navegador, faça logoff de visualstudio.com ou github.com e tente se conectar ao controle do código-fonte novamente.
+> O logon para o repositório do controle do código-fonte pode ser diferente do seu logon para o portal do Azure. Verifique se você está conectado com a conta correta para seu repositório de controle do código-fonte ao configurar o controle do código-fonte. Se houver dúvida, abra uma nova guia no seu navegador, faça logoff de **VisualStudio.com** ou **github.com**e tente se conectar ao controle do código-fonte novamente.
 
 ### <a name="configure-source-control----powershell"></a>Configurar controle do código-fonte-PowerShell
 
@@ -109,13 +109,13 @@ A tabela a seguir define as permissões mínimas do PAT necessárias para o GitH
 
 |Escopo  |DESCRIÇÃO  |
 |---------|---------|
-|**repositório**     |         |
-|repo:status     | Acessar status de confirmação         |
-|repo_deployment      | Acessar status de implantação         |
-|public_repo     | Repositórios públicos de acesso         |
-|**admin:repo_hook**     |         |
-|write:repo_hook     | Escrever ganchos de repositório         |
-|read:repo_hook|Ler ganchos de repositório|
+|**`repo`**     |         |
+|`repo:status`     | Acessar status de confirmação         |
+|`repo_deployment`      | Acessar status de implantação         |
+|`public_repo`     | Repositórios públicos de acesso         |
+|**`admin:repo_hook`**     |         |
+|`write:repo_hook`     | Escrever ganchos de repositório         |
+|`read:repo_hook`|Ler ganchos de repositório|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Mínimo de permissões PAT para Azure Repos
 
@@ -134,9 +134,9 @@ A lista a seguir define as permissões mínimas do PAT necessárias para Azure R
 
 ## <a name="synchronizing"></a>Sincronizando
 
-Faça o seguinte para sincronizar com o controle do código-fonte. 
+Siga estas etapas para sincronizar com o controle do código-fonte. 
 
-1. Selecione a origem da tabela na página **controle do código-fonte** . 
+1. Selecione a origem da tabela na página controle do código-fonte. 
 
 2. Clique em **Iniciar sincronização** para iniciar o processo de sincronização. 
 
@@ -178,7 +178,7 @@ Faça o seguinte para sincronizar com o controle do código-fonte.
 
     ```
 
-6. O registro em log adicional está disponível selecionando **todos os logs** na página Resumo do trabalho de sincronização de **controle do código-fonte** . Essas entradas de log adicionais podem ajudá-lo a solucionar problemas que podem surgir ao usar o controle do código-fonte.
+6. O registro em log adicional está disponível selecionando **todos os logs** na página Resumo do trabalho de sincronização de controle do código-fonte. Essas entradas de log adicionais podem ajudá-lo a solucionar problemas que podem surgir ao usar o controle do código-fonte.
 
 ## <a name="disconnecting-source-control"></a>Desconectando o controle de origem
 
@@ -188,11 +188,11 @@ Para desconectar-se de um repositório de controle do código-fonte:
 
 2. Selecione o mecanismo de controle do código-fonte a ser removido. 
 
-3. Na página **Resumo do controle do código-fonte**, clique em **Excluir**.
+3. Na página Resumo do controle do código-fonte, clique em **excluir**.
 
 ## <a name="handling-encoding-issues"></a>Lidando com problemas de codificação
 
-Se várias pessoas estiverem editando runbooks em seu repositório de controle do código-fonte usando diferentes editores, poderão ocorrer problemas de codificação. Para saber mais sobre essa situação, confira [causas comuns de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se várias pessoas estiverem editando runbooks em seu repositório de controle do código-fonte usando diferentes editores, poderão ocorrer problemas de codificação. Para saber mais sobre essa situação, confira [causas comuns de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## <a name="updating-the-pat"></a>Atualizando o PAT
 

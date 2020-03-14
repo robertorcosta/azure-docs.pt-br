@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767765"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299321"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilite o ajuste automático para monitorar consultas e melhorar o desempenho da carga de trabalho
 
@@ -33,6 +33,13 @@ O ajuste automático pode ser ativado no nível do servidor ou do banco de dados
 ## <a name="enable-automatic-tuning-on-server"></a>Habilitar o ajuste automático no servidor
 
 No nível do servidor, você pode escolher entre herdar ou não a configuração de ajuste automático de "Padrões do Azure". Os padrões do Azure são: FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
+
+> [!IMPORTANT]
+> A partir de março, 2020 alterações nos padrões do Azure para o ajuste automático entrarão em vigor da seguinte maneira:
+>
+> - Os novos padrões do Azure serão FORCE_LAST_GOOD_PLAN = habilitado, CREATE_INDEX = desabilitado e DROP_INDEX = desabilitado.
+> - Os servidores existentes sem preferências de ajuste automático configuradas serão automaticamente configurados para HERDAr os novos padrões do Azure. Isso se aplica a todos os clientes que atualmente têm configurações de servidor para ajuste automático em um estado indefinido.
+> - Novos servidores criados serão automaticamente configurados para HERDAr os novos padrões do Azure (diferentemente do anterior quando a configuração de ajuste automático estava em um estado indefinido na criação do novo servidor).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -114,7 +121,7 @@ Para usar o ajuste automático, a permissão mínima necessária para conceder a
 
 Consulte Guia de [notificações por email de ajuste automático](sql-database-automatic-tuning-email-notifications.md) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Leia o [artigo Ajuste automático](sql-database-automatic-tuning.md) para saber mais sobre o ajuste automático e como ele pode ajudar você a melhorar o desempenho.
 * Consulte [Recomendações de desempenho](sql-database-advisor.md) para obter uma visão geral das recomendações de desempenho do Banco de Dados SQL do Azure.

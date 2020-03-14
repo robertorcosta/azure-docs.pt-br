@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 224b69ab571f934f0bd3b05bbdeb9dc4013f96bf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759799"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371606"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -135,6 +135,8 @@ Se o acesso de saída para as VMs for controlado com URLs, permita estas URLs.
 | login.microsoftonline.com | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que a VM se comunique com o serviço Site Recovery. |
 | *.servicebus.windows.net | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
+| *.vault.azure.net | Permite o acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE por meio do portal
+| *. automation.ext.azure.com | Permite habilitar a atualização automática do agente de mobilidade para um item replicado por meio do portal
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
@@ -149,6 +151,8 @@ Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às co
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de destino. | EventsHub.\<nome da região >
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Key Vault (isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal) | AzureKeyVault
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao controlador de automação do Azure (isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal) | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>Regras da região de destino
 
@@ -158,6 +162,8 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às c
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Azure AD  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de origem. | EventsHub.\<nome da região >
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Key Vault (isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal) | AzureKeyVault
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao controlador de automação do Azure (isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal) | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>Controlar o acesso com regras do NSG
@@ -188,6 +194,6 @@ Quando você inicia um failover, as VMs são criadas no grupo de recursos de des
 
 ![Processo de failover](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Replicar rapidamente](azure-to-azure-quickstart.md) uma VM do Azure para uma região secundária.

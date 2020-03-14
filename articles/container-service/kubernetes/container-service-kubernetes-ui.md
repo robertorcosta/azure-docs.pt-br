@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276990"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371130"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(PRETERIDO) Usando a interface do usuário da Web DO Kubernetes com o Serviço de Contêiner do Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "76276990"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Este passo a passo presume que você tenha [criado um cluster Kubernetes usando o Serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
 
 
@@ -29,8 +29,8 @@ Isso também pressupõe que você tenha as ferramentas `kubectl` e da CLI do Azu
 
 Você pode testar se tem a ferramenta `az` instalada executando:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Se você não tem a ferramenta `az` instalada, há instruções [aqui](https://github.com/azure/azure-cli#installation).
@@ -38,22 +38,22 @@ Se você não tem a ferramenta `az` instalada, há instruções [aqui](https://g
 Você pode testar se tem a ferramenta `kubectl` instalada executando:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Se não tem `kubectl` instalado, você pode executar:
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 ### <a name="connect-to-the-web-ui"></a>Conecte-se à interface do usuário da Web
 Você pode iniciar a interface do usuário Web Kubernetes executando:
 
-```console
-$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
+```azurecli
+az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 Isso deve abrir um navegador da Web configurado para comunicar-se com um proxy seguro conectando seu computador local à interface do usuário Web do Kubernetes.

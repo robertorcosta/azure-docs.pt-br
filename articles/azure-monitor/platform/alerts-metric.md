@@ -4,14 +4,14 @@ description: Saiba como usar portal do Azure ou CLI para criar, exibir e gerenci
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79249003"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369379"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -136,7 +136,7 @@ As seções anteriores descreveram como criar, exibir e gerenciar regras de aler
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
+- [Criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md).
 - [Compreender como os alertas de métrica funcionam](alerts-metric-overview.md).
 - [Entender como funcionam os alertas de métrica com a condição de Limites Dinâmicos](alerts-dynamic-thresholds.md).
 - [Compreender o esquema de web hook para alertas de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

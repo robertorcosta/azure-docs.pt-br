@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0d220d1d88d9d761d9f0eba6187abefb372681be
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d47fdb9461786d80d65ee2448cc983a7a8348ff2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131896"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298760"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
@@ -20,30 +20,29 @@ A ingestão de dados históricos de recursos de Internet das Coisas (IoT), como 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de prosseguir com este artigo, verifique se você instalou o FarmBeats e coletou os dados históricos de seus dispositivos IoT.
-Você também precisa habilitar o acesso do parceiro, conforme mencionado nas etapas a seguir.
+Antes de prosseguir com este artigo, verifique se você instalou o FarmBeats e coletou os dados históricos de seus dispositivos IoT. Você também precisa habilitar o acesso do parceiro, conforme mencionado nas etapas a seguir.
 
 ## <a name="enable-partner-access"></a>Habilitar o acesso do parceiro
 
 Você precisa habilitar a integração de parceiros à instância do FarmBeats do Azure. Esta etapa cria um cliente que tem acesso à instância do Azure FarmBeats como seu parceiro de dispositivo e fornece os seguintes valores que são necessários nas etapas subsequentes:
 
-- Ponto de extremidade de API: essa é a URL Datahub, por exemplo, https://\<Datahub >. azurewebsites. net.
-- ID do inquilino
-- ID do cliente
+- Ponto de extremidade de API: essa é a URL Datahub, por exemplo, https://\<Datahub >. azurewebsites. net
+- ID do locatário
+- ID do Cliente
 - Segredo do cliente
 - Cadeia de conexão do EventHub
 
-Siga estas etapas.
+Siga estas etapas:
 
 >[!NOTE]
 > Você deve ser um administrador para executar as etapas a seguir.
 
 1. Baixe o [arquivo zip](https://aka.ms/farmbeatspartnerscriptv2)e extraia-o para a unidade local. Haverá um arquivo dentro do arquivo zip.
-2. Entre para https://portal.azure.com/ e vá para registros do aplicativo Azure Active Directory->
+2. Entre no https://portal.azure.com/ e vá para **Azure Active Directory** > **registros de aplicativo**.
 
-3. Clique no registro do aplicativo que foi criado como parte de sua implantação do FarmBeats. Ele terá o mesmo nome que o FarmBeats Datahub.
+3. Selecione o **registro do aplicativo** que foi criado como parte de sua implantação do FarmBeats. Ele terá o mesmo nome que o FarmBeats Datahub.
 
-4. Clique em "expor uma API"-> clique em "adicionar um aplicativo cliente" e insira **04b07795-8ddb-461A-bbee-02f9e1bf7b46** e marque "autorizar escopo". Isso dará acesso ao CLI do Azure (Cloud Shell) para executar as etapas a seguir.
+4. Selecione **expor uma API** > selecione **Adicionar um aplicativo cliente** e insira **04B07795-8ddb-461A-bbee-02f9e1bf7b46** e marque **autorizar escopo**. Isso dará acesso ao CLI do Azure (Cloud Shell) para executar as seguintes etapas:
 
 5. Abra o Azure Cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do portal do Azure.
 
@@ -59,9 +58,9 @@ Siga estas etapas.
 
 8. Vá para o diretório onde o arquivo foi carregado. Por padrão, os arquivos são carregados para o diretório base sob o nome de usuário.
 
-9. Execute o script a seguir. O script solicita a ID do locatário que pode ser obtida na página de visão geral de Azure Active Directory >.
+9. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na página de **visão geral**do **Azure Active Directory** > .
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1   
 
@@ -70,9 +69,12 @@ Siga estas etapas.
 10. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
 ## <a name="create-device-or-sensor-metadata"></a>Criar metadados do dispositivo ou do sensor
 
- Agora que você tem as credenciais necessárias, você pode definir o dispositivo e os sensores. Para fazer isso, crie os metadados chamando APIs FarmBeats. Observe que você precisará chamar as APIs como o aplicativo cliente que você criou na seção acima
+ Agora que você tem as credenciais necessárias, você pode definir o dispositivo e os sensores. Para fazer isso, crie os metadados chamando APIs FarmBeats. Certifique-se de chamar as APIs como o aplicativo cliente que você criou na seção acima.
 
- FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor. Observe que, como um parceiro, você tem acesso apenas para ler, criar e atualizar os metadados; **A exclusão não é permitida por um parceiro.**
+ FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor.
+
+ > [!NOTE]
+ > Como um parceiro, você tem acesso apenas para ler, criar e atualizar os metadados; a **opção Excluir é restrita ao parceiro.**
 
 - /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou um nó.
 - **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm.
@@ -86,18 +88,18 @@ Siga estas etapas.
 |          Fabricante            |         Nome do fabricante    |
 |  ProductCode                    |  Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor # 6800.  |
 |            Portas          |     Nome da porta e tipo, que é digital ou analógica.
-|     {1&gt;Nome&lt;1}                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
-      Descrição     | Forneça uma descrição significativa do modelo.
-|    {1&gt;Propriedades&lt;1}          |    Propriedades adicionais do fabricante.   |
+|     Nome                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
+      DESCRIÇÃO     | Forneça uma descrição significativa do modelo.
+|    Propriedades          |    Propriedades adicionais do fabricante.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID do modelo de dispositivo associado.  |
 |  HardwareID          | ID exclusiva para o dispositivo, como o endereço MAC.
 |  ReportingInterval        |   Intervalo de relatórios em segundos.
-|  Local            |  Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).   
+|  Location            |  Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).   
 |ParentDeviceId       |    ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, um nó que está conectado a um gateway. Um nó tem parentDeviceId como o gateway.  |
-|    {1&gt;Nome&lt;1}            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
-|     Descrição       |      Forneça uma descrição significativa. |
-|     {1&gt;Propriedades&lt;1}    |  Propriedades adicionais do fabricante.
+|    Nome            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
+|     DESCRIÇÃO       |      Forneça uma descrição significativa. |
+|     Propriedades    |  Propriedades adicionais do fabricante.
 |     **SensorModel**        |          |
 |       Tipo (analógico, digital)          |      O tipo de sensor, se ele é analógico ou digital.       |
 |          Fabricante            |       O fabricante do sensor.     |
@@ -107,18 +109,18 @@ Siga estas etapas.
 |    Tipo de > SensorMeasures    |Tipo de medição dos dados de telemetria do sensor. Os tipos definidos pelo sistema são AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, comprimento, LiquidLevel, nitrate, O2, PH, phosphate, PointInTime, Potassium, pressão, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, estado, tempo de duração, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API do/ExtendedType.|
 |        Unidade de > SensorMeasures              | Unidade de dados de telemetria do sensor. As unidades definidas pelo sistema são nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, mercúrio, PSI, milímetro, centímetro, medidor, polegada, pés, milhar, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, grau, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, porcentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour para adicionar mais, consulte a API/ExtendedType.|
 |    Agregatype de > SensorMeasures    |  Os valores podem ser nenhum, média, máximo, mínimo ou i.  |
-|          {1&gt;Nome&lt;1}            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
-|    Descrição        | Forneça uma descrição significativa do modelo.  |
-|   {1&gt;Propriedades&lt;1}       |  Propriedades adicionais do fabricante.  |
+|          Nome            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
+|    DESCRIÇÃO        | Forneça uma descrição significativa do modelo.  |
+|   Propriedades       |  Propriedades adicionais do fabricante.  |
 |    **Sensores**      |          |
 | HardwareID          |   ID exclusiva do sensor definido pelo fabricante. |
 |  SensorModelId     |    ID do modelo de sensor associado.   |
-| Local          |  Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).|
+| Location          |  Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).|
 |   Nome da > de porta        |  Nome e tipo da porta à qual o sensor está conectado no dispositivo. Isso precisa ter o mesmo nome definido no modelo do dispositivo. |
 |    DeviceID  |    ID do dispositivo ao qual o sensor está conectado.     |
-| {1&gt;Nome&lt;1}            |   Nome para identificar o recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
-|    Descrição      | Forneça uma descrição significativa. |
-|    {1&gt;Propriedades&lt;1}        |Propriedades adicionais do fabricante. |
+| Nome            |   Nome para identificar o recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
+|    DESCRIÇÃO      | Forneça uma descrição significativa. |
+|    Propriedades        |Propriedades adicionais do fabricante. |
 
 Para obter mais informações sobre objetos, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -130,9 +132,9 @@ Para fazer uma solicitação de API, você combina o método HTTP (POST), a URL 
 
 FarmBeats Datahub usa a autenticação de portador, que precisa das seguintes credenciais que foram geradas na seção anterior:
 
-- ID do cliente
+- ID do Cliente
 - Segredo do cliente
-- ID do inquilino
+- ID do locatário
 
 Usando essas credenciais, o chamador pode solicitar um token de acesso. O token deve ser enviado nas solicitações de API subsequentes, na seção de cabeçalho, da seguinte maneira:
 
@@ -284,6 +286,22 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"description\": \"Test Device 123\"}" *
 ```
 
+Veja abaixo um código de exemplo em Python. O token de acesso usado neste exemplo é o mesmo que é recebido durante a autenticação.
+
+```python
+import requests
+import json
+
+# Got access token - Calling the Device Model API
+headers = {
+    "Authorization": "Bearer " + access_token,
+    "Content-Type" : "application/json"
+    }
+payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
+response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
+```
+
+
 > [!NOTE]
 > As APIs retornam IDs exclusivas para cada instância criada. Você deve manter as IDs para enviar as mensagens de telemetria correspondentes.
 
@@ -331,11 +349,11 @@ Converta o formato de dados do sensor histórico em um formato canônico que o F
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
         }
       ]
     }
@@ -384,7 +402,7 @@ Aqui está um exemplo de uma mensagem de telemetria:
 }
 ```
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Não é possível exibir dados de telemetria depois de ingerir dados históricos/de streaming de seus sensores
 
@@ -392,8 +410,10 @@ Aqui está um exemplo de uma mensagem de telemetria:
 
 **Ação corretiva**:
 
-1. Verifique se você fez o registro do parceiro corretamente-você pode verificar isso indo para o Swagger do datahub, navegue até a API do/Partner, faça uma obtenção e verifique se o parceiro está registrado. Caso contrário, siga as [etapas aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
+1. Verifique se você fez o registro de parceiro apropriado-você pode verificar isso acessando o Swagger do datahub, navegue até a API do/Partner, faça uma obtenção e verifique se o parceiro está registrado. Caso contrário, siga as [etapas aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
+
 2. Verifique se você criou os metadados (DeviceModel, dispositivo, SensorModel, sensor) usando as credenciais de cliente do parceiro.
+
 3. Verifique se você usou o formato de mensagem de telemetria correto (conforme especificado abaixo):
 
 ```json
@@ -407,11 +427,11 @@ Aqui está um exemplo de uma mensagem de telemetria:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -420,6 +440,6 @@ Aqui está um exemplo de uma mensagem de telemetria:
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre detalhes de integração baseados na API REST, consulte [REST API](rest-api-in-azure-farmbeats.md).

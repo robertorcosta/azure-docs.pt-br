@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 65465c6897853617f7f33a989f97d01fb0518a5e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c1b4390282f6d54178365714b1e2e665b4cf061
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304414"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136493"
 ---
 # <a name="microsoft-graph-api"></a>API do Microsoft Graph
 
@@ -48,7 +48,7 @@ Exemplos de início rápido estão disponíveis para mostrar como acessar a pot�
 Os guias de início rápido envolvem quatro etapas:
 - Selecione sua plataforma
 - Obter sua ID do aplicativo (ID do cliente)
-- Crie o exemplo
+- Compilar o exemplo
 - Entrar e exibir eventos em seu calendário
 
 Quando você concluir o início rápido, terá um aplicativo que está pronto para ser executado. Para obter mais informações, consulte as [perguntas frequentes sobre o Microsoft Graph início rápido](https://docs.microsoft.com/graph/quick-start-faq). Para começar a usar os exemplos, consulte [Microsoft Graph início rápido](https://developer.microsoft.com/graph/quick-start).
@@ -57,4 +57,4 @@ Quando você concluir o início rápido, terá um aplicativo que está pronto pa
 
 O Microsoft Graph Explorer é uma ferramenta baseada na Web que você pode usar para compilar e testar solicitações usando APIs Microsoft Graph. Você pode acessar o Microsoft Graph Explorer em: `https://developer.microsoft.com/graph/graph-explorer`.
 
-O postmaster é uma ferramenta que você também pode usar para compilar e testar solicitações usando as APIs de Microsoft Graph. Você pode baixar o postmaster em: `https://www.getpostman.com/`. Para interagir com Microsoft Graph no postmaster, use a coleção Microsoft Graph no postmaster. Para obter mais informações, consulte [usar o postmaster com a API de Microsoft Graph](https://docs.microsoft.comgraph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+O postmaster é uma ferramenta que você também pode usar para compilar e testar solicitações usando as APIs de Microsoft Graph. Você pode baixar o postmaster em: `https://www.getpostman.com/`. Para interagir com Microsoft Graph no postmaster, use a coleção Microsoft Graph no postmaster. Para obter mais informações, consulte [usar o postmaster com a API de Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

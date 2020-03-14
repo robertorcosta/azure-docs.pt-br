@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 676a1dd2435d17db2151bdf21f1989e7f182701b
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707937"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136476"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solucionando problemas de dispositivos usando o comando dsregcmd
 
@@ -29,7 +29,7 @@ Esta seção lista os parâmetros de estado de ingresso no dispositivo. A tabela
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Estado do dispositivo |
 | ---   | ---   | ---   | ---   |
 | YES | Não | Não | Ingressado no Azure AD |
-| Não | Não | YES | Associado a domínio |
+| Não | Não | YES | Ingressado no domínio |
 | YES | Não | YES | Ingressado no AD híbrido |
 | Não | YES | YES | DRS local Unido |
 
@@ -211,8 +211,16 @@ Esta seção executa vários testes para ajudar a diagnosticar falhas de junçã
 - **Teste de configuração do AD:** – o Test lê e verifica se o objeto SCP está configurado corretamente na floresta do AD local. Os erros nesse teste provavelmente resultarão em erros de junção na fase de descoberta com o código de erro 0x801c001d.
 - **Teste de descoberta do DRS:** -Test Obtém os pontos de extremidade do DRS do ponto de extremidades dos metadados de descoberta e executa uma solicitação de realm do usuário. Os erros nesse teste provavelmente resultarão em erros de junção na fase de descoberta.
 - **Teste de conectividade do DRS:** -Test executa o teste de conectividade básica para o ponto de extremidade do Drs.
-- **Teste de aquisição de token:** -Test tenta obter um token de autenticação do Azure ad se o locatário do usuário é federado. Os erros nesse teste provavelmente resultarão em erros de junção na fase de autenticação. Se a autenticação falhar, a junção de sincronização será tentada como fallback, a menos que fallback seja explicitamente desabilitado com uma chave do registro.
-- **Fallback para sincronização-junção:** -defina como "habilitado" se a chave do registro, para evitar o fallback para sincronizar a junção com falhas de autenticação, não estiver presente. Essa opção está disponível no Windows 10 1803 e posterior.
+- **Teste de aquisição de token:** -Test tenta obter um token de autenticação do Azure ad se o locatário do usuário é federado. Os erros nesse teste provavelmente resultarão em erros de junção na fase de autenticação. Se a autenticação falhar, a junção de sincronização será tentada como fallback, a menos que fallback seja explicitamente desabilitado com as configurações de chave do registro abaixo.
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Fallback para Sync – Join:** -defina como "Enabled" se a chave do registro acima, para evitar o fallback para sincronizar a junção com falhas de autenticação, não estiver presente. Essa opção está disponível no Windows 10 1803 e posterior.
 - **Registro anterior:** -hora em que a tentativa de junção anterior ocorreu. Somente tentativas de junção com falha são registradas.
 - **Fase de erro:** -o estágio da junção em que foi anulado. Os valores possíveis são pré-verificação, descoberta, autenticação, junção.
 - **ErrorCode do cliente:** -código de erro do cliente RETORNADO (HRESULT).
@@ -335,6 +343,6 @@ Esta seção executa as verificações de perquisite para o provisionamento do W
 +----------------------------------------------------------------------+
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para perguntas, consulte as [Perguntas frequentes sobre o gerenciamento de dispositivos](faq.md)

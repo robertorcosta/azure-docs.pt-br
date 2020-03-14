@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 34cbe5f23728c1fcff0555256575cc34b2b6a869
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079834"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299389"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados no Azure Stream Analytics 
 
@@ -54,8 +54,6 @@ Todos os dados privados que precisam ser persistidos pelo Stream Analytics são 
 
 * Funções definidas pelo usuário 
 
-* Resultados de dados de amostragem de entradas 
-
 * Pontos de verificação necessários para o tempo de execução de Stream Analytics
 
 * Instantâneos de dados de referência 
@@ -64,7 +62,7 @@ Os detalhes de conexão de seus recursos, que são usados pelo seu trabalho de S
 
 Para ajudá-lo a atender suas obrigações de conformidade em qualquer ambiente ou setor regulamentado, você pode ler mais sobre as [ofertas de conformidade da Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Crie uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md)
 * [Entender as entradas para Azure Stream Analytics](stream-analytics-add-inputs.md)

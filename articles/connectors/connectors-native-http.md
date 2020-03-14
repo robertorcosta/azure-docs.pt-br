@@ -1,30 +1,47 @@
 ---
-title: Chamar pontos de extremidade HTTP e HTTPS
-description: Enviar solicitações de saída para pontos de extremidade HTTP e HTTPS usando aplicativos lógicos do Azure
+title: Chamar pontos de extremidade de serviço usando HTTP ou HTTPS
+description: Enviar solicitações HTTP ou HTTPS de saída para pontos de extremidade de serviço de aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117977"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297179"
 ---
-# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Enviar chamadas de saída para pontos de extremidade HTTP ou HTTPS usando aplicativos lógicos do Azure
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de aplicativos lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação http interno, você pode criar tarefas automatizadas e fluxos de trabalho que enviam regularmente solicitações para qualquer ponto de extremidade http ou HTTPS. Para receber e responder a chamadas HTTP ou HTTPS de entrada, use o [gatilho de solicitação interno ou a ação de resposta](../connectors/connectors-native-reqres.md).
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o gatilho ou ação http interno, você pode criar tarefas automatizadas e fluxos de trabalho que enviam solicitações para pontos de extremidade de serviço por http ou HTTPS. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site verificando esse ponto de extremidade em um agendamento específico. Quando o evento especificado ocorre nesse ponto de extremidade, como seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações nesse fluxo de trabalho. Se você quiser receber e responder a chamadas HTTPS de entrada em vez disso, use a ação interna de [gatilho ou resposta de solicitação](../connectors/connectors-native-reqres.md).
 
-Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site verificando esse ponto de extremidade em um agendamento especificado. Quando um evento específico acontece nesse ponto de extremidade, como seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas.
+> [!NOTE]
+> Com base na capacidade do ponto de extremidade de destino, o conector HTTP dá suporte às versões 1,0, 1,1 e 1,2 da TLS (Transport Layer Security). Os aplicativos lógicos negociam com o ponto de extremidade do usando a versão mais recente com suporte possível. Por exemplo, se o ponto de extremidade der suporte a 1,2, o conector usará a 1,2 primeiro. Caso contrário, o conector usará a próxima versão com suporte mais alta.
 
-Para verificar ou *sondar* um ponto de extremidade em um agendamento regular, você pode usar o gatilho http como a primeira etapa no fluxo de trabalho. Em cada verificação, o gatilho envia uma chamada ou *solicitação* ao ponto de extremidade. A resposta do ponto de extremidade determina se o fluxo de trabalho do aplicativo lógico é executado. O gatilho passa todo o conteúdo da resposta para as ações no aplicativo lógico.
+Para verificar ou *sondar* um ponto de extremidade em um agendamento recorrente, [adicione o gatilho http](#http-trigger) como a primeira etapa no fluxo de trabalho. Cada vez que o gatilho verifica o ponto de extremidade, o gatilho chama ou envia uma *solicitação* para o ponto de extremidade. A resposta do ponto de extremidade determina se o fluxo de trabalho do aplicativo lógico é executado. O gatilho passa qualquer conteúdo da resposta do ponto de extremidade para as ações em seu aplicativo lógico.
 
-Você pode usar a ação HTTP como qualquer outra etapa no fluxo de trabalho para chamar o ponto de extremidade quando quiser. A resposta do ponto de extremidade determina como as ações restantes do fluxo de trabalho são executadas.
+Para chamar um ponto de extremidade de qualquer outro lugar no fluxo de trabalho, [adicione a ação http](#http-action). A resposta do ponto de extremidade determina como as ações restantes do fluxo de trabalho são executadas.
 
-Com base na capacidade do ponto de extremidade de destino, o conector HTTP dá suporte às versões 1,0, 1,1 e 1,2 da TLS (Transport Layer Security). Os aplicativos lógicos negociam com o ponto de extremidade do usando a versão mais recente com suporte possível. Portanto, por exemplo, se o ponto de extremidade der suporte a 1,2, o conector usará a 1,2 primeiro. Caso contrário, o conector usará a próxima versão com suporte mais alta.
+> [!IMPORTANT]
+> Se um gatilho ou ação HTTP incluir esses cabeçalhos, os aplicativos lógicos removerão esses cabeçalhos da mensagem de solicitação gerada sem mostrar nenhum aviso ou erro:
+>
+> * `Accept-*`
+> * `Allow`
+> * `Content-*` com essas exceções: `Content-Disposition`, `Content-Encoding`e `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Embora os aplicativos lógicos não parem de salvar os aplicativos lógicos que usam um gatilho ou ação HTTP com esses cabeçalhos, os aplicativos lógicos ignoram esses cabeçalhos.
+
+Este artigo mostra como adicionar um gatilho ou uma ação HTTP ao fluxo de trabalho do aplicativo lógico.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -36,13 +53,15 @@ Com base na capacidade do ponto de extremidade de destino, o conector HTTP dá s
 
 * O aplicativo lógico do qual você deseja chamar o ponto de extremidade de destino. Para começar com o gatilho HTTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar a ação HTTP, inicie seu aplicativo lógico com qualquer gatilho desejado. Este exemplo usa o gatilho HTTP como a primeira etapa.
 
+<a name="http-trigger"></a>
+
 ## <a name="add-an-http-trigger"></a>Adicionar um gatilho HTTP
 
 Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto de extremidade e retorna uma resposta.
 
 1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
-1. Em **escolher uma ação**, na caixa de pesquisa, digite "http" como filtro. Na lista de **gatilhos** , selecione o gatilho **http** .
+1. Na caixa de pesquisa do designer, selecione **interno**. Na caixa de pesquisa, insira `http` como o filtro. Na lista de **gatilhos** , selecione o gatilho **http** .
 
    ![Selecionar o gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -63,6 +82,8 @@ Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto 
 
 1. Quando terminar, lembre-se de salvar seu aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer.
 
+<a name="http-action"></a>
+
 ## <a name="add-an-http-action"></a>Adicionar uma ação HTTP
 
 Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto de extremidade e retorna uma resposta.
@@ -75,7 +96,7 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Em **escolher uma ação**, na caixa de pesquisa, digite "http" como filtro. Na lista **ações** , selecione a ação **http** .
+1. Em **Escolha uma ação**, selecione **Interno**. Na caixa de pesquisa, insira `http` como o filtro. Na lista **ações** , selecione a ação **http** .
 
    ![Selecionar a ação HTTP](./media/connectors-native-http/select-http-action.png)
 

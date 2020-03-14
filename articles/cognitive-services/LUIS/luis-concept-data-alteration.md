@@ -4,11 +4,11 @@ description: Saiba como os dados podem ser alterados antes das previsões no LUI
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361067"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221090"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
 O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos.
@@ -28,7 +28,7 @@ O LUIS usa a [API de Verificação Ortográfica do Bing V7](../Bing-Spell-Check/
 
 O ponto de extremidade requer dois parâmetros para as correções ortográfica funcionarem:
 
-|Param|{1&gt;Valor&lt;1}|
+|Param|Valor|
 |--|--|
 |`spellCheck`|booleano|
 |`bing-spell-check-subscription-key`|Chave de ponto de extremidade de [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
@@ -78,7 +78,7 @@ Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-da
 ### <a name="endpoint-querystring-parameter"></a>Parâmetro querystring do ponto de extremidade
 O fuso horário é corrigido adicionando o fuso horário do usuário ao [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) usando o parâmetro `timezoneOffset`. O valor de `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar a hora.
 
-|Param|{1&gt;Valor&lt;1}|
+|Param|Valor|
 |--|--|
 |`timezoneOffset`|O número positivo ou negativo, em minutos|
 
@@ -126,7 +126,7 @@ DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Corrigir erros de ortografia com este tutorial](luis-tutorial-bing-spellcheck.md)

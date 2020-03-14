@@ -12,11 +12,11 @@ ms.date: 02/26/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388277"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219660"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
@@ -91,7 +91,7 @@ Para alternar de uma assinatura para outra, por exemplo, quando a avaliação gr
 - Se o aplicativo usar uma das [APIs REST](rest-apis.md) do serviço de Fala, a região fará parte do URI do ponto de extremidade usado ao fazer solicitações.
 - As chaves criadas para uma região são válidas somente nessa região. A tentativa de usá-las com outras regiões resultará em erros de autenticação.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Conclua um de nossos inícios rápidos de 10 minutos ou confira nossas amostras de SDK:
 

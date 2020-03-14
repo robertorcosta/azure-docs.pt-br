@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759816"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371436"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -35,7 +35,7 @@ Caso você esteja usando o Azure ExpressRoute ou uma conexão VPN na rede local 
 
 ![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-As redes geralmente são protegidas usando firewalls e NSGs (grupos de segurança de rede). Os firewalls usam listas de permissões baseada em IP ou em URL para controlar a conectividade de rede. Os NSGs fornecem regras que usam intervalos de endereços IP para controlar a conectividade de rede.
+As redes geralmente são protegidas usando firewalls e NSGs (grupos de segurança de rede). Os firewalls usam lista branca baseada em IP ou em URL para controlar a conectividade de rede. Os NSGs fornecem regras que usam intervalos de endereços IP para controlar a conectividade de rede.
 
 >[!IMPORTANT]
 > O uso de um proxy autenticado para controlar a conectividade de rede não é compatível com o Site Recovery e a replicação não pode ser habilitada.
@@ -52,6 +52,8 @@ Se você está usando um proxy de firewall baseado em URL para controlar a conec
 login.microsoftonline.com | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site.
 *.hypervrecoverymanager.windowsazure.com | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM.
 *.servicebus.windows.net | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM.
+*.vault.azure.net | Permite o acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE por meio do portal
+*. automation.ext.azure.com | Permite habilitar a atualização automática do agente de mobilidade para um item replicado por meio do portal
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
@@ -63,6 +65,8 @@ Se você estiver usando um NSG para controlar a conectividade de saída, essas m
 - Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
 - Crie uma regra de NSG baseada na marca de serviço EventsHub para a região de destino, permitindo o acesso ao monitoramento de Site Recovery.
 - Crie uma regra de NSG baseada na marca de serviço AzureSiteRecovery para permitir acesso ao Site Recovery Service em qualquer região.
+- Crie uma regra de NSG baseada na marca de serviço AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal.
+- Crie uma regra de NSG baseada na marca de serviço GuestAndHybridManagement. Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal.
 - É recomendável que você crie as regras de NSG necessárias em um NSG de teste e verifique se não há nenhum problema antes de criar as regras em um NSG de produção.
 
 ## <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG
@@ -119,7 +123,7 @@ Se estiver usando NVAs (soluções de virtualização de rede) para controlar o 
 
 Você pode substituir a rota de sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 com um [rota personalizados](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego VM para uma solução de virtualização de rede (NVA) local, mas essa configuração não é recomendada para a recuperação de Site replicação. Se você estiver usando rotas personalizadas, deverá [criar um ponto de extremidade de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) em sua rede virtual para "Armazenamento" para que o tráfego de replicação não saia do limite do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
 - Saiba mais sobre [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para failover de máquina virtual do Azure.
 - Saiba mais sobre a recuperação de desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127428"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371589"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação do pool de host e de locatário
 
@@ -145,7 +145,7 @@ Exemplo de erro bruto:
 
 Para corrigir isso, faça o seguinte:
 
-1. Abra o portal do Azure e vá para a folha **redes virtuais** .
+1. Abra o portal do Azure e vá para a guia **redes virtuais** .
 2. Localize sua VNET e, em seguida, selecione **servidores DNS**.
 3. O menu servidores DNS deve aparecer no lado direito da tela. Nesse menu, selecione **personalizado**.
 4. Verifique se os servidores DNS listados em Personalizar correspondem ao seu controlador de domínio ou Active Directory domínio. Se você não vir o servidor DNS, poderá adicioná-lo inserindo seu valor no campo **Adicionar servidor DNS** .
@@ -372,7 +372,7 @@ Se você estiver executando o modelo de Azure Resource Manager do GitHub, forne�
 - IsServicePrincipal: **true**
 - AadTenantId: a ID de locatário do Azure AD da entidade de serviço que você criou
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
