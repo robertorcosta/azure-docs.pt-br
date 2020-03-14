@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365769"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254749"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
 
@@ -38,11 +38,11 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
 1. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. [Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
 2. Abra a caixa externa e, em seguida, remova as duas caixas correspondentes aos compartimentos principal e EBOD. Agora você pode desempacotar os compartimentos principal e EBOD A figura a seguir mostra a visão desempacotada de um dos compartimentos.
    
-    ![Desempacotar seu dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+    ![Desempacotar o dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
     **Exibição do dispositivo de armazenamento desempacotado**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   1 |Embalagem |
    |   2 |Cabos SAS (na bandeja de acessórios e cabos) |
@@ -102,11 +102,11 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
 #### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Para instalar o compartimento EBOD nos trilhos
 1. Execute esta etapa somente se não houver trilhos internos instalados em seu dispositivo. Normalmente, os trilhos internos são instalados na fábrica. Caso contrário, instale as corrediças do trilho esquerdo e direito nas laterais dos chassis do compartimento. Elas são presas por seis parafusos métricos em cada lado. Para ajudar com a orientação, as corrediças do trilho são marcadas com **LH – Frontal** e **RH – Frontal**, e a extremidade que é afixada na parte traseira do compartimento é afunilada.
    
-    ![Anexando trilhos deslizantes para chassis fechados](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
     **Fixando corrediças do trilho às laterais do compartimento**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |  1 |Parafusos de cabeça abaulada M 3x4 |
    |  2 |Corrediças dos chassis |
@@ -115,11 +115,11 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
 4. Prenda o módulo do trilho nos membros verticais do rack usando dois dos parafusos métricos fornecidos. Use um parafuso na parte frontal e outro na parte traseira.
 5. Repita estas etapas para o outro módulo do trilho.
    
-     ![Anexando trilhos deslizantes para gabinetes de rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Fixando as corrediças do trilho no gabinete do rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
     **Fixando os conjuntos de trilhos ao rack**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   1 |Parafuso de travamento |
    |   2 |Parafuso da coluna do rack frontal para orifício quadrado |
@@ -134,18 +134,18 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack.
 2. Com cuidado, insira o compartimento nos trilhos e empurre-o completamente para dentro do gabinete do rack.
    
-    ![Inserindo dispositivo no rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+    ![Inserindo o dispositivo no rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
    
     **Montando o compartimento no rack**
 3. Remova as tampas do flange frontal direito e esquerdo, soltando-as. As tampas do flange estão apenas encaixadas nos flanges.
 4. Prenda o compartimento no rack usando um parafuso Phillips fornecido em cada flange, esquerdo e direito.
 5. Instale as tampas do flange pressionando-as na posição e encaixando-as no lugar.
    
-     ![Instalando tampas do flange](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+     ![Instalando as tampas do flange](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
    
     **Instalando as tampas do flange**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -164,7 +164,7 @@ A próxima etapa é fazer o cabeamento do dispositivo para recebimento de energi
 ## <a name="cable-your-storsimple-8600-device"></a>Cabear o dispositivo StorSimple 8600
 Os procedimentos a seguir explicam como cabear o dispositivo StorSimple 8600 para conexões de energia, rede e serial.
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 
 * O compartimento principal e o compartimento EBOD completamente desempacotados
@@ -198,20 +198,20 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
     **Parte de trás do dispositivo mostrando as portas de dados**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede de 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
    |   6 |Portas seriais |
 2. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Para alta disponibilidade e desempenho, a configuração adicional necessária é mostrada pelas linhas pontilhadas).
 
-![Cabeamento do dispositivo 4U para rede](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+![Cabear o dispositivo 4U para rede](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
 **Cabeamento de rede para o dispositivo**
 
-| Rótulo | Descrição |
+| Rótulo | DESCRIÇÃO |
 | --- | --- |
-| A |LAN com acesso à Internet |
+| Um |LAN com acesso à Internet |
 | B |Controlador 0 |
 | C |PCM 0 |
 | D |Controlador 1 |
@@ -262,6 +262,6 @@ Execute as etapas a seguir para cabear a porta serial.
 
 Você concluiu o cabeamento do dispositivo para conexão serial, de energia e acesso à rede. A próxima etapa é configurar o software no dispositivo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
 

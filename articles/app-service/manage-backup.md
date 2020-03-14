@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671650"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259325"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups a serem mantidos até um período indefinido de tempo. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -106,7 +106,7 @@ Após a configuração da conta de armazenamento e do contêiner, será possíve
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Configurar backups parciais
-Às vezes, você não quer fazer backup de tudo em seu aplicativo. Estes são alguns exemplos:
+Às vezes, você não quer fazer backup de tudo em seu aplicativo. Veja alguns exemplos:
 
 * Você [configura backups semanais](#configure-automated-backups) do aplicativo que contém conteúdo estático que nunca muda, como imagens ou postagens antigas no blog.
 * Seu aplicativo tem mais de 10 GB de conteúdo (que é o volume máximo de backup por vez).

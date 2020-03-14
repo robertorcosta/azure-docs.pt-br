@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376287"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261613"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
 Este tópico aborda a arquitetura básica para Azure AD Connect sincronização. Em muitos aspectos, é semelhante a seus predecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
@@ -145,7 +145,7 @@ Um objeto de importação é criado como um objeto separado. Um objeto de export
 ## <a name="sync-engine-identity-management-process"></a>Processo de gerenciamento de identidades do mecanismo de sincronização
 O processo de gerenciamento de identidades controla como as informações de identidade são atualizadas entre as diferentes fontes de dados conectadas. O gerenciamento de identidades ocorre em três processos:
 
-* {1&gt;Importar&lt;1}
+* Importar
 * Synchronization
 * Exportação
 
@@ -256,7 +256,7 @@ O mecanismo de sincronização armazena as informações sobre o status de expor
 
 Por exemplo, se o mecanismo de sincronização exportar o atributo C, com um valor 5, para uma fonte de dados conectada, ele armazenará C=5 em sua memória de status de exportação. Cada exportação adicional nesse objeto resultará em uma nova tentativa de exportar C=5 para a fonte de dados conectada, já que o mecanismo de sincronização supõe que esse valor não foi persistentemente aplicado ao objeto (ou seja, a menos que um valor diferente tenha sido importado recentemente da fonte de dados conectada). A memória de exportação é desmarcada quando C=5 é recebido durante uma operação de importação no objeto.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

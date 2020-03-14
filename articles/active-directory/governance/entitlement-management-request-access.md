@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b1ccde2f1f92237978ab4e68acaa26393bbb9d8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422533"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261743"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -35,7 +35,7 @@ A primeira etapa é entrar no portal meu acesso, em que você pode solicitar ace
 
 **Função de pré-requisito:** Solicitante
 
-1. Procure um email ou uma mensagem do projeto ou gerente de negócios com o qual você está trabalhando. O email deve incluir um link para o pacote de acesso ao qual você precisará de acesso. O link começa com `myaccess`, inclui uma dica de diretório e termina com uma ID de pacote de acesso.
+1. Procure um email ou uma mensagem do projeto ou gerente de negócios com o qual você está trabalhando. O email deve incluir um link para o pacote de acesso ao qual você precisará de acesso. O link começa com `myaccess`, inclui uma dica de diretório e termina com uma ID de pacote de acesso.  (Para o governo dos EUA, o domínio pode ser `https://myaccess.microsoft.us` em vez disso.)
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -121,7 +121,7 @@ Se você enviar uma solicitação de acesso e a solicitação ainda estiver no e
 
 1. Clique em **histórico de solicitações** para confirmar que a solicitação foi cancelada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)
 - [Solicitar notificações de processo e email](entitlement-management-process.md)

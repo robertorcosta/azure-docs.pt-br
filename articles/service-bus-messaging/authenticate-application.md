@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: aschhab
 ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395633"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259286"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure
 O barramento de serviço do Azure dá suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para entidades do barramento de serviço (filas, tópicos, assinaturas ou filtros). Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, grupo ou entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
@@ -140,7 +140,7 @@ Consulte o exemplo a seguir no GitHub: [controle de acesso de base de função p
 
 Use a opção de **logon de segredo do cliente** , não a opção de logon de **usuário interativo** . Ao usar a opção de segredo do cliente, você não verá uma janela pop-up. O aplicativo utiliza a ID do locatário e a ID do aplicativo para autenticação. 
 
-### <a name="run-the-sample"></a>Executar o exemplo
+### <a name="run-the-sample"></a>Execute o exemplo
 
 Antes de executar o exemplo, edite o arquivo **app. config** e, dependendo do seu cenário, defina os seguintes valores:
 
@@ -154,7 +154,7 @@ Antes de executar o exemplo, edite o arquivo **app. config** e, dependendo do se
 Ao executar o aplicativo de console, você será solicitado a selecionar um cenário. Selecione **logon de usuário interativo** digitando seu número e pressionando ENTER. O aplicativo exibe uma janela de logon, solicita seu consentimento para acessar o Barramento de Serviço e, em seguida, usa o serviço para executar o cenário de envio/recebimento usando a identidade de logon.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md)?
 - Para saber como atribuir e gerenciar atribuições de função do RBAC com Azure PowerShell, CLI do Azure ou API REST, consulte estes artigos:
     - [Gerenciar o controle de acesso baseado em função (RBAC) com o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

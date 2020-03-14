@@ -12,11 +12,11 @@ ms.date: 02/24/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4a5d0908842c20e15fdf7b336b9e244c4bafb345
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78397799"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264291"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
@@ -28,7 +28,7 @@ Este artigo fornece exemplos de como usar as transformações de declarações d
 
 Compare duas declarações e lance uma exceção se não forem iguais de acordo com a comparação especificada inputClaim1, inputClaim2 e stringComparison.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo da primeira declaração, que será comparado. |
 | InputClaim | inputClaim2 | string | Tipo da segunda declaração, que será comparado. |
@@ -77,7 +77,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
   - **inputClaim1**: someone@contoso.com
@@ -90,7 +90,7 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 
 Altera a declaração fornecida para letra maiúscula ou minúscula, dependendo do operador.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | O ClaimType a ser alterado. |
 | InputParameter | toCase | string | Um dos seguintes valores: `LOWER` ou `UPPER`. |
@@ -112,7 +112,7 @@ Use essa transformação de declaração para alterar qualquer ClaimType de cade
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
   - **email**: SomeOne@contoso.com
@@ -125,9 +125,9 @@ Use essa transformação de declaração para alterar qualquer ClaimType de cade
 
 Cria uma declaração de cadeia de caracteres do parâmetro de entrada fornecido na transformação.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | {1&gt;Valor&lt;1} | string | A cadeia de caracteres a ser definida. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions). |
+| InputParameter | value | string | A cadeia de caracteres a ser definida. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declaração, com o valor especificado no parâmetro de entrada. |
 
 Use essa transformação de declarações para definir um valor de ClaimType de cadeia de caracteres.
@@ -143,7 +143,7 @@ Use essa transformação de declarações para definir um valor de ClaimType de 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Parâmetro de entrada:
     - **value**: termos de serviço da Contoso...
@@ -154,7 +154,7 @@ Use essa transformação de declarações para definir um valor de ClaimType de 
 
 Determine se uma declaração de cadeia de caracteres é igual à outra. O resultado é um novo ClaimType booliano com um valor de `true` ou `false`.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo da primeira declaração, que será comparado. |
 | InputClaim | inputClaim2 | string | Tipo da segunda declaração, que será comparado. |
@@ -180,7 +180,7 @@ Use essa transformação de declaração para verificar se uma declaração for 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
   - **inputClaim1**: someone@contoso.com
@@ -195,7 +195,7 @@ Use essa transformação de declaração para verificar se uma declaração for 
 
 Determina se um valor de declaração é igual ao valor do parâmetro de entrada.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo da declaração, que será comparado. |
 | InputParameter | operador | string | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
@@ -221,7 +221,7 @@ Determina se um valor de declaração é igual ao valor do parâmetro de entrada
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 - Declarações de entrada:
     - **inputClaim1**: v1
 - Parâmetros de entrada:
@@ -235,13 +235,13 @@ Determina se um valor de declaração é igual ao valor do parâmetro de entrada
 
 Cria uma cadeia de caracteres aleatória usando o gerador de número aleatório. Se o gerador de número aleatório é do tipo `integer`, opcionalmente, um parâmetro de semente e um número máximo podem ser fornecidos. Um parâmetro de formato de cadeia de caracteres opcional permite que a saída seja formatada usando-o, e um parâmetro de base64 opcional especifica se a saída é randomGeneratorType [guid, inteiro] outputClaim (cadeia de caracteres) codificada em base64.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | string | Especifica o valor aleatório a ser gerado, `GUID` (ID global exclusivo) ou `INTEGER` (um número). |
 | InputParameter | stringFormat | string | [Opcional] Formate o valor aleatório. |
 | InputParameter | base64 | booleano | [Opcional] Converta o valor aleatório em base64. Se o formato de cadeia de caracteres for aplicado, o valor após o formato de cadeia de caracteres será codificado em base64. |
-| InputParameter | maximumNumber | int | [Opcional] Para randomGeneratorType `INTEGER` somente. Especifique o número máximo. |
-| InputParameter | seed  | int | [Opcional] Para randomGeneratorType `INTEGER` somente. Especifique a semente para valor aleatório. Observação: a mesma semente produz a mesma sequência de números aleatórios. |
+| InputParameter | maximumNumber | INT | [Opcional] Para randomGeneratorType `INTEGER` somente. Especifique o número máximo. |
+| InputParameter | seed  | INT | [Opcional] Para randomGeneratorType `INTEGER` somente. Especifique a semente para valor aleatório. Observação: a mesma semente produz a mesma sequência de números aleatórios. |
 | OutputClaim | outputClaim | string | Os ClaimTypes que serão produzidos depois de invocar esta transformação de declaração. O valor aleatório. |
 
 O exemplo a seguir gera uma ID exclusiva global. Essa transformação de declarações é usada para criar o UPN (nome principal de usuário) aleatório.
@@ -256,7 +256,7 @@ O exemplo a seguir gera uma ID exclusiva global. Essa transformação de declara
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Parâmetros de entrada:
     - **randomGeneratorType**: GUID
@@ -279,7 +279,7 @@ O exemplo a seguir gera um valor de inteiro aleatório entre 0 e 1.000. O valor 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Parâmetros de entrada:
     - **randomGeneratorType**: INTEGER
@@ -294,7 +294,7 @@ O exemplo a seguir gera um valor de inteiro aleatório entre 0 e 1.000. O valor 
 
 Formate uma declaração de acordo com a cadeia de caracteres de formato fornecida. Essa transformação usa o método C# `String.Format`.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |string |O ClaimType que atua como o parâmetro {0} do formato da cadeia de caracteres. |
 | InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo o parâmetro {0}. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions).  |
@@ -316,7 +316,7 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
@@ -329,7 +329,7 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 
 Formate duas declarações de acordo com a cadeia de caracteres de formato fornecida. Essa transformação usa o método C# `String.Format`.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |string | O ClaimType que atua como o parâmetro {0} do formato da cadeia de caracteres. |
 | InputClaim | InputClaim | string | O ClaimType que atua como o parâmetro {1} do formato da cadeia de caracteres. |
@@ -353,7 +353,7 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputClaim1**: Joe
@@ -367,7 +367,7 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 
 Copia cadeias de caracteres localizadas em declarações.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | O nome da cadeia de caracteres localizada | string | Lista de tipos de declaração produzidas após a chamada desta transformação de declarações. |
 
@@ -424,7 +424,7 @@ A transformação declarações define o valor do tipo de Declaração *sujeito*
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de saída:
   - **assunto**: código de verificação de email da conta contoso
@@ -437,7 +437,7 @@ A transformação declarações define o valor do tipo de Declaração *sujeito*
 
 Procurando um item de uma coleção de **Restrição** da declaração.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | string | A declaração que contém o texto a ser pesquisado nas declarações **restrictionValueClaim** com a coleção **Restrição**.  |
 | OutputClaim | restrictionValueClaim | string | A declaração que contém a coleção **Restrição**. Depois que a transformação de declarações for invocada, o valor dessa declaração conterá o valor do item selecionado. |
@@ -469,7 +469,7 @@ A transformação de declarações procura o texto do item e retorna seu valor. 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **mapFromClaim**: B2C_V1_90001
@@ -480,7 +480,7 @@ A transformação de declarações procura o texto do item e retorna seu valor. 
 
 Procure um valor de declaração de uma lista de valores com base no valor de outra declaração.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | A declaração que contém o valor de pesquisa |
 | InputParameter | |string | Coleção de inputParameters. |
@@ -506,7 +506,7 @@ O exemplo a seguir procura o nome de domínio em uma das coleções inputParamet
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputParameterId**: test.com
@@ -541,7 +541,7 @@ O exemplo a seguir procura o nome de domínio em uma das coleções inputParamet
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputParameterId**: Live.com
@@ -558,7 +558,7 @@ O exemplo a seguir procura o nome de domínio em uma das coleções inputParamet
 
 Limpe o valor de uma determinada declaração.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | claim_to_null | string | O valor da declaração é definido como nulo. |
 
@@ -581,10 +581,10 @@ Use essa transformação de declaração para remover dados desnecessários do r
 
 Obtém a parte do domínio de um endereço de email.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | O ClaimType que contém o endereço de email. |
-| OutputClaim | domain | string | O ClaimType que é produzido depois de invocar esta transformação de declarações – o domínio. |
+| OutputClaim | domínio | string | O ClaimType que é produzido depois de invocar esta transformação de declarações – o domínio. |
 
 Use essa transformação de declarações para analisar o nome de domínio depois do símbolo @ do usuário. A transformação de declarações a seguir demonstra como analisar o nome de domínio de uma declaração de **email**.
 
@@ -599,7 +599,7 @@ Use essa transformação de declarações para analisar o nome de domínio depoi
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
   - **emailAddress**: joe@outlook.com
@@ -610,7 +610,7 @@ Use essa transformação de declarações para analisar o nome de domínio depoi
 
 Verifica se uma declaração de cadeia de caracteres `claimToMatch` e `matchTo` parâmetro de entrada são iguais e define as declarações de saída com o valor presente no parâmetro de entrada `outputClaimIfMatched`, juntamente com a declaração de saída de resultado de comparação, que deve ser definida como `true` ou `false` com base no resultado da comparação.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | Tipo da declaração, que será comparado. |
 | InputParameter | matchTo | string | A expressão regular a ser correspondente. |
@@ -636,7 +636,7 @@ Por exemplo, verifica se o número de telefone fornecido é válido, com base no
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **claimToMatch**: "64854114520"
@@ -651,7 +651,7 @@ Por exemplo, verifica se o número de telefone fornecido é válido, com base no
 
 Verifica se uma declaração de cadeia de caracteres e o parâmetro de entrada `matchTo` são iguais, e define as declarações de saída com o valor presente nos parâmetros de entrada `stringMatchMsg` e `stringMatchMsgCode`, juntamente com a declaração de saída do resultado de comparação, que deve ser definida como `true` ou `false` com base no resultado da comparação.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | string | Tipo da declaração, que será comparado. |
 | InputParameter | matchTo | string | A cadeia de caracteres a ser comparada com `inputClaim`. |
@@ -682,7 +682,7 @@ Verifica se uma declaração de cadeia de caracteres e o parâmetro de entrada `
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputClaim**: v1
@@ -700,7 +700,7 @@ Verifica se uma declaração de cadeia de caracteres e o parâmetro de entrada `
 
 Verifica se uma declaração de cadeia de caracteres e o parâmetro de entrada `matchTo` são iguais, e define as declarações de saída com o valor presente no parâmetro de entrada `outputClaimIfMatched`, juntamente com a declaração de saída do resultado de comparação, que deve ser definida como `true` ou `false` com base no resultado da comparação.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | Tipo da declaração, que será comparado. |
 | InputParameter | matchTo | string | A cadeia de caracteres a ser comparada com inputClaim. |
@@ -728,7 +728,7 @@ Por exemplo, a seguinte transformação de declarações verifica se o valor da 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **claimToMatch**: secundário
@@ -745,7 +745,7 @@ Por exemplo, a seguinte transformação de declarações verifica se o valor da 
 
 Determine se uma subcadeia de caracteres especificada ocorre dentro da declaração de entrada. O resultado é um novo ClaimType booliano com um valor de `true` ou `false`. `true` se o parâmetro de valor ocorrer nessa cadeia de caracteres, caso contrário, `false`.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | string | O tipo de declaração, que deve ser pesquisada. |
 |InputParameter|contains|string|O valor a ser pesquisado.|
@@ -769,7 +769,7 @@ Use essa transformação de declarações para verificar se um tipo de declaraç
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputClaim**: "admin, Aprovador, editor"
@@ -783,11 +783,11 @@ Use essa transformação de declarações para verificar se um tipo de declaraç
 
 Extrai partes de um tipo de declaração de cadeia de caracteres, começando pelo caractere na posição especificada e retorna o número especificado de caracteres.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | string | O tipo de declaração, que contém a cadeia de caracteres. |
-| InputParameter | startIndex | int | A posição de caractere inicial com base em zero de uma subcadeia de caracteres nesta instância. |
-| InputParameter | {1&gt;length&lt;1} | int | O número de caracteres na Subcadeia. |
+| InputParameter | startIndex | INT | A posição de caractere inicial com base em zero de uma subcadeia de caracteres nesta instância. |
+| InputParameter | comprimento | INT | O número de caracteres na Subcadeia. |
 | OutputClaim | outputClaim | booleano | Uma cadeia de caracteres equivalente à subcadeia de caracteres que começa em startIndex nessa instância, ou vazia se startIndex for igual ao comprimento dessa instância e o comprimento for zero. |
 
 Por exemplo, obtenha o prefixo do país do número de telefone.
@@ -807,7 +807,7 @@ Por exemplo, obtenha o prefixo do país do número de telefone.
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputClaim**: "+ 1644114520"
@@ -821,7 +821,7 @@ Por exemplo, obtenha o prefixo do país do número de telefone.
 
 Pesquisa uma cadeia de caracteres de tipo de declaração em um valor especificado e retorna uma nova cadeia de caracteres de tipo de declaração na qual todas as ocorrências de uma cadeia de caracteres especificada na cadeia de caracteres atual são substituídas por outra cadeia de caracteres especificada.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | string | O tipo de declaração, que contém a cadeia de caracteres. |
 | InputParameter | oldValue | string | A cadeia de caracteres a ser pesquisada. |
@@ -845,7 +845,7 @@ Por exemplo, Normalize um número de telefone removendo os caracteres `-`
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
     - **inputClaim**: "+ 164-411-452-054"
@@ -859,7 +859,7 @@ Por exemplo, Normalize um número de telefone removendo os caracteres `-`
 
 Concatena os elementos de um tipo de declaração de coleção de cadeia de caracteres especificado, usando o separador especificado entre cada elemento ou membro.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | stringCollection | Uma coleção que contém as cadeias de caracteres a serem concatenadas. |
 | InputParameter | delimiter | string | A cadeia de caracteres a ser usada como separador, como `,`por vírgula. |
@@ -881,7 +881,7 @@ O exemplo a seguir usa uma coleção de cadeias de caracteres de funções de us
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
   - **inputClaim**: ["admin", "autor", "leitor"]
@@ -895,7 +895,7 @@ O exemplo a seguir usa uma coleção de cadeias de caracteres de funções de us
 
 Retorna uma matriz de cadeia de caracteres que contém as subcadeias de caracteres desta instância que são delimitadas por elementos de uma cadeia de caracteres especificada.
 
-| Item | TransformationClaimType | Tipo de Dados | {1&gt;Observações&lt;1} |
+| Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | string | Um tipo de declaração String que contém as subcadeias de caracteres a serem divididas. |
 | InputParameter | delimiter | string | A cadeia de caracteres a ser usada como separador, como `,`por vírgula. |
@@ -917,7 +917,7 @@ O exemplo a seguir usa uma cadeia de caracteres delimitadores de vírgula de fun
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
   - **inputClaim**: "administrador, autor, leitor"
@@ -929,7 +929,7 @@ O exemplo a seguir usa uma cadeia de caracteres delimitadores de vírgula de fun
 ## <a name="string-claim-transformations-expressions"></a>Expressões de transformações de declaração de cadeia de caracteres
 Expressões de transformações de declaração em Azure AD B2C políticas personalizadas fornecem informações de contexto sobre a ID do locatário e a ID do perfil técnico.
 
-  | Expressão | Descrição | {1&gt;Exemplo&lt;1} |
+  | Expression | DESCRIÇÃO | Exemplo |
  | ----- | ----------- | --------|
  | `{TechnicalProfileId}` | O nome de ProfileId técnico. | Facebook – OAUTH |
  | `{RelyingPartyTenantId}` | A ID do locatário da política de terceira parte confiável. | your-tenant.onmicrosoft.com |

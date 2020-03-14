@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376320"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261158"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: como fazer uma alteração na configuração padrão
 A finalidade deste artigo é orientá-lo sobre como fazer alterações na configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócios.
@@ -262,10 +262,10 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 3. Clique no botão **Adicionar nova regra** para criar uma nova regra de entrada.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | {1&gt;Valor&lt;1} | Detalhes |
+    | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | {1&gt;Nome&lt;1} | *Fornecer um nome* | Por exemplo, *Entrada do AD – UserType Usuário* |
-    | Descrição | *Fornecer uma descrição* |  |
+    | Nome | *Fornecer um nome* | Por exemplo, *Entrada do AD – UserType Usuário* |
+    | DESCRIÇÃO | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Selecionar o AD connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
     | Tipo de Objeto de Metaverso | **Person** |  |
@@ -274,7 +274,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
 5. Acesse a guia **Filtro de escopo** e adicione um **único grupo de filtro de escopo** com a seguinte cláusula:
 
-    | Atributo | Operador | {1&gt;Valor&lt;1} |
+    | Atributo | Operador | Valor |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Usuário\_ |
 
@@ -282,15 +282,15 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
 6. Acesse a guia **Transformação** e implemente a regra de transformação desejada. Por exemplo, se você designou um atributo local AD não utilizado (como extensionAttribute1) como o atributo de origem para o UserType; você pode implementar um fluxo de atributos direto:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
+    | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
     | Direto | UserType | extensionAttribute1 | Desmarcado | Atualizar |
 
     Em outro exemplo, você deseja derivar o valor do atributo UserType de outras propriedades. Por exemplo, você deseja sincronizar todos os usuários como convidados se seu atributo userPrincipalName do AD local termina com a parte de domínio <em>@partners.fabrikam123.org</em>. Você pode implementar uma expressão como esta:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
+    | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Expressão | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar UserType")) | Desmarcado | Atualizar |
+    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName não está presente para determinar UserType")) | Desmarcado | Atualizar |
 
 7. Clique em **Adicionar** para criar a regra de entrada.
 
@@ -304,10 +304,10 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 3. Clique no botão **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | {1&gt;Valor&lt;1} | Detalhes |
+    | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | {1&gt;Nome&lt;1} | *Fornecer um nome* | Por exemplo, *Saída para AAD – UserType Usuário* |
-    | Descrição | *Fornecer uma descrição* ||
+    | Nome | *Fornecer um nome* | Por exemplo, *Saída para AAD – UserType Usuário* |
+    | DESCRIÇÃO | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o AAD connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
     | Tipo de Objeto de Metaverso | **Person** ||
@@ -316,7 +316,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
 5. Acesse a guia **Filtro de escopo** e adicione um **único grupo de filtro de escopo** com as duas cláusulas a seguir:
 
-    | Atributo | Operador | {1&gt;Valor&lt;1} |
+    | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuário |
     | cloudMastered | NOTEQUAL | True |
@@ -325,7 +325,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
 6. Acesse a guia **Transformação** e implemente a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
+    | Tipo de fluxo | Atributo de destino | Fonte | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
     | Direto | UserType | UserType | Desmarcado | Atualizar |
 
@@ -392,7 +392,7 @@ Reabilite o agendador de sincronização interno:
 2. Reabilite a sincronização agendada executando o cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md).
 * Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 

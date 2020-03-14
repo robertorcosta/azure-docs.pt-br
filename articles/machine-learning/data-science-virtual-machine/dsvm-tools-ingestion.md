@@ -11,11 +11,11 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612622"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270050"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de Ciência de Dados
 
@@ -34,7 +34,7 @@ Aqui estão algumas ferramentas de movimentação de dados que estão disponíve
 | Links para exemplos      | [Como usar AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Ferramentas relacionadas no DSVM      | AzCopy, CLI do Azure     |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 |    |           |
 | ------------- | ------------- |
@@ -100,4 +100,4 @@ Aqui estão algumas ferramentas de movimentação de dados que estão disponíve
 | Usos típicos      | Leitura e gravação em BLOBs em um contêiner.      |
 |  Como usá-lo e executá-lo?    |   Execute _blobfuse_ em um terminal.    |
 | Links para exemplos      | [blobfuse no GitHub](https://github.com/Azure/azure-storage-fuse)      |
-| Ferramentas relacionadas no DSVM      | Azure CLI      |
+| Ferramentas relacionadas no DSVM      | CLI do Azure      |

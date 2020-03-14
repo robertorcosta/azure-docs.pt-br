@@ -4,11 +4,11 @@ description: Aprenda a trabalhar com parâmetros de matriz e expressões de ling
 ms.date: 11/26/2019
 ms.topic: how-to
 ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050074"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280658"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 
@@ -136,7 +136,7 @@ A tentativa de criar essa definição de política por meio do portal do Azure l
 
 - "A política ' {GUID} ' não pôde ser parametrizada devido a erros de validação. Verifique se os parâmetros da política estão definidos corretamente. O resultado da avaliação da exceção interna da expressão de linguagem ' [Parameters (' allowedLocations ')] ' é do tipo ' array ', o tipo esperado é ' String '. '. "
 
-O **tipo** de condição esperado `equals` é _String_. Como **allowedLocations** é definido como _matriz_de tipo, o mecanismo de política avalia a expressão de idioma e gera o erro. Com a condição de `in` e `notIn`, o mecanismo de política espera a _matriz_ de **tipo** na expressão de idioma. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
+O **tipo** de condição esperado `equals` é _String_. Como **allowedLocations** é definido como **type** _matriz_de tipo, o mecanismo de política avalia a expressão de idioma e gera o erro. Com a condição de `in` e `notIn`, o mecanismo de política espera a _matriz_ de **tipo** na expressão de idioma. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Avaliando o alias [*]
 
@@ -203,7 +203,7 @@ O [efeito de acréscimo](../concepts/effects.md#append) comporta-se de forma dif
 
 Para obter mais informações, consulte os [exemplos de acréscimo](../concepts/effects.md#append-examples).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

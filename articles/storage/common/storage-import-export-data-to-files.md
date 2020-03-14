@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363901"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268295"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
 
@@ -21,7 +21,7 @@ Este artigo fornece instruções passo a passo sobre como usar o serviço de Imp
 
 O serviço de Importação/Exportação dá suporte somente à importação de Arquivos do Azure para o Armazenamento do Microsoft Azure. Não há suporte para a exportação de Arquivos do Azure.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de criar um trabalho de importação para transferir dados ao Arquivos do Azure, revise cuidadosamente e preencha a seguinte lista de pré-requisitos. Você deve:
 
@@ -115,7 +115,7 @@ Para exemplos adicionais, vá para [Exemplos de arquivos de diário](#samples-fo
 ## <a name="step-2-create-an-import-job"></a>Etapa 2: criar um trabalho de importação
 
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
-1. Faça logon no https://portal.azure.com/.
+1. Faça logon em https://portal.azure.com/.
 2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
 
     ![Ir para Importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
@@ -205,7 +205,7 @@ Um exemplo de importação é mostrado abaixo.
     WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
     ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Exibir o status do trabalho e da unidade](storage-import-export-view-drive-status.md)
 * [Verificar os requisitos de Importação/Exportação](storage-import-export-requirements.md)

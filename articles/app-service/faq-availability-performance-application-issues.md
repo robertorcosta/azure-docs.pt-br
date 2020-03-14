@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659706"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259858"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -92,8 +92,9 @@ Para obter informações sobre cotas e limites, consulte [limites de Serviço de
 Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Dessa forma, o sistema pode conservar recursos. A desvantagem é que a resposta à primeira solicitação depois que o aplicativo web é descarregado é mais longa, para permitir que o aplicativo web carregue e comece a enviar respostas. Em planos de serviço básico e padrão, você pode ativar a configuração **Sempre Ativo** para manter o aplicativo sempre carregado. Isso elimina tempos de carga após o aplicativo estar ocioso. Para alterar a configuração **Sempre Ativo**:
 
 1. No portal do Azure, vá para seu aplicativo web.
-2. Selecione **Configurações do aplicativo**.
-3. Para **Sempre Ativo**, selecione **On**.
+2. Selecionar **configuração**
+3. Selecione **configurações gerais**.
+4. Para **Sempre Ativo**, selecione **On**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Como ativar o rastreamento de solicitação com falha?
 

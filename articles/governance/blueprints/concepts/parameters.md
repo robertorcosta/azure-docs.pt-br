@@ -4,11 +4,11 @@ description: Saiba mais sobre os parâmetros estáticos e dinâmicos e como usá
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644963"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264707"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -232,7 +232,7 @@ Definir **parâmetros dinâmicos** durante a atribuição é feito inserindo o v
   }
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte a lista de [funções de plantas](../reference/blueprint-functions.md).
 - Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).

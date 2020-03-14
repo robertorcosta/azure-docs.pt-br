@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613781"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260157"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites do Azure Data Box Disk
 
@@ -72,10 +72,10 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 
 | Tipo de objeto do Azure | Limite padrão                                             |
 |-------------------|-----------------------------------------------------------|
-| Blob de Blocos        | Aproximadamente 4,75 TiB                                                 |
+| Blob de blocos        | Aproximadamente 4,75 TiB                                                 |
 | Blob de páginas         | 8 TiB <br> (Cada arquivo carregado no formato de blob de páginas deve ter 512 bytes alinhados, caso contrário, o carregamento falhará. <br> O VHD e o VHDX são 512 bytes alinhados.) |
 |Arquivos do Azure        | 1 TiB <br> Máx. o tamanho do compartilhamento é 5 TiB     |
-| Managed Disks     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Discos gerenciados     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Convenções de nomenclatura de arquivo, blob de páginas e blob de blocos do Azure
@@ -92,6 +92,6 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 |-------------------|-----------------------------------------------------------|
 | Nomes de discos gerenciados       | <li> O nome deve ter de 1 a 80 caracteres de comprimento. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, pontos ou hifens. </li><li>   O nome não deve ter espaços ou `/`.                                              |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examinar [disco do data Box requisitos do sistema](data-box-disk-system-requirements.md)

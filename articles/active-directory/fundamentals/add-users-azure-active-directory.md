@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073500"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262107"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 
@@ -40,9 +40,9 @@ Para adicionar um novo usuário, siga estas etapas:
 
 1. Na página do **usuário** , insira as informações para este usuário:
 
-   - **Nome**. Obrigatório. O primeiro e último nome do novo usuário. Por exemplo, *Mary Parker*.
+   - **Nome**. Obrigatórios. O primeiro e último nome do novo usuário. Por exemplo, *Mary Parker*.
 
-   - **Nome de usuário**. Obrigatório. O nome de usuário do novo usuário. Por exemplo: `mary@contoso.com`.
+   - **Nome de usuário**. Obrigatórios. O nome de usuário do novo usuário. Por exemplo, `mary@contoso.com`.
 
      A parte do domínio do nome de usuário deve usar o nome de domínio padrão inicial, *\<yourdomainname >. onmicrosoft. com*ou um nome de domínio personalizado, como *contoso.com*. Para obter mais informações sobre como criar um nome de domínio personalizado, consulte [Adicionar seu nome de domínio personalizado usando o portal de Azure Active Directory](add-custom-domain.md).
 

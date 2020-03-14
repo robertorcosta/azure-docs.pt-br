@@ -9,11 +9,11 @@ ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384245"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272910"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Conectar uma rede virtual a um circuito ExpressRoute usando o portal
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ O usuário do circuito precisa da ID do recurso e de uma chave de autorização 
 
 1. Clique no botão **+Novo**.
 
-   ![Clique em Nova](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+   ![Clique em Novo](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 2. Pesquise **“Conexão”** no Marketplace, selecione-a e clique em **Criar**.
 
    ![Pesquisar conexão](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
@@ -135,5 +135,5 @@ O usuário do circuito precisa da ID do recurso e de uma chave de autorização 
 
 É possível excluir uma conexão e desvincular a VNet de um circuito ExpressRoute, selecionando o ícone **Excluir** na página da sua conexão.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

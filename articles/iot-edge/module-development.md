@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548621"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271376"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva seus próprios módulos do IoT Edge
 
@@ -51,7 +51,7 @@ Para simplificar a criação de rotas, o IoT Edge inclui o conceito de pontos de
 
 Por fim, as mensagens de dispositivo para nuvem tratadas pelo hub do Edge são marcadas com as seguintes propriedades de sistema:
 
-| Propriedade | Description |
+| Propriedade | DESCRIÇÃO |
 | -------- | ----------- |
 | $connectionDeviceId | A ID do dispositivo do cliente que enviou a mensagem |
 | $connectionDeviceId | A ID do módulo que enviou a mensagem |
@@ -77,11 +77,11 @@ Para todos os idiomas na tabela a seguir, IoT Edge dá suporte ao desenvolviment
 
 | Linguagem de desenvolvimento | Ferramentas de desenvolvimento |
 | -------------------- | ----------------- |
-| C | Código do Visual Studio<br>Visual Studio 2017/2019 |
-| C# | Código do Visual Studio<br>Visual Studio 2017/2019 |
-| Java | Código do Visual Studio |
-| Node.js | Código do Visual Studio |
-| Python | Código do Visual Studio |
+| C | Visual Studio Code<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
+| Java | Visual Studio Code |
+| Node.js | Visual Studio Code |
+| Python | Visual Studio Code |
 
 >[!NOTE]
 >O desenvolvimento e a depuração de suporte para dispositivos ARM64 Linux estão em [Visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, confira [Desenvolver e depurar módulos do IoT Edge ARM64 no Visual Studio Code (versão prévia)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
@@ -95,7 +95,7 @@ Para todos os idiomas na tabela a seguir, IoT Edge dá suporte ao desenvolviment
 | C | Visual Studio 2017/2019 |
 | C# | Visual Studio Code (sem recursos de depuração)<br>Visual Studio 2017/2019 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Prepare seu ambiente de desenvolvimento e teste para IoT Edge](development-environment.md)
 

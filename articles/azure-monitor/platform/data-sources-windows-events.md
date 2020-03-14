@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394395"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274678"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados do log de eventos do Windows no Azure Monitor
 Logs de eventos do Windows são uma das mais comuns [fontes de dados](agent-data-sources.md) para coletar dados usando agentes do Windows, pois muitos aplicativos escrevem o log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
@@ -40,7 +40,7 @@ O Azure Monitor coleta cada evento que corresponde a uma severidade selecionada 
 ## <a name="windows-event-records-properties"></a>Propriedades de registros de eventos do Windows
 Os registros de eventos do Windows têm um tipo de **Evento** e têm as propriedades na tabela a seguir:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | Computador |Nome do computador do qual o evento foi coletado. |
 | EventCategory |Categoria do evento. |
@@ -52,7 +52,7 @@ Os registros de eventos do Windows têm um tipo de **Evento** e têm as propried
 | ParameterXml |Valores de parâmetro de evento em formato XML. |
 | ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, esse valor é `AOI-<workspace ID>` |
 | RenderedDescription |Descrição do evento com valores de parâmetro |
-| Origem |Origem do evento. |
+| Fonte |Origem do evento. |
 | SourceSystem |Tipo de agente do qual o evento foi coletado. <br> OpsManager - agente do Windows: conexão direta ou Operations Manager gerenciado <br> Linux: todos os agentes do Linux  <br> AzureStorage: Diagnóstico do Azure |
 | TimeGenerated |Data e hora em que o evento foi criado no Windows. |
 | UserName |Nome de usuário da conta que registrou o evento. |
@@ -60,15 +60,15 @@ Os registros de eventos do Windows têm um tipo de **Evento** e têm as propried
 ## <a name="log-queries-with-windows-events"></a>Consultas de log com Eventos do Windows
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de Eventos do Windows.
 
-| Query | Descrição |
+| Consulta | DESCRIÇÃO |
 |:---|:---|
-| {1&gt;Evento&lt;1} |Todos os eventos do Windows. |
+| Evento |Todos os eventos do Windows. |
 | Event &#124; where EventLevelName == "error" |Todos os eventos do Windows com severidade de erro. |
 | Event &#124; summarize count() by Source |Contagem de eventos do Windows por fonte. |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Contagem de eventos de erro do Windows por fonte. |
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Configure o Log Analytics para coletar outras [fontes de dados](agent-data-sources.md) para análise.
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Configure a [coleta de contadores de desempenho](data-sources-performance-counters.md) de seus agentes do Windows.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366684"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267645"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Use a folha de resumo do serviço do dispositivo StorSimple 8000 series
 
@@ -85,7 +85,7 @@ A área de informações gerais captura algumas das propriedades importantes, co
 Para exibir as diversas operações executadas no StorSimple Device Manager, clique no link **Logs de atividade** no lado esquerdo da folha de resumo do serviço do StorSimple. Isso o levará para a folha **Logs de atividade**, na qual você poderá ver um resumo das operações recentes executadas.
 
 ![Logs de atividade](./media/storsimple-8000-service-dashboard/activity-logs1.png)
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como [usar o serviço StorSimple Device Manager para administrar dispositivos StorSimple](storsimple-8000-manager-service-administration.md).
 

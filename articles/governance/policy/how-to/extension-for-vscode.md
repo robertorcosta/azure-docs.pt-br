@@ -1,14 +1,14 @@
 ---
 title: Extensão de Azure Policy para Visual Studio Code
 description: Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar aliases do Gerenciador de recursos.
-ms.date: 11/04/2019
+ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873107"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264668"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
 
@@ -21,7 +21,7 @@ A extensão de Azure Policy para Visual Studio Code pode ser instalada em todas 
 > [!NOTE]
 > As alterações feitas localmente nas políticas exibidas na extensão de Azure Policy para Visual Studio Code não são sincronizadas com o Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os itens a seguir são necessários para concluir as etapas neste artigo:
 
@@ -82,7 +82,7 @@ Quando você entra pela primeira vez, somente os recursos e as políticas de ass
 
    - Paleta de comandos: 
 
-     Na barra de menus, acesse **exibir** > **paleta de comandos**e digite **Azure Policy: selecione assinaturas**.
+     Na barra de menus, acesse **exibir** > **paleta de comandos**e insira **Azure: selecione assinaturas**.
 
    - Rodapé da janela
 
@@ -153,7 +153,7 @@ Ao selecionar uma política ou atribuição, seja por meio da interface de pesqu
 
 Na barra de menus, acesse **exibir** > **paleta de comandos**e, em seguida, insira **Azure: sair**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

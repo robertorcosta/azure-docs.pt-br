@@ -15,11 +15,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1197eb074b9afeb74c6793835455611ab784a83b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376647"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259715"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -27,7 +27,7 @@ Neste artigo, você poderá encontrar as informações necessárias para restrin
 
 ## <a name="application-proxy"></a>Proxy de aplicativo
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar aplicativo proxy do aplicativo | Administrador de aplicativos | 
 Configurar propriedades do grupo de conectores | Administrador de aplicativos | 
@@ -40,11 +40,11 @@ Ler todas as configurações | Administrador de aplicativos |
 
 ## <a name="b2c"></a>B2C
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Criar diretórios do Azure AD B2C | Todos os usuários não convidados ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Criar aplicativos B2C | Administrador global | 
-Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de Aplicativos
+Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de aplicativos
 Criar, ler, atualizar e excluir políticas de B2C | Administrador da política IEF B2C | 
 Criar, ler, atualizar e excluir provedores de identidade | Administrador do provedor de identidade externo | 
 Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador de fluxo de usuário B2C | 
@@ -61,20 +61,20 @@ Ler os logs de auditoria do B2C | Leitor global ([consulte a documentação](htt
 
 ## <a name="company-branding"></a>Identidade visual da empresa
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar identidade visual da empresa | Administrador global | 
 Ler todas as configurações | Leitores de diretórios | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="company-properties"></a>Propriedades da empresa
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar propriedades da empresa | Administrador global | 
 
 ## <a name="connect"></a>Conectar
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Autenticação de passagem | Administrador global | 
 Ler todas as configurações | Leitor global | 
@@ -82,7 +82,7 @@ Logon único contínuo | Administrador global |
 
 ## <a name="connect-health"></a>Connect Health
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Adicionar ou excluir serviços | Proprietário ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 Aplicar correções para erro de sincronização | Colaborador ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Proprietário
@@ -99,14 +99,14 @@ Exibir métricas e alertas do serviço de sincronização | Leitor ([consulte a 
 
 ## <a name="custom-domain-names"></a>Nomes de domínio personalizados
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Gerenciar domínios | Administrador global | 
 Ler todas as configurações | Leitores de diretórios | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="domain-services"></a>Serviços de Domínio
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Criar instância do Azure AD Domain Services | Administrador global | 
 Executar todas as tarefas do Azure Active Directory Domain Services | Grupo Administradores do Azure AD DC ([consulte a documentação](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
@@ -114,7 +114,7 @@ Ler todas as configurações | Leitor na assinatura do Azure que contém o servi
 
 ## <a name="devices"></a>Dispositivos
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Desabilitar dispositivo | Administrador de dispositivo em nuvem | 
 Habilitar dispositivo | Administrador de dispositivo em nuvem | 
@@ -123,7 +123,7 @@ Ler as chaves do BitLocker | Leitor de segurança | Administrador de senhas, Adm
 
 ## <a name="enterprise-applications"></a>Aplicativos empresariais
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Consentimento para quaisquer permissões delegadas | Administrador de aplicativos de nuvem | Administrador de aplicativos
 Consentimento para permissões de aplicativo que não incluem Microsoft Graph | Administrador de aplicativos de nuvem | Administrador de aplicativos
@@ -142,7 +142,7 @@ Atualizar autoatendimento de aplicativos empresariais | Proprietário de aplicat
 Atualizar propriedades de logon único | Proprietário de aplicativo empresarial ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador do aplicativo de nuvem, Administrador de aplicativos
 
 ## <a name="entitlement-management"></a>Gerenciamento de direitos
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Adicionar recursos a um catálogo | Administrador de usuários | Com o gerenciamento de direitos, você pode delegar essa tarefa para o proprietário do catálogo ([consulte a documentação](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
 Adicionar sites do SharePoint Online ao catálogo | Administrador global
@@ -150,7 +150,7 @@ Adicionar sites do SharePoint Online ao catálogo | Administrador global
 
 ## <a name="groups"></a>Grupos
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Atribuir licença | Administrador de usuários | 
 Criar grupo | Administrador de usuários | 
@@ -167,7 +167,7 @@ Atualizar propriedades do grupo | Proprietário do grupo ([consulte a documenta�
 
 ## <a name="identity-protection"></a>Identity Protection
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar notificações de alerta| Administrador de segurança | 
 Configurar e habilitar ou desabilitar política de MFA| Administrador de segurança | 
@@ -182,7 +182,7 @@ Ler vulnerabilidades | Leitor de segurança |
 
 ## <a name="licenses"></a>Licenças
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Atribuir licença | Administrador de licenças | Administrador de usuários
 Ler todas as configurações | Leitores de diretórios | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
@@ -192,19 +192,19 @@ Experimentar ou comprar uma assinatura | Administrador de cobrança |
 
 ## <a name="monitoring---audit-logs"></a>Monitoramento - Log de auditoria
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Ler logs de auditoria | Leitor de relatórios | Leitor de segurança, Administrador da segurança
 
 ## <a name="monitoring---sign-ins"></a>Monitoramento - Entradas
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Ler logs de entrada | Leitor de relatórios | Leitor de segurança, Administrador da segurança
 
 ## <a name="multi-factor-authentication"></a>Autenticação multifator
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Excluir todas as senhas de aplicativos existentes geradas pelos usuários selecionados | Administrador global | 
 Desabilitar MFA | Administrador global | 
@@ -215,7 +215,7 @@ Restaurar a autenticação multifator em todos os dispositivos lembrados  | Adm
 
 ## <a name="mfa-server"></a>Servidor MFA
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Bloquear/desbloquear usuários | Administrador global | 
 Configurar bloqueio de conta | Administrador global | 
@@ -232,7 +232,7 @@ Ler o status do servidor | Leitor global |
 
 ## <a name="organizational-relationships"></a>Relações organizacionais
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Gerenciar provedores de identidade | Administrador do provedor de identidade externo | 
 Gerenciar configurações | Administrador global | 
@@ -241,7 +241,7 @@ Ler todas as configurações | Leitor global |
 
 ## <a name="password-reset"></a>Redefinição de senha
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar métodos de autenticação | Administrador global |
 Configurar personalização | Administrador global |
@@ -253,7 +253,7 @@ Ler todas as configurações | Administrador de segurança | Administrador de us
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Atribuir usuários a funções | Administrador de função com privilégios | 
 Definir configurações de função | Administrador de função com privilégios | 
@@ -262,7 +262,7 @@ Exibir associações de função | Leitor de segurança |
 
 ## <a name="roles-and-administrators"></a>Funções e administradores
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Gerenciar atribuições de função | Administrador de função com privilégios | 
 Revisão de acesso de leitura de uma função do Azure AD  | Leitor de segurança | Administrador da segurança, Administrador de função com privilégios
@@ -270,14 +270,14 @@ Ler todas as configurações | Função de usuário padrão ([consulte a documen
 
 ## <a name="security---authentication-methods"></a>Segurança - Métodos de Autenticação
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar métodos de autenticação | Administrador global | 
 Ler todas as configurações | Leitor global | 
 
 ## <a name="security---conditional-access"></a>Segurança-acesso condicional
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Configurar endereços IP confiáveis de MFA | Administrador de acesso condicional | 
 Criar controles personalizados | Administrador de acesso condicional | Administrador de segurança
@@ -297,7 +297,7 @@ Ler localizações nomeadas | Leitor de segurança | Administrador de acesso con
 
 ## <a name="security---identity-security-score"></a>Segurança - Pontuação de segurança de identidade
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais | 
+Tarefa | Função com privilégios mínimos | Funções adicionais | 
 ---- | --------------------- | ----------------
 Ler todas as configurações | Leitor de segurança | Administrador de segurança
 Ler pontuação de segurança | Leitor de segurança | Administrador de segurança
@@ -305,14 +305,14 @@ Atualizar status do evento | Administrador de segurança |
 
 ## <a name="security---risky-sign-ins"></a>Segurança - Entradas arriscadas
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Ler todas as configurações | Leitor de segurança | 
 Ler as entradas arriscadas | Leitor de segurança | 
 
 ## <a name="security---users-flagged-for-risk"></a>Segurança - Usuários sinalizados para risco
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Descartar todos os eventos | Administrador de segurança | 
 Ler todas as configurações | Leitor de segurança | 
@@ -320,7 +320,7 @@ Ler usuários sinalizados para risco | Leitor de segurança |
 
 ## <a name="users"></a>Usuários
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Adicionar usuário à função do diretório | Administrador de função com privilégios | 
 Adicionar usuário ao grupo | Administrador de usuários | 
@@ -329,11 +329,11 @@ Criar um usuário convidado | Emissor do convite ao convidado | Administrador de
 Criar usuário | Administrador de usuários | 
 Excluir usuários | Administrador de usuários | 
 Invalidar tokens de atualização de administradores limitados (consulte a documentação) | Administrador de usuários | 
-Invalidar tokens de atualização de não administradores (consulte a documentação) | Administrador de senhas | Administrador de usuários
+Invalidar tokens de atualização de não administradores (consulte a documentação) | Administrador de senha | Administrador de usuários
 Invalidar tokens de atualização de administradores com privilégios (consulte a documentação) | Administrador de autenticação privilegiada | 
 Ler a configuração básica | Função de usuário padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Redefinir senha para administradores limitados (consulte a documentação) | Administrador de usuários | 
-Redefinir senha de não administradores (consulte a documentação) | Administrador de senhas | Administrador de usuários
+Redefinir senha de não administradores (consulte a documentação) | Administrador de senha | Administrador de usuários
 Redefinir senha de administradores com privilégios | Administrador de autenticação privilegiada | 
 Revogar licença | Administrador de licenças | Administrador de usuários
 Atualizar todas as propriedades, exceto Nome UPN | Administrador de usuários | 
@@ -344,11 +344,11 @@ Atualizar configurações do usuário | Administrador global |
 
 ## <a name="support"></a>Suporte
 
-{1&gt;Tarefa&lt;1} | Função com privilégios mínimos | Funções adicionais
+Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Enviar tíquete de suporte | Administrador de serviços | Administrador de aplicativos, administrador da proteção de informações do Azure, administrador de cobrança, administrador de aplicativos de nuvem, administrador de conformidade, administrador do Dynamics 365, administrador de análise de desktop, administrador do Exchange, senha Administrador, administrador do Intune, administrador do Skype for Business, administrador de Power BI, administrador de autenticação privilegiada, administrador do SharePoint, administrador de comunicações de equipes, administrador de equipes, administrador de usuários, Administrador do workplace Analytics
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como atribuir ou remover funções de administrador do Azure AD](directory-manage-roles-portal.md)
 * [Referência das funções de administrador do Azure AD](directory-assign-admin-roles.md)

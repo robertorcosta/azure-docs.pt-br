@@ -17,17 +17,17 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376581"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261678"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
 Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solucionar problemas de gerenciamento de direitos do Azure Active Directory (AD do Azure).
 
-## <a name="administration"></a>{1&gt;Administração&lt;1}
+## <a name="administration"></a>Administração
 
 * Se você receber uma mensagem de acesso negado ao configurar o gerenciamento de direitos e for um administrador global, verifique se o diretório tem uma [licença Azure ad Premium P2 (ou EMS E5)](entitlement-management-overview.md#license-requirements).
 
@@ -57,7 +57,7 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Se um novo usuário externo, que não tenha entrado anteriormente no seu diretório, receber um pacote de acesso com um site do SharePoint Online, o pacote de acesso dele será exibido como não totalmente entregue até que a conta seja provisionada no SharePoint Online. Para obter mais informações sobre configurações de compartilhamento, consulte [examinar suas configurações de compartilhamento externo do SharePoint Online](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
 
-## <a name="requests"></a>Solicitações
+## <a name="requests"></a>Requests
 
 * Quando um usuário quiser solicitar acesso a um pacote do Access, verifique se ele está usando o **link meu portal de acesso** para o pacote de acesso. Para obter mais informações, consulte [compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md).
 
@@ -138,7 +138,7 @@ Você só pode cancelar uma solicitação pendente que ainda não foi entregue o
     
     Se alguma política estiver em uma categoria de prioridade mais alta, as categorias de prioridade mais baixa serão ignoradas. Para obter um exemplo de como várias políticas com a mesma prioridade são exibidas para o solicitante, consulte [selecionar uma política](entitlement-management-request-access.md#select-a-policy).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Controlar o acesso para usuários externos](entitlement-management-external-users.md)
 - [Exibir relatórios de como os usuários têm acesso no gerenciamento de direitos](entitlement-management-reports.md)

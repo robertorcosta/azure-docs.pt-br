@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190157"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259572"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -41,15 +41,15 @@ O recurso de recuperação de desastre implementa a recuperação de desastre do
 
 Os seguintes termos são usados neste artigo:
 
--  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. Usar um alias garante que a cadeia de caracteres de conexão fique inalterada quando o failover for disparado.
+-  *Alias*: o nome para uma configuração de recuperação de desastres que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. Usar um alias garante que a cadeia de caracteres de conexão fique inalterada quando o failover for disparado.
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
 
--  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas.
+-  *Metadados*: entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas.
 
 -  *Failover*: o processo de ativação do namespace secundário.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 
 A seção a seguir é uma visão geral da configuração do emparelhamento entre os namespaces.
 
@@ -64,14 +64,14 @@ O processo de instalação é o seguinte:
 3. Crie o emparelhamento entre os namespaces primário e secundário para obter o ***alias***.
 
     >[!NOTE] 
-    > Se você tiver [migrado seu namespace de barramento de serviço de Azure Standard para Premium do barramento de serviço do Azure](service-bus-migrate-standard-premium.md), em seguida, você deve usar o alias já existente (ou seja, o barramento de serviço Standard namespace conexão cadeia de caracteres) para criar a recuperação de desastre configuração por meio de **PS/CLI** ou **API REST**.
+    > Se você tiver [migrado seu namespace standard do barramento de serviço do Azure para o barramento de serviço Premium do Azure](service-bus-migrate-standard-premium.md), deverá usar o alias pré-existente (ou seja, sua cadeia de conexão de namespace padrão do barramento de serviço) para criar a configuração de recuperação de desastre por meio do **PS/CLI** ou da **API REST**.
     >
     >
-    > Isso ocorre porque, durante a migração, seu nome de DNS/cadeia de caracteres de conexão namespace Standard de barramento de serviço do Azure em si se torna um alias para seu namespace do barramento de serviço Premium do Azure.
+    > Isso ocorre porque, durante a migração, sua cadeia de conexão de namespace padrão do barramento de serviço do Azure/nome DNS em si se torna um alias para o namespace Premium do barramento de serviço do Azure.
     >
-    > Seus aplicativos cliente devem utilizar este alias (ou seja, a Azure Service Bus Standard namespace conexão cadeia de caracteres) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre tiver sido configurado.
+    > Seus aplicativos cliente devem utilizar esse alias (ou seja, a cadeia de conexão de namespace padrão do barramento de serviço do Azure) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre foi configurado.
     >
-    > Se você usar o Portal para configurar a configuração de recuperação de desastre, o portal será abstrair essa limitação de você.
+    > Se você usar o portal para configurar a configuração de recuperação de desastre, o portal abstrairá essa limitação de você.
 
 
 4. Use o ***alias*** obtido na etapa 3 para conectar os aplicativos clientes ao namespace primário habilitado para recuperação de desastre geográfico. Inicialmente, o alias aponta para o namespace primário.
@@ -113,7 +113,7 @@ Se você cometeu um erro, por exemplo, emparelhou as regiões erradas durante a 
 
 Caso tenha um cenário no qual você não pode alterar as conexões de produtores e consumidores, você pode reutilizar o nome do namespace como o nome do alias. Consulte o [exemplo de código no GitHub aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 
 Os [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e iniciar um failover. Esses exemplos demonstram os conceitos a seguir:
 

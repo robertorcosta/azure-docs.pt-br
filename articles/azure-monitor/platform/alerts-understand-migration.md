@@ -7,11 +7,11 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384492"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274808"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entenda como funciona a ferramenta de migração
 
@@ -78,7 +78,7 @@ Todos os alertas clássicos em métricas de Cosmos DB podem ser migrados, exceto
 - Http 3xx
 - Http 400
 - Http 401
-- Erro Interno do Servidor
+- Erro interno do servidor
 - Máximo de RUPM consumidos por minuto
 - Máximo de RUs por segundo
 - Solicitações de falha na contagem de Mongo
@@ -91,7 +91,7 @@ Todos os alertas clássicos em métricas de Cosmos DB podem ser migrados, exceto
 - Solicitações de falha na atualização do Mongo
 - Latência de leitura observada
 - Latência de gravação observada
-- Disponibilidade de serviços
+- Disponibilidade do serviço
 - Capacidade de Armazenamento
 - Solicitações limitadas
 - Total de Solicitações
@@ -134,7 +134,7 @@ Nas seções a seguir, detalharemos as métricas que têm uma métrica diferente
 
 Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as métricas a seguir são mapeadas para métricas equivalentes, conforme mostrado abaixo:
 
-| Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comments|
+| Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| Métrica de transações com dimensões "ResponseType" = "AuthorizationError" e "Authentication" = "anônimo"| |
 | AnonymousClientOtherError | Métrica de transações com dimensões "ResponseType" = "ClientOtherError" e "Authentication" = "anônimo" | |
@@ -161,17 +161,17 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | SASSuccess | Métrica de transações com dimensões "ResponseType" = "êxito" e "autenticação" = "SAS" | |
 | ServerOtherError | Métrica de transações com dimensões "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Métrica de transações com dimensões "ResponseType" = "ServerTimeOutError"  | |
-| Êxito | Métrica de transações com dimensões "ResponseType" = "êxito" | |
-| TotalBillableRequests| Transações | |
+| Sucesso | Métrica de transações com dimensões "ResponseType" = "êxito" | |
+| TotalBillableRequests| Transactions | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |
-| TotalRequests | Transações | |
+| TotalRequests | Transactions | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft.insights/components
 
 Por Application Insights, as métricas equivalentes são mostradas abaixo:
 
-| Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comments|
+| Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
 | disponibilidade. availabilityMetric. Value | availabilityResults/availabilityPercentage|   |
 | availability.durationMetric.value | availabilityResults/duration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
@@ -201,7 +201,7 @@ Por Application Insights, as métricas equivalentes são mostradas abaixo:
 
 Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 
-| Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comments|
+| Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
 | Tamanho dos dados | DataUsage| |
@@ -216,7 +216,7 @@ Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 | Encargo de solicitação de consulta do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Find"||
 | Taxa de solicitação de consulta do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Find"||
 | Encargo de solicitação de atualização do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Update"||
-| Serviço Indisponível| ServiceAvailability||
+| Serviço indisponível| ServiceAvailability||
 | TotalRequestUnits | TotalRequestUnits||
 
 ### <a name="how-equivalent-action-groups-are-created"></a>Como os grupos de ação equivalentes são criados
@@ -270,7 +270,7 @@ Como parte da migração, novos alertas de métrica e novos grupos de ação ser
 - Excluindo as assinaturas ou grupos de recursos para a duração do processo de migração da atribuição de política. [Saiba mais sobre como gerenciar políticas escopo de exclusão](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
 - Remover ou alterar o efeito para ' auditoria ' ou ' acrescentar ' (que, por exemplo, pode resolver problemas relacionados a marcas ausentes). [Saiba mais sobre o efeito de gerenciamento de políticas](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Como usar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

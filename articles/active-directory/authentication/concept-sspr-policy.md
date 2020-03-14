@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376937"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263927"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -32,7 +32,7 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de assistência técnica
-  * Administrador de suporte de serviço
+  * Administrador de suporte a serviço
   * Administrador de cobrança
   * Suporte de camada 1 do parceiro
   * Suporte de camada 2 do parceiro
@@ -79,7 +79,7 @@ Cada conta de usuário que precisa entrar no Azure AD deve ter um valor de atrib
 
 A tabela a seguir descreve as configurações de política de senha aplicadas a contas de usuário que são criadas e gerenciadas no Azure AD:
 
-| Propriedade | {1&gt;{2&gt;Requisitos&lt;2}&lt;1} |
+| Propriedade | Requisitos |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ "();</li> <li>espaço em branco</li></ul> |
 | Caracteres não permitidos | Caracteres Unicode. |
@@ -158,7 +158,7 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
    > [!WARNING]
    > Senhas definidas como `-PasswordPolicies DisablePasswordExpiration` ainda expiram com base no atributo `pwdLastSet`. Se você definir as senhas de usuário para nunca expirar e, então, mais de 90 dias depois, as senhas expiram. Com base no atributo `pwdLastSet`, se você alterar a expiração para `-PasswordPolicies None`, todas as senhas que tenham um `pwdLastSet` com idade acima de 90 dias exigirão que o usuário as altere na próxima vez que entrarem. Essa alteração pode afetar um grande número de usuários.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
 

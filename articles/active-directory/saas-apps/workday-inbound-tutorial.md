@@ -16,11 +16,11 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378394"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266345"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -93,7 +93,7 @@ Esta seção cobre os seguintes aspectos de planejamento:
 * [Integração a vários domínios do Active Directory](#integrating-with-multiple-active-directory-domains)
 * [Planejar mapeamento e transformações de atributos do usuário do Workday para o Active Directory](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+### <a name="prerequisites"></a>Prerequisites
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -245,7 +245,7 @@ Um requisito comum de todos os conectores de provisionamento do Workday é que e
    * Deixe **Minutos de Tempo Limite da Sessão** com seu valor padrão de 0, o que impedirá que as sessões do usuário expirem prematuramente.
    * Selecione a opção **Não Permitir Sessões de Interface do Usuário**, pois ela fornece uma camada adicional de segurança que impede que usuários com a senha do sistema de integração façam logon no Workday.
 
-   ![Criar usuário do sistema de integração](./media/workday-inbound-tutorial/wd_isu_02.png "Criar usuário do sistema de integração")
+   ![Criar usuário do sistema de integração](./media/workday-inbound-tutorial/wd_isu_02.png "Criar Usuário do Sistema de Integração")
 
 ### <a name="creating-an-integration-security-group"></a>Criar um grupo de segurança de integração
 
@@ -268,7 +268,7 @@ Nesta etapa, você criará um grupo de segurança do sistema de integração irr
 
 3. Após a criação bem-sucedida do Grupo de segurança, você verá uma página na qual pode atribuir membros ao Grupo de segurança. Adicione o novo usuário do sistema de integração criado na etapa anterior a esse grupo de segurança. Se você estiver usando o grupo de segurança *restrito*, você também precisará selecionar o escopo da organização apropriado.
 
-    ![Editar grupo de segurança](./media/workday-inbound-tutorial/wd_isu_05.png "Editar Grupo de Segurança")
+    ![Editar grupo de segurança](./media/workday-inbound-tutorial/wd_isu_05.png "Editar Grupo de Pesquisa")
 
 ### <a name="configuring-domain-security-policy-permissions"></a>Configurar permissões de política de segurança do domínio
 
@@ -278,7 +278,7 @@ Nesta etapa, você concederá permissões de política de “segurança de domí
 
 1. Insira a **Configuração de Segurança de Domínio** na caixa de pesquisa e, em seguida, clique no link **Relatório de Configuração de Segurança de Domínio**.  
 
-    ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_06.png "Políticas de Segurança de Domínio")  
+    ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_06.png "Políticas de segurança do domínio")  
 2. Na caixa de texto **Domínio**, pesquise pelos seguintes domínios e adicione-os ao filtro individualmente.  
    * *Provisionamento de conta externa*
    * *Dados de trabalho: relatórios de trabalho público*
@@ -288,23 +288,23 @@ Nesta etapa, você concederá permissões de política de “segurança de domí
    * *Dados de trabalho: título da empresa no perfil de trabalho*
    * *Contas de workday*
    
-     ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_07.png "Políticas de Segurança de Domínio")  
+     ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_07.png "Políticas de segurança do domínio")  
 
-     ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_08.png "Políticas de Segurança de Domínio") 
+     ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_08.png "Políticas de segurança do domínio") 
 
      Clique em **OK**.
 
 3. No relatório que aparece, selecione as reticências (...) que aparecem ao lado de **Provisionamento de Conta Externa** e clique na opção de menu **Domínio -> Editar Permissões da Política de Segurança**
 
-    ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_09.png "Políticas de Segurança de Domínio")  
+    ![Políticas de segurança de domínio](./media/workday-inbound-tutorial/wd_isu_09.png "Políticas de segurança do domínio")  
 
 4. Na página **Editar Permissões da Política de Segurança de Domínio**, role para baixo até a seção **Permissões de Integração**. Clique no sinal "+" para adicionar o grupo do sistema de integração à lista de grupos de segurança com as permissões de integração **Get** e **Put**.
 
-    ![Editar permissão](./media/workday-inbound-tutorial/wd_isu_10.png "Editar permissão")  
+    ![Editar permissão](./media/workday-inbound-tutorial/wd_isu_10.png "Editar permissões")  
 
 5. Clique no sinal "+" para adicionar o grupo do sistema de integração à lista de grupos de segurança com as permissões de integração **Get** e **Put**.
 
-    ![Editar permissão](./media/workday-inbound-tutorial/wd_isu_11.png "Editar permissão")  
+    ![Editar permissão](./media/workday-inbound-tutorial/wd_isu_11.png "Editar permissões")  
 
 6. Repita as etapas 3 a 5 acima para cada uma dessas políticas de segurança restantes:
 
@@ -350,7 +350,7 @@ Nesta etapa, você concederá permissões de política de “segurança de proce
 1. Inicie a tarefa Ativar Alterações de Política de Segurança Pendentes inserindo um comentário para fins de auditoria e clique em **OK**.
 1. Conclua a tarefa na próxima tela marcando a caixa de seleção **Confirmar** e clique em **OK**.
 
-    ![Ativar segurança pendente](./media/workday-inbound-tutorial/wd_isu_18.png "Ativar Segurança pendentes")  
+    ![Ativar segurança pendente](./media/workday-inbound-tutorial/wd_isu_18.png "Ativar segurança pendente")  
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configurando o provisionamento de usuário do Workday para o Active Directory
 
@@ -418,7 +418,7 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
   
 1. Agora, será solicitado que você insira as credenciais necessárias para se conectar ao domínio do AD. Na mesma tela, você pode usar **Selecionar prioridade do controlador de domínio** para especificar os controladores de domínio que o agente deve usar para enviar solicitações de provisionamento.
 
-   ![Credenciais de Domínio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   ![Credenciais do domínio](./media/workday-inbound-tutorial/pa_install_screen_5.png)
    
 1. Depois de configurar o domínio, o instalador exibe uma lista de domínios configurados. Nessa tela, você pode repetir as etapas 5 e 6 para adicionar mais domínios ou clicar em **Avançar** para prosseguir para o registro do agente.
 
@@ -737,7 +737,7 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
 
-2. Clique em **Salvar**.
+2. Clique em **Save** (Salvar).
 
 3. Essa operação dará início à sincronização inicial, o que poderá demorar algumas horas dependendo de quantos usuários estiverem no locatário do Workday. 
 
@@ -747,7 +747,7 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
    ![Portal do Azure](./media/workday-inbound-tutorial/wd_3.png)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 * **Perguntas do recurso de solução**
   * [Ao processar uma nova contratação do Workday, como a solução define a senha para a nova conta de usuário no Active Directory?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
@@ -1360,7 +1360,7 @@ O serviço de provisionamento do Azure AD se encaixa na categoria **processador 
 
 Em relação à retenção de dados, o serviço de provisionamento do Azure AD não gera relatórios, executa análise ou fornece informações por mais de 30 dias. Portanto, o serviço de provisionamento do Azure AD não armazena, processa ou retém quaisquer dados por mais de 30 dias. Este design está em conformidade com os regulamentos do GDPR, com os regulamentos de conformidade de privacidade da Microsoft e com as políticas de retenção de dados do Azure Active Directory.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)

@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823411"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268854"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Gerenciamento da referência de API para Instâncias Gerenciadas do Banco de Dados SQL do Azure
 
@@ -72,11 +72,11 @@ Para criar e gerenciar instâncias gerenciadas com a [CLI do Azure](/cli/azure),
 Para criar e gerenciar o banco de dados de instância após a criação da Instância Gerenciada, use os seguintes comandos T-SQL. É possível emitir esses comandos usando o portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), ou qualquer outro programa que possa conectar a um servidor do Banco de Dados SQL do Azure e passar comandos Transact-SQL.
 
 > [!TIP]
-> Para os guias de início rápido mostrando que você precisa configurar e se conectar a um Instância Gerenciada usando SQL Server Management Studio no Microsoft Windows, consulte [início rápido: configurar a VM do Azure para se conectar a um instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-configure-vm.md) e [início rápido: Configure uma conexão ponto a site com um Instância Gerenciada do Banco de Dados SQL do Azure local](sql-database-managed-instance-configure-p2s.md).
+> Para os guias de início rápido que mostram que você precisa configurar e se conectar a um Instância Gerenciada usando SQL Server Management Studio no Microsoft Windows, consulte [início rápido: configurar a VM do Azure para se conectar a um instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-configure-vm.md) e [início rápido: configurar uma conexão ponto a site com um instância gerenciada do banco de dados SQL do Azure local](sql-database-managed-instance-configure-p2s.md).
 > [!IMPORTANT]
 > Não é possível criar ou excluir uma instância gerenciada usando o Transact-SQL.
 
-| Command | DESCRIÇÃO |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria um novo banco de dados de instância gerenciada. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica o banco de dados de Instância Gerenciada do SQL do Azure.|
@@ -85,7 +85,7 @@ Para criar e gerenciar o banco de dados de instância após a criação da Inst�
 
 Para criar e gerenciar Instâncias Gerenciadas, use estas solicitações de API REST.
 
-| Command | DESCRIÇÃO |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 |[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Cria ou atualiza uma instância gerenciada.|
 |[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Exclui uma instância gerenciada.|

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376149"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261197"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -115,7 +115,7 @@ Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Int
 
 Há duas maneiras de modificar as configurações de zona de Intranet dos usuários:
 
-| {1&gt;Opção&lt;1} | Consideração de administração | Experiência do usuário |
+| Opção | Consideração de administração | Experiência do usuário |
 | --- | --- | --- |
 | Política de grupo | O administrador bloqueia a edição das configurações da zona da Intranet | Os usuários não podem modificar as próprias configurações |
 | Preferência de política de grupo |  O administrador permite edição nas configurações da zona de Intranet | Os usuários podem modificar as próprias configurações |
@@ -234,7 +234,7 @@ Para obter instruções sobre como implantar as chaves, veja [Logon Único Cont�
 >[!IMPORTANT]
 >Você não precisa executar essa etapa _imediatamente_ depois de habilitar o recurso. Sobrepor as chaves de descriptografia Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Análise técnica aprofundada](how-to-connect-sso-how-it-works.md): entender como funciona o recurso de logon único contínuo.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): respostas às perguntas frequentes sobre o Logon Único Contínuo.

@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975288"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271506"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
@@ -46,7 +46,7 @@ Os tokens SAS têm o seguinte formato:
 
 Estes são os componentes de cada token:
 
-| Value | Descrição |
+| Valor | DESCRIÇÃO |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256. Para registros individuais, essa assinatura é produzida usando a chave simétrica (primária ou secundária) para realizar o hash. Para grupos de registro, uma chave derivada da chave do grupo de registro é usada para executar o hash. O hash é executado em uma mensagem no formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: a chave precisa ser decodificada da base64 antes de ser usada para executar o cálculo de HMAC-SHA256. Além disso, o resultado da assinatura precisa ser codificada como URL. |
 | {resourceURI} |O URI do ponto de extremidade de registro que pode ser acessado com esse token, começando com a ID do escopo da instância do serviço de provisionamento de dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |
@@ -110,7 +110,7 @@ A identidade de cada dispositivo é representada pela ID de registro e a chave d
 
 Se as chaves de dispositivo não estiverem instaladas no alocador, um [HSM de módulo de segurança de hardware](concepts-security.md#hardware-security-module) deverá ser usado para armazenar a identidade do dispositivo com segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você já entende um pouco sobre atestado de chave simétrica, confira os artigos a seguir para saber mais:
 

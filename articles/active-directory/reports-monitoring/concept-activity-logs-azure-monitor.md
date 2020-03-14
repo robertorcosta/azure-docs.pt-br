@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014511"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266540"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Azure Monitor
 
@@ -48,11 +48,11 @@ Você pode rotear logs de atividade do Azure Active Directory (Azure AD) para v�
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar esse recurso, você precisa de:
 
-* Uma assinatura do Azure. Se não tiver uma assinatura do Azure, você poderá [assinar uma versão de avaliação gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se não tiver uma assinatura do Azure, você poderá [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/free/).
 * [Licença](https://azure.microsoft.com/pricing/details/active-directory/) do Azure AD Gratuito, Básico, Premium 1 ou Premium 2 para acessar os logs de auditoria do Azure AD no portal do Azure. 
 * Um locatário do Azure AD.
 * Um usuário que seja **administrador global** ou **administrador de segurança** do locatário do Azure AD.
@@ -79,8 +79,8 @@ A tabela a seguir contém uma estimativa de custo, dependendo do tamanho do loca
 | Categoria do log | Número de usuários | Eventos por dia | Volume de dados por mês (est.) | Custo por mês (est.) | Custo por ano (est.) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Audit | 100.000 | 1,5&nbsp;milhão | 90 GB | US$ 1,93 | US$ 23,12 |
-| Audit | 1\.000 | 15.000 | 900 MB | US$ 0,02 | US$ 0,24 |
-| Entradas | 1\.000 | 34.800 | 4 GB | US$ 0,13 | US$ 1,56 |
+| Audit | 1,000 | 15,000 | 900 MB | US$ 0,02 | US$ 0,24 |
+| Entradas | 1,000 | 34.800 | 4 GB | US$ 0,13 | US$ 1,56 |
 | Entradas | 100.000 | 15&nbsp;milhões | 1.7 TB | US$ 35,41 | US$ 424,92 |
  
 
@@ -103,8 +103,8 @@ A tabela a seguir contém custos estimados por mês para um hub de eventos bási
 | Categoria do log | Número de usuários | Eventos por segundo | Eventos por intervalo de cinco minutos | Volume por intervalo | Mensagens por intervalo | Mensagens por mês | Custo por mês (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100.000 | 18 | 5\.400 | 10.8 MB | 43 | 371.520 | US$ 10,83 |
-| Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8\.640 | US$ 10,80 |
-| Entradas | 1\.000 | 178 | 53.400 | 106.8&nbsp;MB | 418 | 3\.611.520 | US$ 11,06 |  
+| Audit | 1,000 | 0,1 | 52 | 104 KB | 1 | 8\.640 | US$ 10,80 |
+| Entradas | 1,000 | 178 | 53.400 | 106.8&nbsp;MB | 418 | 3\.611.520 | US$ 11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considerações de custo dos logs do Azure Monitor
 

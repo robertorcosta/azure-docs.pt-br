@@ -9,15 +9,15 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447005"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271649"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
-Este guia prático mostra como implantar o acelerador de solução de monitoramento remoto. Implante a solução usando a CLI. Você também pode implantar a solução usando a interface do usuário baseada na web em azureiotsolutions.com, para saber mais sobre essa opção, consulte a [implantar o Acelerador de solução de monitoramento remoto](quickstart-remote-monitoring-deploy.md) guia de início rápido.
+Este guia prático mostra como implantar o acelerador de solução de monitoramento remoto. Implante a solução usando a CLI. Você também pode implantar a solução usando a interface do usuário baseada na Web em azureiotsolutions.com, para saber mais sobre essa opção, consulte o guia de início rápido para [implantar o acelerador de solução de monitoramento remoto](quickstart-remote-monitoring-deploy.md) .
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -68,7 +68,7 @@ Implantação Basic é voltada para a apresentação da solução. Para reduzir 
 
 Uma implantação básica cria os seguintes serviços em sua assinatura do Azure:
 
-| Count | Resource                       | Type         | Usadas para |
+| Contagem | Recurso                       | Type         | Usadas para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Padrão | Comunicação e gerenciamento de dispositivo |
@@ -77,7 +77,7 @@ Uma implantação básica cria os seguintes serviços em sua assinatura do Azure
 | 1     | [Aplicativo Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedar o aplicativo Web front-end |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciando identidades de usuários e segurança |
 | 1     | [Mapas do Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizando locais de ativos |
-| 1     | [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitar a análise em tempo real |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitar a análise em tempo real |
 | 1     | [Serviço de provisionamento de dispositivo do Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisionamento de dispositivos em escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento para dados de mensagens e permite análise de telemetria de mergulho profundo |
 
@@ -89,7 +89,7 @@ Uma implantação padrão é uma implantação pronta para produção que um des
 
 Uma implantação padrão cria os seguintes serviços em sua assinatura do Azure:
 
-| Count | Resource                                     | SKU / Tamanho      | Usadas para |
+| Contagem | Recurso                                     | SKU / Tamanho      | Usadas para |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Serviço de Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Use um serviço de orquestração de contêineres do Kubernetes totalmente gerenciado, o padrão é de três agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Camada Padrão | Controle, comando e gerenciamento de dispositivos |
@@ -98,7 +98,7 @@ Uma implantação padrão cria os seguintes serviços em sua assinatura do Azure
 | 1     | [Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicativo sobre SSL |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciando identidades de usuários e segurança |
 | 1     | [Mapas do Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizando locais de ativos |
-| 1     | [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitar a análise em tempo real |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Habilitar a análise em tempo real |
 | 1     | [Serviço de provisionamento de dispositivo do Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisionamento de dispositivos em escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento para dados de mensagens e permite análise de telemetria de mergulho profundo |
 

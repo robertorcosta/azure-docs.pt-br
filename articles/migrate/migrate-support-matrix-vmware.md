@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte de avaliação do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b887508fb8e422bd83aa9d13e42085d7a6bd2283
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121329"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269582"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -43,6 +43,7 @@ Além de descobrir computadores, migrações para Azure: a avaliação do servid
 **credenciais do vCenter** | Uma conta vCenter Server com acesso somente leitura e privilégios habilitados para máquinas virtuais > operações de convidado.
 **Credenciais da VM** | Atualmente, o dá suporte ao uso de uma credencial para todos os servidores Windows e uma credencial para todos os servidores Linux.<br/><br/> Você cria uma conta de usuário convidado para VMs do Windows e uma conta de usuário regular/normal (acesso não sudo) para todas as VMs do Linux.
 **Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja descobrir. <br/> Se sua versão do VMware Tools estiver entre 9,10-10.2.0, atualize-a para além do 10.2.0.
+**Powershell** | As VMs devem ter o PowerShell da versão 2,0 ou superior
 **Acesso à porta** | Em hosts ESXi que executam VMs que você deseja descobrir, o dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443.
 **Limites** | Para descoberta de aplicativos, você pode descobrir até 10000 por dispositivo. 
 
@@ -100,6 +101,7 @@ Esta opção está atualmente em versão prévia. [Saiba mais](how-to-create-gro
 **Conta do Linux** | A visualização precisa de uma conta de usuário com privilégio de raiz.<br/><br/> Como alternativa, a conta de usuário precisa dessas permissões em arquivos/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agentes de VM** | Nenhum agente é necessário nas VMs.
 **Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas em VMs que você deseja analisar. <br/> Se sua versão do VMware Tools estiver entre 9,10-10.2.0, atualize-a para além do 10.2.0.
+**Powershell** | As VMs devem ter o PowerShell da versão 2,0 ou superior
 **credenciais do vCenter** | Uma conta vCenter Server com acesso somente leitura e privilégios habilitados para máquinas virtuais > operações de convidado.
 **Acesso à porta** | Em hosts ESXi que executam VMs que você deseja analisar, o dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443.
 

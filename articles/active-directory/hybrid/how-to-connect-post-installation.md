@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377107"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261288"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
 Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  
@@ -35,7 +35,7 @@ Agora que os usuários foram sincronizados para a nuvem, você precisará atribu
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Como atribuir uma licença do Enterprise Mobility Suite ou do Azure AD Premium
 
 1. Entre no Portal do Azure como um administrador.
-2. À esquerda, selecione **Active Directory**.
+2. Selecione **Active Directory**à esquerda.
 3. Na página do **Active Directory**, clique duas vezes no diretório que tem os usuários que você deseja configurar.
 4. Na parte superior da página do diretório, selecione **Licenças**.
 5. Na página **Licenças**, selecione **Active Directory Premium** ou **Enterprise Mobility Suite** e, em seguida, clique em **Atribuir**.
@@ -46,7 +46,7 @@ Use o Portal do Azure para verificar o status de uma sincronização.
 
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Como verificar a tarefa de sincronização agendada
 1. Entre no Portal do Azure como um administrador.
-2. À esquerda, selecione **Active Directory**.
+2. Selecione **Active Directory**à esquerda.
 3. À esquerda, selecione **Azure ad Connect**
 4. Na parte superior da página, observe a última sincronização.
 
@@ -59,7 +59,7 @@ Se você precisar executar uma tarefa de sincronização, poderá fazer isso da 
 2. Clique em **Configurar**.
 3. Na tela tarefas, selecione as **opções personalizar sincronização** e clique em **Avançar**
 4. Insira suas credenciais de AD do Azure
-5. Clique em **Avançar**. Clique em **Avançar**.  Clique em **Avançar**.
+5. Clique em **Próximo**. Clique em **Próximo**.  Clique em **Próximo**.
 5.  Na tela **pronto para configurar** , verifique se a caixa **iniciar o processo de sincronização quando a configuração for concluída** está marcada.
 6.  Clique em **Configurar**.
 
@@ -72,7 +72,7 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 
 ![Lista de tarefas adicionais](./media/how-to-connect-post-installation/addtasks2.png)
 
-| Tarefa adicional | Descrição |
+| Tarefa adicional | DESCRIÇÃO |
 | --- | --- |
 |**Configurações de privacidade**|Exibir quais dados de telemetria estão sendo compartilhados com a Microsoft.|
 |**Exibir configuração atual**|Exiba sua solução atual do Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |
@@ -84,5 +84,5 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 |**Gerenciar Federação**|Gerenciar sua infraestrutura de AD FS, renovar certificados e adicionar servidores AD FS|
 |**Solucionar problemas**|Ajuda para solucionar problemas de Azure AD Connect|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).

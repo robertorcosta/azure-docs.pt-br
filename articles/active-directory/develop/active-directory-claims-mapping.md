@@ -14,11 +14,11 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375800"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263186"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -44,7 +44,7 @@ Uma política de mapeamento de declarações é um tipo de objeto de **Política
 
 Há determinados conjuntos de declarações que definem como e quando elas são usadas em tokens.
 
-| Conjunto de declarações | Descrição |
+| Conjunto de declarações | DESCRIÇÃO |
 |---|---|
 | Conjunto de declarações de núcleo | Estão presentes em todos os tokens, independentemente da política. Essas declarações também são consideradas restritas e não podem ser modificadas. |
 | Conjunto de declarações básicas | Inclui as declarações que são emitidas por padrão para os tokens (além do conjunto de declarações principais). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
@@ -157,9 +157,9 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | refreshtoken |
 | request_nonce |
 | recurso |
-| role |
-| funções |
-| escopo |
+| função |
+| roles |
+| scope |
 | scp |
 | sid |
 | assinatura |
@@ -177,7 +177,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| Nome de Usuário |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,13 +284,13 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
 
-| Origem | ID | Descrição |
+| Fonte | ID | DESCRIÇÃO |
 |-----|-----|-----|
-| Usuário | sobrenome | Nome da Família |
+| Usuário | sobrenome | Nome da família |
 | Usuário | givenname | Nome |
 | Usuário | displayname | Nome de exibição |
 | Usuário | objectid | ObjectID |
-| Usuário | email | Endereço de Email |
+| Usuário | mail | Endereço de Email |
 | Usuário | userprincipalname | Nome UPN |
 | Usuário | department|department|
 | Usuário | onpremisessamaccountname | Nome da conta SAM local |
@@ -299,10 +299,10 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | onpremisesecurityidentifier | Identificador de segurança local |
 | Usuário | companyname| Nome da Organização |
 | Usuário | streetaddress | Endereço |
-| Usuário | postalcode | CEP |
+| Usuário | postalcode | Código postal |
 | Usuário | preferredlanguange | Idioma preferencial |
 | Usuário | onpremisesuserprincipalname | UPN local |
-| Usuário | mailnickname | Apelido de email |
+| Usuário | mailNickname | Apelido de email |
 | Usuário | extensionattribute1 | Atributo de extensão 1 |
 | Usuário | extensionattribute2 | Atributo de extensão 2 |
 | Usuário | extensionattribute3 | Atributo de extensão 3 |
@@ -319,8 +319,8 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | extensionattribute14 | Atributo de extensão 14 |
 | Usuário | extensionattribute15 | Atributo de extensão 15 |
 | Usuário | othermail | Outro email |
-| Usuário | country | País |
-| Usuário | city | Cidade |
+| Usuário | country | País/Região |
+| Usuário | city | City |
 | Usuário | state | Estado |
 | Usuário | jobtitle | Cargo |
 | Usuário | employeeid | ID do funcionário |
@@ -358,10 +358,10 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
 
-|TransformationMethod|Entrada esperada|Saída esperada|Descrição|
+|TransformationMethod|Entrada esperada|Saída esperada|DESCRIÇÃO|
 |-----|-----|-----|-----|
 |Join|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|email|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver nenhum sinal \@ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
+|ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver nenhum sinal \@ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
 
 **InputClaims:** use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -384,9 +384,9 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
 
-|Origem|ID|Descrição|
+|Fonte|ID|DESCRIÇÃO|
 |-----|-----|-----|
-| Usuário | email|Endereço de Email|
+| Usuário | mail|Endereço de Email|
 | Usuário | userprincipalname|Nome UPN|
 | Usuário | onpremisessamaccountname|Nome da conta SAM local|
 | Usuário | employeeid|ID do funcionário|
@@ -408,7 +408,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: Métodos de transformação permitidos para o NameID SAML
 
-| TransformationMethod | {1&gt;Restrições&lt;1} |
+| TransformationMethod | Restrições |
 | ----- | ----- |
 | ExtractMailPrefix | Nenhum |
 | Join | O sufixo que está sendo acrescentado deve ser um domínio verificado do locatário do recurso. |
@@ -435,7 +435,7 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
-#### <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+#### <a name="prerequisites"></a>Prerequisites
 
 Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você é um novo usuário do Azure AD, recomendamos que [aprenda como obter um locatário do Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.
 
@@ -524,6 +524,6 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, consulte [como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)

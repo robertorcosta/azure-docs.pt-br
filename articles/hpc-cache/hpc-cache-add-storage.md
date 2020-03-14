@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990599"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271883"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -148,11 +148,11 @@ Esta tabela resume as diferenças do modelo de uso:
 
 | Modelo de uso | Modo de cache | Verificação de back-end | Atraso máximo de write-back |
 | ---- | ---- | ---- | ---- |
-| Leia gravações pesadas e frequentes | Leitura | Nunca | Nenhum |
-| Mais de 15% de gravações | Leitura/gravação | Nunca | 1 hora |
-| Clientes ignoram o cache | Leitura | 30 segundos | Nenhum |
+| Leia gravações pesadas e frequentes | Ler | Never | Nenhum |
+| Mais de 15% de gravações | Leitura/gravação | Never | 1 hora |
+| Clientes ignoram o cache | Ler | 30 segundos | Nenhum |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de criar destinos de armazenamento, considere uma destas tarefas:
 

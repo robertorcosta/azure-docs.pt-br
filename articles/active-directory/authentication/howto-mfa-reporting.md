@@ -12,22 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378062"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263745"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
 A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização, acessíveis através do portal do Azure. A tabela a seguir lista os relatórios possíveis:
 
-| Relatório | Local | Descrição |
+| Relatório | Location | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| Histórico do Usuário Bloqueado | O Azure AD > Security > MFA > bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
+| Histórico de usuário bloqueado | O Azure AD > Security > MFA > bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 | Uso para componentes locais | Relatório de atividade de > do Azure AD > Security > MFA | Fornece informações sobre o uso geral do MFA por meio da extensão do NPS, ADFS e do servidor MFA. |
-| Histórico do usuário ignorado | O Azure AD > Security > MFA > bypass único | Fornece um histórico de solicitações para ignorar a Autenticação Multifator para um usuário. |
+| Histórico de usuário desviado | O Azure AD > Security > MFA > bypass único | Fornece um histórico de solicitações para ignorar a Autenticação Multifator para um usuário. |
 | Status do servidor | Status do servidor > MFA > do Azure AD > Security | Exibe o status dos Servidores de Autenticação Multifator associado à sua conta. |
 
 ## <a name="view-mfa-reports"></a>Exibir relatórios de MFA
@@ -106,7 +106,7 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 
 **Método de autenticação de MFA:** o método de autenticação de usuário usado para concluir a MFA. Os valores possíveis incluem:
 
-- Mensagem de Texto
+- mensagem de texto
 - Notificação de aplicativo móvel
 - Chamada telefônica (telefone de autenticação)
 - Código de verificação do aplicativo móvel
@@ -117,10 +117,10 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 
 **Acesso condicional** Encontre informações sobre políticas de acesso condicional que afetaram a tentativa de entrada, incluindo:
 
-- Nome da política
+- Nome de política
 - Controles de concessão
 - Controles de sessão
-- Resultado
+- Result
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Relatórios do PowerShell sobre usuários registrados para MFA
 
@@ -148,7 +148,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 A tabela a seguir pode ser usada para solucionar problemas de autenticação multifator usando a versão baixada do relatório de atividade de autenticação multifator. Eles não aparecerão diretamente no portal do Azure.
 
-| Resultado da chamada | Descrição | Descrição ampla |
+| Resultado da chamada | DESCRIÇÃO | Descrição ampla |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN Inserido | O usuário inseriu um PIN.  Se a autenticação foi bem-sucedida, ele inseriu o PIN correto.  Se a autenticação for negada, elas inseriram um PIN incorreto ou o usuário será definido como modo padrão. |
 | SUCCESS_NO_PIN | Somente # inserido | Se o usuário estiver configurado para o modo PIN e a autenticação for negada, isso significa que ele não inseriu o PIN e só digitou #.  Se o usuário estiver definido como modo padrão e a autenticação for bem sucedido, isso significa que o usuário inseriu apenas #, que é a coisa correta a fazer no modo padrão. |
@@ -196,7 +196,7 @@ A tabela a seguir pode ser usada para solucionar problemas de autenticação mul
 | FAILED_AUTH_RESULT_TIMEOUT | Tempo limite de resultado de autenticação | O usuário demorou muito para concluir a tentativa de autenticação multifator. |
 | FAILED_AUTHENTICATION_THROTTLED | Autenticação limitada | A tentativa de autenticação multifator foi limitada pelo serviço. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Relatórios de uso e informações do SSPR e MFA](howto-authentication-methods-usage-insights.md)
 * [Para usuários](../user-help/multi-factor-authentication-end-user.md)

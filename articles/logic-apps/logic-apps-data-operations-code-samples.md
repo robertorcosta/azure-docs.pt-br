@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428688"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270518"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplo de código de operação de dados para Aplicativos Lógicos do Azure
 
@@ -363,6 +363,6 @@ Para experimentar a ação [**Selecionar** do exemplo](../logic-apps/logic-apps-
 },
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md)

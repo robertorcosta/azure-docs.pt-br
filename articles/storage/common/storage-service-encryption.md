@@ -4,17 +4,17 @@ description: O armazenamento do Azure protege seus dados criptografando-os autom
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 86d6a63601036abdde4ee7ae73114566d749feca
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.openlocfilehash: d28a342359114e05545f15624a86a17f7d0d3365
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79130060"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268360"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia de armazenamento do Azure para dados em repouso
 
@@ -65,7 +65,7 @@ Por padrão, sua conta de armazenamento usa chaves de criptografia gerenciadas p
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com Azure Key Vault
 
-Você pode gerenciar a criptografia de armazenamento do Azure no nível da conta de armazenamento com suas próprias chaves. Quando você especifica uma chave gerenciada pelo cliente no nível da conta de armazenamento, essa chave é usada para proteger e controlar o acesso à chave de criptografia raiz da conta de armazenamento que, por sua vez, é usada para criptografar e descriptografar todos os dados de BLOB e arquivo. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
+Você pode gerenciar a criptografia de armazenamento do Azure no nível da conta de armazenamento com suas próprias chaves. Quando você especifica uma chave gerenciada pelo cliente no nível da conta de armazenamento, essa chave é usada para proteger e controlar o acesso à chave de criptografia raiz para a conta de armazenamento que, por sua vez, é usada para criptografar e descriptografar todos os dados de BLOB e arquivo. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para gerenciar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
 
 Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. A conta de armazenamento e o cofre de chaves devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
@@ -102,7 +102,7 @@ Para saber como usar as chaves gerenciadas pelo cliente com o Azure Key Vault pa
 
 Para habilitar chaves gerenciadas pelo cliente em uma conta de armazenamento, você deve usar um Azure Key Vault para armazenar suas chaves. Você deve habilitar a **exclusão reversível** e **não limpar** as propriedades no cofre de chaves.
 
-Somente as chaves RSA de tamanho 2048 têm suporte com a criptografia de armazenamento do Azure. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Somente as chaves RSA têm suporte com a criptografia de armazenamento do Azure. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ### <a name="rotate-customer-managed-keys"></a>Girar chaves gerenciadas pelo cliente
 
@@ -112,7 +112,31 @@ A rotação da chave não aciona a nova criptografia dos dados na conta de armaz
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso a chaves gerenciadas pelo cliente
 
-Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, consulte [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) ou [Azure Key Vault CLI](/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia é inacessível pelo armazenamento do Azure.
+Você pode revogar o acesso da conta de armazenamento para a chave gerenciada pelo cliente a qualquer momento. Depois que o acesso às chaves gerenciadas pelo cliente for revogado ou depois que a chave tiver sido desabilitada ou excluída, os clientes não poderão chamar operações que lidam ou gravam em um BLOB ou em seus metadados. As tentativas de chamar qualquer uma das seguintes operações falharão com o código de erro 403 (proibido) para todos os usuários:
+
+- [Listar BLOBs](/rest/api/storageservices/list-blobs), quando chamado com o parâmetro `include=metadata` no URI de solicitação
+- [Obter blob](/rest/api/storageservices/get-blob)
+- [Obter propriedades de BLOB](/rest/api/storageservices/get-blob-properties)
+- [Obter metadados de BLOB](/rest/api/storageservices/get-blob-metadata)
+- [Definir Metadados de Blob](/rest/api/storageservices/set-blob-metadata)
+- [Blob de instantâneo](/rest/api/storageservices/snapshot-blob), quando chamado com o cabeçalho de solicitação `x-ms-meta-name`
+- [Copiar Blob](/rest/api/storageservices/copy-blob)
+- [Copiar BLOB da URL](/rest/api/storageservices/copy-blob-from-url)
+- [Definir camada de BLOB](/rest/api/storageservices/set-blob-tier)
+- [Colocar Bloco](/rest/api/storageservices/put-block)
+- [Colocar bloco da URL](/rest/api/storageservices/put-block-from-url)
+- [Acrescentar Bloco](/rest/api/storageservices/append-block)
+- [Anexar bloco da URL](/rest/api/storageservices/append-block-from-url)
+- [Colocar Blob](/rest/api/storageservices/put-blob)
+- [Colocar Página](/rest/api/storageservices/put-page)
+- [Colocar página da URL](/rest/api/storageservices/put-page-from-url)
+- [Blob de cópia incremental](/rest/api/storageservices/incremental-copy-blob)
+
+Para chamar essas operações novamente, restaure o acesso à chave gerenciada pelo cliente.
+
+Todas as operações de dados que não estão listadas nesta seção podem continuar depois que as chaves gerenciadas pelo cliente são revogadas ou uma chave é desabilitada ou excluída.
+
+Para revogar o acesso às chaves gerenciadas pelo cliente, use o [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) ou [CLI do Azure](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
 
 ### <a name="customer-managed-keys-for-azure-managed-disks-preview"></a>Chaves gerenciadas pelo cliente para Azure Managed disks (versão prévia)
 
@@ -122,11 +146,11 @@ As chaves gerenciadas pelo cliente também estão disponíveis para gerenciar a 
 
 Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia em uma solicitação individual. Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs. As chaves fornecidas pelo cliente (versão prévia) podem ser armazenadas em Azure Key Vault ou em outro repositório de chaves.
 
-Para obter um exemplo que mostra como especificar uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs, consulte [especificar uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs com o .net](../blobs/storage-blob-customer-provided-key.md). 
+Para obter um exemplo que mostra como especificar uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs, consulte [especificar uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs com o .net](../blobs/storage-blob-customer-provided-key.md).
 
 ### <a name="encrypting-read-and-write-operations"></a>Criptografando operações de leitura e gravação
 
-Quando um aplicativo cliente fornece uma chave de criptografia na solicitação, o armazenamento do Azure executa criptografia e descriptografia de forma transparente ao ler e gravar dados de BLOB. O armazenamento do Azure grava um hash SHA-256 da chave de criptografia ao lado do conteúdo do blob. O hash é usado para verificar se todas as operações subsequentes no blob usam a mesma chave de criptografia. 
+Quando um aplicativo cliente fornece uma chave de criptografia na solicitação, o armazenamento do Azure executa criptografia e descriptografia de forma transparente ao ler e gravar dados de BLOB. O armazenamento do Azure grava um hash SHA-256 da chave de criptografia ao lado do conteúdo do blob. O hash é usado para verificar se todas as operações subsequentes no blob usam a mesma chave de criptografia.
 
 O armazenamento do Azure não armazena ou gerencia a chave de criptografia que o cliente envia com a solicitação. A chave é descartada com segurança assim que o processo de criptografia ou descriptografia estiver concluído.
 

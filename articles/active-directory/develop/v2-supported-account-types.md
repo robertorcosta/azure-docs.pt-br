@@ -17,11 +17,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: de90c81f56b6017b2d53ecbfb2c400a4c9f05d81
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700049"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262276"
 ---
 # <a name="supported-account-types"></a>Tipos de conta com suporte
 
@@ -57,7 +57,7 @@ Alguns tipos de conta não podem ser usados ​​com determinados fluxos de aut
 
  Os aplicativos também podem conectar usuários em [nuvens nacionais](authentication-national-cloud.md). No entanto, as contas Microsoft pessoais não têm suporte nessas nuvens (por definição dessas nuvens). É por isso que os tipos de conta com suporte são reduzidos, para essas nuvens, à sua organização (locatário único) ou a qualquer organização (aplicativos multilocatários).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Locação no Azure Active Directory](./single-and-multi-tenant-apps.md)
 - Saiba mais sobre [Nuvens Nacionais](./authentication-national-cloud.md)

@@ -12,11 +12,11 @@ ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
 ms.openlocfilehash: 9f518df02b1923513fd014be53646a9a1be8465e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359853"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268620"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 
@@ -236,7 +236,7 @@ A recuperação simples ou o modelo de log em massa não é suportada na Hiperes
 
 ### <a name="does-hyperscale-allow-provisioning-multiple-nodes-for-parallel-ingesting-of-large-amounts-of-data"></a>O hiperscale permite o provisionamento de vários nós para a ingestão paralela de grandes quantidades de dados
 
-Não. O hiperscale é uma arquitetura de multi-processamento simétrico (SMP) e não é um processamento paralelo maciço (MPP) ou uma arquitetura de vários mestres. Você só pode criar várias réplicas para escalar horizontalmente cargas de trabalho somente leitura.
+Não. O hiperscale é uma arquitetura de multi-processamento simétrico (SMP) e não é um processamento paralelo maciço (MPP) ou uma arquitetura de vários mestres. Você só pode criar várias réplicas para dimensionar cargas de trabalho somente leitura.
 
 ### <a name="what-is-the-oldest-sql-server-version-supported-for-migration-to-hyperscale"></a>Qual é a versão mais antiga do SQL Server com suporte para migração para hiperescala
 

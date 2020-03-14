@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces e como eles são configurados no arquivo de configuração azds. YAML
 keywords: azds. YAML, Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
 ms.openlocfilehash: e96541b0008dca9cbaeda92152f835c188036971
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771131"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259910"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como Azure Dev Spaces funciona e está configurado
 
@@ -191,7 +191,7 @@ configurations:
 
 O arquivo de `azds.yaml` gerado pelo comando `prep` deve funcionar bem para um único cenário de desenvolvimento de projeto simples. Se o seu projeto específico tiver aumentado a complexidade, talvez seja necessário atualizar esse arquivo depois de executar o comando `prep`. Por exemplo, seu projeto pode exigir algum ajuste para seu processo de compilação ou inicialização com base nas suas necessidades de desenvolvimento ou de depuração. Você também pode ter vários aplicativos em seu projeto, que exigem vários processos de compilação ou um conteúdo de compilação diferente.
 
-## <a name="run-your-code"></a>Executar o código
+## <a name="run-your-code"></a>Executar seu código
 
 Para executar seu código em um espaço de desenvolvimento, emita o comando `up` no mesmo diretório que o arquivo de `azds.yaml`:
 
@@ -422,7 +422,7 @@ Por exemplo:
 
 Ao usar *azureuser*, todas as solicitações para *servicea* serão roteadas para a versão atualizada em *azureuser*. Uma solicitação para *serviceB* primeiro tentará ser roteada para a versão *azureuser* do *serviceB*. Como ele não existe, ele será roteado para a versão *padrão* do *serviceB*. Se a versão *azureuser* do *servicea* for removida, todas as solicitações para *servicea* voltarão a usar a versão *padrão* do *servicea*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a usar o Azure Dev Spaces, consulte os seguintes guias de início rápido:
 

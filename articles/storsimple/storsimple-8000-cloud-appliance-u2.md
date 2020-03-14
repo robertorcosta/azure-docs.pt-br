@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366688"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267983"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -276,6 +276,6 @@ A etapa da criação de um dispositivo de nuvem falhará se não houver nenhuma 
 5. Se `nslookup` falhar, então, a falha de conectividade com a Internet está impedindo que o dispositivo de nuvem se registre no serviço do gerenciador de dispositivos StorSimple.
 6. Faça as alterações necessárias em sua rede virtual para garantir que o dispositivo de nuvem seja capaz de acessar os sites do Azure, como o _windows.net_.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o serviço do gerenciador de dispositivos StorSimple para gerenciar um dispositivo de nuvem](storsimple-8000-manager-service-administration.md).
 * Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-8000-restore-from-backup-set-u2.md).

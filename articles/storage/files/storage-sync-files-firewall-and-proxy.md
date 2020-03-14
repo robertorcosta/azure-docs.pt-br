@@ -8,11 +8,11 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381238"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268035"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
 A Sincronização de arquivos do Azure se conecta seus servidores locais para arquivos do Azure, permitindo camadas de recursos de nuvem e sincronização de vários locais. Como tal, um servidor local deve estar conectado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
@@ -89,7 +89,7 @@ Conforme mencionado em uma seção anterior, a porta 443 precisa estar com a sa�
 
 A tabela a seguir descreve os domínios necessários para a comunicação:
 
-| Service | Ponto de extremidade de nuvem pública | Ponto de extremidade do Azure Governamental | Uso |
+| Serviço | Ponto de extremidade de nuvem pública | Ponto de extremidade do Azure Governamental | Uso |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de usuário (como o PowerShell) passa por essa URL, incluindo a chamada de registro inicial do servidor. |
 | **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | As chamadas do Azure Resource Manager devem ser feitas por um usuário autenticado. Para ter êxito, essa URL é usada para autenticação do usuário. |
@@ -121,9 +121,9 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 | Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Leste do Japão | https:\//tm-japanwest01.afs.azure.net |
 | Público | Coreia Central | https:\//koreacentral01.afs.azure.net/ | Sul da Coreia | https:\//tm-koreacentral01.afs.azure.net/ |
 | Público | Sul da Coreia | https:\//koreasouth01.afs.azure.net/ | Coreia Central | https:\//tm-koreasouth01.afs.azure.net/ |
-| Público | Centro Norte dos EUA | https:\//northcentralus01.afs.azure.net | Centro-Sul dos Estados Unidos | https:\//tm-northcentralus01.afs.azure.net |
+| Público | Centro-Norte dos EUA | https:\//northcentralus01.afs.azure.net | Centro-Sul dos Estados Unidos | https:\//tm-northcentralus01.afs.azure.net |
 | Público | Norte da Europa | https:\//kailani7.one.microsoft.com | Europa Ocidental | https:\//tm-kailani7.one.microsoft.com |
-| Público | Centro-Sul dos Estados Unidos | https:\//southcentralus01.afs.azure.net | Centro Norte dos EUA | https:\//tm-southcentralus01.afs.azure.net |
+| Público | Centro-Sul dos Estados Unidos | https:\//southcentralus01.afs.azure.net | Centro-Norte dos EUA | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
 | Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Leste da Ásia | https:\//tm-kailani10.one.microsoft.com |
 | Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
@@ -159,7 +159,7 @@ As listas no início deste documento contém as URLs de Sincronização de Arqui
 
 A configuração das regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se essas configurações de firewall são utilizadas, é necessário ter em mente que URLs serão adicionadas e poderão até mesmo ser alteradas ao longo do tempo. Consulte este artigo periodicamente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

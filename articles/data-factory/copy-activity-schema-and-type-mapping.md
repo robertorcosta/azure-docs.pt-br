@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386828"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260807"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 
@@ -87,18 +87,18 @@ Você pode especificar as colunas a serem mapeadas na atividade de cópia-> `tra
 
 As propriedades a seguir têm suporte em `translator` -> objeto `mappings`-> com `source` e `sink`:
 
-| Propriedade | Descrição                                                  | Obrigatório |
+| Propriedade | DESCRIÇÃO                                                  | Obrigatório |
 | -------- | ------------------------------------------------------------ | -------- |
-| {1&gt;name&lt;1}     | Nome da coluna de origem ou do coletor.                           | Sim      |
+| name     | Nome da coluna de origem ou do coletor.                           | Sim      |
 | ordinal  | Índice de coluna. Comece com 1. <br>Aplica-se e é necessário ao usar texto delimitado sem linha de cabeçalho. | Não       |
 | caminho     | Expressão de caminho JSON para cada campo a ser extraído ou mapeado. Aplicar para dados hierárquicos, por exemplo, MongoDB/REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela propriedade `collectionReference`, o caminho JSON é iniciado a partir do elemento da matriz. | Não       |
 | type     | Data Factory tipo de dados provisório da coluna de origem ou do coletor. | Não       |
-| cultura  | Cultura da coluna de origem ou do coletor. <br>Aplicar quando o tipo for `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. | Não       |
-| formato   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset`. Consulte [Data personalizada e cadeias de caracteres de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. | Não       |
+| culture  | Cultura da coluna de origem ou do coletor. <br>Aplicar quando o tipo for `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. | Não       |
+| format   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset`. Consulte [Data personalizada e cadeias de caracteres de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. | Não       |
 
 As propriedades a seguir têm suporte em `translator` -> `mappings` além de objeto com `source` e `sink`:
 
-| Propriedade            | Descrição                                                  | Obrigatório |
+| Propriedade            | DESCRIÇÃO                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Com suporte apenas quando dados hierárquicos, por exemplo, MongoDB/REST, é origem.<br>Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. | Não       |
 
@@ -200,7 +200,7 @@ Se você está utilizando a sintaxe de `"columnMappings": "UserId: MyUserId, Gro
 
 Você pode especificar a atividade de cópia-> `translator` -> `schemaMapping` para mapear entre dados em formato hierárquico e dados em formato de tabela, por exemplo, copiar do MongoDB/REST para o arquivo de texto e copiar do Oracle para a API do Azure Cosmos DB para MongoDB. As propriedades a seguir têm suporte na seção `translator` da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim |
 | schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>Chave de -  **:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela propriedade `collectionReference`, o caminho JSON é iniciado a partir do elemento da matriz.  | Sim |
@@ -289,8 +289,8 @@ O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode
 * Datetime
 * Datetimeoffset
 * Decimal
-* Duplo
-* {1&gt;Guid&lt;1}
+* Double
+* Guid
 * Int16
 * Int32
 * Int64
@@ -298,7 +298,7 @@ O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode
 * String
 * Timespan
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Consulte os outros artigos sobre atividade de cópia:
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)

@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7249f2077666530964afa16ef47d69731cee846a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376341"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261587"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -98,7 +98,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 2. Na página **Conectar ao Azure AD**, digite suas credenciais de administrador global do Azure AD e clique em **Avançar**.
 
-   ![Conectar ao AD do Azure](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Conecte-se ao AD do Azure](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. Forneça as credenciais de administrador de domínio.
 
@@ -131,7 +131,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 2. Forneça as credenciais de administrador global do Azure.
 
-   ![Conectar ao AD do Azure](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Conecte-se ao AD do Azure](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. Na página **Especificar certificado SSL**, forneça a senha para o arquivo PFX que você forneceu ao configurar o farm do AD FS com o Azure AD Connect.
    ![Senha de certificado](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -164,7 +164,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 2. Na próxima página do assistente, forneça as credenciais de administrador global do Azure AD.
 
-   ![Conectar ao AD do Azure](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
+   ![Conecte-se ao AD do Azure](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
 
 3. Na página **Credenciais de acesso remoto** , forneça as credenciais do administrador de domínio.
 
@@ -176,7 +176,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
     Depois de escolher o domínio, o assistente fornece as informações apropriadas sobre outras ações que o assistente realizará e o impacto da configuração. Em alguns casos, se você selecionar um domínio que ainda não seja verificado no Azure AD, o assistente fornecerá informações para ajudá-lo a verificar o domínio. Confira [Adicionar seu nome de domínio personalizado ao Azure Active Directory](../active-directory-domains-add-azure-portal.md) para obter mais detalhes.
 
-5. Clique em **Avançar**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
+5. Clique em **Próximo**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
 
    ![Pronto para configurar](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
@@ -195,7 +195,7 @@ Para alterar o logotipo da empresa que é exibido na página de **Entrada**, use
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
-> O parâmetro *TargetName* é necessário. O tema padrão liberado com o AD FS é denominado Default.
+> O parâmetro *TargetName* é obrigatório. O tema padrão liberado com o AD FS é denominado Default.
 
 ## <a name="addsignindescription"></a>Adicionar uma descrição de entrada 
 Para adicionar uma descrição à página de **Entrada**, use o seguinte cmdlet e sintaxe do Windows PowerShell.
@@ -250,5 +250,5 @@ Nessa regra, você simplesmente verifica o sinalizador temporário **idflag**. V
 
 Você pode adicionar mais de um domínio a ser federado usando o Azure AD Connect, conforme descrito em [Adicionar um novo domínio federado](how-to-connect-fed-management.md#addfeddomain). Azure AD Connect versão  1.1.553.0 e mais recente cria a regra de reivindicação correta para issuerID automaticamente. Se você não puder usar o Azure AD Connect versão 1.1.553.0 ou mais recente, é recomendável que a ferramenta [ Regras de Declaração do Azure AD RPT ](https://aka.ms/aadrptclaimrules) seja usada para gerar e definir regras de declaração corretas para a confiança da terceira parte do Azure AD.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre as [opções de entrada do usuário](plan-connect-user-signin.md).

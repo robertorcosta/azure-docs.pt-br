@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: twooley
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365747"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267411"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Uma introdução ao StorSimple Snapshot Manager
 
@@ -87,7 +87,7 @@ Grupos de volumes e contêineres de volume são coisas distintas. Um contêiner 
 > 
 
 ## <a name="integration-with-windows-volume-shadow-copy-service"></a>Integração com o Serviço de Cópias de Sombra de Volume do Windows
-O StorSimple Snapshot Manager usa o Serviço de Cópias de Sombra de Volume do Windows para capturar dados consistentes com o aplicativo. O Serviço de Cópias de Sombra de Volume do Windows facilita a consistência com o aplicativo, comunicando-se com aplicativos com reconhecimento de VSS para coordenar a criação de instantâneos incrementais. O VSS garante que os aplicativos estejam temporariamente inativos, ou desativados, quando os instantâneos são realizados. 
+O StorSimple Snapshot Manager usa o Serviço de Cópias de Sombra de Volume do Windows para capturar dados consistentes com o aplicativo. O Serviço de Cópias de Sombra de Volume do Windows facilita a consistência com o aplicativo, comunicando-se com aplicativos com reconhecimento de VSS para coordenar a criação de instantâneos incrementais. O VSS garante que os aplicativos estejam temporariamente inativos ou hibernados quando os instantâneos forem realizados. 
 
 A implementação do StorSimple Snapshot Manager do VSS funciona com o SQL Server e volumes NTFS genéricos. O processo é o seguinte: 
 
@@ -102,7 +102,7 @@ A implementação do StorSimple Snapshot Manager do VSS funciona com o SQL Serve
 
 Consulte a ilustração a seguir.
 
-![Processo VSS](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
+![Processo de VSS](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
 **Processo do Serviço de Cópias de Sombra de Volume do Windows** 
 
@@ -127,7 +127,7 @@ Configure as seguintes informações para cada política de backup que você cri
 * **Nome** – O nome exclusivo da política de backup selecionada.
 * **Tipo** – O tipo de política de backup; instantâneo local ou instantâneo de nuvem.
 * **Grupo de volumes** – O grupo de volumes ao qual a política de backup selecionada está atribuída.
-* **Retenção** – O número de cópias de backup a serem retidas. Se você marcar a caixa **Tudo**, todas as cópias de backup serão retidas até que o número máximo de cópias de backup por volume seja atingido e, nesse ponto, a política irá falhar e gerar uma mensagem de erro. Como alternativa, você pode especificar vários backups a serem retidos (entre 1 e 64).
+* **Retenção** – O número de cópias de backup a serem retidas. Se você marcar a caixa **Todas** , todas as cópias de backup serão mantidas até que seja atingido o número máximo de cópias de backup por volume; nesse momento, a política falhará e gerará uma mensagem de erro. Como alternativa, você pode especificar vários backups a serem retidos (entre 1 e 64).
 * **Data** – A data em que a política de backup foi criada.
 
 Para obter mais informações sobre como configurar políticas de backup, vá para [Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md).
@@ -137,7 +137,7 @@ Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalh
 
 Para obter informações sobre como monitorar trabalhos de backup, vá para [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Baixe o [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 

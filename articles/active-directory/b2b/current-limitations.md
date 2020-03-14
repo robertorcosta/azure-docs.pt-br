@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b45277c89193c51f70836bcef8a21636fc9c7973
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: ffee01488ecf658ce02a20a41252aca19288667c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77196126"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263355"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações da colaboração B2B do Azure AD
 A colaboração B2B do Azure Active Directory (Azure AD) está sujeita, atualmente, às limitações descritas neste artigo.
@@ -33,7 +33,22 @@ O Azure AD B2B está sujeito aos limites de diretório de serviço do Azure AD. 
 ## <a name="national-clouds"></a>Nuvens nacionais
 As [nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) são instâncias fisicamente isoladas do Azure. A colaboração B2B não tem suporte em limites de nuvem nacional. Por exemplo, se o seu locatário do Azure estiver na nuvem pública e global, você não poderá convidar um usuário cuja conta esteja em uma nuvem nacional. Para colaborar com o usuário, peça a ele outro endereço de email ou crie uma conta de usuário membro para eles em seu diretório.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="azure-us-government-clouds"></a>Nuvens do governo dos EUA do Azure
+Na nuvem do governo dos EUA do Azure, atualmente, a colaboração B2B só tem suporte entre locatários que estão na nuvem do governo dos EUA do Azure e que ambos dão suporte à colaboração B2B. Se você convidar um usuário em um locatário que não faz parte da nuvem do governo dos EUA do Azure ou que ainda não dá suporte à colaboração B2B, o convite falhará ou o usuário não poderá resgatar o convite. Para obter detalhes sobre outras limitações, consulte [Azure Active Directory Premium as variações P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+
+### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Como saber se a colaboração B2B está disponível no meu locatário do governo dos EUA do Azure?
+Para descobrir se o seu locatário de nuvem do governo dos EUA do Azure dá suporte à colaboração B2B, faça o seguinte:
+
+1. Em um navegador, vá para a URL a seguir, substituindo o nome do locatário por *&lt;tenantname&gt;* :
+
+   `https://login.microsoftonline.com/<tenantname>/v2.0/.well-known/openid-configuration`
+
+2. Localizar `"tenant_region_scope"` na resposta JSON:
+
+   - Se `"tenant_region_scope":"USGOV”` aparecer, o B2B terá suporte.
+   - Se `"tenant_region_scope":"USG"` for exibido, o B2B não terá suporte.
+
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os seguintes artigos na colaboração B2B do Azure AD:
 

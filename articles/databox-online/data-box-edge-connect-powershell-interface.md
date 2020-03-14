@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613849"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265474"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerenciar um dispositivo Azure Data Box Edge por meio do Windows PowerShell
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre certificados, acesse [Azure IOT Edge certifi
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
-## <a name="reset-your-device"></a>Redefinir o dispositivo
+## <a name="reset-your-device"></a>Redefinir seu dispositivo
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
@@ -92,6 +92,6 @@ Se a função de computação estiver configurada em seu dispositivo, você tamb
 
 Para sair da sessão remota do PowerShell, feche a janela do PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Implante o [Azure Data Box Edge](data-box-edge-deploy-prep.md) no portal do Azure.

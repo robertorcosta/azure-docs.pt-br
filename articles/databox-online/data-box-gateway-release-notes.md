@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384674"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265396"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de versão de disponibilidade geral do Azure Data Box Edge/Gateway do Azure Data Box
 
@@ -47,7 +47,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para o Gateway do D
 | **3.** |Cópia | Falha na cópia de dados com erro: a operação solicitada não pôde ser concluída devido a uma limitação do sistema de arquivos.  |Não há suporte para o fluxo de dados alternativo (ADS) associado ao tamanho de arquivo maior que 128 KB.   |
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 - [Prepare-se para implantar Azure data Box Edge](data-box-edge-deploy-prep.md).

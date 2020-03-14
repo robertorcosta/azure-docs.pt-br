@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384882"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267775"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
 
@@ -81,7 +81,7 @@ Execute as etapas a seguir para excluir um serviço.
 
     ![Excluir serviço](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Clique **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
+3. Clique em **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
 
     ![Confirmar exclusão](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
@@ -211,7 +211,7 @@ No Portal do Azure, há suporte apenas para dispositivos StorSimple que executam
 | Ativar e desativar controladores de dispositivo                                                                                              | Sim            |
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [processo de implantação do StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-8000-manage-storage-accounts.md).
 * Saiba mais sobre como [usar o serviço StorSimple Device Manager para administrar dispositivos StorSimple](storsimple-8000-manager-service-administration.md).

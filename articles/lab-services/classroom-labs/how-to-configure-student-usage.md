@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: daa302e9be026157b464a12998f3faa52526aba6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358645"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270934"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar os usuários do laboratório
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
@@ -33,7 +33,7 @@ Este artigo descreve como adicionar usuários ao laboratório, registrá-los no 
 1. Na página **Adicionar usuários**, insira endereços de email dos usuários em linhas separadas ou em uma única linha e separados por ponto e vírgula. 
 
     ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selecione **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 
+4. Clique em **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 
 
     ![Lista de usuários](../media/how-to-configure-student-usage/list-of-added-users.png)
 
@@ -144,7 +144,7 @@ Para fazer isso, siga estas etapas:
 ## <a name="student-accounts"></a>Contas de alunos
 Para adicionar alunos a um laboratório de sala de aula, você usa suas contas de email. Os seguintes tipos de contas de email podem ser usados:
 
-- Uma conta de email de aluno fornecida pelo AAD (Office 365 Azure Active Directory da sua universidade). 
+- Uma conta de email de aluno fornecida pelo Azure Active Directory da sua Universidade do Office 365. 
 - Uma conta de email da Microsoft, como `@outlook.com`, `@hotmail.com`, `@msn.com`ou `@live.com`.
 - Uma conta de email que não seja da Microsoft, como uma fornecida pelo Yahoo ou pelo Google. No entanto, esses tipos de contas devem ser vinculados a um conta Microsoft.
 - Uma conta do GitHub. Essa conta deve ser vinculada a um conta Microsoft.
@@ -174,7 +174,15 @@ Na página **Opções de entrada** , selecione **entrar com o GitHub**.
 
 Por fim, eles são solicitados a criar um conta Microsoft que esteja vinculado à sua conta do GitHub. Ele ocorre automaticamente quando o aluno seleciona **Avançar**.  O aluno é imediatamente conectado e conectado ao laboratório da sala de aula.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="export-list-of-users-to-a-csv-file"></a>Exportar a lista de usuários para um arquivo CSV
+
+1. Alterne para a guia **usuários** .
+2. Selecione **...** (reticências) na barra de ferramentas e, em seguida, selecione **Exportar CSV**. 
+
+    ![Exportar lista de usuários](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
+
+## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)

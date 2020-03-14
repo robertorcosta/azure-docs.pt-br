@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d00a8b84477226b68913f95c5121bbbdfc2eb09d
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263810"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Habilitar o local Azure Active Directory proteção por senha
 
@@ -67,7 +67,7 @@ Os usuários finais afetados podem precisar trabalhar com a equipe de ti para en
 > [!NOTE]
 > A proteção por senha do Azure AD não tem controle sobre a mensagem de erro específica exibida pelo computador cliente quando uma senha fraca é rejeitada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para personalizar a lista de senhas banidas para sua organização, consulte [Configurar a lista de senhas banidas personalizadas da proteção de senha do Azure ad](tutorial-configure-custom-password-protection.md).
 

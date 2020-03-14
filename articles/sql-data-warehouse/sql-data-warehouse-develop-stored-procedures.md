@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e6e1144043cbbbc8124785351e1e56a776b84527
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383768"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269348"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Usando procedimentos armazenados no SQL Data Warehouse
 Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções.
@@ -72,7 +72,7 @@ O SQL Data Warehouse não permite que você consuma o conjunto de resultados de 
 ## <a name="limitations"></a>Limitações
 Há alguns aspectos de procedimentos armazenados Transact-SQL que não são implementados no SQL Data Warehouse.
 
-São eles:
+Eles são:
 
 * procedimentos armazenados temporariamente
 * procedimentos armazenados numerados
@@ -84,8 +84,8 @@ São eles:
 * parâmetros somente leitura
 * parâmetros padrão
 * contextos de execução
-* instrução Return
+* instrução return
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
 

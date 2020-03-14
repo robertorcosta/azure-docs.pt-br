@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791755"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270570"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
@@ -22,7 +22,7 @@ Para repetir ações até que uma condição seja atendida ou um estado seja alt
 > [!TIP]
 > Se você tiver um gatilho que recebe uma matriz e deseja executar um fluxo de trabalho para cada item de matriz, é possível fazer *debatch* dessa matriz com o [**SplitOn** da propriedade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
@@ -173,7 +173,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
    ![Configurar o agendamento de recorrência](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Propriedade | Value |
+   | Propriedade | Valor |
    | -------- | ----- |
    | **Intervalo** | 1 | 
    | **Frequência** | Dia |
@@ -189,10 +189,10 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
    ![Definir propriedades variáveis](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propriedade | Value | Descrição |
+   | Propriedade | Valor | DESCRIÇÃO |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome da variável | 
-   | **Tipo** | Número inteiro | Tipo de dados da variável | 
+   | **Tipo** | Integer | Tipo de dados da variável | 
    | **Valor** | 0 | Valor inicial de variável | 
    |||| 
 
@@ -230,7 +230,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
       ![Configurar propriedades de email](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Propriedade | Value | Descrição |
+      | Propriedade | Valor | DESCRIÇÃO |
       | -------- | ----- | ----------- | 
       | **Para** | *\<endereço de email\@domínio >* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
       | **Assunto** | O valor atual para "Limit" é **Limite** | Especifique o assunto do email. Para esse exemplo, certifique-se de incluir a variável **Limite**. | 
@@ -247,10 +247,10 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
 Um loop "Until" possui limites padrão que param a execução se alguma destas condições ocorrer:
 
-| Propriedade | Valor padrão | Descrição | 
+| Propriedade | Valor padrão | DESCRIÇÃO | 
 | -------- | ------------- | ----------- | 
-| **Contagem** | 60 | O número mais alto de loops que são executados antes da saída do loop. O padrão é 60 ciclos. | 
-| **Tempo limite** | PT1H | A maior quantidade de tempo para executar um loop antes da saída do loop. O padrão é uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida. | 
+| **Count** | 60 | O número mais alto de loops que são executados antes da saída do loop. O padrão é 60 ciclos. | 
+| **Tempo Limite** | PT1H | A maior quantidade de tempo para executar um loop antes da saída do loop. O padrão é uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida. | 
 |||| 
 
 Para alterar esses limites padrão, escolha **Mostrar opções avançadas** na forma de ação do loop.
@@ -333,12 +333,12 @@ Neste exemplo, o loop "Until" chama um ponto de extremidade HTTP, que cria um re
 }
 ```
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)

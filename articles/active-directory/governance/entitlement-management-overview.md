@@ -1,5 +1,5 @@
 ---
-title: O que é gerenciamento de direitos? -Azure AD
+title: O que é gerenciamento de direitos? – Azure AD
 description: Obtenha uma visão geral do gerenciamento de direitos Azure Active Directory e como você pode usá-lo para gerenciar o acesso a grupos, aplicativos e sites do SharePoint Online para usuários internos e externos.
 services: active-directory
 documentationCenter: ''
@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932468"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261756"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -114,13 +114,13 @@ Os pacotes do Access não substituem outros mecanismos para atribuição de aces
 
 Para entender melhor o gerenciamento de direitos e sua documentação, você pode consultar novamente a lista de termos a seguir.
 
-| Prazo | Description |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | pacote de acesso | Um pacote de recursos que uma equipe ou projeto precisa e é regido por políticas. Um pacote do Access sempre está contido em um catálogo. Você criaria um novo pacote de acesso para um cenário no qual os usuários precisam solicitar acesso.  |
 | solicitação de acesso | Uma solicitação para acessar os recursos em um pacote do Access. Normalmente, uma solicitação passa por um fluxo de trabalho de aprovação.  Se aprovada, o usuário solicitante receberá uma atribuição de pacote de acesso. |
 | atribuição | Uma atribuição de um pacote de acesso a um usuário garante que o usuário tenha todas as funções de recurso desse pacote de acesso.  As atribuições de pacote do Access normalmente têm um limite de tempo antes de expirarem. |
 | catálogo | Um contêiner de recursos relacionados e pacotes de acesso.  Os catálogos são usados para delegação, para que não administradores possam criar seus próprios pacotes de acesso. Os proprietários do catálogo podem adicionar recursos que eles possuem a um catálogo. |
-| criador do catálogo | Uma coleção de usuários que estão autorizados a criar novos catálogos.  Quando um usuário não administrador que está autorizado a ser um criador de catálogo cria um novo catálogo, ele se torna automaticamente o proprietário desse catálogo. |
+| Criador do catálogo | Uma coleção de usuários que estão autorizados a criar novos catálogos.  Quando um usuário não administrador que está autorizado a ser um criador de catálogo cria um novo catálogo, ele se torna automaticamente o proprietário desse catálogo. |
 | organização conectada | Um diretório ou domínio do Azure AD externo com o qual você tem uma relação. Os usuários de uma organização conectada podem ser especificados em uma política como tendo permissão para solicitar acesso. |
 | policy | Um conjunto de regras que define o ciclo de vida do acesso, como a forma como os usuários obtêm acesso, quem pode aprovar e por quanto tempo os usuários têm acesso por meio de uma atribuição. Uma política está vinculada a um pacote do Access. Por exemplo, um pacote do Access pode ter duas políticas: uma para os funcionários solicitarem acesso e um segundo para que usuários externos solicitem acesso. |
 | recurso | Um ativo, como um grupo do Office, um grupo de segurança, um aplicativo ou um site do SharePoint Online, com uma função à qual um usuário pode receber permissões. |
@@ -161,7 +161,7 @@ Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar
 | Um administrador global no Banco Woodgrove cria catálogos iniciais e delega tarefas administrativas a 6 outros usuários. Uma das políticas especifica que **todos os funcionários** (2.000 funcionários) podem solicitar um conjunto específico de pacotes de acesso. 150 funcionários solicitam os pacotes de acesso. | 2\.000 funcionários que **podem** solicitar os pacotes de acesso | 2\.000 |
 | Um administrador global no Banco Woodgrove cria catálogos iniciais e delega tarefas administrativas a 6 outros usuários. Uma das políticas especifica que **todos os funcionários** (2.000 funcionários) podem solicitar um conjunto específico de pacotes de acesso. Outra política especifica que alguns usuários de **usuários do parceiro contoso** (convidados) podem solicitar os mesmos pacotes de acesso sujeitos à aprovação. A contoso tem 30.000 usuários. 150 funcionários solicitam os pacotes de acesso e 10.500 usuários do contoso solicitam acesso. | 2\.000 funcionários + 500 usuários convidados da Contoso que excedem a taxa de 1:5 (10.500-(2.000 * 5)) | 2\.500 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

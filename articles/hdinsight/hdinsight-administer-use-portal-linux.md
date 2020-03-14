@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
 ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361319"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272728"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "78361319"
 
 Usando o [portal do Azure](https://portal.azure.com), você pode gerenciar [Apache Hadoop](https://hadoop.apache.org/) clusters no Azure HDInsight. Use o seletor de guias acima para saber mais sobre como criar clusters Hadoop no HDInsight usando outras ferramentas.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Um cluster existente do Apache Hadoop no HDInsight.  Consulte [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -43,7 +43,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
 
 **Menu principal:**  
 
-| Item| Descrição |
+| Item| DESCRIÇÃO |
 |---|---|
 |Mover|Move o cluster para outro grupo de recursos ou outra assinatura.|
 |Excluir|Exclui o cluster. |
@@ -53,7 +53,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
 
   - **Menu do canto superior esquerdo**
 
-    | Item| Descrição |
+    | Item| DESCRIÇÃO |
     |---|---|
     |Visão geral|Fornece informações gerais para o cluster.|
     |Log de atividades|Mostra e consulta logs de atividades.|
@@ -65,7 +65,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
 
   - **Menu Configurações**  
 
-    | Item| Descrição |
+    | Item| DESCRIÇÃO |
     |---|---|
     |Tamanho do cluster|Verifique, aumente e diminua o número de nós do trabalhador do cluster. Ver [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Limites de cota|Exibe os núcleos usados e disponíveis para sua assinatura.|
@@ -76,13 +76,13 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Ações de script|Execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).|
     |Metastores externos|Exiba os metastores [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Os metastores só podem ser configurados durante o processo de criação do cluster.|
     |Parceiro HDInsight|Adiciona/remove o parceiro do HDInsight atual.|
-    |{1&gt;Propriedades&lt;1}|Exibe as [propriedades do cluster](#properties).|
+    |Propriedades|Exibe as [propriedades do cluster](#properties).|
     |Locks|Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.|
     |Exportar modelo|Exibe e exporta o modelo do Azure Resource Manager para o cluster. No momento, você pode exportar apenas a conta de armazenamento do Azure dependente. Consulte [Criar clusters do Apache Hadoop baseados em Linux no HDInsight usando os modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Menu Monitoramento**
 
-    | Item| Descrição |
+    | Item| DESCRIÇÃO |
     |---|---|
     |Alertas|Gerencia os alertas e ações.|
     |Métricas|Monitore as métricas de cluster em logs de Azure Monitor.|
@@ -91,7 +91,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
 
   - **Menu Suporte + solução de problemas**
 
-    | Item| Descrição |
+    | Item| DESCRIÇÃO |
     |---|---|
     |Integridade de recursos|Confira [Visão geral do Azure Resource Health](../service-health/resource-health-overview.md).|
     |Nova solicitação de suporte|Permite criar um tíquete de suporte com o suporte da Microsoft.|
@@ -100,7 +100,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
 
 Na [página inicial do cluster](#homePage), em **Configurações**, selecione **Propriedades**.
 
-|Item | Descrição |
+|Item | DESCRIÇÃO |
 |---|---|
 |NOME do host|Nome do cluster.|
 |URL DO CLUSTER|A URL para a interface da Web do Ambari.|
@@ -111,7 +111,7 @@ Na [página inicial do cluster](#homePage), em **Configurações**, selecione **
 |DATA DE CRIAÇÃO|A data em que o cluster foi implantado.|
 |SISTEMA OPERACIONAL|**Windows** ou **Linux**.|
 |TYPE|Hadoop, HBase, Storm, Spark.|
-|{1&gt;Version&lt;1}|Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).|
+|Versão|Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).|
 |Versão mínima do TLS|A versão do TLS.|
 |ASSINATURA|Nome da assinatura.|
 |FONTE DE DADOS PADRÃO|O sistema de arquivos padrão do cluster.|
@@ -219,13 +219,13 @@ A senha é alterada em todos os nós no cluster.
 4. Na página **ações de script** , selecione **Enviar novo**.
 5. Na página **Enviar ação de script** , insira as seguintes informações:
 
-   | Campo | {1&gt;Valor&lt;1} |
+   | Campo | Valor |
    | --- | --- |
    | Tipo de script | Selecione **- Personalizar** na lista suspensa.|
-   | {1&gt;Nome&lt;1} |"Alterar senha ssh" |
+   | Nome |"Alterar senha ssh" |
    | URI do script Bash |O URI do arquivo changepassword.sh |
    | Tipo (s) de nó: (cabeçalho, trabalho, Nimbus, supervisor ou Zookeeper.) |✓ para todos os tipos de nó listados |
-   | Parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
+   | parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
    | Persistir esta ação de script... |Deixe este campo desmarcado. |
 
 6. Selecione **Criar** para aplicar o script. Quando o script for concluído, você poderá se conectar ao cluster usando SSH com a nova senha.
@@ -258,7 +258,7 @@ O bloco **tamanho do cluster** do [Home Page de cluster](#homePage) exibe o núm
 - [Usar o Apache Hive com o HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 - [Use o SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu algumas funções administrativas básicas. Para saber mais, leia os seguintes artigos:
 

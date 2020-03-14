@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442390"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260183"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de Gateway da caixa de dados do Azure
+# <a name="azure-data-box-gateway-system-requirements"></a>Gateway do Azure Data Box requisitos do sistema
 
 Este artigo descreve os requisitos de sistema importantes para a solução Gateway do Microsoft Azure Data Box e para os clientes que se conectam ao Azure Data Box Gateway. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Gateway e consulte-as, quando necessário, durante a implantação e a subsequente operação.
 
@@ -34,7 +34,7 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 | Processadores virtuais (núcleos)   | Mínimo de 4 |
 | Memória  | Mínimo de 8 GB|
 | Disponibilidade|Nó único|
-| Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: Mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
+| Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
 | Interfaces de rede|1 ou mais adaptadores de rede virtual|
 
 
@@ -50,8 +50,8 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 
 | **Sistema operacional/plataforma**  |**Versões**   |**Observações**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
-|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
+|Hyper-v  |  2012 R2 <br> 2016 <br> 2019 |         |
+|VMware ESXi     | 6,0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
 
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte

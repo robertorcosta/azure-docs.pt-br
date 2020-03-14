@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384480"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274574"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
 Este artigo descreve informações de solução de problemas relevantes para o uso do Diagnóstico do Azure. Para mais informações sobre o Diagnóstico do Azure, consulte [Visão geral do Diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -205,7 +205,7 @@ Veja um exemplo:
 ```
 Esse código gera quatro tabelas:
 
-| {1&gt;Evento&lt;1} | Nome da tabela |
+| Evento | Nome da tabela |
 | --- | --- |
 | Provider = "prov1" &lt;ID do evento = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
 | Provider = "prov1" &lt;ID do evento = "2" eventDestination = "dest1"/&gt; |WADdest1 |
@@ -228,7 +228,7 @@ Para a função de serviço de nuvem, se você escolher a configuração a parti
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
 O plug-in retorna os seguintes códigos de saída:
 
-| Código de saída | Descrição |
+| Código de saída | DESCRIÇÃO |
 | --- | --- |
 | 0 |Sucesso. |
 | -1 |Erro genérico. |

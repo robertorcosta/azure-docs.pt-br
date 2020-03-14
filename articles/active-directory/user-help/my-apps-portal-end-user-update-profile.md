@@ -13,11 +13,11 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022272"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266332"
 ---
 # <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Atualizar o perfil e as informações de conta no portal meus aplicativos
 
@@ -33,7 +33,7 @@ Se você não tiver acesso ao portal **Meus Aplicativos**, será necessário con
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este conteúdo destina-se aos usuários dos **meus aplicativos** . Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Este conteúdo destina-se aos usuários do portal **Meus Aplicativos**. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Exibir informações de perfil relacionadas à organização
 
@@ -138,7 +138,7 @@ Você pode optar por sair de todos os lugares em que estiver conectado no moment
 
 2. Na caixa de confirmação sair de todos os **lugares** , selecione **Sim** para confirmar que deseja sair de todas as suas sessões e dispositivos. Selecione **não** se você mudar de ideia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de concluir as atualizações na página de **perfil** , você pode:
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365764"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267918"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substituir um módulo de controlador em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -79,7 +79,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>Para remover um módulo de controlador único com falha
 1. No Portal do Azure, acesse o serviço do Gerenciador de Dispositivos do StorSimple, clique em **Dispositivos** e, em seguida, clique no nome do dispositivo que você deseja monitorar.
-2. Acesse **Monitorar > Integridade do hardware**. O status do Controlador 0 ou do Controlador 1 deve estar vermelho, o que indica uma falha.
+2. Acesse **Monitorar > Integridade do hardware**. O status do Controlador 0 ou Controlador 1 deve estar vermelho, o que indica uma falha.
    
    > [!NOTE]
    > O controlador com falha na substituição de controlador único é sempre um controlador em espera.
@@ -90,7 +90,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
    
     **Figura 1** Parte posterior do dispositivo StorSimple
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -103,7 +103,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 8. Depois que o controlador for reiniciado, verifique o **Status do controlador** e o **Status do cluster** no Portal do Azure para verificar se o controlador está de volta a um estado íntegro e está em modo de espera.
 
 > [!NOTE]
-> Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu console serial é apresentado, você sabe que a substituição foi concluída. Se o menu não aparecer dentro de duas horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
+> Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de duas horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 >
 > A partir da Atualização 4, também é possível usar o cmdlet `Get-HCSControllerReplacementStatus` na interface do Windows PowerShell do dispositivo para monitorar o status do processo de substituição de controlador.
 > 
@@ -120,7 +120,7 @@ Na substituição de um controlador duplo, primeiro remova os dois controladores
    2. É parte do cluster?
    3. O controlador de par está em execução e é clusterizado?
       
-      Se nenhuma dessas condições for verdadeira, o controlador olha para o último backup diário (localizado no **nonDOMstorage** na unidade S). O controlador copia o instantâneo mais recente do VHD do backup.
+      Se nenhuma dessas condições for verdadeira, o controlador procurará o backup diário mais recente (localizado no **nonDOMstorage** na unidade S). O controlador copia o instantâneo mais recente do VHD do backup.
 2. O controlador no slot 0 usa o instantâneo para criar uma imagem de si.
 3. Enquanto isso, o controlador no slot 1 aguarda controlador 0 concluir a criação de imagem e iniciar.
 4. Depois que o controlador 0 iniciar, o controlador 1 detecta o cluster criado pelo controlador 0, que dispara a lógica de substituição do controlador único. Para saber mais, consulte [Lógica de substituição do controlador único](#single-controller-replacement-logic).
@@ -153,7 +153,7 @@ Esse fluxo de trabalho é necessário quando ambos os controladores em seu dispo
    4. Após o primeiro controlador ser reiniciado e estar em um estado íntegro, o sistema será executado.
       
       > [!NOTE]
-      > Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Caso o menu não apareça dentro de 2,5 horas do início da substituição do controlador, entre em contato com o [Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
+      > Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de 2,5 horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
      
 ## <a name="remove-a-controller"></a>Remover um controlador
 Use o procedimento a seguir para remover um módulo do controlador com falha do dispositivo StorSimple.
@@ -231,11 +231,11 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 **Figura 8** Parte traseira do compartimento primário com portas de dados e LEDs de monitoramento
 
-| Rótulo | Descrição |
+| Rótulo | DESCRIÇÃO |
 |:--- |:--- |
 | 1-6 |Portas de rede DATA 0 – 5 |
 | 7 |LED azul |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
 

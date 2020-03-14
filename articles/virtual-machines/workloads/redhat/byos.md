@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 825d26307f2b462d51b143b88127e229508f2f25
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970454"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264590"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
 
@@ -187,7 +187,7 @@ Não há suporte para Azure Disk Encryption em [imagens personalizadas do Red Ha
 
 Para obter as etapas para aplicar Azure Disk Encryption, consulte [Azure Disk Encryption cenários em VMs do Linux](../../linux/disk-encryption-linux.md) e artigos relacionados.
 
-## <a name="additional-information"></a>{1&gt;{2&gt;Informações adicionais&lt;2}&lt;1}
+## <a name="additional-information"></a>Informações adicionais
 
 - Se você tentar provisionar uma VM em uma assinatura que não está habilitada para esta oferta, receberá a seguinte mensagem:
 
@@ -212,7 +212,7 @@ Para obter as etapas para aplicar Azure Disk Encryption, consulte [Azure Disk En
 
 - Se você usar a automação para provisionar VMs das imagens RHEL BYOS, deverá fornecer parâmetros de plano semelhantes ao que foi mostrado nos comandos de exemplo. Por exemplo, se você usar Terraform, você fornecerá as informações do plano em um [bloco de plano](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter guias passo a passo e detalhes do programa para acesso à nuvem, consulte a [documentação do Red Hat Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).
 - Para saber mais sobre a infraestrutura de atualização do Red Hat, consulte [infraestrutura de atualização do Red Hat do Azure](./redhat-rhui.md).

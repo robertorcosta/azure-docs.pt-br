@@ -9,11 +9,11 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
 ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082073"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268490"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -56,7 +56,7 @@ Consulte o artigo [esquema de eventos de armazenamento de BLOBs](../../event-gri
 > * Um exemplo dos dados que a grade de eventos enviaria para cada um desses eventos.
 > * A finalidade de cada par chave-valor que aparece nos dados.
 
-## <a name="filtering-events"></a>Filtrando eventos
+## <a name="filtering-events"></a>Filtragem de eventos
 
 Os [eventos de blob podem ser filtrados](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) pelo tipo de evento, nome do contêiner ou nome do objeto que foi criado/excluído. Os filtros na grade de eventos correspondem ao início ou ao fim do assunto, de forma que os eventos com um assunto correspondente vá para o Assinante.
 
@@ -104,7 +104,7 @@ Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas
 > * Se você quiser garantir que o evento **Microsoft. Storage. BlobCreated** seja disparado somente quando um blob de blocos for completamente confirmado, filtre o evento para as chamadas `CopyBlob`, `PutBlob`, `PutBlockList` ou `FlushWithClose` API REST. Essas chamadas de API disparam o evento **Microsoft. Storage. BlobCreated** somente depois que os dados são totalmente confirmados em um blob de blocos. Para saber como criar um filtro, consulte [filtrar eventos para a grade de eventos](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a Grade de Eventos e experimente os eventos do Armazenamento de Blobs:
 

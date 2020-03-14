@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: d7ed4dbbc3fddb2e21ed3cf5292ebd80fe1e3e23
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698519"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263108"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft
 
@@ -48,7 +48,7 @@ Cada aplicativo que deseja aceitar contas pessoais e corporativas ou de estudant
 
 Para obter mais detalhes, saiba como [registrar um aplicativo](quickstart-register-app.md).
 
-## <a name="endpoints"></a>Pontos de Extremidade
+## <a name="endpoints"></a>Pontos de extremidade
 
 Depois de registrado, o aplicativo se comunica com a plataforma de identidade da Microsoft enviando solicitações ao ponto de extremidade:
 
@@ -59,7 +59,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Em que o `{tenant}` pode ter um de quatro valores diferente:
 
-| Valor | Description |
+| Valor | DESCRIÇÃO |
 | --- | --- |
 | `common` | Permite que os usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure AD entrem no aplicativo. |
 | `organizations` | Permite que somente usuários com contas corporativas/de estudante do Azure AD entrem no aplicativo. |

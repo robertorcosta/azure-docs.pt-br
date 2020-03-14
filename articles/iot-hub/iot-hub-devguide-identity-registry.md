@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d43ad2ce88108a728b26e10eecc7082262a4b637
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363137"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271350"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -79,6 +79,8 @@ Use operações assíncronas no [ponto de extremidade de provedor de recursos do
 
 Para obter mais informações sobre as APIs de importação e exportação, confira [APIs REST do provedor de recursos do Hub IoT](/rest/api/iothub/iothubresource). Para saber mais sobre como executar trabalhos de importação e exportação, confira [Gerenciamento em massa de identidades de dispositivo do Hub IoT](iot-hub-bulk-identity-mgmt.md).
 
+As identidades de dispositivo também podem ser exportadas e importadas de um hub IoT por meio da API de serviço por meio da [API REST](/rest/api/iothub/service/createimportexportjob) ou de um dos [SDKs de serviço](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)do Hub IOT.
+
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 
 Os dados de dispositivo que uma determinada solução IoT armazena dependem dos requisitos específicos dessa solução. Porém, no mínimo, uma solução deve armazenar identidades e chaves de autenticação. O Hub IoT do Azure inclui um registro de identidades que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de status. Uma solução pode usar outros serviços do Azure como armazenamento de tabelas, armazenamento de blobs ou Cosmos DB para armazenar outros dados de dispositivo.
@@ -101,11 +103,11 @@ Uma implementação mais complexa poderia incluir as informações do [Azure Mon
 
 O Hub IoT pode notificar sua solução de IoT quando uma identidade é criada ou excluída, enviando notificações do ciclo de vida. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Por padrão, nenhuma notificação de ciclo de vida é enviada, ou seja, nenhuma dessas rotas existe previamente. A mensagem de notificação inclui propriedades e o corpo.
 
-Propriedades: As propriedades do sistema de mensagens são fixadas previamente com o símbolo `$`.
+Propriedades: as propriedades do sistema de mensagens são prefixadas com o símbolo `$`.
 
 Mensagem de notificação para dispositivo:
 
-| NOME | Value |
+| Nome | Valor |
 | --- | --- |
 |$content-type | aplicativo/json |
 |$iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -117,7 +119,7 @@ Mensagem de notificação para dispositivo:
 |operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 |iothub-message-schema | deviceLifecycleNotification |
 
-Corpo: Esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
+Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
 
 ```json
 {
@@ -141,7 +143,7 @@ Corpo: Esta seção está no formato JSON e representa o gêmeo da identidade de
 ```
 Mensagem de notificação para módulo:
 
-| NOME | Value |
+| Nome | Valor |
 | --- | --- |
 $content-type | aplicativo/json |
 $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -153,7 +155,7 @@ moduleId | ID do módulo |
 operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 iothub-message-schema | moduleLifecycleNotification |
 
-Corpo: Esta seção está no formato JSON e representa o gêmeo da identidade do módulo criado. Por exemplo,
+Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de módulo criada. Por exemplo,
 
 ```json
 {
@@ -191,7 +193,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | status |obrigatório |Um indicador de acesso. Pode estar **Habilitado** ou **Desabilitado**. Se estiver **Habilitado**, o dispositivo terá permissão para se conectar. Se estiver **Desabilitado**, este dispositivo não poderá acessar qualquer ponto de extremidade voltado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |somente leitura |Um indicador temporal, mostrando a data e hora da última atualização de status. |
-| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: Este campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
+| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
 | connectionStateUpdatedTime |somente leitura |Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
 | lastActivityTime |somente leitura |Um indicador temporal, mostrando a data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. |
 
@@ -216,7 +218,7 @@ As identidades do módulo são representadas como documentos JSON com as seguint
 | status |obrigatório |Um indicador de acesso. Pode estar **Habilitado** ou **Desabilitado**. Se estiver **Habilitado**, o dispositivo terá permissão para se conectar. Se estiver **Desabilitado**, este dispositivo não poderá acessar qualquer ponto de extremidade voltado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |somente leitura |Um indicador temporal, mostrando a data e hora da última atualização de status. |
-| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: Este campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
+| connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
 | connectionStateUpdatedTime |somente leitura |Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
 | lastActivityTime |somente leitura |Um indicador temporal, mostrando a data e hora da última vez em que o dispositivo se conectou, recebeu ou enviou uma mensagem. |
 
