@@ -6,11 +6,11 @@ ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
 ms.openlocfilehash: fdb0d8afa55f87ae61213b189e9e24ec63bfcfb8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946081"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265279"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -265,7 +265,7 @@ Para corrigir esse problema, você precisa interromper todos os serviços ou pro
 Por exemplo, para parar e desabilitar o serviço *Windows BranchCache* :
 * Execute `services.msc` no prompt de comando.
 * Clique com o botão direito do mouse em *BranchCache* e selecione *Propriedades*.
-* Clique em *parar*.
+* Clique em *Parar*.
 * Opcionalmente, você pode desabilitá-lo definindo o *tipo de inicialização* como *desabilitado*.
 * Clique em *OK*.
 
@@ -288,7 +288,7 @@ Tente baixar e instalar a versão mais recente da CLI do Azure Dev Spaces:
 * [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
-### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>Erro: "falha ao localizar a extensão do depurador para o tipo: CoreCLR"
+### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>Erro: "Falha ao localizar a extensão do depurador para o tipo: CoreCLR"
 
 Você pode ver esse erro ao executar o depurador de Visual Studio Code. Talvez você não tenha a extensão de VS Code C# para instalada em seu computador de desenvolvimento. A C# extensão inclui suporte de depuração para o CoreCLR (.NET Core).
 
@@ -391,7 +391,7 @@ Para atualizar a função RBAC do usuário para o controlador:
     * Para *função*, selecione *colaborador* ou *proprietário*.
     * Para *Atribuir acesso a*, selecione *Usuário, grupo ou entidade de serviço do Azure AD*.
     * Para *selecionar*, pesquise o usuário que você deseja conceder permissões.
-1. Clique em *Salvar*.
+1. Clique em *Save* (Salvar).
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 
@@ -423,7 +423,7 @@ Para corrigir esse problema:
 
 1. Se o contêiner estiver sendo compilado/implantado, você poderá aguardar de 2 a 3 segundos e tentar acessar o serviço novamente. 
 1. Verifique a configuração de porta nos seguintes ativos:
-    * **[Gráfico de Helm](https://docs.helm.sh):** Especificado pelo `service.port` e `deployment.containerPort` em Values. YAML com Scaffold by `azds prep` comando.
+    * **[Pacote do Helm](https://docs.helm.sh):** Especificado pelo `service.port` e `deployment.containerPort` em Values. YAML com Scaffold by `azds prep` comando.
     * Quaisquer portas sendo abertas no código do aplicativo, por exemplo, no Node.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Não foi possível encontrar o nome do namespace ou tipo "MyLibrary"
@@ -471,12 +471,12 @@ Depois que o pods for reiniciado, você poderá começar a usar seu namespace ex
 
 Para habilitar Azure Dev Spaces em um cluster AKS para o qual o tráfego de saída de nós de cluster é restrito, você precisará permitir os seguintes FQDNs:
 
-| FQDN                                    | Porta      | Use      |
+| FQDN                                    | Port      | Uso      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Para efetuar pull de imagens do Linux Alpine e outras Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Para efetuar pull de imagens do Helm/gaveta|
 | storage.googleapis.com | HTTP: 443 | Para efetuar pull de imagens do Helm/gaveta|
-| azds-<guid>.<location>. azds.io | HTTPS:443 | Para se comunicar com os serviços de back-end Azure Dev Spaces para seu controlador. O FQDN exato pode ser encontrado em "dataplaneFqdn" em% USERPROFILE%\.azds\settings.JSON|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | Para se comunicar com os serviços de back-end Azure Dev Spaces para seu controlador. O FQDN exato pode ser encontrado em "dataplaneFqdn" em% USERPROFILE%\.azds\settings.JSON|
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Erro "não foi possível localizar o cluster \<cluster\> na assinatura \<SubscriptionId\>"
 
