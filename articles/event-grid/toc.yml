@@ -8,6 +8,8 @@
       href: overview.md
     - name: Comparar serviços de mensagem
       href: compare-messaging-services.md
+    - name: Camadas Premium versus Básicas
+      href: premium-basic-tiers.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -102,6 +104,8 @@
           href: security-authentication.md
         - name: Autorização
           href: security-authorization.md
+        - name: Segurança de rede
+          href: network-security.md
     - name: Entregar e tentar novamente
       href: delivery-and-retry.md
     - name: Filtro de eventos
@@ -118,6 +122,12 @@
       href: geo-disaster-recovery.md
 - name: Guias de instruções
   items:
+    - name: Configurar pontos de extremidade privados (versão prévia)
+      href: configure-private-endpoints.md
+    - name: Configurar firewall do IP (versão prévia)
+      href: configure-firewall.md
+    - name: Atualizar tipo de preço
+      href: update-tier.md
     - name: Postar para tópico personalizado
       href: post-to-custom-topic.md
     - name: Receber eventos em um ponto de extremidade HTTP

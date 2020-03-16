@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: cac6c40397e272d6d65931029c500bdcc2b774cc
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e90e750bf248bdcc8e50c6ddc6e9fa0273660195
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875536"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136011"
 ---
 O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados. Dados não estruturados são dados que não estão de acordo com uma definição ou um modelo de dados específico, como texto ou dados binários.
 
@@ -30,7 +30,7 @@ O Armazenamento de Blobs foi projetado para:
 
 Usuários ou aplicativos cliente podem acessar objetos no Armazenamento de Blobs via HTTP/HTTPS de qualquer lugar no mundo. Objetos no Armazenamento de Blobs estão acessíveis por meio da [API REST do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), do [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), da [CLI do Azure](https://docs.microsoft.com/cli/azure/storage) ou em uma biblioteca de clientes do Armazenamento do Azure. As bibliotecas de cliente estão disponíveis para diferentes idiomas, incluindo:
 
-* [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client)
+* [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
 * [Node.js](https://azure.github.io/azure-storage-node) 
 * [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)

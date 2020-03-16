@@ -28,6 +28,8 @@
           href: virtual-wan-configure-automation-providers.md
     - name: Políticas de IPsec
       href: virtual-wan-ipsec.md
+    - name: Visão geral do VPN Ponto a Site
+      href: ../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: Guias de instruções
   items:
     - name: Conectar um gateway de rede virtual à WAN Virtual
@@ -56,6 +58,10 @@
           href: certificates-point-to-site.md
         - name: Configurar o locatário do Azure AD para a VPN do usuário
           href: openvpn-azure-ad-tenant.md
+        - name: Configurar um túnel de usuário de VPN Always On
+          href: ../vpn-gateway/vpn-gateway-howto-always-on-user-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+        - name: Configurar um túnel de dispositivo VPN Always On
+          href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
         - name: Habilitar a MFA (Autenticação Multifator) para a VPN do usuário
           href: openvpn-azure-ad-mfa.md
         - name: Configurar a autenticação do Azure AD para a VPN do usuário
@@ -91,7 +97,7 @@
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Limites de serviço e assinatura
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Calculadora de preço
