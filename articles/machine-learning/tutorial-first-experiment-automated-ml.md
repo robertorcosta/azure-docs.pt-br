@@ -1,7 +1,7 @@
 ---
-title: Criar seu primeiro teste de ML automatizado
+title: Criar modelos de classificação de ML automatizado
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar e implantar um modelo de classificação com machine learning automatizado no estúdio do Azure Machine Learning.
+description: Saiba como treinar e implantar modelos de classificação com a interface de ML automatizado (machine learning automatizado) do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048294"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129673"
 ---
-# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o aprendizado de máquina automatizado
+# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste tutorial, você aprenderá a criar seu primeiro experimento de machine learning automatizado no estúdio do Azure Machine Learning sem escrever nenhuma linha de código. Este exemplo cria um modelo de classificação para prever se um cliente assinará um depósito a prazo fixo com uma instituição financeira.
+Neste tutorial, você aprenderá a criar um modelo de classificação básico sem escrever uma única linha de código usando a interface de machine learning automatizado do Azure Machine Learning. Este modelo de classificação prevê se um cliente assinará um depósito a prazo fixo com uma instituição financeira.
 
 Com o aprendizado de máquina automatizado, você pode automatizar tarefas intensivas e demoradas. O aprendizado de máquina automatizado itera rapidamente em muitas combinações de algoritmos e hiperparâmetros para ajudar você a encontrar o melhor modelo com base em uma métrica de sucesso de sua escolha.
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Exibir detalhes do experimento.
 > * Implantar o modelo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 
 Um Workspace do Azure Machine Learning é o recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
 
-Você cria um workspace por meio do estúdio do Azure Machine Learning, um console baseado na Web para gerenciar seus recursos do Azure.
+Você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -51,9 +51,9 @@ Você cria um workspace por meio do estúdio do Azure Machine Learning, um conso
 
 ## <a name="create-and-run-the-experiment"></a>Criar e executar o experimento
 
-Conclua a configuração do experimento a seguir e execute as etapas no Azure Machine Learning Studio, uma interface consolidada que inclui ferramentas de aprendizado de máquina para realizar cenários de ciência de dados para praticantes de todos os níveis de habilidade. O estúdio não é compatível com navegadores Internet Explorer.
+Conclua a configuração do experimento a seguir e execute as etapas por meio do Azure Machine Learning em https://ml.azure.com, uma interface da Web consolidada que inclui ferramentas de aprendizado de máquina para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. A interface não é compatível com navegadores Internet Explorer.
 
-1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com).
+1. Entre no Azure Machine Learning em https://ml.azure.com.
 
 1. Selecione a assinatura e o workspace criado.
 
@@ -63,13 +63,13 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
 
    Como este é seu primeiro experimento de ML automatizado, você verá uma lista vazia e links para a documentação.
 
-   ![Azure Machine Learning Studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
+   ![Página Introdução](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. Selecione **Nova execução de ML automatizado**. 
 
 1. Crie um novo conjunto de dados selecionando **De arquivos locais** na lista suspensa **+ Criar conjunto de dados**. 
 
-    1. No formulário **Informações básicas**, dê um nome ao conjunto de dados e forneça uma descrição opcional. O ML automatizado no Azure Machine Learning Studio atualmente só dá suporte a conjuntos de dados de tabela e, portanto, o tipo de conjunto de dados deverá usar Tabela como padrão.
+    1. No formulário **Informações básicas**, dê um nome ao conjunto de dados e forneça uma descrição opcional. No momento, a interface de ML automatizado só dá suporte a TabularDatasets; portanto, o padrão do tipo de conjunto de dados deve ser *Tabular*.
 
     1. Selecione **Avançar** na parte inferior esquerda
 
@@ -163,9 +163,9 @@ Fazer o seguinte navega pelas guias **Detalhes do modelo** e **Visualizações**
 
 ![Detalhes da iteração de execução](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-## <a name="deploy-the-model"></a>Implantar o modelo
+## <a name="deploy-the-best-model"></a>Implantar o melhor modelo
 
-O machine learning automatizado no estúdio do Azure Machine Learning permite que você implante o melhor modelo como um serviço Web em algumas etapas. A implantação é a integração do modelo para que ele possa prever novos dados e identificar possíveis áreas de oportunidade. 
+A interface de machine learning automatizado permite que você implante o melhor modelo como um serviço Web em algumas etapas. A implantação é a integração do modelo para que ele possa prever novos dados e identificar possíveis áreas de oportunidade. 
 
 Para este experimento, a implantação em um serviço Web significa que a instituição financeira agora tem uma solução Web iterativa e escalonável para identificar clientes potenciais para depósito a prazo fixo. 
 
@@ -201,9 +201,9 @@ Os arquivos de implantação são maiores que os dados e os arquivos de teste, p
 
 ### <a name="delete-the-deployment-instance"></a>Excluir a instância de implantação
 
-Exclua apenas a instância de implantação do estúdio do Azure Machine Learning se você quiser manter o grupo de recursos e o workspace para outros tutoriais e explorações. 
+Exclua apenas a instância de implantação do Azure Machine Learning em https://ml.azure.com/ se desejar manter o grupo de recursos e o workspace para outros tutoriais e explorações. 
 
-1. Vá para o [estúdio do Azure Machine Learning](https://ml.azure.com/). Navegue até o workspace e, no lado esquerdo, no painel **Ativos**, selecione **Pontos de extremidade**. 
+1. Acesse Azure Machine Learning em https://ml.azure.com/. Navegue até o workspace e, no lado esquerdo, no painel **Ativos**, selecione **Pontos de extremidade**. 
 
 1. Selecione a implantação que você deseja excluir e selecione **Excluir**. 
 
@@ -215,15 +215,15 @@ Exclua apenas a instância de implantação do estúdio do Azure Machine Learnin
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial de machine learning automatizado, você usou o estúdio do Azure Machine Learning para criar e implantar um modelo de classificação. Confira estes artigos para obter mais informações e ver as próximas etapas:
+Neste tutorial de machine learning automatizado, você usou a interface de ML automatizado do Azure Machine Learning para criar e implantar um modelo de classificação. Confira estes artigos para obter mais informações e ver as próximas etapas:
 
 > [!div class="nextstepaction"]
 > [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Saiba mais sobre a [personalização](how-to-create-portal-experiments.md#featurization).
-+ Saiba mais sobre a [criação de perfil de dados](how-to-create-portal-experiments.md#profile).
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
-+ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
++ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification). + Saiba mais sobre [personalização](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile).
+
 
 >[!NOTE]
 > Esse conjunto de dados de marketing bancário é disponibilizado sob a [licença Creative Commons (CCO: Domínio Público)](https://creativecommons.org/publicdomain/zero/1.0/). Todos os direitos no conteúdo individual do banco de dados são licenciados sob a [Licença de Conteúdo do Banco de Dados](https://creativecommons.org/publicdomain/zero/1.0/) e estão disponíveis no [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Esse conjunto de dados estava originalmente disponível no [banco de dados de aprendizado de máquina da UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

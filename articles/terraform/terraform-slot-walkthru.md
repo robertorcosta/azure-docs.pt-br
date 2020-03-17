@@ -1,14 +1,15 @@
 ---
 title: Tutorial - Usando Terraform para provisionar infraestrutura com slots de implantação do Azure
-description: Tutorial sobre como usar o Terraform com slots de implantação de provedor do Azure
+description: Neste tutorial, você usará o Terraform com slots de implantação de provedor do Azure
+keywords: azure devops terraform deployment slots
 ms.topic: tutorial
-ms.date: 11/07/2019
-ms.openlocfilehash: 68c790b4fad442d94e6ac82d1a545b8554d2dd4f
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 03/09/2020
+ms.openlocfilehash: ddd4d84ee8bf4ab1e90dd68da185cdd9075fe1e0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159187"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943483"
 ---
 # <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Tutorial: Usando Terraform para provisionar infraestrutura com slots de implantação do Azure
 
@@ -16,7 +17,7 @@ ms.locfileid: "74159187"
 
 Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela implantação de dois aplicativos por meio de GitHub e Azure. Um aplicativo está hospedado em um slot de produção. O segundo aplicativo está hospedado em um slot de teste. (Os nomes "produção" e "preparo" são arbitrários. Eles podem ser qualquer um que seja apropriado para seu cenário.) Após configurar os slots de implantação, você usa o Terraform para alternar entre os dois slots, conforme necessário.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
@@ -68,7 +69,12 @@ Este artigo ilustra um exemplo de uso de slots de implantação ao guiá-lo pela
 
     ```hcl
     # Configure the Azure provider
-    provider "azurerm" { }
+    provider "azurerm" { 
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
+    }
 
     resource "azurerm_resource_group" "slotDemo" {
         name = "slotDemoResourceGroup"
@@ -247,7 +253,12 @@ Para testar a troca dos dois slots de implantação, execute as seguintes etapas
 
     ```hcl
     # Configure the Azure provider
-    provider "azurerm" { }
+    provider "azurerm" { 
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
+    }
 
     # Swap the production slot and the staging slot
     resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {

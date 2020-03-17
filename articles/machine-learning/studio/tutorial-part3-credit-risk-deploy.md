@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ab6904a2569e508c0697cc273af4fd40a1767de
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432191"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898746"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implantar modelo de risco de crédito – Azure Machine Learning Studio (clássico)
 
@@ -40,7 +40,7 @@ Nesta parte do tutorial, você vai:
 > * Gerenciar o serviço Web
 > * Acessar o serviço Web
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Concluir a [segunda parte do tutorial](tutorial-part2-credit-risk-train.md).
 
@@ -227,11 +227,7 @@ O serviço Web é um serviço Web do Azure que pode receber e retornar dados usa
 * **Solicitação/Resposta** – O usuário envia uma ou mais linhas de dados de crédito para o serviço usando um protocolo HTTP, e o serviço responde com um ou mais conjunto de resultados.
 * **Execução em lote** - o usuário armazena uma ou mais linhas de dados de crédito em um blob do Azure e envia o local do blob ao serviço. O serviço pontua todas as linhas de dados no blob de entrada, armazena os resultados em outro blob e retorna a URL desse contêiner.  
 
-A maneira mais rápida e fácil de acessar um serviço Web Clássico é por meio do [Aplicativo Web do Serviço de Solicitação-Resposta do Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) ou do [Modelo do Aplicativo Web do Serviço de Execução em Lotes do Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
-
-Esses modelos de aplicativo Web podem compilar um aplicativo Web personalizado que conhece os dados de entrada do seu serviço Web e o que ele retornará. Basta fornecer acesso aos dados e ao serviço Web, para que o modelo faça o resto.
-
-Para obter mais informações sobre como usar modelos de aplicativos Web, consulte [Consumir um serviço Web do Azure Machine Learning com um modelo de aplicativo Web](/azure/machine-learning/studio/consume-web-services).
+Para obter mais informações sobre como acessar e consumir o serviço Web, confira [Consumir um serviço Web do Azure Machine Learning com um modelo de aplicativo Web](/azure/machine-learning/studio/consume-web-services).
 
 
 

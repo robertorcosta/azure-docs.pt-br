@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448599"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943127"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 
@@ -55,6 +55,10 @@ Neste tutorial, abordaremos somente as partes selecionadas do código-fonte. O c
 
 > [!NOTE]
 > Este tutorial é muito semelhante ao [tutorial de aplicativo da Pesquisa na Web do Bing de página única](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mas lida apenas com os resultados da pesquisa de entidade.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para acompanhar o tutorial, você precisará de chaves de assinatura para a API de Pesquisa do Bing e da API do Bing Mapas. Se você não os tiver, use uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave básica do Bing Mapas](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 ## <a name="app-components"></a>Componentes do aplicativo
 

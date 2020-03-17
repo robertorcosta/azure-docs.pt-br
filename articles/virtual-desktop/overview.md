@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+manager: lizross
+ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471764"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127760"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
 A Área de Trabalho Virtual do Windows é um serviço de virtualização de aplicativos e área de trabalho executado na nuvem.
 
-Estas são as tarefas que você pode realizar ao executar a Área de Trabalho Virtual do Windows no Azure:
+Veja o que você pode fazer ao executar a Área de Trabalho Virtual do Windows no Azure:
 
 * Configurar uma implantação do Windows 10 de várias sessões que fornece uma escalabilidade completa do Windows 10
 * Virtualizar o Office 365 ProPlus e otimizá-lo para execução em cenários virtuais de vários usuários

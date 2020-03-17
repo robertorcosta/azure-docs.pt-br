@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564e8dd8e6d7c4c0e3747469875e030be30b1a9b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046706"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967718"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Salesforce
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o Salesforce ao Azure AD (Azure Acti
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -180,7 +180,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure ao 
 
     ![Configurar o logon único](./media/salesforce-tutorial/xmlchoose.png)
 
-1. Na página **Configurações de logon único do SAML**, os campos são preenchidos automaticamente, clique em Salvar.
+1. Na página **Configurações de Logon Único do SAML**, os campos são preenchidos automaticamente; selecione **Provisionamento de Usuário Habilitado** e, em seguida, clique em **Salvar**.
 
     ![Configurar o logon único](./media/salesforce-tutorial/salesforcexml.png)
 
@@ -237,7 +237,7 @@ Ao clicar no bloco do Salesforce no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](salesforce-provisioning-tutorial.md)
 

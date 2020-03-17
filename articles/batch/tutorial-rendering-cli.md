@@ -6,15 +6,15 @@ author: LauraBrenner
 manager: evansma
 ms.service: batch
 ms.topic: tutorial
-ms.date: 12/11/2018
+ms.date: 03/05/2020
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 12205fd04b015ac3cfe32765779808b636f53946
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023065"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672989"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o Lote do Azure 
 
@@ -29,11 +29,11 @@ O Lote do Azure fornece recursos de renderização em escala de nuvem com pagame
 
 Neste tutorial, você renderiza uma cena 3ds Max com o Lote usando o renderizador de rastreamento de raio [Arnold](https://www.autodesk.com/products/arnold/overview). O pool do Lote usa uma imagem do Azure Marketplace com gráficos pré-instalados e aplicativos de renderização que fornecem o licenciamento com pagamento por uso.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. **O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.**
 
-A cena do 3ds Max para este tutorial está no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto com um exemplo de script de Bash e arquivos de configuração JSON. A cena do 3ds Max é dos [arquivos de exemplo do Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os arquivos de exemplo do Autodesk 3ds Max estão disponíveis em uma licença Creative Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
+A cena do 3ds Max para este tutorial está no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto com um exemplo de script de Bash e arquivos de configuração JSON. A cena do 3ds Max é dos [arquivos de exemplo do Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os arquivos de exemplo do Autodesk 3ds Max estão disponíveis em uma licença Creative Commons Attribution-NonCommercial-Share Alike. Copyright &copy; Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -124,7 +124,7 @@ Criar um pool do Lote para renderização usando o comando [az batch pool create
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.3.2"
+      "version": "1.3.8"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },

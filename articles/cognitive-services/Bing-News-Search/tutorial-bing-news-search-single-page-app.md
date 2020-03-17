@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383108"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943111"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: criar um aplicativo Web de página única
 
@@ -39,6 +39,12 @@ O aplicativo de tutorial ilustra como:
 > * Tratar erros que podem ocorrer
 
 A página do tutorial é completamente autossuficiente; ela não usa estruturas externas, folhas de estilo nem arquivos de imagem. Ela usa apenas recursos de linguagem JavaScript amplamente compatíveis e funciona com as versões atuais de todos os principais navegadores da Web.
+
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para acompanhar o tutorial, você precisará de chaves de assinatura para a API de Pesquisa do Bing. Se você não os tiver, use uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave básica do Bing Mapas](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
 
 ## <a name="app-components"></a>Componentes do aplicativo
 Como qualquer aplicativo Web de página única, esse aplicativo de tutorial inclui três partes:
@@ -101,7 +107,7 @@ A figura a seguir mostra a caixa de texto de consulta e as opções que definem 
 
 O formulário HTML inclui elementos com os seguintes nomes:
 
-|Elemento|DESCRIÇÃO|
+|Elemento|Descrição|
 |-|-|
 | `where` | Um menu suspenso para selecionar o mercado (local e idioma) usado para a pesquisa. |
 | `query` | O campo de texto no qual inserir os termos de pesquisa. |
@@ -315,7 +321,7 @@ function renderResults(items) {
 ```
 A API de Pesquisa de Notícias do Bing retorna até quatro tipos diferentes de resultados relacionados, cada um em seu próprio objeto de nível superior. Eles são:
 
-|Relação|DESCRIÇÃO|
+|Relação|Descrição|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra original na pesquisa original por outra. Por exemplo, se você pesquisar "flores vermelhas", uma palavra original pode ser "vermelhas" e uma sugestão dinâmica poderá ser "flores amarelas".|
 |`queryExpansions`|Consultas que restringem a pesquisa original com a adição de mais termos. Por exemplo, se você pesquisar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -338,7 +344,7 @@ searchItemRenderers = {
 ```
 Uma função de renderizador pode aceitar os seguintes parâmetros:
 
-|Parâmetro|DESCRIÇÃO|
+|Parâmetro|Descrição|
 |-|-|
 |`item`| O objeto do JavaScript que contém as propriedades do item, como a URL e a descrição.|
 |`index`| O índice do item de resultado na coleção.|

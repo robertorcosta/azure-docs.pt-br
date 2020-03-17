@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986650"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943887"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar um aplicativo de página única usando a API de Pesquisa na Web do Bing
 
@@ -32,13 +32,12 @@ Este aplicativo de exemplo pode:
 
 Para usar este aplicativo, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) para obter uma chave de assinatura.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Veja algumas coisas de que você precisará para executar o aplicativo:
 
 * Node.js 8 ou posterior
-* Uma chave de assinatura
-
+* Uma chave de assinatura para a API de Pesquisa do Bing. Se você não tiver uma, [crie um recurso da Pesquisa do Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Você também pode usar uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 ## <a name="get-the-source-code-and-install-dependencies"></a>Obtenha o código-fonte e instale as dependências
 
 A primeira etapa é clonar o repositório com o código-fonte do aplicativo de exemplo.

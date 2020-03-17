@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 75bd27f0945c66b9757055c0777b43a050ba67d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920987"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942925"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -25,15 +25,15 @@ O Data Lake Storage Gen2 torna o armazenamento do Azure a fundação para a cria
 
 Uma parte fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](data-lake-storage-namespace.md) para armazenamento de Blobs. O namespace hierárquico organiza objetos/arquivos em uma hierarquia de diretórios para acesso eficiente a dados. Uma convenção de nomenclatura de armazenamento de objetos comum usa barras no nome para imitar uma estrutura de diretórios hierárquica. Essa estrutura se torna real com o Data Lake Storage Gen2. Operações como renomear ou excluir um diretório tornam-se operações únicas de metadados atômicos no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
 
-No passado, a análise baseada na nuvem tinha que se comprometer em áreas de desempenho, gerenciamento e segurança. O Data Lake Storage Gen2 aborda cada um desses aspectos das seguintes maneiras:
+O Data Lake Storage Gen2 se baseia no Armazenamento de Blobs e aprimora o desempenho, o gerenciamento e a segurança das seguintes maneiras:
 
--   **O desempenho** é otimizado porque você não precisa copiar ou transformar dados como um pré-requisito para análise. O namespace hierárquico melhora muito o desempenho das operações de gerenciamento de diretório, o que melhora o desempenho geral do trabalho.
+-   **O desempenho** é otimizado porque você não precisa copiar ou transformar dados como um pré-requisito para análise. Em comparação com o namespace simples do Armazenamento de Blobs, o namespace hierárquico aprimora muito o desempenho das operações de gerenciamento de diretório, o que aprimora o desempenho geral do trabalho.
 
 -   **Gerenciamento** é mais fácil porque você pode organizar e manipular arquivos por meio de diretórios e subdiretórios.
 
 -   **Segurança** é aplicável porque você pode definir as permissões POSIX em arquivos individuais ou diretórios.
 
--   **A efetividade de custo** é possível porque o Data Lake Storage Gen2 é construído sobre o [ armazenamento de Blob do Azure de baixo custo ](storage-blobs-introduction.md). Os recursos adicionais reduzem ainda mais o custo total de propriedade para executar a análise de big data no Azure.
+Além disso, o Data Lake Storage Gen2 é muito econômico, pois se baseia no [Armazenamento de Blobs do Azure](storage-blobs-introduction.md) de baixo custo. Os recursos adicionais reduzem ainda mais o custo total de propriedade para executar a análise de big data no Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos do Data Lake Storage Gen2
 

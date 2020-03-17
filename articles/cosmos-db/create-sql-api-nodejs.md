@@ -8,22 +8,22 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: c36f31ef30b6386677c517b1d7e643f9eacea093
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 729fd776321a90257289dcf92f13079a8206d9d9
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303283"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927399"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Início Rápido: Usar o Node.js para se conectar e consultar dados de uma conta da API SQL do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET V3](create-sql-api-dotnet.md)
-> * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
-> * [Node.js](create-sql-api-nodejs.md)
-> * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+> - [.NET V3](create-sql-api-dotnet.md)
+> - [.NET V4](create-sql-api-dotnet-V4.md)
+> - [Java](create-sql-api-java.md)
+> - [Node.js](create-sql-api-nodejs.md)
+> - [Python](create-sql-api-python.md)
+> - [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 Neste início rápido, você criará e gerenciará uma conta da API do SQL para Azure Cosmos DB (grafo) no portal do Azure, usando um aplicativo Node.js clonado do GitHub. O Azure Cosmos DB é um serviço de banco de dados multimodelo que permite criar e consultar rapidamente bancos de dados de documentos, tabelas, pares chave-valor e grafo com funcionalidades de escala horizontal e distribuição global.
 
@@ -33,32 +33,40 @@ Neste início rápido, você criará e gerenciará uma conta da API do SQL para 
 - [Node.js 6.0.0+](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
-## <a name="create-a-database"></a>Criar um banco de dados
+## <a name="create-an-azure-cosmos-account"></a>Criar uma conta do Azure Cosmos
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+Para a finalidade deste início rápido, você poderá usar a opção [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) para criar uma conta do Azure Cosmos.
+
+1. Navegue até a página [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/).
+
+1. Escolha a conta da API do **SQL** e selecione **Criar**. Conecte-se usando a sua conta Microsoft.
+
+1. Após a entrada bem-sucedida, sua conta do Azure Cosmos deverá estar pronta. Selecione **Abrir no portal do Azure** para abrir a conta recém-criada.
+
+A opção "Experimentar o Azure Cosmos DB gratuitamente" não exige uma assinatura do Azure e oferece uma conta do Azure Cosmos por um período limitado de 30 dias. Caso deseje usar a conta do Azure Cosmos por um período mais longo, [crie a conta](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) na sua assinatura do Azure.
 
 ## <a name="add-a-container"></a>Adicionar um contêiner
 
-Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 
+Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner.
 
-1. Selecione **Data Explorer** > **Novo Contêiner**. 
-    
-    A área **Adicionar Contêiner** é exibida à extrema direita; talvez seja necessário rolar a página para a direita para vê-la.
+1. Selecione **Data Explorer** > **Novo Contêiner**.
 
-    ![O Data Explorer do portal do Azure, painel Adicionar Contêiner](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
+   A área **Adicionar Contêiner** é exibida à extrema direita; talvez seja necessário rolar a página para a direita para vê-la.
+
+   ![O Data Explorer do portal do Azure, painel Adicionar Contêiner](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
 
 2. Na página **Adicionar contêiner**, insira as configurações do novo contêiner.
 
-    |Configuração|Valor sugerido|Descrição
-    |---|---|---|
-    |**ID do banco de dados**|Tarefas|Digite *Tarefas* como o nome do novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados**; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
-    |**Taxa de transferência**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.| 
-    |**ID do contêiner**|Itens|Insira *Itens* como o nome do novo contêiner. As IDs do contêiner têm os mesmos requisitos de caractere dos nomes de bancos de dados.|
-    |**Chave de partição**| /category| O exemplo descrito neste artigo usa */category* como a chave de partição.|
-    
-    Além das configurações anteriores, opcionalmente, você pode adicionar **Chaves exclusivas** ao contêiner. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma camada de integridade dos dados ao seu banco de dados. Ao criar uma política de chave exclusiva durante a criação de um contêiner, você garante a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
-    
-    Selecione **OK**. O Data Explorer exibe o novo banco de dados e o contêiner.
+   | Configuração           | Valor sugerido | Descrição                                                                                                                                                                                                                                                                                                                                                                           |
+   | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **ID do banco de dados**   | Tarefas           | Digite _Tarefas_ como o nome do novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados**; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
+   | **Taxa de transferência**    | 400             | Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.                                                                                                                                                                                                                                                    |
+   | **ID do contêiner**  | Itens           | Insira _Itens_ como o nome do novo contêiner. As IDs do contêiner têm os mesmos requisitos de caractere dos nomes de bancos de dados.                                                                                                                                                                                                                                                               |
+   | **Chave de partição** | /category       | O exemplo descrito neste artigo usa _/category_ como a chave de partição.                                                                                                                                                                                                                                                                                                           |
+
+   Além das configurações anteriores, opcionalmente, você pode adicionar **Chaves exclusivas** ao contêiner. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos desenvolvedores a capacidade de adicionar uma camada de integridade dos dados ao seu banco de dados. Ao criar uma política de chave exclusiva durante a criação de um contêiner, você garante a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
+
+   Selecione **OK**. O Data Explorer exibe o novo banco de dados e o contêiner.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -84,9 +92,21 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 
 Se você está familiarizado com a versão anterior do SDK do SQL JavaScript, pode estar acostumado a ver os termos _coleção_ e _documento_. Como o Azure Cosmos DB dá suporte a [vários modelos de API](introduction.md), a [versão 2.0 ou superior do SDK do JavaScript](https://www.npmjs.com/package/@azure/cosmos) usa o termos genéricos _contêiner_, que pode ser uma coleção, um gráfico ou uma tabela, e _item_ para descrever o conteúdo do contêiner.
 
+O SDK do Cosmos DB para JavaScript é chamado de "@azure/cosmos" e pode ser instalado por meio do npm...
+
+```bash
+npm install @azure/cosmos
+```
+
 Todos os snippets de código a seguir são retirados do arquivo _app.js_.
 
-- O objeto `CosmosClient` é inicializado.
+- O `CosmosClient` é importado do pacote npm `@azure/cosmos`.
+
+  ```javascript
+  const CosmosClient = require("@azure/cosmos").CosmosClient;
+  ```
+
+- Um novo objeto `CosmosClient` é inicializado.
 
   ```javascript
   const client = new CosmosClient({ endpoint, key });
@@ -115,8 +135,6 @@ Todos os snippets de código a seguir são retirados do arquivo _app.js_.
   const { resources: results } = await container.items
     .query(querySpec)
     .fetchAll();
-
-  return results;
   ```
 
 - Criar um item
@@ -134,8 +152,6 @@ Todos os snippets de código a seguir são retirados do arquivo _app.js_.
   const { resource: itemToUpdate } = await container
     .item(id, category)
     .replace(itemToUpdate);
-
-  return result;
   ```
 
 - Excluir um item
@@ -167,23 +183,21 @@ Agora, volte para a portal do Azure para obter os detalhes da cadeia de conexão
 
 ## <a name="run-the-app"></a>Executar o aplicativo
 
-1. Executar `npm install` em um terminal para instalar os módulos npm necessários
+1. Execute `npm install` em um terminal para instalar o pacote npm "@azure/cosmos"
 
 2. Execute `node app.js` em um terminal para iniciar o aplicativo de nó.
 
-Agora, é possível voltar ao Data Explorer, modificar e trabalhar com esses novos dados.
+3. Os dois itens criados anteriormente neste início rápido serão listados. Um item será criado. O sinalizador "isComplete" nesse item é atualizado para "true" e, finalmente, o item é excluído.
+
+Você pode continuar fazendo experimentos com este aplicativo de exemplo ou voltar ao Data Explorer, modificar e trabalhar com os seus dados.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
-
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar um contêiner usando o Data Explorer e como executar um aplicativo Node.js. Agora, é possível importar outros dados para sua conta do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importar dados no Azure Cosmos DB](import-data.md)
+> [importar dados para o Azure Cosmos DB](import-data.md)

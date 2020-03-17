@@ -13,18 +13,21 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7704779ff605e28358f6f82c22ccda84d371dba9
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: abf083aacbdc643d780a8061b405752f36e27e45
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084378"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129947"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
 Neste tutorial, você aprenderá a integrar um aplicativo iOS ou macOS à plataforma de identidade da Microsoft. O aplicativo conectará um usuário, obterá um token de acesso para chamar a API do Microsoft Graph e fará uma solicitação para a API do Microsoft Graph.  
 
 Após concluir este guia, seu aplicativo aceitará conexões de contas Microsoft pessoais (incluindo outlook.com, live.com e outras) e contas corporativas ou de estudante de qualquer empresa ou organização que utilize o Azure Active Directory.
+
+>[!NOTE]
+> Se você é novo na plataforma de identidade da Microsoft, recomendamos que comece com [Conectar usuários e chamar a API do Microsoft Graph em um aplicativo iOS ou macOS](quickstart-v2-ios.md).
 
 ## <a name="how-this-tutorial-works"></a>Como este tutorial funciona
 
@@ -44,7 +47,7 @@ Esta amostra usa a MSAL (Biblioteca de Autenticação da Microsoft) para impleme
 
 Este tutorial é aplicável a aplicativos iOS e macOS. Observe que algumas etapas são diferentes entre essas duas plataformas. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - O Xcode versão 10.x ou superior é necessário para criar o aplicativo neste guia. Você pode fazer baixar o XCode no [site do iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de download do XCode").
 - Biblioteca de Autenticação da Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Você pode usar um gerenciador de dependência ou adicionar a biblioteca manualmente. As instruções abaixo mostram como fazer isso.

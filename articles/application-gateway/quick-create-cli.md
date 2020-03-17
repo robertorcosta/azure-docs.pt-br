@@ -6,33 +6,34 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 03/05/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: de1f30d949509ab48999d0080ccc4df74321ce01
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5512e44ab52a3c3d957bbc0d0a07a7a1e7b6f50e
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075196"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399587"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – CLI do Azure
 
-Este início rápido mostra como usar a CLI do Azure para criar um gateway de aplicativo.  Após criar o gateway de aplicativo, você vai testá-lo para verificar se está funcionando corretamente. Com Gateway de Aplicativo do Azure, você direciona o tráfego de aplicativo Web para recursos específicos, atribuindo ouvintes a portas, criando regras e adicionando recursos a um pool de back-end. Este artigo usa uma configuração simples com um IP de front-end público, um ouvinte básico para hospedar um único site no gateway de aplicativo, duas máquinas virtuais usadas para o pool de back-end e uma regra de roteamento de solicitações básica.
+Neste início rápido, você usará a CLI do Azure para criar um gateway de aplicativo. Em seguida, você o testará para verificar se ele funciona corretamente. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+O gateway de aplicativo direciona o tráfego da Web do aplicativo para recursos específicos em um pool de back-end. Você atribuirá ouvintes a portas, criará regras e adicionará recursos a um pool de back-end. Para simplificar, este artigo usa uma configuração simples com um IP de front-end público, um ouvinte básico para hospedar um só site no gateway de aplicativo, uma regra de roteamento de solicitação básica e duas máquinas virtuais usadas no pool de back-end.
+
+Conclua também este início rápido usando o [Azure PowerShell](quick-create-powershell.md) ou o [portal do Azure](quick-create-portal.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="azure-cli"></a>CLI do Azure
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [CLI do Azure versão 2.0.4 ou posterior](/cli/azure/install-azure-cli) (se você executar a CLI do Azure localmente).
 
-Se você optar por instalar e usar a CLI localmente, execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute **az --version**. Para saber mais sobre como instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+## <a name="create-resource-group"></a>Criar grupo de recursos
 
-### <a name="resource-group"></a>Resource group
-
-No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [az group create](/cli/azure/group#az-group-create). 
+No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando `az group create`. 
 
 O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no local *eastus*.
 
@@ -40,11 +41,11 @@ O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no l
 az group create --name myResourceGroupAG --location eastus
 ```
 
-### <a name="required-network-resources"></a>Recursos de rede necessários 
+## <a name="create-network-resources"></a>Criar recursos da rede 
 
-Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual.  A sub-rede de gateway de aplicativo pode conter apenas gateways de aplicativo. Nenhum outro recurso é permitido.  Você pode criar uma nova sub-rede do Gateway de aplicativo ou usar uma existente. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end. É possível configurar o IP de front-end do Gateway de Aplicativo como Público ou Privado, de acordo com o caso de uso. Neste exemplo, você escolherá um IP público de front-end.
+Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual.  A sub-rede de gateway de aplicativo pode conter apenas gateways de aplicativo. Nenhum outro recurso é permitido.  Você pode criar uma nova sub-rede do Gateway de aplicativo ou usar uma existente. Neste exemplo, você criará duas sub-redes: uma para o gateway de aplicativo e outra para os servidores de back-end. É possível configurar o IP de front-end do Gateway de Aplicativo como Público ou Privado, de acordo com o caso de uso. Neste exemplo, você escolherá um endereço IP público de front-end.
 
-Para criar a rede virtual e a sub-rede, use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Execute [az network public-ip create](/cli/azure/network/public-ip) para criar o endereço IP público.
+Para criar a rede virtual e a sub-rede, use `az network vnet create`. Execute `az network public-ip create` para criar o endereço IP público.
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,13 +67,13 @@ az network public-ip create \
   --sku Standard
 ```
 
-### <a name="backend-servers"></a>Servidores de back-end
+## <a name="create-the-backend-servers"></a>Criar servidores de back-end
 
 Um back-end pode ter NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, FQDN (nomes de domínio totalmente qualificados) e back-ends multilocatário como Serviço de Aplicativo do Azure. Neste exemplo, você cria duas máquinas virtuais para serem usadas como servidores de back-end para o Gateway de Aplicativo. Você também pode instalar o IIS nas máquinas virtuais para testar o gateway de aplicativo.
 
 #### <a name="create-two-virtual-machines"></a>Criar duas máquinas virtuais
 
-Instale o [servidor Web NGINX](https://docs.nginx.com/nginx/) nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito. Você pode usar um arquivo de configuração cloud-init para instalar o NGINX e executar um aplicativo Node.js "Olá, Mundo" em uma máquina virtual Linux. Para obter mais informações sobre a cloud-init, veja [Suporte a cloud-init para máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+Instale o servidor Web NGINX nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito. Você pode usar um arquivo de configuração cloud-init para instalar o NGINX e executar um aplicativo Node.js "Olá, Mundo" em uma máquina virtual Linux. Para obter mais informações sobre a cloud-init, veja [Suporte a cloud-init para máquinas virtuais no Azure](../virtual-machines/linux/using-cloud-init.md).
 
 No Azure Cloud Shell, copie e cole a seguinte configuração em um arquivo chamado *cloud-init.txt*. Insira *editor cloud-init.txt* para criar o arquivo.
 
@@ -118,7 +119,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Crie as interfaces de rede com [az network create](/cli/azure/network/nic#az-network-nic-create). Para criar as máquinas virtuais, use [az vm create](/cli/azure/vm#az-vm-create).
+Crie os adaptadores de rede com `az network nic create`. Para criar as máquinas virtuais, use `az vm create`.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +141,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
-Crie um gateway de aplicativo usando [az network application-gateway create](/cli/azure/network/application-gateway). Quando você cria um gateway de aplicativo usando a CLI do Azure, pode especificar informações de configuração, como configurações de HTTP, SKU e capacidade. Em seguida, o Azure adiciona os endereços IP privados das interfaces de rede como servidores no pool de back-end do gateway de aplicativo.
+Crie um gateway de aplicativo usando `az network application-gateway create`. Quando você cria um gateway de aplicativo usando a CLI do Azure, pode especificar informações de configuração, como configurações de HTTP, SKU e capacidade. Em seguida, o Azure adiciona os endereços IP privados das interfaces de rede como servidores no pool de back-end do gateway de aplicativo.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -168,7 +169,7 @@ Pode levar até 30 minutos para que o Azure crie o gateway de aplicativo. Depois
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Embora o Azure não exija um servidor Web NGINX para criar o gateway de aplicativo, você o instalou neste início rápido para verificar se o Azure criou o gateway de aplicativo com êxito. Para obter o endereço IP público do novo gateway de aplicativo, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
+Embora o Azure não exija um servidor Web NGINX para criar o gateway de aplicativo, você o instalou neste início rápido para verificar se o Azure criou o gateway de aplicativo com êxito. Para obter o endereço IP público do novo gateway de aplicativo, use `az network public-ip show`. 
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -184,9 +185,9 @@ Copie e cole o endereço IP público na barra de endereços do seu navegador.
 
 Quando atualizar o navegador, você deverá ver o nome da segunda VM. Isso indica que o gateway de aplicativo foi criado com êxito e que pode conectar-se ao back-end.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não precisar mais dos recursos que você criou com o gateway de aplicativo, use o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos. Ao remover o grupo de recursos, você também remove o gateway de aplicativo e todos os recursos relacionados.
+Quando não precisar mais dos recursos que você criou com o gateway de aplicativo, use o comando `az group delete` para excluir o grupo de recursos. Ao excluir o grupo de recursos, exclua também o gateway de aplicativo e todos os recursos relacionados a ele.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

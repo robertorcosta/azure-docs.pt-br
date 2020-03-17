@@ -12,18 +12,18 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3ccc2a5343cf02127990dca80a1300959fa06a3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827107"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087178"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início Rápido: Use o editor de consultas SQL do portal do Azure para se conectar e consultar dados
 
 O editor de consultas SQL é uma ferramenta de navegador do portal do Azure que fornece uma maneira fácil de executar consultas SQL em seu Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure. Neste guia rápido, você usará o editor de consultas para se conectar a um Banco de Dados SQL e executar instruções Transact-SQL para consultar, inserir, atualizar e excluir dados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, você precisará:
 
 ## <a name="sign-in-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="connect-using-sql-authentication"></a>Conectar-se usando a autenticação do SQL
 
@@ -167,6 +167,8 @@ Há algumas coisas que se deve saber ao trabalhar com o editor de consultas.
 
 * O editor de consultas usa as portas 443 e 1443 para se comunicar.  Verifique se que você habilitou o tráfego HTTPS de saída nessas portas. Você também precisará adicionar o endereço IP de saída para regras de firewall permitido do servidor para acessar seus bancos de dados e data warehouses.
 
+* O Editor de Consultas funciona com o Link Privado sem a necessidade de adicionar o endereço IP do Cliente ao firewall do Banco de Dados SQL
+
 * Pressionar F5 atualiza a página do editor de consultas e qualquer consulta em que se esteja trabalhando é perdida.
 
 * O editor de consultas não dá suporte à conexão com o banco de dados `master`.
@@ -176,6 +178,8 @@ Há algumas coisas que se deve saber ao trabalhar com o editor de consultas.
 * O editor de consultas só dá suporte à projeção cilíndrica para tipos de dados geográficos.
 
 * Não há suporte para IntelliSense para tabelas e exibições de banco de dados. No entanto, o editor oferece suporte para preenchimento automático de nomes que já foram digitados.
+
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

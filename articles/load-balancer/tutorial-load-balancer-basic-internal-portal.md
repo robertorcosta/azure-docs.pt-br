@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453515"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096120"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: balancear carga de tráfego interna com um balanceador de carga Básico no portal do Azure
 
@@ -121,10 +121,10 @@ Para distribuir o tráfego para as VMs, o balanceador de carga usa um pool de en
 1. Na página **Adicionar um pool de back-end**, insira ou selecione os seguintes valores:
    
    - **Name**: digite *MyBackendPool*.
-   - **Associado a**: Abra a lista suspensa e selecione **Conjunto de disponibilidade**.
-   - **Conjunto de disponibilidade**: selecione **MyAvailabilitySet**.
+   - **Associado a**: Na lista suspensa, selecione **Máquina Virtual**.
    
-1. Selecione **Adicionar uma configuração de IP de rede de destino**. 
+   
+1. Selecione **Máquina Virtual**. 
    1. Adicione **MyVM1** e **MyVM2** ao pool de back-end.
    2. Depois de adicionar cada máquina, abra a lista suspensa e selecione suas **Configurações de IP de rede**. 
    

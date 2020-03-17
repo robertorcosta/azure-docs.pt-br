@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d383acae83f0f42f9c16fcb5d4ea7efbdf2b5f8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486474"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967810"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitar o write-back da redefinição de senha por autoatendimento do Azure Active Directory para um ambiente local
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Habilitar a opção de write-back de senha no Azure AD Connect
 > * Habilitar write-back de senha no SSPR do Azure AD
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -42,6 +42,7 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Se necessário, [conclua o tutorial anterior para habilitar o SSPR do Azure AD](tutorial-enable-sspr.md).
 * Um ambiente local do AD DS existente configurado com uma versão atual do Azure AD Connect.
     * Se necessário, configure o Azure AD Connect usando as configurações [Expressas](../hybrid/how-to-connect-install-express.md) ou [Personalizadas](../hybrid/how-to-connect-install-custom.md).
+    * Para usar o write-back de senha, os controladores de domínio precisam ser o Windows Server 2008 R2 ou posterior.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configurar permissões de conta para Azure AD Connect
 

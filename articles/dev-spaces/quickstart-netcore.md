@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: f3e91ec11e054e0a069eb97a3700b051476be0a1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6593cc3d5926fae05b2afd1e926552a2996ae885
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251981"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943714"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio Code e o .NET Core – Azure Dev Spaces
 
@@ -30,7 +30,7 @@ O Azure Dev Spaces também permite depurar e iterar usando:
 
 - Uma assinatura do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
 - [O Visual Studio Code instalado](https://code.visualstudio.com/download).
-- As extensões [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para o Visual Studio Code instaladas.
+- As extensões [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) e [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) para o Visual Studio Code instaladas.
 - A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do Serviço de Kubernetes do Azure
@@ -110,6 +110,9 @@ Este comando compila e executa o serviço no Azure Dev Spaces no modo de depura�
 > Se você não vir comandos do Azure Dev Spaces na *Paleta de Comandos*, verifique se instalou a [extensão do Visual Studio Code para o Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Também verifique se você abriu o diretório *dev-spaces/samples/dotnetcore/getting-started/webfrontend* no Visual Studio Code.
 
 Você poderá ver o serviço em execução abrindo a URL pública.
+
+> [!Note]
+> Inicialmente, a URL pública poderá mostrar um erro *Gateway Incorreto*. Aguarde alguns segundos antes de atualizar a página da Web e você deverá ver o serviço em execução.
 
 Clique em *Depurar* e, em seguida, *Parar Depuração* para parar o depurador.
 

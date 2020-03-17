@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 45cb07de9ddc7854e6da8b8739acfaa95dd0ed01
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304116"
+ms.locfileid: "78359104"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Criar redes virtuais com recursos de gateway da NAT (versão prévia pública)
 
@@ -335,7 +335,7 @@ Uma porta de SNAT está disponível para reutilização para o mesmo endereço I
 ## <a name="limitations"></a>Limitações
 
 - A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
-- A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.
+- A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.  A NAT não pode ser implantada em uma sub-rede com o prefixo IPv6.
 - O registro em log de fluxo do NSG não é compatível com o uso de NAT.
 - A NAT não pode abranger várias redes virtuais.
 
@@ -352,7 +352,7 @@ Desejamos saber como podemos aprimorar o serviço. Compartilhe conosco seus [com
 * Saiba mais sobre a [NAT da rede virtual](nat-overview.md).
 * Saiba mais sobre [métricas e alertas para recursos do Gateway da NAT](nat-metrics.md).
 * Saiba mais sobre a [solução de problemas de recursos do Gateway da NAT](troubleshoot-nat.md).
-* [Com o UserVoice, diga-nos o que criar em seguida](https://aka.ms/natuservoice).
+* [Diga-nos o que criar em seguida para a NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
 * [Forneça comentários sobre a versão prévia pública](https://aka.ms/natfeedback).
 * Tutorial para validar um gateway da NAT
   - [CLI do Azure](tutorial-create-validate-nat-gateway-cli.md),

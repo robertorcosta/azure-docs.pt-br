@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 8e272267ffc8dd2946a390470df78b179ebbdf92
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f8f2db3e81c498757bfc39bf70999ce1e70c09da
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199646"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117189"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
 
@@ -24,7 +24,7 @@ Para solicitar a propriedade de cobrança, é necessário ter a função **Admin
 
 Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Microsoft. Essas contas são criadas para CSPs (Provedores de Soluções na Nuvem) para gerenciar a cobrança dos clientes na nova experiência de comércio. A nova experiência só está disponível para parceiros que têm, pelo menos, um cliente que tenha aceitado um MCA (Contrato de Cliente da Microsoft) e tenha um plano do Azure. [Verifique se você tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Estabelecer um [relacionamento de revendedor](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) com um cliente. Verificar a [Visão Geral da Autorização Regional do CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) para garantir que o cliente e o locatário do Parceiro estejam dentro das mesmas regiões autorizadas.  
 
@@ -139,7 +139,7 @@ Os produtos do Azure Marketplace que estão disponíveis para assinaturas gerenc
 
 ### <a name="azure-reservations-transfer"></a>Transferência de Reservas do Azure
 
-As Reservas do Azure não são movidas automaticamente com as assinaturas. [Entre em contato com o Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para mover as Reservas.
+As Reservas do Azure não são movidas automaticamente com assinaturas. Você pode manter a reserva ou [cancelar e comprar novamente a reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) no CSP. 
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 

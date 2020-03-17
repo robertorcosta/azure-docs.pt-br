@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a5cf3c59c94134e1d0751c1467cd324a95c366eb
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165913"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898815"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo WPF (Windows Presentation Framework) para exibir dados faciais em uma imagem
 
@@ -37,7 +37,7 @@ O exemplo de código completo está disponível no repositório [Exemplo CSharp 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma chave de assinatura da Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Detecção Facial e obter a sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres do ponto de extremidade de serviço, denominadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
@@ -49,7 +49,7 @@ Siga estas etapas para criar um novo projeto de aplicativo do WPF.
 1. No Visual Studio, abra o diálogo Novo Projeto. Expanda **Instalado**, **Visual C#**  e selecione **Aplicativo WPF (.NET Framework)** .
 1. Nomeie o aplicativo **FaceTutorial** e, em seguida, clique em **OK**.
 1. Obtenha os pacotes necessários do NuGet. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione **Gerenciar Pacotes NuGet**; em seguida, localize e instale o seguinte pacote:
-    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.5.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1)
 
 ## <a name="add-the-initial-code"></a>Adicionar o código inicial
 

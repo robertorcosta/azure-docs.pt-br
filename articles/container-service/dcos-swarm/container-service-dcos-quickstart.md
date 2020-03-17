@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278498"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399216"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(PRETERIDO) Implantar um cluster de DC/SO
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/SO fornece uma plataforma distribuída para executar aplicativos modernos e em contêineres. Com o Serviço de Contêiner do Azure, o provisionamento de um cluster de DC/SO pronto para produção é simples e rápido. Este início rápido detalha as etapas básicas necessárias para implantar um cluster do DC/SO e executar uma carga de trabalho básica.
+DC/SO fornece uma plataforma distribuída para executar aplicativos modernos e em contêineres. Com o Serviço de Contêiner do Azure, o provisionamento de um cluster de DC/SO pronto para produção é simples e rápido. Este início rápido fornece detalhes das etapas básicas necessárias para implantar um cluster do DC/SO e executar uma carga de trabalho básica.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -128,19 +128,19 @@ O mecanismo de agendamento padrão para um cluster de DC/SO do ACS é o Marathon
 
 Execute o seguinte comando para agendar o aplicativo para ser executado no cluster do DC/SO.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Para ver o status da implantação para o aplicativo, execute o comando a seguir.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 Quando o valor da coluna **ESPERANDO** mudar de *True* para *False*, a implantação do aplicativo terá sido concluída.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você implantou um cluster de DC/SO e executou um contêiner simples do Docker no cluster. Para saber mais sobre o Serviço de Contêiner do Azure, prossiga para os tutoriais do ACS.
+Neste início rápido, você implantou um cluster do DC/SO e executou um contêiner simples do Docker no cluster. Para saber mais sobre o Serviço de Contêiner do Azure, prossiga para os tutoriais do ACS.
 
 > [!div class="nextstepaction"]
 > [Gerenciar um cluster de DC/SO do ACS](container-service-dcos-manage-tutorial.md)

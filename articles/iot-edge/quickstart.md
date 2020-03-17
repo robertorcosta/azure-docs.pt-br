@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cefd8472c23458b94c4da5ae3c239e9d427276bf
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 54efe7b5c392ad2b4cc3a0de414e04951b268508
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760174"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674241"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual do Windows
 
@@ -40,10 +40,12 @@ Você usa a CLI do Azure para concluir muitas das etapas neste guia de início r
 Adicione a extensão do Azure IoT à instância do shell de nuvem.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Recursos de nuvem:
 
@@ -105,7 +107,7 @@ Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentement
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-   Se você receber um erro sobre as chaves de política do iothubowner, verifique se seu cloud shell está executando a versão mais recente da extensão do azure-cli-iot-ext.
+   Se você receber um erro sobre as chaves de política do iothubowner, verifique se o cloud shell está executando a última versão da extensão azure-iot.
 
 2. Recupere a cadeia de conexão para o seu dispositivo, o que vincula o dispositivo físico à sua identidade no Hub IoT.
 

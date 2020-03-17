@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50d1875ce2529222e8ff7472c48bf6d4dd878667
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772864"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897756"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Fiori
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o SAP Fiori ao Azure AD (Azure Activ
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -173,7 +173,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     1. Na lista **Transformação**, selecione **ExtractMailPrefix()** .
 
-    1. Na lista **Parâmetro 1**, selecione **user.userprinicipalname**.
+    1. Na lista **Parâmetro 1**, selecione **user.userprincipalname**.
 
     1. Clique em **Salvar**.
 

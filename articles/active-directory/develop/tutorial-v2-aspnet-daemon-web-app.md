@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec6664e7c55057c29c5b741203b326ce460c6e91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701222"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129956"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Criar um daemon multilocatário que usa o ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -39,7 +39,8 @@ O aplicativo é criado como um aplicativo MVC ASP.NET. Ele usa o middleware OWIN
 
 O componente "daemon" neste exemplo é um controlador de API, `SyncController.cs`. Quando o controlador é chamado, ele efetua pull em uma lista de usuários no Microsoft Graph no locatário do Azure AD (Azure Active Directory) do cliente. O `SyncController.cs` é disparado por uma chamada AJAX no aplicativo Web. Ele usa a [MSAL (biblioteca de autenticação da Microsoft) para .NET](msal-overview.md) para adquirir um token de acesso para o Microsoft Graph.
 
-Para um aplicativo daemon de console mais simples, veja o [Início rápido do daemon do .NET Core](quickstart-v2-netcore-daemon.md).
+>[!NOTE]
+> Se você é novo na plataforma de identidade da Microsoft, recomendamos começar com o [início rápido do daemon do .NET Core](quickstart-v2-netcore-daemon.md).
 
 ## <a name="scenario"></a>Cenário
 
@@ -49,7 +50,7 @@ Já que o aplicativo é um aplicativo multilocatário para clientes empresariais
 
 Para obter mais informações sobre os conceitos usados neste exemplo, leia a [documentação do protocolo de credenciais do cliente do ponto de extremidade da plataforma de identidade](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar o exemplo presente neste início rápido, você precisará de:
 

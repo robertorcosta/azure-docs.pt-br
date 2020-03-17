@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6070b53e5f906bc378402d98275b8f798f57b505
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820963"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674424"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introdução aos bancos de dados individuais no Banco de Dados SQL do Azure
 
@@ -34,10 +34,8 @@ Nesta seção, você terá uma visão geral dos artigos disponíveis que podem a
 
 Use o PowerShell ou a CLI do Azure para criar, configurar e dimensionar seu banco de dados.
 
-- [Criar e configurar um banco de dados individual usando o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Criar e configurar um banco de dados individual usando a CLI do Azure](scripts/sql-database-create-and-configure-database-cli.md)
-- [Atualizar seu banco de dados individual e dimensionar os recursos usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Atualizar seu banco de dados individual e dimensionar os recursos usando a CLI do Azure](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [Criar e configurar um banco de dados individual usando o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) ou a [CLI do Azure](scripts/sql-database-create-and-configure-database-cli.md)
+- [Atualizar o banco de dados individual e escalar os recursos usando o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) ou a [CLI do Azure](scripts/sql-database-monitor-and-scale-database-cli.md)
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrando para um banco de dados individual com tempo de inatividade mínimo
 

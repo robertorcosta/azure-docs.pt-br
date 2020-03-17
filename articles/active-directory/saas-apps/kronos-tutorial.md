@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec568793d717da2493b2c45fe1dca5ad56073886
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4ae90b729db51287f2a98caa36ae43d83a2a207c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986244"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897788"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kronos"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Kronos
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Kronos ao Azure AD (Azure Active D
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -103,7 +103,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na lista **Transformação**, selecione **ExtractMailPrefix()** .
 
-    c. Na lista **Parâmetro 1**, selecione **user.userprinicipalname**.
+    c. Na lista **Parâmetro 1**, selecione **user.userprincipalname**.
 
     d. Clique em **Save** (Salvar).
 

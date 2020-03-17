@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539596"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330388"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar a hospedagem de sites estáticos
 > * Implantar um site Olá, Mundo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -92,8 +92,6 @@ Em seguida, crie uma página da Web Olá, Mundo com o Visual Studio Code e impla
 1. Selecione a assinatura que contém a conta de armazenamento para a qual você habilitou a hospedagem de site estático. Em seguida, selecione a conta de armazenamento quando for solicitado.
 
 Agora, o Visual Studio Code fará upload de seus arquivos no seu ponto de extremidade da Web e mostrará a barra de status de êxito. Inicie o site para exibi-lo no Azure.
-
-![Exibir a implantação de site estático no Azure](media/storage-blob-static-website-host/view-static-website-endpoint.png)
 
 Você concluiu o tutorial e implantou um site estático no Azure com êxito.
 

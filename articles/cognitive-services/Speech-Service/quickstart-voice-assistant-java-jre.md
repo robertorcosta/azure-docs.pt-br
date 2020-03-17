@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6baa98d50c50146e93b4832053f63f3bead90a6d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119684"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330815"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Início Rápido: Criar um assistente de voz com o SDK de Fala, Java (Versão prévia)
 
 Também há inícios rápidos disponíveis para [conversão de fala em texto](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [conversão de texto em fala](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) e [tradução de fala](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
-Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala dos Serviços Cognitivos do Azure](speech-sdk.md). O aplicativo se conecta a um bot criado anteriormente, configurado para usar o canal de Fala do Direct Line, envia uma solicitação de voz e retorna uma atividade de resposta de voz (se configurada). O aplicativo é criado com o pacote Maven do SDK de Fala e o Java IDE do Eclipse no Windows, no Ubuntu Linux ou no macOS. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
+Neste artigo, você criará um aplicativo de console Java usando o [SDK de Fala dos Serviços Cognitivos do Azure](speech-sdk.md). O aplicativo se conecta a um bot criado anteriormente, configurado para usar o canal de Fala do Direct Line, envia uma solicitação de voz e retorna uma atividade de resposta de voz (se configurada). O aplicativo é criado com o pacote Maven do SDK de Fala e o Java IDE do Eclipse no Windows, no Linux ou no macOS. Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
-- Sistema operacional: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10.13 ou posterior.
+- Sistema operacional: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits), RHEL/CentOS 8 (x64) ou macOS 10.13 ou posterior.
 - [Java IDE do Eclipse](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - Uma chave de assinatura do Azure para o serviço de Fala. [Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com).
@@ -42,6 +42,17 @@ Se estiver executando o Ubuntu 16.04/18.04, instale estas dependências antes de
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
+
+No RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl wget
+```
+
+> [!NOTE]
+> No RHEL/CentOS 8, siga as instruções em [como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 Se estiver executando o Windows (64 bits), verifique se você instalou o Pacote Redistribuível do Microsoft Visual C++ para a sua plataforma:
 

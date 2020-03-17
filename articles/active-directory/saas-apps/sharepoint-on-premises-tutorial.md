@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367024"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
 
@@ -34,7 +34,7 @@ A integração do SharePoint local com o Azure AD oferece os seguintes benefíci
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o SharePoint local, você precisa dos seguintes itens:
 
@@ -271,7 +271,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 10. Configure o AzureCP no farm do SharePoint local ou uma solução alternativa de provedor de declarações personalizadas.  Neste exemplo, estamos usando o AzureCP.
 
     > [!NOTE]
-    > O AzureCP não é um produto da Microsoft ou com suporte pelo suporte técnico da Microsoft. Baixar, instalar e configurar o AzureCP no farm do SharePoint local por https://yvand.github.io/AzureCP/ 
+    > O AzureCP não é um produto da Microsoft ou com suporte pelo suporte técnico da Microsoft. Baixar, instalar e configurar o AzureCP no farm do SharePoint local de acordo com [https://yvand.github.io/AzureCP/](https://yvand.github.io/AzureCP/) 
 
 11. **Permitir acesso ao grupo de segurança do Azure Active Directory no SharePoint local**: os grupos devem ter acesso ao aplicativo no SharePoint local.  Use as etapas a seguir para definir as permissões para acessar o aplicativo Web.
 
@@ -373,4 +373,4 @@ Ao clicar no bloco do SharePoint local no Painel de Acesso, você deverá entrar
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

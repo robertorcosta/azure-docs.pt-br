@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669532"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359248"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>O que é NAT de Rede Virtual (versão prévia pública)?
 
@@ -192,13 +192,13 @@ Desejamos saber como podemos aprimorar o serviço. Compartilhe conosco seus [com
 
 ## <a name="limitations"></a>Limitações
 
-- A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
-- A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.
-- O registro em log de fluxo do NSG não é compatível com o uso de NAT.
-- A NAT não pode abranger várias redes virtuais.
+* A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
+* A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.  A NAT não pode ser implantada em uma sub-rede com o prefixo IPv6.
+* O registro em log de fluxo do NSG não é compatível com o uso de NAT.
+* A NAT não pode abranger várias redes virtuais.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [recurso de gateway da NAT](./nat-gateway-resource.md).
-- [Com o UserVoice, diga-nos o que criar em seguida](https://aka.ms/natuservoice).
-- [Forneça comentários sobre a versão prévia pública](https://aka.ms/natfeedback).
+* Saiba mais sobre o [recurso de gateway da NAT](./nat-gateway-resource.md).
+* [Diga-nos o que criar em seguida para a NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
+* [Forneça comentários sobre a versão prévia pública](https://aka.ms/natfeedback).

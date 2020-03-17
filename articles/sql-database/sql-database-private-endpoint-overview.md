@@ -7,15 +7,15 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
-ms.date: 09/17/2019
-ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121073"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945362"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Link Privado do Banco de Dados SQL do Azure e do Data Warehouse (versão prévia)
+# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Link Privado do Banco de Dados SQL do Azure e do Data Warehouse
 
 O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado**. Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de Link Privado, acesse a página [Documentação do Link Privado](../private-link/index.yml). Um ponto de extremidade privado é um endereço IP privado em uma [VNET](../virtual-network/virtual-networks-overview.md) e sub-rede específicas. 
 
@@ -145,7 +145,7 @@ O resultado mostra que um endereço IP está ativo, que corresponde ao endereço
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verificar a conectividade usando o SSMS (SQL Server Management Studio)
 > [!NOTE]
->Use o **FQDN (nome de domínio totalmente qualificado)** do servidor nas cadeias de conexão de seus clientes. As tentativas de logon feitas diretamente no endereço IP devem falhar por design.
+> Use o **FQDN (nome de domínio totalmente qualificado)** do servidor nas cadeias de conexão dos clientes. As tentativas de logon feitas diretamente no endereço IP deverão falhar. Esse comportamento ocorre por design, pois o ponto de extremidade privado roteia o tráfego para o gateway do SQL na região, e o FQDN precisa ser especificado para que os logons tenham êxito.
 
 Siga as etapas fornecidas aqui para usar o [SSMS para se conectar ao Banco de Dados SQL](sql-database-connect-query-ssms.md). Depois de se conectar ao Banco de Dados SQL usando o SSMS, verifique se você está se conectando no endereço IP privado da VM do Azure executando a seguinte consulta:
 
@@ -153,8 +153,9 @@ Siga as etapas fornecidas aqui para usar o [SSMS para se conectar ao Banco de Da
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> Na versão prévia, as conexões com o ponto de extremidade privado só dão suporte ao **Proxy** como a [política de conexão](sql-database-connectivity-architecture.md#connection-policy)
+
+## <a name="limitations"></a>Limitações 
+As conexões com o ponto de extremidade privado só dão suporte ao **Proxy** como a [política de conexão](sql-database-connectivity-architecture.md#connection-policy)
 
 
 ## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Como se conectar por meio de uma VM do Azure na VNET (Rede Virtual) emparelhada 

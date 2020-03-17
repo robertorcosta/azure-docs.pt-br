@@ -4,15 +4,15 @@ description: Uma visão geral dos Arquivos do Azure, um serviço que permite cri
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 03/10/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43d19f5b3f291f69e7b6f765dcee230345421d1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a7bb7939921bfcc3a870193cb9025a8f3dff72c
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431794"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969128"
 ---
 # <a name="what-is-azure-files"></a>O que são os Arquivos do Azure?
 Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão no setor. Os compartilhamentos de arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. Além disso, os compartilhamentos de arquivos do Azure podem ser armazenados em cache nos Windows Servers com a Sincronização de Arquivos do Azure para acesso rápido perto de onde os dados estão sendo usados.
@@ -26,7 +26,7 @@ Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciad
 Os compartilhamentos de arquivos do Azure podem ser usados para:
 
 * **Substituir ou complementar os servidores de arquivos locais**:  
-    Os Arquivos do Azure podem ser usados para substituir completamente ou complementar os servidores de arquivos tradicionais no local ou dispositivos NAS. Sistemas operacionais conhecidos, como o Linux, Windows e macOS podem montar diretamente compartilhamentos de arquivos do Azure em qualquer lugar do mundo. Os compartilhamentos de arquivos do Azure também podem ser replicados com a Sincronização de Arquivos do Azure para Windows Servers, no local ou na nuvem, para armazenamento dos dados em cache distribuído e com desempenho onde estão sendo usados.
+    Os Arquivos do Azure podem ser usados para substituir completamente ou complementar os servidores de arquivos tradicionais no local ou dispositivos NAS. Sistemas operacionais conhecidos, como o Linux, Windows e macOS podem montar diretamente compartilhamentos de arquivos do Azure em qualquer lugar do mundo. Os compartilhamentos de arquivos do Azure também podem ser replicados com a Sincronização de Arquivos do Azure para Windows Servers, no local ou na nuvem, para armazenamento dos dados em cache distribuído e com desempenho onde estão sendo usados. Com o recente lançamento da [Autenticação do AD para os Arquivos do Azure](storage-files-active-directory-overview.md), os compartilhamentos de arquivo do Azure podem continuar trabalhando com o AD hospedado localmente para o controle de acesso. 
 
 * **Aplicativos de "Deslocamento e comparação"** :  
     O serviço Arquivos do Azure facilita "comparar e deslocar" aplicativos para a nuvem que espera que o compartilhamento de arquivos armazene o aplicativo de arquivo ou os dados do usuário. O serviço Arquivos do Azure permite o cenário “clássico” de comparar e deslocar, em que o aplicativo e os dados são movidos para o Azure, e o cenário “híbrido”, em que os dados do aplicativo são movidos para o serviço Arquivos do Azure e o aplicativo continua a ser executado no local. 

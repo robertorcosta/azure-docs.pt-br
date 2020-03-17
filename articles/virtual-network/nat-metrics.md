@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 268f5f5b7bf1bed27a01085974bea72af6a84f3b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 51713db8532eb33f102de9320dea9eaeb98c4019
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304048"
+ms.locfileid: "78359074"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métricas da NAT da Rede Virtual do Azure
 
@@ -57,8 +57,10 @@ Não há suporte para o Resource Health.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [NAT de Rede Virtual](nat-overview.md)
-- Saiba mais sobre o [recurso do Gateway da NAT](nat-gateway-resource.md)
-- Saiba mais sobre o [Azure Monitor](../azure-monitor/overview.md)
-- Saiba mais sobre a [solução de problemas de recursos do Gateway da NAT](troubleshoot-nat.md).
+* Saiba mais sobre a [NAT de Rede Virtual](nat-overview.md)
+* Saiba mais sobre o [recurso do Gateway da NAT](nat-gateway-resource.md)
+* Saiba mais sobre o [Azure Monitor](../azure-monitor/overview.md)
+* Saiba mais sobre a [solução de problemas de recursos do Gateway da NAT](troubleshoot-nat.md).
+* [Diga-nos o que criar em seguida para a NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
+
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a3ad81091fa93993f71c6d65175e50f6ee216757
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fd74b3fad7f0b26eff2fdedddae171a1b7297dcd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073459"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898894"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Início Rápido: Criar uma máquina virtual do Windows com a CLI do Azure
 
@@ -46,16 +46,15 @@ az group create --name myResourceGroup --location eastus
 
 Crie uma VM com [az vm create](/cli/azure/vm). O exemplo a seguir cria uma VM chamada *myVM*. Este exemplo usa *azureuser* para um nome de usuário administrativo. 
 
-Você deve alterar o valor para `--admin-password` ou ocorrerá falha. Altere-o para uma senha que atenda aos [requisitos de senha para VMs do Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-). O nome de usuário e a senha podem ser usados posteriormente para se conectar às VMs.
+Você precisará fornecer uma senha que atenda aos [requisitos de senha para as VMs do Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). Usando o exemplo abaixo, você deverá inserir uma senha na linha de comando. Você também pode adicionar o parâmetro `--admin-password` com um valor para a senha. O nome de usuário e a senha podem ser usados posteriormente para se conectar às VMs.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image win2016datacenter \
-    --admin-username azureuser \
-    --admin-password myPassword
+    --admin-username azureuser 
 ```
 
 A criação da VM e dos recursos de suporte demora alguns minutos. O seguinte exemplo de saída mostra que a operação de criação de VM foi bem-sucedida.
@@ -101,13 +100,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Quando terminar, feche a conexão RDP com a VM.
 
-## <a name="view-the-web-server-in-action"></a>Ver o servidor web em ação
+## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 
 Com o IIS instalado e a porta 80 agora aberta na VM pela Internet, use um navegador da Web de sua escolha para exibir a página inicial padrão do IIS. Use o endereço IP público da VM obtido em uma etapa anterior. O seguinte exemplo mostra o site padrão do IIS:
 
 ![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, a VM e todos os recursos relacionados:
 

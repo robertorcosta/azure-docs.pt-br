@@ -6,19 +6,23 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
-ms.openlocfilehash: 7c6f4b2ea9494c004067a8b19df2c2f098ac2b7f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom:
+- mvc
+- subject-armqs
+ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274505"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126389"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration"></a>Início Rápido: Implantação automatizada de VM com a Configuração de Aplicativos
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Início Rápido: Implantação automatizada de VM com a Configuração de Aplicativos e o modelo do Resource Manager
 
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure usando scripts ou cmdlets do PowerShell. Este início rápido mostra como usar o Azure PowerShell e os modelos do Azure Resource Manager para implantar um repositório da Configuração de Aplicativos do Azure. Em seguida, você aprenderá a usar os pares chave-valor no repositório para implantar uma VM.
 
 Use o modelo de pré-requisito para criar um repositório da Configuração de Aplicativos e, em seguida, adicione pares chave-valor no repositório usando o portal do Azure ou a CLI do Azure. O modelo primário referencia as configurações de pares chave-valor existentes de um repositório de configurações existente. Os valores recuperados são usados para definir as propriedades dos recursos criados pelo modelo, como uma VM, neste exemplo.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -85,7 +89,7 @@ Antes de aplicar pares chave-valor à VM, você precisará ter um repositório d
       },
       "skuName": {
         "type": "string",
-        "defaultValue": "free",
+        "defaultValue": "standard",
         "metadata": {
           "description": "Specifies the SKU of the app configuration store."
         }
@@ -332,7 +336,7 @@ Agora que adicionou pares chave-valor ao repositório, você está pronto para i
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('windowsOSVersionParameters')).value]",
+                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('windowsOSVersionParameters')).value]",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -340,7 +344,7 @@ Agora que adicionou pares chave-valor ao repositório, você está pronto para i
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('diskSizeGBParameters')).value]",
+                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('diskSizeGBParameters')).value]",
                             "lun": 0,
                             "createOption": "Empty"
                         }

@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7886c863dd50fd3f09d782f892bdebabceb73546
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b878c9e26a1f1f0e1e71e79d8f52b81f12924ef3
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160101"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968404"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Tutorial: Integração do Qlik Sense Enterprise ao Azure Active Directory
 
@@ -31,9 +30,9 @@ Neste tutorial, você aprenderá a integrar o Qlik Sense Enterprise ao Azure Act
 * Habilitar seus usuários a fazerem logon automaticamente no Qlik Sense Enterprise com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -42,7 +41,11 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Qlik Sense Enterprise dá suporte SSO iniciado por **SP**.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. 
+* O Qlik Sense Enterprise dá suporte SSO iniciado por **SP**.
+* O Qlik Sense Enterprise dá suporte ao **provisionamento just-in-time**
+
+* Depois de configurar o Qlik Sense Enterprise, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Adicionar Qlik Sense Enterprise da galeria
 
@@ -62,11 +65,11 @@ Configure e teste o SSO do Azure AD com o Qlik Sense Enterprise usando um usuár
 Para configurar e testar o SSO do Azure AD com o Qlik Sense Enterprise, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-2. **[Configurar o SSO do Qlik Sense Enterprise](#configure-qlik-sense-enterprise-sso)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Qlik Sense Enterprise](#create-qlik-sense-enterprise-test-user)** – para ter um equivalente de Brenda Fernandes no Qlik Sense Enterprise que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Qlik Sense Enterprise](#configure-qlik-sense-enterprise-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    * **[Criar um usuário de teste do Qlik Sense Enterprise](#create-qlik-sense-enterprise-test-user)** – para ter um equivalente de Brenda Fernandes no Qlik Sense Enterprise que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
@@ -82,7 +85,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Fully Qualified Domain Name>:443{/virtualproxyprefix}/hub`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador**, digite uma URL usando um dos seguintes padrões:
 
     | |
     |--|
@@ -101,7 +104,37 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-### <a name="configure-qlik-sense-enterprise-sso"></a>Configurar o SSO do Qlik Sense Enterprise
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+
+Nesta seção, você criará a usuária de teste Brenda Fernandes no portal do Azure.
+
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `Britta Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Qlik Sense Enterprise.
+
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Qlik Sense Enterprise**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+
+   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+
+    ![O link Adicionar Usuário](common/add-assign-user.png)
+
+1. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+## <a name="configure-qlik-sense-enterprise-sso"></a>Configurar o SSO do Qlik Sense Enterprise
 
 1. Prepare o arquivo XML de Metadados de Federação para que você possa carregar no servidor Qlik Sense.
 
@@ -218,39 +251,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![QlikSense][qs53]
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-
-Nesta seção, você criará a usuária de teste Brenda Fernandes no portal do Azure.
-
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
-1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `Britta Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Qlik Sense Enterprise.
-
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Qlik Sense Enterprise**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
-
 ### <a name="create-qlik-sense-enterprise-test-user"></a>Criar um usuário de teste do Qlik Sense Enterprise
 
-Nesta seção, você deve criar uma usuária chamada Brenda Fernandes no Qlik Sense Enterprise. Trabalhe com a [equipe de suporte do Qlik Sense Enterprise](https://www.qlik.com/us/services/support) para adicionar os usuários na plataforma Qlik Sense Enterprise. Os usuários devem ser criados e ativados antes de usar o logon único.
+O Qlik Sense Enterprise dá suporte ao **provisionamento just-in-time**. Os usuários são automaticamente adicionados ao repositório 'USERS' do Qlik Sense Enterprise quando usam o recurso de SSO. Além disso, os clientes podem usar o QMC e criar um UDC (Conector de Diretório de Usuários) para preencher previamente os usuários no Qlik Sense Enterprise por meio do LDAP escolhido, como o Active Directory e outros.
 
 ### <a name="test-sso"></a>Testar o SSO
 
@@ -260,9 +263,11 @@ Ao selecionar o bloco do Qlik Sense Enterprise no Painel de Acesso, você dever�
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

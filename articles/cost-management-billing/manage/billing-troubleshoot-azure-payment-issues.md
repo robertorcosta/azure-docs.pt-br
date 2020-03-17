@@ -10,20 +10,37 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: 199d32efef256fe3b56dbcf0a5d3ac6351f2d0b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd9d17eb365937035919b7e712a4b5824f747bda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200907"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942576"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Solucionar problemas de pagamento do Azure
 
 Você pode receber um erro ou ter problemas ao tentar atualizar a conta das informações de pagamento no portal do Microsoft Azure ou no Centro de Contas do Azure.
 
 Para resolver o problema, selecione o tópico abaixo que mais se assemelha ao erro.
+
+## <a name="my-credit-card-was-declined-when-i-tried-to-sign-up-for-azure"></a>Meu cartão de crédito foi recusado quando tentei me inscrever no Azure
+
+Para solucionar problemas relacionados a um cartão recusado, confira [Solução de problemas de um cartão recusado na inscrição do Azure](troubleshoot-declined-card.md).
+
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Não é possível ver as assinaturas na minha conta para atualizar a forma de pagamento
+
+Você pode estar usando uma ID de email diferente daquela usada nas assinaturas.
+
+Para solucionar esse problema, confira o [Erro de entrada Nenhuma assinatura encontrada no portal do Azure ou no Centro de Contas do Azure](no-subscriptions-found.md).
+
+## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>Não é possível usar um cartão de crédito ou débito virtual ou pré-pago como forma de pagamento.
+
+*   Os cartões de crédito virtuais ou pré-pagos não são aceitos como pagamento de assinaturas do Azure.
+*   Os cartões de débito não são aceitos como pagamento de assinaturas do Azure.
+
+Para obter mais informações, confira [Solução de problemas de um cartão recusado na inscrição do Azure](troubleshoot-declined-card.md).
 
 ## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>Não é possível remover o cartão de crédito de uma forma de pagamento de cobrança salva
 
@@ -33,19 +50,11 @@ Se um cartão existente precisar ser excluído, um novo cartão deverá ser adic
 
 ## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>Não é possível excluir uma forma de pagamento antiga após adicionar uma nova forma de pagamento
 
-O novo meio de pagamento não pode ser associado à assinatura. Para ajudar a associar o meio de pagamento à assinatura, confira [Adicionar, atualizar ou remover um cartão de crédito ou débito no Azure](change-credit-card.md).
-
-Para solucionar problemas relacionados a um cartão recusado, confira [Como solucionar problemas de um cartão recusado na inscrição do Azure](troubleshoot-declined-card.md).
+O novo meio de pagamento não pode ser associado à assinatura. Para ajudar a associar o meio de pagamento à assinatura, confira [Adicionar, atualizar ou remover um cartão de crédito no Azure](change-credit-card.md).
 
 ## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>Não é possível excluir a forma de pagamento devido ao erro *Impossível excluir a forma de pagamento*
 
 Isso ocorre devido a um saldo pendente. Liquide todos os saldos pendentes antes de excluir a forma de pagamento.
-
-## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Não é possível ver as assinaturas na minha conta para atualizar a forma de pagamento
-
-Você pode estar usando uma ID de email diferente daquela usada nas assinaturas.
-
-Para solucionar esse problema, confira o [Erro de entrada Nenhuma assinatura encontrada no portal do Azure ou no Centro de Contas do Azure](no-subscriptions-found.md).
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Não é possível fazer o pagamento de uma assinatura
 

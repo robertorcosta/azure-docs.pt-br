@@ -3,12 +3,12 @@ title: Usar o plug-in do Azure Dev Spaces para Jenkins com o Serviço de Kuberne
 description: Saiba como usar o plug-in do Azure Dev Spaces em um pipeline de integração contínua.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 7b23893eb331f55ff41992a2ca660e79f44a609a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 281565cec5ee947781ab8ee9f62a00e01f9ababb
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250897"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037031"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutorial: Usar o plug-in do Azure Dev Spaces para Jenkins com o Serviço de Kubernetes do Azure 
 
@@ -265,7 +265,7 @@ A configuração do pipeline do Jenkins e o arquivo Jenkins definem os estágios
 
 ![Fluxo de pipeline do Jenkins](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Baixe uma versão modificada do projeto *mywebapi* de https://github.com/azure-devops/mywebapi. Esse projeto contém vários arquivos necessários para criar um pipeline, incluindo *Jenkinsfile*, *Dockerfiles* e o gráfico do Helm.
+1. Baixe uma versão modificada do projeto *mywebapi* em [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi). Esse projeto contém vários arquivos necessários para criar um pipeline, incluindo *Jenkinsfile*, *Dockerfiles* e o gráfico do Helm.
 
 2. Faça logon no Jenkins. No menu à esquerda, selecione **Adicionar Item**.
 

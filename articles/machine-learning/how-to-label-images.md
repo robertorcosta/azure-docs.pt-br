@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6d0a9bf172039adcaa756660d38acc1547e91b49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772441"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898690"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem
 
@@ -23,7 +23,7 @@ Depois que o administrador de projeto [criar um projeto de rotulagem](https://do
 > * As ferramentas de rotulagem
 > * Como usar as ferramentas para tarefas de rotulagem específicas
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * A URL do portal de rotulagem para um projeto de rotulagem de dados em execução
 * Uma [conta Microsoft](https://account.microsoft.com/account) ou uma conta do Azure Active Directory para a organização e o projeto
@@ -58,6 +58,16 @@ O Azure habilitará o botão **Enviar** quando você tiver marcado todas as imag
 
 Depois que você enviar marcas para os dados à disposição, o Azure atualizará a página com um novo conjunto de imagens da fila de trabalho.
 
+### <a name="assisted-machine-learning"></a>Aprendizado de máquina assistido 
+
+Os algoritmos de aprendizado de máquina podem ser disparados durante uma tarefa de classificação multiclasse ou de vários rótulos. Se esses algoritmos estiverem habilitados no seu projeto, você poderá ver o seguinte:
+
+* Depois que uma quantidade de imagens for rotulada, você poderá ver **Tarefas clusterizadas** na parte superior da tela ao lado do nome do projeto.  Isso significa que as imagens são agrupadas para apresentar as imagens semelhantes na mesma página.  Nesse caso, alterne para uma das várias exibições de imagens para aproveitar o agrupamento.  
+
+* Em um momento posterior, você poderá ver **Tarefas pré-rotuladas** ao lado do nome do projeto.  As imagens serão então exibidas com um rótulo sugerido proveniente de um modelo de classificação de aprendizado de máquina. Nenhum modelo de machine learning tem precisão de 100%. Embora só utilizemos imagens para as quais o modelo esteja confiante, essas imagens ainda poderão ser pré-rotuladas incorretamente.  Quando você vir esses rótulos, corrija os rótulos incorretos antes de enviar a página.  
+
+Especialmente no início de um projeto de rotulagem, o modelo de machine learning poderá ser preciso apenas o suficiente para pré-rotular um pequeno subconjunto de imagens. Depois que essas imagens forem rotuladas, o projeto de rotulagem voltará à rotulagem manual para coletar mais dados para a próxima rodada de treinamento do modelo. Ao longo do tempo, o modelo se tornará mais confiante em relação a uma proporção mais alta de imagens, resultando em mais tarefas de pré-rotulo posteriormente no projeto.
+
 ## <a name="tag-images-for-multi-class-classification"></a>Marcar imagens para classificação multiclasse
 
 Se o seu projeto for do tipo "Classificação de imagem multiclasse", você atribuirá uma única tag à imagem inteira. Para examinar as orientações a qualquer momento, acesse a página **Instruções** e selecione **Exibir instruções detalhadas**.
@@ -81,6 +91,7 @@ Para corrigir um erro, clique no "**X**" para limpar uma tag individual ou selec
 ![Uma captura de tela mostra várias seleções anuladas](./media/how-to-label-images/multiple-deselection.png)
 
 O Azure só habilitará o botão **Enviar** depois que você tiver aplicado pelo menos uma tag a cada imagem. Selecione **Enviar** para salvar o trabalho.
+
 
 ## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Marcar imagens e especificar caixas delimitadoras para detecção de objetos
 

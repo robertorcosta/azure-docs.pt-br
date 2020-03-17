@@ -8,16 +8,16 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 1c6f03663a7487e814272c6296f6e7862c65c806
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769882"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970114"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>O que são a Cobrança e o Gerenciamento de Custos do Azure?
 
-Com os produtos e serviços do Azure, você paga apenas pelo que usar. Ao criar e usar recursos do Azure, você será cobrado por eles. Use os recursos de Cobrança e Gerenciamento de Custos do Azure para realizar tarefas administrativas de cobrança e gerenciar o acesso da cobrança aos custos. Além disso, use esses recursos para monitorar e controlar os gastos do Azure e otimizar o uso de recursos.
+Com os produtos e serviços do Azure, você paga apenas pelo que usar. Ao criar e usar recursos do Azure, você será cobrado por eles. Use os recursos de Cobrança e Gerenciamento de Custos do Azure para realizar tarefas administrativas de cobrança e gerenciar o acesso da cobrança aos custos. Use também os recursos para monitorar e controlar os gastos do Azure e otimizar o uso de recursos do Azure.
 
 ## <a name="understand-azure-billing"></a>Entender a Cobrança do Azure
 

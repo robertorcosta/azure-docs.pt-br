@@ -1,14 +1,15 @@
 ---
 title: Tutorial – Criar um cluster do Kubernetes com o AKS (Serviço de Kubernetes do Azure) usando o Terraform
-description: Tutorial ilustrando como criar um cluster do Kubernetes com o serviço do Azure Kubernetes e o Terraform
+description: Neste tutorial, você criará um cluster do Kubernetes com o Serviço de Kubernetes do Azure e o Terraform
+keywords: azure devops terraform aks kubernetes
 ms.topic: tutorial
-ms.date: 11/07/2019
-ms.openlocfilehash: eb8619418cf6d42f600499bb5a12322adce6f44b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/09/2020
+ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472240"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945302"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: Criar um cluster do Kubernetes com o Serviço de Kubernetes do Azure usando o Terraform
 
@@ -21,7 +22,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Use Terraform e AKS para criar um cluster Kubernetes
 > * Use a ferramenta kubectl para testar a disponibilidade de um cluster do Kubernetes
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
@@ -71,7 +72,10 @@ Crie o arquivo de configuração Terraform que declara o provedor do Azure.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.5"
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
     }
 
     terraform {

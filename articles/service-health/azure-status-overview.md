@@ -3,12 +3,12 @@ title: Visão geral do status do Azure | Microsoft Docs
 description: Uma exibição global da integridade dos serviços do Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654147"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898334"
 ---
 # <a name="azure-status-overview"></a>Visão geral do status do Azure
 
@@ -26,7 +26,7 @@ A página de status do Azure é atualizada em tempo real conforme a integridade 
 
 Enquanto a página de status do Azure sempre mostra as informações de integridade mais recentes, você pode exibir os eventos mais antigos usando a [página de histórico de status do Azure](https://status.azure.com/status/history/).
 
-Nela, você pode ver eventos de até 90 dias anteriores, incluindo a causa raiz preliminar, a mitigação e as próximas etapas do Azure.
+Começando com os eventos que foram publicados em novembro de 2019, a página de histórico de status mostra eventos de até 365 dias no passado, incluindo uma causa raiz preliminar, a mitigação e as próximas etapas para o Azure.
 
 ## <a name="rss-feed"></a>RSS Feed
 

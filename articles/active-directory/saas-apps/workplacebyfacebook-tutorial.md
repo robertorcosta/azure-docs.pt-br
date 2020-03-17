@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 98706d0c9a86d53ae31d05bec48d7071f251b651
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985247"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workplace by Facebook
 
@@ -30,9 +30,9 @@ Neste tutorial, você aprenderá a integrar o Workplace by Facebook ao Azure AD 
 * Permitir que seus usuários entrem automaticamente no Workplace by Facebook com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -157,6 +157,8 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     a. Marque a opção **SSO (logon único)** .
     
     b. Clique em **+Adicionar novo Provedor de SSO**.
+    > [!NOTE]
+    > Marque também a caixa de seleção Logon de senha. Os administradores podem precisar dessa opção para fazer logon enquanto fazem a sobreposição do certificado, a fim de impedir que fiquem sendo bloqueados.
 
 1. Na guia **Autenticação**, selecione **SSO (logon único)** e execute as seguintes etapas:
 
@@ -238,7 +240,7 @@ Quando você clica no bloco Workplace by Facebook no painel de acesso, você dev
 
 - [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -247,4 +249,3 @@ Quando você clica no bloco Workplace by Facebook no painel de acesso, você dev
 - [Experimentar o Workplace by Facebook com o Azure AD](https://aad.portal.azure.com)
 
 - [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f49c2b445af9acb0761d01b731250e068cb96a36
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 9c598222978a1c831be6f5e9db9eb87b2d6b6b96
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562303"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968687"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o 8x8
 
@@ -30,9 +30,9 @@ Neste tutorial, você aprenderá a integrar o 8x8 ao Azure AD (Azure Active Dire
 * Permitir que os usuários sejam conectados automaticamente ao 8x8 com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -86,20 +86,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando um dos seguintes padrões:
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://sso.8x8.com/saml2`
 
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
-    b. Na caixa de texto **URL de Resposta**, digite uma URL nos seguintes padrões:
-
-    |||
-    |-|-|
-    | `https://sso.8x8.com/saml2`|
-    | `https://sso.8x8pilot.com/saml2`|
-
+    b. Na caixa de texto **URL de Resposta**, insira uma URL: `https://sso.8x8.com/saml2`
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador. Você usará o certificado posteriormente no tutorial na seção **Configurar o SSO do 8x8**.
 
@@ -151,9 +140,15 @@ A próxima parte do tutorial depende do tipo de assinatura que você tem com o 8
 
 1. Na página inicial clique em **Gerenciamento de Identidades**.
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+
 1. Marque **SSO (Logon Único)** e, em seguida, selecione **Microsoft Azure AD**.
 
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+
 1. Copie as três URLs e o certificado de autenticação da página **Configurar Logon Único com SAML** no Azure AD, na seção **Configurações de SAML do Microsoft Azure AD** no Configuration Manager do 8x8.
+
+    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
 
     a. Copie a **URL de Logon** para a **URL de Logon de IDP**.
 
@@ -171,15 +166,27 @@ A próxima parte do tutorial depende do tipo de assinatura que você tem com o 8
 
 1. Selecione **Virtual Office Account Mgr** no painel do aplicativo.
 
+    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+
 1. Selecione a **conta comercial** que deseja gerenciar e clique no botão **Entrar**.
+
+    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Clique em **contas** guia na lista de menus.
 
+    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+
 1. Clique em **Single Sign On** na lista Accounts.
+
+    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Selecione **Logon único** em Métodos de autenticação e clique em **SAML**.
 
+    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+
 1. No **logon único do SAML** , realize as seguintes etapas:
+
+    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
     a. Na caixa de texto **URL de login**, cole o **valor do URL de login** que você copiou do portal do Azure.
 
@@ -205,7 +212,7 @@ Ao clicar no bloco do 8x8 no Painel de Acesso, você deverá ser conectado autom
 
 - [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

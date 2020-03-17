@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dbf3531f84d218543b0ab1fb2199a66bdbde2926
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514418"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117259"
 ---
 ::: zone target = "docs"
 
@@ -46,7 +46,7 @@ Este guia fornece informações sobre como examinar os pré-requisitos, cabear e
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
@@ -100,7 +100,7 @@ Execute as etapas a seguir para cabear o dispositivo.
 
 Em um dos nós do dispositivo, execute as etapas a seguir para fazer o cabeamento para a rede.
 
-1. Use um cabo de rede CAT 6 RJ-45 (cabo azul na imagem) para conectar o computador host à porta de gerenciamento de 1 Gbps.
+1. Use um cabo de rede CAT 6 RJ-45 (cabo superior direito na imagem, conectado ao plugue rotulado como MGMT) para conectar o computador host à porta de gerenciamento de 1 Gbps.
 2. Use um cabo QSFP+ (fibra ou cobre) para conectar, pelo menos, uma interface de rede de 40 Gbps (preferível a 1 Gbps) para os dados. Se estiver usando um comutador de 10 Gbps, use um cabo SFP+ com um adaptador QSFP+ para SFP+ (o adaptador QSA) para conectar a rede de 40 Gbps para os dados.
 
     ![Portas do Data Box Heavy cabeadas](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)

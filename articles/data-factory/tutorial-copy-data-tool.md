@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do armazenamento de Blobs do Azure para o SQL usando a ferramenta Copiar Dados
-description: Crie um Azure Data Factory e use a ferramenta Copy Data para copiar dados de Armazenamento de blobs do Azure para o banco de dados SQL.
+description: Crie um Azure data factory e, em seguida, use a ferramenta Copiar Dados para copiar dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,21 +11,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 09/11/2018
-ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/03/2020
+ms.openlocfilehash: 52ed43277eef84de826d2f4fa41ba860211a1531
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977329"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969972"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de blobs do Azure para um banco de dados SQL usando a ferramenta Copy Data
+# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando a ferramenta Copiar Dados
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](tutorial-copy-data-tool.md)
 
-Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, use a ferramenta Copiar Dados para criar um pipeline que copia dados de um Armazenamento de blobs do Azure para um banco de dados SQL.
+Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, você usará a ferramenta Copiar Dados para criar um pipeline que copia dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL.
 
 > [!NOTE]
 > Se estiver se familiarizando com o Azure Data Factory, confira [Introdução ao Azure Data Factory](introduction.md).
@@ -36,21 +36,22 @@ Neste tutorial, você executa as seguintes etapas:
 > * Usar a ferramenta Copy Data para criar um pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento do Azure**: Use o armazenamento de Blobs como um armazenamento de dados de _origem_. Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
-* **Banco de Dados SQL do Azure**: Use um banco de dados SQL como o armazenamento de dados do _coletor_. Se você não tiver um banco de dados SQL, confira as instruções em [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md).
+* **Banco de Dados SQL do Azure**: Use um Banco de Dados SQL como o armazenamento de dados _coletor_. Se você não tiver um Banco de Dados SQL, confira as instruções em [Criar um Banco de Dados SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
-Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executando as etapas a seguir.
+Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executando estas etapas.
 
 #### <a name="create-a-source-blob"></a>Criar um blob de origem
 
 1. Inicie o **Bloco de notas**. Copie o texto a seguir e salve-o em um arquivo chamado **inputEmp.txt** no disco:
 
     ```
+    FirstName|LastName
     John|Doe
     Jane|Doe
     ```
@@ -59,7 +60,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela do SQL de coletor
 
-1. Use o script SQL a seguir para criar uma tabela chamada **dbo.emp** em seu banco de dados SQL:
+1. Use o seguinte script SQL para criar uma tabela chamada **dbo.emp** no Banco de Dados SQL:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -73,7 +74,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita que os serviços do Azure acessem o SQL Server. Verifique se a configuração **Permitir acesso aos serviços do Azure** está habilitada para o servidor que está executando o Banco de Dados SQL. Essa configuração permite que o Data Factory grave dados em sua instância de banco de dados. Para verificar e ativar essa configuração, vá até seu servidor do Azure SQL > Visão geral > Configurar o firewall do servidor > defina a opção **Permitir acesso aos serviços do Azure** para **ATIVADA**.
+2. Permita que os serviços do Azure acessem o SQL Server. Verifique se a configuração **Permitir que serviços e recursos do Azure acessem este servidor** está habilitada para o servidor que executa o Banco de Dados SQL. Essa configuração permite que o Data Factory grave dados em sua instância de banco de dados. Para verificar e ativar essa configuração, acesse Azure SQL Server > Segurança > Firewalls e redes virtuais > defina a opção **Permitir que serviços e recursos do Azure acessem este servidor** como **ATIVADA**.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
@@ -111,6 +112,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
 
     ![Bloco Ferramenta Copy Data](./media/doc-common-process/get-started-page.png)
 1. Na página **Propriedades**, em **Nome da tarefa**, insira **CopyFromBlobToSqlPipeline**. Em seguida, selecione **Avançar**. A interface do usuário do Data Factory cria um pipeline com o nome especificado da tarefa.
+    ![Criar uma pipeline](./media/tutorial-copy-data-tool/create-pipeline.png)
 
 1. Na página **Configurações do armazenamento de dados**, conclua as seguintes etapas:
 
@@ -118,7 +120,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
 
     b. Selecione **Armazenamento de Blobs do Azure** na galeria e, em seguida, selecione **Continuar**.
 
-    c. Na página **Novo Serviço Vinculado**, selecione a conta de armazenamento a partir da lista **nome da conta de armazenamento** e selecione **Concluir**.
+    c. Na página **Novo Serviço Vinculado**, selecione a assinatura do Azure e a conta de armazenamento na lista **Nome da conta de armazenamento**. Teste a conexão e, em seguida, selecione **Concluir**.
 
     d. Selecione o serviço vinculado recém-criado como fonte, depois clique **Avançar**.
 
@@ -130,7 +132,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
 
     b. Clique em **Avançar** para mover-se para a próxima etapa.
 
-1. Na página **Configurações de formato de arquivo**, observe que a ferramenta detecta automaticamente os delimitadores de linha e coluna. Selecione **Avançar**. Também é possível visualizar os dados e exibir o esquema dos dados de entrada nesta página.
+1. Na página **Configurações de formato de arquivo**, habilite a caixa de seleção *Primeira linha como cabeçalho*. Observe que a ferramenta detecta automaticamente os delimitadores de coluna e de linha. Selecione **Avançar**. Visualize também os dados e veja o esquema dos dados de entrada nesta página.
 
     ![Configurações de formato de arquivo](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Na página **Armazenamento de dados de destino**, conclua as seguintes etapas:
@@ -139,36 +141,41 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
 
     b. Selecione **Banco de Dados SQL do Azure** por meio da galeria e, em seguida, selecione **Continuar**.
 
-    c. Na página **Novo Serviço Vinculado**, selecione o nome do servidor e o nome do banco de dados na lista suspensa e especifique o nome de usuário e senha, então selecione **Concluir**.
+    c. Na página **Novo Serviço Vinculado**, selecione o nome do servidor e o nome do BD na lista suspensa, especifique o nome de usuário e a senha e, em seguida, selecione **Criar**.
 
     ![Configure o Banco de Dados SQL do Azure](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
     d. Selecione o serviço vinculado criado recentemente como coletor e clique em **Avançar**.
 
-    ![Selecione o serviço vinculado do coletor](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
-
 1. Na página **Mapeamento de tabela**, selecione a tabela **[dbo].[emp]** e clique em **Avançar**.
 
-1. Na página **Mapeamento de esquema**, observe que a primeira e segunda colunas no arquivo de entrada são mapeadas para as colunas **FirstName** e **LastName** da tabela **emp**. Selecione **Avançar**.
+1. Na página **Mapeamento de coluna**, observe que a segunda e a terceira colunas do arquivo de entrada são mapeadas para as colunas **FirstName** e **LastName** da tabela **emp**. Ajuste o mapeamento para garantir que não haja nenhum erro e, em seguida, selecione **Avançar**.
 
-    ![Página Mapeamento de esquema](./media/tutorial-copy-data-tool/schema-mapping.png)
+    ![Página Mapeamento de coluna](./media/tutorial-copy-data-tool/column-mapping.png)
+
 1. Na página **Configurações**, selecione **Avançar**.
 1. Na página **Resumo**, analise as configurações e selecione **Avançar**.
 1. Na **página Implantação**, selecione **Monitorar** para monitorar o pipeline (tarefa).
-1. Observe que a guia **Monitor** à esquerda é selecionada automaticamente. A coluna **Ações** inclui links para exibir detalhes da execução da atividade e executar o pipeline novamente. Selecione **Atualizar** para atualizar a lista.
+ 
+    ![Monitorar o pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
-1. Para exibir as execuções de atividade associadas com a execução do pipeline, selecione o link **Exibir as Execuções de Atividade** na coluna **Ações**. Para obter detalhes sobre a operação de cópia, selecione o link **Detalhes** (ícone de óculos) na coluna **Ações**. Para voltar à exibição de Execuções de Pipelines, selecione o link **Execuções de Pipelines** na parte superior. Para atualizar a exibição, selecione **Atualizar**.
+1. Na página Execuções de pipeline, selecione **Atualizar** para atualizar a lista. Clique no link em **NOME DO PIPELINE** para ver os detalhes da execução de atividade ou execute o pipeline novamente. 
+    ![Execução de pipeline](./media/tutorial-copy-data-tool/pipeline-run.png)
+
+1. Na página Execuções de atividade, selecione o link **Detalhes** (ícone de óculos) na coluna **NOME DA ATIVIDADE** para obter mais detalhes sobre a operação de cópia. Para voltar à exibição Execuções de Pipeline, selecione o link **TODAS as execuções de pipeline** no menu de navegação estrutural. Para atualizar a exibição, selecione **Atualizar**.
 
     ![Monitorar execuções de atividade](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
 
-1. Verifique se os dados são inseridos na tabela **emp** no seu banco de dados SQL.
+1. Verifique se os dados foram inseridos na tabela **dbo.emp** no Banco de Dados SQL.
 
 
 1. Selecione a guia **Criar** à esquerda para alternar para o modo de edição. É possível atualizar os serviços vinculados, os conjuntos de dados e os pipelines criados com a ferramenta usando o editor. Para obter detalhes sobre essas entidades na IU do Data Factory, confira em [a versão do portal do Azure deste tutorial](tutorial-copy-data-portal.md).
 
+    ![Selecionar a guia Autor](./media/tutorial-copy-data-tool/author-tab.png)
+
 ## <a name="next-steps"></a>Próximas etapas
-Neste exemplo, o pipeline copia os dados de um Armazenamento de blobs para um banco de dados SQL. Você aprendeu a:
+O pipeline desta amostra copia dados do Armazenamento de Blobs para um Banco de Dados SQL. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um data factory.

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448909"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402681"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Detecção de anomalias nos dados de streaming usando o Azure Databricks
 
@@ -40,14 +40,12 @@ Este tutorial cobre as seguintes tarefas:
 > * Executar a detecção de anomalias em tweets
 
 > [!Note]
-> Este tutorial apresenta uma abordagem para implementar a [arquitetura da solução](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recomendada para a API do Detector de Anomalias.
+> * Este tutorial apresenta uma abordagem para implementar a [arquitetura da solução](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recomendada para a API do Detector de Anomalias.
+> * Este tutorial não pode ser concluído com uma avaliação gratuita da API do Detector de Anomalias nem do Azure Databricks. 
 
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Crie uma [assinatura do Azure](https://azure.microsoft.com/free/) caso não tenha uma.
 
-> [!Note]
-> Este tutorial não pode ser concluído com uma chave de avaliação gratuita da API do Detector de Anomalias. Para usar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, vá até o seu perfil e altere sua assinatura para **pré-pago**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/).
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um [namespace dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) e um hub de eventos.
 
@@ -70,7 +68,7 @@ Nesta seção, você criará um workspace do Azure Databricks usando o [portal d
 3. Em **Serviço do Azure Databricks**, forneça os valores a seguir para criar um workspace do Databricks:
 
 
-    |Propriedade  |DESCRIÇÃO  |
+    |Propriedade  |Descrição  |
     |---------|---------|
     |**Nome do workspace**     | Forneça um nome para seu workspace do Databricks        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |
@@ -163,7 +161,7 @@ Neste tutorial, você usará as [APIs do Detector de Anomalias dos Serviços Cog
 
 4. Na caixa de diálogo **Criar**, forneça os seguintes valores:
 
-    |Valor |DESCRIÇÃO  |
+    |Valor |Descrição  |
     |---------|---------|
     |Nome     | Um nome para o recurso do Detector de Anomalias.        |
     |Subscription     | A assinatura do Azure à qual o recurso será associado.        |

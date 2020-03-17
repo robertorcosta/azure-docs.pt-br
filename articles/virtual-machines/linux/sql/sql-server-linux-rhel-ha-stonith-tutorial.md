@@ -7,13 +7,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 01/27/2020
-ms.openlocfilehash: 0eaff1685cea88d352f1a22f382b7af2ed0ed6cb
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 02/27/2020
+ms.openlocfilehash: 40c91f67231fb6a9d01191ee5215eae8d4dc045b
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252205"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096687"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para o SQL Server em máquinas virtuais RHEL no Azure 
 
@@ -360,8 +360,8 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Clique em [**Registros de aplicativo**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Clique em **Novo registro**
  5. Insira um **Nome** como `<resourceGroupName>-app`, selecione **Contas apenas neste diretório de organização**
- 6. Selecione um Tipo de Aplicativo **Web**, insira uma URL de logon (por exemplo http://localhost) e clique em Adicionar. A URL de logon não é usada e pode ser qualquer URL válida
- 7. Selecione **Certificados e segredos** e clique em **Novo segredo do cliente**
+ 6. Selecione um Tipo de Aplicativo **Web**, insira uma URL de logon (por exemplo http://localhost) e clique em Adicionar. A URL de logon não é usada e pode ser qualquer URL válida. Quando terminar, clique em **Registrar**
+ 7. Selecione **Certificados e segredos** para seu novo Registro de aplicativo e clique em **Novo segredo do cliente**
  8. Insira uma descrição para uma nova chave (segredo do cliente), selecione **Nunca expira** e clique em **Adicionar**
  9. Anote o valor do segredo. Ele é usado como senha da Entidade de Serviço
 10. Selecione **Visão geral**. Anote a ID do Aplicativo. Ela é usada como nome de usuário (ID de logon nas etapas abaixo) da Entidade de Serviço
@@ -569,12 +569,14 @@ No momento, não damos suporte à autenticação do AD para o ponto de extremida
 ```sql
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
 GO
+
 BACKUP CERTIFICATE dbm_certificate
    TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
    WITH PRIVATE KEY (
            FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
            ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
        );
+GO
 ```
 
 Saia da sessão do SQL CMD executando o comando `exit` e volte para sua sessão SSH.
@@ -623,6 +625,7 @@ Saia da sessão do SQL CMD executando o comando `exit` e volte para sua sessão 
         FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
         DECRYPTION BY PASSWORD = '<Private_Key_Password>'
                 );
+    GO
     ```
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Criar os pontos de extremidade de espelhamento de banco de dados em todas as réplicas
@@ -640,6 +643,7 @@ ENCRYPTION = REQUIRED ALGORITHM AES
 GO
 
 ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
+GO
 ```
 
 ### <a name="create-the-availability-group"></a>Criar o Grupo de Disponibilidade
@@ -677,6 +681,7 @@ CREATE AVAILABILITY GROUP [ag1]
 GO
 
 ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+GO
 ```
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Criar um logon do SQL Server para o Pacemaker
@@ -688,9 +693,12 @@ Em todos os SQL Servers, crie um logon do SQL para o Pacemaker. O Transact-SQL a
 ```sql
 USE [master]
 GO
+
 CREATE LOGIN [pacemakerLogin] with PASSWORD= N'<password>';
 GO
+
 ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
+GO
 ```
 
 Em todos os SQL Servers, salve as credenciais usadas para o logon do SQL Server. 
@@ -733,6 +741,7 @@ Em todos os SQL Servers, salve as credenciais usadas para o logon do SQL Server.
     GO
 
     ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
+    GO
     ```
 
 1. Execute o seguinte script Transact-SQL na réplica primária e em cada réplica secundária:
@@ -742,6 +751,7 @@ Em todos os SQL Servers, salve as credenciais usadas para o logon do SQL Server.
     GO
     
     GRANT VIEW SERVER STATE TO pacemakerLogin;
+    GO
     ```
 
 1. Depois que as réplicas secundárias forem ingressadas, você poderá vê-las no Pesquisador de Objetos do SSMS expandindo o nó **Alta Disponibilidade Always On**:
@@ -766,6 +776,7 @@ BACKUP DATABASE [db1] -- backs up the database to disk
 GO
 
 ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1]; -- adds the database db1 to the AG
+GO
 ```
 
 ### <a name="verify-that-the-database-is-created-on-the-secondary-servers"></a>Verificar se o banco de dados foi criado nos servidores secundários
@@ -805,7 +816,6 @@ Seguiremos o guia para [criar os recursos do grupo de disponibilidade no cluster
     Master/Slave Set: ag_cluster-master [ag_cluster]
     Masters: [ <VM1> ]
     Slaves: [ <VM2> <VM3> ]
-    virtualip      (ocf::heartbeat:IPaddr2):       Started <VM1>
     ```
 
 ### <a name="create-a-virtual-ip-resource"></a>Criar um recurso de IP virtual
@@ -946,7 +956,6 @@ Para verificar se a configuração foi bem-sucedida até agora, testaremos um fa
          Masters: [ <VM2> ]
          Slaves: [ <VM1> <VM3> ]
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
-     
     ```
 
 ## <a name="test-fencing"></a>Isolamento de teste
@@ -975,7 +984,7 @@ Para obter mais informações sobre como testar um dispositivo de limite, confir
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para utilizar um Ouvinte do Grupo de Disponibilidade para seus SQL Servers criados no Azure, primeiro você precisará criar e configurar um balanceador de carga.
+Para utilizar um Ouvinte do Grupo de Disponibilidade para seus SQL Servers, você precisará criar e configurar um balanceador de carga.
 
 > [!div class="nextstepaction"]
-> [Criar e configurar o balanceador de carga no portal do Azure](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal)
+> [Tutorial: Configurar ouvinte do grupo de disponibilidade para o SQL Server em máquinas virtuais do RHEL no Azure](sql-server-linux-rhel-ha-listener-tutorial.md)

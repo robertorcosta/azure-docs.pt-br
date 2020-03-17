@@ -1,20 +1,15 @@
 ---
 title: Início Rápido – Implantar um contêiner do Docker na instância de contêiner – Portal
 description: Neste início rápido, você usa o portal do Azure para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 03/09/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533520"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087972"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando o portal do Azure
 
@@ -40,15 +35,16 @@ Na página **Noções básicas**, insira os seguintes valores nas caixas de text
 
 * Grupo de recursos: **Criar novo** > `myresourcegroup`
 * Nome do contêiner: `mycontainer`
-* Imagem de contêiner: `mcr.microsoft.com/azuredocs/aci-helloworld`
+* Origem da imagem: **Imagens de início rápido**
+* Imagem de contêiner: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 ![Configurando as definições básicas para uma nova instância de contêiner no Portal do Azure][aci-portal-03]
 
-Para este início rápido, você pode usar a configuração padrão **Tipo de imagem** de **Pública** para implantar a imagem do `aci-helloworld` da Microsoft pública. Esta imagem do Linux empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática.
+Para este início rápido, você usará configurações padrão para implantar a imagem `aci-helloworld` da Microsoft pública. Esta imagem de exemplo do Linux empacota um pequeno aplicativo Web escrito no Node.js que veicula a uma página HTML estática. Você também pode colocar suas próprias imagens de contêiner armazenadas no Registro de Contêiner do Azure, no Docker Hub ou em outros Registros.
 
 Na página **Rede**, especifique um **Rótulo de nome DNS** para seu contêiner. O nome precisa ser exclusivo dentro da região do Azure em que você cria a instância de contêiner. Seu contêiner estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se você receber uma mensagem de erro “Rótulo de nome DNS não disponível”, tente usar um rótulo de nome DNS diferente.
 
-![Configurando uma nova instância de contêiner no Portal do Azure][aci-portal-04]
+![Configurando as definições de rede para uma nova instância de contêiner no portal do Azure][aci-portal-04]
 
 Deixe as outras configurações com seus padrões e selecione **Examinar + criar**.
 
@@ -56,7 +52,7 @@ Quando a validação for concluída, um resumo das configurações de seu contê
 
 ![Resumo das configurações para uma nova instância de contêiner no Portal do Azure][aci-portal-05]
 
-Quando a implantação é iniciada, aparece uma notificação indicando que a implantação está em andamento. Outra notificação será exibida quando o grupo de contêiner tiver sido implantado.
+Quando a implantação é iniciada, aparece uma notificação para indicar que a implantação está em andamento. Outra notificação será exibida quando o grupo de contêiner tiver sido implantado.
 
 Abra a visão geral do grupo de contêiner navegando até **Grupos de Recursos** > **myresourcegroup** > **mycontainer**. Anote o **FQDN** (nome de domínio totalmente qualificado) da instância do contêiner, bem como seu **Status**.
 
@@ -76,7 +72,7 @@ Para exibir os logs do contêiner, em **Configurações**, selecione **Contêine
 
 ![Logs de contêiner no portal do Azure][aci-portal-11]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado com o contêiner, selecione **Visão geral** para a instância de contêiner *mycontainer*, em seguida, selecione **Excluir**.
 

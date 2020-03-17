@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50eb88373b05d979d7f4b67b317e98c2a944459b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e33f52d5c1f9c06a5acbae5c66b051ca82ef14c0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701323"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126634"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -30,6 +30,9 @@ Este guia demonstra como implementar a opção Entrar com a conta da Microsoft p
 Quando você concluir este guia, seu aplicativo poderá aceitar entradas de contas pessoais de sites como outlook.com e live.com. Além disso, as contas corporativas e de estudante de qualquer empresa ou organização integradas à plataforma de identidade da Microsoft poderão entrar no aplicativo.
 
 > Este guia exige o Microsoft Visual Studio 2019.  Ainda não tem?  [Baixe gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/).
+
+>[!NOTE]
+> Se você é novo na plataforma de identidade da Microsoft, recomendamos que comece com [Adicionar credenciais da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como o aplicativo de exemplo gerado por este guia funciona
 

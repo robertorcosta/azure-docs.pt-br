@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d79c953f22bfe587f740bc29050796834309186a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 700f2ca4d46b3483531fa0784cb78699befb20ca
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103361"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP NetWeaver
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o SAP NetWeaver ao Azure AD (Azure A
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -177,7 +177,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na lista **Transformação**, selecione **ExtractMailPrefix()** .
 
-    c. Na lista **Parâmetro 1**, selecione **user.userprinicipalname**.
+    c. Na lista **Parâmetro 1**, selecione **user.userprincipalname**.
 
     d. Clique em **Save** (Salvar).
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933969"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037183"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implantar um modelo de machine learning com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Você poderá implantar o modelo preditivo desenvolvido na [parte um do tutorial
 > * Implantará o ponto de extremidade em tempo real.
 > * Testará o ponto de extremidade em tempo real.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua a [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a treinar e pontuar um modelo de machine learning na interface visual.
 
@@ -39,7 +39,7 @@ Para implantar o pipeline, primeiro, converta o pipeline de treinamento em um pi
 
 1. Acima da tela do pipeline, selecione **Criar pipeline de inferência** > **Pipeline de inferência em tempo real**.
 
-    ![Captura de tela mostrando onde encontrar o botão criar pipeline](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Captura de tela mostrando onde encontrar o botão criar pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     Agora, seu pipeline deve ter esta aparência: 
 
@@ -56,7 +56,7 @@ Para implantar o pipeline, primeiro, converta o pipeline de treinamento em um pi
     > Por padrão, a **Entrada do Serviço Web** esperará o mesmo esquema de dados dos dados de treinamento usados para criar o pipeline preditivo. Nesse cenário, o preço é incluído no esquema. No entanto, o preço não é usado como um fator durante a previsão.
     >
 
-1. Selecione **Executar** e use o mesmo destino de computação e experimento usados na primeira parte.
+1. Selecione **Enviar** e use o mesmo destino de computação e experimento usados na primeira parte.
 
 1. Selecione **Implantar**.
 
@@ -123,4 +123,4 @@ Após a conclusão da implantação, teste o ponto de extremidade em tempo real 
 Neste tutorial, você aprendeu as etapas principais na criação, na implantação e no consumo de um modelo de machine learning no designer. Para saber mais sobre como você pode usar o designer para resolver outros tipos de problemas, confira nossos outros pipelines de exemplo.
 
 > [!div class="nextstepaction"]
-> [Amostra de classificação de risco de crédito](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Amostras do designer](samples-designer.md)

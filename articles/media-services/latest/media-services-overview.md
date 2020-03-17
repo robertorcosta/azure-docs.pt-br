@@ -14,24 +14,26 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/03/2020
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 7e4a242c1f81a504872dae6399683483c836daf2
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78299254"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086902"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
 
-Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem uma transmissão de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais. Se você for um desenvolvedor de aplicativos, call center, órgão governamental ou empresa de entretenimento, os Serviços de Mídia podem ajudar a criar aplicativos que oferecem experiências de mídia de qualidade superior para um público amplo, nos dispositivos móveis e navegadores mais populares da atualidade.
+Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem uma transmissão de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais. Se você é desenvolvedor de aplicativos, call center, órgão governamental ou empresa de entretenimento, os Serviços de Mídia podem ajudar a criar aplicativos que oferecem experiências de mídia de qualidade superior para um público amplo, nos dispositivos móveis e navegadores mais populares da atualidade.
 
 Os SDKs dos Serviços de Mídia v3 são baseados na [Especificação de OpenAPI dos Serviços de Mídia v3 (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Atualmente, não é possível usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](access-api-portal.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
 
@@ -39,7 +41,7 @@ Como um lembrete importante, você precisará respeitar todas as leis aplicávei
 
 Antes de carregar qualquer vídeo/imagem nos Serviços de Mídia, você precisará ter todos os direitos adequados para usar o vídeo/a imagem, incluindo, quando exigido por lei, todos os consentimentos necessários de indivíduos (se houver) no vídeo/na imagem, para uso, processamento e armazenamento dos respectivos dados nos Serviços de Mídia e no Azure. Algumas jurisdições podem impor requisitos legais especiais para a coleta, o processamento online e o armazenamento de determinadas categorias de dados, como dados biométricos. Antes de usar os Serviços de Mídia e o Azure para o processamento e o armazenamento de dados sujeitos a requisitos legais especiais, você precisará garantir a conformidade com os requisitos legais que possam se aplicar a você.
 
-Para saber mais sobre conformidade, privacidade e segurança nos Serviços de Mídia, acesse a [Central de Confiabilidade](https://www.microsoft.com/trust-center/?rtc=1) da Microsoft. Para saber mais sobre as obrigações de privacidade, as práticas de tratamento e retenção de dados pela Microsoft, incluindo como excluir seus dados, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement), o “OST” [(Termos do Online Services)](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) e o “DPA” [(Adendo de Processamento de Dados)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) da Microsoft. Ao usar os Serviços de Mídia, você concorda em vincular-se ao OST, ao DPA e à política de privacidade.
+Para saber mais sobre conformidade, privacidade e segurança nos Serviços de Mídia, acesse a [Central de Confiabilidade](https://www.microsoft.com/trust-center/?rtc=1) da Microsoft. Para saber mais sobre as obrigações de privacidade, as práticas de tratamento e retenção de dados pela Microsoft, incluindo como excluir seus dados, examine a [Política de Privacidade](https://privacy.microsoft.com/PrivacyStatement), o “OST” [(Termos do Online Services)](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) e o “DPA” [(Adendo de Processamento de Dados)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) da Microsoft. Ao usar os Serviços de Mídia, você concorda em vincular-se ao OST, ao DPA e à política de privacidade.
  
 ## <a name="what-can-i-do-with-media-services"></a>O que posso fazer com os Serviços de Mídia?
 

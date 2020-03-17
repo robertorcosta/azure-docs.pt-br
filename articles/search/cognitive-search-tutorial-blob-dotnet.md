@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 0b9e7732e5274fd71c773a19d17e09ecdaa2ceb0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 169a33d12e98235dcb4e4f317dbb8d91eb7446a4
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270011"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851142"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use o C# e a IA para gerar conteúdo pesquisável em blobs do Azure
 
@@ -186,7 +186,7 @@ namespace EnrichwithAI
 
 ### <a name="create-a-client"></a>Criar um cliente
 
-Crie uma instância da classe `SearchServiceClient` em Main.
+Crie uma instância da classe `SearchServiceClient` em `Main`.
 
 ```csharp
 public static void Main(string[] args)
@@ -213,6 +213,22 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > [!NOTE]
 > A classe `SearchServiceClient` gerencia conexões para o seu serviço de pesquisa. Para evitar abrir um número excessivo de conexões, você deve tentar compartilhar uma única instância de `SearchServiceClient` em seu aplicativo, se possível. Esses métodos são thread-safe para habilitar esse compartilhamento.
 > 
+
+### <a name="add-function-to-exit-the-program-during-failure"></a>Adicionar uma função para sair do programa durante uma falha
+
+Este tutorial pretende ajudar você a entender cada etapa do pipeline de indexação. Se houver um problema crítico que impeça o programa de criar a fonte de dados, o conjunto de habilidades, o índice ou o indexador, o programa produzirá a mensagem de erro e será fechado, de modo que o problema possa ser compreendido e resolvido.
+
+Adicione `ExitProgram` a `Main` para processar cenários que exigem o fechamento do programa.
+
+```csharp
+private static void ExitProgram(string message)
+{
+    Console.WriteLine("{0}", message);
+    Console.WriteLine("Press any key to exit the program...");
+    Console.ReadKey();
+    Environment.Exit(0);
+}
+```
 
 ## <a name="3---create-the-pipeline"></a>3 – Criar o pipeline
 
@@ -251,7 +267,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 Para uma solicitação bem-sucedida, o método retornará a fonte de dados que foi criada. Se houver um problema com a solicitação, como um parâmetro inválido, o método gerará uma exceção.
 
-Agora, adicione uma linha à função Main para chamar a função `CreateOrUpdateDataSource` recém-adicionada.
+Agora, adicione uma linha à `Main` para chamar a função `CreateOrUpdateDataSource` recém-adicionada.
 
 ```csharp
 public static void Main(string[] args)
@@ -537,7 +553,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Adicione as linhas a seguir à função Main.
+Adicione as linhas a seguir a `Main`.
 
 ```csharp
     // Create the skills
@@ -675,7 +691,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 Durante o teste, você pode constatar que está tentando criar o índice mais de uma vez. Por isso, verifique se o índice que você está prestes a criar já existe antes de tentar criá-lo.
 
-Adicione as linhas a seguir à função Main.
+Adicione as linhas a seguir a `Main`.
 
 ```csharp
     // Create the index
@@ -779,7 +795,7 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Adicione as linhas a seguir à função Main.
+Adicione as linhas a seguir a `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
@@ -840,7 +856,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 Os avisos são comuns com algumas combinações de arquivo e a habilidade de origem e sempre não indicam um problema. Neste tutorial, os avisos são benignos (por exemplo, nenhuma entrada de texto dos arquivos JPEG).
 
-Adicione as linhas a seguir à função Main.
+Adicione as linhas a seguir a `Main`.
 
 ```csharp
     // Check indexer overall status
@@ -854,7 +870,7 @@ Depois de terminar de indexação, você pode executar consultas que retornam o 
 
 Como uma etapa de verificação, consulte o índice para todos os campos.
 
-Adicione as linhas a seguir à função Main.
+Adicione as linhas a seguir a `Main`.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -890,7 +906,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Adicione o código a seguir à função Main. O primeiro try-catch retorna a definição de índice, com o nome, o tipo e os atributos de cada campo. O segundo é uma consulta parametrizada, em que `Select` especifica quais campos serão incluídos nos resultados, por exemplo, `organizations`. Uma cadeia de caracteres de pesquisa de `"*"` retorna todo o conteúdo de um só campo.
+Adicione o código a seguir a `Main`. O primeiro try-catch retorna a definição de índice, com o nome, o tipo e os atributos de cada campo. O segundo é uma consulta parametrizada, em que `Select` especifica quais campos serão incluídos nos resultados, por exemplo, `organizations`. Uma cadeia de caracteres de pesquisa de `"*"` retorna todo o conteúdo de um só campo.
 
 ```csharp
 //Verify content is returned after indexing is finished

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448780"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943922"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Compilar uma página da Web de pesquisa personalizada
 
@@ -32,10 +32,10 @@ As tarefas abordadas são:
 > - Adicionar entradas fixadas
 > - Integrar pesquisa personalizada em uma página da Web
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, confira [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se você ainda não tem o Visual Studio 2017 ou posterior instalado, pode baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**.
+- Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, [crie um recurso da Pesquisa Personalizada do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) no portal do Azure. Você também pode usar uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services).
+- Se você ainda não tem o Visual Studio 2017 ou posterior instalado, baixe e use o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**.
 
 ## <a name="create-a-custom-search-instance"></a>Criar uma instância de pesquisa personalizada
 
@@ -45,9 +45,9 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
   
 2. Navegue até o [portal](https://customsearch.ai) da pesquisa personalizada.  
   
-3. Entre no portal usando uma conta Microsoft (MSA). Se você não tiver uma MSA, clique em **Criar uma conta Microsoft**. Se for a primeira vez que estiver acessando o portal, serão solicitadas permissões para acessar os dados. Clique em **Sim**.  
+3. Entre no portal usando uma conta Microsoft (MSA). Se você não tiver uma MSA, clique em **Criar uma conta Microsoft**. Se essa for a primeira vez que estiver usando o portal, serão solicitadas permissões para acessar os dados. Clique em **Sim**.  
   
-4. Após entrar, clique em **Nova pesquisa personalizada**. Na janela **Criar uma nova instância de pesquisa personalizada**, insira um nome que seja significativo e descreva o tipo de conteúdo que a pesquisa retornará. É possível alterar o nome a qualquer momento.  
+4. Após entrar, clique em **Nova pesquisa personalizada**. Na janela **Criar uma instância de pesquisa personalizada**, insira um nome que seja significativo e descreva o tipo de conteúdo que a pesquisa retornará. É possível alterar o nome a qualquer momento.  
   
    ![Captura de tela da caixa Criar uma nova instância de pesquisa personalizada](../media/newCustomSrch.png)  
   
@@ -60,11 +60,11 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
 
 Para incluir resultados de websites ou URLs específicos, adicione-os à guia **Ativo**.
 
-1.  Na página **Configuração**, clique na guia **Ativo** e insira o URL de um ou mais sites que você deseja incluir em sua pesquisa.
+1.       Na página **Configuração**, clique na guia **Ativo** e insira o URL de um ou mais sites que você deseja incluir em sua pesquisa.
 
     ![Captura de tela da guia ativa do Editor de definição](../media/customSrchEditor.png)
 
-2.  Para confirmar que a sua instância retorna resultados, digite uma consulta no painel de visualização à direita. O Bing retorna apenas resultados para sites públicos indexados.
+2.       Para confirmar que a sua instância retorna resultados, digite uma consulta no painel de visualização à direita. O Bing retorna apenas resultados para sites públicos indexados.
 
 ## <a name="add-blocked-entries"></a>Adicionar entradas bloqueadas
 
@@ -79,7 +79,7 @@ Para excluir resultados de websites ou URLs específicos, adicione-os à guia **
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas fixadas
 
-Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da web só é fixada se a cadeia de caracteres de consulta do usuário corresponder à cadeia de caracteres de consulta do pin com base na condição de correspondência do pin. Somente páginas da Web indexadas serão exibidas nas pesquisas. Confira [Definir o modo de exibição personalizado](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
+Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **Fixado**. A guia **Fixado** contém uma lista de pares de termos de páginas da Web e consultas que especificam a página da Web que aparece como o resultado principal de uma consulta específica. A página da Web só será fixada se a cadeia de consulta do usuário corresponder à cadeia de consulta do marcador com base na condição de correspondência do marcador. Somente páginas da Web indexadas serão exibidas nas pesquisas. Confira [Definir o modo de exibição personalizado](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
 
 1. Na página **Configuração**, clique na guia **Fixado** e insira a página da web e o termo de consulta da página da Web que você deseja que sejam retornados como o resultado principal.  
   
