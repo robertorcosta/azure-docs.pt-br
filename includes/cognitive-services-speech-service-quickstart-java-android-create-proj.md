@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: travisw
-ms.openlocfilehash: a7ce6bc2b6fa272c8dd3c4bf95bc06a37d1fe28f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 270a8316ee7c23ebb54c7d0633fb9159ef33acbd
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119732"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383936"
 ---
 1. Inicialize o Android Studio e selecione **Iniciar um novo projeto do Android Studio** na janela de **boas-vindas**.
 
@@ -27,7 +27,7 @@ O Android Studio demora algum tempo para preparar seu novo projeto Android. Em s
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é 1.9.0.
+A versão atual do SDK de Fala dos Serviços Cognitivos é 1.10.0.
 
 O Speech SDK para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias e as permissões necessárias do Android.
 Ele está hospedado em um repositório do Maven em https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,7 +42,7 @@ Configure seu projeto para usar o SDK de Fala. Abra a janela **Estrutura do Proj
 
    ![Captura de tela da Dependência da biblioteca](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Na janela exibida, insira o nome e a versão do SDK de Fala para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.9.0*. Depois, selecione **OK**.
+1. Na janela exibida, insira o nome e a versão do SDK de Fala para Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.10.0*. Depois, selecione **OK**.
    O SDK de Fala deverá ser adicionado à lista de dependências agora, conforme mostrado:
 
    ![Captura de tela do SDK de Fala na lista de dependências](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

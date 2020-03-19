@@ -1,30 +1,24 @@
 ---
-title: 'Início Rápido: Reconhecer fala em um arquivo de áudio, Python – Serviço de Fala'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
 author: IEvangelist
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/30/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: f3a6ffeede05c1a2e9a883d40df19819e6a4bb3b
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446599"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79081892"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Criar um recurso de Fala do Azure](../../../../get-started.md)
 > * [Criar um aplicativo LUIS para obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?pivots=programming-language-python)
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -93,7 +87,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e usar o SDK de Fala com o Visual Studio Code
 
-1. Baixe e instale uma versão de 64 bits do [Python](https://www.python.org/downloads/), 3.5 ou posterior, em seu computador.
+1. Baixe e instale uma versão de 64 bits do [Python](https://www.python.org/downloads/), 3.5 a 3.8, em seu computador.
 1. Baixe e instale o [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Abra o Visual Studio Code e instale a extensão do Python. Selecione **Arquivo** > **Preferências** > **Extensões** no menu. Pesquise **Python**.
 

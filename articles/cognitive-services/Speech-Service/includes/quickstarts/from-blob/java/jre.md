@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 02e0e1494a897b31cb6ef28083677fa48f854c91
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942811"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925678"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
 > * [Criar um recurso de Fala do Azure](../../../../get-started.md)
 > * [Carregar um arquivo de origem em um blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
@@ -32,7 +31,9 @@ A primeira etapa é verificar se o projeto está aberto no Eclipse.
 ## <a name="add-a-reference-to-gson"></a>Adicionar uma referência a Gson
 Usaremos um serializador/desserializador JSON externo neste início rápido. Para Java, escolhemos [Gson](https://github.com/google/gson).
 
-Abra o pom.xml e adicione a seguinte referência: [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+Abra seu pom.xml e adicione a seguinte referência.
+
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## <a name="start-with-some-boilerplate-code"></a>Comece com código de texto clichê
 

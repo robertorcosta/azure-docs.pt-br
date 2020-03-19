@@ -4,28 +4,31 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: aebb82690a7a49aba071ed64349d37d516208cca
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: 21c19027d21a87e199d74644cfc5c8f3cd52ba4c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172383"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129104"
 ---
-Para redefinir seu dispositivo, você precisará apagar com segurança todos os dados no disco de dados e o disco de inicialização do seu dispositivo. 
+Para redefinir o dispositivo, você precisa apagar com segurança todos os dados no disco de dados e no disco de inicialização do dispositivo. 
 
-Use o `Reset-HcsAppliance` cmdlet elimine os discos de dados e o disco de inicialização ou apenas os discos de dados. O `ClearData` e `BootDisk` opções permitem que você limpar os discos de dados e o disco de inicialização, respectivamente.
+Use o cmdlet `Reset-HcsAppliance` para apagar os discos de dados e o disco de inicialização ou apenas os discos de dados. As opções `ClearData` e `BootDisk` permitem apagar os discos de dados e o disco de inicialização, respectivamente.
 
-Se você usar o dispositivo de redefinição na interface web local, somente os discos de dados são apagados de forma segura, mas o disco de inicialização é mantido intatos. O disco de inicialização contém a configuração do dispositivo.
+A opção `BootDisk` apaga o disco de inicialização e torna o dispositivo inutilizável. Ela deverá ser usada somente quando o dispositivo precisar ser devolvido à Microsoft. Para obter mais informações, confira [Devolver o dispositivo à Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+
+Se você usar a redefinição do dispositivo na IU da Web local, somente os discos de dados serão apagados com segurança, mas o disco de inicialização permanecerá intacto. O disco de inicialização contém a configuração do dispositivo.
 
 1. [Conectar-se à interface do PowerShell](#connect-to-the-powershell-interface).
 2. No prompt de comando, digite:
 
     `Reset-HcsAppliance -ClearData -BootDisk`
 
-    O exemplo a seguir mostra como usar este cmdlet:
-    ```
+    O seguinte exemplo mostra como usar este cmdlet:
+
+    ```powershell
     [10.128.24.33]: PS>Reset-HcsAppliance -ClearData -BootDisk
-    
+
     Confirm
     Are you sure you want to perform this action?
     Performing the operation "Reset-HcsAppliance" on target "ShouldProcess appliance".

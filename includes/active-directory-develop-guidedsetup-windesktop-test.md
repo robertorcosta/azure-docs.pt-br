@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172100"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128909"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -41,10 +41,10 @@ Na primeira vez que você entrar no seu aplicativo, você também será solicita
 
 Depois de entrar, você deverá ver as informações do perfil do usuário retornadas pela chamada da API do Microsoft Graph. Os resultados são exibidos na caixa **Resultados da Chamada da API**. As informações básicas sobre o token que foi adquirido através da chamada para `AcquireTokenInteractive` ou `AcquireTokenSilent` devem estar visíveis na caixa **Informações de Token**. Os resultados contêm as propriedades a seguir:
 
-|Propriedade  |Formatar  |DESCRIÇÃO |
+|Propriedade  |Formatar  |Descrição |
 |---------|---------|---------|
-
-|**Nome de usuário** |<span>user@domain.com</span> | O nome de usuário usado para identificar o usuário.| |**Token Expira** |DateTime |A hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
+|**Nome de usuário** |<span>user@domain.com</span> |O nome de usuário que é usado para identificar o usuário.|
+|**O Token Expira** |Datetime |A data e hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
 
 
 <!--start-collapse-->

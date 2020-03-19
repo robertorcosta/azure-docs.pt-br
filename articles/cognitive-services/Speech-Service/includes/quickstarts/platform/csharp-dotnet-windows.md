@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: db00398efa638ac945bc188ad0c44f904059e689
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468943"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925882"
 ---
-Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o .NET Framework (Windows).
+Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o .NET Framework (Windows). Se quiser apenas o nome do pacote para começar por conta própria, execute `Install-Package Microsoft.CognitiveServices.Speech` no console do NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
@@ -71,7 +71,21 @@ Você precisa instalar o [pacote NuGet do SDK de Fala](https://aka.ms/csspeech/n
 
    Depois que o pacote for instalado, uma confirmação será exibida no **Console do gerenciador de pacotes**.
 
-Agora é possível avançar para as [Próximas etapas](#next-steps) abaixo.
+### <a name="choose-target-architecture"></a>Escolha a arquitetura de destino
+
+Para criar e executar o aplicativo de console, crie uma configuração de plataforma que corresponda à arquitetura do seu computador.
+
+1. Na barra de menus, selecione **Compilar** > **Gerenciador de Configuração**. A caixa de diálogo **Gerenciador de Configurações** é exibida.
+
+   ![Caixa de diálogo Gerenciador de Configurações](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. Na caixa suspensa **Plataforma de solução ativa**, selecione **Novo**. A caixa de diálogo **Nova plataforma de solução** é exibida.
+
+1. Na caixa suspensa **Digite ou selecione a nova plataforma**:
+   - Se você estiver executando o Windows 64 bits, selecione **x64**.
+   - Se você estiver executando o Windows 32 bits, selecione **x86**.
+
+1. Selecione **OK** e, em seguida, **Fechar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
