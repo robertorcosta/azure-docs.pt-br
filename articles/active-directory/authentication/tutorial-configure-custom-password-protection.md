@@ -72,7 +72,7 @@ Para habilitar a lista personalizada de senhas proibidas e adicionar entradas a 
 
     * A lista personalizada de senhas proibidas pode conter até 1.000 termos.
     * A lista de senhas proibidas personalizada não diferencia maiúsculas de minúsculas.
-    * A lista personalizada de senhas proibidas considera a substituição de caracteres comuns, como "o" e "0" ou "a" e \"@".
+    * A lista personalizada de senhas proibidas considera a substituição de caracteres comuns, como "o" e "0" ou "a" e "\@".
     * O tamanho mínimo da cadeia de caracteres é de quatro caracteres; o máximo é de 16 caracteres.
 
     Especifique as próprias senhas personalizadas a serem proibidas, conforme mostrado no exemplo a seguir
