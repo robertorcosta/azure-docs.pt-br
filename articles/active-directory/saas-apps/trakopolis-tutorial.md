@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Trakopolis | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Trakopolis | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Trakopolis.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 1316e3274b851c41af21b94847ed16491310e908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088343"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trakopolis"></a>Tutorial: Integração do Azure Active Directory com o Trakopolis
+# <a name="tutorial-azure-active-directory-integration-with-trakopolis"></a>Tutorial: Integração do Azure Active Directory ao Trakopolis
 
 Neste tutorial, você aprenderá como integrar o Trakopolis ao Azure AD (Azure Active Directory).
 A integração do Trakopolis ao Azure AD oferece os seguintes benefícios:

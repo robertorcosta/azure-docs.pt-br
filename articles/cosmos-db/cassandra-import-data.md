@@ -11,10 +11,10 @@ ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75445681"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar seus dados para a conta da API do Cassandra no Azure Cosmos DB
@@ -35,11 +35,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * **Estime as necessidades da taxa de transferência:** antes de migrar dados para a conta da API do Cassandra no Azure Cosmos DB Cassandra, você deve estimar as necessidades da taxa de transferência de sua carga de trabalho. Em geral, é recomendado começar com a taxa de transferência média exigida pelas operações CRUD e, em seguida, incluir a taxa de transferência adicional necessária para o Extract Transform Load (ETL) ou operações pontiagudas. Você precisa dos seguintes detalhes para planejar a migração: 
 
-  * **Tamanho dos dados existentes ou tamanho estimado dos dados:** Define o tamanho mínimo do banco de dados e o requisito de taxa de transferência. Se você estiver estimando o tamanho dos dados para um novo aplicativo, poderá assumir que os dados são distribuídos uniformemente pelas linhas e estimar o valor multiplicando-os pelo tamanho dos dados. 
+  * **Tamanho de dados existente ou tamanho de dados estimado:** Define o tamanho mínimo do banco de dados e o requisito de taxa de transferência. Se você estiver estimando o tamanho dos dados para um novo aplicativo, poderá assumir que os dados são distribuídos uniformemente pelas linhas e estimar o valor multiplicando-os pelo tamanho dos dados. 
 
-  * **Taxa de transferência necessária:** Taxa de transferência aproximada de leitura (consulta/obtenção) e de gravação (atualização/exclusão/inserção). Esse valor é necessário para calcular as unidades de solicitação necessárias junto com o tamanho dos dados de estado estável.  
+  * **Taxa de transferência necessária:** taxa aproximada de leitura (consulta/obtenção) e gravação (atualização/exclusão/inserção). Esse valor é necessário para calcular as unidades de solicitação necessárias junto com o tamanho dos dados de estado estável.  
 
-  * **O esquema:** Conecte-se ao cluster do Cassandra existente por meio do cqlsh e exporte o esquema do Cassandra: 
+  * **O esquema:** conecte-se ao cluster do Cassandra existente por meio do cqlsh e do esquema de exportação do Cassandra: 
 
     ```bash
     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
@@ -47,7 +47,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
     Depois de identificar os requisitos de sua carga de trabalho existente, você deve criar uma conta, banco de dados e contêineres do Azure Cosmos de acordo com os requisitos de taxa de transferência reunidos.  
 
-  * **Determine a cobrança do RU para uma operação:** é possível determinar as RUs usando o SDK compatível com a API do Cassandra. Este exemplo mostra a versão do .NET da obtenção de custos de RU.
+  * **Determine a cobrança do RU para uma operação:** você pode determinar as RUs usando o SDK compatível com a API do Cassandra. Este exemplo mostra a versão do .NET da obtenção de custos de RU.
 
     ```csharp
     var tableInsertStatement = table.Insert(sampleEntity);
@@ -63,11 +63,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * **Aloque a taxa de transferência necessária:** o Azure Cosmos DB pode dimensionar automaticamente o armazenamento e a taxa de transferência conforme seus requisitos aumentam. Você pode estimar suas necessidades de taxa de transferência usando a [calculadora da unidade de solicitação do Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 
-* **Criar tabelas na conta de API do Cassandra:** antes de começar a migrar dados, crie previamente todas as suas tabelas no portal do Azure ou no cqlsh. Se você estiver migrando para uma conta do Azure Cosmos com produtividade de nível de banco de dados, não deixe de fornecer uma chave de partição ao criar os contêineres do Azure Cosmos.
+* **Crie tabelas na conta da API do Cassandra:** antes de iniciar a migração de dados, crie previamente todas as tabelas no portal do Azure ou no cqlsh. Se você estiver migrando para uma conta do Azure Cosmos com produtividade de nível de banco de dados, não deixe de fornecer uma chave de partição ao criar os contêineres do Azure Cosmos.
 
 * **Aumentar a taxa de transferência:** a duração da migração de dados depende da quantidade de taxa de transferência provisionada para as tabelas no Azure Cosmos DB. Aumente o rendimento durante a migração. Com a taxa de transferência mais elevada, você pode evitar a limitação de taxa e migrar em menos tempo. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Também é recomendável ter uma conta do Azure Cosmos na mesma região que seu banco de dados de origem. 
 
-* **Habilitar SSL:** O Azure Cosmos DB tem padrões e requisitos de segurança rígidos. Certifique-se de habilitar o SSL ao interagir com sua conta. Quando você usar a CQL com SSH, terá a opção de fornecer informações de SSL.
+* **Ativar SSL:** o Azure Cosmos DB tem requisitos e padrões de segurança rígidos. Certifique-se de habilitar o SSL ao interagir com sua conta. Quando você usar a CQL com SSH, terá a opção de fornecer informações de SSL.
 
 ## <a name="options-to-migrate-data"></a>Opções para migrar dados
 

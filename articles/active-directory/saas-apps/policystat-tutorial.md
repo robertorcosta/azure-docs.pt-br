@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o PolicyStat | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao PolicyStat | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PolicyStat.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943437"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory ao PolicyStat
 
 Neste tutorial, você aprende a integrar o PolicyStat ao Azure AD (Azure Active Directory).
 A integração do PolicyStat ao Azure AD oferece os seguintes benefícios:
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
 6. Além do indicado acima, o aplicativo PolicyStat espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     |------------------- | -------------------- |
     | uid | ExtractMailPrefix([mail]) |
 

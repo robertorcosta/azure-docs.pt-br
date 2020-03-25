@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o direct | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao direct | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o direct.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: f1e201b5f86311aeaeca4d077140f4dc429a0357
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67104211"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Azure Active Directory com o direct
+# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: integração do Azure Active Directory ao direct
 
 Neste tutorial, você aprenderá como integrar o direct ao Azure AD (Azure Active Directory).
 A integração do direct ao Azure AD oferece os seguintes benefícios:
@@ -207,5 +207,5 @@ Ao clicar no bloco do direct no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

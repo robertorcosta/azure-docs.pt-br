@@ -15,10 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
 ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73161785"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um cluster Pivotal Cloud Foundry no Azure
@@ -44,7 +44,7 @@ Para saber mais, confira [Use SSH keys with Windows on Azure](https://docs.micro
 >
 > Para criar uma entidade de serviço, é necessária uma permissão de conta de proprietário. Também é possível escrever um script para automatizar a criação da entidade de serviço. Por exemplo, é possível usar [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest) da CLI do Azure.
 
-1. Entre na sua conta do Azure.
+1. Entre em sua conta do Azure.
 
     `az login`
 

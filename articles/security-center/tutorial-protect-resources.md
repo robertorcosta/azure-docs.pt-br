@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
 ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73686339"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
@@ -77,8 +77,8 @@ Os controles de aplicativo adaptáveis ajudam você a definir um conjunto de apl
    A seção **Grupos de Recursos** contém três guias:
 
    - **Configurado**: lista de grupos de recursos contendo as VMs que foram configuradas com controle de aplicativo.
-   - **Recomendados**: lista de grupos de recursos para os quais o controle de aplicativos é recomendado.
-   - **Sem recomendações**: lista de grupos de recursos contendo VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs que sempre têm aplicativos mudando e que ainda não estão estáveis.
+   - **Recomendado**: lista de grupos de recursos para os quais o controle de aplicativos é recomendado.
+   - **Nenhuma recomendação**: lista de grupos de recursos contendo VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs que sempre têm aplicativos mudando e que ainda não estão estáveis.
 
 2. Selecione a guia **Recomendado** para obter uma lista de grupos de recursos com as recomendações de controle de aplicativo.
 
@@ -86,14 +86,14 @@ Os controles de aplicativo adaptáveis ajudam você a definir um conjunto de apl
 
 3. Selecione um grupo de recursos para abrir a opção **Criar regras de controle de aplicativo**. Em **Selecionar VMs**, revise a lista de VMs recomendadas e desmarque as que não devem receber o controle de aplicativo. Em **Selecionar processos para regras de lista de permissões**, revise a lista de aplicativos recomendados e desmarque o que não deve ser aplicado. A lista inclui:
 
-   - **NAME**: o caminho completo do aplicativo
+   - **NOME**: o caminho completo do aplicativo
    - **PROCESSOS**: quantos aplicativos residem em cada caminho
-   - **COMUM**: "Sim" indica que esses processos foram executados na maioria das VMs no grupo de recursos
+   - **COMUNS**: “Sim” indica que esses processos foram executados na maioria das VMs no grupo de recursos
    - **EXPLORÁVEL**: um ícone de aviso indica se os aplicativos podem ser usados por um invasor para ignorar a lista de permissões de aplicativos. É recomendável examinar esses aplicativos antes da aprovação.
 
 4. Após concluir suas seleções, selecione **Criar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se planejar continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando o nível Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
@@ -123,7 +123,7 @@ Neste tutorial, você aprendeu a limitar sua exposição a ameaças fazendo o se
 Avance para o próximo tutorial para saber mais sobre como responder a incidentes de segurança.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Responder a alertas de segurança](tutorial-security-incident.md)
+> [Tutorial: Responder a incidentes de segurança](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

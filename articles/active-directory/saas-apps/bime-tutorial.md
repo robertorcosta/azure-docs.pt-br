@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Bime | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Bime | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Bime.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7774fd55a64df198a9b025a67ce377deebefe8fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74232083"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory com o Bime
+# <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory ao Bime
 
 Neste tutorial, você aprenderá a integrar o Bime ao Azure AD (Azure Active Directory).
 A integração do Bime ao Azure AD oferece os seguintes benefícios:
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Bime, execute as seguintes etap
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Conta**.
   
-    ![Administrador](./media/bime-tutorial/ic775558.png "Administrador")
+    ![Administrador](./media/bime-tutorial/ic775558.png "Admin")
 
 3. Na página de configuração da conta, execute as seguintes etapas:
   
@@ -212,7 +212,7 @@ Para que possam fazer logon no Bime, os usuários do Azure AD deverão ser provi
 
 2. Na barra de ferramentas, clique em **Administrador** e em **Usuários**.
 
-    ![Administrador](./media/bime-tutorial/ic775561.png "Administrador")
+    ![Administrador](./media/bime-tutorial/ic775561.png "Admin")
 
 3. Na **Lista de Usuários**, clique em **Adicionar Novo Usuário** (“+”).
 

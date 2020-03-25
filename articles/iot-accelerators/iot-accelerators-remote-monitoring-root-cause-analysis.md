@@ -9,13 +9,13 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77565461"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: Fazer uma análise da causa-raiz em um alerta
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: realizar uma análise da causa raiz em um alerta
 
 Neste tutorial, você aprenderá a usar o acelerador de solução de Monitoramento Remoto para diagnosticar a causa raiz de um alerta. Você verá que um alerta foi disparado no painel da solução de Monitoramento Remoto. Em seguida, use o explorador do Azure Time Series Insights para investigar a causa raiz.
 

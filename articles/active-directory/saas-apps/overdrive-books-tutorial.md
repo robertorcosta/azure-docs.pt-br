@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Overdrive | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Overdrive | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Overdrive.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 391ae72a9e2bc78ed120cf4f5fdf844a6248566a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233461"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integração do Azure Active Directory ao Overdrive
+# <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Tutorial: Integração do Azure Active Directory com o Overdrive
 
 Neste tutorial, você aprende a integrar o Overdrive ao Azure AD (Azure Active Directory).
 A integração do Overdrive ao Azure AD oferece os seguintes benefícios:

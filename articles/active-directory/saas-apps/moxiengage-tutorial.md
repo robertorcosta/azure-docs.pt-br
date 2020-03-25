@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Moxi Engage | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Moxi Engage | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Moxi Engage.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 85e025355d914f95c2be221341b5eff08d1378e5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160480"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Tutorial: Integração do Azure Active Directory ao Moxi Engage
+# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Tutorial: Integração do Azure Active Directory com o Moxi Engage
 
 Neste tutorial, você aprenderá a integrar o Moxi Engage ao Azure AD (Azure Active Directory).
 A integração do Moxi Engage ao Azure AD oferece os seguintes benefícios:

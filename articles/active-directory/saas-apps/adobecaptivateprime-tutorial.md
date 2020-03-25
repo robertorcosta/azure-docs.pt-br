@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Adobe Captivate Prime | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com a Adobe Captivate Prime | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e a Adobe Captivate Prime.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fdc93cb5d04630307026c2786fda117e16f60f4e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73153995"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: Integração do Azure Active Directory ao Adobe Captivate Prime
+# <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutorial: integração do Azure Active Directory com a Adobe Captivate Prime
 
 Neste tutorial, você aprenderá a integrar a Adobe Captivate Prime ao Azure AD (Azure Active Directory).
 A integração da Adobe Captivate Prime ao Azure AD oferece os seguintes benefícios:

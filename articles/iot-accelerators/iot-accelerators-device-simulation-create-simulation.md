@@ -10,17 +10,17 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180697"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61448506"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Criar e executar uma simulação de dispositivo IoT
 
 Neste tutorial, você usará a Simulação de Dispositivo para criar e executar uma nova simulação de IoT usando um ou mais dispositivos simulados.
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 >[!div class="checklist"]
 > * Exibir todas as simulações ativas e executadas

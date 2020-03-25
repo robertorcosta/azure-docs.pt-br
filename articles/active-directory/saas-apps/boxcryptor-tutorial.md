@@ -17,13 +17,13 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1017eb02783e2d0d970804fc1a20fd2bdb525637
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158794"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Tutorial: Integração do Azure Active Directory ao Boxcryptor
+# <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Tutorial: Integração do Active Directory do Azure ao Boxcryptor
 
 Neste tutorial, você aprenderá a integrar o Boxcryptor ao Azure AD (Azure Active Directory).
 A integração do Boxcryptor ao Azure AD oferece os seguintes benefícios:

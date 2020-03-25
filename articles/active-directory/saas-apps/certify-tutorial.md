@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Certify | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Certify | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Certify.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f94e1ef064dd51668d8dd13e1efbe6d3f70a2e0e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>Tutorial: Integração do Active Directory do Azure ao Certify

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Mercell | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com Mercell | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Mercell.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: af51d76b3a500d7cc5edb0c21b893473e581acd6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160689"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: Integração do Azure Active Directory ao Mercell
+# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: integração do Azure Active Directory com Mercell
 
 Neste tutorial, você aprende a integrar o Mercell ao Microsoft Azure AD (Azure Active Directory).
 A integração do Mercell ao Microsoft Azure AD oferece os seguintes benefícios:

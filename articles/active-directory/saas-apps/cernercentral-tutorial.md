@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Cerner Central | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Cerner Central | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cerner Central.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d530ce802b6735ffe0b45abdc97fe99a1a7e619b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67105769"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: Integração do Azure Active Directory com o Cerner Central
+# <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: integração do Azure Active Directory ao Cerner Central
 
 Neste tutorial, você aprenderá a integrar o Cerner Central ao Azure AD (Azure Active Directory).
 A integração do Cerner Central ao Azure AD oferece os seguintes benefícios:
@@ -198,6 +198,6 @@ Ao clicar no bloco Cerner Central no Painel de Acesso, você deve ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](cernercentral-provisioning-tutorial.md)

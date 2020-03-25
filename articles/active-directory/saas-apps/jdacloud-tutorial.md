@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o JDA Cloud | Microsoft Docs'
+title: 'Tutorial: Integração do Active Directory do Azure com o JDA Cloud | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o JDA Cloud.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: e7a6aa3cd023533dc1197e1addf3c9be76a9c1db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099759"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Azure Active Directory com o JDA Cloud
+# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Active Directory do Azure com o JDA Cloud
 
 Neste tutorial, você aprenderá como integrar o JDA Cloud ao Azure AD (Azure Active Directory).
 A integração do JDA Cloud ao Azure AD oferece os seguintes benefícios:
@@ -203,4 +203,4 @@ Ao clicar no bloco JDA Cloud no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

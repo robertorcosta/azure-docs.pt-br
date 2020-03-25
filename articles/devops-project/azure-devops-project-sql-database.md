@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar o aplicativo ASP.NET e o Banco de Dados SQL do Azure usando os Azure DevOps Projects'
+title: 'Tutorial: Implantar seu aplicativo ASP.NET e o Banco de Dados SQL do Azure usando o Azure DevOps Projects'
 description: O DevOps Projects facilita o uso inicial do Azure. Com o DevOps Projects, é possível implantar seu aplicativo ASP.NET e o código de Banco de Dados SQL do Azure em algumas etapas.
 ms.author: mlearned
 ms.manager: gwallace
@@ -10,13 +10,13 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 560b16a40d73d07df6c9f446c7196cd930e2274e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971498"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutorial: Implantar o aplicativo ASP.NET e o Banco de Dados SQL do Azure usando os Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutorial: Implantar seu aplicativo ASP.NET e o Banco de Dados SQL do Azure usando o Azure DevOps Projects
 
 O Azure DevOps Projects apresenta uma experiência simplificada na qual é possível trazer o seu código e repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
 
@@ -35,7 +35,7 @@ Neste tutorial, você irá:
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure
 > * Conectar-se e ao banco de dados SQL do Azure 
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -45,7 +45,7 @@ Neste tutorial, você irá:
 
 O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como um Banco de Dados SQL do Azure, na assinatura do Azure de sua escolha.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
@@ -53,7 +53,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
 
     ![O painel do DevOps Projects](_img/azure-devops-project-github/fullbrowser.png)
 
-1. Selecione **.NET**, depois selecione **Avançar**.
+1. Selecione **.NET** e selecione **Avançar**.
 
 1. Em **Escolher uma estrutura de aplicativo**, selecione **ASP.NET**.
 
@@ -127,7 +127,7 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
   
 1. Ao lado da caixa **Valor**, selecione o ícone de cadeado, insira a nova senha, depois selecione **Salvar**.
 
-1. À esquerda, selecione **Tarefas**, depois selecione seu ambiente.  
+1. À esquerda, selecione **Tarefas** e selecione seu ambiente.  
     Tarefas são as atividades que seu processo de implantação executa e elas são agrupadas em fases. Esse pipeline de lançamento contém uma única tarefa, a qual contém as tarefas *Implantação do Serviço de Aplicativo do Azure* e *Implantação de Banco de Dados SQL do Azure*.
 
 1. Selecione a tarefa *Executar SQL do Azure* e examine as várias propriedades usadas para a implantação do SQL.  
@@ -187,7 +187,7 @@ Você precisa de permissões apropriadas para se conectar ao banco de dados SQL 
    > [!NOTE]
    > Se você alterar sua senha de logon no SQL, deverá alterar a senha na variável de pipeline de lançamento, conforme descrito na seção “Examinar o pipeline de CD”.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir o banco de dados SQL do Azure e os recursos relacionados criados neste tutorial. Para isso, use a funcionalidade **Excluir** no painel do DevOps Projects.
 
@@ -200,7 +200,7 @@ Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobran
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Como opção, você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu como:
+Como opção, você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o Azure DevOps Projects para Implantar seu aplicativo ASP.NET e o código do Banco de Dados SQL do Azure
@@ -209,9 +209,9 @@ Como opção, você pode modificar esses pipelines de build e de lançamento par
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure
 > * Conectar-se e ao banco de dados SQL do Azure 
-> * Limpar recursos
+> * Limpar os recursos
 
-Para saber mais sobre o pipeline de CI/CD, consulte:
+Para saber mais sobre o pipeline de CI/CD, confira:
 
 > [!div class="nextstepaction"]
 > [Definir seu pipeline de CD (implantação contínua) de vários estágios](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

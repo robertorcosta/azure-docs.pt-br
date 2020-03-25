@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Communifire | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Communifire | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Communifire.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9bd5ae486dc31b7e19ffed9561f9cfc9dea4cc4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159397"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integração do Azure Active Directory para o Communifire
+# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: integração do Azure Active Directory ao Communifire
 
 Neste tutorial, você aprenderá a integrar o Communifire ao Azure AD (Azure Active Directory).
 A integração do Communifire ao Azure AD oferece os seguintes benefícios:

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Mindflash | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Mindflash | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Mindflash.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 78d4f44e9fe2310fab485804e0aaf70aa0dfbdb0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233534"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integração do Azure Active Directory com o Mindflash
+# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integração do Active Directory do Azure com o Mindflash
 
 Neste tutorial, você aprenderá a integrar o Mindflash ao Azure AD (Azure Active Directory).
 A integração do Mindflash ao Azure AD oferece os seguintes benefícios:

@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507511"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61330591"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Criar um aplicativo usando o Node.js e a API do Azure Cosmos DB para MongoDB 
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Para usar este exemplo, você deve:
 * [Criar](create-mongodb-dotnet.md#create-account) uma conta do Cosmos configurada para usar a API do Azure Cosmos DB para MongoDB.
 * Recuperar as informações de [cadeia de conexão](connect-mongodb-account.md).
 
-## <a name="create-the-app"></a>Crie o aplicativo
+## <a name="create-the-app"></a>Criar o aplicativo
 
 1. Crie um arquivo *app.js* e copie e cole o código abaixo.
 
@@ -115,7 +115,7 @@ Para usar este exemplo, você deve:
     });
     ```
     
-    **Opcional**: Se você estiver usando o **driver do MongoDB Node.js 2.2**, substitua o snippet de código a seguir:
+    **Opcional**: se você estiver usando o driver **MongoDB Node. js 2.2** , substitua o snippet de código a seguir:
 
     Original:
 
@@ -157,7 +157,7 @@ Para usar este exemplo, você deve:
     > [!IMPORTANT]
     > O **driver 3.0 do MongoDB Node. js** requer codificação de caracteres especiais na senha do Cosmos DB. Certifique-se de codificar caracteres '=' como % 3D
     >
-    > Exemplo: A senha *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* é codificada para *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    > Exemplo: A senha *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* codifica a *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
     >
     > O **driver 2.2 do MongoDB Node. js** requer codificação de caracteres especiais na senha do Cosmos DB.
     >

@@ -10,17 +10,17 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756716"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61450492"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
 
 Neste tutorial, você usará a Simulação de Dispositivo a fim de criar um dispositivo simulado personalizado para uso em simulações. Para começar a usar a Simulação de Dispositivo, use um dos dispositivos simulados de exemplo incluídos aqui. Também é possível criar dispositivos simulados personalizados seguindo a descrição deste artigo. Para obter mais opções de personalização, confira [Criar um modelo de dispositivo avançado](iot-accelerators-device-simulation-advanced-device.md).
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 >[!div class="checklist"]
 > * Exibir uma lista de seus modelos de dispositivo simulado
@@ -30,7 +30,7 @@ Neste tutorial, você irá:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este tutorial, você precisará de uma instância implantada da Simulação de Dispositivo em sua assinatura do Azure.
 

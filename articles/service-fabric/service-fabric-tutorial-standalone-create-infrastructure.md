@@ -7,10 +7,10 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613968"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura AWS para hospedar um cluster do Service Fabric
@@ -41,7 +41,7 @@ Selecione **Iniciar Instância**, na próxima tela, escolha **Selecionar** ao la
 
 ![Seleção de instância de EC2][aws-ec2instance]
 
-Selecione **t2.medium**, em seguida, selecione **Avançar: configurar detalhes da instância**; na tela seguinte, altere a quantidade de instâncias para `3`, depois selecione **Detalhes Avançados** para expandir a seção.
+Selecione **t2.medium**, depois **Próximo: Configurar detalhes da instância**; na tela seguinte, altere a quantidade de instâncias para `3`, depois selecione **Detalhes Avançados** para expandir a seção.
 
 Para conectar as máquinas virtuais juntas no Service Fabric, as VMs que estão hospedando sua infraestrutura precisam ter as mesmas credenciais.  Há duas maneiras comuns de obter credenciais consistentes: uni-las todas no mesmo domínio ou definir a mesma senha de administrador em cada VM.  Para este tutorial, use um script de dados de usuário para definir que todas as instâncias de EC2 tenham a mesma senha.  Em um ambiente de produção, é mais seguro unir os hosts em um domínio do Windows.
 

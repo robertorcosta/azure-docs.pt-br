@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09c93e2d851bea22e9d54dde35398f36335eb896
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70967584"
 ---
-# <a name="cli-example-reset-the-account-credentials"></a>Exemplo de CLI: Redefinir as credenciais da conta
+# <a name="cli-example-reset-the-account-credentials"></a>Exemplo da CLI: redefinir as credenciais da conta
 
 O script da CLI do Azure neste artigo mostra como redefinir as credenciais da sua conta e recuperar as configurações de app.config.
 

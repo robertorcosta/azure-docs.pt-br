@@ -17,10 +17,10 @@ ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68fa570ecfbafe2000bfa6eb9fa159dff48219a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67107080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integração do Azure Active Directory ao Andromeda
@@ -129,10 +129,10 @@ Para configurar o logon único do Azure AD com o Andromeda, execute as seguintes
 
 7. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | ------ | -----------|
     | função        | Função específica do aplicativo |
-    | Tipo        | Tipo de Aplicativo |
+    | type        | Tipo de Aplicativo |
     | company       | CompanyName |
 
     > [!NOTE]

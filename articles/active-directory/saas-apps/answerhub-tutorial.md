@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao AnswerHub | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao AnswerHub | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o AnswerHub.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73152997"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Azure Active Directory ao AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure ao AnswerHub
 
 Neste tutorial, você aprende a integrar o AnswerHub ao Azure AD (Azure Active Directory).
 A integração do AnswerHub ao Azure AD oferece estes benefícios:
@@ -236,7 +236,7 @@ Para permitir que os usuários do Azure AD entrem no AnswerHub, você precisará
 
 4. No painel esquerdo, na seção **Gerenciar Usuários**, selecione **Criar ou importar usuários** e, em seguida, **Usuários e Grupos**.
 
-   ![Guia Usuários e Grupos](./media/answerhub-tutorial/ic785175.png "Usuários e Grupos")
+   ![Guia Usuários e Grupos](./media/answerhub-tutorial/ic785175.png "Usuários e grupos")
 
 5. Nas caixas apropriadas, insira o **Endereço de email**, o **Nome de usuário** e a **Senha** de uma conta válida do Azure AD que deseja adicionar e, em seguida, selecione **Salvar**.
 

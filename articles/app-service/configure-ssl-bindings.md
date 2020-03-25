@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849744"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223833"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Proteger um nome DNS personalizado com uma associação SSL no Serviço de Aplicativo do Azure
 
@@ -147,6 +147,12 @@ Na página do seu aplicativo, na navegação esquerda, selecione **Configuraçõ
 
 Após a conclusão da operação, seu aplicativo rejeitará todas as conexões com versões inferiores do TLS.
 
+## <a name="handle-ssl-termination"></a>Processar a terminação SSL
+
+No Serviço de Aplicativo, a [Terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede de modo que todas as solicitações HTTPS cheguem ao seu aplicativo como solicitações HTTP não criptografadas. Se a lógica de aplicativo precisar verificar se as solicitações do usuário estão criptografadas ou não, inspecione o cabeçalho `X-Forwarded-Proto`.
+
+Os guias de configuração específicos da linguagem, como o guia de [configuração do Linux Node.js](containers/configure-language-nodejs.md#detect-https-session), mostram como detectar uma sessão HTTPS no código do aplicativo.
+
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
 ### <a name="azure-cli"></a>CLI do Azure
@@ -160,4 +166,4 @@ Após a conclusão da operação, seu aplicativo rejeitará todas as conexões c
 ## <a name="more-resources"></a>Mais recursos
 
 * [Usar um certificado SSL no código do aplicativo](configure-ssl-certificate-in-code.md)
-* [Perguntas frequentes: Certificados do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [FAQ: Certificados de Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

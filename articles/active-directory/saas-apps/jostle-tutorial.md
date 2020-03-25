@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Jostle | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Jostle | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Jostle.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 612d25f10d051a3137f4c637af9abca1450e9399
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159816"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Tutorial: Integração do Azure Active Directory ao Jostle
+# <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Tutorial: Integração do Azure Active Directory com o Jostle
 
 Neste tutorial, você aprenderá a integrar o Jostle ao Azure AD (Azure Active Directory).
 A integração do Jostle ao Azure AD oferece os seguintes benefícios:

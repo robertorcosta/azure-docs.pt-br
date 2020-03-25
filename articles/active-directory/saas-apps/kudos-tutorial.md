@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 1fb1a1bc7bfd8b3cc9d7758bf8e80d8759f9357e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227474"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integração do Azure Active Directory com o Kudos
+# <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integração do Active Directory do Azure com o Kudos
 
 Neste tutorial, você aprenderá a integrar o Kudos ao Azure AD (Azure Active Directory).
 A integração do Kudos ao Azure AD oferece os seguintes benefícios:

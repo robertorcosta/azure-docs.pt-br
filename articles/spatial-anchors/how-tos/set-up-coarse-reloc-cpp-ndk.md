@@ -9,10 +9,10 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: db7480b8aa2a78e40cf52d22cbaa7a15422602e8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76545408"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cndk"></a>Como criar e localizar âncoras usando relocalização de alta granularidade em C++/NDK

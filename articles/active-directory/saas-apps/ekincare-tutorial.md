@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao eKincare | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o eKincare | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o eKincare.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5e9b9c852d1c5a8e2300986b3a13b5603332768
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158350"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutorial: Integração do Azure Active Directory ao eKincare
+# <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutorial: Integração do Azure Active Directory com o eKincare
 
 Neste tutorial, você aprenderá a integrar o eKincare ao Azure AD (Azure Active Directory).
 A integração do eKincare ao Azure AD oferece os seguintes benefícios:
@@ -121,7 +121,7 @@ Para configurar o logon único do Azure AD com o eKincare, execute as seguintes 
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     | ---------------| --------------- |    
     | employeeid | *user.extensionattribute1* |
     | organizationid | *"uniquevalue"* |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Adobe Sign | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Adobe Sign | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Adobe Sign.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 788c1292b844088f171479b40fc566ff5cfc8a57
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73154030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory ao Adobe Sign
@@ -150,7 +150,7 @@ Para configurar o logon único do Azure AD com o Adobe Sign, realize as etapas a
 
 1. Em uma janela diferente do navegador da Web, entre no site da empresa Adobe Sign como administrador.
 
-1. No menu SAML, selecione **Configurações da conta**  >  **Configurações SAML**.
+1. No menu SAML, selecione **Configurações da conta** > **Configurações SAML**.
    
     ![Captura de tela da página Configurações de SAML do Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Conta")
 
@@ -236,7 +236,7 @@ Para permitir que os usuários do Azure AD entrem no Adobe Sign, eles devem ser 
 
 1. Faça login no **site da empresa do Adobe Sign** como administrador.
 
-2. No menu no topo, selecione **Conta**. Em seguida, no painel esquerdo, selecione **Usuários e grupos**  >  **Crie um novo usuário**.
+2. No menu no topo, selecione **Conta**. Em seguida, no painel esquerdo, selecione **Usuários e grupos** > **Crie um novo usuário**.
    
     ![Captura de tela do site da empresa Adobe Sign, com Conta, Usuários e Grupos e Criar usuário realçados](./media/adobe-echosign-tutorial/ic789524.png "Conta")
    

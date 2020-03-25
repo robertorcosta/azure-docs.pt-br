@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034593"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066489"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Linux no Azure
 
@@ -43,7 +43,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 ## <a name="create-a-backup"></a>Criar um backup
 Crie um backup diário agendado em um Cofre dos Serviços de Recuperação:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual fazer backup.
 4. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
@@ -64,7 +64,7 @@ Se você acidentalmente excluir ou fizer alterações em um arquivo, você poder
 
 Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/html/index.nginx-debian.html. O endereço IP público de nossa VM neste exemplo é *13.69.75.209*. Encontre o endereço IP da sua vm usando:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
@@ -78,6 +78,7 @@ Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Exclua /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -93,8 +94,8 @@ Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/
 7. Selecione a VM na lista.
 8. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Backup** é aberta. 
 9. No menu na parte superior da folha, selecione **Recuperação de Arquivo**. A folha **Recuperação de arquivo** será aberta.
-10. Na **Etapa 1: Selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
-11. Na **Etapa 2: Baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Salve o arquivo baixado em seu computador local.
+10. Em **Etapa 1: selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
+11. Em **Etapa 2: baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Salve o arquivo baixado em seu computador local.
 7. Clique em **Baixar script** para baixar o arquivo de script localmente.
 8. Abra um prompt Bash e digite o seguinte, substituindo *Linux_myVM_05-05-2017.sh* pelo caminho e o nome de arquivo do script que você baixou, *azureuser* pelo nome de usuário da VM e *13.69.75.209* pelo endereço IP público de sua VM.
     
@@ -122,7 +123,7 @@ Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/
     
 12. A saída do script fornece o caminho para o ponto de montagem. A saída deve ser semelhante a esta:
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           
@@ -155,12 +156,12 @@ Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/
 
     ![Página Web do nginx padrão](./media/tutorial-backup-vms/nginx-working.png)
 
-18. No computador local, volte para a guia do navegador no portal do Azure e, na **Etapa 3: Desmontar os discos após a recuperação**, clique no botão **Desmontar discos**. Se você esquecer de fazer isso, a conexão para o ponto de montagem será fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar um novo ponto de montagem.
+18. No computador local, volte para a guia do navegador para o Portal do Azure e, na **Etapa 3: desmontar discos após a recuperação**, clique no botão **Desmontar Discos**. Se você esquecer de fazer isso, a conexão para o ponto de montagem será fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar um novo ponto de montagem.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um backup de uma VM

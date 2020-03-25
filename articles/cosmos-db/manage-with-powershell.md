@@ -8,11 +8,11 @@ ms.date: 10/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 978f37d08275de704dd01c0251dde42665fca552
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364421"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222093"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerenciar recursos da API de SQL do Azure Cosmos DB usando PowerShell
 
@@ -45,7 +45,7 @@ As seções a seguir demonstram como gerenciar a conta do Azure Cosmos, incluind
 * [Modificar a prioridade de failover para uma conta do Azure Cosmos](#modify-failover-priority)
 * [Disparar um failover manual para uma conta do Azure Cosmos](#trigger-manual-failover)
 
-### <a id="create-account"></a> Criar uma conta do Azure Cosmos
+### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a> Criar uma conta do Azure Cosmos
 
 Este comando cria uma conta de banco de dados do Azure Cosmos com uma [política de consistência][distribute-data-globally] de desatualização limitada de [várias regiões](consistency-levels.md).
 
@@ -86,7 +86,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 As contas do Azure Cosmos podem ser configuradas com o Firewall de IP, bem como pontos de extremidade de serviço de Rede Virtual. Para obter informações sobre como configurar o Firewall de IP para o Azure Cosmos DB, confira [Configurar o Firewall de IP](how-to-configure-firewall.md).  Para obter mais informações sobre como habilitar pontos de extremidade de serviço para o Azure Cosmos DB, confira [Configurar o acesso de redes virtuais](how-to-configure-vnet-service-endpoint.md).
 
-### <a id="list-accounts"></a> Listar todas as contas do Azure Cosmos em uma assinatura
+### <a name="list-all-azure-cosmos-accounts-in-a-subscription"></a><a id="list-accounts"></a> Listar todas as contas do Azure Cosmos em uma assinatura
 
 Esse comando permite listar todas as contas do Azure Cosmos em uma assinatura.
 
@@ -96,7 +96,7 @@ Esse comando permite listar todas as contas do Azure Cosmos em uma assinatura.
 Get-AzResource -ResourceType Microsoft.DocumentDb/databaseAccounts | ft
 ```
 
-### <a id="get-account"></a> Obter as propriedades de uma conta do Azure Cosmos
+### <a name="get-the-properties-of-an-azure-cosmos-account"></a><a id="get-account"></a> Obter as propriedades de uma conta do Azure Cosmos
 
 Esse comando permite que você obtenha as propriedades de uma conta existente do Azure Cosmos DB.
 
@@ -111,7 +111,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName | Select-Object Properties
 ```
 
-### <a id="update-account"></a> Atualizar uma conta do Azure Cosmos
+### <a name="update-an-azure-cosmos-account"></a><a id="update-account"></a> Atualizar uma conta do Azure Cosmos
 
 Este comando permite que você atualize as propriedades de conta de banco de dados do Azure Cosmos. As propriedades que podem ser atualizadas incluem as seguintes:
 
@@ -184,7 +184,7 @@ Set-AzResource -ResourceType $resourceType `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
-### <a id="multi-master"></a> Habilitar várias regiões de gravação para uma conta do Azure Cosmos
+### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-master"></a> Habilitar várias regiões de gravação para uma conta do Azure Cosmos
 
 ```azurepowershell-interactive
 # Update an Azure Cosmos account from single to multi-master
@@ -204,7 +204,7 @@ Set-AzResource -ResourceType $resourceType `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-### <a id="delete-account"></a> Excluir uma conta do Azure Cosmos
+### <a name="delete-an-azure-cosmos-account"></a><a id="delete-account"></a> Excluir uma conta do Azure Cosmos
 
 Esse comando permite que você exclua uma conta existente do Azure Cosmos.
 
@@ -218,7 +218,7 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName
 ```
 
-### <a id="update-tags"></a> Atualizar as marcas de uma conta do Azure Cosmos
+### <a name="update-tags-of-an-azure-cosmos-account"></a><a id="update-tags"></a> Atualizar as marcas de uma conta do Azure Cosmos
 
 O exemplo a seguir descreve como definir [Marcas de recurso do Azure][azure-resource-tags] para uma conta do Azure Cosmos.
 
@@ -241,7 +241,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -Tags $tags
 ```
 
-### <a id="list-keys"></a> Listar chaves da conta
+### <a name="list-account-keys"></a><a id="list-keys"></a> Listar chaves da conta
 
 Quando você cria uma conta do Azure Cosmos DB, o serviço gera duas chaves de acesso mestras que podem ser usadas para autenticação quando a conta do Azure Cosmos DB é acessada. Ao fornecer duas chaves de acesso, o Azure Cosmos DB permite regenerar as chaves sem nenhuma interrupção na conta do Azure Cosmos DB. Também estão disponíveis chaves somente leitura para autenticação de operações somente leitura. Há duas chaves de leitura/gravação (primária e secundária) e duas chaves somente leitura (primária e secundária).
 
@@ -259,7 +259,7 @@ Write-Host "PrimaryKey =" $keys.primaryMasterKey
 Write-Host "SecondaryKey =" $keys.secondaryMasterKey
 ```
 
-### <a id="list-connection-strings"></a> Listar Cadeias de Conexão
+### <a name="list-connection-strings"></a><a id="list-connection-strings"></a> Listar Cadeias de Conexão
 
 Para contas do MongoDB, a cadeia de conexão para conectar seu aplicativo do MongoDB à conta do banco de dados pode ser recuperada usando o comando a seguir.
 
@@ -276,7 +276,7 @@ $keys = Invoke-AzResourceAction -Action listConnectionStrings `
 Select-Object $keys
 ```
 
-### <a id="regenerate-keys"></a> Regenerar chaves da conta
+### <a name="regenerate-account-keys"></a><a id="regenerate-keys"></a> Regenerar chaves da conta
 
 Chaves de acesso para uma conta do Azure Cosmos devem ser regeneradas periodicamente para ajudar a manter conexões mais seguras. São atribuídas uma chave de acesso primária e uma chave de acesso secundária à conta. Isso permite que os clientes mantenham o acesso enquanto a outra é regenerada. Há quatro tipos de chaves para uma conta do Azure Cosmos (Primary, Secondary, PrimaryReadonly e SecondaryReadonly)
 
@@ -295,7 +295,7 @@ $keys = Invoke-AzResourceAction -Action regenerateKey `
 Select-Object $keys
 ```
 
-### <a id="enable-automatic-failover"></a> Habilitar failover automático
+### <a name="enable-automatic-failover"></a><a id="enable-automatic-failover"></a> Habilitar failover automático
 
 Habilita uma conta do Cosmos a fazer failover para a respectiva região secundária se a região primária ficar não disponível.
 
@@ -316,7 +316,7 @@ Set-AzResource -ResourceType $resourceType `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-### <a id="modify-failover-priority"></a> Modificar a prioridade de failover
+### <a name="modify-failover-priority"></a><a id="modify-failover-priority"></a> Modificar a prioridade de failover
 
 Para as contas configuradas com failover automático, é possível alterar a ordem na qual o Cosmos promoverá as réplicas secundárias a primária caso a primária não esteja disponível.
 
@@ -347,7 +347,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
 ```
 
-### <a id="trigger-manual-failover"></a> Disparar um failover manual
+### <a name="trigger-manual-failover"></a><a id="trigger-manual-failover"></a> Disparar um failover manual
 
 Para as contas configuradas com failover manual, é possível fazer failover de qualquer réplica secundária e promovê-la a primária modificando o valor para `failoverPriority=0`. Essa operação pode ser usada para iniciar uma análise de recuperação de desastre para testar o planejamento de recuperação de desastre.
 
@@ -389,7 +389,7 @@ As seções a seguir demonstram como gerenciar o banco de dados do Azure Cosmos,
 * [Obter um único banco de dados do Azure Cosmos](#get-db)
 * [Excluir um banco de dados do Azure Cosmos DB](#delete-db)
 
-### <a id="create-db"></a>Criar um banco de dados do Azure Cosmos DB
+### <a name="create-an-azure-cosmos-database"></a><a id="create-db"></a>Criar um banco de dados do Azure Cosmos DB
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos database
@@ -407,7 +407,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $DataBaseProperties
 ```
 
-### <a id="create-db-ru"></a>Criar um banco de dados do Azure Cosmos com taxa de transferência compartilhada
+### <a name="create-an-azure-cosmos-database-with-shared-throughput"></a><a id="create-db-ru"></a>Criar um banco de dados do Azure Cosmos com taxa de transferência compartilhada
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -425,7 +425,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $DataBaseProperties
 ```
 
-### <a id="get-db-ru"></a>Obter a taxa de transferência de um banco de dados do Azure Cosmos
+### <a name="get-the-throughput-of-an-azure-cosmos-database"></a><a id="get-db-ru"></a>Obter a taxa de transferência de um banco de dados do Azure Cosmos
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -440,7 +440,7 @@ Get-AzResource -ResourceType $databaseThroughputResourceType `
     -Name $databaseThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="list-db"></a>Obter todos os bancos de dados do Azure Cosmos em uma conta
+### <a name="get-all-azure-cosmos-databases-in-an-account"></a><a id="list-db"></a>Obter todos os bancos de dados do Azure Cosmos em uma conta
 
 ```azurepowershell-interactive
 # Get all databases in an Azure Cosmos account
@@ -453,7 +453,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName  | Select-Object Properties
 ```
 
-### <a id="get-db"></a>Obter um único banco de dados do Azure Cosmos
+### <a name="get-a-single-azure-cosmos-database"></a><a id="get-db"></a>Obter um único banco de dados do Azure Cosmos
 
 ```azurepowershell-interactive
 # Get a single database in an Azure Cosmos account
@@ -467,7 +467,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName | Select-Object Properties
 ```
 
-### <a id="delete-db"></a>Excluir um banco de dados do Azure Cosmos DB
+### <a name="delete-an-azure-cosmos-database"></a><a id="delete-db"></a>Excluir um banco de dados do Azure Cosmos DB
 
 ```azurepowershell-interactive
 # Delete a database in an Azure Cosmos account
@@ -495,7 +495,7 @@ As seções a seguir demonstram como gerenciar o contêiner do Azure Cosmos, inc
 * [Obter um único contêiner do Azure Cosmos em um banco de dados](#get-container)
 * [Excluir um contêiner do Azure Cosmos](#delete-container)
 
-### <a id="create-container"></a>Criar um contêiner do Azure Cosmos
+### <a name="create-an-azure-cosmos-container"></a><a id="create-container"></a>Criar um contêiner do Azure Cosmos
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos container with default indexes and throughput at 400 RU
@@ -521,7 +521,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-big-pk"></a>Criar um contêiner do Azure Cosmos com um tamanho de chave de partição grande
+### <a name="create-an-azure-cosmos-container-with-a-large-partition-key-size"></a><a id="create-container-big-pk"></a>Criar um contêiner do Azure Cosmos com um tamanho de chave de partição grande
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos container with a large partition key value (version = 2)
@@ -548,7 +548,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="get-container-ru"></a>Obter a taxa de transferência de um contêiner do Azure Cosmos
+### <a name="get-the-throughput-of-an-azure-cosmos-container"></a><a id="get-container-ru"></a>Obter a taxa de transferência de um contêiner do Azure Cosmos
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -563,7 +563,7 @@ Get-AzResource -ResourceType $containerThroughputResourceType `
     -Name $containerThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="create-container-ru"></a>Criar um contêiner do Azure Cosmos com taxa de transferência dedicada
+### <a name="create-an-azure-cosmos-container-with-shared-throughput"></a><a id="create-container-ru"></a>Criar um contêiner do Azure Cosmos com taxa de transferência dedicada
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -588,7 +588,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties 
 ```
 
-### <a id="create-container-custom-index"></a>Criar um contêiner do Azure Cosmos com uma política de índice personalizada
+### <a name="create-an-azure-cosmos-container-with-custom-index-policy"></a><a id="create-container-custom-index"></a>Criar um contêiner do Azure Cosmos com uma política de índice personalizada
 
 ```azurepowershell-interactive
 # Create a container with a custom indexing policy
@@ -624,7 +624,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-no-index"></a>Criar um contêiner do Azure Cosmos com indexação desativada
+### <a name="create-an-azure-cosmos-container-with-indexing-turned-off"></a><a id="create-container-no-index"></a>Criar um contêiner do Azure Cosmos com indexação desativada
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos container with no indexing
@@ -653,7 +653,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-unique-key-ttl"></a>Criar um contêiner do Azure Cosmos com uma política de chave exclusiva e TTL
+### <a name="create-an-azure-cosmos-container-with-unique-key-policy-and-ttl"></a><a id="create-container-unique-key-ttl"></a>Criar um contêiner do Azure Cosmos com uma política de chave exclusiva e TTL
 
 ```azurepowershell-interactive
 # Create a container with a unique key policy and TTL of one day
@@ -696,7 +696,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-lww"></a>Criar um contêiner do Azure Cosmos com resolução de conflitos
+### <a name="create-an-azure-cosmos-container-with-conflict-resolution"></a><a id="create-container-lww"></a>Criar um contêiner do Azure Cosmos com resolução de conflitos
 
 Para criar uma política de resolução de conflitos para usar um procedimento armazenado, defina `"mode"="custom"` e defina o caminho de resolução como o nome do procedimento armazenado, `"conflictResolutionPath"="myResolverStoredProcedure"`. Para gravar todos os conflitos no ConflictsFeed e tratá-los separadamente, defina `"mode"="custom"` e `"conflictResolutionPath"=""`
 
@@ -728,7 +728,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="list-containers"></a>Listar todos os contêineres do Azure Cosmos em um banco de dados
+### <a name="list-all-azure-cosmos-containers-in-a-database"></a><a id="list-containers"></a>Listar todos os contêineres do Azure Cosmos em um banco de dados
 
 ```azurepowershell-interactive
 # List all Azure Cosmos containers in a database
@@ -742,7 +742,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName | Select-Object Properties
 ```
 
-### <a id="get-container"></a>Obter um único contêiner do Azure Cosmos em um banco de dados
+### <a name="get-a-single-azure-cosmos-container-in-a-database"></a><a id="get-container"></a>Obter um único contêiner do Azure Cosmos em um banco de dados
 
 ```azurepowershell-interactive
 # Get a single Azure Cosmos container in a database
@@ -757,7 +757,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName | Select-Object Properties
 ```
 
-### <a id="delete-container"></a>Excluir um contêiner do Azure Cosmos
+### <a name="delete-an-azure-cosmos-container"></a><a id="delete-container"></a>Excluir um contêiner do Azure Cosmos
 
 ```azurepowershell-interactive
 # Delete an Azure Cosmos container

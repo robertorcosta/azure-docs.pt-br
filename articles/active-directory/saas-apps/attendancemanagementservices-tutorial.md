@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Serviços de Gerenciamento de Participação | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Serviços de Gerenciamento de Participação | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e os Serviços de Gerenciamento de Participação.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7143d0afce7a3644286703a9eba0da1ee45305f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67106554"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Azure Active Directory com Serviços de Gerenciamento de Participação
+# <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Azure Active Directory com o Serviços de Gerenciamento de Participação
 
 Neste tutorial, você aprenderá a integrar os Serviços de Gerenciamento de Participação ao Microsoft Azure AD (Active Directory).
 A integração dos Serviços de Gerenciamento de Participação ao Microsoft Azure AD oferece os seguintes benefícios:
@@ -239,4 +239,4 @@ Ao clicar no bloco Serviços de Gerenciamento de Participação no Painel de Ace
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

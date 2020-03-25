@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Pega Systems | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory aos Pega Systems | Microsoft Docs'
 description: Neste tutorial você aprenderá a configurar o logon único entre o Azure Active Directory e o Pega Systems.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integração do Azure Active Directory ao Pega Systems
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o Pega Systems, siga estas etapas
 
     1. Na lista **Atributo de origem**, selecione o valor do atributo mostrado para essa linha.
 
-    1. Selecione **Ok**.
+    1. Selecione **OK**.
 
     1. Clique em **Salvar**.
 

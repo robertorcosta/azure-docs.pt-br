@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao SSO do SAML para Bitbucket da Resolution GmbH | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bitbucket da Resolution GmbH | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SSO do SAML para Bitbucket da Resolution GmbH.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57ae83aee563d4893f767331fff2289a4595cc60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157654"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para Bitbucket da Resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bitbucket da Resolution GmbH
 
 Neste tutorial, você aprenderá a integrar o SSO do SAML para Bitbucket da Resolution GmbH com o AD do Azure (Azure Active Directory).
 A integração de SSO do SAML para Bitbucket da Resolution GmbH com o AD do Azure oferece os seguintes benefícios:
@@ -83,7 +83,7 @@ Para configurar e testar o logon único do AD do Azure com o SSO de SAML para Bi
 2. **[Configurar o logon único do SSO do SAML para Bitbucket da Resolution GmbH](#configure-saml-sso-for-bitbucket-by-resolution-gmbh-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste de SSO do SAML para Bitbucket da Resolution GmbH](#create-saml-sso-for-bitbucket-by-resolution-gmbh-test-user)**  – para ter um equivalente de Brenda Fernandes no SSO do SAML para Bitbucket da Resolution GmbH vinculado à representação do usuário do Azure AD.
+5. **[Criar um usuário de teste de SSO do SAML para Bitbucket da Resolution GmbH](#create-saml-sso-for-bitbucket-by-resolution-gmbh-test-user)** – para ter um equivalente de Brenda Fernandes no SSO do SAML para Bitbucket da Resolution GmbH vinculado à representação do usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Yonyx Interactive Guides | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com Yonyx Interactive Guides | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e Yonyx Interactive Guides.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: b2a22beb1c88e30ce0c88a0f57ec71bbdc45ece8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086436"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com o Yonyx Interactive Guides
+# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com Yonyx Interactive Guides
 
 Neste tutorial, você aprende a integrar o Yonyx Interactive Guides ao Azure AD (Azure Active Directory).
 Integrar Yonyx Interactive Guides ao Azure AD oferece os seguintes benefícios:
@@ -201,5 +201,5 @@ Ao clicar no bloco do Yonyx Interactive Guides no Painel de Acesso, você dever�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

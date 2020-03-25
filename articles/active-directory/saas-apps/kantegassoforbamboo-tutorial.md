@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o SSO do Kantega para o Bamboo | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bamboo | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SSO do Kantega para o Bamboo.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 8c951d7f5f1629447b1b5c1fc6e8a1c202246d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099103"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Active Directory com o SSO do Kantega para o Bamboo
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bamboo
 
 Neste tutorial, você aprende a integrar o SSO do Kantega para o Bamboo ao Azure AD (Azure Active Directory).
 A integração do SSO do Kantega para o Bamboo ao Azure AD oferece os seguintes benefícios:

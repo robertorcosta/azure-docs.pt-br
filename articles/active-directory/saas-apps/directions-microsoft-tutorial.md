@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Directions on Microsoft | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Directions on Microsoft | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Directions on Microsoft.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e6928a54692e52960c80e5279c2868d9b7026c4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158406"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: Integração do Active Directory do Azure ao Directions on Microsoft
+# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: integração do Active Directory do Azure ao Directions on Microsoft
 
 Neste tutorial, você aprende a integrar o Directions on Microsoft ao Azure AD (Azure Active Directory).
 A integração do Directions on Microsoft ao Azure AD oferece os seguintes benefícios:

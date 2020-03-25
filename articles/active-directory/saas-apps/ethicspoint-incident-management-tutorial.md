@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o EPIM (EthicsPoint Incident Management) | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao EthicsPoint Incident Management (EPIM) | Microsoft Azure'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o EthicsPoint Incident Management (EPIM).
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 029e45fc4768084b0dcd89b32c5392d26192f7d6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157148"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integração do Azure Active Directory com o EPIM (EthicsPoint Incident Management)
+# <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: integração do Azure Active Directory ao EthicsPoint Incident Management (EPIM)
 
 Neste tutorial, você aprenderá a integrar o EthicsPoint Incident Management (EPIM) ao Azure AD (Azure Active Directory).
 A integração do EthicsPoint Incident Management (EPIM) ao Azure AD fornece os seguintes benefícios:

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com ThirdPartyTrust | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o ThirdPartyTrust | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o ThirdPartyTrust.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 345c9fc89882597f23958a620453008eeb5bfb86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089020"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>Tutorial: Integração do Azure Active Directory com ThirdPartyTrust
+# <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>Tutorial: Integração do Azure Active Directory com o ThirdPartyTrust
 
 Neste tutorial, você aprenderá a integrar o ThirdPartyTrust ao Azure AD (Azure Active Directory).
 A integração do ThirdPartyTrust com o AD do Azure oferece os seguintes benefícios:
@@ -197,5 +197,5 @@ Ao clicar no bloco do ThirdPartyTrust no Painel de Acesso, você será conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78195321"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
@@ -38,7 +38,7 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 
 Para obter informações de visão geral sobre o Key Vault, consulte [O que é o Azure Key Vault?](key-vault-overview.md). Para obter informações sobre onde o Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, é necessário ter o seguinte:
 
@@ -46,7 +46,7 @@ Para concluir este tutorial, é necessário ter o seguinte:
 * Azure PowerShell, versão mínima 1.0.0. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, insira `$PSVersionTable.PSVersion`.  
 * Armazenamento suficiente no Azure para seus logs do Cofre da Chave.
 
-## <a id="connect"></a>Conectar-se com sua assinatura do cofre de chaves
+## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Conectar-se com sua assinatura do cofre de chaves
 
 A primeira etapa para configurar o registro em log das chaves é apontar o Azure PowerShell para o cofre de chaves que você deseja registrar em log.
 
@@ -72,7 +72,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Apontar o PowerShell para a assinatura correta é uma etapa importante, especialmente se você tiver várias assinaturas associadas à sua conta. Para saber mais sobre a configuração PowerShell do Azure, consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
-## <a id="storage"></a>Criar uma conta de armazenamento para seus logs
+## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Criar uma conta de armazenamento para seus logs
 
 Embora você possa usar uma conta de armazenamento existente para seus logs, criaremos uma conta de armazenamento que será dedicada aos logs do Key Vault. Para conveniência quando tivermos de especificar isso posteriormente, armazenaremos os detalhes em uma variável chamada **sa**.
 
@@ -87,7 +87,7 @@ Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que
 >
 >
 
-## <a id="identify"></a>Identificar o cofre da chave para seus logs
+## <a name="identify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identificar o cofre da chave para seus logs
 
 No [tutorial de introdução](key-vault-get-started.md), o nome do cofre de chaves era **ContosoKeyVault**. Continuaremos usando esse nome e armazenaremos os detalhes em uma variável chamada **kv**:
 
@@ -95,7 +95,7 @@ No [tutorial de introdução](key-vault-get-started.md), o nome do cofre de chav
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a id="enable"></a>Habilitar o registro em log
+## <a name="enable-logging"></a><a id="enable"></a>Habilitar o registro em log
 
 Para habilitar o registro em log para o Key Vault, usaremos o cmdlet **Set-AzDiagnosticSetting**, juntamente com as variáveis que criamos para a nova conta de armazenamento e o cofre de chaves. Também definiremos o sinalizador **-Enabled** como **$true** e definiremos a categoria como **AuditEvent** (a única categoria para o registro em log do Key Vault):
 
@@ -132,7 +132,7 @@ O que é registrado em log:
   * A assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
 * Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador estão malformadas ou expiradas ou têm um token inválido.  
 
-## <a id="access"></a>Acessar seus logs
+## <a name="access-your-logs"></a><a id="access"></a>Acessar seus logs
 
 Os logs do Key Vault são armazenados no contêiner **insights-logs-auditevent** na conta de armazenamento que você forneceu. Para exibir os logs, você precisa baixar blobs.
 
@@ -214,7 +214,7 @@ Agora você está pronto para começar a examinar o conteúdo dos logs. Mas, ant
 * Para consultar o status das configurações de diagnóstico do recurso cofre de chaves: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Para desabilitar o log do recurso cofre de chaves: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
-## <a id="interpret"></a>Interpretar os logs do Cofre de Chave
+## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretar os logs do Cofre de Chave
 
 Os blobs individuais são armazenados como texto, formatados como um blob JSON. Vamos examinar um exemplo de entrada de log. Execute este comando:
 
@@ -249,7 +249,7 @@ Ele retorna uma entrada de log semelhante a esta:
 
 A tabela a seguir lista os nomes e as descrições de campo:
 
-| Nome do campo | Descrição |
+| Nome do campo | DESCRIÇÃO |
 | --- | --- |
 | **time** |Data e hora em UTC. |
 | **resourceId** |ID do Recurso do Azure Resource Manager. Para os logs do Cofre da Chave, isso sempre será a ID do recurso do Cofre da Chave. |
@@ -303,13 +303,13 @@ A tabela a seguir lista os valores de **operationName** e os comandos da API RES
 | **SecretList** |[Listar segredos em um cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Listar versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Usar logs do Azure Monitor
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Usar logs do Azure Monitor
 
 Você pode usar a solução do Key Vault em logs do Azure Monitor para examinar logs de **AuditEvent** do Key Vault. Nos logs do Azure Monitor, você usa consultas de log para analisar dados e obter as informações necessárias. 
 
 Para obter mais informações, incluindo como configurar isso, consulte [Solução do Azure Key Vault em logs do Azure Monitor](../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções se você precisar migrar da solução do Key Vault antiga que era oferecida durante a versão prévia dos logs do Azure Monitor, em que primeiro você roteava os logs para uma conta de armazenamento do Azure e configurava os logs do Azure Monitor para ler daquela conta.
 
-## <a id="next"></a>Próximas etapas
+## <a name="next-steps"></a><a id="next"></a>Próximas etapas
 
 Para obter um tutorial que usa o Azure Key Vault em um aplicativo Web .NET, confira [Usar o Azure Key Vault em um aplicativo Web](tutorial-net-create-vault-azure-web-app.md).
 

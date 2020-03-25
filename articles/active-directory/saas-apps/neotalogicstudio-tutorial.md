@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Neota Logic Studio | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Neota Logic Studio | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Neota Logic Studio.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: f9154f2eb04d8deade4bdcdf0b02ce0a5b59d7ac
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160347"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Tutorial: Integração do Azure Active Directory ao Neota Logic Studio
+# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Tutorial: Integração do Azure Active Directory com o Neota Logic Studio
 
 Neste tutorial, você aprenderá a integrar o Neota Logic Studio ao Azure AD (Azure Active Directory).
 A integração do Neota Logic Studio ao Azure AD oferece os seguintes benefícios:

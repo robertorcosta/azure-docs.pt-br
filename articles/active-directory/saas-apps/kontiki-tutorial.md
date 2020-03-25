@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Kontiki | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Kontiki | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Kontiki.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfb154bce34b2ceda99b82c7ca3534b8a8ee0a1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098501"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Azure Active Directory com Kontiki
+# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Active Directory do Azure com o Kontiki
 
 Neste tutorial, você aprenderá como integrar o Kontiki ao Azure AD (Azure Active Directory).
 
@@ -55,7 +55,7 @@ O Kontiki dá suporte aos seguintes recursos:
 
 Para integrar o Kontiki com o Azure AD, você deve adicionar o Kontiki à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No menu esquerdo, selecione **Azure Active Directory**.
 
@@ -193,4 +193,4 @@ Para saber mais, examine estes artigos:
 
 - [Lista de tutoriais de integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

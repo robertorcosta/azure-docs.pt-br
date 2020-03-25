@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Symantec WSS (Web Security Service) | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Symantec WSS (Web Security Service) | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Symantec WSS (Web Security Service).
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d496015440deb80a0159ed0ec234ae60c2c64a66
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159936"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Azure Active Directory com Symantec WSS (Web Security Service)
+# <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Azure Active Directory ao Symantec WSS (Web Security Service)
 
 Neste tutorial, você aprenderá a como integrar sua conta do Symantec Web Security Service (WSS) com sua conta do Azure Active Directory (Azure AD) para que o WSS possa autenticar um usuário final provisionado no Azure AD usando a autenticação do SAML e impor regras de política no nível de usuário ou de grupo.
 

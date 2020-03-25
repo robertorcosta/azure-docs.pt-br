@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Picturepark | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Picturepark | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Picturepark.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73177009"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Azure Active Directory com o Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Azure Active Directory ao Picturepark
 
 Neste tutorial, você aprende a integrar o Picturepark ao Azure AD (Azure Active Directory).
 A integração do Picturepark ao Azure AD oferece os seguintes benefícios:
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o Picturepark, realize as seguint
 
 3. Clique em **Autenticação** e em **Provedores de identidade**.
    
-    ![Autenticação](./media/picturepark-tutorial/ic795063.png "Authentication")
+    ![Autenticação](./media/picturepark-tutorial/ic795063.png "Autenticação")
 
 4. Na seção **Configuração do provedor de identidade** , realize as seguintes etapas:
    

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 940de5e100da934e0bc4efdfc6686f8040e10954
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392388"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457314"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como usar a exclusão reversível do Key Vault com a CLI
 
@@ -23,7 +23,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 - Suporte à exclusão reversível de cofres de chaves
 - Suporte à exclusão reversível de objetos do cofre de chaves, chaves, segredos e certificados
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 - CLI do Azure – se essa configuração não existir para o seu ambiente, veja [Gerenciar Key Vault usando a CLI do Azure](key-vault-manage-with-cli2.md).
 
@@ -33,7 +33,7 @@ Para obter informações de referência específicas do Key Vault para CLI, conf
 
 As operações de Key Vault são gerenciadas separadamente por meio de permissões de RBAC (controle de acesso baseado em função) da seguinte maneira:
 
-| Operação | Descrição | Permissão de usuário |
+| Operação | DESCRIÇÃO | Permissão de usuário |
 |:--|:--|:--|
 |Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
@@ -53,7 +53,7 @@ Você habilita "exclusão suave" para permitir a recuperação de um cofre de ch
 Para um cofre de chaves existente chamado ContosoVault, habilite a exclusão reversível da seguinte maneira. 
 
 ```azurecli
-az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
+az keyvault update -n ContosoVault --enable-soft-delete true
 ```
 
 ### <a name="new-key-vault"></a>Novo cofre de chaves
@@ -134,7 +134,7 @@ Quando você exclui uma chave em um cofre de chaves com exclusão reversível ha
 
 Assim como os cofres das chaves, uma chave, segredo ou certificado excluído permanecem no estado excluído por até 90 dias, a menos que você os recupere ou purga.
 
-#### <a name="keys"></a>Keys
+#### <a name="keys"></a>simétricas
 
 Para recuperar uma chave excluída:
 
@@ -233,13 +233,13 @@ Você poderá habilitar a proteção de limpeza somente se a exclusão reversív
 
 Para ativar a exclusão reversível e a proteção de limpeza ao criar um cofre, use o comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
 
-```
+```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
 Para adicionar a proteção de limpeza a um cofre existente (que já tem a exclusão reversível habilitada), use o comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update):
 
-```
+```azurecli
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
 ```
 

@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75498164"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Fazer failover de VMs do Hyper-V no Azure
@@ -38,9 +38,9 @@ Certifique-se de que não haja instantâneos na VM e que a VM local esteja desat
 
 O failover e o failback têm três estágios:
 
-1. **Failover para o Azure**: Fazer failover de VMs do Hyper-V do site local para Azure.
-2. **Failback para local**: Fazer failover de VMs do Azure para o site local, quando disponível. Ele inicia a sincronização de dados do Azure para o local e, após a conclusão, ele abre as VMs no local.  
-3. **Replicação inversa de VMs locais**: Após o failback para o local, replique inversamente as VMs locais para começar a replicá-las no Azure.
+1. **Failover para Azure**: fazer failover de VMs do Hyper-V do site local para Azure.
+2. **Failback para local**: fazer failover de VMs do Azure para o site local, quando disponível. Ele inicia a sincronização de dados do Azure para o local e, após a conclusão, ele abre as VMs no local.  
+3. **Replicação inversa de VMs locais**: após o failback no local, replique inversamente as VMs locais para começar a replicá-las no Azure.
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
@@ -64,7 +64,7 @@ Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 4. Depois de verificar o failover, clique em **Confirmar**. Exclui todos os pontos de recuperação disponíveis.
 
 > [!WARNING]
-> **Não cancele um failover em andamento**: Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
+> **Não cancele um failover em andamento**: se você cancelar em andamento, o failover será interrompido, mas a VM não será replicada novamente.
 
 ## <a name="connect-to-failed-over-vm"></a>Conectar-se à VM cujo failover foi realizado
 

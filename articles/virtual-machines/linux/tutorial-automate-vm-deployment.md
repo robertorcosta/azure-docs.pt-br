@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27c7e32f081003ac236c6d1405eb3512f6c4433c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 62a8c68b11562cac7bb9e8a318cbe08084449423
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034630"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066515"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como usar a inicialização de nuvem para personalizar uma máquina virtual do Linux no Azure na primeira inicialização
 
@@ -44,12 +44,12 @@ Estamos trabalhando com parceiros para incluir a inicialização de nuvem e trab
 
 | Publicador | Oferta | SKU | Versão | Cloud-init pronto |
 |:--- |:--- |:--- |:--- |:--- |
-|Canônico |UbuntuServer |18.04-LTS |mais recente |Sim | 
-|Canônico |UbuntuServer |16.04-LTS |mais recente |Sim | 
-|Canônico |UbuntuServer |14.04.5-LTS |mais recente |Sim |
-|CoreOS |CoreOS |Estável |mais recente |Sim |
+|Canônico |UbuntuServer |18.04-LTS |mais recente |sim | 
+|Canônico |UbuntuServer |16.04-LTS |mais recente |sim | 
+|Canônico |UbuntuServer |14.04.5-LTS |mais recente |sim |
+|CoreOS |CoreOS |Estável |mais recente |sim |
 |OpenLogic 7.6 |CentOS |7-CI |mais recente |preview |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sim |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
 
 
@@ -58,7 +58,7 @@ Para ver a inicialização de nuvem em ação, crie uma VM que instala o NGINX e
 
 No seu prompt do Bash ou no Cloud Shell, crie um arquivo chamado *cloud-init.txt* e cole a configuração a seguir. Por exemplo, digite `sensible-editor cloud-init.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
 
-```azurecli-interactive
+```bash
 #cloud-config
 package_upgrade: true
 packages:
@@ -271,7 +271,7 @@ Seu site NGINX e Node. js seguro é exibido como no exemplo a seguir:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você configurou as VMs na primeira inicialização com cloud-init. Você aprendeu como:
+Neste tutorial, você configurou as VMs na primeira inicialização com cloud-init. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um arquivo de configuração cloud-init

@@ -5,10 +5,10 @@ ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
 ms.openlocfilehash: dd31dbadce4f0a55853607504b4322277784f27f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74534583"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Criar um aplicativo de funções em um plano Premium – CLI do Azure
@@ -21,7 +21,7 @@ Este script de exemplo do Azure Functions cria um aplicativo de funções, que �
 
 Se você optar por instalar e usar a CLI localmente, este artigo exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 Esse script cria um aplicativo de funções usando um [plano Premium](../functions-premium-plan.md).
 
@@ -31,7 +31,7 @@ Esse script cria um aplicativo de funções usando um [plano Premium](../functio
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Cada comando na tabela redireciona para a documentação específica do comando. Este script usa os seguintes comandos:
+Cada comando da tabela é vinculado à documentação específica do comando. Este script usa os seguintes comandos:
 
 | Comando | Observações |
 |---|---|

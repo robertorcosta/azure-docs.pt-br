@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Edcor | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Edcor | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Edcor.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17913d4d2fae54c5efa03a6cf30c66071b01bf40
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157263"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integração do Azure Active Directory com Edcor
+# <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integração do Azure Active Directory ao Edcor
 
 Neste tutorial, você aprende a integrar o Edcor ao Azure Active Directory.
 A integração do Edcor ao Azure Active Directory oferece os seguintes benefícios:

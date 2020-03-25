@@ -17,13 +17,13 @@ ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df68c9289caed0c857434bf4a1f9a5eb28e71ab4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157325"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integração do Azure Active Directory ao DigiCert
+# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integração do Azure Active Directory com o DigiCert
 
 Neste tutorial, você aprenderá a integrar o DigiCert ao Azure AD (Azure Active Directory).
 A integração do DigiCert ao Azure AD oferece os seguintes benefícios:
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o DigiCert, execute as seguintes 
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
-    | NOME |  Atributo de Origem|
+    | Nome |  Atributo de Origem|
     | ---------------| --------------- |
     | nameidentifier | user.userprincipalname |
     | company | < companycode > |

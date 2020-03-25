@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o TurboRater | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o TurboRater | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o TurboRater.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088285"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Azure Active Directory com o TurboRater
+# <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Azure Active Directory ao TurboRater
 
 Neste tutorial, você aprenderá a integrar o TurboRater ao Azure AD (Azure Active Directory).
 
@@ -51,7 +51,7 @@ O TurboRater é compatível com o SSO (logon único) iniciado por IDP.
 
 Para configurar a integração do TurboRater ao Azure AD, você precisará adicionar o TurboRater do Azure Marketplace à sua lista de aplicativos SaaS gerenciados:
 
-1. Entre no [Portal do Azure](https://portal.azure.com?azure-portal=true).
+1. Entre no [portal do Azure](https://portal.azure.com?azure-portal=true).
 1. No painel esquerdo, selecione **Azure Active Directory**.
 
     ![A opção Azure Active Directory](common/select-azuread.png)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Zscaler ZSCloud | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Zscaler ZSCloud | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Zscaler ZSCloud.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68723052"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integração do Azure Active Directory com Zscaler ZSCloud
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: integração do Azure Active Directory com o Zscaler ZSCloud
 
 Neste tutorial, você aprenderá a integrar o Zscaler ZSCloud com o Azure AD (Azure Active Directory).
 A integração do Zscaler ZSCloud com o Azure AD oferece os seguintes benefícios:
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure AD com o Zscaler ZSCloud, siga as etapas
 
 6. Além do indicado acima, o aplicativo Zscaler ZSCloud espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
     
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -159,11 +159,11 @@ Para configurar o logon único do Azure AD com o Zscaler ZSCloud, siga as etapas
 
 1. Para automatizar a configuração no Zscaler ZSCloud, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
 
-    ![Extensão dos meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
 2. Após adicionar a extensão ao navegador, clicar em **Instalar o Zscaler ZSCloud** direcionará você ao aplicativo Zscaler ZSCloud. Nele, forneça as credenciais de administrador para entrar no Zscaler ZSCloud. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
 
-    ![SSO de instalação](common/setup-sso.png)
+    ![Sso de instalação](common/setup-sso.png)
 
 3. Se desejar configurar o Zscaler ZSCloud manualmente, abra uma nova janela do navegador da Web, entre no site da empresa Zscaler ZSCloud como administrador e execute as seguintes etapas:
 

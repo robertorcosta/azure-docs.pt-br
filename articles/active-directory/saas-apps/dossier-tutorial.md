@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 2feb65384e8586b30840a37a66aaee5375881c22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67103926"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: Integração do Azure Active Directory com o Dossier
+# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: integração do Azure Active Directory com o Dossier
 
 Neste tutorial, você aprende a integrar o Dossier ao Microsoft Azure Active Directory.
 A integração do Dossier ao Microsoft Azure Active Directory oferece os seguintes benefícios:

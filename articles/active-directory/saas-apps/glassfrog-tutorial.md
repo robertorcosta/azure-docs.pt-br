@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o GlassFrog | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao GlassFrog | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o GlassFrog.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a816cd6df8351a9b9daefd569d1fad2ec0763832
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67101556"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Tutorial: Integração do Azure Active Directory com o GlassFrog
+# <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Tutorial: integração do Azure Active Directory ao GlassFrog
 
 Neste tutorial, você aprende a integrar o GlassFrog ao Azure AD (Azure Active Directory).
 A integração do GlassFrog ao Azure AD oferece os seguintes benefícios:

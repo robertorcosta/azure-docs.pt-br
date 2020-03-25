@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o RightAnswers | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao RightAnswers | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o RightAnswers.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 8b1f7590e13be97841aae95ec47eaaa61ab004a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b83c080b692802c4361165f5f60b45172969abaa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233485"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475729"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Azure Active Directory com o RightAnswers
+# <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Active Directory do Azure ao RightAnswers
 
 Neste tutorial, você aprenderá como integrar o RightAnswers com o Azure AD (Azure Active Directory).
 A integração do RightAnswers ao Azure AD oferece os seguintes benefícios:
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o RightAnswers, execute as seguin
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do cliente RightAnswers](https://support.rightanswers.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do cliente RightAnswers](https://uplandsoftware.com/rightanswers/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o RightAnswers, execute as seguin
 
 ### <a name="configure-rightanswers-single-sign-on"></a>Configurar o logon único do RightAnswers
 
-Para configurar o logon único no lado do **RightAnswers**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do RightAnswers](https://support.rightanswers.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **RightAnswers**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do RightAnswers](https://uplandsoftware.com/rightanswers/contact/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!NOTE]
 > A equipe de suporte do RightAnswers precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.

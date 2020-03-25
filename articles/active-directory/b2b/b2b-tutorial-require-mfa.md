@@ -13,13 +13,13 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74420584"
 ---
-# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor a autenticação multifator para usuários convidados de B2B
+# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: impor a autenticação multifator para usuários convidados de B2B
 
 Ao colaborar com os usuários convidados de B2B externos, é uma boa ideia proteger seus aplicativos com políticas de MFA (autenticação multifator). Em seguida, os usuários externos precisarão de mais do que apenas um nome de usuário e senha para acessar os recursos. No Azure AD (Azure Active Directory), você pode atingir essa meta com uma política de acesso condicional que requer MFA para o acesso. As políticas de MFA podem ser impostas no nível do locatário, aplicativo ou usuário convidado individual, da mesma maneira que podem ser habilitadas para membros da sua própria organização.
 
@@ -131,7 +131,7 @@ Para concluir o cenário deste tutorial, você precisa de:
  
 3.  Saia.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, remova o usuário de teste e a política de acesso condicional de teste.
 1.  Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
 2.  No painel esquerdo, selecione **Azure Active Directory**.

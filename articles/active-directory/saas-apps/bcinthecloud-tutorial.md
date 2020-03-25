@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o BC in the Cloud | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao BC in the Cloud | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o BC in the Cloud.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faad03885d3b427d73d06c683db8041a9324f9be
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157722"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutorial: Integração do Azure Active Directory com o BC in the Cloud
+# <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutorial: Integração do Azure Active Directory ao BC in the Cloud
 
 Neste tutorial, você aprende a integrar o BC in the Cloud ao Azure AD (Azure Active Directory).
 A integração do BC in the Cloud ao Azure AD oferece os seguintes benefícios:

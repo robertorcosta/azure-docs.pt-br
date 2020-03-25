@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao LaunchDarkly | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o LaunchDarkly | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o LaunchDarkly.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e32f8c3ea300960893163264e99bd6c51138c7c5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159649"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Azure Active Directory ao LaunchDarkly
+# <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Azure Active Directory com o LaunchDarkly
 
 Neste tutorial, você aprenderá a integrar o LaunchDarkly ao Azure AD (Azure Active Directory).
 A integração do LaunchDarkly ao Azure AD oferece os seguintes benefícios:

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Aplicativo LOB habilitado para Token SAML 1.1 | Microsoft Docs'
+title: 'Tutorial: Integração do Active Directory do Azure com o aplicativo LOB habilitado para token SAML 1.1 | Microsoft Docs'
 description: Aprenda como configurar o logon único entre o Active Directory do Azure e o Aplicativo LOB habilitado para Token SAML 1.1.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6de8906f15b170511c5548eeaf13173bd39a2734
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160065"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Tutorial: Integração do Azure Active Directory com o Aplicativo LOB habilitado para Token SAML 1.1
+# <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Tutorial: Integração do Active Directory do Azure com o Aplicativo LOB habilitado para Token SAML 1.1
 
 Neste tutorial, você aprenderá a integrar o LOB App habilitado para Token de SAML 1.1 com o Azure AD (Azure Active Directory).
 Integrando o SAML 1.1 O aplicativo LOB habilitado para token com o Azure AD oferece os seguintes benefícios:

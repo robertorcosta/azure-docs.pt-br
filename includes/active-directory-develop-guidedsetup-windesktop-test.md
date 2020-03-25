@@ -15,10 +15,10 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79128909"
 ---
 ## <a name="test-your-code"></a>Testar seu código
@@ -41,7 +41,7 @@ Na primeira vez que você entrar no seu aplicativo, você também será solicita
 
 Depois de entrar, você deverá ver as informações do perfil do usuário retornadas pela chamada da API do Microsoft Graph. Os resultados são exibidos na caixa **Resultados da Chamada da API**. As informações básicas sobre o token que foi adquirido através da chamada para `AcquireTokenInteractive` ou `AcquireTokenSilent` devem estar visíveis na caixa **Informações de Token**. Os resultados contêm as propriedades a seguir:
 
-|Propriedade  |Formatar  |Descrição |
+|Propriedade  |Formatar  |DESCRIÇÃO |
 |---------|---------|---------|
 |**Nome de usuário** |<span>user@domain.com</span> |O nome de usuário que é usado para identificar o usuário.|
 |**O Token Expira** |Datetime |A data e hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|

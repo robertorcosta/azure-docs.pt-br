@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Sauce Labs - Mobile and Web Testing | Microsoft Docs'
+title: 'Tutorial: Integração do Active Directory do Azure com o Sauce Labs - Teste Móvel e da Web | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Sauce Labs - Mobile e Web Testing.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8933cb90672e49305cd0fb7dc5e4f8f04f94093e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67091551"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Azure Active Directory com o Sauce Labs - Mobile and Web Testing
+# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Active Directory do Azure com o Sauce Labs - Teste Móvel e da Web
 
 Neste tutorial, você aprenderá como integrar o Sauce Labs - Mobile e Web Testing ao Azure AD (Azure Active Directory).
 A integração do Sauce Labs - Mobile e Web Testing com o Azure AD oferece os seguintes benefícios:

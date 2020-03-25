@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Gigya | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Gigya | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Gigya.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 824e9c459df75ea0307fe314fbf4118cca6e69d3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76841601"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: Integração do Azure Active Directory com o Gigya
+# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: integração do Active Directory do Azure ao Gigya
 
 Neste tutorial, você aprende a integrar o Gigya ao Azure AD (Azure Active Directory).
 A integração do Gigya ao Azure AD oferece os seguintes benefícios:

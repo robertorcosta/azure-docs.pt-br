@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382837"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222723"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando Kestrel
 
@@ -36,7 +36,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -347,7 +347,7 @@ Antes de implantar o aplicativo no Azure, instale o certificado no repositório 
 
 Primeiro, exporte o certificado para um arquivo PFX. Abra o aplicativo certlm.msc e navegue até **Pessoal**>**Certificados**.  Clique com o botão direito do mouse no certificado *mytestcert* e selecione **Todas as Tarefas**>**Exportar**.
 
-![Exportar certificado][image4]
+![Exportar o certificado][image4]
 
 No assistente de exportação, escolha **Sim, exportar a chave privada** e escolha o formato PFX (Troca de Informações Pessoais).  Exporte o arquivo *C:\Users\sfuser\votingappcert.pfx*.
 
@@ -389,7 +389,7 @@ Quando o aplicativo é implantado, abra um navegador da Web e navegue até [http
 
 ![Aplicativo de votação][image3]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Nesta parte do tutorial, você aprendeu a:
 

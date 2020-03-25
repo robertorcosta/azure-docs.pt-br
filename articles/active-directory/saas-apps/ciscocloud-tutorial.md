@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Cisco Cloud | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Cisco Cloud | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Cloud.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 342101c623d451b71a33b2394ec6617482f388d6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157460"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integração do Azure Active Directory ao Cisco Cloud
+# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: integração do Azure Active Directory com o Cisco Cloud
 
 Neste tutorial, você aprenderá como integrar o Cisco Cloud ao Azure Active Directory (Azure AD).
 A integração do Cisco Cloud com o Azure AD oferece os seguintes benefícios:
@@ -81,7 +81,7 @@ Para configurar e testar o logon único do Azure AD com o Cisco Cloud, você pre
 2. **[Configurar o logon único do Cisco Cloud](#configure-cisco-cloud-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Cisco Cloud](#create-cisco-cloud-test-user)**  – para ter um equivalente de Brenda Fernandes no Cisco Cloud vinculado à representação de usuário do Azure AD.
+5. **[Criar usuário de teste do Cisco Cloud](#create-cisco-cloud-test-user)** – para ter um equivalente de Brenda Fernandes no Cisco Cloud vinculado à representação de usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o Cisco Cloud, execute as seguint
 
 7. Além do indicado acima, o aplicativo Cisco Cloud espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | -----------| ------------|
     | country    | user.country |
     | company    | user.companyname |

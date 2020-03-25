@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Samanage | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Samanage | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Samanage.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 741efbae84e18c811beb6c0579c1949c5ddf619c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160108"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integração do Azure Active Directory com o Samanage
+# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integração do Azure Active Directory ao Samanage
 
 Neste tutorial, você aprende a integrar o Samanage ao Azure AD (Azure Active Directory).
 A integração do Samanage ao Azure AD oferece os seguintes benefícios:
@@ -133,7 +133,7 @@ Para configurar o logon único do Azure AD com o Samanage, execute as seguintes 
 
 2. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
    
-    ![Painel](./media/samanage-tutorial/tutorial_samanage_001.png "painel")
+    ![Painel](./media/samanage-tutorial/tutorial_samanage_001.png "Painel")
 
 3. Clique em **Logon Único**.
    
@@ -221,7 +221,7 @@ No caso do Samanage, o provisionamento é uma tarefa manual.
 
 2. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
    
-    ![Configuração](./media/samanage-tutorial/tutorial_samanage_001.png "Configuração")
+    ![Instalação](./media/samanage-tutorial/tutorial_samanage_001.png "Instalação")
 
 3. Clique na guia **Usuários**
    

@@ -9,18 +9,18 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77192540"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
 
 As seções a seguir abordam a criação de um novo back-end WebAPI ASP.NET. Esse processo tem três objetivos principais:
 
-- **Autenticar clientes**: adicione um manipulador de mensagens para autenticar solicitações de clientes e associar o usuário à solicitação.
-- **Registrar para receber notificações usando o back-end da WebAPI**: adicione um controlador para manipular novos registros para um dispositivo cliente receber notificações. O nome de usuário autenticado é automaticamente adicionado ao registro como uma [marca](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Autenticar clientes**: adicione um manipulador de mensagens para autenticar solicitações de cliente e associar o usuário à solicitação.
+- **Registrar para receber notificações usando o back-end WebAPI**: adicione um controlador para lidar com novos registros para que um dispositivos clientes recebam notificações. O nome de usuário autenticado é automaticamente adicionado ao registro como uma [marca](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
 - **Enviar notificações aos clientes**: adicione um controlador para permitir aos usuários disparar um envio por push seguro para dispositivos e clientes associados à marca.
 
 Crie um novo back-end WebAPI ASP.NET executando estas ações:
@@ -140,7 +140,7 @@ Nesta seção, você cria uma nova classe de manipulador de mensagens denominada
     ```
 
     > [!NOTE]
-    > Observação de segurança: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.
+    > Nota de segurança: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.
 5. Para registrar o manipulador de mensagens:, adicione o seguinte código ao final do método `Register` na classe **App_Start/WebApiConfig.cs**:
 
     ```csharp
@@ -160,7 +160,7 @@ Nesta seção, você adiciona um novo controlador ao back-end WebAPI para manipu
 
     Essa ação adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o [pacote NuGet Microsoft.Azure.Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-4. Crie um novo arquivo de classe que representa a conexão com o hub de notificação usado para enviar notificações. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** e Classe. Nomeie a nova classe como **Notifications.cs** e selecione **Adicionar** para gerar a classe.
+4. Crie um novo arquivo de classe que representa a conexão com o hub de notificação usado para enviar notificações. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** e {7}Classe{8}. Nomeie a nova classe como **Notifications.cs** e selecione **Adicionar** para gerar a classe.
 
     ![A janela Adicionar Novo Item][B6]
 

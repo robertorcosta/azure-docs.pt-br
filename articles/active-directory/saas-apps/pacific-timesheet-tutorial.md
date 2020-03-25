@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Pacific Timesheet | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Pacific Timesheet | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Pacific Timesheet.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 076a1e7cfc16b5ca9ff5505898cfd5399a4b7efd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095155"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Azure Active Directory com o Pacific Timesheet
+# <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: integração do Azure Active Directory com o Pacific Timesheet
 
 Neste tutorial, você aprenderá a integrar o Pacific Timesheet ao Azure AD (Azure Active Directory).
 A integração do Pacific Timesheet ao Azure AD oferece os seguintes benefícios:
@@ -197,5 +197,5 @@ Ao clicar no bloco do Pacific Timesheet no painel de acesso, você será conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

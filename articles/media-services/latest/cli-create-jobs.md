@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71122386"
 ---
-# <a name="cli-example-create-and-submit-a-job"></a>Exemplo de CLI: Criar e enviar um trabalho
+# <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: criar e enviar um trabalho
 
 Nos Serviços de Mídia v3, ao enviar Trabalhos para processar seus vídeos, você precisa informar os Serviços de Mídia onde encontrar o vídeo de entrada. Uma das opções é especificar uma URL HTTP como uma entrada de trabalho (conforme mostrado neste exemplo). 
 

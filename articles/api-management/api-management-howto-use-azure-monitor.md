@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359621"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79221923"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -36,10 +36,10 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -180,7 +180,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 }  
 ```
 
-| Propriedade  | Type | Descrição |
+| Propriedade  | Type | DESCRIÇÃO |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
 | time | date-time | Carimbo de data/hora de quando o gateway começa a processar a solicitação |
@@ -190,7 +190,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | local | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
-| httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
+| httpStatusCodeCategory | string | Categoria do código de status de resposta HTTP: Bem-sucedida (301 ou menos ou 304 ou 307), Não autorizada (401, 403, 429), Com erro (400, entre 500 e 600), outros |
 | resourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objeto | Propriedades da solicitação atual |
 | method | string | Método HTTP da solicitação de entrada |

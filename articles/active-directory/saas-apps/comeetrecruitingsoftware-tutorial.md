@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Comeet Recruiting Software | Microsoft Docs'
+title: 'Tutorial: Integração do Active Directory do Azure ao Comeet Recruiting Software | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Comeet Recruiting Software.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25a88e3abd7eacc323b5d45fd4fae1304010253b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158558"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Azure Active Directory com o Comeet Recruiting Software
+# <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Active Directory do Azure com o software de recrutamento Comeet
 
 Neste tutorial, você aprenderá a integrar o software de recrutamento Comeet ao Azure AD (Azure Active Directory).
 A integração do software de recrutamento Comeet ao Azure AD oferece os seguintes benefícios:
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
-    | NOME |  Atributo de Origem|
+    | Nome |  Atributo de Origem|
     | ---------------| --------------- |
     | nameidentifier | user.mail |
     | comeet_id | user.userprincipalname |

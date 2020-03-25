@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o FilesAnywhere | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o FilesAnywhere | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o FilesAnywhere.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f26311a6c9a1b751243c0571ce9a3417af891959
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integração do Azure Active Directory com o FilesAnywhere
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o FilesAnywhere, execute as segui
 
 7. Além do indicado acima, o aplicativo FilesAnywhere espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | ---------------| --------------- |    
     | clientid | *"uniquevalue"* |
 

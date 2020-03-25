@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o EmpCenter | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o EmpCenter | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o EmpCenter.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2ce7b4dab18954d26b411948a6a436b16317f4f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158270"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: Integração do Azure Active Directory com o EmpCenter
+# <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: integração do Active Directory do Azure ao EmpCenter
 
 Neste tutorial, você aprende a integrar o EmpCenter ao Azure AD (Azure Active Directory).
 A integração do EmpCenter ao Azure AD oferece os seguintes benefícios:

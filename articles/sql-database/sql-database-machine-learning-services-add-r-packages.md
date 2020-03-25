@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73819875"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicionar um pacote R aos Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
@@ -35,7 +35,7 @@ Este artigo explica como adicionar um pacote R aos Serviços de Machine Learning
 > [!NOTE]
 > Não é possível instalar um pacote executando um script R usando **sp_execute_external_script** no Azure Data Studio ou no SSMS. Só é possível instalar e remover pacotes usando a linha de comando do R e o RStudio como descrito neste artigo. Após a instalação do pacote, é possível acessar as funções de pacote em um script R usando **sp_execute_external_script**.
 
-## <a name="list-r-packages"></a>Listar pacotes de R
+## <a name="list-r-packages"></a>Listar pacotes do R
 
 A Microsoft fornece inúmeros pacotes R pré-instalados com os Serviços do Machine Learning em seu banco de dados SQL do Azure.
 É possível ver uma lista de pacotes R instalados executando o seguinte comando no Azure Data Studio ou no SSMS.
@@ -60,7 +60,7 @@ A saída deve ser semelhante ao seguinte.
 
 **Resultados**
 
-![Pacotes instalados em R](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
+![Pacotes instalados no R](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
 
 ## <a name="add-a-package-with-sqlmlutils"></a>Adicionar um pacote com sqlmlutils
 
@@ -108,7 +108,7 @@ No exemplo a seguir, você instalará o pacote **[glue](https://cran.r-project.o
     ```
 
     > [!TIP]
-    > O **escopo** pode ser **PÚBLICO** ou **PRIVADO**. O escopo público é útil para o administrador de banco de dados poder instalar pacotes que todos os usuários podem usar. O escopo privado disponibiliza o pacote apenas para o usuário que o instala. Se você não especificar o escopo, o escopo padrão será **PRIVADO**.
+    > O **escopo** pode ser **PÚBLICO** ou **PRIVADO**. O escopo público é útil para o administrador de banco de dados instalar pacotes que todos os usuários podem usar. O escopo privado disponibiliza o pacote apenas para o usuário que o instala. Se você não especificar o escopo, o escopo padrão será **PRIVADO**.
 
 ### <a name="verify-the-package"></a>Verificar o pacote
 
@@ -170,6 +170,6 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 
 Para saber mais sobre os Serviços de Machine Learning do Banco de Dados SQL do Azure com o R (versão prévia), confira os seguintes artigos.
 
-- [Serviços de Machine Learning do Banco de Dados SQL do Azure com o R (versão prévia)](sql-database-machine-learning-services-overview.md)
+- [Serviços de Machine Learning do Banco de Dados SQL do Azure com R (versão prévia)](sql-database-machine-learning-services-overview.md)
 - [Escrever funções do R avançadas em Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-functions.md)
-- [Trabalhar usando dados do R e do SQL nos Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-data-issues.md)
+- [Trabalhar usando dados do R e do SQL nos Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)](sql-database-machine-learning-services-data-issues.md)

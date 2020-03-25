@@ -17,13 +17,13 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78f5c701a009f8510c62f6cfa736d20205e383a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67106596"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Tutorial: Integração do Azure Active Directory ao Atomic Learning
+# <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Tutorial: integração do Azure Active Directory ao Atomic Learning
 
 Neste tutorial, você aprenderá a integrar o Atomic Learning ao Azure Active Directory (Azure AD).
 A integração do Atomic Learning ao Azure AD oferece os seguintes benefícios:

@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 0106b80259083c6e5e3e527063a18aae2e7c6cee
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74421610"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente
@@ -66,7 +66,7 @@ O script **UpdateSyncSchema** tem os seguintes parâmetros:
 | $syncGroupName | O nome do grupo de sincronização. |
 | $memberName | Se você deseja carregar o esquema de banco de dados do membro em vez de sincronização em vez do banco de dados hub, especifique o nome do membro. Se você deseja carregar o esquema de banco de dados do hub, deixe esse parâmetro em branco. |
 | $timeoutInSeconds | Tempo limite quando o script atualiza o esquema de banco de dados. O padrão é 900 segundos. |
-| $refreshDatabaseSchema | Especifique se o script precisa atualizar o esquema de banco de dados. Se o esquema de banco de dados mudou em relação à configuração anterior (por exemplo, se você adicionou uma nova tabela ou uma nova coluna), você precisa atualizar o esquema antes de você reconfigurá-lo. O padrão é falso. |
+| $refreshDatabaseSchema | Especifique se o script precisa atualizar o esquema de banco de dados. Se o esquema de banco de dados mudou em relação à configuração anterior (por exemplo, se você adicionou uma nova tabela ou uma nova coluna), você precisa atualizar o esquema antes de você reconfigurá-lo. O padrão é false. |
 | $addAllTables | Se esse valor for true, todas as colunas e tabelas válidas são adicionadas ao esquema de sincronização. Os valores de $TablesAndColumnsToAdd e $TablesAndColumnsToRemove são ignorados. |
 | $tablesAndColumnsToAdd | Especifique tabelas ou colunas a serem adicionadas ao esquema de sincronização. Cada nome de tabela ou coluna deve ser totalmente delimitado com o nome do esquema. Por exemplo, `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Vários nomes de tabela ou coluna podem ser especificados e separados por vírgulas (,). |
 | $tablesAndColumnsToRemove | Especifique tabelas ou colunas a serem removidas do esquema de sincronização. Cada nome de tabela ou coluna deve ser totalmente delimitado com o nome do esquema. Por exemplo, `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Vários nomes de tabela ou coluna podem ser especificados e separados por vírgulas (,). |
@@ -93,7 +93,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 - Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](../sql-database-sync-data.md)
 - Configurar sincronização de dados
-    - No portal - [Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL do Azure e SQL Server local](../sql-database-get-started-sql-data-sync.md)
+    - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](../sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
         - [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](sql-database-sync-data-between-sql-databases.md)
         - [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](sql-database-sync-data-between-azure-onprem.md)

@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 9d614339e1520fd3ce78116d2b8fc2347e2799d6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158091"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Azure Active Directory com o Gra-Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Azure Active Directory ao Gra-Pe
 
 Neste tutorial, você aprende a integrar o Gra-Pe ao Azure AD (Azure Active Directory).
 A integração do Gra-Pe ao Azure AD oferece os seguintes benefícios:

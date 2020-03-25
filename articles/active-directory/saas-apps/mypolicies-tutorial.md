@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o myPolicies | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao myPolicies | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o myPolicies.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 373840827dd74ffa1c4ed191f10203bd69c7f6c1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160406"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Azure Active Directory com o myPolicies
+# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Azure Active Directory ao myPolicies
 
 Neste tutorial, você aprende a integrar o myPolicies ao Azure AD (Azure Active Directory).
 A integração do myPolicies ao Azure AD oferece os seguintes benefícios:

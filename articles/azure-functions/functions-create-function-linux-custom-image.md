@@ -4,13 +4,13 @@ description: Saiba como criar Azure Functions em execução em uma imagem person
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482353"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223723"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -70,7 +70,7 @@ Você pode seguir este tutorial em qualquer computador que execute o Windows, o 
 
 1. Em um terminal ou prompt de comando, crie uma pasta para este tutorial em uma localização adequado e, em seguida, navegue até ela.
 
-1. Siga as instruções em [Criar e ativar um ambiente virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment) para criar um ambiente virtual para uso neste tutorial.
+1. Siga as instruções em [Criar e ativar um ambiente virtual](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) para criar um ambiente virtual para uso neste tutorial.
 
 1. Execute o comando a seguir referente à linguagem escolhida para criar um projeto de aplicativo de funções em uma pasta chamada `LocalFunctionsProject`. A opção `--docker` gera um `Dockerfile` para o projeto, que define um contêiner personalizado adequado para uso com o Azure Functions e com o runtime selecionado.
 
@@ -333,14 +333,15 @@ Um aplicativo de funções no Azure gerencia a execução das funções em seu p
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-    O parâmetro *deployment-container-image-name* especifica a imagem a ser usada para o aplicativo de funções. Você pode usar o comando [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para exibir informações sobre a imagem usada para a implantação. Você também pode usar o comando [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para implantar de uma imagem diferente.
+    O parâmetro *deployment-container-image-name* especifica a imagem a ser usada para o aplicativo de funções. Você pode usar o comando [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para exibir informações sobre a imagem usada para a implantação. Use também o comando [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para implantação com base em outra imagem.
 
 1. Recupere a cadeia de conexão para a conta de armazenamento que você criou usando o comando [az storage account show-connection-string](/cli/azure/storage/account), atribuindo-a a uma variável de shell `storageConnectionString`:
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    ```
     
-1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command. In the following command, replace `<app_name>` with the name of your function app, and replace `<connection_string>` with the connection string from the previous step (a long encoded string that begins with "DefaultEndpointProtocol="):
+1. Adicione essa configuração ao aplicativo de funções usando o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). No seguinte comando, substitua `<app_name>` pelo nome do aplicativo de funções e substitua `<connection_string>` pela cadeia de conexão da etapa anterior (uma cadeia de caracteres longa codificada que começa com "DefaultEndpointProtocol="):
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>

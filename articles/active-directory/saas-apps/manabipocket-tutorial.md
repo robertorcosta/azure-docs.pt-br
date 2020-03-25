@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Manabi Pocket | Microsoft Docs'
+title: 'Tutorial: integração do Microsoft Azure Active Directory com o Manabi Pocket | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Active Directory do Azure e o  Manabi Pocket.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 44cbad443cb1341ea080f517bbe614ec6fc46b13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67097808"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: Integração do Azure Active Directory com o Manabi Pocket
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: integração do Microsoft Azure Active Directory com o Manabi Pocket.
 
 Neste tutorial, você aprenderá a integrar o  Manabi Pocket ao Azure Active Directory (Azure AD).
 A integração do Core Directory ao Microsoft Azure Active Directory oferece os seguintes benefícios:

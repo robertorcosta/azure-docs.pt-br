@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392305"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223563"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detectar problemas com dispositivos conectados à sua solução de monitoramento
 
@@ -51,10 +51,10 @@ Para exibir somente as regras que se aplicam aos dispositivos resfriadores, apli
 
 Para criar uma regra que gera um aviso quando a pressão em um dispositivo resfriador exceder 150 PSI, clique em **Nova regra**. Use os seguintes valores para criar a regra:
 
-| Configuração          | {1&gt;Valor&lt;1}                                 |
+| Configuração          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Aviso de resfriador                       |
-| Descrição      | A pressão do resfriador excedeu PSI 150 |
+| DESCRIÇÃO      | A pressão do resfriador excedeu PSI 150 |
 | Grupo de dispositivos     | Grupo de dispositivos dos **Resfriadores**             |
 | Cálculo      | Instantâneo                               |
 | Campo Condição 1| pressão                              |
@@ -74,10 +74,10 @@ Para salvar a nova regra, clique em **Aplicar**.
 
 Para criar uma regra com várias condições que gere um alerta crítico quando, nos últimos cinco minutos para um dispositivo resfriador, a umidade média for maior do que 80% e a temperatura média for maior do que 75 graus Fahrenheit, clique em **Nova regra**. Use os seguintes valores para criar a regra:
 
-| Configuração          | {1&gt;Valor&lt;1}                                 |
+| Configuração          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Umidade e temperatura críticas do resfriador    |
-| Descrição      | Umidade e temperatura são essenciais |
+| DESCRIÇÃO      | Umidade e temperatura são essenciais |
 | Grupo de dispositivos     | Grupo de dispositivos dos **Resfriadores**             |
 | Cálculo      | Média                               |
 | Período de tempo      | 5                                     |
@@ -90,7 +90,7 @@ Para criar uma regra com várias condições que gere um alerta crítico quando,
 
 Para adicionar a segunda condição, clique em “+ Adicionar condição”. Use os seguintes valores para a nova condição:
 
-| Configuração          | {1&gt;Valor&lt;1}                                 |
+| Configuração          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Campo Condição 2| temperatura                           |
 | Operador de Condição 2 | Maior que                      |
@@ -132,7 +132,7 @@ Você só pode excluir uma regra por vez.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Este tutorial mostrou como usar a página **Regras** no acelerador de solução de Monitoramento Remoto para criar e gerenciar regras que disparam alertas na solução. Para saber como usar o acelerador de solução para gerenciar e configurar seus dispositivos conectados, continue para o próximo tutorial.
 

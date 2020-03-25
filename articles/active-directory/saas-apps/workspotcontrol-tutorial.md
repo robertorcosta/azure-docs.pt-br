@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Workspot Control | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Work.com | Microsoft Docs'
 description: Saiba como configurar o logon único para o Azure Active Directory e o Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086674"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Azure Active Directory com o Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Active Directory do Azure com o Controle do Workspot
 
 Neste tutorial, você aprenderá a integrar o Controle do Workspot ao Azure AD (Azure Active Directory). Ao integrar o Workspot Control ao Azure AD, você pode:
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o Workspot Control, siga estas et
 
 2. Na barra de ferramentas na parte superior da página, selecione **Instalação** e, em seguida **SAML**.
 
-    ![Opções de configuração](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
+    ![Opções de instalação](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
 3. Na janela **Configuração Security Assertion Markup Language**, siga estas etapas:
  
@@ -248,4 +248,4 @@ Ao clicar no bloco **Workspot Control** no Painel de Acesso, você deverá ser c
 
 - [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

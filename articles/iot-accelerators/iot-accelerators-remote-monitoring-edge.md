@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66117756"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detectar anomalias na borda com o acelerador de solução de Monitoramento Remoto
@@ -28,7 +28,7 @@ O diagrama a seguir mostra os principais componentes no cenário do tutorial:
 
 ![Visão geral](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 >[!div class="checklist"]
 > * Adicionar um dispositivo do IoT Edge à solução
@@ -39,7 +39,7 @@ Neste tutorial, você irá:
 
 No dispositivo do IoT Edge:
 
-* O tempo de execução recebe o pacote e instala os módulos.
+* O runtime recebe o pacote e instala os módulos.
 * O módulo do Stream Analytics detecta anomalias de temperatura na bomba e envia comandos para resolver o problema.
 * O módulo do Stream Analytics encaminha os dados filtrados para o acelerador de solução.
 
@@ -56,7 +56,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Há duas etapas para adicionar um dispositivo do IoT Edge ao acelerador de solução de Monitoramento Remoto. Esta seção mostra como:
 
 * Adicionar um dispositivo do IoT Edge na página **Device Explorer** da interface do usuário Web do Monitoramento Remoto.
-* Instalar o tempo de execução do IoT Edge em uma VM (máquina virtual) do Linux.
+* Instalar o runtime do IoT Edge em uma VM (máquina virtual) do Linux.
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Adicionar um dispositivo do IoT Edge à solução
 
@@ -96,7 +96,7 @@ Para facilitar o gerenciamento de dispositivos do IoT Edge na solução, crie um
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME    | OilPumps |
+    | Nome    | OilPumps |
     | Campo   | Tags.IsOilPump |
     | Operador | = Equals |
     | Valor    | S |
@@ -108,9 +108,9 @@ Para facilitar o gerenciamento de dispositivos do IoT Edge na solução, crie um
 
 O dispositivo do IoT Edge já está no grupo **OilPumps**.
 
-### <a name="install-the-edge-runtime"></a>Instalar o tempo de execução do Edge
+### <a name="install-the-edge-runtime"></a>Instalar o runtime do Edge
 
-Um dispositivo de borda requer a instalação do tempo de execução do Edge. Neste tutorial, você deve instalar o tempo de execução do Edge em uma VM Linux do Azure para testar o cenário. As etapas a seguir usam o Azure Cloud Shell para instalar e configurar a VM:
+Um dispositivo de borda requer a instalação do runtime do Edge. Neste tutorial, você deve instalar o runtime do Edge em uma VM Linux do Azure para testar o cenário. As etapas a seguir usam o Azure Cloud Shell para instalar e configurar a VM:
 
 1. Para criar uma VM Linux no Azure, execute os comandos a seguir. É possível usar um local perto de onde você está:
 
@@ -127,7 +127,7 @@ Um dispositivo de borda requer a instalação do tempo de execução do Edge. Ne
       --size Standard_B1ms
     ```
 
-1. Para configurar o tempo de execução do Edge com a cadeia de caracteres de conexão do dispositivo, execute o comando a seguir usando a cadeia de conexão de dispositivo que você anotou anteriormente:
+1. Para configurar o runtime do Edge com a cadeia de caracteres de conexão do dispositivo, execute o comando a seguir usando a cadeia de conexão de dispositivo que você anotou anteriormente:
 
     ```azurecli-interactive
     az vm run-command invoke \
@@ -139,7 +139,7 @@ Um dispositivo de borda requer a instalação do tempo de execução do Edge. Ne
 
     Certifique-se de incluir a cadeia de conexão dentro de aspas duplas.
 
-Agora você instalou e configurou o tempo de execução do IoT Edge em um dispositivo Linux. Posteriormente neste tutorial, você usará a solução de Monitoramento Remoto para implantar módulos do IoT Edge nesse dispositivo.
+Agora você instalou e configurou o runtime do IoT Edge em um dispositivo Linux. Posteriormente neste tutorial, você usará a solução de Monitoramento Remoto para implantar módulos do IoT Edge nesse dispositivo.
 
 ## <a name="create-an-edge-manifest"></a>Criar um manifesto do Edge
 
@@ -161,9 +161,9 @@ Você pode definir o trabalho do Stream Analytics no portal antes de empacotá-l
     | Opção | Valor |
     | ------ | ----- |
     | Nome do trabalho | EdgeDeviceJob |
-    | Assinatura | Sua assinatura do Azure |
-    | Grupo de recursos | IoTEdgeDevices |
-    | Local padrão | Leste dos EUA |
+    | Subscription | Sua assinatura do Azure |
+    | Resource group | IoTEdgeDevices |
+    | Location | Leste dos EUA |
     | Ambiente de hospedagem | Microsoft Edge |
     | Unidades de transmissão | 1 |
 
@@ -275,7 +275,7 @@ Agora você está pronto para implantar o pacote em seu dispositivo.
 
     | Opção | Valor |
     | ------ | ----- |
-    | NOME   | OilPumpDevices |
+    | Nome   | OilPumpDevices |
     | Tipo de pacote | Manifesto do Edge |
     | Pacote | oil-pump-device.json |
     | Grupo de dispositivos | OilPumps |
@@ -293,8 +293,8 @@ A página **Implantações** mostra as seguintes métricas:
 
 * **Destino** mostra o número de dispositivos no grupo de dispositivos.
 * **Aplicado** mostra o número de dispositivos que tiveram o conteúdo da implantação aplicado.
-* **Êxito** mostra a quantidade de dispositivos do Edge com êxito no relatório de implantação do tempo de execução do cliente IoT Edge.
-* **Falha** mostra a quantidade de dispositivos do Edge com falha no relatório de implantação do tempo de execução do cliente IoT Edge.
+* **Êxito** mostra a quantidade de dispositivos do Edge com êxito no relatório de implantação do runtime do cliente IoT Edge.
+* **Falha** mostra a quantidade de dispositivos do Edge com falha no relatório de implantação do runtime do cliente IoT Edge.
 
 ## <a name="monitor-the-device"></a>Monitorar o dispositivo
 
@@ -336,6 +336,6 @@ Este tutorial mostrou como adicionar e configurar um dispositivo do IoT Edge no 
 > [!div class="nextstepaction"]
 > [Importar um pacote do IoT Edge para o acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-import-edge-package.md)
 
-Para saber mais sobre como instalar o tempo de execução do IoT Edge, confira [Instalar o tempo de execução do Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
+Para saber mais sobre como instalar o runtime do IoT Edge, confira [Instalar o runtime do Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
 
 Para saber mais sobre o Azure Stream Analytics em dispositivos do Edge, confira [Implantar o Azure Stream Analytics como um módulo do IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md).

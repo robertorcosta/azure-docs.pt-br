@@ -11,10 +11,10 @@ ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: ed593cb3f53878ceb1d4913a9244369ff4600371
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78397574"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemplos de código do Azure Active Directory B2C
@@ -23,7 +23,7 @@ As tabelas a seguir fornecem links para exemplos de aplicativos, incluindo iOS, 
 
 ## <a name="mobile-and-desktop-apps"></a>Aplicativos de desktop e móveis
 
-| Amostra | Descrição |
+| Amostra | DESCRIÇÃO |
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | Um exemplo de iOS no Swift que autentica os usuários do Azure AD B2C e chama uma API usando OAuth 2.0 |
 | [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | Um aplicativo simples para Android mostrando como usar MSAL para autenticar os usuários por meio do Azure Active Directory B2C e acessar uma API Web com os tokens resultantes. |
@@ -34,7 +34,7 @@ As tabelas a seguir fornecem links para exemplos de aplicativos, incluindo iOS, 
 
 ## <a name="web-apps-and-apis"></a>APIs e aplicativos Web
 
-| Amostra | Descrição |
+| Amostra | DESCRIÇÃO |
 |--------| ----------- |
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | Um exemplo combinado para um aplicativo Web .NET que chama uma API Web .NET, ambos protegidos usando o Azure AD B2C. |
 | [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | Um aplicativo Web ASP.NET Core que pode entrar em um usuário usando o Azure AD B2C, obter um token de acesso usando MSAL.NET e chamar uma API. |
@@ -44,6 +44,6 @@ As tabelas a seguir fornecem links para exemplos de aplicativos, incluindo iOS, 
 
 ## <a name="single-page-apps"></a>Aplicativos de página única
 
-| Amostra | Descrição |
+| Amostra | DESCRIÇÃO |
 |--------| ----------- |
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Um aplicativo de página única (SPA) que chama uma API Web. A autenticação é feita com o Azure AD B2C usando o MSAL.js. |

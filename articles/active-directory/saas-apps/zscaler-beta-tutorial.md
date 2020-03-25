@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Zscaler Beta | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Zscaler Beta | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Zscaler Beta.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943284"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Azure Active Directory ao Zscaler Beta
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: integração do Azure Active Directory com o Zscaler Beta
 
 Neste tutorial, você aprenderá como integrar o Zscaler Beta ao Azure AD (Azure Active Directory).
 Ao integrar o Zscaler Beta ao Azure AD, você pode:
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure AD com Zscaler Beta, siga estas etapas.
 
 6. O aplicativo Zscaler Beta espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, siga as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo.
     
-    | NOME | Atributo de origem | 
+    | Nome | Atributo de origem | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 

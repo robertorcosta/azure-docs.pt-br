@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Zscaler Private Access Administrator | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Administrador do Zscaler Private Access | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Administrador do Zscaler Private Access.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7f0bc04bb8e7358f5bdb2e4dfc3db198e24303f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67085636"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Zscaler Private Access Administrator
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: integração do Azure Active Directory com o Administrador do Zscaler Private Access
 
 Neste tutorial, você aprenderá a integrar o Administrador do Zscaler Private Access ao Azure AD (Azure Active Directory).
 A integração do Administrador do Zscaler Private Access ao Azure AD oferece os seguintes benefícios:
@@ -267,5 +267,5 @@ Ao clicar no bloco do Zscaler Private Access Administrator no Painel de Acesso, 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

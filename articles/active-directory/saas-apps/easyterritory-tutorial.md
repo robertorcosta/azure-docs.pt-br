@@ -17,13 +17,13 @@ ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0cde3fc47e961e6bc1ff41c1a3f58634144f8c4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158400"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Tutorial: Integração do Azure Active Directory ao EasyTerritory
+# <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Tutorial: integração do Azure Active Directory ao EasyTerritory
 
 Neste tutorial, você aprenderá como integrar o EasyTerritory ao Azure Active Directory (Azure AD).
 A integração do EasyTerritory ao Azure AD oferece os seguintes benefícios:

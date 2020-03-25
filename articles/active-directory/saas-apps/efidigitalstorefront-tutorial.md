@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o EFI Digital StoreFront | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o EFI Digital StoreFront | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e o EFI Digital StoreFront.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 270b3e7059ffa1de6c53af2ece1ee5b44300af5a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158357"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutorial: Integração do Azure Active Directory com o EFI Digital StoreFront
+# <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutorial: integração do Azure Active Directory com o EFI Digital StoreFront
 
 Neste tutorial, você aprenderá a integrar o EFI Digital StoreFront ao Azure Active Directory (Azure AD).
 A integração do EFI Digital StoreFront ao Azure AD oferece os seguintes benefícios:

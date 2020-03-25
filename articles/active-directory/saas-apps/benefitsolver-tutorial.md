@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Benefitsolver | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Benefitsolver | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Benefitsolver.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30e29a0de1b80393b3c38baa589253e90e3e65cc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158917"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integração do Azure Active Directory com o Benefitsolver
+# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integração do Active Directory do Azure ao Benefitsolver
 
 Neste tutorial, você aprenderá a integrar o Benefitsolver ao Azure AD (Azure Active Directory).
 A integração do Benefitsolver ao Azure AD oferece os seguintes benefícios:
@@ -121,7 +121,7 @@ Para configurar o logon único do Azure AD com o Benefitsolver, execute as segui
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
-    | NOME |  Atributo de Origem|
+    | Nome |  Atributo de Origem|
     |---------------|----------------|
     | ClientID | Você precisa obter esse valor com a [equipe de suporte do Benefitsolver](https://www.businessolver.com/contact).|
     | ClientKey | Você precisa obter esse valor com a [equipe de suporte do Benefitsolver](https://www.businessolver.com/contact).|

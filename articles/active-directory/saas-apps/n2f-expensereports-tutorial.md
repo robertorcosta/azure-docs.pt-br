@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao N2F – Relatórios de despesas | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao N2F - Expense reports - Relatórios de Despesas | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o N2F - Expense reports.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 11f5e2f7763008c3af09c5367d90265af6a9653a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73161292"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: integração do Azure Active Directory ao N2F – Relatórios de despesas
+# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: integração do Azure Active Directory ao N2F - Expense reports
 
 Neste tutorial, você aprende a integrar o N2F - Expense reports ao Microsoft Azure Active Directory.
 A integração do N2F - Expense reports ao Microsoft Azure Active Directory oferece os seguintes benefícios:

@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969553"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Tutorial: Implantar o aplicativo ASP.NET em máquinas virtuais do Azure com o Azure DevOps Projects
@@ -35,7 +35,7 @@ Neste tutorial, você irá:
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure
 > * Configurar o monitoramento do Application Insights
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -45,7 +45,7 @@ Neste tutorial, você irá:
 
 O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como máquinas virtuais, na assinatura do Azure de sua escolha.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Novo**.
 
@@ -180,7 +180,7 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo q
 1. Na lista suspensa **Métrica**, examine as várias métricas de alerta.  
     O alerta padrão é para um **tempo de resposta do servidor maior do que 1 segundo**. Você pode configurar facilmente vários alertas para melhorar os recursos de monitoramento do seu aplicativo.
 
-1. Selecione a caixa de seleção **Notificar proprietários, colaboradores e leitores por email**.  
+1. Marque a caixa de seleção **Notificar proprietários, colaboradores e leitores por email**.  
     Como opção, você pode executar ações adicionais quando um alerta é exibido executando um aplicativo lógico do Azure.
 
 1. Selecione **OK** para criar o alerta.  
@@ -190,10 +190,10 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo q
 
 1. Selecione **Disponibilidade** e selecione **Adicionar teste**. 
 
-1. Insira um nome de teste, depois selecione **Criar**.  
+1. Insira um nome de teste e selecione **Criar**.  
     Um teste de ping simples é criado para verificar a disponibilidade do seu aplicativo. Depois de alguns minutos, os resultados de teste estão disponíveis e o painel do Application Insights exibe um status de disponibilidade.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, será possível excluir a máquina virtual do Azure e os recursos relacionados criados neste tutorial. Para isso, use a funcionalidade **Excluir** no painel do DevOps Project. 
 
@@ -208,7 +208,7 @@ Como opção, você pode modificar esses pipelines de build e de lançamento par
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o DevOps Projects para implantar o aplicativo ASP.NET
@@ -217,9 +217,9 @@ Neste tutorial, você aprendeu como:
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Azure Repos e implantá-las automaticamente no Azure
 > * Configurar o monitoramento do Application Insights
-> * Limpar recursos
+> * Limpar os recursos
 
-Para saber mais sobre o pipeline de CI/CD, consulte:
+Para saber mais sobre o pipeline de CI/CD, confira:
 
 > [!div class="nextstepaction"]
 > [Definir seu pipeline de CD (implantação contínua) de vários estágios](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

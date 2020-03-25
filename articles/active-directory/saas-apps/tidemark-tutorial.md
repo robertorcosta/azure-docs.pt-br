@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Tidemark | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Tidemark | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Tidemark.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: cb9a6a79aa75f646370d05a6a55ec75533d42038
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088715"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: Integração do Azure Active Directory com o Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integração do Active Directory do Azure com o Tidemark
 
 Neste tutorial, você aprenderá como integrar o Tidemark ao Azure AD (Azure Active Directory).
 A integração do Tidemark ao Azure AD oferece os seguintes benefícios:

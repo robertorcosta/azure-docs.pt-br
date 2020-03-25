@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252758"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo do Service Fabric usando Yeoman
@@ -25,7 +25,7 @@ Este tutorial é a parte dois de uma série. Neste tutorial, uma ferramenta gera
 > * Implantar e executar o aplicativo
 > * Limpar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * As imagens de contêiner enviadas por push ao Registro de Contêiner do Azure criadas na [Parte 1](service-fabric-tutorial-create-container-images.md) desta série de tutoriais são usadas.
 * O ambiente de desenvolvimento do Linux está [configurado](service-fabric-tutorial-create-container-images.md).

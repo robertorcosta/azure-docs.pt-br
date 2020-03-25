@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
 ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68360270"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acessar um laboratório no Azure DevTest Labs
@@ -35,12 +35,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="access-the-lab"></a>Acessar o laboratório
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** no menu à esquerda. 
 3. Selecione **DevTest Labs** para tipo de recurso. 
 4. Selecione o laboratório. 
 
-    ![Selecionar o laboratório](./media/tutorial-use-custom-lab/search-for-select-custom-lab.png)
+    ![Selecione o laboratório](./media/tutorial-use-custom-lab/search-for-select-custom-lab.png)
 
 ## <a name="claim-a-vm"></a>Solicitar uma VM
 
@@ -86,5 +86,5 @@ Depois que você usar a VM, cancelar a VM seguindo estas etapas:
 Este tutorial mostrou como acessar e usar um laboratório que foi criado usando o Azure DevTest Labs. Para obter mais informações sobre como acessar e usar máquinas virtuais em um laboratório, consulte 
 
 > [!div class="nextstepaction"]
-> [Como: Usar VMs em um laboratório](devtest-lab-add-vm.md)
+> [Como usar VMs em um laboratório](devtest-lab-add-vm.md)
 
