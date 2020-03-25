@@ -17,13 +17,13 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74186362"
 ---
-# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restringir o acesso à rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual usando o portal do Azure
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: restringir o acesso à rede de recursos de PaaS com pontos de extremidade de serviço de rede virtual usando o Portal do Azure
 
 Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso à rede a alguns recursos de serviço do Azure para uma sub-rede da rede virtual. Você também pode remover o acesso à Internet para os recursos. Os pontos de extremidade de serviço fornecerão conexão direta de sua rede virtual a um serviço do Azure, permitindo que você use o espaço de endereço privado da sua rede virtual para acessar os serviços do Azure compatíveis. O tráfego destinado aos recursos do Azure por meio de pontos de extremidade de serviço sempre fica na rede de backbone do Microsoft Azure. Neste tutorial, você aprenderá como:
 
@@ -51,7 +51,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 
    |Configuração|Valor|
    |----|----|
-   |NOME| myVirtualNetwork |
+   |Nome| myVirtualNetwork |
    |Espaço de endereço| 10.0.0.0/16|
    |Subscription| Selecione sua assinatura|
    |Resource group | Selecione **Criar novo** e insira *myResourceGroup*.|
@@ -77,7 +77,7 @@ Pontos de extremidade de serviço são habilitados por serviço, por sub-rede. C
 
     |Configuração|Valor|
     |----|----|
-    |NOME| Privado |
+    |Nome| Privado |
     |Intervalo de endereços| 10.0.1.0/24|
     |Pontos de extremidade de serviço| Selecione **Microsoft.Storage** em **Serviços**|
 
@@ -94,7 +94,7 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
 
     |Configuração|Valor|
     |----|----|
-    |NOME| myNsgPrivate |
+    |Nome| myNsgPrivate |
     |Subscription| Selecione sua assinatura|
     |Resource group | Selecione **Usar existente** e, em seguida, *myResourceGroup*.|
     |Location| Selecione **Leste dos EUA** |
@@ -112,9 +112,9 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
     |Marca de serviço de destino | Selecione **Armazenamento**|
     |Intervalos de portas de destino| * |
     |Protocolo|Qualquer|
-    |Ação|PERMITIR|
+    |Ação|Allow|
     |Prioridade|100|
-    |NOME|Allow-Storage-All|
+    |Nome|Allow-Storage-All|
 
 8. Crie outra regra de segurança de saída que nega a comunicação com a Internet. Essa regra substitui uma regra padrão em todos os grupos de segurança de rede que permite a comunicação de saída à Internet. Conclua as etapas 5 a 7 novamente, usando os seguintes valores:
 
@@ -128,7 +128,7 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
     |Protocolo|Qualquer|
     |Ação|Negar|
     |Prioridade|110|
-    |NOME|Deny-Internet-All|
+    |Nome|Deny-Internet-All|
 
 9. Em **CONFIGURAÇÕES**, selecione **Regras de segurança de entrada**.
 10. Selecione **+ Adicionar**.
@@ -141,9 +141,9 @@ Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recurs
     |Destino | Selecione **VirtualNetwork**|
     |Intervalos de portas de destino| 3389 |
     |Protocolo|Qualquer|
-    |Ação|PERMITIR|
+    |Ação|Allow|
     |Prioridade|120|
-    |NOME|Allow-RDP-All|
+    |Nome|Allow-RDP-All|
 
 12. Em **CONFIGURAÇÕES**, selecione **Sub-redes**.
 13. Selecione **+ Associar**
@@ -162,7 +162,7 @@ As etapas necessárias para restringir o acesso de rede a recursos criados por m
 
     |Configuração|Valor|
     |----|----|
-    |NOME| Insira um nome que seja exclusivo em todos os locais do Azure, com 3 a 24 caracteres de comprimento, usando apenas números e letras minúsculas.|
+    |Nome| Insira um nome que seja exclusivo em todos os locais do Azure, com 3 a 24 caracteres de comprimento, usando apenas números e letras minúsculas.|
     |Tipo de conta|StorageV2 (v2 de uso geral)|
     |Location| Selecione **Leste dos EUA** |
     |Replicação| Armazenamento com redundância local (LRS)|
@@ -217,7 +217,7 @@ Para testar o acesso à rede para uma conta de armazenamento, implante uma VM pa
 
    |Configuração|Valor|
    |----|----|
-   |NOME| myVmPublic|
+   |Nome| myVmPublic|
    |Nome de usuário|Insira um nome de usuário de sua escolha.|
    |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Subscription| Selecione sua assinatura.|
@@ -296,7 +296,7 @@ A VM demora alguns minutos para implantar. Não prossiga para a próxima etapa a
 
    Acesso negado porque o computador não está na sub-rede *Privada* da rede virtual *MyVirtualNetwork*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos e todos os recursos que ele contém:
 

@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227574"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Azure Active Directory com o Kintone
+# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: integração do Azure Active Directory com o Kintone
 
 Neste tutorial, você aprenderá a integrar o Kintone ao Azure AD (Azure Active Directory).
 A integração do Kintone ao Azure AD oferece os seguintes benefícios:

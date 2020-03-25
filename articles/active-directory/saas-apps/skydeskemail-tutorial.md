@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: faaa5dcc435452d6ed9e0f2c5b481df1e352dfd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67090439"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Azure Active Directory ao SkyDesk Email
+# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: integração do Azure Active Directory ao SkyDesk Email
 
 Neste tutorial, você aprende a integrar o SkyDesk Email ao Azure AD (Azure Active Directory).
 A integração do SkyDesk Email ao Azure AD oferece os seguintes benefícios:
