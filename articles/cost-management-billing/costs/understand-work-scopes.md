@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 5e1117bdefc4916fedc5c316632641d77c2f09d3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206020"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80131370"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -65,7 +65,7 @@ O Gerenciamento de Custos é compatível com as seguintes funções internas par
 
 - **Agir quando os orçamentos forem excedidos** – os Colaboradores do Gerenciamento de Custos também precisam de acesso para criar e/ou gerenciar grupos de ações para reagir automaticamente a excedentes. Considere a possibilidade de conceder um [Colaborador de Monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a um grupo de recursos que contenha o grupo de ações a ser usado quando os limites de orçamento forem excedidos. Automatizar ações específicas requer funções adicionais para os serviços específicos usados, como a Automação e o Azure Functions.
 - **Agendar exportação de dados de custo** – os Colaboradores do Gerenciamento de Custos também precisam de acesso para gerenciar contas de armazenamento a fim de agendar uma exportação para copiar dados para uma conta de armazenamento. Considere a possibilidade de conceder um [Colaborador da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a um grupo de recursos que contém a conta de armazenamento na qual os dados de custo são exportados.
-- **Exibir recomendações de economia de custos** – os Leitores do Gerenciamento de Custos e os Colaboradores do Gerenciamento de Custos têm acesso à *exibição* de recomendações de custo por padrão. No entanto, o acesso para agir segundo as recomendações de custo exige acesso a recursos individuais. Considere a possibilidade de conceder uma [função específica a um serviço](../../role-based-access-control/built-in-roles.md#descriptions-and-ids) se você quiser agir segundo uma recomendação baseada em custo.
+- **Exibir recomendações de economia de custos** – os Leitores do Gerenciamento de Custos e os Colaboradores do Gerenciamento de Custos têm acesso à *exibição* de recomendações de custo por padrão. No entanto, o acesso para agir segundo as recomendações de custo exige acesso a recursos individuais. Considere a possibilidade de conceder uma [função específica a um serviço](../../role-based-access-control/built-in-roles.md#all) se você quiser agir segundo uma recomendação baseada em custo.
 
 ## <a name="enterprise-agreement-scopes"></a>Escopos do Contrato Enterprise
 

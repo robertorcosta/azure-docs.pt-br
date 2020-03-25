@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: banders
 ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199680"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Acompanhar o saldo de crédito Azure no Contrato de Cliente da Microsoft
@@ -84,7 +84,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
    | Termo | Definição |
    |---|---|
    | Data da transação | A data em que a transação ocorreu |
-   | Descrição | A descrição da transação |
+   | DESCRIÇÃO | A descrição da transação |
    | Amount| A quantidade de transações |
    | Saldo | O saldo após a transação |
 
@@ -196,7 +196,7 @@ A resposta da API retorna o saldo estimado e atual do perfil de cobrança.
 }
 ```
 
-| Nome do elemento  | Descrição                                                                           |
+| Nome do elemento  | DESCRIÇÃO                                                                           |
 |---------------|---------------------------------------------------------------------------------------|
 | `estimatedBalance` | O valor estimado de créditos que você terá depois de considerar todas as transações cobradas e pendentes. |
 | `currentBalance`   | O valor de créditos após a última fatura. Ele não inclui nenhuma transação pendente.    |
@@ -259,7 +259,7 @@ A resposta da API retorna listas de créditos Azure de um perfil de cobrança.
   ]
 }
 ```
-| Nome do elemento  | Descrição                                                                                               |
+| Nome do elemento  | DESCRIÇÃO                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `originalAmount` | O valor original do crédito. |
 | `closedBalance`   | O saldo da última fatura.    |
@@ -347,7 +347,7 @@ A resposta da API retorna todas as transações que afetaram o saldo de crédito
   ]
 }
 ```
-| Nome do elemento  | Descrição                                                                                               |
+| Nome do elemento  | DESCRIÇÃO                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | `transactionDate` | A data em que a transação ocorreu. |
 | `description` | A descrição da transação. |

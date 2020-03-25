@@ -13,10 +13,10 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: O Personalizador do Azure é um serviço de API baseado em nuvem que permite que você escolha a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.
   ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/21/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "77525016"
 landingContent:
 - title: Sobre o Personalizador
@@ -115,7 +115,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Solução de problemas
+    - text: solução de problemas
       url: troubleshooting.md
     - text: Faça perguntas sobre o Stack Overflow
       url: https://stackoverflow.com/questions/tagged/personalizer

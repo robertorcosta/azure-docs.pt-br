@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.openlocfilehash: 2aca67b5e73bf7f02ac6bca27569265339b0eae6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200156"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termos em sua fatura do Contrato de Parceiro da Microsoft
@@ -33,7 +33,7 @@ O **Resumo da Fatura** está na parte superior da primeira página e mostra info
 
 <!-- add screenshot -->
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Vendido para |Endereço de sua pessoa jurídica, encontrado nas propriedades da conta de cobrança|
 | Enviar cobrança para |Endereço para cobrança do perfil de cobrança que recebe a fatura, encontrado nas propriedades do perfil de cobrança|
@@ -49,7 +49,7 @@ O **Resumo da Cobrança** mostra os encargos em relação ao perfil de cobrança
 
 <!-- add screenshot -->
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Charges|Número total de encargos da Microsoft desse perfil de cobrança desde o último período de cobrança |
 | Credits |Créditos recebidos de retornos |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.openlocfilehash: 397e0a21b1ba11b3bdd74c2030ff358c1ce159d8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77201026"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do Contrato Enterprise para as APIs de Contrato de Cliente da Microsoft
@@ -425,7 +425,7 @@ No escopo de registro do EA, a resposta da API e as propriedades são idênticas
 
 As propriedades mais antigas para [APIs de Tabelas de Preços do Azure Resource Manager](/rest/api/consumption/pricesheet) e as mesmas novas propriedades estão na tabela a seguir.
 
-| Propriedade antiga de API de Tabelas de Preços do Azure Resource Manager  | Nova propriedade da API de Tabelas de Preços do Contrato de Cliente da Microsoft   | Descrição |
+| Propriedade antiga de API de Tabelas de Preços do Azure Resource Manager  | Nova propriedade da API de Tabelas de Preços do Contrato de Cliente da Microsoft   | DESCRIÇÃO |
 | --- | --- | --- |
 | ID de medidor | _meterId_ | Identificador exclusivo do medidor. Igual a meterID. |
 | Nome do medidor | meterName | Nome do medidor. O medidor representa o recurso implantável de um serviço do Azure. |
@@ -454,7 +454,7 @@ A tabela de preços inclui preços para serviços cujo preço é baseado no uso.
 
 Os campos a seguir não estão disponíveis nas APIs de Tabelas de Preços do Contrato de Cliente da Microsoft ou então têm os mesmos campos.
 
-|Campo desativado| Descrição|
+|Campo desativado| DESCRIÇÃO|
 |---|---|
 | billingPeriodId | Não aplicável. Corresponde a InvoiceId para um MCA. |
 | offerID | Não aplicável. Corresponde a productOrderName em um MCA. |

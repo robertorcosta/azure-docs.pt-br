@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Analisador de Internet do Azure (versão prévia)
-summary: O Analisador de Internet é uma plataforma de medição do cliente que permite testar como as alterações na infraestrutura de rede afetará o desempenho dos seus clientes. Seja para migrar do local para o Azure ou para avaliar um novo serviço do Azure, o Analisador de Internet permite que você aprenda com os dados dos usuários e com a análise avançada da Microsoft para entender melhor e otimizar a arquitetura de rede com o Azure – antes de migrar.
+summary: O Analisador de Internet é uma plataforma de medição do cliente que permite testar como as alterações na infraestrutura de rede afetará o desempenho dos seus clientes. Seja para migrar do local para o Azure ou para avaliar um novo serviço do Azure, o Analisador de Internet permite que você aprenda com os dados dos usuários e com a análise avançada da Microsoft para entender melhor e otimizar a arquitetura de rede com o Azure — antes de migrar.
 metadata:
   title: Documentação do Analisador de Internet do Azure (versão prévia)
-  description: O Analisador de Internet é uma plataforma de medição do cliente que permite testar como as alterações na infraestrutura de rede afetará o desempenho dos seus clientes. Seja para migrar do local para o Azure ou para avaliar um novo serviço do Azure, o Analisador de Internet permite que você aprenda com os dados dos usuários e com a análise avançada da Microsoft para entender melhor e otimizar a arquitetura de rede com o Azure – antes de migrar.
+  description: O Analisador de Internet é uma plataforma de medição do cliente que permite testar como as alterações na infraestrutura de rede afetará o desempenho dos seus clientes. Seja para migrar do local para o Azure ou para avaliar um novo serviço do Azure, o Analisador de Internet permite que você aprenda com os dados dos usuários e com a análise avançada da Microsoft para entender melhor e otimizar a arquitetura de rede com o Azure — antes de migrar.
   services: internet-analyzer
   ms.service: internet-analyzer
   ms.topic: landing-page
@@ -11,10 +11,10 @@ metadata:
   ms.author: mebeatty
   ms.date: 10/16/2019
   ms.openlocfilehash: f1d8bc4bafe140a8522591e57bf2aa6665120d1f
-  ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/06/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "74896506"
 landingContent:
 - title: Sobre o Analisador de Internet

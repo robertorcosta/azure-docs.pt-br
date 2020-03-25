@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.openlocfilehash: 4c4b105bb4b67e855de27b6a57d2080fde068421
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200207"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237897"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termos em sua fatura do Contrato de Cliente da Microsoft
 
@@ -35,7 +35,7 @@ O **Resumo da Fatura** está na parte superior da primeira página e mostra info
 
 ![Seção Resumo da fatura](./media/mca-understand-your-invoice/invoicesummary.png)
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Vendido para |Endereço de sua pessoa jurídica, encontrado nas propriedades da conta de cobrança|
 | Enviar cobrança para |Endereço para cobrança do perfil de cobrança que recebe a fatura, encontrado nas propriedades do perfil de cobrança|
@@ -51,7 +51,7 @@ O **Resumo da Cobrança** mostra os encargos em relação ao perfil de cobrança
 
 ![Seção Resumo da cobrança](./media/mca-understand-your-invoice/billingsummary.png)
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Charges|Número total de encargos da Microsoft desse perfil de cobrança desde o último período de cobrança |
 | Credits |Créditos recebidos de retornos |
@@ -75,7 +75,7 @@ O valor total devido para cada família de serviços é calculado subtraindo os 
 
 ![Seção Detalhes por fatura](./media/mca-understand-your-invoice/invoicesectiondetails.png)
 
-| Termo |Descrição |
+| Termo |DESCRIÇÃO |
 | --- | --- |
 | Preço unitário | O preço unitário efetivo do serviço (na moeda do preço) usado à razão do uso. Ele é exclusivo para um produto, uma família de serviços, um medidor e uma oferta. |
 | Qtd | Quantidade comprada ou consumida durante o período de cobrança |

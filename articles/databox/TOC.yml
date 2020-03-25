@@ -7,7 +7,7 @@
           items:
             - name: O que é o Data Box?
               href: data-box-overview.md
-        - name: Guia de início rápido
+        - name: Inícios rápidos
           expanded: true
           items:
             - name: Configurar - Portal do Azure
@@ -82,7 +82,7 @@
           items:
             - name: O que é o Data Box Disk?
               href: data-box-disk-overview.md
-        - name: Guia de início rápido
+        - name: Inícios rápidos
           expanded: true
           items:
             - name: Configurar - Portal do Azure
@@ -131,7 +131,7 @@
           items:
             - name: O que é o Data Box Heavy?
               href: data-box-heavy-overview.md
-        - name: Guia de início rápido
+        - name: Inícios rápidos
           items:
             - name: Configurar - Portal do Azure
               href: data-box-heavy-quickstart-portal.md

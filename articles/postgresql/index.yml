@@ -9,10 +9,10 @@ metadata:
   ms.service: postgresql
   ms.topic: landing-page
   ms.openlocfilehash: 4deeec3686d2e3b0a150b74a222f7f1eab0a93fd
-  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/12/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "73932238"
 landingContent:
 - title: Sobre o Banco de Dados do Azure para PostgreSQL
@@ -49,9 +49,9 @@ landingContent:
       url: concepts-extensions.md
   - linkListType: tutorial
     links:
-    - text: Criar um banco de dados usando o portal do Azure
+    - text: Projetar um banco de dados usando o portal do Azure
       url: tutorial-design-database-using-azure-portal.md
-    - text: Criar um banco de dados usando a CLI do Azure
+    - text: Projetar um banco de dados usando a CLI do Azure
       url: tutorial-design-database-using-azure-cli.md
     - text: Criar um aplicativo Web usando o Python e a CLI
       url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
@@ -85,7 +85,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Noções básicas sobre o firewall
+    - text: Entender o firewall
       url: concepts-firewall-rules.md
     - text: Criar regras de firewall
       url: howto-manage-firewall-using-portal.md
@@ -93,21 +93,21 @@ landingContent:
       url: concepts-ssl-connection-security.md
   - linkListType: get-started
     links:
-    - text: Conectar usando Python
+    - text: Conectar usando o Python
       url: connect-python.md
     - text: Conectar usando Node.js
       url: connect-nodejs.md
-    - text: Conectar usando Java
+    - text: Conectar usando o Java
       url: connect-java.md
-    - text: Conectar usando Ruby
+    - text: Conectar usando o Ruby
       url: connect-ruby.md
-    - text: Conectar usando PHP
+    - text: Conectar usando o PHP
       url: connect-php.md
-    - text: Conectar usando .Net
+    - text: Conectar usando o .NET
       url: connect-csharp.md
-    - text: Conectar usando Go
+    - text: Conectar usando o Go
       url: connect-go.md
-- title: Codificar com APIs de programação
+- title: Codificar com as APIs de programação
   linkLists:
   - linkListType: get-started
     links:

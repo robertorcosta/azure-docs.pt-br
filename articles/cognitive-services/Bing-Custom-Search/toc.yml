@@ -21,7 +21,7 @@
               href: call-endpoint-csharp.md
             - name: Usando Java
               href: call-endpoint-java.md
-            - name: Usando Node.js
+            - name: Usando o Node.js
               href: call-endpoint-nodejs.md
             - name: Usando Python
               href: call-endpoint-python.md

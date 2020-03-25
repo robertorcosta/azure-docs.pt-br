@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199119"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Examinar sua fatura individual do Azure
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá como:
 > * Comparar encargos faturados com o arquivo de uso
 > * Comparar encargos e uso na análise de custo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa ter uma conta de cobrança paga do *Programa Microsoft Online Services*. A conta é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, se você tiver uma [conta com tarifas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou se for um [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
@@ -120,7 +120,7 @@ Os custos mostrados na análise de custo devem corresponder precisamente ao cust
 
 ![Encargos de uso da fatura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>Serviços externos cobrados separadamente
+## <a name="external-services-billed-separately"></a><a name="external"></a>Serviços externos cobrados separadamente
 
 Serviços externos ou encargos de Marketplace são para recursos que foram criados por fornecedores de software de terceiros. Esses recursos estão disponíveis para uso no Azure Marketplace. Por exemplo, um Barracuda Firewall é um recurso do Azure Marketplace oferecido por terceiros. Todos os encargos para o firewall e seus medidores correspondentes aparecem como cobranças de serviços externos.
 
@@ -149,7 +149,7 @@ Quando a VM é criada, cada medidor começa a emitir registros de uso. Esse uso 
 
 Você pode ver os medidores que foram usados para calcular sua fatura no arquivo CSV de uso.
 
-## <a name="payment"></a>Pagar sua fatura
+## <a name="pay-your-bill"></a><a name="payment"></a>Pagar sua fatura
 
 Se você tiver configurado um cartão de crédito como forma de pagamento, o pagamento será cobrado automaticamente em até 10 dias após o término do período de cobrança. Na sua declaração de cartão de crédito, o item de linha diria **MSFT Azure**.
 

@@ -4,10 +4,10 @@ description: Índice de entradas internas do Azure Policy. Marcas de categorias,
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "77168042"
 ---
 # <a name="azure-policy-samples"></a>Exemplos do Azure Policy
@@ -34,6 +34,6 @@ Veja a seguir exemplos de padrões diferentes usando a linguagem e os operadores
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte os internos no [repositório Azure Policy GitHub](https://github.com/Azure/azure-policy).
+- Confira os internos no [repositório Azure Policy GitHub](https://github.com/Azure/azure-policy).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).

@@ -4,7 +4,7 @@
   items:
     - name: Serviço de Integridade do Serviço do Azure
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Configurar alertas para eventos da Integridade do Serviço
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
@@ -16,7 +16,7 @@
       href: service-health-overview.md
     - name: Integridade de recursos
       href: resource-health-overview.md
-- name: Como
+- name: Instruções
   items:
     - name: Configurar alertas para eventos da Integridade do Serviço
       href: alerts-activity-log-service-notifications.md
