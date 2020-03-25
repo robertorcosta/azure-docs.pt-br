@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o PlanMyLeave | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao PlanMyLeave | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PlanMyLeave.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: d1192d3606dfbbf54a8177c2369a9cae8871d92b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094390"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: Integração do Azure Active Directory com o PlanMyLeave
+# <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: integração do Azure Active Directory com o PlanMyLeave
 
 Neste tutorial, você aprenderá a integrar o PlanMyLeave ao Azure AD (Azure Active Directory).
 A integração do PlanMyLeave ao Azure AD oferece os seguintes benefícios:

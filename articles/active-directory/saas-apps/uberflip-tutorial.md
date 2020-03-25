@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Uberflip | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Uberflip | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Uberflip.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6710344e73e3c0ea6f9b3491209689871cc14a4f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160945"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048466"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Azure Active Directory com o Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integração do Azure Active Directory com o Uberflip
 
 Neste tutorial, você aprenderá a integrar o Uberflip ao Azure AD (Azure Active Directory).
 
@@ -54,7 +54,7 @@ O Uberflip dá suporte aos seguintes recursos:
 
 Para configurar a integração do Uberflip ao Azure AD, você precisa adicionar o Uberflip do Azure Marketplace à sua lista de aplicativos SaaS gerenciados:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. No painel esquerdo, selecione **Azure Active Directory**.
 
    ![A opção Azure Active Directory](common/select-azuread.png)

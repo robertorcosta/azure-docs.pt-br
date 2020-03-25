@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381424"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222463"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -106,7 +106,7 @@ Você pode usar o Agente de Serviços de Recuperação do Microsoft Azure para a
 
 4. Clique em **Adicionar Itens** e, na caixa de diálogo que é aberta, selecione **Estado do Sistema** e as pastas ou os arquivos dos quais você deseja fazer backup. Em seguida, clique em **OK**.
 
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 
 6. Na página **Especificar Agendamento de Backup (Estado do Sistema)** , especifique a hora do dia ou da semana e que os backups precisam ser disparados para o Estado do Sistema e clique em **Avançar**.
 
@@ -133,7 +133,7 @@ Você estabeleceu a agenda de quando os trabalhos de backup serão executados. N
 4. Clique em **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 5. Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no painel **Trabalhos** do console do Agente MARS.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você usou o portal do Azure para:
 

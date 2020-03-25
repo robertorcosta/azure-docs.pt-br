@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454444"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222143"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um Registro de contêiner do Azure com replicação geográfica
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: preparar um registro de contêiner do Azure com replicação geográfica
 
 Um Registro de contêiner do Azure é um Registro do Docker privado implantado no Azure que você pode manter perto da rede para suas implantações. Nesse conjunto de três artigos tutoriais, você aprenderá a usar a replicação geográfica para implantar um aplicativo Web ASP.NET Core em execução em um contêiner do Linux em duas instâncias de [Aplicativos Web para Contêineres](../app-service/containers/index.yml). Você verá como o Azure implanta automaticamente a imagem em cada instância de aplicativo Web do repositório com replicação geográfica mais próximo.
 
@@ -37,7 +37,7 @@ Azure Cloud Shell não inclui os componentes de Docker necessários para conclui
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner do Azure**.
 
@@ -45,7 +45,7 @@ Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner do 
 
 Configure seu novo Registro com as seguintes configurações:
 
-* **Nome do registro**: crie um nome para o registro exclusivo globalmente dentro do Azure e que contenha de 5 a 50 caracteres alfanuméricos
+* **Nome do Registro**: crie um nome para o Registro exclusivo globalmente dentro do Azure e que contenha de 5 a 50 caracteres alfanuméricos
 * **Grupo de recursos**: **Criar novo** > `myResourceGroup`
 * **Local**: `West US`
 * **Usuário administrador**: `Enable` (necessário para o aplicativo Web para os Contêineres efetuarem pull das imagens)

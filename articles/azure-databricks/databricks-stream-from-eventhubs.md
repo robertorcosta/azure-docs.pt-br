@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Transmitir dados para o Azure Databricks usando Hubs de Eventos '
+title: 'Tutorial: transmitir dados ao Azure Databricks usando Hubs de Eventos '
 description: Aprenda a usar o Azure Databricks com Hubs de Eventos para incluir a transmissão de dados do Twitter e ler os dados em tempo quase real.
 services: azure-databricks
 author: lenadroid
@@ -11,13 +11,13 @@ ms.workload: Active
 ms.date: 12/08/2019
 ms.author: alehall
 ms.openlocfilehash: fa5568a5af483a61b4e0854cbc7c2ade3b8dc4b1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75889142"
 ---
-# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmitir dados para o Azure Databricks usando Hubs de Eventos
+# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: transmitir dados ao Azure Databricks usando Hubs de Eventos
 
 Neste tutorial, você conectará um sistema de ingestão de dados do Azure Databricks para transmitir dados a um cluster do Apache Spark em tempo quase real. Configure o sistema de ingestão de dados usando Hubs de Eventos do Azure, depois conecte-o ao Azure Databricks para processar as mensagens sendo recebidas. Para acessar uma transmissão de dados em tempo real, use APIs do Twitter para incluir tweets nos Hubs de Eventos. Assim que tiver os dados no Azure Databricks, é possível executar trabalhos analíticos para analisar melhor os dados.
 
@@ -72,7 +72,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
     Forneça os seguintes valores:
 
-    |Propriedade  |Descrição  |
+    |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
     |**Nome do workspace**     | Forneça um nome para seu workspace do Databricks        |
     |**Assinatura**     | Na lista suspensa, selecione sua assinatura do Azure.        |

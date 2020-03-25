@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77593267"
 ---
-# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Execute aplicativos no AKS (Serviço de Kubernetes do Azure)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: executar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
 Kubernetes fornece uma plataforma distribuída para aplicativos em contêineres. Você compilar e implanta seus próprios aplicativos e serviços em um cluster Kubernetes e permite que o cluster gerencie a disponibilidade e a conectividade. Neste tutorial, parte quatro de sete, um aplicativo de exemplo é implantado em um cluster Kubernetes. Você aprenderá como:
 

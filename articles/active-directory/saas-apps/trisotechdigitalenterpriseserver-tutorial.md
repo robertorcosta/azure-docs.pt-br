@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Trisotech Digital Enterprise Server | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Trisotech Digital Enterprise Server | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Trisotech Digital Enterprise Server.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 56399f99ede611c4a120603cce3a3eede2728c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088256"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Azure Active Directory ao Trisotech Digital Enterprise Server
+# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Azure Active Directory com o Trisotech Digital Enterprise Server
 
 Neste tutorial, você aprenderá a integrar o Trisotech Digital Enterprise Server com o Microsoft Azure AD (Azure Active Directory).
 A integração do Trisotech Digital Enterprise Server com o Microsoft Azure AD oferece os seguintes benefícios:
@@ -215,5 +215,5 @@ Ao clicar no bloco Trisotech Digital Enterprise Server no Painel de Acesso, voc�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

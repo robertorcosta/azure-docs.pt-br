@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: eb35982f8004407b51a325bb485f902f51380ba2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099685"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutorial: Integração do Azure Active Directory ao IriusRisk
+# <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutorial: integração do Azure Active Directory com o IriusRisk
 
 Neste tutorial, você aprenderá a integrar o IriusRisk ao Azure AD (Azure Active Directory).
 A integração do IriusRisk ao Azure AD oferece os seguintes benefícios:
@@ -197,4 +197,4 @@ Ao clicar no bloco do IriusRisk no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

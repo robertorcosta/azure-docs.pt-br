@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Federar um ambiente de floresta única do Azure AD | Microsoft Docs'
+title: 'Tutorial: Federar um único ambiente de floresta do AD no Azure| Microsoft Docs'
 description: Demonstra como configurar um ambiente de identidade híbrida usando federação.
 services: active-directory
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102393"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60296537"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente com uma única floresta do AD na nuvem
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Associar um único ambiente de floresta do AD à nuvem
 
 ![Criar](media/tutorial-federation/diagram.png)
 
@@ -88,8 +88,8 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 5. Clique em **Instalar Agora**.
 6. Insira a chave de licença e clique em **Avançar**.
 7. Marque **Eu aceito os termos da licença e clique em **Avançar**.
-8. Selecione **Personalizado:  Instalar somente o Windows (Avançado)**
-9. Clique em **Avançar**
+8. Selecione **Personalizado: instalar somente o Windows (Avançado)**
+9. Clique em **Avançar**.
 10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as últimas atualizações.
 
 ## <a name="install-active-directory-pre-requisites"></a>Instalar os pré-requisitos do Active Directory

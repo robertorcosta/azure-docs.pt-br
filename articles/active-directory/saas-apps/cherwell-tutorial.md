@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Cherwell | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Cherwell | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cherwell.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fde8c38722e39d530c2890ef9c9a045b28b6e49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67105677"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integração do Azure Active Directory ao Cherwell
+# <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integração do Active Directory do Azure ao Cherwell
 
 Neste tutorial, você aprende a integrar o Cherwell ao Azure AD (Azure Active Directory).
 A integração do Cherwell ao Azure AD oferece os seguintes benefícios:

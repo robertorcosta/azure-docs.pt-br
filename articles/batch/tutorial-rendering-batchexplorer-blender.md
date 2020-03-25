@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791419"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60617442"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutorial: Renderizar uma cena do Blender usando o Batch Explorer
 
@@ -90,7 +90,7 @@ Criar um pool do Lote usando a imagem de VM do Azure Marketplace de renderizaç�
 > [!WARNING]
 > Observe que, quando há VMs em um pool, o custo dessas VMs é cobrado em sua assinatura do Azure. O pool ou as VMs precisam ser excluídos para parar as cobranças. Exclua o pool no final deste tutorial para evitar a continuação dos encargos.
 
-O status do pool e das VMs pode ser monitorado no modo de exibição 'Pools'. O exemplo a seguir mostra que as três VMs foram alocadas, duas foram iniciadas e estão ociosas e uma ainda está iniciando: ![Mapa de calor do pool](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap.png)
+O status do pool e das VMs pode ser monitorado no modo de exibição 'Pools'. O exemplo a seguir mostra que as três VMs foram alocadas, duas foram iniciadas e estão ociosas e uma ainda está iniciando: ![mapa de calor do pool](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap.png)
 
 ## <a name="create-a-rendering-job"></a>Criar um trabalho de renderização
 
@@ -109,27 +109,27 @@ Crie um trabalho de renderização para renderizar alguns quadros usando o pool 
 
 ![Modelo de trabalho para o Blender](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_template.png)
 
-Depois que o trabalho e todas as tarefas tiverem sido criados, o trabalho será exibido junto com as tarefas: ![Lista de tarefas do trabalho](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
+Depois que o trabalho e todas as tarefas tiverem sido criados, o trabalho será exibido junto com as tarefas: ![lista de tarefas do trabalho](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
 
 Quando uma tarefa começa a ser executada pela primeira vez em uma VM no pool, uma tarefa de preparação de trabalho do Lote é executada para fazer a cópia dos arquivos de cena do grupo de arquivos do armazenamento na VM a fim de permitir o acesso pelo Blender.
 O status de renderização pode ser determinado exibindo o arquivo de log stdout.txt produzido pelo Blender.  Selecione uma tarefa; por padrão, são exibidas as 'Saídas da tarefa' e o arquivo 'stdout.txt' pode ser selecionado e exibido.
 ![arquivo stdout](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_stdout.png)
 
-Se o pool 'blender-windows' for selecionado, as VMs no pool serão vistas em estado de execução: ![Mapa de calor do pool com nós em execução](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
+Se o pool 'blender-windows' for selecionado, as VMs no pool serão vistas em estado de execução: ![mapa de calor do pool com nós em execução](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
 
 As imagens renderizadas levarão vários minutos para serem produzidas, dependendo do tamanho de VM selecionado.  Usando a VM F16 especificada anteriormente, os quadros levaram aproximadamente 16 minutos para serem renderizados.
 
 ## <a name="view-the-rendering-output"></a>Exibir a saída de renderização
 
-Quando a renderização dos quadros for concluída, essas tarefas serão mostradas como concluídas: ![Tarefas sendo concluídas](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
+Quando os quadros forem renderizados, essas tarefas serão mostradas como concluídas: ![Conclusão de tarefas](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
 
-A imagem renderizada é gravada na VM primeiro e pode ser exibida pela seleção da pasta 'wd': ![Imagem renderizada no nó do pool](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
+A imagem renderizada é gravada na VM primeiro e pode ser exibida pela seleção da pasta 'wd': ![imagem renderizada no nó do pool](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
 
-O modelo de trabalho também especifica que os arquivos de log e o quadro de saída têm write-back feito no grupo de arquivo da conta do Armazenamento do Azure especificado quando o trabalho foi criado.  A interface do usuário 'Dados' pode ser usada para exibir os arquivos de saída e os logs; ela pode ser usada também para baixar os arquivos: ![Imagem renderizada no grupo de arquivo do armazenamento](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
+O modelo de trabalho também especifica que os arquivos de log e o quadro de saída têm write-back feito no grupo de arquivo da conta do Armazenamento do Azure especificado quando o trabalho foi criado.  A interface do usuário 'Dados' pode ser usada para exibir os arquivos de saída e os logs; ela pode ser usada também para baixar os arquivos: ![imagem renderizada no grupo de arquivos do armazenamento](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
 
-Quando todas as tarefas forem concluídas, o trabalho será marcado como concluído: ![Trabalho e todas as tarefas concluídos](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
+Quando todas as tarefas forem concluídas, o trabalho será marcado como concluído: ![trabalho e todas as tarefas concluídas](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!WARNING]
 > O pool deve ser excluído (ela também pode ser redimensionado para zero nós) para interromper os encargos das VMs gerados para a assinatura do Azure.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Rightscale | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Rightscale | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Rightscale.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 53799b62da043b7680f010e1eaaf0d9243f07dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093066"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Azure Active Directory com o Rightscale
+# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Azure Active Directory ao Rightscale
 
 Neste tutorial, você aprende a integrar o Rightscale ao Azure AD (Azure Active Directory).
 A integração do Rightscale ao Azure AD oferece os seguintes benefícios:
@@ -77,10 +77,10 @@ Para que o logon único funcione, uma relação de vínculo entre um usuário do
 Para configurar e testar o logon único do Azure AD com o Rightscale, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o Logon único do Rightscale](#configure-rightscale-single-sign-on)**  – para definir as configurações de Logon único no lado do aplicativo.
+2. **[Configurar o Logon único do Rightscale](#configure-rightscale-single-sign-on)** – para definir as configurações de Logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Rightscale](#create-rightscale-test-user)**  – para ter um equivalente de Brenda Fernandes no Rightscale que esteja vinculado à declaração do usuário do Azure AD.
+5. **[Criar um usuário de teste do Rightscale](#create-rightscale-test-user)** – para ter um equivalente de Brenda Fernandes no Rightscale que esteja vinculado à declaração do usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
