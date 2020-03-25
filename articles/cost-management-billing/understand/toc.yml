@@ -9,6 +9,8 @@
           href: review-customer-agreement-bill.md
         - name: Examinar sua fatura do Contrato de Parceiro da Microsoft
           href: review-partner-agreement-bill.md
+        - name: Examinar sua fatura do Contrato Enterprise
+          href: review-enterprise-agreement-bill.md
     - name: Conceitos
       items:
         - name: Termos de uso da assinatura individual

@@ -101,7 +101,7 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Guiné                           | Sim               | Sim                                      | Sim    | Não              |
 | Haiti                            | Sim               | Sim                                      | Sim    | Não              |
 | Honduras                         | Sim               | Sim                                      | Sim    | Sim             |
-| Hong Kong                        | Sim               | Sim                                      | Sim    | Sim             |
+| RAE de Hong Kong                        | Sim               | Sim                                      | Sim    | Sim             |
 | Hungria                          | Sim               | Sim                                      | Sim    | Sim             |
 | Islândia                          | Sim               | Sim                                      | Sim    | Não              |
 | Índia                            | Sim               | Sim                                      | Sim    | Sim             |

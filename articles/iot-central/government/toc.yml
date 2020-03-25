@@ -84,30 +84,32 @@
           href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Alternar chat ao vivo
           href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-- name: Relacionados
+- name: Recursos
   items:
-    - name: Serviços de plataforma
+    - name: Serviços do Azure IoT
       items:
         - name: Hub IoT
           href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
         - name: Provisionamento de Dispositivos no Hub IoT
           href: /azure/iot-dps
-        - name: Serviços Baseados no Local
-          href: /azure/location-based-services
-        - name: SDKs do Serviço
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Central da IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Aceleradores de solução do IoT
+          href: /azure/iot-accelerators
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Mapas do Azure
+          href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Soluções do Edge
+    - name: SDKs do Azure IoT
       items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
+        - name: SDKs do Serviço de IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: SDKs do dispositivo IoT
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: Recursos
-  items:
     - name: Opções de Ajuda e suporte
       href: /azure/iot-fundamentals/iot-support-help
     - name: Solicitações de dados do cliente

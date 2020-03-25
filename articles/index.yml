@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: e885abcd997a4764090c5e8c8ce7ad14c0963220
-  ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+  ms.openlocfilehash: e3d9f63d2f365d5f91f205dc57b1d28e42711403
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/11/2020
-  ms.locfileid: "79086709"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80129815"
 highlightedContent:
   items:
   - title: Guia de introdução para desenvolvedores do Azure
@@ -304,7 +304,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
     azureCategories:
     - analytics
-    url: sql-data-warehouse/index.yml
+    url: synapse-analytics/sql-data-warehouse/index.yml
   - title: Catálogo de Dados
     summary: Obtenha mais valor de seus ativos de dados corporativos
     imageSrc: https://static.docs.com/ui/media/product/azure/data-catalog.svg
@@ -800,7 +800,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/service-bus.svg
     azureCategories:
     - integration
-    url: service-bus/index.md
+    url: service-bus-messaging/index.yml
   - title: Gêmeos Digitais do Azure (versão prévia)
     summary: Crie soluções de inteligência espacial de IoT da próxima geração
     imageSrc: https://static.docs.com/ui/media/product/azure/digital-twins.svg
@@ -1220,7 +1220,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/storsimple-device-managers.svg
     azureCategories:
     - storage
-    url: storsimple/index.md
+    url: storsimple/index.yml
   - title: Serviço Azure SignalR
     summary: Adicionar funcionalidades da Web em tempo real com facilidade
     imageSrc: https://static.docs.com/ui/media/product/azure/signalr-service.svg

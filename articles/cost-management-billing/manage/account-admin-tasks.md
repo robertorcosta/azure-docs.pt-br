@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: 5d48f6e02719bbf647cdbf800550d73ce83a018f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200992"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tarefas de administrador da conta no portal do Azure
@@ -178,7 +178,7 @@ Se você tiver uma assinatura Azure no Licenciamento Open, poderá adicionar cr�
 
 1. Clique em **Aplicar**
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 Não damos suporte a cartões virtuais ou pré-pagos. Se estiver recebendo erros ao adicionar ou atualizar um cartão de crédito válido, tente abrir o navegador no modo privado.
 
 ## <a name="next-steps"></a>Próximas etapas

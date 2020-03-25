@@ -12,7 +12,7 @@
       href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
     - name: Executar o assistente
       href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
-- name: Como
+- name: Instruções
   items:
     - name: Habilitar
       items:
@@ -20,13 +20,13 @@
           href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
         - name: Habilitar uma tabela
           href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
-        - name: Selecionar linhas para migrar
+        - name: Selecionar linhas para migração
           href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
     - name: Gerenciar
       items:
         - name: Monitorar migração de dados
           href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
-        - name: Pausar e retomar migração
+        - name: Pausar e retomar a migração
           href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
         - name: Gerenciar e solucionar problemas
           href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database

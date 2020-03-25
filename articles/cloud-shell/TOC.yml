@@ -1,6 +1,6 @@
 - name: Visão geral
   href: overview.md
-- name: Início rápido
+- name: Guia de Início Rápido
   items:
     - name: Bash – Início Rápido
       href: quickstart.md

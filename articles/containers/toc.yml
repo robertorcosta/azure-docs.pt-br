@@ -47,7 +47,7 @@
       items:
         - name: Visão geral - Service Fabric e contêineres
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
-        - name: Como
+        - name: Instruções
           items:
             - name: Criar um aplicativo de contêiner no Windows
               href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'

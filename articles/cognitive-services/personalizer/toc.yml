@@ -101,12 +101,14 @@
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Recursos
   items:
-    - name: Solução de problemas
+    - name: solução de problemas
       href: troubleshooting.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Criptografia
+      href: personalizer-encryption-of-data-at-rest.md
     - name: Roteiro do Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: Preços

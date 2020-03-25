@@ -13,10 +13,10 @@ metadata:
   ms.author: spelluru
   ms.date: 10/22/2019
   ms.openlocfilehash: 36b82d96f4bfbc3eac6d5ca7f961386224171268
-  ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/01/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "74666283"
 landingContent:
 - title: Saiba mais sobre as Mensagens do Barramento de Serviço
@@ -105,7 +105,7 @@ landingContent:
       url: service-bus-resource-manager-overview.md
     - text: Solucionar problemas de exceções
       url: service-bus-messaging-exceptions.md
-- title: Segurança
+- title: Seguro
   linkLists:
   - linkListType: how-to-guide
     links:

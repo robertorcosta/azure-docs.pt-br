@@ -14,7 +14,7 @@
       href: ../site-recovery/site-recovery-overview.md
 - name: Como
   items:
-    - name: Analise
+    - name: Analisar
       items:
         - name: Logs do Azure Monitor
           href: ../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
@@ -28,7 +28,7 @@
           href: ../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
         - name: Visão geral sobre a Recuperação de Site
           href: ../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-    - name: Segurança
+    - name: Seguro
       items:
         - name: Monitorar recursos
           href: ../security-center/security-center-monitoring.md
@@ -72,7 +72,7 @@
               href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
             - name: Mapa do Serviço
               items:
-                - name: Uso
+                - name: Use
                   href: ../azure-monitor/insights/service-map.md
                 - name: Integração com Operations Manager
                   href: ../azure-monitor/insights/service-map-scom.md
@@ -106,7 +106,7 @@
           href: ../azure-monitor/insights/solutions-resources-automation.md
         - name: Pesquisas de log e alertas
           href: ../azure-monitor/insights/solutions-resources-searches-alerts.md
-        - name: Modos de exibição
+        - name: Exibições
           href: ../azure-monitor/insights/solutions-resources-views.md
         - name: Práticas recomendadas
           href: ../azure-monitor/insights/solutions-best-practices.md

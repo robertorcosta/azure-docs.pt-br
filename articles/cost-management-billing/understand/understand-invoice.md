@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: a3bf55bef0f6fc25f98b362b4a22e22471a031f1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199051"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreenda os termos na sua fatura do Microsoft Azure
@@ -38,7 +38,7 @@ A seção de dados da conta da fatura é na parte superior da primeira página e
 
 ![Seção de dados da conta da fatura](./media/understand-invoice/account-information-section.png)
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | OC do cliente No. |Um número de ordem de compra opcional, atribuído por você para acompanhamento |
 | Nº da Fatura |Um número de fatura exclusivo gerado pela Microsoft, usado para fins de acompanhamento |
@@ -59,7 +59,7 @@ O nome da assinatura ("Armazenamento de Produção") é o nome da assinatura par
 #### <a name="understand-the-previous-charges"></a>Entender as cobranças anteriores
 A seção saldo anterior, pagamentos e saldo pendente da fatura resume as transações desde o último período de cobrança.
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Saldo anterior |O valor total devido no último período de cobrança |
 | Pagamentos |Os pagamentos totais e créditos aplicados ao último período de cobrança |
@@ -68,7 +68,7 @@ A seção saldo anterior, pagamentos e saldo pendente da fatura resume as transa
 #### <a name="understand-the-current-charges"></a>Entender os encargos atuais
 A seção Encargos Atuais da fatura mostra detalhes sobre seus encargos mensais para o último período de cobrança.
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Encargos de uso |Encargos de uso são o total de encargos mensais em uma assinatura para o período de cobrança atual|
 | Descontos |Descontos de serviço aplicados ao período de cobrança atual|
@@ -78,7 +78,7 @@ A seção Encargos Atuais da fatura mostra detalhes sobre seus encargos mensais 
 
 A tabela a seguir descreve as instruções de venda e pagamento mostradas na segunda página da fatura.
 
-| Termo |Descrição |
+| Termo |DESCRIÇÃO |
 | --- | --- |
 | Vendido para |O endereço de perfil que está na conta. <br/><br/>Se você precisar alterar o endereço, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../manage/change-azure-account-profile.md).|
 | Instruções de pagamento |Instruções sobre como pagar dependendo da forma de pagamento (por exemplo, por cartão de crédito ou por fatura). |
@@ -91,7 +91,7 @@ A seção Encargos de uso da fatura exibe informações de nível de medidor nos
 
 A tabela a seguir descreve os cabeçalhos de coluna de encargos de uso mostrados na fatura.
 
-| Termo |Descrição |
+| Termo |DESCRIÇÃO |
 | --- | --- |
 | Nome |Identifica o serviço de nível superior para o uso |
 | Type |Define o tipo de serviço do Azure e pode afetar a tarifa |
