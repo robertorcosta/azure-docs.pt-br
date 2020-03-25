@@ -5,7 +5,7 @@
   items:
     - name: O que é a API de Reconhecimento de Tinta Digital?
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: API REST
@@ -14,7 +14,7 @@
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
-        - name: JavaScript
+        - name: Javascript
           href: quickstarts/javascript.md
 - name: Conceitos
   items:

@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Analysis Services?
       href: analysis-services-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Criar um servidor – Portal
       href: analysis-services-create-server.md
@@ -28,7 +28,7 @@
       href: analysis-services-service-principal.md
     - name: Bibliotecas de cliente
       href: analysis-services-data-providers.md
-    - name: Nível de compatibilidade
+    - name: Nível de Compatibilidade
       href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services'
     - name: Conectando-se a fontes de dados locais
       href: analysis-services-gateway.md
@@ -38,7 +38,7 @@
       href: analysis-services-bcdr.md
     - name: Fontes de dados com suporte
       href: analysis-services-datasource.md
-- name: Instruções
+- name: Como fazer
   items:
     - name: Servidor
       items:
@@ -66,7 +66,7 @@
           href: analysis-services-addservprinc-admins.md
     - name: Modelo
       items:
-        - name: Modelagem tabular
+        - name: Modelagem de tabela
           href: 'https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas'
         - name: Implantar com o Visual Studio
           href: analysis-services-deploy.md
@@ -82,7 +82,7 @@
           href: analysis-services-database-users.md
         - name: Gerenciar administradores de servidor
           href: analysis-services-server-admins.md
-    - name: Connect
+    - name: Conectar
       items:
         - name: Conectar com o Excel
           href: analysis-services-connect-excel.md

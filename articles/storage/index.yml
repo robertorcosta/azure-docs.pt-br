@@ -16,7 +16,7 @@ metadata:
 abstract:
   description: 'O Armazenamento do Azure é um serviço gerenciado pela Microsoft que fornece um armazenamento na nuvem altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Azure inclui Blobs (objetos) do Azure, Armazenamento do Azure Data Lake Gen2, Arquivos, Filas e Tabelas do Azure. Saiba como usar o Armazenamento do Microsoft Azure em seus aplicativos com tutoriais e guias de início rápido.'
 sections:
-  - title: Guia de início rápido de 5 minutos
+  - title: Guias de início rápido de 5 minutos
     items:
       - type: paragraph
         text: Aprenda a trabalhar com o Armazenamento do Azure explorando esses inícios rápidos.

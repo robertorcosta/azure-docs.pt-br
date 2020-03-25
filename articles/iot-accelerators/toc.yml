@@ -195,34 +195,34 @@
           href: iot-accelerators-device-simulation-protobuf.md
         - name: Implantar imagem personalizada do Docker
           href: iot-accelerators-device-simulation-deploy-image.md
-- name: Relacionados
-  items:
-    - name: Central da IoT
-      href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Serviços de plataforma
-      items:
-        - name: Hub IoT
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: Provisionamento de Dispositivos no Hub IoT
-          href: /azure/iot-dps
-        - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Mapas
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: IoT Edge
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: SDKs do dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
     - name: Opções de Ajuda e suporte
       href: /azure/iot-fundamentals/iot-support-help
+    - name: Serviços do Azure IoT
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Central da IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Aceleradores de solução do IoT
+          href: /azure/iot-accelerators
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Mapas do Azure
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: SDKs do Azure IoT
+      items:
+        - name: SDKs do Serviço de IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
     - name: Monitoramento remoto
       items:
         - name: Guia de referência do desenvolvedor (.NET)

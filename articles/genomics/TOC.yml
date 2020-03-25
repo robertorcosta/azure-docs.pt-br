@@ -4,7 +4,7 @@
   items:
     - name: O que é o Microsoft Genomics?
       href: overview-what-is-genomics.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Execute uma amostra do Microsoft Genomics
@@ -31,7 +31,7 @@
       href: file-support-ticket-genomics.md
     - name: Histórico de lançamento de versões
       href: version-release-history-genomics.md
-    - name: Continuidade dos negócios
+    - name: Continuidade de negócios
       href: business-continuity-genomics.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'

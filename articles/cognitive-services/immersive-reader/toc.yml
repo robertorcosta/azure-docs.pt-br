@@ -9,9 +9,9 @@
   items:
     - name: 'Usando C#'
       href: Quickstart.md
-    - name: Usando Node.js
+    - name: Usando o Node.js
       href: quickstart-nodejs.md
-    - name: Usando Swift (iOS)
+    - name: Usando o Swift (iOS)
       href: ios-quickstart.md
 - name: Tutoriais
   items:

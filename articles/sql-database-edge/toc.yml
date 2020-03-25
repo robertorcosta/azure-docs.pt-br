@@ -4,7 +4,7 @@
   items:
     - name: O que é o Banco de Dados SQL no Edge?
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Implantar o Banco de Dados SQL no Edge

@@ -5,7 +5,7 @@
   items:
     - name: O que é a API do Detector de Anomalias?
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Biblioteca do cliente
@@ -66,7 +66,7 @@
       items:
         - name: Apresentando a API do Detector de Anomalias do Azure
           href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
-        - name: Visão geral do algoritmo SR-CNN
+        - name: Visão Geral do algoritmo SR-CNN
           href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'
     - name: Demonstração
       items:

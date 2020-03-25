@@ -4,7 +4,7 @@
   items:
     - name: O que são os Azure DevOps Projects?
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: .NET

@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: O que é monitoramento do Azure AD?
       href: overview-monitoring.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Baixar um relatório de entrada
@@ -39,7 +39,7 @@
       href: concept-risk-events.md
     - name: Usuários em risco
       href: concept-user-at-risk.md
-    - name: Provisionamento de logs
+    - name: Provisionando logs
       href: concept-provisioning-logs.md
     - name: APIs dos relatórios
       href: concept-reporting-api.md
