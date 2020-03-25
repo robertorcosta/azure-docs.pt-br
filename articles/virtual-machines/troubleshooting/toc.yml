@@ -1,5 +1,5 @@
 ### YamlMime:TOC
-- name: Solucionar problemas nas VMs do Azure
+- name: Solucionando problemas nas VMs do Azure
   href: index.yml
 - name: Solucionar problemas de falhas de implantação
   items:
@@ -79,7 +79,7 @@
           href: troubleshoot-critical-service-failed-boot-error.md
         - name: Reinicializar loop
           href: troubleshoot-reboot-loop.md
-        - name: Travado no Windows Update
+        - name: Preso na atualização do Windows
           href: troubleshoot-stuck-updating-boot-error.md
 - name: Não é possível conectar-se à minha VM
   items:
@@ -90,17 +90,17 @@
           href: reset-rdp.md
         - name: Solução de problemas do RDP
           href: troubleshoot-rdp-connection.md
-        - name: Solução de problemas detalhada do RDP
+        - name: Solução detalhada de problemas do RDP
           href: detailed-troubleshoot-rdp.md
-        - name: Solucionar problemas de erro de RDP porque o DHCP está desabilitado
+        - name: Solucionar problemas de erro de RDP porque o DHCP está desativado
           href: troubleshoot-rdp-dhcp-disabled.md
         - name: Solucionar problemas de erros de RDP por causa da configuração de NSG
           href: troubleshoot-rdp-nsg-problem.md
-        - name: Solucionar problemas de erros específicos
+        - name: Solução de problemas de erros específicos
           href: troubleshoot-specific-rdp-errors.md
-        - name: Solucionar problemas de erros quando não houver servidor de licença
+        - name: Solucionar problemas de erros do servidor sem licença
           href: troubleshoot-rdp-no-license-server.md
-        - name: Solucionar problemas de Serviços de Área de Trabalho Remota
+        - name: Solucionar problemas de serviços da área de Trabalho remota
           href: troubleshoot-remote-desktop-services-issues.md
         - name: Solucionar problemas de erro interno
           href: Troubleshoot-rdp-internal-error.md
@@ -112,19 +112,19 @@
           href: troubleshoot-authentication-error-rdp-vm.md
         - name: Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento
           href: event-id-troubleshoot-vm-rdp-connecton.md
-        - name: Solucionar problemas de erros de RDP na VM por causa do IP estático
+        - name: Solucionar erros de RDP na VM por causa do IP estático
           href: troubleshoot-rdp-static-ip.md
-        - name: Solucionar problemas de erros de RDP na VM porque a NIC está desabilitada
+        - name: Solucionar erros de RDP na VM porque a NIC está desativada
           href: troubleshoot-rdp-nic-disabled.md
         - name: Solucionar problemas de erro RDP causado pelo modo de segurança
           href: troubleshoot-rdp-safe-mode.md
-        - name: Desabilitar o firewall do SO convidado na VM do Azure
+        - name: Desativar o firewall do sistema operacional convidado na VM do Azure
           href: disable-guest-os-firewall-windows.md
-        - name: Habilitar ou desabilitar uma regra de firewall em um SO convidado
+        - name: Ativar ou desativar uma regra de firewall em um sistema operacional convidado
           href: enable-disable-firewall-rule-guest-os.md
-        - name: O firewall do SO convidado está bloqueando o tráfego de entrada
+        - name: O firewall do sistema operacional convidado está bloqueando o tráfego de entrada
           href: guest-os-firewall-blocking-inbound-traffic.md
-        - name: O firewall do SO convidado está configurado incorretamente
+        - name: O firewall do sistema operacional convidado está configurado incorretamente
           href: guest-os-firewall-misconfigured.md
         - name: Solucionar problemas de erro RDP causado pelo netvsc.sys
           href: troubleshoot-rdp-driver-netvsc.md
@@ -140,7 +140,7 @@
           href: chroot-logical-volume-manager.md
         - name: Solucionar problemas de erros fstab
           href: linux-virtual-machine-cannot-start-fstab-errors.md
-        - name: Solução de problemas detalhada do SSH
+        - name: Solução detalhada de problemas do SSH
           href: detailed-troubleshoot-ssh-connection.md
     - name: Problemas de acesso a aplicativos
       href: troubleshoot-app-connection.md
@@ -180,11 +180,11 @@
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Problemas de desempenho da VM
   items:
-    - name: Solucionar problemas de desempenho da VM do Azure
+    - name: Solução de problemas de desempenho da VM do Azure
       items:
         - name: Problemas de desempenho no Linux ou no Windows
           href: troubleshoot-performance-virtual-machine-linux-windows.md
-        - name: Performance Diagnostics
+        - name: Diagnóstico de desempenho
           href: performance-diagnostics.md
     - name: PerfInsights
       items:
@@ -192,7 +192,7 @@
           items:
             - name: Como usar o PerfInsights
               href: how-to-use-perfinsights.md
-            - name: Extensão do Performance Diagnostics
+            - name: Extensão de diagnóstico de desempenho
               href: performance-diagnostics-vm-extension.md
         - name: Linux
           items:
@@ -271,7 +271,7 @@
   items:
     - name: Aumentar os limites de computação de uma vCPU
       items:
-        - name: Modelo de implantação do Resource Manager
+        - name: Modelo de implantação do Gerenciador de Recursos
           items:
             - name: Aumentar o limite de vCPU da série de VM
               href: ../../azure-portal/supportability/per-vm-quota-requests.md

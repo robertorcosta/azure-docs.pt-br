@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344153"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238033"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
@@ -23,7 +23,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
 A tabela a seguir descreve as funções de cobrança usadas para gerenciar sua conta de cobrança, os perfis de cobrança e as seções da fatura.
 
-|Função|Descrição|
+|Função|DESCRIÇÃO|
 |---|---|
 |Proprietário da conta de cobrança|Gerencia tudo para a conta de cobrança|
 |Colaborador da conta de cobrança|Gerencia tudo, exceto as permissões na conta de cobrança|

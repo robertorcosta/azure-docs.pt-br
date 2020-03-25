@@ -68,7 +68,7 @@
               href: manage-certificates-for-federated-single-sign-on.md
             - name: Restrições de locatário
               href: tenant-restrictions.md
-            - name: Configurar a criptografia de token SAML (versão prévia)
+            - name: Configurar a criptografia de token SAML
               href: howto-saml-token-encryption.md
             - name: Portais do usuário final
               href: end-user-experiences.md
@@ -139,9 +139,7 @@
               href: grant-admin-consent.md
             - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
               href: configure-admin-consent-workflow.md
-            - name: Métodos para atribuir usuários e grupos a um aplicativo
-              href: methods-for-assigning-users-and-groups.md
-            - name: Atribuir um usuário a um aplicativo
+            - name: Atribuir um usuário ou um grupo a um aplicativo
               href: assign-user-or-group-access-portal.md
             - name: Criar coleções em Meus Aplicativos
               href: access-panel-collections.md

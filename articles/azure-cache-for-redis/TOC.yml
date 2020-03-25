@@ -33,6 +33,10 @@
       href: cli-samples.md
 - name: Conceitos
   items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Failover e aplicação de patch
       href: cache-failover.md
     - name: Práticas recomendadas
@@ -44,7 +48,7 @@
     - name: Plano
       items:
         - name: Escolher uma camada de cache
-          href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
         - name: Distribuir seu cache com clustering
           href: cache-how-to-premium-clustering.md
         - name: Obter persistência do cache com a persistência de dados do Redis

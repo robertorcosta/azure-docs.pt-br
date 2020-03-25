@@ -401,13 +401,15 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Glossário
       href: luis-glossary.md
-    - name: Solução de problemas
+    - name: solução de problemas
       href: troubleshooting.md
       displayName: 'FAQ, import'
     - name: Preços e limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Criptografia
+      href: luis-encryption-of-data-at-rest.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice

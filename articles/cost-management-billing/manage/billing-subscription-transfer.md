@@ -11,11 +11,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245397"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238152"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -92,7 +92,7 @@ Se você aceitou a propriedade de cobrança de uma assinatura do Azure, recomend
 1. Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para obter mais informações, confira [Adicionar ou alterar os administradores de assinatura do Azure](add-change-subscription-administrator.md) e [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas aos serviços dessa assinatura, incluindo:
    1. Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md)
-   1. Chaves de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
+   1. Teclas de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
    1. Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 1. Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nessa assinatura. Você pode atualizar a ID do parceiro no [Portal do Azure](https://portal.azure.com). Para obter mais informações, confira [Vincular uma ID de parceiro a suas contas do Azure](link-partner-id.md)
 
@@ -124,7 +124,7 @@ A transferência de assinatura no portal do Azure está disponível para os tipo
 
 Essas perguntas frequentes se aplicam aos usuários que estão transferindo a propriedade de cobrança de uma assinatura do Azure para outra conta.
 
-### <a name="whoisaa"></a> Quem é o administrador de cobrança de uma conta?
+### <a name="who-is-a-billing-administrator-of-an-account"></a><a name="whoisaa"></a> Quem é o administrador de cobrança de uma conta?
 
 O administrador de cobrança é uma pessoa que tem permissão para gerenciar a cobrança de uma conta. Ele tem autoridade para acessar a cobrança no [portal do Azure](https://portal.azure.com) e executar várias tarefas de cobrança, como criar assinaturas, exibir e pagar faturas ou atualizar formas de pagamento.
 
@@ -182,7 +182,7 @@ Sim. No entanto, as atribuições de [funções de administrador](add-change-sub
 Mesmo que as atribuições de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os usuários da conta do proprietário original ainda poderão ter acesso à assinatura por meio de alguns mecanismos de segurança, incluindo:
 
 * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md).
-* Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
+* Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
 Se o destinatário precisar restringir o acesso a seus recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
@@ -204,17 +204,17 @@ Sim. Ao aceitar a solicitação de transferência, você pode selecionar uma for
 
 O administrador corporativo pode atualizar a propriedade da conta de qualquer conta, mesmo se o proprietário original da conta não faz mais parte da organização. Isso é possível seguindo as instruções para [Transferir a propriedade da conta para todas as assinaturas](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
-### <a id="no-button"></a> Por que não vejo o botão “Transferir Assinatura”?
+### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a> Por que não vejo o botão “Transferir Assinatura”?
 
 A transferência de assinatura via autoatendimento não está disponível para sua conta de cobrança. Atualmente, não damos suporte para a transferência da propriedade de cobrança de assinaturas em contas do EA (Contrato Enterprise) no portal do Azure. Além disso, as contas de Contrato de Cliente da Microsoft criadas enquanto trabalham com um representante da Microsoft não dão suporte à transferência de propriedade de cobrança.
 
-### <a id="no-button"></a> Por que o meu tipo de assinatura não é compatível com a transferência?
+### <a name="why-doesnt-my-subscription-type-support-transfer"></a><a id="no-button"></a> Por que o meu tipo de assinatura não é compatível com a transferência?
 
 Nem todos os tipos de assinatura são compatíveis com a transferência de propriedade de cobrança. Para exibir uma lista de tipos de assinatura que são compatíveis com transferências, confira [Tipos de assinatura compatíveis](#supported-subscription-types)
 
-### <a id="no-button"></a> Por que estou recebendo um erro de acesso negado ao tentar transferir a propriedade de cobrança de uma assinatura?
+### <a name="why-am-i-receiving-an-access-denied-error-when-i-try-to-transfer-billing-ownership-of-a-subscription"></a><a id="no-button"></a> Por que estou recebendo um erro de acesso negado ao tentar transferir a propriedade de cobrança de uma assinatura?
 
 Você verá esse erro se estiver tentando transferir uma assinatura do Plano do Microsoft Azure e não tiver as permissões necessárias. Para transferir uma assinatura do plano do Microsoft Azure, você precisará ser um proprietário ou um colaborador na seção da fatura em que a assinatura é cobrada. Para obter mais informações, confira [Gerenciar assinaturas para a seção de fatura](understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 

@@ -41,6 +41,8 @@
           href: howto-azure-monitor-v4.md
     - name: Implantar um Prometheus autônomo em um cluster do Red Hat OpenShift no Azure
       href: howto-deploy-prometheus.md
+    - name: Gerenciar projetos em um cluster do Red Hat OpenShift no Azure
+      href: howto-manage-projects.md
     - name: Criar um cluster privado do Red Hat OpenShift no Azure
       href: howto-create-private-cluster.md
     - name: Monitoramento e registro em log
@@ -65,7 +67,7 @@
   items:
     - name: Perguntas comuns
       href: openshift-faq.md
-    - name: Solução de problemas
+    - name: solução de problemas
       href: troubleshoot.md
     - name: Recursos compatíveis
       href: supported-resources.md

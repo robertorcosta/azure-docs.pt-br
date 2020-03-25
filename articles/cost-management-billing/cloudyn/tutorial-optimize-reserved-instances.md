@@ -1,25 +1,25 @@
 ---
 title: Tutorial – Otimizar o custo da instância de reserva com o Cloudyn – Azure
 description: Neste tutorial, você aprenderá a otimizar os custos de instância reservada para os serviços Azure e AWS (Amazon Web Services).
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b37ef5b6fe92538986a267b53c821bf616ba77fb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 22a435a63c4ff649fe428e031bca7beecdbc46d1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201111"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463706"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Tutorial: Otimizar instâncias reservadas
+# <a name="tutorial-optimize-reserved-instances"></a>Tutorial: otimizar instâncias reservadas
 
 Neste tutorial, você aprenderá como o Cloudyn pode ajudá-lo a otimizar os custos e o uso da instância reservada para os serviços Azure e AWS (Amazon Web Services). Uma instância reservada com um desses provedores de serviços de nuvem é um compromisso com um contrato de longo prazo em que você se compromete de antemão a usar a VM no futuro. E isso talvez possa trazer uma economia significativa em relação ao modelo de preços de VM padrão com pagamento por uso. A possível economia só ocorre quando você usa totalmente a capacidade das instâncias reservadas.
 
@@ -36,6 +36,8 @@ Este tutorial explica como o Cloudyn dá suporte ao Azure e a RIs (Instâncias R
 > * Modificar reservas não utilizadas
 
 Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisites
 

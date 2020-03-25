@@ -6,7 +6,7 @@
       items:
         - name: O que é a API de Tradução de Texto?
           href: translator-info-overview.md
-    - name: Guia de início rápido
+    - name: Inícios rápidos
       items:
         - name: Traduzir o texto
           href: quickstart-translate.md
@@ -46,12 +46,6 @@
           href: prevent-translation.md
         - name: Usar o recurso de dicionário dinâmico
           href: dynamic-dictionary.md
-        - name: Usar contêineres
-          items:
-            - name: Instalar e executar contêineres
-              href: how-to-install-containers.md
-            - name: Configurar contêineres
-              href: translator-text-container-config.md
         - name: Traduzir por trás de firewalls
           href: firewalls.md
     - name: Exemplos
@@ -94,7 +88,7 @@
           items:
             - name: Texto de transformação
               href: transform-text.md
-            - name: Como usar o relatório do Framework de Tradução Colaborativa (CTF)
+            - name: Como usar o relatório do CTF (Collaborative Translation Framework)
               href: ctf-reporting.md
             - name: Retornar traduções de N-Best
               href: return-n-best-translations.md
@@ -122,7 +116,7 @@
       items:
         - name: O que é o Tradutor Personalizado?
           href: custom-translator/overview.md
-    - name: Guia de início rápido
+    - name: Inícios rápidos
       items:
         - name: Criar um modelo personalizado
           href: custom-translator/quickstart-build-deploy-custom-model.md
@@ -178,5 +172,7 @@
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+        - name: Criptografia
+          href: translator-encryption-of-data-at-rest.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

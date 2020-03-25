@@ -119,14 +119,6 @@
       href: 'https://msdn.microsoft.com/library/mt163667.aspx'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.network/trafficmanagerprofiles
-- name: Relacionados
-  items:
-    - name: Gateway de Aplicativo
-      href: /azure/application-gateway/
-    - name: Load Balancer
-      href: /azure/load-balancer/
-    - name: DNS do Azure
-      href: /azure/dns/
 - name: Recursos
   items:
     - name: Roteiro do Azure

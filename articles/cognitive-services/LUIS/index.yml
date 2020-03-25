@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação do LUIS (Reconhecimento Vocal)
+title: Documentação do LUIS (Reconhecimento vocal)
 summary: Saiba como o Reconhecimento vocal permite que os aplicativos entendam o que uma pessoa quer ao interpretar as palavras dela.
 metadata:
   ms.topic: landing-page
@@ -9,15 +9,15 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services
-  title: Documentação do LUIS (Reconhecimento Vocal)
+  title: Documentação do reconhecimento Vocal (LUIS)
   titleSuffix: Azure Cognitive Services
   description: O serviço LUIS (Serviço Inteligente de Reconhecimento Vocal) permite que o aplicativo entenda o que uma pessoa quer ao interpretar as palavras dela. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
-  ms.openlocfilehash: 1d9b17bcf6817d3c94d191d54be26ce0ff1f14c2
-  ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+  ms.openlocfilehash: c05d10b4b732a466ff4a6a4abe352e78e898c857
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/11/2020
-  ms.locfileid: "77137343"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80053372"
 landingContent:
 - title: Sobre o LUIS (Reconhecimento vocal)
   linkLists:

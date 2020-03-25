@@ -141,6 +141,8 @@
           href: cloud-services-allocation-failures.md
         - name: Causas comuns de reciclagem de funções do Serviço de Nuvem
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+        - name: O aplicativo não dá suporte a TLS 1.2
+          href: applications-dont-support-tls-1-2.md
         - name: O tamanho da pasta TEMP padrão é muito pequeno para uma função
           href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
         - name: Problemas de implantação comuns

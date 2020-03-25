@@ -129,7 +129,7 @@
       href: tutorial-rotation.md
     - name: Integrar ao Azure Policy
       href: azure-policy.md
-    - name: Integrar com o serviço de Link Privado do Azure (versão prévia)
+    - name: Integrar ao serviço de Link Privado do Azure
       href: private-link-service.md
     - name: Log do Azure Key Vault
       href: key-vault-logging.md

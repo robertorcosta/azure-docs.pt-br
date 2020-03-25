@@ -1,20 +1,20 @@
 ---
 title: Gerenciar orçamentos do Cloudyn no Azure
 description: Este artigo ajuda você a criar orçamentos e começar a gerenciá-los rapidamente no Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 1436c9b3b612a231760b6cdb04b5166fb45d7962
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: f2f8fdbf2b470e9f1eb0d82c4c6de230c2a9e78f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201128"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464148"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gerenciar orçamentos do Azure com o Cloudyn
 
@@ -27,6 +27,8 @@ Com base nos orçamentos atribuídos, você pode definir os alertas de limite co
 Os relatórios de orçamento mostram o orçamento atribuído. Os usuários podem visualizar quando seu gasto acabar, abaixo, ou a par co seu consumo sobre o tempo. Ao selecionar **Exibir/Ocultar Campos** na parte superior de um relatório de orçamento, você pode visualizar o custo, orçamento, custo acumulado ou orçamento total.
 
 O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda a analisar custos, criar e gerenciar orçamentos, exportar dados e examinar e agir de acordo com as recomendações de otimização que visam economizar dinheiro. Para obter mais informações sobre os orçamentos no Gerenciamento de Custos, confira [Criar e gerenciar orçamentos](../costs/tutorial-acm-create-budgets.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="create-budgets"></a>Criar orçamentos
 

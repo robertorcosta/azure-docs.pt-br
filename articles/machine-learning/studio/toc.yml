@@ -143,8 +143,6 @@
           href: consuming-from-excel.md
         - name: Usar suplemento do Excel
           href: excel-add-in-for-web-services.md
-        - name: Usar Pool do Lote
-          href: dedicated-capacity-for-bes-jobs.md
     - name: Casos de uso
       items:
         - name: Rotatividade de clientes

@@ -1,26 +1,28 @@
 ---
-title: Ativar assinaturas e contas do Azure | Microsoft Docs
+title: Ativar assinaturas e contas do Azure
 description: Habilitar o acesso usando APIs do Azure Resource Manager para contas novas e existentes e resolver problemas comuns de conta.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 2467ee65b3f7090e5854bdd7848abab667ccfe55
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301362"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474655"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar assinaturas e contas do Azure com o Cloudyn
 
 Adicionar ou atualizar suas credenciais do Azure Resource Manager permite que o Cloudyn descubra todas as contas e assinaturas no seu locatário do Azure. Se você também tem a extensão do Diagnóstico do Azure habilitada em suas máquinas virtuais, o Cloudyn pode coletar métricas estendidas como CPU e memória. Este artigo descreve como habilitar o acesso usando APIs do Azure Resource Manager para contas novas e existentes. Ele também descreve como resolver problemas comuns de conta.
 
 O Cloudyn não pode acessar a maioria dos dados de sua assinatura do Azure quando ela _não está ativa_. Você deve editar contas _não ativas_ para que o Cloudyn possa acessá-las.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="required-azure-permissions"></a>Permissões necessárias do Azure
 

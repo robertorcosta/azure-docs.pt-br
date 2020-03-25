@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 21579c7c3acd726ac8958768238631333cf63c39
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199136"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237557"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Examinar sua fatura do Contrato de Cliente da Microsoft
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Examinar os encargos pendentes para estimar sua próxima fatura
 > * Analisar os encargos de uso do Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa ter uma conta de cobrança para um Contrato de Cliente da Microsoft.
 
