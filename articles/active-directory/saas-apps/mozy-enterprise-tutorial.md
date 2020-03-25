@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Mozy Enterprise | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Mozy Enterprise | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Mozy Enterprise.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 7d3b7f8982a24856818cbb6ce86060beac969fc2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233503"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure ao Mozy Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Mozy Enterprise
 
 Neste tutorial, você aprende a integrar o Mozy Enterprise ao Azure AD (Azure Active Directory).
 A integração do Mozy Enterprise ao Azure AD oferece os seguintes benefícios:

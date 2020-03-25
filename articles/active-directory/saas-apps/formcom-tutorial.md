@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Form.com | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Form.com | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Form.com.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: aa6585b981626d3752f2383db20f8e149a2ed007
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73156124"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory ao Form.com
+# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory com o Form.com
 
 Neste tutorial, você aprenderá a integrar o Form.com ao Azure AD (Azure Active Directory).
 A integração do Form.com ao Azure AD oferece os seguintes benefícios:

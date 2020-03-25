@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -9,10 +9,10 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67172514"
 ---
 1. Acesse o [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager)e entre com suas credenciais de conta do Google. 
@@ -25,7 +25,7 @@ ms.locfileid: "67172514"
     ![Selecione seu projeto nos alertas](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Anote o **Número do projeto** no bloco **Informações do projeto** do painel. 
 
-    ![ID do projeto](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
+    ![Project ID](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
 6. No painel, no bloco **APIs**, selecione **Acessar visão geral das APIs**. 
 
     ![Link Visão geral da API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)

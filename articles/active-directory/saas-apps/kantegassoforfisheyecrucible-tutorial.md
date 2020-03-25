@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao SSO do Kantega para FishEye/Crucible | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o FishEye/Crucible | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SSO do Kantega para o FishEye/Crucible.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f262f94c451d5dcffd933bdebb1374b8733b9fd8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67595185"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para FishEye/Crucible
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o FishEye/Crucible
 
 Neste tutorial, você aprende a integrar o SSO do Kantega para o FishEye/Crucible ao Azure AD (Azure Active Directory).
 A integração do SSO do Kantega para o FishEye/Crucible ao Azure AD oferece os seguintes benefícios:
@@ -317,4 +317,4 @@ Quando clicar no bloco do logon único do Kantega para o FishEye/Crucible no Pai
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

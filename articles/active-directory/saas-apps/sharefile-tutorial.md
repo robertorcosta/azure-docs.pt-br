@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Citrix ShareFile | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Citrix ShareFile | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Citrix ShareFile.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160024"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Active Directory ao Citrix ShareFile
+# <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: integração do Azure Active Directory ao Citrix ShareFile
 
 Nesse tutorial, você aprenderá a integrar o Citrix ShareFile ao Azure AD (Azure Active Directory).
 A integração do Citrix ShareFile ao Azure AD oferece os seguintes benefícios:
@@ -164,7 +164,7 @@ Para configurar o logon único do Azure AD com o Citrix ShareFile, execute as se
 
     c. Clique em **Alterar** ao lado do campo **Certificado X.509** e carregue o certificado baixado no portal Azure.
     
-    d. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado no portal do Azure.
+    d. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
     
     e. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiado no portal do Azure.
 

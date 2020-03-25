@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Qumu Cloud | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Qumu Cloud | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Qumu Cloud.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a772dfb1fb30e9de93afa91bd0485147029d88e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093227"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integração do Azure Active Directory ao Qumu Cloud
+# <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integração do Azure Active Directory com o Qumu Cloud
 
 Neste tutorial, você aprenderá a integrar o Qumu Cloud ao Microsoft Azure AD (Azure Active Directory).
 A integração do Qumu Cloud ao Microsoft Azure AD oferece os seguintes benefícios:
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o Qumu Cloud, execute as seguinte
 
 7. Além do indicado acima, o aplicativo Qumu Cloud espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | ---------------| --------------- |    
     | urn: oid:2.5.4.42 | user.givenname |
     | urn: oid:2.5.4.4 | user.surname |
@@ -237,5 +237,5 @@ Ao clicar no bloco do Qumu Cloud no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

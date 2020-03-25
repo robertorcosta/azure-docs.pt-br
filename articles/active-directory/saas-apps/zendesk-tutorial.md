@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Zendesk | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Zendesk | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Zendesk.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4887457f457ff533a0eaf10be7db1627a950f5bd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233259"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Tutorial: Integração do Azure Active Directory ao Zendesk
+# <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Tutorial: Integração do Active Directory do Azure com o Zendesk
 
 Neste tutorial, você aprenderá a integrar o Zendesk ao Azure AD (Azure Active Directory).
 A integração do Zendesk ao Azure AD oferece os seguintes benefícios:
@@ -278,6 +278,6 @@ Ao clicar no bloco do Zendesk no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](zendesk-provisioning-tutorial.md)

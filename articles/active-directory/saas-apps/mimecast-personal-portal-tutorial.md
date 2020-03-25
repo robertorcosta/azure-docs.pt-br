@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Mimecast Personal Portal | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Mimecast Personal Portal | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Mimecast Personal Portal.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 259635613855e4d7687cf569c94bbd3dd04027fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160618"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Azure Active Directory com Mimecast Personal Portal
+# <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Azure Active Directory ao Mimecast Personal Portal
 
 Neste tutorial, você aprende a integrar o Mimecast Personal Portal ao Azure AD (Azure Active Directory).
 A integração do Mimecast Personal Portal ao Azure AD oferece os seguintes benefícios:
@@ -159,7 +159,7 @@ Para configurar o logon único do Azure AD com o Mimecast Personal Portal, reali
 
 2. Acesse **Serviços \> Aplicativos**.
    
-    ![Aplicativos](./media/mimecast-personal-portal-tutorial/ic794998.png "APLICATIVOS")
+    ![Aplicativos](./media/mimecast-personal-portal-tutorial/ic794998.png "Aplicativos")
 
 3. Clique em **Perfis de Autenticação**.
    

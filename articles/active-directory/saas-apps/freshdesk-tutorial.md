@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao FreshDesk | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao FreshDesk | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o FreshDesk.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e75a45bc4ccd2614520fda39e09996c2286bdbd0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227609"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Azure Active Directory ao FreshDesk
+# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: integração do Azure Active Directory ao FreshDesk
 
 Neste tutorial, você aprenderá a integrar o FreshDesk ao Azure AD (Azure Active Directory).
 A integração do FreshDesk ao Azure AD oferece os seguintes benefícios:
@@ -119,7 +119,7 @@ Para configurar o logon único do Azure AD com o FreshDesk, execute as seguintes
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas:
     
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     | ---------------| --------------- |
     | Identificador Exclusivo do Usuário | user.mail |
 
@@ -246,7 +246,7 @@ No caso do FreshDesk, o provisionamento é uma tarefa manual.
 
 2. No menu na parte superior, clique em **Administrador**.
 
-    ![Administrador](./media/freshdesk-tutorial/IC776772.png "Administrador")
+    ![Administrador](./media/freshdesk-tutorial/IC776772.png "Admin")
 
 3. Na guia **Configurações Gerais**, clique em **Agentes**.
   

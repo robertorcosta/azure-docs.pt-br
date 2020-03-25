@@ -10,19 +10,19 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890915"
 ---
-# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Corrigir problemas do dispositivo
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Solucionar e corrigir problemas do dispositivo
 
 Neste tutorial, você usará o acelerador da solução de Monitoramento Remoto para identificar e corrigir problemas com seus dispositivos IoT conectados. Use os alertas no painel do acelerador de solução para identificar problemas e, depois, execute trabalhos remotos para corrigir esses problemas.
 
 A Contoso está testando um novo dispositivo **Protótipo** em campo. Como operador da Contoso, você percebeu durante o teste que o dispositivo **Protótipo** está disparando inesperadamente um alerta de temperatura no painel. Agora será necessário investigar o comportamento deste dispositivo **Protótipo** com falha e resolver o problema.
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 >[!div class="checklist"]
 > * Investigar um alerta de um dispositivo

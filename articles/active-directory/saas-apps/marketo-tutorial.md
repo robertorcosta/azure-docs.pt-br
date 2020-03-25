@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 0488fd1e9bc10d61d6660745acfc8c39becf3a89
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159464"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory ao Marketo
+# <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory com o Marketo
 
 Neste tutorial, você aprenderá a integrar o Marketo ao Azure AD (Azure Active Directory).
 A integração do Marketo ao Azure AD oferece os seguintes benefícios:
@@ -280,7 +280,7 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Marketo. s
    
     c. Insira o **Sobrenome** na caixa de texto
    
-    d. Clique em **Avançar**
+    d. Clique em **Avançar**.
 
 6. Na guia **Permissões**, selecione **userRoles** e clique em **Avançar**
    

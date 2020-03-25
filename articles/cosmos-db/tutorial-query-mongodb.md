@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870132"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consultar dados usando a API para MongoDB do Azure Cosmos DB
@@ -58,7 +58,7 @@ As consultas neste artigo usam o seguinte exemplo de documento.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>Exemplo de consulta 1 
+## <a name="example-query-1"></a><a id="examplequery1"></a>Exemplo de consulta 1 
 
 Com base no exemplo de documento de família acima, a consulta a seguir retorna os documentos cujo campo de id corresponde a `WakefieldFamily`.
 
@@ -108,7 +108,7 @@ Com base no exemplo de documento de família acima, a consulta a seguir retorna 
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Exemplo de consulta 2 
+## <a name="example-query-2"></a><a id="examplequery2"></a>Exemplo de consulta 2 
 
 A próxima consulta retorna todos os filhos da família. 
 
@@ -141,7 +141,7 @@ A próxima consulta retorna todos os filhos da família.
     }
 
 
-## <a id="examplequery3"></a>Exemplo de consulta 3 
+## <a name="example-query-3"></a><a id="examplequery3"></a>Exemplo de consulta 3 
 
 A próxima consulta retorna todas as famílias registradas. 
 
@@ -150,7 +150,7 @@ A próxima consulta retorna todas as famílias registradas.
     db.families.find( { "isRegistered" : true })
 **Resultados** Nenhum documento retornará. 
 
-## <a id="examplequery4"></a>Exemplo de consulta 4
+## <a name="example-query-4"></a><a id="examplequery4"></a>Exemplo de consulta 4
 
 A próxima consulta retorna todas as famílias não registradas. 
 
@@ -194,7 +194,7 @@ A próxima consulta retorna todas as famílias não registradas.
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>Exemplo de consulta 5
+## <a name="example-query-5"></a><a id="examplequery5"></a>Exemplo de consulta 5
 
 A próxima consulta retorna todas as famílias não registradas e cujo estado seja NY. 
 
@@ -240,7 +240,7 @@ A próxima consulta retorna todas as famílias não registradas e cujo estado se
 }
 
 
-## <a id="examplequery6"></a>Exemplo de consulta 6
+## <a name="example-query-6"></a><a id="examplequery6"></a>Exemplo de consulta 6
 
 A próxima consulta retorna todas as famílias das quais as notas dos filhos seja 8.
 
@@ -285,7 +285,7 @@ A próxima consulta retorna todas as famílias das quais as notas dos filhos sej
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>Exemplo de consulta 7
+## <a name="example-query-7"></a><a id="examplequery7"></a>Exemplo de consulta 7
 
 A próxima consulta retorna todas as famílias das quais o tamanho da matriz de filhos seja três.
 

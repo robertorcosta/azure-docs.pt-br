@@ -17,10 +17,10 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5531a7c1a95e472239c639e3307623fc4ccedd37
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Azure Active Directory ao Asana
@@ -195,7 +195,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-asana-test-user"></a>Criar um usuário de teste do Asana
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Asana. O Asana dá suporte ao provisionamento automático de usuário, que é habilitado por padrão. Você pode encontrar [aqui](asana-provisioning-tutorial.md) mais detalhes de como configurar o provisionamento automático de usuário.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Asana. O Asana dá suporte ao provisionamento automático de usuário, que é habilitado por padrão. Você pode encontrar mais detalhes [ aqui ](asana-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuários.
 
 **Se você precisar criar um usuário manualmente, siga estas etapas:**
 
@@ -221,6 +221,6 @@ Ao clicar no bloco do Asana no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](asana-provisioning-tutorial.md)

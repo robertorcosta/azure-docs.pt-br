@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Autotask Endpoint Backup | Microsoft Docs'
+title: 'Tutorial: Integração do Active Directory do Azure com o Autotask Workplace | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Autotask Endpoint Backup.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 1/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c9bad99d0ce39fb5f179043278ca4785d726744
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157790"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Tutorial: Integração do Azure Active Directory ao Autotask Endpoint Backup
+# <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Active Directory do Azure ao Autotask Endpoint Backup
 
 Neste tutorial, você aprenderá como integrar o Autotask Endpoint Backup ao Azure AD (Azure Active Directory).
 A integração do Autotask Endpoint Backup com o Azure AD oferece os seguintes benefícios:

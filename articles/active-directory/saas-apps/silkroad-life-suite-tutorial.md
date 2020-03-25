@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com SilkRoad Life Suite | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o SilkRoad Life Suite | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o SilkRoad Life Suite.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67090835"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integração do Azure Active Directory com SilkRoad Life Suite
+# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: integração do Active Directory do Azure com o SilkRoad Life Suite
 
 Neste tutorial, você aprenderá a integrar o SilkRoad Life Suite ao Microsoft Azure AD (Azure Active Directory).
 A integração do SilkRoad Life Suite ao Azure AD oferece os seguintes benefícios:
@@ -203,11 +203,11 @@ Para configurar o logon único do Azure AD com o SilkRoad Life Suite, realize as
 
     b. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 
-    c. Na caixa de texto **Descrição do IdP**, digite uma descrição para a configuração (por exemplo: *SSO do Azure AD*).
+    c. Na caixa de texto **Descrição do IdP**, digite uma descrição para a sua configuração (por exemplo: *SSO do Microsoft Azure AD*).
 
     d. Na caixa de texto **Arquivo de metadados**, carregue o arquivo de **metadados** baixado no portal do Azure.
   
-    e. Na caixa de texto **Nome do IdP**, digite um nome específico para a configuração (por exemplo: *SP do Azure*).
+    e. Na caixa de texto **Nome do IdP**, digite um nome específico para a sua configuração (por exemplo: *Azure SP*).
   
     f. Na caixa de texto **URL do serviço de logout**, cole o valor de **URL de logout** copiado do portal do Azure.
 
@@ -286,4 +286,4 @@ Ao clicar no bloco do SilkRoad Life Suite no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, kubernetes, k8s, aks, implantação azul verde
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251470"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implantar no Azure Kubernetes Service (AKS) usando o Jenkins e o padrão de implantação azul / verde
@@ -26,11 +26,11 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 > * Configurar manualmente um cluster de Kubernetes
 > * Criar e executar um trabalho do Jenkins
 
-## <a name="prerequisites"></a>Pré-requisitos
-- [Conta do GitHub](https://github.com): é necessário ter uma conta do GitHub para clonar o repositório de exemplo.
-- [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): a CLI do Azure 2.0 é usada para criar o cluster do Kubernetes.
-- [Chocolatey](https://chocolatey.org): um gerenciador de pacotes que você usa para instalar o kubectl.
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): uma interface de linha de comando que você usa para executar comandos em clusters do Kubernetes.
+## <a name="prerequisites"></a>Prerequisites
+- [Conta do GitHub](https://github.com): é necessário uma conta do GitHub para clonar o repositório de exemplo.
+- [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): você usa o Azure CLI 2.0 para criar o cluster do Kubernetes.
+- [Chocolatey](https://chocolatey.org): Um gerenciador de pacotes que você usa para instalar o kubectl.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): Uma interface de linha de comando que você usa para executar comandos em clusters do Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/): um processador JSON leve, de linha de comando.
 
 ## <a name="clone-the-sample-app-from-github"></a>Clonar o aplicativo de exemplo do GitHub
@@ -255,7 +255,7 @@ Nesta seção, você verá como preparar o servidor Jenkins para executar uma co
 
 ## <a name="run-the-job"></a>Executar o trabalho
 
-1. Verifique se é possível executar o projeto com êxito no ambiente local. Veja como: [Executar o projeto no computador local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Verifique se é possível executar o projeto com êxito no ambiente local. Aqui está como: [executar o projeto no computador local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Execute o trabalho do Jenkins. Na primeira vez que você executar o trabalho, o Jenkins implanta o aplicativo todo no ambiente azul, que é o ambiente inativos do padrão. 
 
@@ -280,7 +280,7 @@ Quando você não precisa mais os recursos criados neste tutorial, você pode ex
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 

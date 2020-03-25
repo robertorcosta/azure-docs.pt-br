@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c2bddb4ef1401dd45b5aa9418f6e1890df0879ae
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 27f216a3cc101d4241fb8d30d27999a0397356dc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277230"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80062801"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais definido com a CLI do Azure
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: criar e gerenciar uma escala de máquina virtual definida com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -69,7 +69,7 @@ az vmss list-instances \
 
 A saída de exemplo abaixo mostra duas instâncias de VM no conjunto de dimensionamento:
 
-```bash
+```output
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  c059be0c-37a2-497a-b111-41272641533c
@@ -100,7 +100,7 @@ az vmss list-instance-connection-info \
 
 A saída de exemplo a seguir mostra o nome da instância, o endereço IP público do balanceador de carga e o número de porta para onde as regras de NAT encaminham o tráfego:
 
-```bash
+```output
 {
   "instance 1": "13.92.224.66:50001",
   "instance 3": "13.92.224.66:50003"
@@ -109,13 +109,13 @@ A saída de exemplo a seguir mostra o nome da instância, o endereço IP públic
 
 SSH para a primeira instância de VM. Especifique o endereço IP público e o número da porta com o parâmetro `-p`, conforme mostrado no comando anterior:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Depois de conectado à instância de VM, você poderá executar algumas alterações de configuração manualmente, caso seja necessário. Por enquanto, feche a sessão de SSH normalmente:
 
-```bash
+```console
 exit
 ```
 
@@ -129,7 +129,7 @@ az vm image list --output table
 
 A saída de exemplo a seguir mostra as imagens de VM mais comuns no Azure. O *UrnAlias* pode ser usado para especificar uma dessas imagens comuns ao criar um conjunto de dimensionamento.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -153,7 +153,7 @@ az vm image list --offer CentOS --all --output table
 
 A seguinte saída condensada mostra algumas das imagens de CentOS 7.3 disponíveis:
 
-```azurecli-interactive 
+```output
 Offer    Publisher   Sku   Urn                                 Version
 -------  ----------  ----  ----------------------------------  -------------
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20161221   7.3.20161221
@@ -184,7 +184,7 @@ Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de 
 ### <a name="vm-instance-sizes"></a>Tamanhos de instância de VM
 A tabela a seguir categoriza tamanhos de VMs comuns para determinados casos de uso.
 
-| Type                     | Tamanhos comuns           |    Descrição       |
+| Type                     | Tamanhos comuns           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Propósito geral](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
 | [Computação otimizada](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -202,7 +202,7 @@ az vm list-sizes --location eastus --output table
 
 O resultado é semelhante ao exemplo condensado abaixo, que mostra os recursos atribuídos a cada tamanho de VM:
 
-```azurecli-interactive
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  4          3584  Standard_DS1_v2                       1           1047552                    7168

@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ea4eecd5c27b6a9f14bc358c7db61da544e7530
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68825102"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: Integração do Azure Active Directory com Zscaler Two
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: integração do Azure Active Directory com o Zscaler Two
 
 Neste tutorial, você aprenderá como integrar o Zscaler Two ao Azure AD (Azure Active Directory).
 A integração do Zscaler Two com o Azure AD oferece os seguintes benefícios:
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
 
 6. Além do indicado acima, o aplicativo Zscaler Two espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
     
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -159,11 +159,11 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
 
 1. Para automatizar a configuração no Zscaler Two, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
 
-    ![Extensão dos meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
 2. Após adicionar a extensão ao navegador, clicar em **Instalar o Zscaler Two** direcionará você ao aplicativo Zscaler Two. Nele, forneça as credenciais de administrador para entrar no Zscaler Two. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
 
-    ![SSO de instalação](common/setup-sso.png)
+    ![Sso de instalação](common/setup-sso.png)
 
 3. Se desejar configurar o Zscaler Two manualmente, abra uma nova janela do navegador da Web, entre no site da empresa Zscaler Two como administrador e execute as seguintes etapas:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao YouEarnedIt | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o YouEarnedIt | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o YouEarnedIt.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f2c4e583d90cfa223db8cf5edc08a61b9a8e9d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160810"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Azure Active Directory ao YouEarnedIt
+# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Azure Active Directory com o YouEarnedIt
 
 Neste tutorial, você aprenderá a integrar o YouEarnedIt ao Azure AD (Azure Active Directory).
 A integração do YouEarnedIt ao Azure AD oferece os seguintes benefícios:

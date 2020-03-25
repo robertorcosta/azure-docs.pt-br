@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Optimizely | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Optimizely | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Optimizely.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 2e25c615e040dd4359e278b95045fbc71ca60ef1
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943949"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory com o Optimizely
+# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory ao Optimizely
 
 Neste tutorial, você aprenderá a integrar o Optimizely ao Azure AD (Azure Active Directory).
 A integração do Optimizely ao Azure AD proporciona os seguintes benefícios:
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
 6. Além do indicado acima, o aplicativo Optimizely espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     | ---------------| --------------- |
     | email | user.mail |
     

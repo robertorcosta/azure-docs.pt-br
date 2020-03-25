@@ -16,10 +16,10 @@ ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 5df46b4666c41843b9c49930e596a866185191a3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74040089"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>Criar uma VM do WordPress com o PowerShell
@@ -32,7 +32,7 @@ Esse script cria uma máquina virtual e usa a extensão de script personalizado 
 
  
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.ps1 "Create VM WordPress")]
 

@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084183"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparar recursos do Azure para recuperação de desastre do Hyper-V
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in"></a>Entrar
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verificar permissões de conta
 
@@ -82,7 +82,7 @@ O novo cofre é exibido em **Painel** > **Todos os recursos** e na página princ
 
 Quando as VMs do Azure são criadas do armazenamento após o failover, elas são associadas a esta rede.
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** > **Rede virtual**. Mantenha o Resource Manager selecionado como o modelo de implantação.
+1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** > **Rede virtual**. Mantenha o Resource Manager selecionado como o modelo de implantação.
 2. Em **Nome**, insira um nome de rede. O nome deve ser exclusivo dentro do grupo de recursos do Azure. Neste tutorial, use **ContosoASRnet**.
 3. Especifique o grupo de recursos no qual a rede será criada. Neste tutorial, use o grupo de recursos existente **contosoRG**.
 4. Em **Intervalo de endereços**, insira **10.0.0.0/24** como o intervalo para a rede. Não há nenhuma sub-rede para essa rede.

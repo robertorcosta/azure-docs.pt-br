@@ -5,13 +5,13 @@ keywords: jenkins, azure, devops, virtual machine, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78192601"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Azure DevOps Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Azure DevOps Services
 
 A CI (integração contínua) e a CD (implantação contínua) forma um pipeline por meio do qual você pode compilar, liberar e implantar seu código. O Azure DevOps Services fornece um conjunto completo de ferramentas de automação de CI/CD para implantação no Azure. O Jenkins é uma ferramenta de terceiros popular baseada em servidor de CI/CD que também fornece a automação de CI/CD. Use o Azure DevOps Services e o Jenkins juntos para personalizar a maneira como você fornece seu aplicativo ou serviço de nuvem.
 
@@ -59,7 +59,7 @@ Crie uma bifurcação deste aplicativo e anote o local (URL) para usar em etapas
 
 ## <a name="configure-jenkins-plug-ins"></a>Configurar os plug-ins do Jenkins
 
-Primeiro, você precisa configurar dois plug-ins do Jenkins: **NodeJS** e **Implantação contínua do VS Team Services**.
+Primeiro, você deve configurar dois plug-ins do Jenkins: **NodeJS** e **Implantação Contínua do VS Team Services**.
 
 1. Abra sua conta do Jenkins e selecione **Gerenciar o Jenkins**.
 2. Na página **Gerenciar o Jenkins**, selecione **Gerenciar Plug-ins**.
@@ -155,7 +155,7 @@ Para criar um pipeline de lançamento no Azure Pipelines:
 
 1. Selecione **+ Versão** e **Criar Versão**.
 2. Selecione o build concluído na lista suspensa realçada e selecione **Fila**.
-3. Escolha o link de versão na mensagem pop-up. Por exemplo:  "A versão **Versão-1** foi criada."
+3. Escolha o link de versão na mensagem pop-up. Por exemplo: "A versão **Release-1** foi criada".
 4. Abra a guia **Logs** para observar a saída do console de versão.
 5. No navegador, abra a URL de um dos servidores adicionados ao grupo de implantação. Por exemplo, insira **http://{your-server-ip-address}** .
 6. Acesse o repositório do Git de origem e modifique o conteúdo do título **h1** no arquivo app/views/index.jade com um texto alterado.

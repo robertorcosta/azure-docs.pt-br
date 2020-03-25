@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Evidence.com | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Evidence.com | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Evidence.com.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3a80c7ff16ae1d0d7c2b7de2b0ceb9e46e724da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158231"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integração do Azure Active Directory ao Evidence.com
+# <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integração do Active Directory do Azure ao Evidence.com
 
 Neste tutorial, você aprenderá a integrar o Evidence.com ao Azure AD (Azure Active Directory).
 A integração do Evidence.com ao Azure AD oferece os seguintes benefícios:

@@ -16,10 +16,10 @@ ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 0c142c87c317c9a19f6e1d25b8e911eaea3b9d94
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74040109"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>Criar uma VM NGINX com o PowerShell
@@ -32,7 +32,7 @@ Esse script cria uma Máquina Virtual do Azure e, em seguida, usa a Máquina Vir
 
  
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.ps1 "Create VM NGINX")]
 

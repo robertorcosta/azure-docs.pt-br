@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171732"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar arquivos para uma máquina virtual no Azure
@@ -191,7 +191,7 @@ Com o script de recuperação copiado para a VM, você pode conectar o ponto de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você conectou um ponto de recuperação a uma VM e restaurou arquivos para um servidor Web. Você aprendeu como:
+Neste tutorial, você conectou um ponto de recuperação a uma VM e restaurou arquivos para um servidor Web. Você aprendeu a:
 
 > [!div class="checklist"]
 >

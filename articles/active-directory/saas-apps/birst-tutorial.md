@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Birst Agile Business Analytics | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Birst Agile Business Analytics | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Birst Agile Business Analytics.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46bea4afcd59a385a8e9d2ccf1aa0d70fdae198c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158839"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integração do Azure Active Directory com o Birst Agile Business Analytics
+# <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integração do Active Directory do Azure ao Birst Agile Business Analytics
 
 Neste tutorial, você aprende a integrar o Birst Agile Business Analytics ao Azure AD (Azure Active Directory).
 A integração do Birst Agile Business Analytics ao Azure AD oferece os seguintes benefícios:

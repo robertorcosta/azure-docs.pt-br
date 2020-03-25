@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: f1b00f0e9094cf92714cb2454ce04adf7a79dc54
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160306"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Tutorial: Integração do Azure Active Directory com o Nomadesk
+# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Tutorial: Integração do Active Directory do Azure com o Nomadesk
 
 Neste tutorial, você aprenderá a integrar o Nomadesk ao Azure AD (Azure Active Directory).
 A integração do Nomadesk ao Azure AD oferece os seguintes benefícios:

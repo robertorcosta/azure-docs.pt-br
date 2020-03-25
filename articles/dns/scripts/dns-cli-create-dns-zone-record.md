@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 09/20/2019
 ms.author: rohink
 ms.openlocfilehash: b1db9ffb895470dd9224dc020eb82b0bbf6560c1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76939299"
 ---
-# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemplo de script da CLI do Azure: Criar uma zona e registro de DNS
+# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Amostra de script da CLI do Azure: Criar uma zona DNS e o registro
 
 Este exemplo de script da CLI do Azure cria um registro e uma zona DNS para um nome de domínio. 
 

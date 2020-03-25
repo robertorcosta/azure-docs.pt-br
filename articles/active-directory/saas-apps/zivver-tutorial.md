@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 02b292c5db3d20f56d7b8291ea31d8da9863809b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Tutorial: Integração do Azure Active Directory com ZIVVER
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o ZIVVER, execute as seguintes et
 
 6. Além do indicado acima, o aplicativo ZIVVER espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    | NOME | Namespace | Atributo de Origem|
+    | Nome | Namespace | Atributo de Origem|
     | ---------------| --------------- |
     | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 

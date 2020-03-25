@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Origami | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao Origami | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Origami.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: fd347f4eb5f77dacc3c9fd61d0e885e9b3ee7959
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095646"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory com o Origami
+# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory ao Origami
 
 Neste tutorial, você aprenderá a integrar o Origami ao Azure AD (Azure Active Directory).
 A integração do Origami ao Azure AD oferece os seguintes benefícios:
@@ -225,7 +225,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
 
     c. Na caixa de texto **Confirmar Senha** , digite a senha novamente.
 
-    d. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda**.
+    d. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     e. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 
@@ -249,5 +249,5 @@ Ao clicar no bloco do Origami no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

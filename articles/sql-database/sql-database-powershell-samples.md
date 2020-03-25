@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73821391"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Amostras do Azure PowerShell para o Banco de Dados SQL do Azure
@@ -27,7 +27,7 @@ Banco de Dados SQL do Azure permitem que você configure seus bancos de dados, a
 
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o AZ PowerShell 1.4.0 ou posterior. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="single-database-and-elastic-poolstabsingle-database"></a>[Banco de dados individual e pools elásticos](#tab/single-database)
+## <a name="single-database-and-elastic-pools"></a>[Banco de dados individual e pools elásticos](#tab/single-database)
 
 A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para o Banco de Dados SQL do Azure.
 
@@ -59,7 +59,7 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 
 Saiba mais sobre a [API do Azure PowerShell de Banco de Dados Individual](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instancetabmanaged-instance"></a>[Instância Gerenciada](#tab/managed-instance)
+## <a name="managed-instance"></a>[Instância Gerenciada](#tab/managed-instance)
 
 A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para o Banco de Dados SQL do Azure – Instância Gerenciada.
 

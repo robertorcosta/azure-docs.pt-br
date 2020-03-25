@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Recognize | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Recognize | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Recognize.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: c0a513ad8fe772839813615d065616f2c911a031
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943335"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Azure Active Directory ao Recognize
+# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: integração do Azure Active Directory com o Recognize
 
 Neste tutorial, você aprende a integrar o Recognize ao Azure AD (Azure Active Directory).
 A integração do Recognize ao Azure AD oferece os seguintes benefícios:
@@ -239,7 +239,7 @@ Este aplicativo não dá suporte ao provisionamento de SCIM, mas tem uma sincron
 
 4. Execute as seguintes etapas na seção **Sincronização de usuário**.
    
-    ![Novo Usuário](./media/recognize-tutorial/tutorial_recognize_005.png "Novo Usuário")
+    ![Novo usuário](./media/recognize-tutorial/tutorial_recognize_005.png "Novo Usuário")
    
     a. Em **Sincronização habilitada**, selecione **ATIVADO**.
    

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Heroku | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Heroku | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Heroku.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a9cb7738a8983ca2f76866fa40d49cd6cc06f99
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Tutorial: Integração do Azure Active Directory ao Heroku

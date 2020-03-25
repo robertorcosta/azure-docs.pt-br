@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.openlocfilehash: ffdde80598322222e2a8f000eee8be269becdd11
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66743323"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Criar regras personalizadas do WAF com o Azure PowerShell
@@ -28,7 +28,7 @@ Se você optar por instalar e usar o Azure PowerShell localmente, esse script ex
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/application-gateway/waf-rules/waf-custom-rules.ps1 "Custom WAF rules")]
 

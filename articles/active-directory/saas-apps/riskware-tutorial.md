@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Riskware | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com Riskware | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e o Riskware.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72027108"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory ao Riskware
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory com Riskware
 
 Neste tutorial, você aprenderá a integrar o Riskware com Azure AD (Azure Active Directory).
 A integração do Riskware com Azure AD fornece os seguintes benefícios:

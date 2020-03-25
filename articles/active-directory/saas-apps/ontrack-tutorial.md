@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao OnTrack | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o OnTrack | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o OnTrack.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 371ad2a8530de7b20427327d939bf164d871ab74
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944036"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integração do Azure Active Directory ao OnTrack
+# <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: integração do Azure Active Directory com o OnTrack
 
 Neste tutorial, você aprenderá a integrar o OnTrack com o Azure AD (Azure Active Directory).
 A integração do OnTrack com o Azure AD oferece os seguintes benefícios:
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o OnTrack, realize as seguintes e
 
 6. Além do indicado acima, o aplicativo OnTrack espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | -------------- | ----------------|    
     | Função do usuário      | “42F432” |
     | Código Hyperion  | “12345” |

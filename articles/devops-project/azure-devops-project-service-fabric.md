@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969472"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutorial: Implantar seu aplicativo ASP.NET Core no Azure Service Fabric usando o Azure DevOps Projects
@@ -33,7 +33,7 @@ Neste tutorial, você irá:
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Git e implantar automaticamente no Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -43,7 +43,7 @@ Neste tutorial, você irá:
 
 O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como um cluster do Service Fabric, na assinatura do Azure de sua escolha.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
@@ -51,7 +51,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
 
     ![O painel do DevOps Projects](_img/azure-devops-project-github/fullbrowser.png)
 
-1. Selecione **.NET**, depois selecione **Avançar**.
+1. Selecione **.NET** e selecione **Avançar**.
 
 1. Em **Escolher uma estrutura de aplicativo**, selecione **ASP.NET Core**, depois selecione **Avançar**.
 
@@ -107,7 +107,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD no Azure Pipeli
 
 O DevOps Projects cria e configura automaticamente as etapas necessárias para implantar a organização do Azure DevOps na sua assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de lançamento, o qual fornece a CD para o Azure. Para saber mais sobre um pipeline de lançamento, faça o seguinte:
 
-1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  
     O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
 
 1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**.  
@@ -135,7 +135,7 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
  > [!NOTE]
  > O procedimento a seguir testa o pipeline de CI/CD fazendo uma alteração de texto simples.
 
-Agora você está pronto para colaborar com uma equipe em seu aplicativo usando um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site. Cada alteração no repositório Git inicia um build, e uma versão implanta as alterações no Azure. Siga o procedimento nesta seção ou use outra técnica para confirmar as alterações ao seu repositório. Por exemplo, é possível clonar o repositório Git em sua ferramenta favorita ou IDE e depois efetuar push nas alterações desse repositório.
+Agora você está pronto para colaborar com uma equipe em seu aplicativo usando um processo de CI/CD que implanta automaticamente o trabalho mais recente em seu site. Cada alteração no repositório Git inicia um build, e uma versão implanta as alterações no Azure. Siga o procedimento nesta seção ou use outra técnica para confirmar as alterações em seu repositório. Por exemplo, é possível clonar o repositório Git em sua ferramenta favorita ou IDE e depois efetuar push nas alterações desse repositório.
 
 1. No menu do Azure DevOps, selecione **Código** > **Arquivos**, depois vá até o repositório.
 
@@ -143,12 +143,12 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. Faça uma alteração no arquivo, como adicionar um texto dentro de uma das marcas div. 
 
-1. No canto superior direito, selecione **Confirmar**, depois selecione **Confirmar** novamente para efetuar push da alteração.  
+1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração.  
     Após alguns instantes, um build é iniciado e uma versão é executada para implantar as alterações. É possível monitorar o status do build no painel do DevOps Projects ou no navegador com o registro em log em tempo real do Azure DevOps.
 
 1. Após concluir o lançamento, atualize o aplicativo para verificar as alterações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobrança limpando seus recursos. Quando eles não forem mais necessários, é possível excluir o cluster do Azure Service Fabric e os recursos relacionados criados neste tutorial. Para isso, use a funcionalidade **Excluir** no painel do DevOps Projects.
 
@@ -161,7 +161,7 @@ Caso esteja fazendo testes, é possível evitar o acúmulo de encargos de cobran
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Opcionalmente, você pode modificar o pipeline de CI/CD do Azure para atender às necessidades da sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu como:
+Opcionalmente, você pode modificar o pipeline de CI/CD do Azure para atender às necessidades da sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o DevOps Projects para criar um aplicativo ASP.NET Core e implantá-lo no Service Fabric
@@ -169,7 +169,7 @@ Opcionalmente, você pode modificar o pipeline de CI/CD do Azure para atender à
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Git e implantá-las automaticamente no Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 Para saber mais sobre o Service Fabric e os microsserviços, confira:
 

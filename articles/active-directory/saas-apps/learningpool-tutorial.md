@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Learningpool Act | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Learningpool Act | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Learningpool Act.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bc0b395fcc874190b67bd99262c3a1c9294c0ac
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74229289"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Integração do Azure Active Directory com o Learningpool Act
+# <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: integração do Azure Active Directory com o Learningpool Act
 
 Neste tutorial, você aprenderá a integrar o Learningpool Act ao Azure AD (Azure Active Directory).
 A integração do Learningpool Act com o Azure AD oferece os seguintes benefícios:
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o Learningpool Act, execute as se
 
 6. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML conforme mostrado na imagem acima e executar as seguintes etapas: 
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | ------------------- | -------------------- |
     | urn:oid:1.2.840.113556.1.4.221 | user.userprincipalname |
     | urn: oid:2.5.4.42 | user.givenname |

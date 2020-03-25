@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68698982"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de taxa de transferência e de latência para uma conta de armazenamento
@@ -58,7 +58,7 @@ As [Dimensões](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fsto
 
 ![Métricas da conta de armazenamento - transações](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da VM e clique em Excluir.
 

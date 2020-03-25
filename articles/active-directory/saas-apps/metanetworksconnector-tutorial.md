@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Meta Networks Connector | Microsoft Docs'
+title: 'Tutorial: Integração do Active Directory do Azure com o Meta Networks Connector | Microsoft Docs'
 description: Aprenda como configurar o logon único entre o Active Directory do Azure e o Meta Networks Connector.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: a09eda25e8c7cc087770210cdfbe7e2bc9832acf
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160646"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Azure Active Directory com o Meta Networks Connector
+# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Active Directory do Azure com o Meta Networks Connector
 
 Neste tutorial, você aprenderá a integrar o Meta Networks Connector ao Azure AD (Azure Active Directory).
 A integração do Meta Networks Connector com o Azure AD oferece os seguintes benefícios:
@@ -128,12 +128,12 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
     
 7. Além do indicado acima, o aplicativo Meta Networks Connector espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
     
-    | NOME | Atributo de origem | Namespace|
+    | Nome | Atributo de origem | Namespace|
     | ---------------| --------------- | -------- |
     | nome | user.givenname | |
     | sobrenome | user.surname | |
     | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | Nome | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.

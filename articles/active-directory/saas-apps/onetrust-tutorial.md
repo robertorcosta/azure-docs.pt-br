@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao OneTrust Privacy Management Software | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o software de gerenciamento de privacidade OneTrust | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o software de gerenciamento de privacidade OneTrust.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 5fbec8b6a1a21826896f8e2499b1e8b7237d0ff9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095890"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Active Directory ao OneTrust Privacy Management Software
+# <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Active Directory com o software de gerenciamento de privacidade OneTrust
 
 Neste tutorial, você aprenderá como integrar o software de gerenciamento de privacidade OneTrust com o Azure Active Directory (Azure AD).
 A integração do software de gerenciamento de privacidade OneTrust com o Azure AD oferece os seguintes benefícios:
@@ -82,7 +82,7 @@ Para configurar e testar o logon único do Azure AD com o software de gerenciame
 2. **[Configurar o logon único do software de gerenciamento de privacidade OneTrust](#configure-onetrust-privacy-management-software-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do software de gerenciamento de privacidade OneTrust](#create-onetrust-privacy-management-software-test-user)**  – ter um equivalente de Brenda Fernandes no software de gerenciamento de privacidade OneTrust que esteja vinculado à representação do usuário no Azure Active Directory.
+5. **[Criar usuário de teste do software de gerenciamento de privacidade OneTrust](#create-onetrust-privacy-management-software-test-user)** – ter um equivalente de Brenda Fernandes no software de gerenciamento de privacidade OneTrust que esteja vinculado à representação do usuário no Azure Active Directory.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD

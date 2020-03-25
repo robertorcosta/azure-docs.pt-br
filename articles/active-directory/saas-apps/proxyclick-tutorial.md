@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 6a4d1c8a390ebd1194d14c057bb32d3111bf39be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093503"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integração do Azure Active Directory ao Proxyclick
+# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integração do Azure Active Directory com o Proxyclick
 
 Neste tutorial, você aprenderá a integrar o Proxyclick ao Azure AD (Azure Active Directory).
 Essa integração oferece estes benefícios:
@@ -249,7 +249,7 @@ Para criar uma conta de usuário, siga estas etapas:
 
 Agora você precisará testar a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao selecionar o bloco do Proxyclick no Painel de Acesso, você deverá ser conectado automaticamente à instância do Proxyclick, para a qual você configurou o SSO. Para obter mais informações sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do Proxyclick no Painel de Acesso, você deverá ser conectado automaticamente à instância do Proxyclick, para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

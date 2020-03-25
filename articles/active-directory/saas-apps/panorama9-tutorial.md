@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: c88088b804f90769512d33a5e96fdedc5ce6fba8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Active Directory do Azure com o Panorama9
@@ -140,7 +140,7 @@ Para configurar o logon único do Azure AD com o Panorama9, realize as seguintes
 
 3. No diálogo **Extensões**, clique em **Logon Único**.
    
-    ![Logon Único](./media/panorama9-tutorial/ic790024.png "Logon Único")
+    ![Logon único](./media/panorama9-tutorial/ic790024.png "Logon Único")
 
 4. Na seção **Configurações** , realize as seguintes etapas:
    
@@ -239,5 +239,5 @@ Ao clicar no bloco do Panorama9 no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

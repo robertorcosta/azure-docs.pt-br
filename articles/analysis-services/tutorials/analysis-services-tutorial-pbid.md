@@ -8,13 +8,13 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73572327"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Conectar-se com o Power BI Desktop
+# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Conectar com Power BI Desktop
 
 Neste tutorial, use o Power BI Desktop para se conectar ao modelo de banco de dados do exemplo de adventureworks no seu servidor. As tarefas que você concluir simulam uma conexão típica do usuário para o modelo e criam um relatório básico de dados de modelo.
 
@@ -65,7 +65,7 @@ No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, cop
 
     Tire alguns minutos para explorar o modelo de exemplo adventureworks por meio da criação de visualizações diferentes e a divisão em dados e métricas. Quando estiver satisfeito com seu relatório, salve-o.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não for mais necessário, não salve o relatório ou exclua o arquivo caso já o tenha salvado.
 

@@ -16,13 +16,13 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76834647"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre duas máquinas virtuais usando o portal do Azure
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
 
 Comunicação bem-sucedida entre uma máquina virtual (VM) e um ponto de extremidade como outra VM, pode ser importante para sua organização. Às vezes, as alterações de configuração são introduzidas o que pode interromper a comunicação. Neste tutorial, você aprenderá como:
 
@@ -159,7 +159,7 @@ Por padrão, o Azure permite comunicação por todas as portas entre VMs na mesm
 
     Você pode ver que há um ícone de ponto de exclamação vermelho na coluna status para o **myvm2529** interface de rede.
 
-6. Para saber por que o status foi alterado, selecione 10.0.0.5, na figura anterior. O monitor de conexão informa que o motivo da falha de comunicação é: *O tráfego foi bloqueado devido à seguinte regra do Grupo de Segurança de Rede: UserRule_DenySshInbound*.
+6. Para saber por que o status foi alterado, selecione 10.0.0.5, na figura anterior. Monitor de Conexão informa que o motivo da falha de comunicação é: *Tráfego bloqueado devido a seguinte regra de grupo de segurança de rede: UserRule_DenySshInbound*.
 
     Se você não souber que alguém tinha implementado a regra de segurança que você criou na etapa 4, você deve saber de monitor de conexão que a regra está causando o problema de comunicação. Você pode alterar, substituir ou remover a regra, para restaurar a comunicação entre as máquinas virtuais.
 

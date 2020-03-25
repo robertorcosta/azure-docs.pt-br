@@ -17,13 +17,13 @@ ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d894a024f8847af806be526493d23d562410dc25
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157305"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Tutorial: Integração do Azure Active Directory ao Dow Jones Factiva
+# <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Tutorial: Integração do Azure Active Directory com o Dow Jones Factiva
 
 Neste tutorial, você aprenderá a integrar o Dow Jones Factiva ao Azure AD (Azure Active Directory).
 A integração do Dow Jones Factiva ao Azure AD oferece os seguintes benefícios:

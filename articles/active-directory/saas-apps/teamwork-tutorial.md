@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Teamwork.com | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Teamwork.com | Microsoft Docs'
 description: Saiba como configurar logon único entre o Azure Active Directory e o Teamwork.com.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0b407f29e4dda532ef12019f8d0a2a273832987
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67595246"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory ao Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory com o Teamwork.com
 
 Neste tutorial, você aprende como integrar o Teamwork.com com o Azure Active Directory (Azure AD).
 A integração do Teamwork.com com o Azure Active Directory fornece os seguintes benefícios:
@@ -202,4 +202,4 @@ Ao clicar no bloco do Teamwork.com no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

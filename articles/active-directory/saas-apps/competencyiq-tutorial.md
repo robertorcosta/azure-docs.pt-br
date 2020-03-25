@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o CompetencyIQ | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o CompetencyIQ | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o CompetencyIQ.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ebfaaa33a839e0836fbeabdc1870001dc65fede
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158515"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: Integração do Azure Active Directory com o CompetencyIQ
+# <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: integração do Azure Active Directory com o CompetencyIQ
 
 Neste tutorial, você aprenderá a integrar o CompetencyIQ ao Azure AD (Azure Active Directory).
 A integração do CompetencyIQ ao Azure AD oferece os seguintes benefícios:

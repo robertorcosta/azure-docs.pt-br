@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 74a72df9d8c0bc8a578fea57ab81fb496f8e6add
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74420362"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Trabalho Elástico usando o PowerShell
@@ -287,7 +287,7 @@ A tabela a seguir lista os estados possíveis de execução de trabalho:
 |**Ignorado** | A execução do trabalho foi ignorada porque outra execução da mesma etapa de trabalho já estava em execução no mesmo destino.|
 |**WaitingForChildJobExecutions** | A execução do trabalho está esperando a conclusão das execuções filhas.|
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua os recursos do Azure criados neste tutorial excluindo o grupo de recursos.
 

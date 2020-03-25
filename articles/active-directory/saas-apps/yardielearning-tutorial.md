@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Yardi eLearning | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Yardi eLearning | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Yardi eLearning.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2555c0040c1f2b587adb57e808ed122a4d4ce808
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086714"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: Integração do Azure Active Directory com o Yardi eLearning
+# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: integração do Azure Active Directory ao Yardi eLearning
 
 Neste tutorial, você aprenderá a integrar o Yardi eLearning ao Azure AD (Azure Active Directory).
 A integração do Yardi eLearning ao Azure AD oferece os seguintes benefícios:
@@ -202,5 +202,5 @@ Quando você clica no bloco Yardi eLearning no Painel de Acesso, você deve ser 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

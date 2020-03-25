@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Thoughtworks Mingle | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Thoughtworks Mingle | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Thoughtworks Mingle.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233301"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Azure Active Directory ao Thoughtworks Mingle
+# <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Active Directory do Azure com o Thoughtworks Mingle
 
 Neste tutorial, você aprenderá a integrar o Thoughtworks Mingle ao Azure AD (Azure Active Directory).
 A integração do Thoughtworks Mingle ao Azure AD oferece os seguintes benefícios:

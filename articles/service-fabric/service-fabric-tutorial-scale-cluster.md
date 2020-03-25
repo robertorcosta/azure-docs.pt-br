@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251805"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
@@ -19,7 +19,7 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Adicionar e remover nós (expandir e reduzir horizontalmente)
-> * Adicionar e remover tipos de nó (expandir e reduzir horizontalmente)
+> * Adicionar e remover tipos de nó (escalar e reduzir horizontalmente)
 > * Aumentar recursos de nó (escalar verticalmente)
 
 Nesta série de tutoriais, você aprenderá a:
@@ -33,7 +33,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -866,7 +866,7 @@ Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Adicionar e remover nós (expandir e reduzir horizontalmente)
-> * Adicionar e remover tipos de nó (expandir e reduzir horizontalmente)
+> * Adicionar e remover tipos de nó (escalar e reduzir horizontalmente)
 > * Aumentar recursos de nó (escalar verticalmente)
 
 Em seguida, avance para o próximo tutorial para saber como atualizar o runtime de um cluster.
@@ -878,7 +878,7 @@ Em seguida, avance para o próximo tutorial para saber como atualizar o runtime 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
 
-> * Adicionar e remover tipos de nó (expandir e reduzir horizontalmente)
+> * Adicionar e remover tipos de nó (escalar e reduzir horizontalmente)
 > * Aumentar recursos de nó (escalar verticalmente)
 
 Em seguida, avance para o próximo tutorial para saber como atualizar o runtime de um cluster.

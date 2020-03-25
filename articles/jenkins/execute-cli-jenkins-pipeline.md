@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, serviço de aplicativo, cli
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bd9192974f6860d08d84a9028702ce2203f562e7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158824"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implantar o Serviço de Aplicativo do Azure com o Jenkins e a CLI do Azure
@@ -212,7 +212,7 @@ O aplicativo Web no Linux dá suporte a uma forma diferente de fazer a implanta�
     Acesse http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitua &lt;x > e &lt;y > por qualquer número) para obter a soma de x e y
     
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você configurou um pipeline do Jenkins que verifica o código-fonte no repositório do GitHub, executa o Maven para compilar um arquivo war e, então, usa a CLI do Azure para implantar o Serviço de Aplicativo do Azure. Você aprendeu como:
+Neste tutorial, você configurou um pipeline do Jenkins que verifica o código-fonte no repositório do GitHub, executa o Maven para compilar um arquivo war e, então, usa a CLI do Azure para implantar o Serviço de Aplicativo do Azure. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma VM Jenkins

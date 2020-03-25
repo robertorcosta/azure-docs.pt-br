@@ -15,13 +15,13 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74027103"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: adicionar ou remover membros do grupo automaticamente
 
 No Azure Active Directory (Azure AD), você pode adicionar ou remover usuários automaticamente para grupos de segurança ou grupos do Office 365, para que você não precise fazê-lo sempre manualmente. Sempre que alterar as propriedades de um usuário ou dispositivo, o Azure AD avalia todas as regras de grupo dinâmico em seu locatário para ver se a alteração deve adicionar ou remover membros.
 
@@ -84,7 +84,7 @@ Talvez seu plano administrativo final seja atribuir todos os usuários convidado
 
    ![Alterar o grupo Todos os usuários para somente membros](./media/groups-dynamic-tutorial/all-users-edit.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 **Para remover o grupo de usuários convidados**
 
@@ -97,7 +97,7 @@ Talvez seu plano administrativo final seja atribuir todos os usuários convidado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
 > * Criar um grupo de usuários convidados
 > * Atribuir licenças ao seu novo grupo

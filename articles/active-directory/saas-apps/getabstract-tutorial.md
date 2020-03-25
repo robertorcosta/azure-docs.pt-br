@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Getabstract | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Getabstract | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Getabstract.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: ad338ce3758c9c8387cc74cc55f9a905b1e5cd73
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73155273"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integração do Azure Active Directory com o Getabstract
+# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integração do Azure Active Directory ao Getabstract
 
 Neste tutorial, você aprenderá a integrar o Getabstract ao Azure Active Directory (Azure AD).
 A integração do Getabstract ao Azure AD oferece os seguintes benefícios:

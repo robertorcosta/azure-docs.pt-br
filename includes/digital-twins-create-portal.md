@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/07/2020
 ms.custom: include file
 ms.openlocfilehash: 9ccdc7a438d1dade534d39dc97a39a3bdae37dc4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75895516"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com).
@@ -33,10 +33,10 @@ ms.locfileid: "75895516"
    [![Criar e confirmar a implantação do recurso](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
 
 1. No painel **Gêmeos Digitais**, insira as seguintes informações:
-   * **Nome do Recurso**: Criar um nome exclusivo para sua instância de Gêmeos Digitais.
-   * **Assinatura**: Escolha a assinatura que deseja usar para criar essa instância de Gêmeos Digitais. 
-   * **Grupo de recursos**: Selecione ou crie um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de Gêmeos Digitais.
-   * **Localização**: selecione a localização mais próxima de seus dispositivos.
+   * **Nome do recurso**: criar um nome exclusivo para sua instância de Gêmeos Digitais.
+   * **Assinatura**: escolha a assinatura que deseja usar para criar essa instância de Gêmeos Digitais. 
+   * **Grupo de recursos**: selecione ou crie um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de Gêmeos Digitais.
+   * **Local**: selecione o local mais próximo para seus dispositivos.
 
      [![Painel Gêmeos Digitais com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
 

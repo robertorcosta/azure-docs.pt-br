@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
 ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74559195"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
@@ -97,7 +97,7 @@ Você pode usar os recursos de pesquisa na Central de Segurança para encontrar 
 
 Para executar uma pesquisa, abra o painel da **Central de Segurança**, clique em **Pesquisa** no painel de navegação esquerdo, selecione o workspace que contém as entidades a serem pesquisadas, digite a consulta de pesquisa e clique no botão de pesquisa.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.

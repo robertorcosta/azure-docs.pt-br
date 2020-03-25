@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao FreshGrade | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory ao FreshGrade | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o FreshGrade.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 852cd728f17902a83f5efeb3ccfb596f67ba37e5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158131"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Azure Active Directory ao FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Active Directory do Azure ao FreshGrade
 
 Neste tutorial, você aprenderá a integrar o FreshGrade ao Azure Active Directory (AD do Azure).
 A integração do FreshGrade ao AD do Azure oferece os seguintes benefícios:

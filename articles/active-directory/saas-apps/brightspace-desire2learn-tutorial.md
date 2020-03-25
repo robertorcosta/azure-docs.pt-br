@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Brightspace by Desire2Learn | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao Brightspace by Desire2Learn | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Brightspace by Desire2Learn.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6423920f5583cf811624a62205a433febddec02e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158773"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Azure Active Directory com o Brightspace by Desire2Learn
+# <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Active Directory do Azure ao Brightspace by Desire2Learn
 
 Neste tutorial, você aprende a integrar o Brightspace by Desire2Learn ao Azure AD (Azure Active Directory).
 A integração do Brightspace by Desire2Learn ao Azure AD oferece os seguintes benefícios:
