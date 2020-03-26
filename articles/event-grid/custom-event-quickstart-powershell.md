@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721441"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o ponto de extremidade da Web com o PowerShell e com a Grade de Eventos
@@ -22,7 +22,7 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo
 
 Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
 
-![Exibir resultados](./media/custom-event-quickstart-powershell/view-result.png)
+![Exibir os resultados](./media/custom-event-quickstart-powershell/view-result.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de 
 }]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso planeje continuar a trabalhar com esse evento ou com o aplicativo visualizador de evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
 

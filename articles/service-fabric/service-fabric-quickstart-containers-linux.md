@@ -6,10 +6,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75372679"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
@@ -179,8 +179,8 @@ az group delete --name $ResourceGroupName
 ```
 
 Se você concluiu o trabalho com o cluster, remova o certificado do repositório de certificados. Por exemplo:
-- No Windows: Use o [snap-in MMC de certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Selecione **Minha conta de usuário** ao adicionar o snap-in. Navegue até `Certificates - Current User\Personal\Certificates` e remova o certificado.
-- No Mac: Use o aplicativo de Conjunto de Chaves.
+- No Windows: use o [snap-in do MMC dos Certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Selecione **Minha conta de usuário** ao adicionar o snap-in. Navegue até `Certificates - Current User\Personal\Certificates` e remova o certificado.
+- No Mac: use o aplicativo de conjunto de chaves.
 - No Ubuntu: siga as etapas usadas para exibir certificados e remova o certificado.
 
 ## <a name="next-steps"></a>Próximas etapas

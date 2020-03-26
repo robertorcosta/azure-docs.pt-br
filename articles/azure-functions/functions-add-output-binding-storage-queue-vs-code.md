@@ -1,17 +1,17 @@
 ---
-title: Conectar funções ao Armazenamento do Azure usando o Visual Studio Code
-description: Descubra como adicionar uma associação de saída para conectar suas funções a uma fila do Armazenamento do Azure usando o Visual Studio Code.
-ms.date: 06/25/2019
+title: Conectar o Azure Functions ao Armazenamento do Azure usando o Visual Studio Code
+description: Saiba como conectar o Azure Functions a uma fila de armazenamento do Azure adicionando uma associação de saída ao seu projeto do Visual Studio Code.
+ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 5b7d7be7854a216b7cb7b610ea6d51fdc496a93f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22f7df52e90a35a3ed9a26a7672f8354efc173e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845673"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290064"
 ---
-# <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Conectar funções ao Armazenamento do Azure usando o Visual Studio Code
+# <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conectar o Azure Functions ao Armazenamento do Azure usando o Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
@@ -19,7 +19,7 @@ Este artigo mostra como usar Visual Studio Code para conectar a função criada 
 
 A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço vinculado. Para facilitar, use a Conta de armazenamento que você criou com o seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="configure-your-local-environment"></a>Configurar o ambiente local
 
 Antes de iniciar este artigo, você deve atender aos seguintes requisitos:
 
@@ -90,98 +90,17 @@ No Functions, cada tipo de associação requer que um `direction`, `type` e um `
 
 Depois que a associação é definida, você pode usar o `name` da associação para acessá-la como um atributo na assinatura de função. Ao usar uma associação de saída, não é necessário usar o código do SDK do Armazenamento do Azure para se autenticar, para obter uma referência de fila ou para escrever dados. O runtime do Functions e a associação de saída da fila fazem essas tarefas para você.
 
-::: zone pivot="programming-language-javascript"
-
+::: zone pivot="programming-language-javascript"  
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone-end  
 
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
-Adicione um código que usa o objeto de associação de saída `msg` em `context.bindings` para criar uma mensagem da fila. Adicione esse código antes da instrução `context.res`.
-
-```typescript
-// Add a message to the Storage queue.
-context.bindings.msg = "Name passed to the function: " + name;
-```
-
-Neste ponto, sua função deve ser a seguinte:
-
-```javascript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-
-    if (name) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " + name; 
-        // Send a "hello" response.
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-
-export default httpTrigger;
-```
-
-::: zone-end
+::: zone pivot="programming-language-typescript"  
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+::: zone-end  
 
 ::: zone pivot="programming-language-powershell"
 
-Adicione código que usa o cmdlet `Push-OutputBinding` para gravar texto na fila usando a associação de saída `msg`. Adicione esse código antes de definir o status como OK na instrução `if`.
-
-```powershell
-# Write the $name value to the queue.
-$outputMsg = "Name passed to the function: $name"
-Push-OutputBinding -name msg -Value $outputMsg
-```
-
-Neste ponto, sua função deve ser a seguinte:
-
-```powershell
-using namespace System.Net
-
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
-
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
-
-# Interact with query parameters or the body of the request.
-$name = $Request.Query.Name
-if (-not $name) {
-    $name = $Request.Body.Name
-}
-
-if ($name) {
-    # Write the $name value to the queue.
-    $outputMsg = "Name passed to the function: $name"
-    Push-OutputBinding -name msg -Value $outputMsg
-
-    $status = [HttpStatusCode]::OK
-    $body = "Hello $name"
-}
-else {
-    $status = [HttpStatusCode]::BadRequest
-    $body = "Please pass a name on the query string or in the request body."
-}
-
-# Associate values to output bindings by calling 'Push-OutputBinding'.
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = $status
-    Body = $body
-})
-```
+[!INCLUDE [functions-add-output-binding-powershell](../../includes/functions-add-output-binding-powershell.md)]
 
 ::: zone-end
 
@@ -191,11 +110,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
-
+::: zone pivot="programming-language-csharp"  
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
-
-::: zone-end
+::: zone-end  
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -215,7 +132,7 @@ Uma nova fila denominada **outqueue** é criada na sua conta de armazenamento pe
 
 Ignore esta seção se você já instalou o Gerenciador de Armazenamento do Azure e o conectou à sua conta do Azure.
 
-1. Execute a ferramenta [Gerenciador de Armazenamento do Azure], clique no ícone de conexão à esquerda e selecione **Adicionar uma conta**.
+1. Execute a ferramenta Gerenciador de Armazenamento do Azure, clique no ícone de conexão à esquerda e selecione **Adicionar uma conta**.
 
     ![Adicionar uma conta do Azure ao Gerenciador de Armazenamento do Microsoft Azure](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
@@ -231,7 +148,7 @@ Depois de entrar na sua conta, você verá todas as assinaturas do Azure associa
 
 1. Expanda o nó **Filas** e selecione a fila denominada **outqueue**. 
 
-   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você tiver invocado a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
+   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você invocou a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
 
     ![Mensagem da fila mostrada no Gerenciador de Armazenamento do Azure](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -263,9 +180,29 @@ Você criou recursos para concluir esses guias de início rápido. Você pode se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você atualizou sua função disparada por HTTP para gravar dados em uma Fila de armazenamento. Veja abaixo mais informações sobre o desenvolvimento no Functions usando o Visual Studio Code:
+Você atualizou sua função disparada por HTTP para gravar dados em uma Fila de armazenamento. Agora você pode saber mais sobre o desenvolvimento no Functions usando o Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Desenvolver no Azure Functions usando o Visual Studio Code](functions-develop-vs-code.md)
-
-[Gerenciador de Armazenamento do Azure]: https://storageexplorer.com/
++ [Desenvolver no Azure Functions usando o Visual Studio Code](functions-develop-vs-code.md)
+::: zone pivot="programming-language-csharp"  
++ [Exemplos de projetos de função completos em C#](/samples/browse/?products=azure-functions&languages=csharp).
++ [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md)  
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
++ [Exemplos de projetos de função completos em JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
++ [Guia do desenvolvedor de JavaScript do Azure Functions](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
++ [Exemplos de projetos de função completos em TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
++ [Guia do desenvolvedor de TypeScript do Azure Functions](functions-reference-node.md#typescript)  
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Exemplos de projetos de função completos no Python](/samples/browse/?products=azure-functions&languages=python).
++ [Guia do desenvolvedor do Python para o Azure Functions](functions-reference-python.md)  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [Exemplos de projetos de função completos no PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
++ [Guia do desenvolvedor do PowerShell do Azure Functions](functions-reference-powershell.md) 
+::: zone-end
++ [Gatilhos e associações do Azure Functions](functions-triggers-bindings.md).
++ [Página de preços do Functions](https://azure.microsoft.com/pricing/details/functions/)
++ Artigo [Como estimar os custos do plano de Consumo](functions-consumption-costs.md).

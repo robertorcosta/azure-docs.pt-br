@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 7ba921656d0dad059b1d15f443bcefeff03ade50
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977378"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
@@ -42,7 +42,7 @@ Este tutorial usa o .NET SDK. Você pode usar outros mecanismos para interagir c
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conta de Armazenamento do Azure. Você usa o Armazenamento de Blobs como um armazenamento de dados de origem. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 * Gerenciador de Armazenamento do Azure. Para instalar essa ferramenta, confira o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/).
@@ -66,7 +66,7 @@ Crie um aplicativo conforme descrito em [Criar um aplicativo do Azure Active Dir
 1. Abra o Gerenciador de Armazenamento do Azure. Expanda sua conta de armazenamento. Clique com o botão direito do mouse em **Contêineres de Blob** e selecione **Criar Contêiner de Blob**.
 1. Nomeie o novo contêiner *adfv2branch* e selecione **Upload** para adicionar o arquivo *input.txt* ao contêiner.
 
-## Criar um projeto do Visual Studio<a name="create-visual-studio-project"></a>
+## <a name="create-visual-studio-project"></a>Criar um projeto do Visual Studio<a name="create-visual-studio-project"></a>
 
 Criar um aplicativo de console do .NET em C#:
 

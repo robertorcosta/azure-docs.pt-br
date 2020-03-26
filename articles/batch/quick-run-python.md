@@ -13,10 +13,10 @@ ms.custom:
 - seo-python-october2019
 - mvc
 ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77086052"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Início Rápido: Usar a API do Python para executar um trabalho do Lote do Azure
@@ -27,7 +27,7 @@ Aqui, você aprenderá os conceitos principais do serviço Lote e estará pronto
 
 ![Visão geral do fluxo de trabalho do Lote do Azure](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Uma conta do **Lote do Azure** e uma conta do **Armazenamento do Azure** vinculada. Use o [portal do Azure](quick-create-portal.md) ou a [CLI](quick-create-cli.md) para criar essas contas.

@@ -4,10 +4,10 @@ description: Tutorial que ilustra como criar uma arquitetura de referência de r
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472172"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: Criar uma topologia de rede híbrida de hub e spoke no Azure usando o Terraform
@@ -26,7 +26,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Usar o Terraform para estabelecer gateways e conexões entre os locais e redes do Azure
 > * Usar o Terraform para criar os emparelhamentos de rede virtual para as redes de spoke
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 

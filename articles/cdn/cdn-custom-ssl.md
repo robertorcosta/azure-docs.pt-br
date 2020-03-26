@@ -16,11 +16,11 @@ ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394845"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222423"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -30,11 +30,11 @@ A CDN do Azure dá suporte a HTTPS em um nome do host do ponto de extremidade da
 
 Alguns dos principais atributos do recurso HTTPS são:
 
-- Sem custo adicional: não há custos de aquisição ou renovação do certificado e não há custo adicional para tráfego HTTPS. Você paga apenas pelo GB de saída da CDN.
+- Sem custo adicional: não há nenhum custo para a aquisição ou renovação do certificado e nenhum custo para tráfego HTTPS. Você paga apenas pelo GB de saída da CDN.
 
 - Habilitação simples: o provisionamento com um clique está disponível no [portal do Azure](https://portal.azure.com). Você também pode usar a API REST ou outras ferramentas de desenvolvedor para habilitar o recurso.
 
-- Gerenciamento de certificado completo está disponível: todos os certificados de aquisição e gerenciamento são manipulados para você. Os certificados são provisionados e renovados automaticamente antes da expiração, o que remove os riscos de interrupção do serviço devido à expiração de um certificado.
+- Gerenciamento de certificado completo disponível: todos os certificados de aquisição e gerenciamento são manipulados para você. Os certificados são provisionados e renovados automaticamente antes da expiração, o que remove os riscos de interrupção do serviço devido à expiração de um certificado.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -44,13 +44,13 @@ Neste tutorial, você aprenderá como:
 > - Validar o domínio
 > - Desabilite o protocolo HTTPS em seu domínio personalizado.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
-Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo menos um ponto de extremidade da CDN. Para saber mais, confira [Início Rápido: Criar um perfil da CDN do Azure e um ponto de extremidade](cdn-create-new-endpoint.md).
+Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo menos um ponto de extremidade da CDN. Para saber mais, confira [Início Rápido: Criar um ponto de extremidade e um perfil de CDN do Azure](cdn-create-new-endpoint.md).
 
-Além disso, você deve associar um domínio personalizado da CDN do Azure no ponto de extremidade da CDN. Para obter mais informações, consulte [tutorial: adicionar um domínio personalizado ao ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md).
+Além disso, você deve associar um domínio personalizado da CDN do Azure no ponto de extremidade da CDN. Para saber mais, confira [Tutorial: Adicionar um domínio personalizado ao ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md).
 
 > [!IMPORTANT]
 > Os certificados gerenciados pela CDN não estão disponíveis para os domínios raiz ou apex. Se seu domínio personalizado da CDN do Azure for um domínio raiz ou apex, você deverá usar o recurso Traga seu próprio certificado. 
@@ -62,7 +62,7 @@ Além disso, você deve associar um domínio personalizado da CDN do Azure no po
 Para habilitar o protocolo HTTPS para fornecer com segurança o conteúdo em um domínio personalizado de CDN do Azure, você deve usar um certificado SSL. Você pode optar por usar um certificado que é gerenciado pela CDN do Azure ou usar seu próprio certificado.
 
 
-# <a name="option-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Opção 1 (padrão): Habilitar HTTPS com um certificado gerenciado por CDN](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Opção 1 (padrão): habilitar HTTPS com um certificado gerenciado por CDN](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
 
 Quando você usa um certificado gerenciado de CDN, o recurso HTTPS pode ser ativado com apenas alguns cliques. A CDN do Azure lida completamente com tarefas de gerenciamento de certificado, como aquisição e renovação. Depois que você habilitar o recurso, o processo será iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o ponto de extremidade de CDN, nenhuma ação adicional será necessária. A CDN do Azure processará as etapas e concluirá a solicitação automaticamente. No entanto, se o domínio personalizado for mapeado em outro lugar, você deverá usar o email para validar sua propriedade de domínio.
 
@@ -93,7 +93,7 @@ Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 7. Prossiga para [Validar o domínio](#validate-the-domain).
 
 
-# <a name="option-2-enable-https-with-your-own-certificate"></a>[Opção 2: Habilitar HTTPS com seu próprio certificado](#tab/option-2-enable-https-with-your-own-certificate)
+# <a name="option-2-enable-https-with-your-own-certificate"></a>[Opção 2: habilitar HTTPS com seu próprio certificado](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
 > Este recurso está disponível apenas com os perfis de **CDN do Azure da Microsoft** e de **CDN do Azure do Verizon**. 
@@ -103,9 +103,9 @@ Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse pro
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparar a conta e o certificado do Azure Key Vault
  
-1. Azure Key Vault: você deve ter uma conta do Azure Key Vault em execução sob a mesma assinatura que o perfil de CDN do Azure e os pontos de extremidade de CDN desejados para habilitar o HTTPS personalizado. Crie uma conta do Azure Key Vault caso você não tenha uma.
+1. Azure Key Vault: é necessário ter uma conta do Azure Key Vault em execução sob a mesma assinatura que o perfil da CDN do Azure e os pontos de extremidade da CDN desejados para habilitar o HTTPS personalizado. Crie uma conta do Azure Key Vault caso você não tenha uma.
  
-2. Certificados do Azure Key Vault: se já tiver um certificado, você poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um novo certificado diretamente pelo Azure Key Vault a partir de uma das Autoridades de Certificação (CA) de parceiros às quais o Azure Key Vault se integra. 
+2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra. 
 
 ### <a name="register-azure-cdn"></a>Registrar a CDN do Azure
 
@@ -178,7 +178,7 @@ Se você estiver usando seu próprio certificado, a validação de domínio não
 
 O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de domínio personalizado e *Valor* é o nome de host do ponto de extremidade da CDN:
 
-| {1&gt;Nome&lt;1}            | Tipo  | {1&gt;Valor&lt;1}                 |
+| Nome            | Type  | Valor                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -314,7 +314,7 @@ A tabela a seguir mostra o andamento da operação que ocorre quando você desab
 
     Não, um registro de Autorização de Autoridade de Certificação não é necessário no momento. No entanto, caso você tenha um, ele deverá incluir o DigiCert como uma AC válida.
 
-6. *Em 20 de junho de 2018, a CDN do Azure da Verizon começou a usar um certificado dedicado com TLS/SSL SNI por padrão. O que acontece com meus domínios personalizados existentes usando o certificado SAN (nomes alternativos da entidade) e o TLS/SSL baseado em IP?*
+6. *Em 20 de junho de 2018, a CDN do Azure da Verizon passou a usar um certificado dedicado com o SNI TLS/SSL por padrão. O que acontece com meus domínios personalizados existentes usando o certificado SAN (Nomes alternativos de entidade) e TLS/SSL baseado em IP?*
 
     Os domínios existentes migrarão gradualmente para um único certificado nos próximos meses, se a Microsoft analisar que somente as solicitações do cliente de SNI serão feitas ao seu aplicativo. Se a Microsoft detectar solicitações de cliente que não são de SNI feitas em seu aplicativo, seus domínios permanecerão no certificado SAN com TLS/SSL baseado em IP. Em qualquer caso, não haverá interrupção ao seu serviço ou suporte às suas solicitações de cliente, independentemente se essas solicitações forem de SNI ou não.
 
@@ -322,7 +322,7 @@ A tabela a seguir mostra o andamento da operação que ocorre quando você desab
 
     Para garantir que um certificado mais recente seja implantado na infraestrutura PoP, basta fazer upload do novo certificado no Azure Key Vault e, em seguida, nas configurações do SSL na CDN do Azure, escolha a versão mais recente do certificado e clique em Salvar. Em seguida, a CDN do Azure propagará o novo certificado atualizado. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 

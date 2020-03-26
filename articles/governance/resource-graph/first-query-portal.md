@@ -4,10 +4,10 @@ description: Neste início rápido, você segue etapas necessárias para executa
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74406794"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
@@ -16,7 +16,7 @@ Toda a potência do Azure Resource Graph está disponível diretamente no portal
 
 No final deste início rápido, você terá usado o portal do Azure e o Resource Graph Explorer para executar sua primeira consulta do Resource Graph e terá fixado os resultados em um painel.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -107,7 +107,7 @@ Para fornecer exemplos de consultas do Resource Graph e de como o Resource Graph
 
 O painel importado será exibido automaticamente. Como agora ele existe em seu portal do Azure, você pode explorar e fazer alterações conforme necessário ou criar novos painéis baseados no exemplo para compartilhar com suas equipes. Para saber mais sobre como trabalhar com painéis, confira [Criar compartilhar painéis no portal do Azure](../../azure-portal/azure-portal-dashboards.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser remover os painéis de exemplo do Resource Graph de seu ambiente do portal do Azure, você poderá fazer isso usando as etapas a seguir:
 

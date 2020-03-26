@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.openlocfilehash: 2681b2199f321f695bc621ed5580319a5e907b34
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274024"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Criar um aplicativo de console .NET para gerenciar dados na conta da API do SQL do Azure Cosmos DB
@@ -58,7 +58,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que deseja usar
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Etapa 2: Configurar seu projeto do Visual Studio
+## <a name="step-2-set-up-your-visual-studio-project"></a><a id="SetupVS"></a>Etapa 2: Configurar seu projeto do Visual Studio
 
 1. Abra o Visual Studio e selecione **Criar um projeto**.
 1. Em **Criar um novo projeto**, escolha **Aplicativo de Console (.NET Framework)** para C# e, em seguida, selecione **Avançar**.
@@ -75,7 +75,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que deseja usar
 
 Ótimo! Agora que a instalação está concluída, vamos começar a escrever algum código. Para ver o projeto completo deste tutorial, confira [Desenvolvendo um aplicativo de console do .NET usando o Azure Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
 
-## <a id="Connect"></a>Etapa 3: Conectar-se a uma conta do Azure Cosmos DB
+## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Etapa 3: Conectar-se a uma conta do Azure Cosmos DB
 
 1. Substitua as referências no início de seu aplicativo C#, no arquivo *Program.cs*, por estas referências:
 
@@ -270,7 +270,7 @@ Um banco de dados é o contêiner lógico de itens particionados em contêineres
 
 Parabéns! Você criou um banco de dados do Azure Cosmos com êxito.  
 
-## <a id="CreateColl"></a>Etapa 5: Criar um contêiner
+## <a name="step-5-create-a-container"></a><a id="CreateColl"></a>Etapa 5: Criar um contêiner
 
 > [!WARNING]
 > O método `CreateContainerIfNotExistsAsync` cria um novo contêiner, o que tem implicações quanto ao preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
@@ -301,7 +301,7 @@ Um contêiner pode ser criado usando o método [**CreateContainerIfNotExistsAsyn
 
 Parabéns! Você criou um contêiner do Azure Cosmos com êxito.  
 
-## <a id="CreateDoc"></a>Etapa 6: Adicionar itens ao contêiner
+## <a name="step-6-add-items-to-the-container"></a><a id="CreateDoc"></a>Etapa 6: Adicionar itens ao contêiner
 
 O método [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) da classe `CosmosContainer` pode criar um item. Ao usar a API do SQL, os itens são projetados como documentos, que são conteúdo JSON arbitrário definido pelo usuário. Agora você pode inserir um item no contêiner do Azure Cosmos.
 
@@ -342,7 +342,7 @@ Primeiro, vamos criar uma classe `Family` que representa os objetos armazenados 
 
 Parabéns! Você criou dois itens do Azure Cosmos com êxito.  
 
-## <a id="Query"></a>Etapa 7: Consultar recursos do Azure Cosmos DB
+## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>Etapa 7: Consultar recursos do Azure Cosmos DB
 
 O Azure Cosmos DB tem suporte para consultas avançadas de documentos JSON armazenados em cada contêiner. Para obter mais informações, confira [Introdução a consultas SQL](sql-api-sql-query.md). O código de exemplo a seguir mostra como executar uma consulta em relação aos itens que inserimos na etapa anterior.
 
@@ -370,7 +370,7 @@ O Azure Cosmos DB tem suporte para consultas avançadas de documentos JSON armaz
 
 Parabéns! Você consultou um contêiner do Azure Cosmos com êxito.
 
-## <a id="ReplaceItem"></a>Etapa 8: Substituir um item JSON
+## <a name="step-8-replace-a-json-item"></a><a id="ReplaceItem"></a>Etapa 8: Substituir um item JSON
 
 Agora, vamos atualizar um item no Azure Cosmos DB. Nós alteraremos a propriedade `IsRegistered` do `Family` e o `Grade` de um dos filhos.
 
@@ -399,7 +399,7 @@ Agora, vamos atualizar um item no Azure Cosmos DB. Nós alteraremos a propriedad
 
 Parabéns! Você substituiu um item do Azure Cosmos com êxito.
 
-## <a id="DeleteDocument"></a>Etapa 9: Excluir item
+## <a name="step-9-delete-item"></a><a id="DeleteDocument"></a>Etapa 9: Excluir item
 
 Agora, excluiremos um item no Azure Cosmos DB.
 
@@ -429,7 +429,7 @@ Agora, excluiremos um item no Azure Cosmos DB.
 
 Parabéns! Você excluiu um item do Azure Cosmos com êxito.
 
-## <a id="DeleteDatabase"></a>Etapa 10: Excluir o banco de dados
+## <a name="step-10-delete-the-database"></a><a id="DeleteDatabase"></a>Etapa 10: Excluir o banco de dados
 
 Agora, vamos excluir nosso banco de dados. Excluir o banco de dados criado remove o banco de dados e todos os recursos filhos. Os recursos incluem contêineres, itens e procedimentos armazenados, funções definidas pelo usuário e gatilhos. Também descartamos a instância `CosmosClient`.
 
@@ -445,7 +445,7 @@ Agora, vamos excluir nosso banco de dados. Excluir o banco de dados criado remov
 
 Parabéns! Você excluiu um banco de dados do Azure Cosmos com êxito.
 
-## <a id="Run"></a>Etapa 11: Executar o aplicativo de console C# inteiro!
+## <a name="step-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Etapa 11: Executar o aplicativo de console C# inteiro!
 
 Escolha F5 no Visual Studio para compilar e executar o aplicativo no modo de depuração.
 
@@ -478,7 +478,7 @@ End of demo, press any key to exit.
 
 Parabéns! Você concluiu este tutorial e tem um aplicativo de console em C# funcional!
 
-## <a id="GetSolution"></a> Obter a solução completa do tutorial
+## <a name="get-the-complete-tutorial-solution"></a><a id="GetSolution"></a> Obter a solução completa do tutorial
 
 Se não teve tempo para concluir as etapas neste tutorial ou se deseja apenas baixar os exemplos de código, você poderá baixá-los.
 

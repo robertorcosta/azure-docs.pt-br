@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: 2c8d7252b4e4ca8caa465727c0d2328c4aafaefb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227919"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: Migrar usuários e grupos do Windows locais no SQL Server para a instância gerenciada do Banco de Dados SQL do Azure usando a sintaxe DDL T-SQL
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 > - Migrar os usuários manualmente para a MI usando a sintaxe ALTER USER
 > - Testar a autenticação com os novos usuários mapeados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, os seguintes pré-requisitos se aplicam:
 
@@ -220,7 +220,7 @@ Siga nosso [Início Rápido: Restaurar um banco de dados em uma instância geren
 
 Execute o comando ALTER USER para concluir o processo de migração na instância gerenciada.
 
-1. Entre em sua instância gerenciada usando a conta do administrador do Azure AD para a instância gerenciada. Em seguida, crie seu logon do Azure AD na instância gerenciada usando a sintaxe a seguir. Para obter mais informações, confira [Tutorial: Segurança da instância gerenciada no Banco de Dados SQL do Azure usando entidades de segurança do servidor (logons) do Azure AD](sql-database-managed-instance-aad-security-tutorial.md).
+1. Entre em sua instância gerenciada usando a conta do administrador do Azure AD para a instância gerenciada. Em seguida, crie seu logon do Azure AD na instância gerenciada usando a sintaxe a seguir. Para saber mais, confira [Tutorial: Segurança da instância gerenciada no Banco de Dados SQL do Azure usando entidades de segurança do servidor (logons) do Azure AD](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 
