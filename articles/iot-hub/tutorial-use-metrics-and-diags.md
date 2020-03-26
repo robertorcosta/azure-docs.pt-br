@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7ce56237631b858347a99c310751d4f2c1506e10
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: d287cfab7adb676d3561486ed34c1062895a4036
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108227"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80133647"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e logs de diagnóstico com um hub IoT
 
@@ -34,7 +34,7 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Executar o aplicativo até que os alertas comecem a ser disparados. 
 > * Ver os resultados das métricas e verificar os logs de diagnóstico. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -72,7 +72,7 @@ As variáveis que devem ser globalmente exclusivas têm `$RANDOM` concatenados a
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -123,7 +123,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >Veja a seguir o comando para atualizar a extensão. Execute isso na instância do Cloud Shell.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## <a name="enable-the-diagnostic-logs"></a>Habilitar os logs de diagnóstico 

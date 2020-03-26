@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494564"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilar um aplicativo de aprendizado de máquina do Apache Spark no Azure HDInsight
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Desenvolver um aplicativo de aprendizado de máquina do Apache Spark
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Veja [Criar um cluster do Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -188,11 +188,11 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
 
 Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Também inclui a biblioteca **scikit-learn** para aprendizado de máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não for continuar a usar este aplicativo, exclua o cluster que criou seguindo estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Na caixa **Pesquisar** na parte superior, digite **HDInsight**.
 
@@ -200,7 +200,7 @@ Se não for continuar a usar este aplicativo, exclua o cluster que criou seguind
 
 1. Na lista de clusters do HDInsight exibida, selecione **…** ao lado do cluster que você criou para este tutorial.
 
-1. Selecione **Excluir**. Selecione **Sim**.
+1. Selecione **Excluir**. Selecione **Sim** na barra superior.
 
 ![Excluir um cluster HDInsight no portal do Azure](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
 

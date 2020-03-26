@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/04/2019
 ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67797184"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Início Rápido: Consultar dados na interface do usuário Web do Azure Data Explorer
@@ -20,7 +20,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Além de uma assinatura do Azure, é necessário ter [um cluster de teste e um banco de dados](create-cluster-database-portal.md) para concluir este início rápido.
 
@@ -135,7 +135,7 @@ Você viu como as consultas básicas funcionam, agora vamos saber como é possí
 
     Isso retorna a grade ao seu estado original.
 
-1. Execute a consulta a seguir.
+1. Execute a seguinte consulta.
 
     ```Kusto
     StormEvents
@@ -185,7 +185,7 @@ O Data Explorer atualmente está em versão prévia e nós agradecemos seus come
 
 1. Insira seu comentário e selecione **Enviar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você não criou nenhum recurso neste início rápido, mas se desejar remover um ou ambos os clusters do aplicativo, clique com o botão direito do mouse no cluster e selecione **Remover conexão**.
 

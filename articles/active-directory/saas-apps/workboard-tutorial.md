@@ -17,10 +17,10 @@ ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b29405ebc620736a4318c2c3a875e8864c1eafb6
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70846901"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workboard"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao WorkBoard
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o WorkBoard ao Azure AD (Azure Activ
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 

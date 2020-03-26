@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
 ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74075142"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar um gateway de aplicativo para hospedar vários sites web usando o portal do Azure.
@@ -56,7 +56,7 @@ Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
     Em **Configurar rede virtual**, selecione **Criar nova** para criar uma rede virtual. Na janela **Criar rede virtual** que é aberta, insira os seguintes valores para criar a rede virtual e duas sub-redes:
 
-    - **Nome**: Insira *myVNet* para o nome da rede virtual.
+    - **Name**: Insira *myVNet* para o nome da rede virtual.
 
     - **Nome da sub-rede** (sub-rede do Gateway de Aplicativo): A grade **Sub-redes** mostrará uma sub-rede chamada *Padrão*. Altere o nome dessa sub-rede para *myAGSubnet*.<br>A sub-rede de gateway de aplicativo pode conter apenas gateways de aplicativo. Nenhum outro recurso é permitido.
 
@@ -90,7 +90,7 @@ O pool de back-end é usado para encaminhar solicitações aos servidores back-e
 
 2. Na janela **Adicionar um pool de back-end** que é aberta, insira os seguintes valores para criar um pool de back-end vazio:
 
-    - **Nome**: Insira *contosoPool* para o nome do pool de back-end.
+    - **Name**: Insira *contosoPool* para o nome do pool de back-end.
     - **Adicionar pool de back-end sem destinos**: Selecione **Sim** para criar um pool de back-end sem destinos. Você adicionará destinos de back-end depois de criar o gateway de aplicativo.
 
 3. Na janela **Adicionar um pool de back-end**, selecione **Adicionar** para salvar a configuração do pool de back-end e retornar à guia **Back-ends**.
@@ -228,7 +228,7 @@ Depois de criar o gateway de aplicativo com seu endereço IP público, é possí
 
     ![Testar site do fabrikam no gateway de aplicativo](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não precisar mais dos recursos que você criou com o gateway de aplicativo, remova o grupo de recursos. Ao remover o grupo de recursos, você também remove o gateway de aplicativo e todos os recursos relacionados.
 

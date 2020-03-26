@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
 ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121642"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no Postman usando APIs REST
@@ -31,7 +31,7 @@ Este artigo explica como formular solicitações de maneira interativa. Como alt
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os serviços e as ferramentas a seguir são necessários para este início rápido. 
 

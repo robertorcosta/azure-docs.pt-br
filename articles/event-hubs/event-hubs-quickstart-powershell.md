@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 89ec1957e75fa45eef6c7939a77e5cc1b3cf7806
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162116"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: Criar um hub de eventos usando o Azure PowerShell
@@ -23,7 +23,7 @@ Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um se
 
 Neste início rápido, você cria um hub de eventos usando o Azure PowerShell.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, guia estratégico, Serviço de Aplicativ
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9eb50922361c817de8047dece4849a9b221677f0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155922"
 ---
 # <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutorial: Dimensionar aplicativos no Serviço de Aplicativo do Azure usando o Ansible
@@ -24,7 +24,7 @@ ms.locfileid: "74155922"
 > * Obter fatos de um plano do Serviço de Aplicativo existente
 > * Escalar verticalmente o plano do Serviço de Aplicativo para o S2 com três funções de trabalho
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

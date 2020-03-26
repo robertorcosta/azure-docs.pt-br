@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b655fa2f12eac894e97c61cc931983aa58fff7a9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74007921"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>O que são os relatórios do Azure Active Directory?
@@ -37,7 +37,7 @@ A arquitetura de relatório se baseia em dois pilares principais:
 - [Relatórios de segurança](#security-reports)
 - [Relatórios de atividades](#activity-reports)
 
-![Relatórios](./media/overview-reports/01.png)
+![Relatório](./media/overview-reports/01.png)
 
 
 ## <a name="security-reports"></a>Relatórios de segurança

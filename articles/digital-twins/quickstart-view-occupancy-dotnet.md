@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: localizar salas disponíveis – Azure digital gêmeos | Microsoft Docs'
+title: 'Início Rápido: Encontrar salas disponíveis – Gêmeos Digitais do Azure | Microsoft Docs'
 description: Neste início rápido, você executará dois aplicativos de exemplo .NET Core para enviar telemetria simulada de movimento e de dióxido de carbono para um espaço nos Gêmeos Digitais do Azure. O objetivo é encontrar salas disponíveis com ar fresco nas APIs de Gerenciamento após o processamento computado na nuvem.
 ms.author: alinast
 author: alinamstanciu
@@ -10,14 +10,16 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 01/10/2020
-ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: de8611e53339d38a03836bc9272ad42ff88a59b8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382243"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79371419"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 O serviço Gêmeos Digitais do Azure permite que você recrie uma imagem digital de seu ambiente físico. Em seguida, você poderá ser notificado por eventos em seu ambiente e personalizar as respostas para eles.
 
@@ -27,7 +29,7 @@ O vídeo a seguir resume a instalação do início rápido:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Se você ainda não tiver uma conta do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -137,7 +139,7 @@ Os tutoriais se aprofundam no código. Eles ensinam como modificar dados de conf
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| {1&gt;Nome&lt;1} | Substitua por |
+| Nome | Substitua por |
 | --- | --- |
 | NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
 | SUA_LOCALIZAÇÃO | A região do servidor na qual sua instância está hospedada |
@@ -159,7 +161,7 @@ Para continuar nos tutoriais, não limpe os recursos criados neste início rápi
     > [!TIP]
     > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Este início rápido usou um cenário simples e aplicativos de exemplo para mostrar como os Gêmeos Digitais podem ser usados para encontrar salas com boas condições de trabalho. Para obter uma análise detalhada do cenário, leia este tutorial:
 

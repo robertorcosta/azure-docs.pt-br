@@ -19,10 +19,10 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74276085"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: diagnosticar um problema de filtro de tráfego de rede de máquina virtual – CLI do Azure
@@ -70,7 +70,7 @@ az network watcher configure \
   --enabled
 ```
 
-### <a name="use-ip-flow-verify"></a>Usar a verificação de fluxo de IP
+### <a name="use-ip-flow-verify"></a>Usar verificação de fluxo de IP
 
 Quando você cria uma VM, o Azure permite e nega o tráfego de rede na VM, por padrão. Mais tarde, você pode substituir os padrões do Azure, permitindo ou negando tipos adicionais de tráfego. Para testar se o tráfego é permitido ou negado para diferentes destinos e de um endereço IP de origem, use o comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
 
@@ -173,7 +173,7 @@ A saída retornada inclui o seguinte texto para a regra **AllowInternetOutbound*
 
 Você pode ver na saída anterior que **DestinationAddressPrefix** é **Internet**. Entretanto não está claro como 13.107.21.200 se relaciona com **Internet**. Você verá vários prefixos de endereços listados em **expandedDestinationAddressPrefix**. Um dos prefixos na lista é **12.0.0.0/6**, que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Como 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras de prioridade mais alta (número inferior) mostradas na saída anterior que substituem essa regra. Para negar a comunicação de saída a um endereço IP, você pode adicionar uma regra de segurança com uma prioridade mais alta, que nega a porta 80 de saída para o endereço IP.
 
-Quando você executou o comando `az network watcher test-ip-flow` para testar a comunicação de saída para 172.131.0.100 em [Usar verificação de fluxo IP](#use-ip-flow-verify), a saída informou que a regra **DefaultOutboundDenyAll** negou a comunicação. A regra **DefaultOutboundDenyAll** é equivalente à regra **DenyAllOutBound** listada na seguinte saída do comando `az network nic list-effective-nsg`:
+Quando você executou o comando `az network watcher test-ip-flow` para testar a comunicação de saída para 172.131.0.100 em [Usar verificação de fluxo de IP](#use-ip-flow-verify), a saída informou que a regra **DefaultOutboundDenyAll** negou a comunicação. A regra **DefaultOutboundDenyAll** é equivalente à regra **DenyAllOutBound** listada na seguinte saída do comando `az network nic list-effective-nsg`:
 
 ```azurecli
 {
@@ -241,7 +241,7 @@ A regra **DenyAllInBound** é aplicada, porque, conforme mostrado na saída, nã
 
 As verificações deste início rápido testaram a configuração do Azure. Se as verificações retornarem resultados esperados e você ainda tiver problemas de rede, verifique se você não tem um firewall entre a VM e o ponto de extremidade com o qual está se comunicando e se o sistema operacional na VM não tem um firewall que permite ou nega a comunicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém:
 

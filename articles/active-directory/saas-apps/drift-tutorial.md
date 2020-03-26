@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cd749ef66ee62f6d89d949cef7ce800bc46d59a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72554362"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-drift"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Drift
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como integrar o Drift ao Azure Active Directory
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -100,9 +100,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 7. Além do indicado acima, o aplicativo Drift espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seu requisito. 
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | ---------------| --------------- |    
-    | NOME | user.displayname |
+    | Nome | user.displayname |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 

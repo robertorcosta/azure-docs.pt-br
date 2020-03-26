@@ -12,17 +12,17 @@ ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827072"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início Rápido: Usar o Golang para consultar um Banco de Dados SQL do Azure
 
 Neste início rápido, você usará a linguagem de programação [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para conectar-se a um Banco de Dados SQL do Azure. Em seguida, você executará instruções Transact-SQL para consultar e modificar dados. O [Golang](https://golang.org/) é uma linguagem de programação de software livre que facilita a criação de softwares simples, confiáveis e eficientes.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -52,7 +52,7 @@ Para concluir este tutorial, você precisará:
 
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL**.
 

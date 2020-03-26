@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: de7cf57d177902efdbb44524703481e8c65c75c5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72991467"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integrar o RingCentral ao Azure Active Directory
@@ -28,11 +28,11 @@ Neste tutorial, você aprenderá como integrar o RingCentral ao Azure AD (Azure 
 
 * Controlar quem tem acesso ao RingCentral no Azure AD.
 * Permitir que os usuários sejam conectados automaticamente ao RingCentral com suas contas do Azure AD.
-* Gerencie suas contas em uma localização central – o portal do Azure.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para configurar a integração do RingCentral ao Azure AD, você precisará adic
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da por meio da galeria**, digite **RingCentral** na caixa de pesquisa.
 1. Selecione **RingCentral** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
@@ -74,7 +74,7 @@ Para configurar e testar o SSO do Azure AD com o RingCentral, conclua os blocos 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **RingCentral**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único**, selecione **SAML**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
@@ -126,7 +126,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **RingCentral**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 

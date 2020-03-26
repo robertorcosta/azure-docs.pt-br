@@ -4,10 +4,10 @@ description: Neste tutorial, você vai configurar uma Tarefa do Registro de Cont
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77617679"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatizar builds de imagem de contêiner quando uma imagem base é atualizada em outro registro de contêiner particular 
@@ -29,7 +29,7 @@ Neste tutorial:
 
 Caso você deseje usar a CLI do Azure localmente, precisará ter a CLI do Azure versão **2.0.68** ou posterior instalada. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="complete-the-previous-tutorials"></a>Conclua os tutoriais anteriores
 

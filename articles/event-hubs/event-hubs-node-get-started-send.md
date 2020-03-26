@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
 ms.openlocfilehash: 0a4b76bd1febca864cab6060fbdbd96dd0061cff
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162609"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-javascript-azureevent-hubs-version-2"></a>Início Rápido: Enviar ou receber eventos de Hubs de Eventos do Azure usando o JavaScript (@azure/event-hubs versão 2)
@@ -22,7 +22,7 @@ Este início rápido mostra como criar aplicativos JavaScript para enviar e rece
 > Este início rápido usa o pacote antigo do azure/event-hubs versão 2. Para um início rápido que usa a **versão 5** mais recente do pacote, confira [Enviar e receber eventos usando o azure/eventhubs versão 5](get-started-node-send-v2.md). Para mudar seu aplicativo do pacote antigo para o novo, confira o [Guia para migrar do azure/eventhubs versão 1 para versão 5](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md). 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você for novo nos Hubs de Eventos do Azure, confira a [Visão geral dos Hubs de Eventos](event-hubs-about.md) antes de prosseguir com este início rápido. 
 

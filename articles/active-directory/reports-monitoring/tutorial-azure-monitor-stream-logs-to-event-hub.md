@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007649"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Transmitir logs do Azure Active Directory para um hub de eventos do Azure
 
 Neste tutorial, saiba como definir as configurações de diagnóstico do Azure Monitor para transmitir logs do Azure AD (Azure Active Directory) para um hub de eventos do Azure. Use esse mecanismo para integrar os logs com as ferramentas SIEM (gerenciamento de eventos e informações de segurança) de terceiros, como Splunk e QRadar.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 Para usar esse recurso, você precisa de:
 
@@ -39,7 +39,7 @@ Para usar esse recurso, você precisa de:
 
 ## <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione **Azure Active Directory** > **Monitoramento** > **Logs de auditoria**. 
 

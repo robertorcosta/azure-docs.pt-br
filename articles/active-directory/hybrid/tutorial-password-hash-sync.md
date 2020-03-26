@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66474009"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integrar uma única floresta do AD usando a sincronização de hash da senha (PHS)
@@ -27,7 +27,7 @@ ms.locfileid: "66474009"
 
 O tutorial a seguir guiará você pela criação de um ambiente de identidade híbrido usando a sincronização de senha hash.  Esse ambiente pode ser usado para testes ou para familiarizar-se mais com o funcionamento de uma identidade híbrida.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 A seguir estão os pré-requisitos necessários para concluir este tutorial
 - Um computador com [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  É recomendável fazer isso em um computador [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou um computador [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Um [adaptador de rede externa](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique-se com a Internet.
@@ -83,11 +83,11 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 6. Insira a chave de licença e clique em **Avançar**.
 7. Marque **Eu aceito os termos da licença e clique em **Avançar**.
 8. Selecione **Personalizado:  Instalar somente o Windows (Avançado)**
-9. Clique em **Avançar**
-10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as atualizações mais recentes.
+9. Clique em **Avançar**.
+10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as últimas atualizações.
 
 ## <a name="install-active-directory-prerequisites"></a>Instalar os pré-requisitos do Active Directory
-Agora que temos uma máquina virtual ativa, precisamos fazer algumas coisas antes de instalar o Active Directory.  Ou seja, precisamos renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as ferramentas de Administração de Servidor Remoto.   Faça o seguinte:
+Agora que temos uma máquina virtual ativa, precisamos executar algumas etapas antes de instalar o Active Directory.  Ou seja, precisamos renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as ferramentas de Administração de Servidor Remoto.   Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute o seguinte script.
@@ -224,7 +224,7 @@ Nesse momento, verificaremos se os usuários que estavam no diretório local for
 4. Verifique se você vê os novos usuários em nosso inquilino</br>
 ![Sincronização](media/tutorial-password-hash-sync/synch1.png)</br>
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Teste fazendo login com um de nossos usuários
+## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
 
 1. Navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar no local.</br>

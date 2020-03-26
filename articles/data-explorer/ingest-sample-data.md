@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 08/12/2019
 ms.openlocfilehash: 3ece5a9d225e48654a0a3a96c3b7b78327565841
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74975169"
 ---
 # <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Início Rápido: Ingerir dados de amostra no Azure Data Explorer
@@ -21,7 +21,7 @@ Este artigo mostra como ingerir (carregar) dados de amostra em um banco de dados
 > [!NOTE]
 > Você já terá esses dados se tiver concluído [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [Um cluster de teste e um banco de dados](create-cluster-database-portal.md)
 

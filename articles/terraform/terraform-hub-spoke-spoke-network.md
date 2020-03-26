@@ -4,10 +4,10 @@ description: Saiba como implementar duas VNets spoke conectadas a um hub em uma 
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 2a36b8ac22fb52f6b8f1246fd254d9c3ff22fc82
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159016"
 ---
 # <a name="tutorial-create-a-spoke-network-in-azure-using-terraform"></a>Tutorial: Criar uma rede spoke no Azure usando o Terraform
@@ -21,12 +21,12 @@ Este tutorial cobre as seguintes tarefas:
 > * Use o Terraform para criar Máquinas Virtuais nas redes spoke
 > * Usar o Terraform para estabelecer emparelhamentos de rede virtual com as redes do hub
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
 1. [Criar uma rede virtual de hub com o Terraform no Azure](./terraform-hub-spoke-hub-network.md).
-1. [Criar um dispositivo de rede virtual de hub com Terraform no Azure](./terraform-hub-spoke-hub-nva.md).
+1. [Criar um dispositivo de rede virtual de hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md).
 
 ## <a name="create-the-directory-structure"></a>Crie a estrutura de diretórios
 

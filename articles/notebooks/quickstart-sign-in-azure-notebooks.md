@@ -4,10 +4,10 @@ description: Entre rapidamente na versão prévia do Azure Notebooks e defina um
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75647009"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Início Rápido: Entrar e definir uma ID de usuário da versão prévia do Azure Notebooks

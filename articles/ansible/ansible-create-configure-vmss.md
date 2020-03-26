@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, con
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e1cc40459988fb9bc38e3dbbcde563cebb531e3d
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156539"
 ---
 # <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Configurar conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
@@ -25,7 +25,7 @@ ms.locfileid: "74156539"
 > * Configurar um conjunto de dimensionamento
 > * Dimensionar o conjunto de dimensionamento aumentando as instâncias da VM 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -189,7 +189,7 @@ localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
 O [conjunto de dimensionamento configurado](#configure-a-scale-set) atualmente possui duas instâncias. As etapas a seguir são usadas para confirmar esse valor:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Navegue até o conjunto de dimensionamento que você configurou.
 
@@ -209,7 +209,7 @@ O [conjunto de dimensionamento configurado](#configure-a-scale-set) atualmente p
     }
     ```
 
-## <a name="scale-out-a-scale-set"></a>Expandir um conjunto de dimensionamento
+## <a name="scale-out-a-scale-set"></a>Escalar horizonralmente um conjunto de dimensionamento
 
 O código do guia estratégico nesta seção recupera informações sobre o conjunto de dimensionamento e altera sua capacidade de dois para três.
 
@@ -289,7 +289,7 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0
 
 Verifique os resultados do seu trabalho por meio do portal do Azure:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Navegue até o conjunto de dimensionamento que você configurou.
 

@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121023"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Início Rápido: Conectar um aplicativo de exemplo de dispositivo IoT Plug and Play Preview ao Hub IoT (C#)
@@ -23,7 +23,7 @@ Este guia de início rápido mostra como criar um aplicativo de exemplo de dispo
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisará instalar o .NET Core 3.0 no computador de desenvolvimento. Baixe esta versão do SDK do .NET Core para várias plataformas em [Baixar o .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 

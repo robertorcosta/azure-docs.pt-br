@@ -17,10 +17,10 @@ ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b9d3ef2c9b72d261fcae25e9a8f1f906206bb7b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70162513"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-betterworks"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao BetterWorks
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o BetterWorks ao Azure AD (Azure Act
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 

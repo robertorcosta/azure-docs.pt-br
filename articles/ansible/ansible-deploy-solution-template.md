@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, solution template, virtual machine, managed id
 ms.topic: quickstart
 ms.date: 04/30/2019
 ms.openlocfilehash: cc3a6c1f0ef36b51b62e6aa58f317aee13149589
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77193779"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Início Rápido: Implantar o modelo de solução Ansible para Azure para o CentOS
@@ -19,7 +19,7 @@ O modelo de solução do Ansible para Azure destina-se a configurar uma instânc
 - **CLI (interface de linha de comando) do Azure 2.0** – a [CLI do Azure 2.0](/cli/azure/?view=azure-cli-latest) é a experiência da linha de comando multiplataforma da Microsoft para gerenciar os recursos do Azure. 
 - **Identidades gerenciadas para recursos do Azure** – o recurso [Identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) aborda a questão de manter as credenciais de aplicativo de nuvem seguras.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 

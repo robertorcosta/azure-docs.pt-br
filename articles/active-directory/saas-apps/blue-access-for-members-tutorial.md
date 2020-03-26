@@ -17,10 +17,10 @@ ms.date: 11/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7dd09f80721bb4180eb5f2c25f3315e6211c63cc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74085149"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blue-access-for-members-bam"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao BAM (Blue Access for Members)
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o BAM (Blue Access for Members) ao A
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo BAM (Blue Access Members) espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
-    | NOME |  Atributo de Origem|
+    | Nome |  Atributo de Origem|
     | ------------ | --------- |
     | ClientID | `<ClientID>` |
     | UID | `<UID>` |

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: a6896eaad86c5e361c50cd81257131ee75a8d6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c400e41c4c10023d2595bde8c0d62e26184cf05
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467045"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79370314"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Início Rápido: Consulta do Apache HBase no Azure HDInsight com o Apache Phoenix
 
@@ -21,9 +21,9 @@ Neste início rápido, você aprenderá a usar o Apache Phoenix para executar co
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache HBase. Confira [Criar cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) para criar um cluster HDInsight.  Escolha o tipo de cluster **HBase**.
+* Um cluster do Apache HBase. Confira [Criar cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para criar um cluster HDInsight.  Escolha o tipo de cluster **HBase**.
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -59,7 +59,7 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o Ap
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Altere o diretório para o cliente do Phoenix. Digite o seguinte comando:
+2. Altere o diretório para o cliente do Phoenix. Insira o seguinte comando:
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
@@ -71,50 +71,50 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o Ap
     ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
     ```
 
-4. Crie uma tabela do HBase. Digite o seguinte comando:
+4. Crie uma tabela do HBase. Insira o seguinte comando:
 
     ```sql
     CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
     ```
 
-5. Use o comando `!tables` do SQLLine para listar todas as tabelas no HBase. Digite o seguinte comando:
+5. Use o comando `!tables` do SQLLine para listar todas as tabelas no HBase. Insira o seguinte comando:
 
     ```sqlline
     !tables
     ```
 
-6. Insira os valores na tabela. Digite o seguinte comando:
+6. Insira os valores na tabela. Insira o seguinte comando:
 
     ```sql
     UPSERT INTO Company VALUES(1, 'Microsoft');
     UPSERT INTO Company VALUES(2, 'Apache');
     ```
 
-7. Consulte a tabela. Digite o seguinte comando:
+7. Consulte a tabela. Insira o seguinte comando:
 
     ```sql
     SELECT * FROM Company;
     ```
 
-8. Exclua um registro. Digite o seguinte comando:
+8. Exclua um registro. Insira o seguinte comando:
 
     ```sql
     DELETE FROM Company WHERE COMPANY_ID=1;
     ```
 
-9. Descarte a tabela. Digite o seguinte comando:
+9. Descarte a tabela. Insira o seguinte comando:
 
     ```hbase
     DROP TABLE Company;
     ```
 
-10. Use o comando `!quit` do SQLLine para sair do SQLLine. Digite o seguinte comando:
+10. Use o comando `!quit` do SQLLine para sair do SQLLine. Insira o seguinte comando:
 
     ```sqlline
     !quit
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

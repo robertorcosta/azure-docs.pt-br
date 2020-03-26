@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72554994"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zscaler Three
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Zscaler Three ao Azure AD (Azure A
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -95,7 +95,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 6. Além do indicado acima, o aplicativo Zscaler Three espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seu requisito.
     
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -148,7 +148,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. Após adicionar a extensão ao navegador, clicar em **Instalar o Zscaler Three** direcionará você ao aplicativo Zscaler Three. Forneça as credenciais de administrador para entrar no Zscaler Three. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
 
-    ![Configuração](common/setup-sso.png)
+    ![Instalação](common/setup-sso.png)
 
 3. Se desejar configurar o Zscaler Three manualmente, abra uma nova janela do navegador da Web, entre no site empresarial do Zscaler Three como administrador e execute as seguintes etapas:
 

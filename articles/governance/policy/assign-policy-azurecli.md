@@ -4,10 +4,10 @@ description: Neste início rápido, use a CLI do Azure para criar uma atribuiç�
 ms.date: 01/11/2020
 ms.topic: quickstart
 ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978315"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade na CLI do Azure
@@ -19,7 +19,7 @@ No final deste processo, você identificará com êxito quais máquinas virtuais
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia usa a CLI do Azure para criar uma atribuição de política e para identificar recursos sem conformidade em seu ambiente do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

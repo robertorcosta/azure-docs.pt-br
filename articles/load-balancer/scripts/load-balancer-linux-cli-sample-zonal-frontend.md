@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: c99e232243e95d3aa0a85e09c2534973114e28ea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0ae159b57a89b4238d52d178d59cb79b452e0411
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068753"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79214548"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exemplo de script da CLI do Azure: Balancear a carga do tráfego para as VMs em uma zona de disponibilidade específica
 
@@ -29,7 +29,7 @@ Este exemplo de script da CLI do Azure cria todos os componentes necessários pa
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 ```azurecli-interactive
   #!/bin/bash
@@ -55,7 +55,7 @@ Este exemplo de script da CLI do Azure cria todos os componentes necessários pa
 
   # Create an Azure Load Balancer.
    az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroup \
     --name myLoadBalancer \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEndPool \

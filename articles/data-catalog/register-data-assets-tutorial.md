@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68950243"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Gerenciar ativos de dados no Catálogo de Dados do Azure
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Gerenciar ativos de dados
 > * Excluir ativos de dados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você deve concluir o [início rápido](register-data-assets-tutorial.md).
 

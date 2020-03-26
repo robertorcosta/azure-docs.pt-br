@@ -17,10 +17,10 @@ ms.date: 04/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8968ec9edd5b1f732bf9d4721bdc4e9bcaf5fa17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-real-links"></a>Tutorial: Integração do Azure Active Directory com o Real Links
@@ -35,7 +35,7 @@ A integração do Real Links com o Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Real Links, você precisa dos seguintes itens:
 
@@ -78,10 +78,10 @@ Para que o logon único funcione, uma relação de vínculo entre um usuário do
 Para configurar e testar o logon único do Azure AD com o Real Links, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Real Links](#configure-real-links-single-sign-on)**  – para definir as configurações de logon único no lado do aplicativo.
+2. **[Configurar o logon único do Real Links](#configure-real-links-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Real Links](#create-real-links-test-user)**  – para ter um equivalente de Brenda Fernandes no Real Links que esteja vinculado à declaração do usuário do Azure AD.
+5. **[Criar usuário de teste do Real Links](#create-real-links-test-user)** – para ter um equivalente de Brenda Fernandes no Real Links que esteja vinculado à declaração do usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD

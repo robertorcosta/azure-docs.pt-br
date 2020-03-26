@@ -7,17 +7,17 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121491"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Início Rápido: Implantar um aplicativo Spring Boot Java no Azure Service Fabric
 
 Neste início rápido, você implantará um aplicativo Java Spring Boot no Azure Service Fabric usando ferramentas de linha de comando conhecidas no Linux ou no macOS. O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 

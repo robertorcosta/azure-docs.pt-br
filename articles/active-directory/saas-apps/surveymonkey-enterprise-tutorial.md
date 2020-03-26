@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4238033f94fe8bfdc677c9eb623a2eab3cdf371c
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72532924"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-surveymonkey-enterprise"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SurveyMonkey Enterprise
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o SurveyMonkey Enterprise ao Azure A
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -91,11 +91,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 6. Além do indicado acima, o aplicativo SurveyMonkey Enterprise espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seu requisito.
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | ---------------| --------------- |
     | Email | user.mail |
     | Nome | user.givenname |
-    | Sobrenome | user.surname |
+    | LastName | user.surname |
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 

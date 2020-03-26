@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73476759"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Início Rápido: Criar uma sala de chat usando o Serviço do SignalR
@@ -28,7 +28,7 @@ O código para este tutorial está disponível para download no [repositório Az
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Instale o [SDK do .NET Core](https://www.microsoft.com/net/download/windows).
 * Faça o download ou clone o repositório [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) do GitHub. 
@@ -245,7 +245,7 @@ Nesta seção, você adicionará um ambiente de runtime de desenvolvimento para 
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se for prosseguir para o próximo tutorial, mantenha os recursos criados neste início rápido e reutilize-os.
 

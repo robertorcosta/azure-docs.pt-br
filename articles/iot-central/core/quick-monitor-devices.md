@@ -10,19 +10,19 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77168706"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Início Rápido: Use o Azure IoT Central para monitorar seus dispositivos
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-Este início rápido mostra a você, como um operador, como usar o aplicativo do Microsoft Azure IoT Central para monitorar seus dispositivos e alterar as configurações.
+Este início rápido mostra a você, como um operador, como usar o seu aplicativo do Microsoft Azure IoT Central para monitorar seus dispositivos e alterar as configurações.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você deve concluir os três inícios rápidos anteriores [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md), [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) e [Configurar regras e ações para seu dispositivo](quick-configure-rules.md).
 
@@ -30,7 +30,7 @@ Antes de começar, você deve concluir os três inícios rápidos anteriores [Cr
 
 O Azure IoT Central envia notificações sobre dispositivos como mensagens de email. O construtor adicionou uma regra para enviar uma notificação quando a temperatura em um sensor de dispositivo conectado exceder um limite. Verifique os emails enviados para a conta escolhida pelo construtor para receber notificações.
 
-Abra a mensagem de email recebida no final do início rápido [Configurar regras e ações para seu dispositivo](quick-configure-rules.md). No email, selecione o link para o dispositivo:
+Abra a mensagem de email recebida no final do início rápido [Configurar regras e ações para o seu dispositivo](quick-configure-rules.md). No email, selecione o link para o dispositivo:
 
 ![Email de notificação de alerta](media/quick-monitor-devices/email.png)
 

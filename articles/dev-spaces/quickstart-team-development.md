@@ -7,10 +7,10 @@ description: Este início rápido mostra como fazer o desenvolvimento do Kuberne
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78244953"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolvimento em equipe no Kubernetes – Azure Dev Spaces

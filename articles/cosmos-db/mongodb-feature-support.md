@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72754995"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.2): sintaxe e recursos compatíveis
@@ -38,7 +38,7 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e gravação
 
 - excluir
-- find
+- localizar
 - findAndModify
 - getLastError
 - getMore

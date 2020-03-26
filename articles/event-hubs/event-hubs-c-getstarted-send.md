@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: 5bd4bb66b7e3c3ec37724f8684105befbc9132ff
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73720668"
 ---
 # <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Início Rápido: Enviar eventos para Hubs de Eventos do Azure usando C
@@ -29,7 +29,7 @@ Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um se
 
 Este tutorial descreve como enviar eventos para um hub de eventos usando um aplicativo de console em C. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará do seguinte:
 
 * Um ambiente de desenvolvimento C. Este tutorial considera a pilha gcc em uma VM Linux do Azure com o Ubuntu 14.04.

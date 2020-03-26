@@ -16,13 +16,13 @@ ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 607ad17af42b88737d8ca4ebc379504d9b0b40df
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74073449"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início Rápido: criar uma máquina virtual do Windows no Azure com o PowerShell
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
 
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este início rápido mostra como usar o módulo do Azure PowerShell para implantar uma VM (máquina virtual) no Azure que executa o Windows Server 2016. Você também habilitará o protocolo RDP para a VM e instalará o servidor Web do IIS para mostrar a VM em ação.
 
@@ -91,13 +91,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Quando terminar, feche a conexão RDP com a VM.
 
-## <a name="view-the-web-server-in-action"></a>Ver o servidor web em ação
+## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 
 Com o IIS instalado e a porta 80 agora aberta na VM pela Internet, use um navegador da Web de sua escolha para exibir a página inicial padrão do IIS. Use o endereço IP público da VM obtido em uma etapa anterior. O seguinte exemplo mostra o site padrão do IIS:
 
 ![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, você poderá usar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados:
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
 ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706428"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por email sobre os eventos do Hub IoT do Azure usando Aplicativos Lógicos e a Grade de Eventos
@@ -20,7 +20,7 @@ A Grade de Eventos do Azure permite que você reaja aos eventos no Hub IoT, disp
 
 Este artigo aborda uma configuração de exemplo que usa o Hub IoT e a Grade de Eventos. No final, você terá um Aplicativo Lógico do Azure configurado para enviar um email de notificação sempre que um dispositivo for adicionado ao seu Hub IoT. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta de email de qualquer provedor de email com suporte pelos Aplicativos Lógicos do Azure Apps, como Office 365 Outlook, Outlook.com ou Gmail. Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores de Aplicativos Lógicos com suporte, consulte a [Visão geral dos conectores](https://docs.microsoft.com/connectors/)
 * Uma conta ativa do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -237,7 +237,7 @@ Teste seu aplicativo lógico criando um novo dispositivo para ativar um email de
 
 Em vez de usar o Portal do Azure, é possível realizar as etapas do Hub IoT usando a CLI do Azure. Para obter detalhes, consulte as páginas da CLI do Azure para [criar uma assinatura de evento](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial usou recursos que incorrem em encargos na sua assinatura do Azure. Quando terminar de experimentar o tutorial e testar seus resultados, desabilite ou exclua recursos que você não deseja manter. 
 

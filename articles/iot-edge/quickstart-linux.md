@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e2dd17a324c8920f44e972987508352a69383bb9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.openlocfilehash: 52258a8bc287df36158ec143e4aad74c34455ea4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893320"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80236080"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início rápido: implantar seu primeiro módulo de IoT Edge em um dispositivo Linux Virtual
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux
 
 Teste o Azure IoT Edge neste início rápido implantando um código em contêineres em um dispositivo virtual IoT Edge. O IoT Edge permite que você gerencie remotamente o código em seus dispositivos para que você possa enviar mais cargas de trabalho para a borda. Para este início rápido, recomendamos o uso de uma máquina virtual do Azure para o dispositivo IoT Edge, o que permitirá criar rapidamente um computador de teste com todos os pré-requisitos instalados e, em seguida, excluí-lo quando você terminar.
 
@@ -45,7 +45,7 @@ Adicione a extensão do Azure IoT à instância do shell de nuvem.
    
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Recursos de nuvem:
 
@@ -138,7 +138,7 @@ Se você estiver executando o IoT Edge no computador local ou em um dispositivo 
 
 O restante dos comandos neste início rápido ocorrem em seu dispositivo IoT Edge propriamente dito, para que você possa ver o que está acontecendo no dispositivo. Se você estiver usando uma máquina virtual, conecte-se a ela agora usando o endereço IP público que foi emitido como saída pelo comando de criação. Também é possível encontrar o endereço IP público na página de visão geral da máquina virtual no portal do Azure. Use o comando a seguir para se conectar à sua máquina virtual. Substitua `{azureuser}` se você tiver usado um nome de usuário diferente daquele sugerido nos pré-requisitos. Substitua `{publicIpAddress}` pelo endereço do seu computador.
 
-   ```azurecli-interactive
+   ```console
    ssh azureuser@{publicIpAddress}
    ```
 

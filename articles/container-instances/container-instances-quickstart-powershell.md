@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9901b3f18973365dc9ceb8c85ff8587b6c2ea894
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74533617"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando o Azure PowerShell
@@ -89,7 +89,7 @@ Quando o `ProvisioningState` do contêiner for **Êxito**, navegue até o `Fqdn`
 
 ![IIS implantado usando as Instâncias de Contêiner do Azure exibido no navegador][qs-powershell-01]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao concluir o contêiner, remova-o usando o cmdlet [Remove-AzContainerGroup][Remove-AzContainerGroup]:
 

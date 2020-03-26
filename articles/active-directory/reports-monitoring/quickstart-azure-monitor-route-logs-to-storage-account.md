@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007856"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Arquivar logs do Azure AD em uma conta de armazenamento do Azure
 
 Neste tutorial, você aprende a definir as configurações de diagnóstico do Azure Monitor para encaminhar logs do Azure AD (Active Directory) para uma conta de armazenamento do Azure.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 Para usar esse recurso, você precisa de:
 
@@ -38,7 +38,7 @@ Para usar esse recurso, você precisa de:
 
 ## <a name="archive-logs-to-an-azure-storage-account"></a>Arquivar os logs para uma conta de armazenamento do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione **Azure Active Directory** > **Atividade** > **Logs de auditoria**. 
 
@@ -75,6 +75,6 @@ Para usar esse recurso, você precisa de:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Interpretar o esquema de trilhas de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretar o esquema de logs de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpretar o esquema de logs de entrada no Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Perguntas frequentes e problemas conhecidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

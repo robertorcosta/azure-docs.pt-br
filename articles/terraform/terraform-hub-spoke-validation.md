@@ -4,10 +4,10 @@ description: Tutorial para validar a topologia de rede de hub e spoke com todas 
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 9ba4780c59e5e9da4999573abbc08ecd2738a2cd
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159197"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Tutorial: Validar uma rede hub e spoke no Azure usando o Terraform
@@ -23,7 +23,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Verificar a conectividade entre redes diferentes
 > * Usar o Terraform para destruir todos os recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
@@ -118,7 +118,7 @@ Esta seção mostra como testar a conectividade do ambiente local simulado para 
 
 Para saber mais sobre como resolver erros de VPN, confira o artigo [Solucionar problemas de uma conexão VPN híbrida](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados na série de tutoriais.
 

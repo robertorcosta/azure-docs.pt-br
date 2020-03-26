@@ -8,13 +8,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68726451"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início Rápido: Carregar, baixar e listar blobs usando Go
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, baixar e listar blobs usando Go
 
 Neste início rápido, você aprenderá a usar a linguagem de programação Go para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. 
 
@@ -147,7 +147,7 @@ handleErrors(err)
 
 O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são utilizados com mais frequência e são usados nesse guia de início rápido.  
 
-Para carregar um arquivo em um blob, abra o arquivo usando **os.Open**. Em seguida, você pode carregar o arquivo no caminho especificado usando uma das APIs REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
+Para carregar um arquivo em um blob, abra o arquivo usando **os.Open**. Depois, você pode carregar o arquivo no caminho especificado usando uma das APIs REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 Como alternativa, o SDK oferece [APIs de alto nível](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que são criadas sobre as APIs REST de nível inferior. Por exemplo, a função ***UploadFileToBlockBlob*** usa operações StageBlock (PutBlock) para carregar um arquivo em partes, simultaneamente, para otimizar a taxa de transferência. Se o arquivo for menor que 256 MB, ele usa o Upload (PutBlob) para concluir a transferência em uma única transação.
 
@@ -224,7 +224,7 @@ _, err = downloadedData.ReadFrom(bodyStream)
 handleErrors(err)
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Se você não precisar mais dos blobs carregados neste início rápido, poderá excluir todo o contêiner usando o método **Delete**. 
 
 ```go

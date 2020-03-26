@@ -4,19 +4,21 @@ description: Saiba como criar rapidamente um cluster do Kubernetes usando um mod
 services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.custom: mvc
-ms.openlocfilehash: 9c4a79f196cc0737ddc9490f2fedda99961289f4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273785"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80129464"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando um modelo do Azure Resource Manager
 
 O AKS (Serviço de Kubernetes do Azure) é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Neste início rápido, você implantará um cluster do AKS usando um modelo do Azure Resource Manager. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância do Redis é executado no cluster.
 
 ![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Este guia de início rápido pressupõe uma compreensão básica dos conceitos do Kubernetes. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
 
@@ -68,13 +70,21 @@ Anote a *appId* e a *senha*. Esses valores serão usados nas próximas etapas.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
-O modelo usado neste início rápido é para [implantar um cluster do Serviço de Kubernetes do Azure](https://azure.microsoft.com/resources/templates/101-aks/). Para obter mais amostras do AKS, confira o site de [modelos de início rápido do AKS][aks-quickstart-templates].
+### <a name="review-the-template"></a>Examinar o modelo
+
+O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-aks/).
+
+:::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
+
+Para obter mais amostras do AKS, confira o site de [modelos de início rápido do AKS][aks-quickstart-templates].
+
+### <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo.
 
     [![Implantar no Azure](./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
-2. Selecione ou insira os seguintes valores.  
+2. Selecione ou insira os seguintes valores.
 
     Para este início rápido, deixe os valores padrão para *Tamanho em GB do Disco do Sistema Operacional*, *Contagem de Agentes*, *Tamanho da VM do Agente*, *Tipo de Sistema Operacional* e *Versão do Kubernetes*. Forneça seus próprios valores para os seguintes parâmetros de modelo:
 
@@ -95,7 +105,9 @@ O modelo usado neste início rápido é para [implantar um cluster do Serviço d
 
 Leva alguns minutos para o cluster do AKS ser criado. Aguarde até que o cluster seja implantado com êxito antes de passar para a próxima etapa.
 
-## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
+## <a name="validate-the-deployment"></a>Validar a implantação
+
+### <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 
 Para gerenciar um cluster do Kubernetes, use [kubectl][kubectl], o cliente de linha de comando do Kubernetes. Se você usar o Azure Cloud Shell, o `kubectl` já estará instalado. Para instalar o `kubectl` localmente, use o comando [az aks install-cli][az-aks-install-cli]:
 
@@ -124,7 +136,7 @@ aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
 aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 ```
 
-## <a name="run-the-application"></a>Executar o aplicativo
+### <a name="run-the-application"></a>Executar o aplicativo
 
 Um arquivo de manifesto do Kubernetes define um estado desejado para o cluster, como as imagens de contêiner a serem executadas. Neste início rápido, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo Azure Vote. Esse manifesto inclui duas [implantações do Kubernetes][kubernetes-deployment] – uma para os aplicativos de exemplo do Azure Vote Python e outra para uma instância do Redis. Dois [Serviços de Kubernetes][kubernetes-service] também são criados – um serviço interno para a instância do Redis e um serviço externo para acessar o aplicativo Azure Vote na Internet.
 
@@ -233,7 +245,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Testar o aplicativo
+### <a name="test-the-application"></a>Testar o aplicativo
 
 Quando o aplicativo é executado, um serviço de Kubernetes expõe o front-end do aplicativo à Internet. A conclusão desse processo pode levar alguns minutos.
 
@@ -260,7 +272,7 @@ Para ver o aplicativo Azure Vote em ação, abra um navegador da Web no endereç
 
 ![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-## <a name="delete-cluster"></a>Excluir cluster
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o cluster não for mais necessário, use o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
 

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77016367"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de monitoramento da qualidade de água no Azure IoT Central
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar trabalhos.
 > * Personalizar a identidade visual do aplicativo usando white labeling.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Recomendamos que você tenha uma assinatura do Azure para concluir este tutorial. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
 

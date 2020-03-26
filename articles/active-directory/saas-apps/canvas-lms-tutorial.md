@@ -17,10 +17,10 @@ ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3ce5cff0de2939c25400d1d63138b23bc6c9822
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74232042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Azure Active Directory com o Canvas
@@ -35,7 +35,7 @@ A integração do Canvas ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Canvas, você precisa dos seguintes itens:
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Canvas, realize as seguintes et
 
 3. No painel de navegação à esquerda, selecione **Autenticação** e clique em **Adicionar Nova Config. do SAML**.
 
-    ![Autenticação](./media/canvas-lms-tutorial/ic775991.png "Authentication")
+    ![Autenticação](./media/canvas-lms-tutorial/ic775991.png "Autenticação")
 
 4. Na página de integração atual, execute as seguintes etapas:
 

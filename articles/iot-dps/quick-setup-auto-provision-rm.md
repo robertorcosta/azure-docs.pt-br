@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74969574"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
@@ -20,7 +20,7 @@ ms.locfileid: "74969574"
 É possível usar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de nuvem do Azure necessários para o provisionamento dos dispositivos. Essas etapas mostram como criar um Hub IoT, um novo Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços usando um modelo do Azure Resource Manager. Este início rápido usa [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) executar o programático as etapas necessárias para criar um grupo de recursos e implantar o modelo, mas você pode facilmente usar o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby ou outras linguagens de programação para executar essas etapas e implantar seu modelo. 
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Este Início Rápido requer que você execute a CLI do Azure localmente. Você deve ter a CLI do Azure versão 2.0 ou posterior instalada. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, consulte [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -318,7 +318,7 @@ Use os seguintes comandos da CLI do Azure para implantar seus modelos e verifica
     ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados nesse início rápido. Caso não planeje continuar, você pode usar a CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um hub IoT ou um serviço de provisionamento, ou excluir um grupo de recursos e todos os seus recursos.
 

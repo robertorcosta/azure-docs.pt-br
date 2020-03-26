@@ -17,11 +17,11 @@ ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7a256fc5268c10dd05a2cf58747107cb26c3ced9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716566"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222243"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implantar um aplicativo altamente disponível no Linux com a CLI do Azure
 

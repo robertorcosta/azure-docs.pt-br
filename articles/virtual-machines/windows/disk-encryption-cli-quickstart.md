@@ -7,10 +7,10 @@ ms.service: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.openlocfilehash: 9bbe74bd2f3137443b4e239201c604d9de52582e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72245686"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Início Rápido: Criar e criptografar uma VM do Windows com a CLI do Azure
@@ -71,7 +71,7 @@ az keyvault create --name "myKV" --resource-group "myResourceGroup" --location e
 
 ## <a name="encrypt-the-virtual-machine"></a>Criptografar a máquina virtual
 
-Criptografe sua VM com [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-latest), fornecendo ao Cofre de chaves um nome exclusivo para o parâmetro --disk-encryption-keyvault.
+Criptografe sua VM com [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-latest), fornecendo um nome exclusivo ao Key Vault com o parâmetro --disk-encryption-keyvault.
 
 ```azurecli-interactive
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
@@ -89,7 +89,7 @@ Você verá o seguinte retornado na saída:
 "EncryptionOperation": "EnableEncryption"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, a VM e o Key Vault. 
 

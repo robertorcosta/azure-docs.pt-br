@@ -5,23 +5,23 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 872b2a29444e5278db34ce44741e2ca90d885702
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74456378"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Início Rápido: Criar um registro de contêiner privado do Docker usando o Azure PowerShell
 
 O Registro de Contêiner do Azure é um serviço de registro de contêiner do Docker privado e gerenciado para gerar, armazenar e fornecer imagens de contêiner de Docker. Neste início rápido, você aprende a criar um registro de contêiner do Azure usando o PowerShell. Em seguida, use os comandos do Docker para efetuar push de uma imagem de contêiner no Registro e, por fim, efetuar pull e executar a imagem do seu Registro.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Este início rápido requer o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para determinar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
-Você também deve ter o Docker instalado localmente. O docker fornece pacotes para sistemas [macOS][docker-mac], [Windows][docker-windows] [Linux][docker-linux].
+Você também deve ter o Docker instalado localmente. O docker fornece pacotes para sistemas [macOS][docker-mac], [Windows][docker-windows][Linux][docker-linux].
 
 Como o Azure Cloud Shell não inclui todos os componentes de Docker necessários (o daemon `dockerd`), você não pode usar o Cloud Shell para este guia de início rápido.
 
@@ -73,7 +73,7 @@ O comando retorna `Login Succeeded` na conclusão.
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar de trabalhar com os recursos criados neste guia de início rápido, use o comando [Remove-AzResourceGroup][Remove-AzResourceGroup] para remover o grupo de recursos, o registro de contêiner e as imagens de contêiner armazenadas lá:
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
 ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73664489"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Integrar computadores Linux à Central de Segurança do Azure
@@ -26,7 +26,7 @@ Depois de integrar suas assinaturas do Azure, é possível habilitar a Central d
 
 Este início rápido mostra como instalar o agente em um computador Linux.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Você deverá estar no tipo de preço Standard da Central de Segurança antes de começar este guia de início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -70,7 +70,7 @@ Agora você pode monitorar suas VMs do Azure e computadores não Azure em um ún
 
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) VM do Azure
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, você poderá remover o agente do computador com Linux.
 
 Para remover o agente:

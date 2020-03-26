@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
 ms.openlocfilehash: ee1b803459e0c81b86021b617a29e0b29ee19909
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74976835"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Início Rápido: Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
@@ -136,7 +136,7 @@ Esta seção mostra como criar um aplicativo de console .NET Core que adiciona u
    Console.ReadLine();
    ```
 
-1. Compilar a solução.
+1. Compile a solução.
 
 ## <a name="run-the-individual-enrollment-sample"></a>Executar o exemplo de registro individual
   
@@ -152,7 +152,7 @@ Selecione a entrada para verificar a chave de endosso e outras propriedades da e
 
 Caso esteja seguindo as etapas no início rápido [Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo C#](quick-create-simulated-device-tpm-csharp.md), você pode continuar com as etapas restantes nesse início rápido para registrar o dispositivo simulado. Certifique-se de ignorar as etapas para criar um registro individual usando o portal do Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender explorar a amostra do serviço C#, não limpe os recursos criados neste início rápido. Caso contrário, use as seguintes etapas para excluir todos os recursos criados por este início rápido.
 

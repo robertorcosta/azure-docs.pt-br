@@ -17,10 +17,10 @@ ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad06d2f695109866bab60502a67f0d2c2f425477
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68480259"
 ---
 # <a name="tutorial-integrate-cognidox-with-azure-active-directory"></a>Tutorial: Integrar o Cognidox ao Azure Active Directory
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Cognidox ao Azure AD (Azure Active
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -101,7 +101,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 6. Além do indicado acima, o aplicativo Cognidox espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção Declarações de Usuário da caixa de diálogo Atributos de Usuário, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo: 
 
-    | NOME | Namespace  |  Transformação | Parâmetro 1 |
+    | Nome | Namespace  |  Transformação | Parâmetro 1 |
     | ---------------| --------------- | --------- |
     | wanshort | http://appinux.com/windowsaccountname2 | ExtractMailPrefix() | user.userprincipalname |
 

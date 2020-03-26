@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 6b3375ea8c82ce916f3d6a5e0e29f2845400cc76
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d01d749300c6ad07e498c75c9487b554810e68cd
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117770"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79454067"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -54,17 +54,17 @@ Para concluir este tutorial:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Se você não tiver registrado o provedor de recursos da Grade de Eventos em sua assinatura, verifique se que ele está registrado.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.EventGrid
-```
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Caso opte por instalar e usar a CLI localmente, este tutorial exigirá a CLI do Azure versão 2.0.14 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 Se você não estiver usando o Cloud Shell, primeiro você deve entrar usando `az login`.
+
+Se você não tiver registrado o provedor de recursos da Grade de Eventos em sua assinatura, verifique se que ele está registrado.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 

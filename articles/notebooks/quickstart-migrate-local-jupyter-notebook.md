@@ -4,10 +4,10 @@ description: Transfira rapidamente um Jupyter notebook para a versão prévia do
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77064318"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Início Rápido: Migrar um Jupyter notebook local na versão prévia do Azure Notebooks
@@ -18,7 +18,7 @@ Os Jupyter notebooks no próprio computador são acessíveis apenas para você. 
 
 Ao migrar seus notebooks locais ou baseados em repositório para o Azure Notebooks, você pode compartilhá-los instantaneamente com seus colaboradores, que precisam apenas de um navegador para ver e executar os notebooks. Se eles entrarem no Azure Notebooks, também poderão fazer alterações.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um [Jupyter notebook](https://jupyter-notebook.readthedocs.io) no computador local ou em outra URL de arquivo acessível. 
 

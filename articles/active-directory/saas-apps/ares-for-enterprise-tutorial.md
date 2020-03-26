@@ -17,10 +17,10 @@ ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9a335b5567d605be1c029c9c7731adb281e240f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Tutorial: Integração do Microsoft Azure Active Directory com o ARES for Enterprise
@@ -35,7 +35,7 @@ A integração do ARES for Enterprise com o Azure AD oferece os benefícios a se
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o ARES for Enterprise, você precisa dos itens a seguir:
 
@@ -185,5 +185,5 @@ Ao clicar no bloco do ARES for Enterprise no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

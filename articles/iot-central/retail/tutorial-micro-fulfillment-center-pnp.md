@@ -8,17 +8,17 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 01/09/2020
 ms.openlocfilehash: 93906f582f1edc351088f8b4c453bf9ebda54f83
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77369883"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implantar e seguir passo a passo o modelo de aplicativo de microcentral de atendimento
 
 Neste tutorial, você usará o modelo de aplicativo de microcentral de atendimento do Azure IoT Central para criar uma solução de varejo. Você aprenderá a implantar o modelo, saberá o que ele inclui e o que você poderá fazer em seguida.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir esta série de tutoriais, você precisará ter uma assinatura do Azure. Opcionalmente, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application"></a>Criar um aplicativo 

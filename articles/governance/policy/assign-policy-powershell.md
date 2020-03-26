@@ -4,10 +4,10 @@ description: Neste início rápido, use o Azure PowerShell para criar uma atribu
 ms.date: 11/25/2019
 ms.topic: quickstart
 ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978302"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando o Azure PowerShell
@@ -17,7 +17,7 @@ A primeira etapa para compreender a conformidade no Azure é identificar o statu
 O módulo do Azure PowerShell é usado para gerenciar recursos do Azure da linha de comando do ou em scripts.
 Este guia explica como usar o módulo Az para criar uma atribuição de política.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

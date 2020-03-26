@@ -9,18 +9,18 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
 ms.openlocfilehash: 6e453201eb499f65ee7f3b8c17cbf0e5127182b0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74766371"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Banco de Dados do Azure para PostgreSQL – Servidor único: Usar PHP para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo [PHP](https://secure.php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você esteja familiarizado com o desenvolvimento usando PHP e que tenha começado a trabalhar recentemente com o Banco de Dados do Azure para PostgreSQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
-- [Criar Banco de dados - Portal](quickstart-create-server-database-portal.md)
+- [Criar BD – Portal](quickstart-create-server-database-portal.md)
 - [Criar Banco de dados - CLI do Azure](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>Instalar o PHP
@@ -152,7 +152,7 @@ Use o código a seguir para conectar-se e atualizar os dados usando uma instruç
 
 O método de chamada de código [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) para se conectar ao Banco de Dados do Azure para PostgreSQL. Em seguida, ele chama o método [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) para executar um comando e [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) para verificar os detalhes em caso de erro. Em seguida, ele chama o método [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) para fechar a conexão.
 
-Substitua os parâmetros `$host`, `$database`, `$user` e `$password` pelos seus próprios valores. 
+Substitua os parâmetros `$host`, `$database`, `$user`, e `$password` pelos seus próprios valores. 
 
 ```php
 <?php

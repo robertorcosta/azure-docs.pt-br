@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671902"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215984"
 ---
 # <a name="what-is-conditional-access"></a>O que é Acesso Condicional?
 
@@ -26,7 +26,7 @@ O acesso condicional é a ferramenta usada pelo Azure Active Directory para reun
 
 ![Sinal condicional conceitual mais decisão para obter a imposição](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-Em sua definição mais simples, as políticas de acesso condicional são instruções if-then, se um usuário quiser acessar um recurso, então ele deverá concluir uma ação. Exemplo: um gerente de folha de pagamento deseja acessar o aplicativo de folha de pagamento e é necessário para executar a autenticação multifator para acessá-lo.
+Em sua definição mais simples, as políticas de acesso condicional são instruções if-then, se um usuário quiser acessar um recurso, então ele deverá concluir uma ação. Exemplo: Um gerente de folha de pagamento deseja acessar o aplicativo de folha de pagamento e deve executar a autenticação multifator para acessá-lo.
 
 Os administradores enfrentam dois objetivos principais:
 

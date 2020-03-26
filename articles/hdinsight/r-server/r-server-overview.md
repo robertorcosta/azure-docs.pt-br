@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 02/10/2020
 ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77122361"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que são os Serviços de ML no Azure HDInsight
@@ -23,7 +23,7 @@ O ML Services no HDInsight fornece os recursos mais recentes para análise de R 
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los nos nós do cluster usando os contextos de cálculo Hadoop Map Reduce ou Apache Spark do ScaleR.
 
-Os modelos ou previsões que resultam de análises podem ser baixados para uso local. Eles também podem ser operacionalizados em outro lugar no Azure, particularmente, por meio do [serviço Web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) do [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
+Os modelos ou previsões que resultam de análises podem ser baixados para uso local. Eles também podem ser operacionalizados em outro lugar no Azure, particularmente, por meio do [serviço Web](https://studio.azureml.net) do [Azure Machine Learning Studio (clássico)](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introdução ML Services no HDInsight
 
@@ -58,7 +58,7 @@ Os Serviços ML no HDInsight fornecem os seguintes benefícios:
 
 Os seguintes recursos estão incluídos nos Serviços ML no HDInsight.
 
-| Categoria da funcionalidade | Descrição |
+| Categoria da funcionalidade | DESCRIÇÃO |
 |------------------|-------------|
 | R habilitado | [pacotes R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) para soluções escritas em R, com uma distribuição de código aberto de R e infraestrutura de tempo de execução para execução de scripts. |
 | Python habilitado | [Módulos Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) para soluções escritas em Python, com uma distribuição de software livre do Python e infraestrutura em tempo de execução para execução de scripts.

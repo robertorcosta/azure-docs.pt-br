@@ -17,10 +17,10 @@ ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71d3078b553843922cd51e4e0f43ea84b6dcde16
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74170759"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tinfoil-security"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TINFOIL SECURITY
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o TINFOIL SECURITY ao Azure AD (Azur
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -91,7 +91,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo Visitly espera que mais alguns atributos sejam passados novamente na resposta SAML, os quais são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
-    | NOME | Atributo de Origem |
+    | Nome | Atributo de Origem |
     | ------------------- | -------------|
     | accountid | UXXXXXXXXXXXXX |
 
@@ -146,7 +146,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure, con
 
 1. Na barra de ferramentas na parte superior, clique em **Minha Conta**.
 
-    ![Painel](./media/tinfoil-security-tutorial/ic798971.png "painel")
+    ![Painel](./media/tinfoil-security-tutorial/ic798971.png "Painel")
 
 1. Clique em **Segurança**.
 

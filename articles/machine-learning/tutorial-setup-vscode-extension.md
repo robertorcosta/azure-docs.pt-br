@@ -10,10 +10,10 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 02/24/2020
 ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77604821"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configurar a extensão do Azure Machine Learning para Visual Studio Code
@@ -27,7 +27,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 > * Entrar em sua conta do Azure por meio do Visual Studio Code
 > * Usar a extensão do Azure Machine Learning para executar um script de exemplo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure. Caso não tenha uma, inscreva-se para experimentar a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 - Visual Studio Code. Se você não tiver, [instale-o](https://code.visualstudio.com/docs/setup/setup-overview).

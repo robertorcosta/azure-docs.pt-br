@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327568"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Azure HDInsight
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma conta de armazenamento do Azure Data Lake Storage Gen2 configurada para HDInsight**
 
@@ -50,7 +50,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 2. Na página, selecione os valores a seguir:
 
-   | NOME | Valor |
+   | Nome | Valor |
    | --- | --- |
    | Filtrar por ano |2013 |
    | Filtrar por período |Janeiro |
@@ -335,7 +335,7 @@ Nas seções anteriores, você copiou os dados transformados no local `abfs://<c
 
 5. Insira `exit` para sair do utilitário tsql.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Todos os recursos usados neste tutorial são preexistentes. Nenhuma limpeza é necessária.
 

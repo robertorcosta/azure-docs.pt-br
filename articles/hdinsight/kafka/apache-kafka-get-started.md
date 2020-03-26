@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/24/2020
-ms.openlocfilehash: 9e220c7a7813f89eacab5137362e39153d2b334a
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 90f7010970f70379c8adecc4214c44d896a1beaf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207176"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130233"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Início Rápido: Criar cluster do Apache Kafka no Azure HDInsight usando o portal do Azure
 
@@ -57,7 +57,7 @@ Para criar um cluster do Apache Kafka no HDInsight, use as seguintes etapas:
     |Nome de usuário do Secure Shell (SSH) | O nome de usuário padrão é **sshuser**.  Você pode fornecer outro nome para o nome de usuário de SSH. |
     |Usar senha de logon do cluster para SSH| Marque essa caixa de seleção para usar a mesma senha para o usuário SSH que aquela fornecida para o usuário de logon do cluster.|
 
-   ![Noções básicas de criação de cluster no portal do Azure](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
+   ![Noções básicas de criação de cluster no portal do Azure](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
 
     Cada região do Azure (local) fornece _domínios de falha_. Um domínio de falha é um agrupamento lógico de hardware subjacente em um data center do Azure. Cada domínio de falha tem um comutador de rede e uma fonte de alimentação em comum. As máquinas virtuais e os discos gerenciados que implementam os nós em um cluster HDInsight são distribuídos entre esses domínios de falha. Essa arquitetura limita o possível impacto de falhas físicas de hardware.
 
@@ -132,7 +132,7 @@ Para criar um cluster do Apache Kafka no HDInsight, use as seguintes etapas:
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
-## <a id="getkafkainfo"></a>Obter as informações de host do Apache Zookeeper e do Broker
+## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Obter as informações de host do Apache Zookeeper e do Broker
 
 Ao trabalhar com Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *Broker*. Esses hosts são usados com a API do Apache Kafka e muitos dos utilitários fornecidos com o Kafka.
 

@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: redis-cache
 author: wesmc7777
 ms.service: cache
@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 3c064aa8e57a77b96161da06847f543816be1217
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73719103"
 ---
 1. Para criar um cache, entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso**. 

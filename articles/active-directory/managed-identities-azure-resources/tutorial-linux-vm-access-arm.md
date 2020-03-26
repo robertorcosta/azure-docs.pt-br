@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ee10a73579e8533cd14ecfeeebab44e726ba16b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74326330"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Azure Resource Manager
@@ -32,7 +32,7 @@ Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma V
 > * Conceder o acesso da VM a um Grupo de Recursos no Azure Resource Manager 
 > * Obter um token de acesso usando a identidade da máquina virtual e usá-la para chamar o Azure Resource Manager 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -40,7 +40,7 @@ Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma V
 
 Usando a identidades gerenciadas para recursos do Azure, seu código pode obter tokens de acesso para autenticar para recursos que oferecem suporte à autenticação do Azure AD. A API do Azure Resource Manager oferece suporte à autenticação do Azure AD. Primeiro, é preciso conceder acesso de identidade desta VM a um recurso no Azure Resource Manager, neste caso, o Grupo de Recursos no qual a VM está contida.  
 
-1. Navegue até a guia para **Grupo de Recursos**.
+1. Navegue até a guia para **Grupos de Recursos**.
 2. Selecione o **Grupo de Recursos** específico criado anteriormente.
 3. Vá para **Controle de acesso (IAM)** no painel esquerdo.
 4. Clique para **Adicionar** uma nova atribuição de função para sua VM. Escolha **Função** como **Leitor**.

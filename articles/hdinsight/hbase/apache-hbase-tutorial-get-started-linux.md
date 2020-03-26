@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71077147"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Usar o Apache HBase no Azure HDInsight
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Usar APIs de REST do HBase usando Curl
 > * Verificar o status do cluster
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -45,7 +45,7 @@ O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cl
 
 2. Na folha **Implantação personalizada**, insira os seguintes valores:
 
-    |Propriedade |DESCRIÇÃO |
+    |Propriedade |Descrição |
     |---|---|
     |Subscription|Selecione sua assinatura do Azure que é usada para criar o cluster.|
     |Resource group|Crie um grupo de gerenciamento de recursos do Azure ou use um existente.|
@@ -88,13 +88,13 @@ No HBase (uma implementação do [Cloud BigTable](https://cloud.google.com/bigta
     hbase shell
     ```
 
-1. Use o comando `create` para criar uma tabela do HBase com famílias de duas colunas. Os nomes de coluna e tabela diferenciam maiúsculas de minúsculas. Digite o seguinte comando:
+1. Use o comando `create` para criar uma tabela do HBase com famílias de duas colunas. Os nomes de coluna e tabela diferenciam maiúsculas de minúsculas. Insira o seguinte comando:
 
     ```hbaseshell
     create 'Contacts', 'Personal', 'Office'
     ```
 
-1. Use o comando `list` para listar todas as tabelas no HBase. Digite o seguinte comando:
+1. Use o comando `list` para listar todas as tabelas no HBase. Insira o seguinte comando:
 
     ```hbase
     list
@@ -109,7 +109,7 @@ No HBase (uma implementação do [Cloud BigTable](https://cloud.google.com/bigta
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-1. Use o comando `scan` para verificar e retornar os dados da tabela `Contacts`. Digite o seguinte comando:
+1. Use o comando `scan` para verificar e retornar os dados da tabela `Contacts`. Insira o seguinte comando:
 
     ```hbase
     scan 'Contacts'
@@ -117,7 +117,7 @@ No HBase (uma implementação do [Cloud BigTable](https://cloud.google.com/bigta
 
     ![Shell do Apache Hadoop HBase do HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
-1. Use o comando `get` para buscar o conteúdo de uma linha. Digite o seguinte comando:
+1. Use o comando `get` para buscar o conteúdo de uma linha. Insira o seguinte comando:
 
     ```hbaseshell
     get 'Contacts', '1000'
@@ -127,7 +127,7 @@ No HBase (uma implementação do [Cloud BigTable](https://cloud.google.com/bigta
 
     Para saber mais sobre o esquema da tabela HBase, confira [Introdução ao projeto de esquema do Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Para obter mais comandos HBase, confira [Guia de referência do Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
-1. Use o comando `exit` para interromper o shell interativo do HBase. Digite o seguinte comando:
+1. Use o comando `exit` para interromper o shell interativo do HBase. Insira o seguinte comando:
 
     ```hbaseshell
     exit
@@ -290,15 +290,15 @@ O HBase em HDInsight é fornecido com uma interface do usuário da Web para moni
 
    - servidores de região
    - mestres de backup
-   - tables
+   - tabelas
    - tarefas
    - atributos de software
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 É recomendável desabilitar as tabelas HBase antes de excluir o cluster para evitar inconsistências. Use o comando `disable 'Contacts'` do HBase. Se não for continuar usando este aplicativo, exclua o cluster do HBase que você criou seguindo estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Na caixa **Pesquisar** na parte superior, digite **HDInsight**.
 1. Selecione **Clusters do HDInsight** em **Serviços**.
 1. Na lista de clusters do HDInsight que aparece, clique em **…** ao lado do cluster que você criou para este tutorial.

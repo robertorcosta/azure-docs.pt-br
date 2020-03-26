@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 229ed2b00582f2c73ce68c47406d68325abda736
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718841"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutorial: Tutorial do REST de Retransmissão de WCF do Azure
@@ -38,7 +38,7 @@ Você executará as seguintes tarefas neste tutorial:
 > * Hospedar e executar o serviço WCF baseado em REST.
 > * Executar e testar o serviço.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 

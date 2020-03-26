@@ -10,10 +10,10 @@ ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888898"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implantar aplicativos Node.js da plataforma Azure Cosmos DB com o DevOps Projects
@@ -37,7 +37,7 @@ Neste tutorial, você irá:
 > * Fazer commit das alterações no Git e implantá-las automaticamente no Azure
 > * Limpar os recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa de uma assinatura do Azure, que pode ser obtida por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) gratuitamente.
 
@@ -45,7 +45,7 @@ Você precisa de uma assinatura do Azure, que pode ser obtida por meio do [Visua
 
 O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como Azure Cosmos DB, Application Insights, Serviço de Aplicativo e Planos do Serviço de Aplicativo, na assinatura do Azure de sua escolha.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
@@ -140,7 +140,7 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
 > [!NOTE]
 > O procedimento a seguir testa o pipeline de CI/CD fazendo uma alteração de texto simples.
 
-Agora você está pronto para colaborar com uma equipe em seu aplicativo usando um processo de CI/CD que implanta o trabalho mais recente em seu Serviço de Aplicativo. Cada alteração do repositório Git inicia um build no Azure DevOps, e um pipeline de CD executa uma implantação no Azure. Siga o procedimento nesta seção ou use outra técnica para confirmar as alterações ao seu repositório. Por exemplo, é possível clonar o repositório Git em sua ferramenta favorita ou IDE e depois efetuar push nas alterações desse repositório.
+Agora você está pronto para colaborar com uma equipe em seu aplicativo usando um processo de CI/CD que implanta o trabalho mais recente em seu Serviço de Aplicativo. Cada alteração do repositório Git inicia um build no Azure DevOps, e um pipeline de CD executa uma implantação no Azure. Siga o procedimento nesta seção ou use outra técnica para confirmar as alterações em seu repositório. Por exemplo, é possível clonar o repositório Git em sua ferramenta favorita ou IDE e depois efetuar push nas alterações desse repositório.
 
 1. No menu do Azure DevOps, selecione **Repos** e então **Arquivos**. Em seguida, acesse seu repositório.
 
@@ -152,13 +152,13 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
      Após alguns segundos, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status do build no painel do DevOps Projects ou no navegador com sua organização do Azure DevOps.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua os recursos relacionados que você criou quando não precisar mais deles. Use a funcionalidade **Excluir** no painel do DevOps Projects.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu como:
+Você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o DevOps Projects para implantar um aplicativo Node.js da plataforma Azure Cosmos DB
@@ -167,7 +167,7 @@ Você pode modificar esses pipelines de build e de lançamento para atender às 
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Git e implantá-las automaticamente no Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 Confira [Definir seu pipeline de CD (implantação contínua) de várias fases](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
 

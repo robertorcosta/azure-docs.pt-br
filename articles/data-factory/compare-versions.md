@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
 ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74924803"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory com a versão 1 do Data Factory
@@ -30,11 +30,11 @@ A tabela a seguir compara os recursos do Data Factory com os recursos da versão
 | Pipelines | Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Você utiliza startTime, endTime, isPaused para agendar e executar pipelines. | Pipelines são grupos de atividades que são realizadas nos dados. No entanto, o agendamento das atividades no pipeline foi separado em novos recursos de gatilho. Pense em pipelines na versão atual do Data Factory mais como "unidades de fluxo de trabalho" que você agenda separadamente por meio de gatilhos. <br/><br/>Os pipelines não possuem “períodos” de execução de tempo na versão atual do Data Factory. Os conceitos de startTime, endTime e isPaused do Data Factory V1 não estão mais presentes na versão atual do Data Factory. Para saber mais, consulte [Execução e gatilhos de pipelines](concepts-pipeline-execution-triggers.md) e [Pipelines e atividades](concepts-pipelines-activities.md). |
 | Atividades | Atividades definem ações a serem executadas em seus dados dentro de um pipeline. Há suporte para atividades de movimentação de dados (atividade de cópia) e atividades de transformação de dados (como Hive, Pig e MapReduce). | Na versão atual do Data Factory, as atividades ainda são ações definidas em um pipeline. A versão atual do data Factory introduz novas [atividades de fluxo de controle](concepts-pipelines-activities.md#control-flow-activities). Você pode usar essas atividades no fluxo de controle (loop e ramificação). Atividades de movimentação de dados e de transformação de dados com suporte na V1 também têm suporte na versão atual. Você pode definir as atividades de transformação sem usar conjuntos de dados na versão atual. |
 | Movimentação de dados híbridos e distribuição de atividades | Agora chamado de Integration Runtime, o [Gateway de Gerenciamento de Dados](v1/data-factory-data-management-gateway.md), oferecia suporte para a movimentação de dados entre o ambiente local e a nuvem.| O Gateway de Gerenciamento de Dados agora é chamado de Integration Runtime auto-hospedado. Ele fornece a mesma funcionalidade da versão 1. <br/><br/> O Integration Runtime do Azure-SSIS na versão atual do Data Factory também dá suporte à implantação e execução de pacotes SSIS (SQL Server Integration Services) na nuvem. Para obter mais informações, consulte [runtime de integração no Azure Data Factory](concepts-integration-runtime.md).|
-| parâmetros | ND | Parâmetros são pares de chave-valor de configurações somente leitura definidos em pipelines. Você pode passar argumentos para os parâmetros ao executar manualmente o pipeline. Se você estiver usando um gatilho de agendador, o gatilho também poderá passar valores para os parâmetros. As atividades no pipeline consomem os valores de parâmetro.  |
+| parâmetros | NA | Parâmetros são pares de chave-valor de configurações somente leitura definidos em pipelines. Você pode passar argumentos para os parâmetros ao executar manualmente o pipeline. Se você estiver usando um gatilho de agendador, o gatilho também poderá passar valores para os parâmetros. As atividades no pipeline consomem os valores de parâmetro.  |
 | Expressões | O Data Factory V1 permite que você use funções e variáveis de sistema em consultas de seleção de dados e propriedades de atividade/conjunto de dados. | Na versão atual do Data Factory, você pode usar expressões em qualquer lugar em um valor de cadeia de caracteres JSON. Para saber mais, confira [Expressões e funções na versão atual do Data Factory](control-flow-expression-language-functions.md).|
-| Execuções de pipeline | ND | Uma instância única da uma execução do pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Haveria três execuções de pipeline separadas nesse caso. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução de pipeline é um GUID que define exclusivamente essa execução de pipeline específica. As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros que são definidos nos pipelines. |
-| Execuções de atividade | ND | Uma instância de uma execução de atividade em um pipeline. | 
-| Execuções de gatilho | ND | Uma instância de execução de gatilho. Para saber mais, confira [Gatilhos](concepts-pipeline-execution-triggers.md). |
+| Execuções de pipeline | NA | Uma instância única da uma execução do pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Haveria três execuções de pipeline separadas nesse caso. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução de pipeline é um GUID que define exclusivamente essa execução de pipeline específica. As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros que são definidos nos pipelines. |
+| Execuções de atividade | NA | Uma instância de uma execução de atividade em um pipeline. | 
+| Execuções de gatilho | NA | Uma instância de execução de gatilho. Para saber mais, confira [Gatilhos](concepts-pipeline-execution-triggers.md). |
 | Agendamento | O agendamento é baseado em horários de início/término do pipeline e na disponibilidade do conjunto de dados. | Gatilho de agendador ou execução por meio do agendador externo. Para obter mais informações, consulte [Execução e gatilhos de pipelines](concepts-pipeline-execution-triggers.md). |
 
 As seções a seguir fornecem mais informações sobre os recursos da versão atual. 
@@ -71,7 +71,7 @@ Um caso de uso importante nos padrões de ETL são os "carregamentos delta", nos
 ### <a name="other-control-flow-activities"></a>Outras atividades de fluxo de controle
 A seguir estão outras atividades de fluxo de controle com suporte da versão atual do Data Factory. 
 
-Atividade de controle | DESCRIÇÃO
+Atividade de controle | Descrição
 ---------------- | -----------
 [Atividade ForEach](control-flow-for-each-activity.md) | Define um fluxo de controle repetitivo em seu pipeline. Esta atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
 [Atividade da Web](control-flow-web-activity.md) | Chama um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade. 

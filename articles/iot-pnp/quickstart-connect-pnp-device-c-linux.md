@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 8134c0a97f6350cfa2cf616695c5990618455393
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75531242"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub-c-linux"></a>Início Rápido: Conectar um aplicativo do dispositivo de exemplo da versão prévia do IoT Plug and Play com Linux ao Hub IoT (Linux para C)
@@ -23,7 +23,7 @@ Este guia de início rápido mostra como criar um aplicativo de dispositivo IoT 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este guia de início rápido pressupõe que você esteja usando o Ubuntu Linux. As etapas deste tutorial foram testadas com o Ubuntu 18.04.
 

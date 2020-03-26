@@ -7,10 +7,10 @@ ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: 2518de3ad5d0f583cd4962796e4adda5751351df
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74151053"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Início Rápido: Criar e criptografar uma máquina virtual do Windows com o portal do Azure
@@ -21,7 +21,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
@@ -66,7 +66,7 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
 1. Na parte superior da tela de criptografia, clique em **Salvar**. Um pop-up avisará que a VM será reinicializada. Clique em **Sim**.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da máquina virtual, selecione Excluir, em seguida, confirme o nome do grupo de recursos a excluir.
 

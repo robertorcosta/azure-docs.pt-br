@@ -8,11 +8,11 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.openlocfilehash: 6587b6d5ceb18bcc2374594aef91da91f792bb84
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77585927"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Início Rápido: criar um aplicativo de console usando o SDK do .Net V4 para gerenciar recursos de conta da API de SQL do Azure Cosmos DB.
@@ -36,7 +36,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 [Código-fonte da biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/) ou você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso. 
 * [SDK do .NET Core 3](https://dotnet.microsoft.com/download/dotnet-core). Você pode verificar qual versão está disponível em seu ambiente executando `dotnet --version`.
@@ -45,7 +45,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Esta seção orienta a criação de uma conta do Azure Cosmos e a configuração de um projeto que usa a biblioteca de cliente da API do SQL do Azure Cosmos DB para .NET a fim de gerenciar recursos. O código de exemplo descrito neste artigo cria o banco de dados `FamilyDatabase` e os membros da família (cada membro da família é um item) dentro desse banco de dados. Cada membro da família tem propriedades como `Id, FamilyName, FirstName, LastName, Parents, Children, Address,`. A propriedade `LastName` é usada como a chave de partição para o contêiner. 
 
-### <a id="create-account"></a>Criar uma conta do Azure Cosmos
+### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Criar uma conta do Azure Cosmos
 
 Se usar a opção [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) para criar uma conta do Azure Cosmos, você deverá criar uma conta do Azure Cosmos DB do tipo **API do SQL**. Uma conta de teste do Azure Cosmos DB já foi criada para você. Você não precisa criar a conta explicitamente, portanto, você pode ignorar esta seção e ir para a próxima.
 
@@ -82,7 +82,7 @@ az cosmosdb create \
 
 A criação da conta do Azure Cosmos demora um pouco. Quando a operação for bem-sucedida, você verá a saída de confirmação. Após o comando ser concluído com êxito, entre no [portal do Azure](https://portal.azure.com/) e verifique se a conta do Azure Cosmos com o nome especificado existe. Você pode fechar a janela de Azure Cloud Shell após a criação do recurso. 
 
-### <a id="create-dotnet-core-app"></a>Criar um novo aplicativo .NET
+### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>Criar um novo aplicativo .NET
 
 Crie um novo aplicativo .NET em seu IDE ou editor preferido. Abra o prompt de comando do Windows ou uma janela do Terminal no computador local. Você executará todos os comandos nas próximas seções no prompt de comando ou no terminal.  Execute o novo comando dotnet a seguir para criar um novo aplicativo com o nome `todo`. O parâmetro --langVersion define a propriedade LangVersion no arquivo de projeto criado.
 
@@ -110,7 +110,7 @@ Build succeeded.
 Time Elapsed 00:00:34.17
 ```
 
-### <a id="install-package"></a>Instalar pacote Azure Cosmos DB
+### <a name="install-the-azure-cosmos-db-package"></a><a id="install-package"></a>Instalar pacote Azure Cosmos DB
 
 Ainda no diretório do aplicativo, instale a biblioteca de clientes do Azure Cosmos DB para .NET Core usando o comando para adicionar pacote do dotnet.
 
@@ -128,7 +128,7 @@ O aplicativo de exemplo precisa autenticar sua conta do Azure Cosmos. Para auten
 
 1. Abra o painel **Chaves** e copie o **URI** e a **CHAVE PRIMÁRIA** da sua conta. Você adicionará os valores do URI e das chaves em uma variável de ambiente da próxima etapa.
 
-## <a id="object-model"></a>Modelo de objeto
+## <a name="object-model"></a><a id="object-model"></a>Modelo de objeto
 
 Antes de começar a criar o aplicativo, vamos examinar a hierarquia de recursos no Azure Cosmos DB e o modelo de objeto usado para criar e acessar esses recursos. O Azure Cosmos DB cria recursos na seguinte ordem:
 
@@ -147,68 +147,68 @@ Para saber mais sobre a hierarquia de diferentes entidades, confira o artigo [Tr
 * GetItemQueryIterator: esse método cria uma consulta para itens em contêiner em um banco de dados do Azure Cosmos usando uma instrução SQL com valores parametrizados. 
 * DeleteAsync: exclui o banco de dados especificado de sua conta do Azure Cosmos. O método `DeleteAsync` exclui somente o banco de dados.
 
- ## <a id="code-examples"></a>Exemplos de código
+ ## <a name="code-examples"></a><a id="code-examples"></a>Exemplos de código
 
 O código de exemplo descrito neste artigo cria um banco de dados de família em Azure Cosmos DB. O banco de dados da família contém detalhes da família, como nome, endereço, local, pais associados, filhos e animais de estimação. Antes de preencher os dados de sua conta do Azure Cosmos, defina as propriedades de um item da família. Crie uma nova classe chamada `Family.cs` no nível raiz do seu aplicativo de exemplo e adicione o seguinte código a ela:
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Family.cs":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Family.cs)]
 
 ### <a name="add-the-using-directives--define-the-client-object"></a>Adicionar usando as diretivas e definir o objeto de cliente
 
 No diretório do projeto, abra o arquivo `Program.cs` em seu editor e adicione o seguinte usando as diretivas na parte superior do seu aplicativo:
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="Usings":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Usings)]
 
 
 Adicione as variáveis globais a seguir à classe `Program`. Elas incluirão o ponto de extremidade e as chaves de autorização, o nome do banco de dados e o contêiner que você criará. Certifique-se de substituir os valores de chaves de autorização e o ponto de extremidade de acordo com seu ambiente. 
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="Constants":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Constants)]
 
 Por fim, substitua o método `Main`:
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="Main":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Main)]
 
 ### <a name="create-a-database"></a>Criar um banco de dados 
 
 Defina o método `CreateDatabaseAsync` dentro da classe `program.cs`. Esse método cria o `FamilyDatabase`, caso ainda não exista.
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="CreateDatabaseAsync":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=CreateDatabaseAsync)]
 
 ### <a name="create-a-container"></a>Criar um contêiner
 
 Defina o método `CreateContainerAsync` dentro da classe `Program`. Esse método cria o `FamilyContainer`, caso ainda não exista. 
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="CreateContainerAsync":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=CreateContainerAsync)]
 
 ### <a name="create-an-item"></a>Criar um item
 
 Crie um item de família adicionando o método `AddItemsToContainerAsync` com o código a seguir. Você pode usar os métodos `CreateItemAsync` ou `UpsertItemAsync` para criar um item:
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="AddItemsToContainerAsync":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=AddItemsToContainerAsync)]
 
 ### <a name="query-the-items"></a>Consultar os itens
 
 Depois de inserir um item, você pode executar uma consulta para obter os detalhes da família "Martins". O código a seguir mostra como executar a consulta usando diretamente a consulta SQL. A consulta SQL para obter os detalhes da família "Martins" é: `SELECT * FROM c WHERE c.LastName = 'Andersen'`. Defina o método `QueryItemsAsync` dentro da classe `Program` e adicione o seguinte código:
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="QueryItemsAsync":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=QueryItemsAsync)]
 
 ### <a name="replace-an-item"></a>Substituir um item 
 
 Leia um item de família e atualize-o adicionando o método `ReplaceFamilyItemAsync` com o código a seguir.
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="ReplaceFamilyItemAsync":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=ReplaceFamilyItemAsync)]
 
 ### <a name="delete-an-item"></a>Excluir um item 
 
 Exclua um item de família adicionando o método `DeleteFamilyItemAsync` com o código a seguir.
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="DeleteFamilyItemAsync":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=DeleteFamilyItemAsync)]
 
 ### <a name="delete-the-database"></a>Excluir o banco de dados 
 
 Por fim, você pode excluir o banco de dados adicionando o método `DeleteDatabaseAndCleanupAsync` com o seguinte código:
 
-:::code language="csharp" source="~/cosmos-dotnet-v4-getting-started/src/Program.cs" id="DeleteDatabaseAndCleanupAsync":::
+[!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=DeleteDatabaseAndCleanupAsync)]
 
 Depois de adicionar todos os métodos necessários, salve o arquivo `Program`. 
 

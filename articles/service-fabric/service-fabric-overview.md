@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 3c8eb7ead7851c311c79c2f9e9bdc7e703c3af71
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75747494"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Visão geral do Azure Service Fabric
@@ -78,7 +78,7 @@ Ao usar a Malha do Serviço, você pode:
 * Implante aplicativos em segundos, de alta densidade com centenas ou milhares de aplicativos ou contêineres por computador.
 * Implante diferentes versões do mesmo aplicativo lado a lado e atualize cada aplicativo de modo independente.
 * Gerencie o ciclo de vida dos seus aplicativos sem nenhum tempo de inatividade, incluindo atualizações imediatas ou não.
-* Aumente ou reduza o número de nós em um cluster. À medida que você dimensiona nós, seus aplicativos são dimensionados automaticamente.
+* Escale ou reduza horizontalmente o número de nós em um cluster. À medida que você dimensiona nós, seus aplicativos são dimensionados automaticamente.
 * Monitorar e diagnosticar a integridade de seus aplicativos e definir políticas para realizar reparos automáticos.
 * Observe o balanceador de recursos orquestrar a redistribuição de aplicativos no cluster. O Service Fabric se recupera de falhas e otimiza a distribuição a distribuição de carga com base nos recursos disponíveis.
 

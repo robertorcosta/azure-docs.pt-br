@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470336"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79477758"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um Standard Load Balancer para balancear a carga de VM usando a CLI do Azure
 
@@ -58,7 +58,7 @@ Para criar um endereço IP Público zonal no uso da Zona 1:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
-Use ```-SKU Basic``` para criar um IP Público Básico. Os IPs públicos Básicos não são compatíveis com o **Standard** Load Balancer. A Microsoft recomenda usar o **Standard** para cargas de trabalho de produção.
+Use `-SKU Basic` para criar um IP Público Básico. Os IPs públicos Básicos não são compatíveis com o **Standard** Load Balancer. A Microsoft recomenda usar o **Standard** para cargas de trabalho de produção.
 
 > [!IMPORTANT]
 > O restante deste início rápido pressupõe que o SKU **Standard** é escolhido durante o processo de seleção de SKU acima.
@@ -73,7 +73,7 @@ Esta seção fornece detalhes sobre como criar e configurar os componentes do ba
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Criar um Azure Load Balancer com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclua um pool de front-end chamado **myFrontEnd**, um pool de back-end chamado **myBackEndPool** associado com o endereço IP público **myPublicIP** que você criou na etapa anterior. Use ```--sku basic``` para criar um IP Público Básico. A Microsoft recomenda o SKU Standard para cargas de trabalho de produção.
+Criar um Azure Load Balancer com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclua um pool de front-end chamado **myFrontEnd**, um pool de back-end chamado **myBackEndPool** associado com o endereço IP público **myPublicIP** que você criou na etapa anterior. Use `--sku basic` para criar um IP Público Básico. A Microsoft recomenda o SKU Standard para cargas de trabalho de produção.
 
 ```azurecli-interactive
   az network lb create \
@@ -83,7 +83,7 @@ Criar um Azure Load Balancer com [az network lb create](https://docs.microsoft.c
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
-  ```
+```
 
 > [!IMPORTANT]
 > O restante deste início rápido pressupõe que o SKU **Standard** é escolhido durante o processo de seleção de SKU acima.
@@ -133,7 +133,8 @@ Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *m
     --name myVnet \
     --subnet-name mySubnet
 ```
-###  <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
+
+### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
 Para um balanceador de carga padrão, as VMs no endereço de back-end precisam ter NICs que pertençam a um grupo de segurança de rede. Crie um grupo de segurança de rede para definir conexões de entrada para sua rede virtual.
 
@@ -161,6 +162,7 @@ Crie uma regra de grupo de segurança de rede para permitir conexões de entrada
     --access allow \
     --priority 200
 ```
+
 ### <a name="create-nics"></a>Criar NICs
 
 Crie três interfaces de rede com [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associe-as com o endereço IP público e o grupo de segurança de rede. 
@@ -246,11 +248,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 
   az vm create \
     --resource-group myResourceGroupSLB \
@@ -283,6 +285,7 @@ Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az-vm-create).
     --no-wait
 
 ```
+
 Pode demorar alguns minutos para as VMs serem implantadas.
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
@@ -295,16 +298,18 @@ Para obter o endereço IP público do balanceador de carga, use [az network publ
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
-``` 
+```
+
    ![Testar o balanceador de carga](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupSLB
 ```
+
 ## <a name="next-steps"></a>Próximas etapas
 Neste início rápido, você criou um Standard Load Balancer, anexou VMs a ele, configurou a regra de tráfego do balanceador de carga, a investigação de integridade e testou o balanceador de carga. Para obter mais informações sobre o Azure Load Balancer, prossiga para os [tutoriais do Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 

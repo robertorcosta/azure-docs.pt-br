@@ -8,10 +8,10 @@ ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75371931"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
@@ -30,7 +30,7 @@ O armazenamento de blobs do Azure fornece um serviço escalonável para armazena
 
 A [Nomenclatura da partição](../blobs/storage-performance-checklist.md#partitioning) é outro fator potencialmente importante durante a criação de um aplicativo de alto desempenho usando blobs. Em tamanhos de bloco maiores ou iguais a 4 MiB, [blobs de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) são usados e a nomenclatura da partição não afetará o desempenho. Em tamanhos de bloco inferiores a 4 MiB, o armazenamento do Azure usa um esquema de particionamento com base em intervalo de escala e balanceamento de carga. Essa configuração significa que arquivos com convenções de nomenclatura semelhantes ou prefixos vão para a mesma partição. Essa lógica inclui o nome do contêiner em que os arquivos estão sendo carregados. Neste tutorial, você deve usar arquivos que tenham GUIDs como nomes bem como conteúdo gerado aleatoriamente. Eles são então carregados em cinco contêineres diferentes com nomes aleatórios.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável][previous-tutorial].
 
@@ -66,7 +66,7 @@ O aplicativo cria cinco contêineres nomeados de maneira aleatória e começa a 
 
 Além de definir as configurações de limite de thread e conexão, o [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) para o método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) é configurado para usar o paralelismo e desabilitar a validação do hash MD5. Os arquivos são carregados em blocos de 100 mb. Essa configuração fornece o melhor desempenho, mas pode ser custosa se usada em uma rede de baixa performance, já que se houver uma falha o bloco inteiro de 100 mb é repetido.
 
-|Propriedade|Valor|DESCRIÇÃO|
+|Propriedade|Valor|Descrição|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| A configuração divide o blob em blocos ao carregar. Para o melhor desempenho, esse valor deve ser oito vezes o número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Essa propriedade desabilita a verificação de hash MD5 do conteúdo carregado. Desabilitar a validação de MD5 produz uma transferência mais rápida. Mas não confirma a validade ou a integridade dos arquivos que estão sendo transferidos.   |

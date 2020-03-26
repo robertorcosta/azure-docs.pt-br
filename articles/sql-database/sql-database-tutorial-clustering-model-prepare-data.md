@@ -14,19 +14,19 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68639978"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparar dados para executar o clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 
 Na primeira parte desta série de tutoriais com três partes, você importará e preparará os dados de um Banco de Dados SQL do Azure usando o R. Mais adiante nesta série, você usará esses dados para treinar e implantar um modelo de clustering no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
-O *clustering* pode ser explicado como a organização de dados em grupos, nos quais os membros de um grupo são semelhantes de alguma forma.
-Você usará o algoritmo **K-means** para executar o clustering de clientes em um conjunto de dados de compras e devoluções de produto. Agrupando os clientes, você pode concentrar seus esforços de marketing com mais eficiência tendo como alvo grupos específicos.
-O clustering K-means é um algoritmo de *aprendizado não supervisionado* que procura padrões nos dados com base nas semelhanças.
+O *clustering* pode ser explicado como organizador de dados em grupos, nos quais os membros de um grupo são semelhantes de algum modo.
+Você usará o algoritmo **K-Means** para executar o clustering de clientes em um conjunto de dados de compras e devoluções de produtos. Ao realizar o clustering de clientes, você pode concentrar seus esforços de marketing com mais eficiência, direcionando-os a grupos específicos.
+O clustering de K-Means é um algoritmo de *aprendizado não supervisionado* que procura padrões em dados com base em semelhanças.
 
 Na primeira e na segunda parte desta série, você desenvolverá alguns scripts do R no RStudio para preparar os dados e treinar um modelo de machine learning. Em seguida, na terceira parte, você executará esses scripts do R em um banco de dados SQL usando os procedimentos armazenados.
 
@@ -43,7 +43,7 @@ Na [terceira parte](sql-database-tutorial-clustering-model-deploy.md), você apr
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – Caso você não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
@@ -57,11 +57,11 @@ Na [terceira parte](sql-database-tutorial-clustering-model-deploy.md), você apr
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importar o banco de dados de exemplo
 
-O conjunto de dados de exemplo usado neste tutorial foi salvo em um arquivo de backup de banco de dados **.bacpac** para você baixar e usar. Esse conjunto de dados é derivado do conjunto de dados [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) fornecido pelo [TPC (Transaction Processing Performance Council)](http://www.tpc.org/default.asp).
+O conjunto de dados de exemplo usado neste tutorial foi salvo em um arquivo de backup de banco de dados **.bacpac** para você baixar e usar. Esse conjunto de dados é derivado do conjunto de dados [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp), fornecido pela [TPC (Transaction Processing Performance Council)](http://www.tpc.org/default.asp).
 
 1. Baixe o arquivo [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
@@ -71,15 +71,15 @@ O conjunto de dados de exemplo usado neste tutorial foi salvo em um arquivo de b
    * Durante a versão prévia pública, escolha a configuração **Gen5/vCore** para o novo banco de dados
    * Nomeie o novo banco de dados "tpcxbb_1gb"
 
-## <a name="separate-customers"></a>Clientes separados
+## <a name="separate-customers"></a>Separar os clientes
 
 Crie um novo arquivo RScript no RStudio e execute o script a seguir.
 Na consulta SQL, você está separando clientes nas seguintes dimensões:
 
-* **orderRatio** = índice de pedidos devolvidos (o número total de pedidos parcialmente ou totalmente devolvidos versus o número total de pedidos)
-* **itemsRatio** = índice de itens devolvidos (o número total de itens devolvidos versus o número de itens comprados)
-* **monetaryRatio** = índice de valores devolvidos (o valor monetário total de itens devolvidos versus o valor comprado)
-* **frequency** = frequência de devoluções
+* **orderRatio** = taxa de devolução de pedidos (número total de pedidos parcialmente ou totalmente retornados em relação o número total de pedidos)
+* **itemsRatio** = taxa de devolução de itens (número total de itens retornados em relação ao número de itens comprados)
+* **monetaryRatio** = taxa de valores devolvidos (valor monetário total dos itens retornados em relação ao valor comprado)
+* **frequência** = frequência de devoluções
 
 Na função **paste**, substitua **Servidor**, **UID** e **PWD** por suas próprias informações de conexão.
 
@@ -156,7 +156,7 @@ LEFT OUTER JOIN (
 "
 ```
 
-## <a name="load-the-data-into-a-data-frame"></a>Carregue os dados em um dataframe
+## <a name="load-the-data-into-a-data-frame"></a>Carregar os dados em um quadro de dados
 
 Agora, use o script a seguir para retornar os resultados da consulta para um quadro de dados do R usando a função **rxSqlServerData**.
 Como parte do processo, você definirá o tipo das colunas selecionadas (usando colClasses) para garantir que os tipos sejam corretamente transferidos para o R.
@@ -182,7 +182,7 @@ customer_data <- rxDataStep(customer_returns);
 head(customer_data, n = 5);
 ```
 
-Você deverá ver resultados semelhantes ao seguinte.
+Você deverá ver resultados semelhantes aos seguintes.
 
 ```results
   customer orderRatio itemsRatio monetaryRatio frequency
@@ -193,7 +193,7 @@ Você deverá ver resultados semelhantes ao seguinte.
 5    32549          0          0      0.031281         4
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ***Se você não pretende continuar com este tutorial***, exclua o banco de dados tpcxbb_1gb do servidor do Banco de Dados SQL do Azure.
 
@@ -206,7 +206,7 @@ No portal do Azure, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na primeira parte desta série de tutoriais, você concluiu estas etapas:
+Na parte um desta série de tutoriais, você concluiu estas etapas:
 
 * Importar um banco de dados de exemplo para um Banco de Dados SQL do Azure
 * Clientes separados em dimensões diferentes usando o R

@@ -17,10 +17,10 @@ ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d06dea6f1d2fa762a2e885ae98e1c0c4b3293ba
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72596239"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hightail
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Hightail ao Azure AD (Azure Active
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -98,10 +98,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo Hightail espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | -------- |-------- |
     | Nome | user.givenname |
-    | Sobrenome | user.surname |
+    | LastName | user.surname |
     | Email | user.mail |
     | UserIdentity | user.mail |
 

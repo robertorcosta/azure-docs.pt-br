@@ -6,11 +6,11 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261544"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290104"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duráveis
 
@@ -57,7 +57,7 @@ Quando uma função de orquestração recebe mais trabalho a fazer (por exemplo,
 
 O comportamento de fornecimento de eventos da Estrutura de Tarefas Duráveis está intimamente acoplado ao código da função funções de orquestrador que você escreve. Suponha que você tenha uma função de orquestrador de encadeamento de atividades, como a seguinte função de orquestrador:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -75,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -131,22 +131,22 @@ Após a conclusão, o histórico da função mostrado anteriormente se parece co
 
 Algumas observações sobre os valores das colunas:
 
-* **PartitionKey**: Contém a ID de instância da orquestração.
-* **EventType**: Representa o tipo do evento. Pode ser um dos seguintes tipos:
-  * **OrchestrationStarted**: A função de orquestrador retomada após um período de espera ou executada pela primeira vez. A coluna `Timestamp` é usada para preencher o valor determinístico das APIs `CurrentUtcDateTime` (.NET) e `currentUtcDateTime` (JavaScript).
-  * **ExecutionStarted**: A função de orquestrador que começou a ser executada pela primeira vez. Esse evento também contém a entrada da função na coluna `Input`.
-  * **TaskScheduled**: Uma função de atividade foi agendada. O nome da função de atividade é capturado na coluna `Name`.
-  * **TaskCompleted**: Uma função de atividade foi concluída. O resultado da função está na coluna `Result`.
-  * **TimerCreated**: Um temporizador durável foi criado. A coluna `FireAt` contém a hora, em UTC, agendada para o temporizador expirar.
-  * **TimerFired**: Um temporizador durável foi disparado.
-  * **EventRaised**: Um evento externo foi enviado para a instância de orquestração. A coluna `Name` captura o nome do evento e a coluna `Input` captura sua carga.
-  * **OrchestratorCompleted**: Uma função de orquestrador é aguardada.
-  * **ContinueAsNew**: A função de orquestrador foi concluída e reinicializou-se com novo estado. A coluna `Result` contém o valor, que é usado como a entrada na instância reiniciada.
-  * **ExecutionCompleted**: A função de orquestrador foi executada até a conclusão (ou falhou). As saídas da função ou os detalhes do erro são armazenados na coluna `Result`.
-* **Timestamp**: O carimbo de data/hora, em UTC, do evento do histórico.
-* **Name**: O nome da função que foi invocada.
-* **Entrada**: A entrada da função formatada em JSON.
-* **Result**: A saída da função, ou seja, o valor retornado.
+* **PartitionKey**: contém a ID de instância da orquestração.
+* **EventType**: representa o tipo do evento. Pode ser um dos seguintes tipos:
+  * **OrchestrationStarted**: a função de orquestrador, retomada após um período de espera ou executada pela primeira vez. A coluna `Timestamp` é usada para preencher o valor determinístico das APIs `CurrentUtcDateTime` (.NET) e `currentUtcDateTime` (JavaScript).
+  * **ExecutionStarted**: a função de orquestrador que começou a ser executada pela primeira vez. Esse evento também contém a entrada da função na coluna `Input`.
+  * **TaskScheduled**: uma função de atividade foi agendada. O nome da função de atividade é capturado na coluna `Name`.
+  * **TaskCompleted**: uma função de atividade foi concluída. O resultado da função está na coluna `Result`.
+  * **TimerCreated**: um temporizador durável foi criado. A coluna `FireAt` contém a hora, em UTC, agendada para o temporizador expirar.
+  * **TimerFired**: um temporizador durável disparado.
+  * **EventRaised**: um evento externo foi enviado para a instância de orquestração. A coluna `Name` captura o nome do evento e a coluna `Input` captura sua carga.
+  * **OrchestratorCompleted**: a função de orquestrador esperou.
+  * **ContinueAsNew**: a função de orquestrador foi concluída e reinicializou a si mesma com estado de nova. A coluna `Result` contém o valor, que é usado como a entrada na instância reiniciada.
+  * **ExecutionCompleted**: a função de orquestrador foi executada até a conclusão (ou falhou). As saídas da função ou os detalhes do erro são armazenados na coluna `Result`.
+* **Timestamp**: o carimbo de data/hora, em UTC, do evento do histórico.
+* **Name**: o nome da função que foi invocada.
+* **Input**: a entrada da função formatada em JSON.
+* **Result**: a saída da função, ou seja, o valor retornado.
 
 > [!WARNING]
 > Embora ela seja útil como uma ferramenta de depuração, não dependa desta tabela. Ela pode mudar à medida que a extensão de Funções Duráveis evoluir.
@@ -216,7 +216,7 @@ O recurso de seção crítica também é útil para coordenar alterações em en
 
 As funções de orquestrador não têm permissão para realizar E/S conforme descrito nas [restrições de código da função funções de orquestrador](durable-functions-code-constraints.md). A alternativa típica para essa limitação é encapsular o código que precisa realizar E/S em uma função de atividade. As orquestrações que interagem com sistemas externos frequentemente usam funções de atividade para realizar chamadas HTTP e retornar o resultado à orquestração.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Para simplificar esse padrão comum, as funções de orquestrador podem usar o método `CallHttpAsync` para invocar APIs HTTP diretamente.
 
@@ -238,7 +238,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -265,7 +265,7 @@ Para obter mais informações e exemplos detalhados, confira o artigo [Recursos 
 
 Não é possível passar vários parâmetros para uma função de atividade diretamente. A recomendação é transmitir uma matriz de objetos ou objetos de composição.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 No .NET, use também objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). O exemplo a seguir usa os novos recursos de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) adicionados com [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
@@ -304,7 +304,7 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 #### <a name="orchestrator"></a>Orchestrator
 

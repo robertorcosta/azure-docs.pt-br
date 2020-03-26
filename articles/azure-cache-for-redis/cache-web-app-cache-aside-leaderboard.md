@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75411951"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar um placar de líderes cache-aside no ASP.NET
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
@@ -652,7 +652,7 @@ Nesta seção, você provisionará um novo banco de dados SQL do Azure para que 
 
 1. Use as seguintes configurações para o novo Banco de Dados SQL:
 
-   | Configuração       | Valor sugerido | DESCRIÇÃO |
+   | Configuração       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome do banco de dados** | *ContosoTeamsDatabase* | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Assinatura** | *Sua assinatura*  | Selecione a mesma assinatura usada para criar o cache e hospedar o Serviço de Aplicativo. |
@@ -661,7 +661,7 @@ Nesta seção, você provisionará um novo banco de dados SQL do Azure para que 
 
 1. Em **Servidor**, clique em **Definir as configurações necessárias** > **Criar um novo servidor**, forneça as seguintes informações e clique no botão **Selecionar**:
 
-   | Configuração       | Valor sugerido | DESCRIÇÃO |
+   | Configuração       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
    | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
@@ -701,11 +701,11 @@ Nesta etapa do tutorial, você publicará as atualizações do aplicativo no Azu
 
     A tabela a seguir descreve cada link de ação do aplicativo de exemplo:
 
-    | Ação | DESCRIÇÃO |
+    | Ação | Descrição |
     | --- | --- |
     | Criar Novo |Criar uma nova Equipe. |
     | Reproduzir Temporada |Reproduzir uma temporada de jogos, atualizar as estatísticas de equipes e limpar dados de equipe desatualizados do cache. |
-    | Limpar Cache |Limpar as estatísticas de equipes do cache. |
+    | Limpar cache |Limpar as estatísticas de equipes do cache. |
     | Listar do Cache |Recuperar as estatísticas de equipe do cache. Se houver um erro de cache, carregar as estatísticas do banco de dados e salvar no cache para a próxima vez. |
     | Conjunto Ordenado do Cache |Recuperar as estatísticas de equipes do cache usando um conjunto ordenado. Se houver um erro de cache, carregar as estatísticas do banco de dados e salvar no cache usando um conjunto ordenado. |
     | Cinco Principais Equipes do Cache |Recuperar as cinco principais equipes do cache usando um conjunto ordenado. Se houver um erro de cache, carregar as estatísticas do banco de dados e salvar no cache usando um conjunto ordenado. |

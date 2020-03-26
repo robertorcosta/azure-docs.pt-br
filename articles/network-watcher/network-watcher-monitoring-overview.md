@@ -15,10 +15,10 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844982"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
@@ -27,7 +27,7 @@ Observador de Rede do Azure fornece ferramentas para monitorar, diagnosticar, ex
 
 ## <a name="monitoring"></a>Monitoramento
 
-### <a name = "connection-monitor"></a>Monitorar a comunicação entre uma máquina virtual e um ponto de extremidade
+### <a name="monitor-communication-between-a-virtual-machine-and-an-endpoint"></a><a name = "connection-monitor"></a>Monitorar a comunicação entre uma máquina virtual e um ponto de extremidade
 
 Os pontos de extremidade podem ser outra máquina virtual (VM), um nome de domínio totalmente qualificado (FQDN), um identificador de recurso uniforme (URI) ou endereço IPv4. O recurso do *monitor de conexão* monitora a comunicação em um intervalo regular e informa sobre alterações de topologia de rede entre a VM e o ponto de extremidade, latência e acessibilidade. Por exemplo, você pode ter um servidor de web VM que se comunica com uma VM do servidor de banco de dados. Alguém na sua organização talvez, desconhecido para você, aplica uma regra personalizada de segurança de rede ou rota para o servidor web ou servidor de banco de dados VM ou sub-rede.
 
@@ -55,7 +55,7 @@ Quando você implanta uma máquina virtual, o Microsoft Azure aplica-se a vária
 
 Quando você cria uma rede virtual, o Microsoft Azure cria várias rotas de saída padrão para o tráfego de rede. O tráfego de saída de todos os recursos, como máquinas virtuais, implantados em uma rede virtual, são roteados com base nas rotas de padrão do Microsoft Azure. Você pode substituir as regras padrão do Microsoft Azure ou criar regras adicionais. Você pode achar que uma VM não pode se comunicar com outros recursos devido a uma rota específica. O recurso *próximo salto* permite especificar um endereço IPv4 de origem e de destino. Em seguida, o próximo salto testa a comunicação e informa que tipo de próximo salto é usado para rotear o tráfego. Você pode, em seguida, remover, alterar ou adicionar uma rota, para resolver um problema de roteamento. Saiba mais sobre o recurso [próximo salto](diagnose-vm-network-routing-problem.md).
 
-### <a name="connection-troubleshoot"></a>Diagnosticar de conexão de saída de uma máquina virtual
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnosticar de conexão de saída de uma máquina virtual
 
 O recurso *solucionar problemas de conexão* permite que você teste uma conexão entre uma máquina virtual e outra máquina, um FQDN, um URI ou um endereço IPv4. O teste retorna informações semelhantes retornadas ao usar o recurso [monitor de conexão](#connection-monitor), mas testa a conexão em um ponto no tempo, em vez de monitoramento ao longo do tempo, como o monitor de conexão. Saiba mais sobre como solucionar problemas de conexões usando [solucionar problemas de conexão](network-watcher-connectivity-overview.md).
 

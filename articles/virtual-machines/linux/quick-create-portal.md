@@ -15,11 +15,11 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372568"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216124"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do Linux no portal do Azure
 
@@ -89,7 +89,7 @@ Crie uma conexão SSH com a VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Usando o mesmo shell bash que você usou para criar seu par de chaves SSH (você pode reabrir o Cloud Shell selecionando `>_` novamente ou indo para https://shell.azure.com/bash)), cole o comando de conexão SSH no shell para criar uma sessão SSH.
+3. Usando o mesmo shell bash que você usou para criar seu par de chaves SSH (você pode reabrir o Cloud Shell selecionando `>_` novamente ou indo para https://shell.azure.com/bash) ), cole o comando de conexão SSH no shell para criar uma sessão SSH.
 
 ## <a name="install-web-server"></a>Instalar servidor Web
 

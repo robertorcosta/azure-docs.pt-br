@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 26d62f2c027a093ba518b98fa37ce3a31a14f175
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73664295"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Integrar sua assinatura do Azure ao Centro de Segurança Standard
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Neste artigo, você fará um upgrade para a camada Standard para aumentar a segurança e instalará o Microsoft Monitoring Agent em suas máquinas virtuais para monitorar as ameaças e vulnerabilidades de segurança.
@@ -83,7 +83,7 @@ Com essa nova percepção de suas VMs do Azure, a Central de Segurança pode for
 
   ![Recomendações][8]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Volte para o menu principal da Central de Segurança e selecione **Preços e configurações**.
@@ -106,7 +106,7 @@ Se quiser desabilitar o provisionamento automático:
 Neste guia de início rápido, você fez upgrade para camada Standard e provisionou o Microsoft Monitoring Agent para o gerenciamento unificado de segurança e proteção contra ameaças em suas cargas de trabalho de nuvem híbrida. Para saber mais sobre como usar a Central de Segurança, continue para o guia de início rápido para a integração de computadores com Windows locais e em outras nuvens.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Integrar computadores Windows à Central de Segurança do Azure](quick-onboard-windows-computer.md)
+> [Início rápido: integrar computadores com Windows à Central de Segurança do Azure](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

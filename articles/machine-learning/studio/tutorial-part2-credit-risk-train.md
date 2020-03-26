@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427479"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79217864"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: treinar modelos de risco de crédito – Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvimento de uma solução de análise preditiva. Você desenvolverá um modelo simples no Machine Learning Studio (clássico).  Em seguida, você implantará o modelo como um serviço Web do Azure Machine Learning.  Esse modelo implantado pode fazer previsões usando novos dados. Este tutorial é a **segunda parte de uma série de tutoriais de três partes**.
 
@@ -38,11 +40,11 @@ Nesta parte do tutorial, você vai:
 
 Na [terceira parte do tutorial](tutorial-part3-credit-risk-deploy.md), você implantará o modelo como um serviço Web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclusão da [primeira parte do tutorial](tutorial-part1-credit-risk.md).
 
-## <a name="train"></a>Treinar vários modelos
+## <a name="train-multiple-models"></a><a name="train"></a>Treinar vários modelos
 
 Uma das vantagens de usar o Azure Machine Learning Studio (clássico) para criar modelos de machine learning é a capacidade de experimentar mais de um tipo de modelo de cada vez em um teste e comparar os resultados. Esse tipo de experimentação ajuda a encontrar a melhor solução para seu problema.
 

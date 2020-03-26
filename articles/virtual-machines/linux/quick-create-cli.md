@@ -20,10 +20,10 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72427941"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: Criar uma máquina virtual Linux com a CLI do Azure
@@ -115,7 +115,7 @@ Use um navegador da Web de sua escolha para exibir a página inicial padrão do 
 
 ![Exibir a página de boas-vindas do NGINX](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, a VM e todos os recursos relacionados. 
 

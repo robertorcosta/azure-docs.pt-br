@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
 ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77117919"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer um banco de dados de grafo do Azure Cosmos DB usando o console do Gremlin
@@ -33,7 +33,7 @@ Este início rápido demonstra como criar uma conta de [API do Gremlin](graph-in
 
 O console Gremlin é baseado em Groovy/Java e é executado no Linux, Mac e Windows. Você pode baixá-lo no [site do Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa ter uma assinatura do Azure para criar uma conta do BD Cosmos do Azure para este início rápido.
 
@@ -49,7 +49,7 @@ Também é necessário instalar o [Console do Gremlin](https://tinkerpop.apache.
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>Conectar-se ao serviço de aplicativo/Graph
+## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Conectar-se ao serviço de aplicativo/Graph
 1. Antes de iniciar o console do Gremlin, crie ou modifique seu arquivo de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Preencha as configurações de *host*, *porta*, *nome de usuário*, *senha*, *connectionPool* e *serializador* como definido nesta tabela:
 

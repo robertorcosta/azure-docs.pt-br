@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Azure Active Directory ao HubSpot
@@ -35,7 +35,7 @@ A integração do HubSpot ao Azure AD oferece os seguintes benefícios:
 
 Para obter mais informações sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao HubSpot, você precisará dos seguintes itens:
 
@@ -55,7 +55,7 @@ O HubSpot é compatível com os seguintes recursos:
 
 Para integrar o HubSpot com o Azure AD, você deve adicionar HubSpot à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No menu esquerdo, selecione **Azure Active Directory**.
 
@@ -79,7 +79,7 @@ Nesta seção, você configurará e testará o logon único do Azure AD com o Hu
 
 Para configurar e testar o logon único do Azure AD com o HubSpot, é necessário concluir os seguintes passos básicos:
 
-| Tarefa | DESCRIÇÃO |
+| Tarefa | Descrição |
 | --- | --- |
 | **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** | Permite que os usuários usem esse recurso. |
 | **[Configurar logon único do HubSpot](#configure-hubspot-single-sign-on)** | Define as configurações de logon único no aplicativo. |

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 1bcfc949eff0639dd1b4a063687e2c198f480ea3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77624332"
 ---
 # <a name="tutorial-create-and-connect-a-nodejs-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutorial: Criar e conectar um aplicativo cliente Node.js ao seu aplicativo do Azure IoT Central (Node.js)
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Usar uma exibição para gerenciar as propriedades do dispositivo.
 > * Chamar comandos para controlar o dispositivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 

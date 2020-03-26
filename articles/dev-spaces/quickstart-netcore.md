@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 6593cc3d5926fae05b2afd1e926552a2996ae885
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: b38562879fa67d7ee82e3251ea2fcaa57a2075d6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943714"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240218"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio Code e o .NET Core – Azure Dev Spaces
 
@@ -96,7 +96,7 @@ Quando o Visual Studio Code solicitar também que você configure o ponto de ext
 Esse comando prepara o projeto para ser executado no Azure Dev Spaces por meio da geração de um Dockerfile e um gráfico do Helm. Ele também gera um diretório *.vscode* com a configuração de depuração na raiz do seu projeto.
 
 > [!TIP]
-> O [gráfico do Dockerfile e do Helm](how-dev-spaces-works.md#prepare-your-code) para seu projeto é usado pelo Azure Dev Spaces para compilar e executar seu código, mas você poderá modificar esses arquivos se quiser, a fim de alterar a maneira como o projeto é compilado e executado.
+> O [gráfico do Dockerfile e do Helm](how-dev-spaces-works-prep.md#prepare-your-code) para seu projeto é usado pelo Azure Dev Spaces para compilar e executar seu código, mas você poderá modificar esses arquivos se quiser, a fim de alterar a maneira como o projeto é compilado e executado.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Compilar e executar o código no Kubernetes por meio do Visual Studio Code
 

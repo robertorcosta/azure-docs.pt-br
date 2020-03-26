@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: 0eabd918b5f8f52049792ceb28ef8055945d6475
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77162167"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar um aplicativo altamente disponível com o armazenamento de Blobs
@@ -35,7 +35,7 @@ Na primeira parte da série, você aprenderá a:
 > * Definir a cadeia de conexão
 > * Executar o aplicativo de console
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 

@@ -4,10 +4,10 @@ description: Neste tutorial, saiba como restaurar bancos de dados SAP HANA execu
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.openlocfilehash: 6dbe0c4382b648506d853feb281c70a8e8401595
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75470401"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restaurar bancos de dados SAP HANA em uma VM do Azure usando a CLI do Azure
@@ -28,7 +28,7 @@ Este tutorial pressupõe que você tenha um banco de dados SAP HANA em execuçã
 * um grupo de recursos chamado *saphanaResourceGroup*
 * um cofre chamado *saphanaVault*
 * um contêiner protegido chamado *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*
-* um banco de dados/um item copiado em backup chamado *saphanadatabase;hxe;hxe*
+* um banco de dados/um item submetido a backup chamado *saphanadatabase;hxe;hxe*
 * recursos na região *westus2*
 
 ## <a name="view-restore-points-for-a-backed-up-database"></a>Exibir pontos de restauração de um banco de dados copiado em backup

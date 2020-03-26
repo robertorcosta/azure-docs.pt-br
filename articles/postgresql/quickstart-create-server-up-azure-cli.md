@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74774825"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Início Rápido: Use um comando da CLI do Azure, az postgres up (versão prévia), para criar um Banco de Dados do Azure para PostgreSQL – Servidor único
@@ -21,7 +21,7 @@ ms.locfileid: "74774825"
 
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia de início rápido mostra como usar o comando [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) para criar um servidor Banco de Dados do Azure para PostgreSQL usando a CLI do Azure. Além de criar o servidor, o `az postgres up` comando cria um banco de dados de exemplo, um usuário raiz no banco de dados, abre o firewall para serviços do Azure e cria regras de firewall para o computador cliente de padrão. Esses padrões ajudam a acelerar o processo de desenvolvimento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -62,7 +62,7 @@ resource-group | Gerada pelo sistema | Um novo grupo de recursos do Azure.
 sku-name | GP_Gen5_2 | O nome da SKU. Segue a convenção {tipo de preço}\_{geração de computação}\_{vCores} em formato abreviado. O padrão é servidor Gen5 de Uso Geral com 2 vCores. Consulte nossa [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações sobre os tipos.
 backup-retention | 7 | Por quanto tempo o backup é mantido. A unidade é dias.
 geo-redundant-backup | Desabilitado | Indica se os backups com redundância geográfica devem ser habilitados para este servidor ou não.
-location | westus2 | O local do Azure para o servidor.
+local | westus2 | O local do Azure para o servidor.
 ssl-enforcement | Desabilitado | Se o ssl deve ser habilitado ou não para este servidor.
 storage-size | 5120 | A capacidade de armazenamento do servidor (a unidade é megabytes).
 version | 10 | A versão principal do PostgreSQL.
@@ -88,7 +88,7 @@ Após o comando `az postgres up` ser concluído, uma lista de cadeias de conexã
 
 Você pode usar o comando [az postgres show-connection-string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) para listar essas cadeias de conexão novamente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Limpe todos os recursos que você criou no início rápido usando o comando a seguir. Esse comando exclui o servidor Banco de Dados do Azure para PostgreSQL e o grupo de recursos.
 

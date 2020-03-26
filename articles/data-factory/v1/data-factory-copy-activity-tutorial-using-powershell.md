@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73682849"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Criar um pipeline do Data Factory que move dados usando o Azure PowerShell
@@ -27,7 +27,7 @@ ms.locfileid: "73682849"
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
@@ -35,16 +35,16 @@ ms.locfileid: "73682849"
 
 Neste artigo, você aprenderá a usar o PowerShell para criar um data factory com um pipeline que copia dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. Se você ainda está se familiarizando com o Azure Data Factory, leia o artigo [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este tutorial.   
 
-Neste tutorial, você criará um pipeline com uma atividade: Atividade de Cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
+Neste tutorial, você criará um pipeline com uma atividade: Atividade de cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
 Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Várias atividades em um pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE]
 > Este artigo não cobre todos os cmdlets de Data Factory. Consulte a [Referência de Cmdlet do Data Factory](/powershell/module/az.datafactory) para ter uma documentação completa sobre esses cmdlets.
 > 
-> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, confira [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como transformar dados usando o Azure Data Factory, consulte [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -274,7 +274,7 @@ Nesta etapa, você criará um conjunto de dados denominado InputDataset que apon
 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     |:--- |:--- |
     | type | A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure. |
     | linkedServiceName | Refere-se ao **AzureStorageLinkedService** que você criou anteriormente. |
@@ -339,7 +339,7 @@ Nesta parte da etapa, você cria um conjunto de dados de saída denominado **Out
 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     |:--- |:--- |
     | type | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
     | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que você criou anteriormente. |
@@ -369,7 +369,7 @@ Nesta parte da etapa, você cria um conjunto de dados de saída denominado **Out
     ProvisioningState : Succeeded
     ```
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 Nesta etapa, você cria um pipeline com uma **atividade de cópia** que usa **InputDataset** como entrada e **OutputDataset** como saída.
 
 Atualmente, o conjunto de dados de saída é o que conduz o agendamento. Neste tutorial, o conjunto de dados de saída está configurado para produzir uma fatia uma vez a cada hora. O pipeline tem uma hora de início e uma hora de término com um dia de diferença, o que significa 24 horas. Portanto, 24 fatias de conjunto de dados de saída são produzidas pelo pipeline. 
@@ -556,7 +556,7 @@ Para obter uma documentação abrangente sobre os cmdlets de Data Factory, consu
 ## <a name="summary"></a>Resumo
 Neste tutorial, você criou uma data factory do Azure para copiar dados de um blob do Azure para um banco de dados SQL do Azure. Você utilizou o PowerShell para criar a data factory, os serviços vinculados, os conjuntos de dados e um pipeline. Aqui estão as etapas de alto nível executadas nesse tutorial:  
 
-1. Foi criado um **data factory**do Azure.
+1. Foi criada uma **data factory**do Azure.
 1. Foram criados **serviços vinculados**:
 
    a. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta de armazenamento do Azure que mantém os dados de entrada.     

@@ -7,10 +7,10 @@ ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
 ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79199633"
 ---
 Nesta etapa, você cria um servidor do Banco de Dados SQL do Azure e um banco de dados individual que os dados de exemplo da AdventureWorksLT. Você pode criar o banco de dados usando os menus e as telas do portal do Azure ou um script da CLI do Azure ou do PowerShell no Azure Cloud Shell.

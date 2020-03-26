@@ -17,10 +17,10 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e14d5adec7c58c69b07d1f6894a427d86e87a915
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72271826"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-juno-journey"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Juno Journey
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Juno Journey ao Azure AD (Azure Ac
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 

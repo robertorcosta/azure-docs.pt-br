@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
 ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736640"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Início Rápido: Criar um banco de dados de grafo no Azure Cosmos DB usando PHP e o portal do Azure
@@ -30,7 +30,7 @@ Este início rápido mostra como usar o PHP e a [API do Gremlin](graph-introduct
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, tabelas, valores-chave e bancos de dados de gráfico, todos os quais se beneficiam de recursos de distribuição global e escala horizontal e no núcleo do Azure Cosmos DB.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
@@ -208,7 +208,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
     Chave | Valor | Observações
     ----|----|----
-    **ID** | ashley | O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
+    **id** | ashley | O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     **gender** | feminino | 
     **tech** | java | 
 
@@ -225,7 +225,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
     
     Chave | Valor | Observações
     ----|----|----
-    **ID** | rakesh | O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
+    **id** | rakesh | O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     **gender** | masculino | 
     **school** | MIT | 
 
@@ -253,7 +253,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

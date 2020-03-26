@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73822800"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerenciada no Banco de Dados SQL do Azure usando entidades de servidor (logons) do Azure AD
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 
 Para saber mais, confira os artigos [Visão geral](sql-database-managed-instance-index.yml) e [Recursos de Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 
@@ -108,7 +108,7 @@ Para obter mais informações, confira [CREATE LOGIN](/sql/t-sql/statements/crea
 
 Para criar outras entidades de servidor (logons) do Azure AD, permissões ou funções do SQL Server devem ser concedidas à entidade de segurança (SQL ou Azure AD).
 
-### <a name="sql-authentication"></a>Autenticação do SQL
+### <a name="sql-authentication"></a>Autenticação SQL
 
 - Se o logon for uma Entidade de Segurança SQL, somente os logons que fizerem parte da função `sysadmin` poderão usar o comando create para criar logons para uma conta do Azure AD.
 
@@ -191,7 +191,7 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
 
 1. Abra uma nova janela de consulta no SQL Server Management Studio.
 
-    Este exemplo presume que existe em um grupo chamado _mygroup_ no Azure AD. Execute o seguinte comando:
+    Este exemplo presume que existe em um grupo chamado _mygroup_ no Azure AD. Execute o comando a seguir:
 
     ```sql
     USE master
@@ -258,7 +258,7 @@ Para obter mais informações sobre como conceder permissões de banco de dados,
     Todos os usuários que pertencem a **mygroup** podem acessar o banco de dados **MyMITestDB**.
 
     > [!IMPORTANT]
-    > Ao criar um **USER** de uma entidade de servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGIN**.
+    > Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON**.
 
     Para obter mais informações, confira [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -424,11 +424,11 @@ Consultas entre bancos de dados são compatíveis com contas do Azure AD com ent
 ## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins"></a>Cenários adicionais compatíveis com entidades de segurança do servidor (logons) do Azure AD
 
 - Execuções de trabalho e gerenciamento do SQL Agent são compatíveis com entidades de servidor (logons) do Azure AD.
-- Operações de restauração e backup de banco de dados podem ser executadas por entidades de servidor (logons) do Azure AD.
+- As operações de restauração e backup do banco de dados podem ser executadas pelas entidades de segurança do servidor do Azure AD (logons).
 - A [auditoria](sql-database-managed-instance-auditing.md) de todas as instruções relacionadas a entidades de servidor (logons) do Azure AD e a eventos de autenticação.
 - Conexão de administrador dedicada para entidades de servidor (logons) do Azure AD que são membros da função de servidor `sysadmin`.
 - Entidades de servidor (logons) do Azure AD são compatíveis com o uso do [Utilitário sqlcmd](/sql/tools/sqlcmd-utility) e da ferramenta [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
-- Gatilhos de logon são compatíveis com eventos de entidade de servidor (logon) provenientes de logons do Azure AD.
+- Os gatilhos de logon têm suporte para os eventos de logon que vêm das entidades de segurança do servidor do Azure AD (logons).
 - Email do Service Broker e do BD podem ser configurados usando entidades de servidor (logons) do Azure AD.
 
 

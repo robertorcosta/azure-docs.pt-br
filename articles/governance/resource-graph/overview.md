@@ -4,11 +4,11 @@ description: Entenda como o serviço do Azure Resource Graph habilita a consulta
 ms.date: 03/02/2020
 ms.topic: overview
 ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385255"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214764"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -31,7 +31,7 @@ Nesta documentação, você estudará cada recurso em detalhes.
 
 Atualmente, o Azure Resource Manager dá suporte para consultas por campos de recursos básicos, mais especificamente: Nome do recurso, ID, Tipo, Grupo de recursos, Assinatura e Local. O Resource Manager também fornece recursos para chamar provedores de recursos individuais para propriedades detalhadas um recurso por vez.
 
-Com o Azure Resource Graph, você pode acessar essas propriedades retornadas pelos provedores de recursos sem a necessidade de fazer chamadas individuais para cada um deles. Para obter uma lista de tipos de recursos com suporte, examine a [tabela e a referência de tipo de recurso](./reference/supported-tables-resources.md). Uma maneira alternativa de ver os tipos de recursos com suporte é por meio do [navegador de Esquema do Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
+Com o Azure Resource Graph, você pode acessar essas propriedades retornadas pelos provedores de recursos sem a necessidade de fazer chamadas individuais para cada um deles. Para obter uma lista de tipos de recursos compatíveis, examine a [referência de tipo de recurso e tabela](./reference/supported-tables-resources.md). Uma maneira alternativa de ver os tipos de recursos com suporte é por meio do [navegador de Esquema do Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
 Com o Azure Resource Graph, é possível:
 
@@ -72,8 +72,8 @@ Forneça seu caso comercial e marque a caixa de seleção “A Microsoft pode en
 
 O Resource Graph limita as consultas a nível do locatário. A resposta do serviço contém os cabeçalhos HTTP a seguir:
 
-- `x-ms-user-quota-remaining` (int): a cota de recursos restante para o usuário. Esse valor é mapeado para a contagem de consultas.
-- `x-ms-user-quota-resets-after` (hh: mm: SS): a duração de tempo até que o consumo de cota de um usuário seja redefinido
+- `x-ms-user-quota-remaining` (int): A cota de recursos que resta para o usuário. Esse valor é mapeado para a contagem de consultas.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo da cota do usuário seja redefinido
 
 Para saber mais, consulte [Orientação para solicitações limitadas](./concepts/guidance-for-throttled-requests.md).
 
@@ -87,7 +87,7 @@ O Resource Graph dá suporte à CLI do Azure, ao Azure PowerShell e ao SDK do Az
 - [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension)
 - [PowerShell do Azure](first-query-powershell.md#add-the-resource-graph-module)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Execute sua primeira consulta usando o [portal do Azure](first-query-portal.md).
 - Executar sua primeira consulta com a [CLI do Azure](first-query-azurecli.md).

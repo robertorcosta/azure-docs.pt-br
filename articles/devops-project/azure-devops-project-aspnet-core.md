@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 7d2ccdfa1fe553d0795a82856dd255f4a54138bf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70898032"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para .NET com o Azure DevOps Projects
@@ -139,7 +139,7 @@ Essa exibição mostra as confirmações de código associadas à implantação 
 Os logs contêm informações úteis sobre o processo de implantação. Eles podem ser exibidos durante e após as implantações.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 É possível excluir o Serviço de Aplicativo do Azure e outros recursos criados quando eles não forem mais precisos. Use a funcionalidade **Excluir** no painel do DevOps Projects.
 

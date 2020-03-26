@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 53812e68fe397b81f29869565e0e4a0640a9ef23
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76964627"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-java"></a>Início Rápido: Interagir com um dispositivo IoT Plug and Play Preview que está conectado à sua solução (Java)
@@ -21,7 +21,7 @@ ms.locfileid: "76964627"
 
 O IoT Plug and Play Preview simplifica a IoT, permitindo que você interaja com as funcionalidades de um dispositivo sem conhecer a implementação do dispositivo subjacente. Este início rápido mostra como usar o Java para se conectar a um dispositivo IoT Plug and Play que está conectado à sua solução e controlá-lo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisa do Java SE 8 em seu computador de desenvolvimento. Você também precisa instalar o Maven 3.
 

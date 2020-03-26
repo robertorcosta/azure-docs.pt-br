@@ -7,17 +7,17 @@ ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
 ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74688982"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Criar um aplicativo Node.js no Azure
 
 O Serviço de Aplicativo do Azure fornece um serviço de hospedagem Web altamente escalonável e com aplicação automática de patch. Este início rápido mostra como implantar um aplicativo Node.js no Serviço de Aplicativo do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma conta do Azure, [inscreva-se hoje mesmo](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) para obter uma conta gratuita com US$ 200 em créditos do Azure para experimentar uma combinação de serviços.
 
@@ -31,7 +31,7 @@ Depois que a extensão for instalada, faça logon em sua conta do Azure. Na Barr
 
 ![entrar no Azure](./media/quickstart-nodejs/sign-in.png)
 
-### <a name="troubleshooting"></a>solução de problemas
+### <a name="troubleshooting"></a>Solução de problemas
 
 Se você vir o erro **"Não é possível encontrar a assinatura com o nome [ID da assinatura]"** , talvez seja porque você está atrás de um proxy e não consegue acessar a API do Azure. Configure as variáveis de ambiente `HTTP_PROXY` e `HTTPS_PROXY` com suas informações de proxy no seu terminal usando o `export`.
 
@@ -134,7 +134,7 @@ No explorador **SERVIÇO DE APLICATIVO DO AZURE**, selecione o ícone de seta az
 
 Quando a implantação for concluída, selecione **Procurar no Site** no prompt para exibir seu aplicativo Web implantado recentemente.
 
-### <a name="troubleshooting"></a>solução de problemas
+### <a name="troubleshooting"></a>Solução de problemas
 
 Se você vir o erro **"Você não tem permissão para exibir este diretório ou página."** , o aplicativo provavelmente terá falhado em iniciar corretamente. Passe para a próxima seção e exiba a saída do log para localizar e corrigir o erro. Se você não conseguir corrigi-lo, contate-nos selecionando o botão **Encontrei um problema** abaixo. Temos o prazer de ajudar!
 
@@ -176,7 +176,7 @@ Parabéns, você concluiu com êxito este início rápido!
 Em seguida, confira as outras extensões do Azure.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-* [Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Ferramentas do Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Ferramentas da CLI do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

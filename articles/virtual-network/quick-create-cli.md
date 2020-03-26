@@ -13,14 +13,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 01/22/2019
 ms.author: kumud
-ms.openlocfilehash: 3cbfee90997c6b7cd9df1ec76543d77a4402100f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2a4c63aeaa303692fa0f2d115a3df0d80cfab0b1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774529"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80235191"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Início Rápido: Criar uma rede virtual usando a CLI do Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Início Rápido: criar uma rede virtual usando a CLI do Azure
 
 Uma rede virtual permite que recursos do Azure, como VMs (máquinas virtuais), comuniquem-se em modo privado e com a Internet. Neste início rápido, você aprende como criar uma rede virtual. Após criar uma rede virtual, você implantará duas VMs na rede virtual. Você fará a conexão com as VMs usando a Internet e se comunicará de modo privado na nova rede virtual.
 
@@ -80,7 +80,7 @@ az vm create \
 
 As VMs podem levar alguns minutos para serem criadas. Depois que o Azure cria as VMs, a CLI do Azure retorna uma saída como esta:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",

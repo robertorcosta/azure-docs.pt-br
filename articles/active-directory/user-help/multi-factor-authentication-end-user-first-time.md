@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 5a7f0e10b23bf1a541fe83c3112962c38f7e1331
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77062550"
 ---
 # <a name="what-is-the-additional-verification-page"></a>O que é a página de Verificação adicional?
@@ -51,7 +51,7 @@ Após sua organização ativar e configurar a verificação de dois fatores, voc
 
 2. Na página **Verificação de segurança adicional**, você precisa decidir qual método de verificação de dois fatores será usado para confirmar sua identidade após se conectar à sua conta corporativa ou de estudante. Você pode selecionar:
 
-    | Método de contato | Descrição |
+    | Método de contato | DESCRIÇÃO |
     | --- | --- |
     | Aplicativo móvel | <ul><li>**Receber notificações de verificação.** Essa opção envia uma notificação por push ao aplicativo autenticador no seu smartphone ou tablet. Veja a notificação e, se ela for legítima, selecione **Autenticar** no aplicativo. Seu trabalho ou escola pode exigir que você insira um PIN antes de se autenticar.</li><li>**Usar o código de verificação.** Nesse modo, o aplicativo autenticador gera um código de verificação que é atualizado a cada 30 segundos. Insira o código de verificação mais recente na tela de credenciais.<br>O aplicativo Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594).</li></ul> |
     | Telefone de autenticação | <ul><li>**Chamada telefônica** faz uma chamada de voz automática para o número de telefone que você fornecer. Atenda a chamada e pressione # no teclado do telefone para autenticar.</li><li>**SMS** envia uma mensagem de texto com um código de verificação. Após o prompt no texto, responda à mensagem de texto ou insira o código de verificação fornecido na interface de entrada.</li></ul> |

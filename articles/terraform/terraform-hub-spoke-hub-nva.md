@@ -4,10 +4,10 @@ description: O tutorial implementa a criação da VNet do hub que atua como um p
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 28ccb89d237cbe21dd0433da5f7fbb32883f6550
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159253"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-appliance-in-azure-using-terraform"></a>Tutorial: Criar um dispositivo de rede virtual de hub no Azure usando o Terraform
@@ -24,7 +24,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Usar o Terraform para habilitar rotas usando extensões CustomScript
 > * Usar o Terraform para criar tabelas de rotas de gateway de Hub e Spoke
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).

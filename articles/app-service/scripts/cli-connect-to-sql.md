@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: a0634cff6060e47ea059508f5f14abcaa679b53f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 74e5af6c295ffada0fbb8d1ded63177afadad285
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688465"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058126"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Conectar um aplicativo do Serviço de Aplicativo a um Banco de Dados SQL usando a CLI
 
@@ -26,7 +26,7 @@ Este script de exemplo cria um Banco de Dados SQL do Azure e um aplicativo do Se
 
 Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure versão 2.0 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "SQL Database")]
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718190"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir Big Data para um data warehouse
@@ -38,7 +38,7 @@ Neste artigo, você executa as seguintes etapas:
 > * Execute o aplicativo que envia dados para o hub de eventos.
 > * Exiba os dados migrados no data warehouse.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,7 +60,7 @@ Nesta etapa, você implanta a infraestrutura necessária com um [modelo do Resou
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Inicialize o Azure Cloud Shell no portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 2. Selecione o botão **Cloud Shell** na parte superior.
 
     ![Portal do Azure](media/event-grid-event-hubs-integration/azure-portal.png)
@@ -260,7 +260,7 @@ Você terminou de configurar o hub de eventos, o SQL Data Warehouse, o aplicativ
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. Compilar a solução. Execute o aplicativo **WindTurbineGenerator.exe**. 
+6. Compile a solução. Execute o aplicativo **WindTurbineGenerator.exe**. 
 7. Depois de alguns minutos, consulte os dados migrados na tabela em seu data warehouse.
 
     ![Resultados da consulta](media/event-grid-event-hubs-integration/query-results.png)

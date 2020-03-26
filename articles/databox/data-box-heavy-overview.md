@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70142907"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>O que é o Azure Data Box Heavy?
@@ -59,7 +59,7 @@ O Data Box Heavy foi projetado para mover grandes quantidades de dados para o Mi
 
 O dispositivo Data Box Heavy tem os seguintes recursos nesta versão.
 
-| Especificações                                          | DESCRIÇÃO              |
+| Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | Aproximadamente 500 lbs. <br>Dispositivo nas rodas para transporte|
 | Dimensões                                              | Largura: 66,04 cm de altura: 71,12 cm de comprimento: 121,92 cm |
@@ -104,7 +104,7 @@ O Data Box Heavy pode transferir dados de acordo com a região na qual o serviç
 
 - **Disponibilidade do serviço** – para esta versão, o Data Box Heavy está disponível nas seguintes regiões:
     - Todas as regiões da nuvem pública nos Estados Unidos – Centro-oeste dos EUA, Oeste dos EUA 2, Oeste dos EUA, Centro-Sul dos EUA, Centro dos EUA, Centro-Norte dos EUA, Leste dos EUA e Leste dos EUA 2.
-    - União Europeia – Europa Ocidental e Europa Setentrional.
+    - União Europeia – Europa Ocidental e Norte da Europa.
     - Reino Unido – Sul do Reino Unido e Oeste do Reino Unido.
     - França – França Central e Sul da França.
 

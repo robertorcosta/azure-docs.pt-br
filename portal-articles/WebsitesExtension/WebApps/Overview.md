@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73488430"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
@@ -21,7 +21,7 @@ O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na li
 ## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
 [Aplicativos Web](/app-service/overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/containers/app-service-linux-intro). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os runtimes/estruturas personalizados.
 
-## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
+## <a name="5-minute-quickstarts"></a>Guias de início rápido de 5 minutos
 
 Saiba como implantar seu primeiro aplicativo para a nuvem usando o Serviço de Aplicativo para Aplicativos Web:
 
@@ -32,7 +32,7 @@ Saiba como implantar seu primeiro aplicativo para a nuvem usando o Serviço de A
 - [Python](/azure/app-service/containers/quickstart-python)
 - [HTML](/azure/app-service/app-service-web-get-started-html)
 
-## <a name="step-by-step-tutorials"></a>Tutoriais Passo a Passo
+## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 
 Saiba como implantar, gerenciar e monitorar aplicativos Web seguros no Azure.
 

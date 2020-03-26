@@ -17,10 +17,10 @@ ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e65ede5677ccb29e7c30eb575b782064fb719034
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70193708"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blackboard-learn"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Blackboard Learn
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Blackboard Learn ao Azure AD (Azur
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 

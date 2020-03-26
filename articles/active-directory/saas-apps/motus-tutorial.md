@@ -17,10 +17,10 @@ ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b8d8f9bae7fc575d9fce426765e06158cf1c8bf
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74534643"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-motus"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Motus
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Motus ao Azure AD (Azure Active Di
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 

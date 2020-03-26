@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
 ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73825701"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início Rápido: Restaurar um banco de dados em uma Instância Gerenciada
@@ -28,7 +28,7 @@ Neste início rápido, você usará o SSMS (SQL Server Management Studio) para r
 > Para obter mais informações sobre a migração usando o DMS (Serviço de Migração de Banco de Dados do Azure), confira [Migração da Instância Gerenciada usando o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 > Para obter mais informações sobre vários métodos de migração, confira [Migração da Instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-migrate.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido:
 

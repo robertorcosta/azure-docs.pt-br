@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 3d0006a3c77050c1bb21a0da8d6be51e659f933d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77589208"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em C# usando o SDK do .NET
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 > [!NOTE]
 > O código de demonstração deste artigo usa os métodos síncronos do SDK do .NET da Pesquisa Cognitiva do Azure para manter a simplicidade. No entanto, para cenários de produção, recomendamos usar os métodos assíncronos em seus próprios aplicativos para mantê-los escalonáveis e dinâmicos. Por exemplo, você pode usar `CreateAsync` e `DeleteAsync` em vez de `Create` e `Delete`.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os serviços e as ferramentas a seguir são necessários para este início rápido.
 

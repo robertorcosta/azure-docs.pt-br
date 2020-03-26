@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 8d725834cb2dd86163909b2ae598e61026ae4bb9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6ce0066765de3d99f8309bf568b467518f38923e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024102"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215304"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: Executar o primeiro trabalho em Lote no portal do Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: executar o primeiro trabalho do Lote no portal do Azure
 
 Este guia de início rápido mostra como usar o portal do Azure para criar uma conta do Lote, um *pool* de nós de computação (máquinas virtuais) e um *trabalho* que executa *tarefas* básicas no pool. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
 
@@ -24,7 +24,7 @@ Este guia de início rápido mostra como usar o portal do Azure para criar uma c
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
 
-Entre no Portal do Azure em https://portal.azure.com.
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 

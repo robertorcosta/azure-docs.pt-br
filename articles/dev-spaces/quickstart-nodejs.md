@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Node.js no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 74063e03e8298e388efd6888fc05bcbbc9aefa4b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 18171a2f8d13bfcf3df76b1453c39c59cab89d7c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245073"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240193"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes com o Visual Studio Code e o Node.js no Kubernetes – Azure Dev Spaces
 
@@ -89,7 +89,7 @@ Quando o Visual Studio Code solicitar também que você configure o ponto de ext
 Esse comando prepara o projeto para ser executado no Azure Dev Spaces por meio da geração de um Dockerfile e um gráfico do Helm. Ele também gera um diretório *.vscode* com a configuração de depuração na raiz do seu projeto.
 
 > [!TIP]
-> O [gráfico do Dockerfile e do Helm](how-dev-spaces-works.md#prepare-your-code) do projeto é usado pelo Azure Dev Spaces para compilar e executar o código, mas você poderá modificar esses arquivos se desejar alterar a maneira como o projeto é compilado e executado.
+> O [gráfico do Dockerfile e do Helm](how-dev-spaces-works-prep.md#prepare-your-code) do projeto é usado pelo Azure Dev Spaces para compilar e executar o código, mas você poderá modificar esses arquivos se desejar alterar a maneira como o projeto é compilado e executado.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Compilar e executar o código no Kubernetes por meio do Visual Studio Code
 

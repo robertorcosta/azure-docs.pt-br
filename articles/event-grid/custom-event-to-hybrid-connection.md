@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 2773d06fdfc606faaab88340fc2ef9685bba21f9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720709"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhe eventos personalizados para as Conexões Híbridas de Retransmissão do Azure com a CLI do Azure e a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Conexões Híbridas de Retransmissão do Azure são um dos manipuladores de eventos com suporte. Você usa conexões híbridas como o manipulador de eventos quando precisa processar eventos de aplicativos que não têm um ponto de extremidade público. Esses aplicativos podem estar dentro de sua rede corporativa. Neste artigo, você usa a CLI do Azure para criar um tópico personalizado, assinar esse tópico e disparar o evento para exibir o resultado. Você envia os eventos para a conexão híbrida.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você já tem uma conexão híbrida e um aplicativo de ouvinte. Para começar a usar conexões híbridas, consulte [Introdução às Conexões Híbridas de Retransmissão - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) ou [Introdução às Conexões Híbridas de Retransmissão - Nó](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 
@@ -110,7 +110,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 
 O aplicativo ouvinte deve receber a mensagem de evento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Caso planeje continuar a trabalhar com esse evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
 
 ```azurecli-interactive

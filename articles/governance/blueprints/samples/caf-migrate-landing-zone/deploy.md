@@ -4,10 +4,10 @@ description: Etapas de implantação do modelo de blueprint da zona de aterrissa
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: da17083e8e1b27739288a9d9ac087d071ff4861c
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74545461"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar o Microsoft Cloud Adoption Framework para a amostra de blueprint da zona de aterrissagem das Migrações para Azure
@@ -101,7 +101,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Implantar a zona de aterrissagem da VNET|Modelo do Resource Manager|IPAddress_Space|**Bloqueado** – forneça o primeiro exemplo de dois octetos, 10.0|
 |Implantar o Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** – ID de Objeto de Usuário ou Grupo para conceder permissões no Key Vault|

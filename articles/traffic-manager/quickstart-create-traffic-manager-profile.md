@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: rohink
 ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76934779"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego usando o portal do Azure
@@ -31,7 +31,7 @@ Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure
 
 Entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para esse início rápido, você precisará implantar duas instâncias de um aplicativo Web em duas regiões diferentes do Azure (*Leste dos EUA* e *Europa Ocidental*). Cada uma servirá como os pontos de extremidade primário e de failover do Gerenciador de Tráfego.
 

@@ -17,10 +17,10 @@ ms.date: 09/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b43a811ed09545357bdc7f7fac652a69ef06b532
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71106811"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-renraku"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao RENRAKU
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o RENRAKU ao Azure AD (Azure Active 
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 

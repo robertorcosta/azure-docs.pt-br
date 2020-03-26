@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 0953f68839217c1c75eb86f8399ce023f3863ab4
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963964"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-c"></a>Início Rápido: Interagir com um dispositivo IoT Plug and Play Preview que está conectado à sua solução (C#)
@@ -21,7 +21,7 @@ ms.locfileid: "76963964"
 
 O IoT Plug and Play Preview simplifica a IoT, permitindo que você interaja com as funcionalidades de um dispositivo sem conhecer a implementação do dispositivo subjacente. Este início rápido mostra como usar o C# (com .NET) para se conectar a um dispositivo IoT Plug and Play que está conectado à sua solução e controlá-lo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisa instalar o .NET Core (2.x.x ou 3.x.x) em seu computador de desenvolvimento. Você pode baixar sua versão preferida do SDK do .NET Core para várias plataformas em [Baixar o .NET Core](https://dotnet.microsoft.com/download/dotnet-core/).
 

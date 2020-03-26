@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
 ms.openlocfilehash: ed78d3dd4e6fbde10c69403cc3dcff24072dc676
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75358020"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI do Azure
@@ -178,7 +178,7 @@ pgAdmin é uma ferramenta de software livre usada com PostgreSQL. Instale o pgAd
 
    ![A guia “Conexão”](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
 
-    parâmetro pgAdmin |Valor|DESCRIÇÃO
+    parâmetro pgAdmin |Valor|Descrição
     ---|---|---
     Nome/endereço do host | Nome do servidor | O valor do nome do servidor usado ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Use o nome de domínio totalmente qualificado ( **\*.postgres.database.azure.com**), conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão. 
     Porta | 5432 | A porta a ser usada ao se conectar ao Banco de Dados do Azure para o servidor PostgreSQL. 

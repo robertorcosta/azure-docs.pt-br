@@ -12,23 +12,23 @@ ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73818248"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início Rápido: Criar uma regra de firewall no nível do servidor para bancos de dados individuais e em pool usando o portal do Azure
 
 Este Início Rápido mostra como criar uma [regra de firewall no nível do servidor](sql-database-firewall-configure.md) para bancos de dados individuais e em pool no Banco de Dados SQL do Azure usando o portal do Azure para permitir que você se conecte a servidores de banco de dados, bancos de dados individuais e pools elásticos e seus bancos de dados. Uma regra de firewall é necessária para se conectar em outros recursos do Azure e em recursos locais.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este Início Rápido usa os recursos criados em [Criar um banco de dados individual usando o portal do Azure](sql-database-single-database-get-started.md) como ponto de partida.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall de IP no nível do servidor
 
@@ -63,7 +63,7 @@ Execute essas etapas para criar uma regra de firewall de IP no nível do servido
 
 Usando o SQL Server Management Studio ou outra ferramenta de sua escolha, agora é possível conectar-se ao servidor do Banco de Dados SQL e a seus bancos de dados a partir desse endereço IP com a conta do administrador do servidor criada anteriormente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Salvar esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como se conectar e consultar o banco de dados usando vários métodos diferentes. No entanto, se você quer excluir os recursos criados nesse início rápido, use as etapas a seguir.
 

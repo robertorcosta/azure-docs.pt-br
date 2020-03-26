@@ -4,10 +4,10 @@ description: Etapas de implantação do modelo de blueprint da IRS 1075 (Rev.11-
 ms.date: 11/20/2019
 ms.topic: sample
 ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546813"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Implantar amostra do blueprint IRS 1075
@@ -91,7 +91,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Auditar controles IRS 1075 (Rev.11-2016) e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|ID do workspace do Log Analytics para a qual as VMs devem ser configuradas|Esta é a ID (GUID) do workspace do Log Analytics para a qual as VMs devem ser configuradas.|
 |Auditar controles IRS 1075 (Rev.11-2016) e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
 ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162592"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Início Rápido: Enviar e receber eventos com Hubs de Eventos usando o Python (azure-eventhub versão 1)
@@ -23,7 +23,7 @@ Este início rápido mostra como enviar e receber eventos de um hub de eventos u
 > Este início rápido usa o pacote antigo do azure-eventhub versão 1. Para um início rápido que usa a **versão 5** mais recente do pacote, confira [Enviar e receber eventos usando o azure-eventhub versão 5](get-started-python-send-v2.md). Para mudar seu aplicativo do pacote antigo para o novo, confira o [Guia para migrar do azure-eventhub versão 1 para versão 5](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Se você for novo nos Hubs de Eventos do Azure, confira a [Visão geral dos Hubs de Eventos](event-hubs-about.md) antes de prosseguir com este início rápido. 
 
 Para concluir este início rápido, você precisará dos seguintes pré-requisitos:

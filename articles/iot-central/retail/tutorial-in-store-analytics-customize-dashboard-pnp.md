@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022164"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutorial:  Personalizar o painel do operador e gerenciar dispositivos no Azure IoT Central
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Adicionar blocos de propriedade para exibir detalhes do dispositivo
 > * Adicionar blocos de comando para executar comandos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O construtor deve concluir o tutorial para criar o aplicativo de análise na loja do Azure IoT Central e adicionar dispositivos:
 

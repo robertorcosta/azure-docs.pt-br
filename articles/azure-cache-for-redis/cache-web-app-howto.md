@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74927063"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Início Rápido: Use o Cache do Azure para Redis com um aplicativo Web ASP.NET 
 
 Neste guia de início rápido, você usa o Visual Studio 2019 para criar um aplicativo Web ASP.NET que se conecta ao Cache do Azure para Redis para armazenar e recuperar dados de cache. Depois, você implantará o aplicativo no Serviço de Aplicativo do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as cargas de trabalho de **desenvolvimento do ASP.NET e para a Web** e **desenvolvimento do Azure**.
@@ -143,7 +143,7 @@ O runtime do ASP.NET mescla o conteúdo do arquivo externo com a marcação no e
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.GetDatabase();
+            IDatabase cache = lazyConnection.Value.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ O runtime do ASP.NET mescla o conteúdo do arquivo externo com a marcação no e
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Dispose();
+            lazyConnection.Value.Dispose();
 
             return View();
         }
@@ -259,7 +259,7 @@ Depois de testar o aplicativo localmente com êxito, você pode implantar o apli
 
 3. Na caixa de diálogo **Criar Serviço de Aplicativo**, faça as seguintes alterações:
 
-    | Configuração | Valor recomendado | DESCRIÇÃO |
+    | Configuração | Valor recomendado | Descrição |
     | ------- | :---------------: | ----------- |
     | **Nome do aplicativo** | Use o padrão. | O nome do aplicativo é o nome do host para o aplicativo quando ele for implantado no Azure. O nome pode ter um sufixo de carimbo de data/hora adicionado a ele se for necessário para torná-lo exclusivo. |
     | **Assinatura** | Escolha a sua assinatura do Azure. | Essa assinatura será cobrada quanto aos encargos de hospedagem relacionados. Caso tenha várias assinaturas do Azure, verifique se a assinatura desejada está selecionada.|
@@ -296,7 +296,7 @@ Selecione **Teste do Cache do Azure para Redis** na barra de navegação para te
 
 ![Teste simples concluído no Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você pretende continuar até o próximo tutorial, pode manter os recursos criados neste início rápido e reutilizá-los.
 

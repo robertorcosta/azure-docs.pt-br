@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 3e01fc292f2b04dc85066a19954104468e84e2ba
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lean"></a>Tutorial: Integração do Azure Active Directory com Lean
@@ -34,7 +34,7 @@ A integração do Lean com Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Lean, você precisará dos seguintes itens:
 
@@ -82,7 +82,7 @@ Para configurar e testar o logon único do Azure AD com o Lean, será necessári
 2. **[Configurar o Logon Único do Lean](#configure-lean-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Lean](#create-lean-test-user)**  - ter uma duplicata de Brenda Fernandes no Lean vinculada à representação do usuário do Azure AD.
+5. **[Criar usuário de teste do Lean](#create-lean-test-user)** - ter uma duplicata de Brenda Fernandes no Lean vinculada à representação do usuário do Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -199,5 +199,5 @@ Ao clicar no bloco do Lean no Painel de Acesso, você deverá entrar automaticam
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

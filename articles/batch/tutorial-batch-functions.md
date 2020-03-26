@@ -9,17 +9,17 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
 ms.openlocfilehash: a967fdc14b85f294ee11cbcc57a8d2280dba38e8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77017183"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Disparar um trabalho em lotes usando o Azure Functions
 
 Neste tutorial, você aprenderá como disparar um trabalho em lotes usando o Azure Functions. Vamos examinar um exemplo no qual os documentos adicionados a um contêiner de blobs do Armazenamento do Microsoft Azure têm OCR (reconhecimento óptico de caracteres) aplicado a eles por meio do Lote do Azure. Para simplificar o processamento de OCR, configuraremos uma função do Azure que executa um trabalho OCR do Lote cada vez que um arquivo é adicionado ao contêiner de blob.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Confira [Criar uma conta do Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e vincular contas.

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: dd8ce6d9b4dc63592e491a06a0055a7d065252b5
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: d1e6d6db1465b20f1f32a8ffb2f978d0a04a1033
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201417"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470836"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Início Rápido: Iniciar um aplicativo Azure Spring Cloud usando o plug-in do Maven
 
@@ -77,13 +77,13 @@ São necessários cerca de 5 minutos para o serviço ser implantado. Depois que 
 
 1. Clone o repositório Git executando o seguinte comando:
 
-    ```azurecli
+    ```console
     git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
 1. Altere o diretório e crie o projeto executando o seguinte comando:
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
@@ -92,7 +92,7 @@ São necessários cerca de 5 minutos para o serviço ser implantado. Depois que 
 
 1. Gere configurações executando o seguinte comando na pasta raiz de PiggyMetrics que contém o POM pai:
 
-    ```azurecli
+    ```console
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
@@ -106,7 +106,7 @@ São necessários cerca de 5 minutos para o serviço ser implantado. Depois que 
 
 1. Agora o POM contém as dependências e configurações do plug-in. Implante os aplicativos usando o seguinte comando:
 
-   ```azurecli
+   ```console
    mvn azure-spring-cloud:deploy
    ```
 

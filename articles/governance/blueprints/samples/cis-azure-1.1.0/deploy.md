@@ -4,10 +4,10 @@ description: Etapas de implantação da amostra de blueprint do CIS Microsoft Az
 ms.date: 10/14/2019
 ms.topic: sample
 ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74544515"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Implantar a amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
@@ -91,7 +91,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Versão Prévia\]: Auditar as recomendações do CIS Microsoft Azure Foundations Benchmark 1.1.0 e implantar Extensões de VM de suporte específicas|Atribuição de política|Lista de regiões em que o Observador de Rede deve ser habilitado|Uma lista de regiões separada por ponto e vírgula. Para ver uma lista completa de regiões, use Get-AzLocation. Por exemplo: eastus; eastus2|
 |\[Versão Prévia\]: Auditar as recomendações do CIS Microsoft Azure Foundations Benchmark 1.1.0 e implantar Extensões de VM de suporte específicas|Atribuição de política|Lista de extensões da máquina virtual aprovadas para uso|Uma lista completa de extensões separadas por ponto e vírgula. Para ver uma lista completa de extensões de máquina virtual, use Get-AzVMExtensionImage. Por exemplo: AzureDiskEncryption; IaaSAntimalware|

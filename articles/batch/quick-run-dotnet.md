@@ -11,13 +11,13 @@ ms.date: 11/29/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77017200"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: Executar o primeiro trabalho em Lote do Azure com a API do .NET
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início rápido: executar o primeiro trabalho do Lote do Azure com a API do .NET
 
 Este guia de início rápido executa um trabalho do Lote do Azure de um aplicativo em C# criado na API do .NET do Lote do Azure. O aplicativo carrega vários arquivos de dados de entrada no armazenamento do Azure e, em seguida, cria um *pool* de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um exemplo de *trabalho* que executa *tarefas* para processar cada arquivo de entrada no pool usando um comando básico. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
 

@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d4eb396d332327addcd85ed7badd36ef8f1d10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5168dab7501cdb2907b3eede5877dce39e9e5c97
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647937"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473040"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>Publicar uma definição de aplicativo gerenciado do Azure
+# <a name="quickstart-publish-an-azure-managed-application-definition"></a>Início Rápido: Publicar uma definição de aplicativo gerenciado do Azure
 
 Este início rápido fornece uma introdução ao trabalho com aplicativos gerenciados. Você pode adicionar uma definição de aplicativo gerenciado a um catálogo interno para usuários em sua organização. Para simplificar a introdução, já compilamos os arquivos do seu aplicativo gerenciado. Esses arquivos estão disponíveis por meio do GitHub. Você aprenderá a compilar esses arquivos no tutorial [Criar aplicativo de catálogo de serviço](publish-service-catalog-app.md).
 

@@ -4,10 +4,10 @@ description: Etapas de implantação para as amostras de blueprint UK OFFICIAL e
 ms.date: 06/26/2019
 ms.topic: sample
 ms.openlocfilehash: 3d69f4477163618aa225150ac6352a16e901f826
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546392"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implantar as amostras de blueprint do UK OFFICIAL e do UK NHS
@@ -91,7 +91,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
+Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Iniciativa de blueprint para UK OFFICIAL ou UK NHS|Atribuição de política |Tipos de recursos para auditar logs de diagnóstico (Política: Iniciativa de blueprint para UK OFFICIAL ou UK NHS) |Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada.  Confira valores aceitáveis em [Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux |Atribuição de política |Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo (Política: \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux) |(Opcional) O valor padrão é _none_. Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |

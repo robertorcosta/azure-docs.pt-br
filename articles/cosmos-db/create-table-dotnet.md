@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 629adfe558aec71e156e50c75aa0891eac5a8bcf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370803"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214924"
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo API de Tabela com o SDK do .NET e Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Início Rápido: compilar um aplicativo de API de Tabela com o SDK do .NET e o Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -26,9 +26,9 @@ ms.locfileid: "78370803"
 
 Este guia de início rápido mostra como usar o .NET e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para criar um aplicativo por meio da clonagem de um exemplo do GitHub. Este guia de início rápido também mostra como criar uma conta do Azure Cosmos DB e como usar o Data Explorer para criar tabelas e entidades no Portal do Azure baseado na Web.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+Se ainda não tiver o Visual Studio 2019 instalado, baixe e use o **Visual Studio 2019 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -100,7 +100,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 1. No Visual Studio, clique com o botão direito do mouse no projeto **CosmosTableSamples** em **Gerenciador de Soluções** e, depois, clique em **Gerenciar Pacotes NuGet**. 
 
-   ![Gerenciar pacotes NuGet](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+   ![Gerenciar Pacotes NuGet](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
 2. Na caixa **Procurar** do NuGet, digite Microsoft.Azure.Cosmos.Table. Isso localizará a biblioteca de clientes de API de tabela do Cosmos DB. Observe que essa biblioteca só está disponível atualmente para .NET Framework e .NET Standard. 
    
@@ -136,7 +136,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
     Quando você atinge o ponto de interrupção, retorne ao Portal do Azure, clique em **Entidades** novamente para abrir a guia **Entidades** e observe que o número de telefone foi atualizado para 425-555-0105.
 
-8. {1&gt;Pressione F5 para executar o aplicativo.&lt;1} 
+8. Pressione F5 para executar o aplicativo. 
  
    O aplicativo adiciona entidades para uso em um aplicativo de exemplo avançado que atualmente não é compatível com a API de Tabela. O aplicativo, em seguida, exclui a tabela criada pelo aplicativo de exemplo.
 
@@ -151,7 +151,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar uma tabela usando o Data Explorer e como executar um aplicativo.  Agora, você pode consultar os dados usando a API de Tabela.  
 

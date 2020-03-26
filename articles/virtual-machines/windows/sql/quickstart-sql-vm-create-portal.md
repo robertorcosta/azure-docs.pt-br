@@ -14,10 +14,10 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75965648"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows do SQL Server 2017 no portal do Azure
@@ -33,11 +33,11 @@ Esse Início Rápido percorre a criação de uma máquina virtual do SQL Server 
   > - Este início rápido fornece um caminho para provisionar rapidamente e conectar-se a uma VM do SQL. Para obter mais informações sobre outras opções de provisionamento da VM SQL, confira o [Guia de provisionamento para VMs do Windows do SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
   > - Em caso de dúvidas sobre máquinas virtuais do SQL Server, consulte as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Obter uma assinatura do Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Obter uma assinatura do Azure
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a id="select"></a> Selecione uma imagem da VM do SQL Server
+## <a name="select-a-sql-server-vm-image"></a><a id="select"></a> Selecione uma imagem da VM do SQL Server
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta.
 
@@ -51,7 +51,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
    ![Nova janela de pesquisa](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
-## <a id="configure"></a> Forneça detalhes básicos
+## <a name="provide-basic-details"></a><a id="configure"></a> Forneça detalhes básicos
 
 Na folha **Informações Básicas**, forneça as seguintes informações:
 
@@ -116,7 +116,7 @@ Você pode monitorar a implantação no portal do Azure. O botão **Notificaçõ
 
     ![conexão ssms](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> Faça logon na VM remotamente
+## <a name="log-in-to-the-vm-remotely"></a><a id="remotedesktop"></a> Faça logon na VM remotamente
 
 Use as etapas a seguir para se conectar à máquina virtual do SQL Server com a Área de Trabalho Remota:
 

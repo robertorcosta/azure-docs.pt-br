@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 032ca8d4ecbcf1fc7f3c22cbe5a0ee934fc5e17c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74407368"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos iOS usando Hubs de Notificação do Microsoft Azure
@@ -46,7 +46,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 
 O código completo deste tutorial pode ser encontrado [no GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
@@ -479,7 +479,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 ## <a name="send-test-push-notifications"></a>Enviar notificações por push de teste
 
-Você pode testar o recebimento de notificações no aplicativo com a opção *Envio de Teste* no [Portal do Azure]. Isso envia uma notificação por push de teste para seu dispositivo.
+Você pode testar o recebimento de notificações no aplicativo com a opção *Envio de Teste* no [Azure portal]. Isso envia uma notificação por push de teste para seu dispositivo.
 
 ![Portal do Azure – Envio de Teste][30]
 
@@ -493,7 +493,7 @@ Para testar as notificações por push no iOS, você deve implantar o aplicativo
 
     ![Teste de registro de notificação por push de aplicativo do iOS][33]
 
-2. Em seguida, você pode enviar uma notificação por push de teste do [Portal do Azure], conforme descrito na seção anterior.
+2. Em seguida, você pode enviar uma notificação por push de teste do [Azure portal], conforme descrito na seção anterior.
 
 3. A notificação por push é enviada a todos os dispositivos que estão registrados para receber as notificações do Hub de Notificação específico.
 
@@ -530,4 +530,4 @@ Neste exemplo simples, você enviou notificações por push a todos os seus disp
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

@@ -4,10 +4,10 @@ description: Descreve como avaliar servidores físicos para a migração para o 
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.openlocfilehash: c89c731712a625e5f3b7a1a7e9306f6a7480b96b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76990293"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Avaliar servidores físicos com as migrações para Azure: Avaliação de Servidor
@@ -30,7 +30,7 @@ Este tutorial é o segundo de uma série que demonstra como avaliar e migrar ser
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Conclua](tutorial-prepare-physical.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:

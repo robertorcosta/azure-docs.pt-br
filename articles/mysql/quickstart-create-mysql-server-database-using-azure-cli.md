@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74773497"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
@@ -36,7 +36,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo.
 
-O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`.
+O exemplo a seguir cria um grupo de recursos chamado `myresourcegroup` na localização `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -47,12 +47,12 @@ Crie um servidor de Banco de Dados do Azure para MySQL com o comando **[az mysql
 
 **Configuração** | **Valor de exemplo** | **Descrição**
 ---|---|---
-Nome | mydemoserver | Escolha um nome exclusivo que identifica o Banco de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter de 3 a 63 caracteres.
+name | mydemoserver | Escolha um nome exclusivo que identifica o Banco de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter de 3 a 63 caracteres.
 resource-group | myresourcegroup | Forneça o nome do grupo de recursos do Azure.
 sku-name | GP_Gen5_2 | O nome da SKU. Segue a convenção {tipo de preço}\_{geração de computação}\_{vCores} em formato abreviado. Embaixo desta tabela há mais informações sobre o parâmetro sku-name.
 backup-retention | 7 | Quanto tempo um backup deve ser retido. A unidade é dias. O intervalo é de 7 a 35. 
 geo-redundant-backup | Desabilitado | Indica se os backups com redundância geográfica devem ser habilitados para este servidor ou não. Valores permitidos: Habilitado, Desabilitado.
-location | westus | O local do Azure para o servidor.
+local | westus | O local do Azure para o servidor.
 ssl-enforcement | habilitado | Se o ssl deve ser habilitado ou não para este servidor. Valores permitidos: Habilitado, Desabilitado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é no mínimo 5.120 MB e aumenta em incrementos de 1.024 MB. Confira o documento [tipos de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
 version | 5.7 | A versão principal do MySQL.
@@ -67,7 +67,7 @@ O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geraç�
 
 Veja a documentação das [camadas de preços](./concepts-pricing-tiers.md) para entender os valores válidos por região e por camada.
 
-O exemplo a seguir cria um servidor MySQL 5.7 no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Esse é um servidor **Gen 4** de **Finalidade Geral** com **2 vCores**. Substitua o `<server_admin_password>` com seu próprio valor.
+O exemplo a seguir cria um servidor MySQL 5.7 no Oeste dos EUA chamado `mydemoserver` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `myadmin`. Esse é um servidor **Gen 4** de **Uso Geral** com **2 vCores**. Substitua o `<server_admin_password>` com seu próprio valor.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -100,7 +100,7 @@ O exemplo a seguir desabilita a imposição de SSL no servidor MySQL.
  az mysql server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
  ```
 
-## <a name="get-the-connection-information"></a>Obter as informações de conexão
+## <a name="get-the-connection-information"></a>Obter informações de conexão
 
 Para se conectar ao servidor, é preciso fornecer credenciais de acesso e informações do host.
 
@@ -216,7 +216,7 @@ mysql>
 Clique em **Testar Conexão** para testar se todos os parâmetros estiverem configurados corretamente.
 Agora, é possível clicar na conexão para se conectar ao servidor com êxito.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se não precisar desses recursos para outro início rápido/tutorial, você poderá excluí-los ao fazer o seguinte comando: 
 
 ```azurecli-interactive

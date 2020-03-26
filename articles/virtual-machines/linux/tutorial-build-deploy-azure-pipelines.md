@@ -12,10 +12,10 @@ ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76988321"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
@@ -53,7 +53,7 @@ Se já tiver um aplicativo no GitHub que deseja implantar, você poderá tentar 
 
 No entanto, se você for um novo usuário, poderá começar melhor usando nosso código de exemplo. Nesse caso, crie um fork deste repositório no GitHub:
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 ```
 https://github.com/spring-projects/spring-petclinic
@@ -62,7 +62,7 @@ https://github.com/spring-projects/spring-petclinic
 > [!NOTE]
 > O Petclinic é um aplicativo [Java Spring boot](https://spring.io/guides/gs/spring-boot) criado usando o [Maven](https://spring.io/guides/gs/maven/).
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 ```
 https://github.com/azure-devops/fabrikam-node
@@ -82,13 +82,13 @@ https://github.com/azure-devops/fabrikam-node
 Os aplicativos de exemplo mencionados acima foram testados no Ubuntu 16.04. Recomendamos que, para este início rápido, você use a mesma versão da VM do Linux.
 Siga as etapas adicionais descritas abaixo com base na pilha de runtime usada para o aplicativo.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 - Para implantar aplicativos baseados em Java Spring Boot e Spring Cloud, crie uma VM do Linux no Azure usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo, que fornece um runtime baseado em OpenJDK totalmente compatível.
 - Para implantar Servlets Java no servidor Tomcat, crie uma VM do Linux com o Java 8 usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo do Azure e [configure o Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
 - Para implantar o aplicativo baseado em Java EE, use um modelo do Azure para criar uma [VM do Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou [uma VM do Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou uma [VM do Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Para instalar um aplicativo JavaScript ou um aplicativo Node.js, você precisará de uma VM do Linux com o servidor Web Nginx para implantar o aplicativo.
 Se você ainda não tiver uma VM do Linux com Nginx, crie uma agora no Azure usando as etapas [neste](/azure/virtual-machines/linux/quick-create-cli) exemplo.
@@ -141,7 +141,7 @@ Você precisará de um pipeline de build de CI (integração contínua) que publ
 
 1. O Azure Pipelines analisará seu repositório e recomendará um modelo de pipeline adequado.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria seu projeto Java e executa testes com o Apache Maven:
 
@@ -165,7 +165,7 @@ Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria
 
 Para obter mais diretrizes, siga as etapas mencionadas em [Crie seu aplicativo Java com o Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria um projeto Node.js geral com o npm.
 

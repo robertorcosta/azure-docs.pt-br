@@ -17,10 +17,10 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dd24d57ca78d2c9a41dc9ad29324726bc431e2f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72599779"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ecornell"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao eCornell
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o eCornell ao Azure AD (Azure Active
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -98,7 +98,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo eCornell espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
-    | NOME |  Atributo de Origem|
+    | Nome |  Atributo de Origem|
     | -------------- | --------- |
     | firstName | user.givenname |
     | lastName | user.surname |

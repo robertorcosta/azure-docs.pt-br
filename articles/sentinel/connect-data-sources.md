@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 311bb367748be98af704ab11919abea6e38d0ff3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9d2d1985b23e1c7f5e0f7d9fd2795bd85e28ace0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588324"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214804"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
 
@@ -56,7 +56,6 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
     - [Office 365](connect-office-365.md)
     - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
     - [Firewall do aplicativo Web da Microsoft](connect-microsoft-waf.md)
-    - [Eventos de segurança do Windows](connect-windows-security-events.md) 
     - [Firewall do Windows](connect-windows-firewall.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md)
 
@@ -91,7 +90,7 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
     - Servidores Linux
     - Outras nuvens
     
-## Opções de conexão de agente<a name="agent-options"></a>
+## <a name="agent-connection-options"></a>Opções de conexão de agente<a name="agent-options"></a>
 
 Para conectar seu dispositivo externo ao Azure Sentinel, o agente precisa ser implantado em um computador dedicado (VM ou local) para dar suporte à comunicação entre o dispositivo e o Azure Sentinel. Você pode implantar o agente manualmente ou automaticamente. A implantação automática só estará disponível se o computador dedicado for uma nova VM que você está criando no Azure. 
 

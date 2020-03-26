@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, guia estratégico, cosmo db, banco de da
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 8c898e3cb0747a442d50b7241ebfcf401148817e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156478"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Tutorial: Configurar contas do Azure Cosmos DB usando o Ansible
@@ -25,7 +25,7 @@ O [Azure Cosmos DB](/azure/cosmos-db/) é um serviço de banco de dados que dá 
 > * Recuperar as chaves de conta
 > * Excluir a conta
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -239,7 +239,7 @@ Execute o guia estratégico usando o comando `ansible-playbook`:
 ansible-playbook cosmosdb.yml
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo. 
 

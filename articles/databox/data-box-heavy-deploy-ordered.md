@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70241401"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Tutorial: Solicitar o Azure Data Box Heavy
@@ -29,7 +29,7 @@ Este tutorial descreve como você pode solicitar um Azure Data Box Heavy. Neste 
 > * Acompanhar o pedido
 > * Cancelar o pedido
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Preencha os seguintes pré-requisitos de configuração para o serviço e dispositivo do Data Box antes de implantar o dispositivo.
 
@@ -38,7 +38,7 @@ Preencha os seguintes pré-requisitos de configuração para o serviço e dispos
 Antes de começar, verifique se:
 
 - O dispositivo é ajustado por meio de entradas e portais padrão. No entanto, verifique se o dispositivo pode ser ajustado por meio de todas as suas entradas. As dimensões do dispositivo são: largura: 26” comprimento: 48” altura: 28”.
-- Se ele for instalado em um andar que não seja o térreo, você precisará ter acesso ao dispositivo por meio de um elevador ou uma rampa. O dispositivo pesa aproximadamente 226,8 kg (500 lb).
+- Se ele for instalado em um andar que não seja o térreo, você precisará ter acesso ao dispositivo por meio de um elevador ou uma rampa. O dispositivo pesa aproximadamente 500 lbs.
 - Verifique se você tem um site simples no datacenter com proximidade a uma conexão de rede disponível que possa acomodar um dispositivo com esse volume.
 
 
@@ -88,7 +88,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     [![Selecionar a disponibilidade da família Data Box](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
-5. Selecione **Data Box Heavy**. A capacidade máxima utilizável em um único pedido é de 770 TB.
+5. Escolha **Data Box Heavy**. A capacidade máxima utilizável em um único pedido é de 770 TB.
 
     [![Selecionar Data Box Heavy](media/data-box-heavy-deploy-ordered/select-data-box-heavy.png)
 
@@ -96,7 +96,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     
     |Configuração  |Valor  |
     |---------|---------|
-    |NOME     | Forneça um nome amigável para acompanhar o pedido. <br> O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. <br> O nome deve começar e terminar com uma letra ou um número.      |
+    |Nome     | Forneça um nome amigável para acompanhar o pedido. <br> O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. <br> O nome deve começar e terminar com uma letra ou um número.      |
     |Resource group     | Use um grupo existente ou crie um novo. <br> Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos.         |
     |Região do Azure de destino     | Selecione uma região para sua conta de armazenamento. <br> Para saber mais, acesse [disponibilidade por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
     |Destino de armazenamento     | Escolha entre conta de armazenamento, discos gerenciados ou ambos. <br> Com base na região especificada do Azure, selecione uma ou mais contas de armazenamento existente na lista filtrada de uma conta de armazenamento existente. <br>O Data Box Heavy pode ser vinculado a até 10 contas de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**. <br> Não há suporte para contas do Azure Data Lake Storage Gen2. Confira as [contas de armazenamento compatíveis com seu dispositivo](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Contas de armazenamento com redes virtuais são compatíveis. Para permitir que o serviço do Data Box trabalhe com contas de armazenamento protegido, habilite os serviços confiáveis em definições de firewall de rede da conta de armazenamento. Para obter mais informações, confira como [Adicionar o serviço Azure Data Box como um serviço confiável](../storage/common/storage-network-security.md#exceptions).|
@@ -160,7 +160,7 @@ Para excluir um pedido cancelado, vá para **Visão geral** e clique em **Exclui
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Heavy, como:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Pré-requisitos
 > * Solicitar o Data Box Heavy
 > * Acompanhar o pedido
 > * Cancelar o pedido

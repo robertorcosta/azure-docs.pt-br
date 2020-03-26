@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686514"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início Rápido: Integrar suas máquinas virtuais do Azure Stack à Central de Segurança
@@ -26,7 +26,7 @@ Após integrar sua assinatura do Azure, será possível permitir que a Central d
 
 Este início rápido mostra como adicionar a extensão da máquina virtual **Gerenciamento de Configuração, de Atualização e do Azure Monitor** em uma máquina virtual (há suporte para Linux e Windows) em execução no Azure Stack.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 É necessário ter uma assinatura do Azure na camada Standard da Central de Segurança antes de iniciar este início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. É possível experimentar a camada Standard da Central de Segurança sem custo por 30 dias. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -86,7 +86,7 @@ Há dois tipos de ícones representados na folha **Computação**:
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) VM do Azure (as VMs do Azure Stack serão mostradas neste grupo)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, será possível remover a extensão da máquina virtual por meio do portal do Azure Stack.
 
 Para remover a extensão:

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73241199"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Gravar no HDFS do Apache Hadoop usando o Apache Storm no Azure HDInsight
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Exibir dados de saída
 > * Parar a topologia
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 
 * O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) do seu armazenamento primário de clusters. Isso seria `wasb://` para o Armazenamento do Azure, `abfs://` para o Azure Data Lake Storage Gen2 ou `adl://` para o Azure Data Lake Storage Gen1. Se a transferência segura estiver habilitada para o Armazenamento do Azure, o URI será `wasbs://`.  Confira também [Transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
-### <a name="example-configuration"></a>Exemplo de configuração
+### <a name="example-configuration"></a>Configuração de exemplo
 
 O YAML a seguir é um trecho do arquivo `resources/writetohdfs.yaml` incluído no exemplo. Esse arquivo define a topologia do Storm usando a estrutura [Flux](https://storm.apache.org/releases/current/flux.html) para o Apache Storm.
 
@@ -101,7 +101,7 @@ bolts:
 Esse YAML define os seguintes itens:
 
 * `syncPolicy`: Define quando arquivos são sincronizados/liberados para o sistema de arquivos. Neste exemplo, a cada 1.000 tuplas.
-* `fileNameFormat`: Define o padrão de nome de arquivo e caminho a ser usado ao gravar os arquivos. Neste exemplo, o caminho é fornecido no tempo de execução usando um filtro e a extensão de arquivo é `.txt`.
+* `fileNameFormat`: Define o padrão de nome de arquivo e caminho a ser usado ao gravar os arquivos. Neste exemplo, o caminho é fornecido no runtime usando um filtro e a extensão de arquivo é `.txt`.
 * `recordFormat`: Define o formato interno dos arquivos gravados. Neste exemplo, os campos são delimitados pelo caractere `|`.
 * `rotationPolicy`: Define quando girar arquivos. Neste exemplo, nenhuma rotação é executada.
 * `hdfs-bolt`: Usa os componentes anteriores como parâmetros de configuração para a classe `HdfsBolt`.
@@ -123,7 +123,7 @@ Para obter informações sobre como usar esse script com o cluster, consulte o d
 
 ## <a name="build-and-package-the-topology"></a>Compilar e criar o pacote da topologia
 
-1. Faça download do projeto de exemplo em [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) para seu ambiente de desenvolvimento.
+1. Faça download do projeto de exemplo em [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) para seu ambiente de desenvolvimento.
 
 2. De um prompt de comando, terminal ou shell sessão, altere diretórios para a raiz do projeto baixado. Para criar e empacotar a topologia, use o seguinte comando:
 
@@ -199,7 +199,7 @@ As topologias do Storm são executadas até serem interrompidas ou o cluster ser
 storm kill hdfswriter
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este tutorial, você pode excluir o grupo de recursos. A exclusão do grupo de recursos também exclui o cluster HDInsight associado e todos os outros recursos associados ao grupo de recursos.
 

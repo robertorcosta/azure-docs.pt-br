@@ -13,19 +13,16 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 988bd6dbb157276a9ee37c8ca3051a808f8b6499
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b3e10b3abbe5c9815e51ce67786882dbd294df3f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661066"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202199"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Criar um gateway da NAT usando a CLI do Azure e testar o serviço NAT
 
 Neste tutorial, você criará um gateway da NAT para fornecer conectividade de saída para máquinas virtuais no Azure. Para testar o gateway da NAT, implante uma máquina virtual de origem e de destino. Você testará o gateway da NAT realizando conexões de saída com um endereço IP público. Essas conexões serão provenientes da máquina virtual de origem para a de destino. Este tutorial implanta a origem e o destino em duas redes virtuais diferentes no mesmo grupo de recursos apenas para simplificar.
-
->[!NOTE] 
->A NAT de Rede Virtual do Azure está disponível como versão prévia pública neste momento e em um conjunto limitado de [regiões](./nat-overview.md#region-availability). Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter detalhes.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -425,7 +422,6 @@ Examine as métricas no Azure Monitor para verificar a operação do serviço NA
 - Início Rápido para implantar o [recurso de gateway da NAT usando a CLI do Azure](./quickstart-create-nat-gateway-cli.md).
 - Início Rápido para implantar o [recurso de gateway da NAT usando o Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Início Rápido para implantar o [recurso de gateway da NAT usando o portal do Azure](./quickstart-create-nat-gateway-portal.md).
-- [Forneça comentários sobre a versão prévia pública](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 

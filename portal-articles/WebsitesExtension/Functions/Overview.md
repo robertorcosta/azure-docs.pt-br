@@ -9,24 +9,24 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 6ece125cbbaf13062bc7c5e8b313784b4d52c726
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67605195"
 ---
 # <a name="azure-functions-documentation"></a>Documentação do Azure Functions
 
 O Azure Functions é um serviço de computação sem servidor que lhe permite executar código sob demanda sem a necessidade de provisionar explicitamente ou gerenciar a infraestrutura. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos. Saiba como usar o Azure Functions com nossos guias de início rápido, tutoriais e exemplos.
 
-## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
+## <a name="5-minute-quickstarts"></a>Guias de início rápido de 5 minutos
 
 Saiba como criar uma função Olá, Mundo usando:
 
 - [Portal do Azure](/azure/azure-functions/functions-create-first-azure-function)
 - [CLI do Azure](/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 
-## <a name="step-by-step-tutorials"></a>Tutoriais Passo a Passo
+## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 
 Saiba como criar e gerenciar o Azure Functions.
 

@@ -3,13 +3,13 @@ title: 'Início Rápido: Contêiner do Windows (versão prévia)'
 description: Implante seu primeiro contêiner personalizado do Windows no Serviço de Aplicativo do Azure. Aproveite o transporte em contêineres e personalize o contêiner do Windows como desejar.
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.custom: seodec18
-ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922306"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047112"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contêiner personalizado do Windows no Azure (Versão prévia)
 
@@ -17,7 +17,7 @@ ms.locfileid: "75922306"
 
 Este início rápido mostra como implantar um aplicativo ASP.NET em uma imagem do Windows para o [Docker Hub](https://hub.docker.com/) do Visual Studio. O aplicativo é executado em um contêiner personalizado no Serviço de Aplicativo do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -145,7 +145,7 @@ Os logs transmitidos têm esta aparência:
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 

@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942491"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240545"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e .NET Core com Azure Dev Spaces
 
@@ -106,7 +106,7 @@ O comando `azds prep` da CLI do Azure gera ativos de Docker e Kubernetes com con
 * Um [Gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implantar o contêiner no Kubernetes.
 
 > [!TIP]
-> O [gráfico do Dockerfile e do Helm](how-dev-spaces-works.md#prepare-your-code) para seu projeto é usado pelo Azure Dev Spaces para compilar e executar seu código, mas você poderá modificar esses arquivos se quiser, a fim de alterar a maneira como o projeto é compilado e executado.
+> O [gráfico do Dockerfile e do Helm](how-dev-spaces-works-prep.md#prepare-your-code) para seu projeto é usado pelo Azure Dev Spaces para compilar e executar seu código, mas você poderá modificar esses arquivos se quiser, a fim de alterar a maneira como o projeto é compilado e executado.
 
 Por enquanto, não é necessário entender o conteúdo completo desses arquivos. Vale ressaltar, no entanto, que **os mesmos ativos de configuração como código do Kubernetes e do Docker podem ser usados desde o desenvolvimento até a produção, fornecendo assim melhor consistência em diferentes ambientes.**
  

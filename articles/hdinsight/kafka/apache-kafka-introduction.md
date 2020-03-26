@@ -1,6 +1,6 @@
 ---
 title: Uma introdução ao Apache Kafka no HDInsight – Azure
-description: 'Saiba mais sobre o Apache Kafka no HDInsight: O que é, o que ele faz e onde encontrar exemplos e obter informações introdutórias.'
+description: 'Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução.'
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77672167"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é o Apache Kafka no Azure HDInsight
@@ -59,7 +59,7 @@ A replicação é utilizada para duplicar partições entre os nós, protegendo 
 
 Veja a seguir tarefas e padrões comuns que podem ser executadas usando Kafka no HDInsight:
 
-|Use |Descrição |
+|Use |DESCRIÇÃO |
 |---|---|
 |Replicação de dados do Apache Kafka|O Kafka fornece o utilitário MirrorMaker, que replica os dados entre os clusters do Kafka. Para saber mais sobre como usar o MirrorMaker, confira [Replicar tópicos do Apache Kafka com o Apache Kafka no HDInsight](apache-kafka-mirroring.md).|
 |Padrão de mensagens de publicação/assinatura|O Kafka fornece uma API de Produtor para publicação de registros em um tópico do Kafka. A API de Consumidor é usada na assinatura de um tópico. Para saber mais, confira [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).|
@@ -75,7 +75,7 @@ Veja a seguir tarefas e padrões comuns que podem ser executadas usando Kafka no
 
 Use os links a seguir para aprender a usar o Apache Kafka no HDInsight:
 
-* [Início Rápido: Criar o Apache Kafka no HDInsight](apache-kafka-get-started.md)
+* [Início Rápido: Criar Apache Kafka no HDInsight](apache-kafka-get-started.md)
 
 * [Usar Kafka com proxy REST](rest-proxy.md)
 
