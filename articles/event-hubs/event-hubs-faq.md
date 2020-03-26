@@ -12,7 +12,7 @@ ms.date: 12/02/2019
 ms.author: shvija
 ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
 ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/13/2020
 ms.locfileid: "79264954"
@@ -78,7 +78,7 @@ Consulte a tabela a seguir para as portas de saída que você precisa abrir para
 | Kafka | 9093 | Consulte [usar hubs de eventos de aplicativos Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
-Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
+Para localizar os endereços IP corretos para a lista de permissões de suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando em um prompt de comando: 
 

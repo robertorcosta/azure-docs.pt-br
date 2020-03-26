@@ -39,7 +39,7 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
   - O campo de email agora é `type=email` e teclados móveis fornecerão as sugestões corretas
   - Suporte para tradução do Chrome
 - Páginas unificadas e autodeclaradas
-  - Os campos nome de usuário/email e senha agora usam o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) salvem corretamente essas informações.
+  - Os campos nome de usuário/email e senha agora usam o `form` elemento HTML para permitir que o Microsoft Edge e o Internet Explorer (IE) salvem corretamente essas informações.
 
 ## <a name="110"></a>1.1.0
 
