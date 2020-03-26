@@ -4,10 +4,10 @@ description: Comece a usar o Terraform no Azure implantando um Azure Cosmos DB e
 ms.topic: quickstart
 ms.date: 10/26/2019
 ms.openlocfilehash: 92f66fcfeac69b66eb8cdb0dc58b7a3171d45e10
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77470014"
 ---
 # <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Início Rápido: Criar uma configuração do Terraform no Azure

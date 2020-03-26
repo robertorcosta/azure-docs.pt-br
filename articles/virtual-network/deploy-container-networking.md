@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72028099"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implantar o plug-in do adaptador de rede de contêiner da Rede Virtual do Azure
@@ -31,7 +31,7 @@ O plug-in de CNI (adaptador de rede de contêiner) de Rede Virtual do Azure é i
 
 O mecanismo de ACS implanta um cluster de Kubernetes com um modelo do Azure Resource Manager. A configuração do cluster é especificada em um arquivo JSON que é passado para a ferramenta ao gerar o modelo. Para saber mais sobre a lista completa de configurações de cluster compatíveis e suas descrições, consulte [Mecanismo do Serviço de Contêiner do Microsoft Azure – definição de cluster](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). O plug-in é o plug-in de rede padrão para clusters criados usando o Mecanismo de ACS. As definições de configuração de rede a seguir são importantes ao configurar o plug-in:
 
-  | Configuração                              | DESCRIÇÃO                                                                                                           |
+  | Configuração                              | Descrição                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | O endereço IP é alocado para o nó Mestre. Essa é uma configuração obrigatória.                                     |
   | clusterSubnet em kubernetesConfig | CIDR da sub-rede da rede virtual em que o cluster é implantado e da qual os endereços IP são alocados aos Pods   |
@@ -39,7 +39,7 @@ O mecanismo de ACS implanta um cluster de Kubernetes com um modelo do Azure Reso
   | vnetCidr                             | CIDR da rede virtual em que o cluster é implantado                                                             |
   | max-Pods em kubeletConfig         | Número máximo de Pods em cada máquina virtual de agente. Para o plug-in, o padrão é 30. Você pode especificar até 250  |
 
-### <a name="example-configuration"></a>Exemplo de configuração
+### <a name="example-configuration"></a>Configuração de exemplo
 
 O exemplo de json a seguir é para um cluster com as seguintes propriedades:
 -   1 nó Mestre e 2 nós de Agente 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 48d05dad45a5ff4c561f492e424b53c918998c7c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c05e53bd8ad8ade8c1e42729f46c99a0059c4dce
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945449"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470853"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Início Rápido: Iniciar um aplicativo Spring Java usando a CLI do Azure
 
@@ -69,6 +69,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
+
     Saiba mais sobre [grupos de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 4. Abra uma janela da CLI do Azure e execute os seguintes comandos para provisionar uma instância do Azure Spring Cloud.
@@ -104,14 +105,14 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 
 1. Crie uma pasta e clone o repositório de aplicativos de exemplo para sua conta de nuvem do Azure.  
 
-    ```azurecli
+    ```console
         mkdir source-code
         git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
 2. Altere o diretório e crie o projeto.
 
-    ```azurecli
+    ```console
         cd piggymetrics
         mvn clean package -D skipTests
     ```
@@ -150,16 +151,21 @@ Precisamos de uma maneira de acessar o aplicativo por meio de um navegador da We
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+
 2. Consulte o aplicativo de **gateway** quanto ao IP público dele para você poder verificar se ele está em execução:
 
 Linux:
+
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
+
 Windows:
+
 ```azurecli
 az spring-cloud app show -s <service name> -g <resource group> -n gateway -o table
 ```
+
 3. Navegue até a URL fornecida pelo comando anterior para executar o aplicativo PiggyMetrics.
     ![Captura de tela da execução de PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 

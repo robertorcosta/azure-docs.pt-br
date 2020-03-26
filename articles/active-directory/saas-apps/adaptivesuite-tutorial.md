@@ -17,10 +17,10 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf05fc30a2b111a12c0b8e131db5117ec784075b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74232132"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integrar o Adaptive Insights ao Azure Active Directory
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Adaptive Insights ao Azure AD (Azu
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 2. Vá para **Administração**.
 
-    ![Administrador](./media/adaptivesuite-tutorial/ic805644.png "Administrador")
+    ![Administrador](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
 3. Na seção **Usuários e Funções**, clique em **Configurações de SSO do SAML**.
 
@@ -178,7 +178,7 @@ Para permitir que os usuários do Azure AD entrem no Adaptive Insights, eles dev
 
 2. Vá para **Administração**.
 
-   ![Administrador](./media/adaptivesuite-tutorial/IC805644.png "Administrador")
+   ![Administrador](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
 3. Na seção **Usuários e Funções**, clique em **Usuário**.
 

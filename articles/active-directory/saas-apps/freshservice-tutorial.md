@@ -17,10 +17,10 @@ ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227528"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Freshservice
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Freshservice ao Azure AD (Azure Ac
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -89,7 +89,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com [equipe de suporte ao Cliente do Freshservice](https://support.freshservice.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para fazer o download do certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
@@ -155,7 +155,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 4. No menu na parte superior, clique em **Administrador**.
 
-    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administrador")
+    ![Administrador](./media/freshservice-tutorial/ic790814.png "Admin")
 
 5. No **Portal do Cliente**, clique em **Segurança**.
 
@@ -187,7 +187,7 @@ Para permitir que os usuários do Azure AD façam logon no FreshService, eles de
 
 2. No menu na parte superior, clique em **Administrador**.
 
-    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administrador")
+    ![Administrador](./media/freshservice-tutorial/ic790814.png "Admin")
 
 3. Na seção **Gerenciamento de Usuários**, clique em **Solicitantes**.
 

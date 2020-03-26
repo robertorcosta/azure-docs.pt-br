@@ -17,10 +17,10 @@ ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fae7b80fd4d2fcec32bbef5e4cdf18e576412a86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74231975"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Sugar CRM
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Sugar CRM ao Azure AD (Azure Activ
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -147,7 +147,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
 1. Vá para **Administrador**.
 
-    ![Administrador](./media/sugarcrm-tutorial/ic795888.png "Administrador")
+    ![Administrador](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Na seção **Administração**, clique em **Gerenciamento de Senhas**.
 
@@ -179,7 +179,7 @@ Para permitir que os usuários do Azure AD entrem no Sugar CRM, eles precisam se
 
 1. Vá para **Administrador**.
 
-    ![Administrador](./media/sugarcrm-tutorial/ic795888.png "Administrador")
+    ![Administrador](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Na seção **Administração**, clique em **Gerenciamento de Usuários**.
 

@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379744"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290424"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure no portal do Azure
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [C#](search-get-started-dotnet.md)
@@ -31,7 +31,7 @@ Se as ferramentas forem muito limitadoras, considere a possibilidade de começar
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
@@ -43,7 +43,7 @@ As seções no painel de serviço mostram quantos índices, indexadores e fontes
 
 ![Listas de índices, indexadores e fontes de dados](media/search-get-started-portal/tiles-indexers-datasources.png)
 
-## <a name="create-index"></a> Criar um índice e carregar dados
+## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Criar um índice e carregar dados
 
 As consultas de pesquisa de iteram em um [*índice*](search-what-is-an-index.md) que contém dados e metadados pesquisáveis e construções adicionais que otimizam certos comportamentos de pesquisa.
 
@@ -132,7 +132,7 @@ Outros constructos, como perfis de pontuação e opções de CORS, podem ser adi
 
 Para entender claramente o que é possível editar ou não durante o design de índice, reserve um minuto para ver as opções de definição de índice. Opções esmaecidas são um indicador de que um valor não pode ser modificado ou excluído. 
 
-## <a name="query-index"></a> Consulta usando o Search Explorer
+## <a name="query-using-search-explorer"></a><a name="query-index"></a> Consulta usando o Search Explorer
 
 Agora você terá um índice de pesquisa que está pronto para consulta na página de consulta interna [**Gerenciador de pesquisa**](search-explorer.md). Ele fornece uma caixa de pesquisa para que você possa testar cadeias de caracteres de consulta arbitrárias.
 
@@ -176,7 +176,7 @@ Você pode inserir termos e frases, semelhante ao que poderá fazer em uma pesqu
 
 * O **$top=10** retorna o 10 documentos com maior classificação do total. Por padrão, a Pesquisa Cognitiva do Azure retorna as primeiras 50 melhores correspondências. Você pode aumentar ou diminuir a quantidade via **$top**.
 
-### <a name="filter-query"></a> Filtrar a consulta
+### <a name="filter-the-query"></a><a name="filter-query"></a> Filtrar a consulta
 
 Os filtros são incluídos nas solicitações de pesquisa quando você acrescenta o parâmetro **$filter**. 
 
@@ -186,7 +186,7 @@ Os filtros são incluídos nas solicitações de pesquisa quando você acrescent
 
 * A sintaxe de filtro é uma construção de OData. Para saber mais, confira [Sintaxe de filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-### <a name="facet-query"></a> Facetar a consulta
+### <a name="facet-the-query"></a><a name="facet-query"></a> Facetar a consulta
 
 Os filtros de faceta estão incluídos em solicitações de pesquisa. Você pode usar o parâmetro facet para retornar uma contagem agregada de documentos que correspondam a um valor de faceta que você fornecer.
 
@@ -206,7 +206,7 @@ Os filtros de faceta estão incluídos em solicitações de pesquisa. Você pode
 * O campo *Classificação* é um ponto flutuante de precisão dupla e o agrupamento será pelo valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "classificações de 3 estrelas," "classificações de 4 estrelas" etc.), confira [Como implementar a navegação facetada na Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
-### <a name="highlight-query"></a> Realçar resultados da pesquisa
+### <a name="highlight-search-results"></a><a name="highlight-query"></a> Realçar resultados da pesquisa
 
 Realce de ocorrências refere-se à formatação de texto correspondentes à palavra-chave, considerando que existam correspondências em um campo específico. Se o termo de pesquisa estiver escondido em uma descrição, você poderá adicionar o realce de ocorrências para facilitar a localização.
 
@@ -220,7 +220,7 @@ Realce de ocorrências refere-se à formatação de texto correspondentes à pal
 
 * A Pesquisa Cognitiva do Azure dá suporte a 56 analisadores da Lucene e da Microsoft. O padrão usado pela Pesquisa Cognitiva do Azure é o analisador Lucene padrão.
 
-### <a name="fuzzy-search"></a> Experimentar pesquisa difusa
+### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Experimentar pesquisa difusa
 
 Por padrão, termos de consulta com grafia incorreta, como *seatle* para a cidade de Seattle, não retornam correspondências em uma pesquisa típica. O exemplo a seguir não retorna resultados.
 
@@ -238,7 +238,7 @@ A pesquisa difusa e a pesquisa curinga têm implicações nos resultados da pesq
 
 Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene na Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-### <a name="geo-search"></a> Experimentar a pesquisa geoespacial
+### <a name="try-geospatial-search"></a><a name="geo-search"></a> Experimentar a pesquisa geoespacial
 
 A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -266,7 +266,7 @@ Você pode localizar e gerenciar recursos no portal usando o link **Todos os rec
 
 Se você estiver usando um serviço gratuito, estará limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Use um assistente do portal para gerar um aplicativo Web pronto para uso executado em um navegador. Você pode experimentar esse assistente no pequeno índice que acabou de criar ou usar um dos conjuntos de dados de exemplo internos para uma experiência de pesquisa mais avançada.
 

@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73936135"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
@@ -46,7 +46,7 @@ A seção Limitações e problemas conhecidos lista algumas das limitações e s
 > - Verifique se você tem o Service Pack e as atualizações do Windows mais recentes instalados antes de migrar.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, vale a pena examinar a arquitetura do Azure Site Recovery para [migração de servidores VMware e físicos](vmware-azure-architecture.md) ou [migração de máquinas virtuais Hyper-V](hyper-v-azure-architecture.md) 
 

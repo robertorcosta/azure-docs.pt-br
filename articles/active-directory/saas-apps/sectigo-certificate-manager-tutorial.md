@@ -17,10 +17,10 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67588244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integração do Azure Active Directory com o Sectigo Certificate Manager
@@ -35,7 +35,7 @@ A integração do Sectigo Certificate Manager ao Azure AD oferece a você os seg
 
 Para obter mais informações sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Sectigo Certificate Manager, são necessários os seguintes itens:
 
@@ -55,7 +55,7 @@ O Sectigo Certificate Manager dá suporte aos seguintes recursos:
 
 Para integrar o Sectigo Certificate Manager ao Azure AD, você deve adicionar o Sectigo Certificate Manager à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No menu esquerdo, selecione **Azure Active Directory**.
 
@@ -79,7 +79,7 @@ Nesta seção, você configurará e testará o logon único do Azure AD com o Se
 
 Para configurar e testar o logon único do Azure AD com o Sectigo Certificate Manager, é necessário concluir os seguintes blocos de construção:
 
-| Tarefa | DESCRIÇÃO |
+| Tarefa | Descrição |
 | --- | --- |
 | **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** | Permite que os usuários usem esse recurso. |
 | **[Configurar o logon único do Sectigo Certificate Manager](#configure-sectigo-certificate-manager-single-sign-on)** | Define as configurações de logon único no aplicativo. |

@@ -17,10 +17,10 @@ author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: a0496999a9a5dc3e9bfd57df0ec035e6db77d620
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73615122"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutorial: Criar um pipeline de CI/CD para seu código existente usando o Azure DevOps Projects
@@ -35,9 +35,9 @@ Você vai:
 > * Configurar o Azure DevOps e uma assinatura do Azure 
 > * Confirmar alterações no GitHub e implantá-las automaticamente no Azure
 > * Examinar o pipeline de CI/CD do Azure Pipelines
-> * Limpar recursos
+> * Limpar os recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Acesso ao GitHub ou a um repositório Git externo que contenha .NET, Java, PHP, Node.js, Python ou código da Web estático.
@@ -46,7 +46,7 @@ Você vai:
 
 O Azure DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O Azure DevOps Projects também cria recursos do Azure na assinatura do Azure de sua escolha.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. No menu do portal do Azure, selecione **Criar um recurso**.
 
@@ -114,7 +114,7 @@ O Azure DevOps Projects configura automaticamente um pipeline de CI/CD no Azure 
 
 1. Selecione a guia **Gatilhos**. O Azure DevOps Projects cria automaticamente um gatilho de CI com algumas configurações padrão. Você pode definir gatilhos como **Habilitar a integração contínua** para executar um build cada vez que você confirmar uma alteração de código. Você também pode definir gatilhos para agendar builds a serem executados em horários específicos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o Serviço de Aplicativo do Azure e os recursos relacionados criados neste tutorial não forem mais necessários, você poderá excluí-los. Use a funcionalidade **Excluir** no painel do DevOps Projects.
 

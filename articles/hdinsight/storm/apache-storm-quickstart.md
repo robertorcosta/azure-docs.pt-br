@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241230"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Início Rápido: Criar e monitorar uma topologia do Apache Storm no Azure HDInsight
@@ -21,7 +21,7 @@ O Apache Storm é um sistema de computação escalável, tolerante a falhas, dis
 
 Neste início rápido, você usará um exemplo do projeto [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) do Apache para criar e monitorar uma topologia do Apache Storm em um cluster existente do Apache Storm.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster**.
 
@@ -55,7 +55,7 @@ Use as etapas a seguir para monitorar a topologia usando a interface do usuário
 
     A página nova fornece as seguintes informações:
 
-    |Propriedade | DESCRIÇÃO |
+    |Propriedade | Descrição |
     |---|---|
     |Estatísticas de topologia|Informações básicas sobre o desempenho da topologia, organizadas em janelas de tempo. A seleção de uma janela de tempo específica altera a janela de tempo das informações exibidas em outras seções da página.|
     |Spouts|Informações básicas sobre spouts, incluindo o último erro retornado por cada spout.|
@@ -72,7 +72,7 @@ Use as etapas a seguir para monitorar a topologia usando a interface do usuário
 
     A página nova exibe as seguintes informações:
 
-    |Propriedade | DESCRIÇÃO |
+    |Propriedade | Descrição |
     |---|---|
     |Estatísticas de spout/bolt|Informações básicas sobre o desempenho do componente, organizadas em janelas de tempo. A seleção de uma janela de tempo específica altera a janela de tempo das informações exibidas em outras seções da página.|
     |Estatísticas de entrada (somente bolt)|Informações sobre componentes que geram dados consumidos pelo bolt.|
@@ -97,7 +97,7 @@ Use as etapas a seguir para monitorar a topologia usando a interface do usuário
 
 Volte para a página **Resumo da topologia** para a topologia de contagem de palavras e, em seguida, selecione o botão **Eliminar** da seção **Ações de topologia**. Quando solicitado, insira 10 para os segundos a aguardar antes da interrupção da topologia. Após o período de tempo limite, a topologia não será mais exibida quando você visitar a seção **Interface do usuário do Storm** do painel.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

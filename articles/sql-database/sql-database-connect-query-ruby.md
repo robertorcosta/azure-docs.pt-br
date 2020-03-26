@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 4bef55b049ee542efdb9d72d13fa196c989c75ec
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73826922"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Início Rápido: Como usar o Ruby para consultar um banco de dados SQL do Azure
 
 Este início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para se conectar a um Banco de Dados SQL do Azure e consultar dados com instruções Transact-SQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, você precisará dos seguintes pré-requisitos:
 
@@ -54,7 +54,7 @@ Para concluir este início rápido, você precisará dos seguintes pré-requisit
 
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL**.
 
@@ -64,7 +64,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 1. Em um editor de texto ou de códigos, crie um arquivo chamado *sqltest.rb*.
    
-1. Adicione os códigos a seguir. Substitua os valores do Banco de Dados SQL do Azure de `<server>`, `<database>`, `<username>` e `<password>`.
+1. Adicione o código seguinte: Substitua os valores do Banco de Dados SQL do Azure de `<server>`, `<database>`, `<username>` e `<password>`.
    
    >[!IMPORTANT]
    >O código neste exemplo usa os dados de exemplo AdventureWorksLT, que você pode escolher como fonte durante a criação de seu banco de dados. Se o banco de dados tiver dados diferentes, use tabelas de seu próprio banco de dados na consulta SELECT. 

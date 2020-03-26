@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158138"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação do Serviço Azure SignalR com o Azure Functions
@@ -25,7 +25,7 @@ Um tutorial passo a passo para criar uma sala de chat com autenticação e mensa
 * [Serviço Azure SignalR](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu): transmite novas mensagens para clientes de chat conectados
 * [Armazenamento do Azure](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu): hospeda o site estático para a interface do usuário do cliente de chat
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 O software a seguir é necessário para criar este tutorial.
 
@@ -53,7 +53,7 @@ Você vai compilar e testar o aplicativo do Azure Functions localmente. O aplica
 
 1. Insira as seguintes informações.
 
-    | NOME | Valor |
+    | Nome | Valor |
     |---|---|
     | Nome do recurso | Um nome exclusivo para a instância do Serviço SignalR |
     | Resource group | Crie um novo grupo de recursos e dê a ele um nome exclusivo |
@@ -145,11 +145,11 @@ Quando o aplicativo de chat é aberto pela primeira vez no navegador, ele exige 
 
 1. Quando solicitado, forneça as seguintes informações:
 
-    | NOME | Valor |
+    | Nome | Valor |
     |---|---|
     | Pasta do aplicativo de funções | Selecionar a pasta de projeto principal |
     | Modelo | Gatilho de HTTP |
-    | NOME | negociar |
+    | Nome | negociar |
     | Nível de autorização | Anônima |
 
     Uma pasta chamada **negociar** é criada contendo a nova função.
@@ -204,11 +204,11 @@ O aplicativo Web também requer uma API HTTP para enviar mensagens de chat. Voc�
 
 1. Quando solicitado, forneça as seguintes informações:
 
-    | NOME | Valor |
+    | Nome | Valor |
     |---|---|
     | Pasta do aplicativo de funções | selecione a pasta de projeto principal |
     | Modelo | Gatilho de HTTP |
-    | NOME | SendMessage |
+    | Nome | SendMessage |
     | Nível de autorização | Anônima |
 
     Uma pasta chamada **SendMessage** é criada contendo a nova função.
@@ -315,7 +315,7 @@ Uma conta de Armazenamento do Microsoft Azure é necessária para um aplicativo 
 
 1. Insira as seguintes informações.
 
-    | NOME | Valor |
+    | Nome | Valor |
     |---|---|
     | Subscription | Selecione a assinatura que contém a instância do Serviço do SignalR |
     | Resource group | Selecione o mesmo grupo de recursos |
@@ -371,13 +371,13 @@ Quando uma mensagem é enviada, o aplicativo pode decidir se deseja enviá-la pa
 
 1. Quando solicitado, forneça as seguintes informações:
 
-    | NOME | Valor |
+    | Nome | Valor |
     |---|---|
     | Pasta para implantar | Selecionar a pasta de projeto principal |
-    | Assinatura | Selecione sua assinatura |
+    | Subscription | Selecione sua assinatura |
     | Aplicativo de funções | Selecione **Criar Novo Aplicativo de Funções** |
     | Nome do aplicativo de funções | Insira um nome exclusivo |
-    | Grupo de recursos | Selecione o mesmo grupo de recursos da instância do Serviço SignalR |
+    | Resource group | Selecione o mesmo grupo de recursos da instância do Serviço SignalR |
     | Conta de armazenamento | Selecione a conta de armazenamento criada anteriormente |
 
     Um novo aplicativo de funções é criado no Azure e a implantação é iniciada. Aguarde até que a implantação seja concluída.
@@ -390,10 +390,10 @@ Quando uma mensagem é enviada, o aplicativo pode decidir se deseja enviá-la pa
 
 1. Quando solicitado, forneça as seguintes informações:
 
-    | NOME | Valor |
+    | Nome | Valor |
     |---|---|
     | Arquivo de configurações local | local.settings.json |
-    | Assinatura | Selecione sua assinatura |
+    | Subscription | Selecione sua assinatura |
     | Aplicativo de funções | Selecione o aplicativo de funções implantado anteriormente |
 
 As configurações locais são carregadas para o aplicativo de funções no Azure. Se solicitado a substituir as configurações existentes, selecione **Sim para todos**.
@@ -449,7 +449,7 @@ O aplicativo Web será hospedado usando o recurso de sites estáticos do Armazen
 
 1. Insira os valores a seguir:
 
-    | NOME | Valor |
+    | Nome | Valor |
     |---|---|
     | Subscription | Selecione sua assinatura |
     | Conta de armazenamento | Selecione a conta de armazenamento criada anteriormente |
@@ -489,7 +489,7 @@ Parabéns! Você implantou um aplicativo de chat em tempo real sem servidor!
 
 ![Demonstração](media/signalr-tutorial-authenticate-azure-functions/signalr-serverless-chat.gif)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados neste tutorial, exclua o grupo de recursos usando o portal do Azure.
 

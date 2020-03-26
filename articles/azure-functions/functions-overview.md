@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77621015"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução ao Azure Functions
@@ -67,7 +67,7 @@ Uma série de modelos está disponível para você começar a usar os principais
 
 - **Tópico do Barramento de Serviço**: conecte outros serviços locais ou do Azure [respondendo mensagens do tópico do Barramento de Serviço](./functions-bindings-service-bus.md)
 
-## <a name="pricing"></a>Quanto custa o Functions?
+## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>Quanto custa o Functions?
 
 O Azure Functions tem três tipos de planos de preço. Escolha a opção que melhor atende às suas necessidades:
 

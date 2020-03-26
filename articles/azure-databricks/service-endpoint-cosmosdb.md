@@ -8,10 +8,10 @@ ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706158"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar o Azure Databricks com um ponto de extremidade do Cosmos DB
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá a:
 > * Criar um cluster do Azure Databricks
 > * Consultar o Cosmos DB de um notebook do Azure Databricks
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, faça o seguinte:
 
@@ -59,7 +59,7 @@ Antes de começar, faça o seguinte:
    |-------|-----|
    |Subscription|*sua assinatura*|
    |Grupo de recursos|*seu grupo de recursos*|
-   |Nome da conta|db-vnet-service-endpoint|
+   |Nome da Conta|db-vnet-service-endpoint|
    |API|Núcleo (SQL)|
    |Location|Oeste dos EUA|
    |Redundância geográfica|Desabilitar|
@@ -159,7 +159,7 @@ Antes de começar, faça o seguinte:
 
     Você conectou com sucesso seu workspace do Databricks injetado por VNet a um recurso do Cosmos DB habilitado para ponto de extremidade de serviço. Para ler mais sobre como conectar-se ao Cosmos DB, veja [Conector do Azure Cosmos DB para Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessário, exclua o grupo de recursos, o workspace do Azure Databricks e todos os recursos relacionados. Excluir o trabalho evita cobrança desnecessária. Se você está planejando usar o workspace do Azure Databricks no futuro, pode parar o cluster e reiniciá-lo mais tarde. Se você não pretende continuar a usar esse workspace do Azure Databricks, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
 

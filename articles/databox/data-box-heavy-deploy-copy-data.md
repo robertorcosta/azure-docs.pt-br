@@ -10,11 +10,11 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914043"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214200"
 ---
 ::: zone target = "docs"
 
@@ -50,7 +50,7 @@ Qualquer que seja o caso, garanta que os nomes do compartilhamento e das pastas,
 
 ::: zone target = "docs"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
@@ -171,7 +171,7 @@ Depois de conectar-se ao compartilhamento SMB, comece a cópia de dados.
     ```
     Os atributos são descritos na tabela a seguir.
     
-    |Atributo  |DESCRIÇÃO  |
+    |Atributo  |Descrição  |
     |---------|---------|
     |/e      |Copia subdiretórios, inclusive diretórios vazios.         |
     |/r:     |Especifica o número de repetições em cópias com falha.         |

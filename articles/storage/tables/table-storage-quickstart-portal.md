@@ -9,13 +9,13 @@ ms.date: 12/02/2019
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 63495206ffffc57a895a9ec1efc88410a02ea097
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75979958"
 ---
-# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Início Rápido: Criar uma tabela do Armazenamento do Azure no Portal do Azure 
+# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Início rápido: Criar uma tabela do Armazenamento do Azure no Portal do Azure 
 
 Este guia de início rápido mostra como criar tabelas e entidades no Portal do Azure baseado na Web. Este início rápido também mostra como criar uma conta de Armazenamento do Azure.
 

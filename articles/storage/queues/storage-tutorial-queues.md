@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
 ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75968208"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento do Azure
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > - Verificar argumentos de linha de comando
 > - Compilar e executar o aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Obtenha a cópia gratuita do editor [Visual Studio Code](https://code.visualstudio.com/download) multiplataforma.
 - Baixe e instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).

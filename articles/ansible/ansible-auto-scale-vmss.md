@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, guia estratégico, dimensionar, dimensio
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: fb8d2a4bfca32be4575ca8f11018e5cab17cd9a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156821"
 ---
 # <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Dimensionar automaticamente conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
@@ -29,7 +29,7 @@ O recurso de ajustar automaticamente o número de instâncias de VM é chamado [
 > * Recuperar informações de configurações de dimensionamento automático 
 > * Desabilitar uma configuração de dimensionamento automático
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
@@ -85,7 +85,7 @@ ansible-playbook vmss-auto-scale.yml
 
 ## <a name="autoscale-based-on-performance-data"></a>Dimensionamento automático com base em dados de desempenho
 
-Se a demanda do seu aplicativo aumentar, a carga nas instâncias de VM em seus conjuntos de dimensionamento aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. O Ansible permite controlar quais métricas monitorar, como uso da CPU, uso do disco e tempo de carregamento do aplicativo. É possível expandir e reduzir horizontalmente conjuntos de dimensionamento com base nos limites de métrica de desempenho em um agendamento recorrente ou até determinada data. 
+Se a demanda do seu aplicativo aumentar, a carga nas instâncias de VM em seus conjuntos de dimensionamento aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. O Ansible permite controlar quais métricas monitorar, como uso da CPU, uso do disco e tempo de carregamento do aplicativo. É possível escalar e reduzir horizontalmente conjuntos de dimensionamento com base nos limites de métrica de desempenho em um agendamento recorrente ou até determinada data. 
 
 O código do guia estratégico nesta seção verifica a carga de trabalho da CPU dos 10 minutos anteriores, às 18:00, todas as segundas-feiras. 
 

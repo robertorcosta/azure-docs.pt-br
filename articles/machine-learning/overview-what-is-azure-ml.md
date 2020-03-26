@@ -9,11 +9,11 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355307"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290464"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -21,7 +21,7 @@ Neste artigo, você aprenderá sobre o Azure Machine Learning, um ambiente basea
 
 O Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de máquina, desde ML clássico até aprendizado profundo, aprendizado supervisionado e não supervisionado. Se você preferir escrever código Python ou R ou opções de código zero/código baixo, como o [designer](tutorial-designer-automobile-price-train-score.md), poderá criar, treinar e rastrear modelos de machine learning e aprendizado profundo altamente precisos em um Workspace do Azure Machine Learning. 
 
-Inicie o treinamento do seu computador local e expanda para a nuvem. 
+Inicie o treinamento do seu computador local e escale horizontalmente para a nuvem. 
 
 O serviço também interopera com ferramentas open-source populares, como PyTorch, TensorFlow e scikit-learn.
 
@@ -56,7 +56,7 @@ Você pode até mesmo usar [MLflow para controlar as métricas e implantar model
 
 ## <a name="build-ml-models-in-python-or-r"></a>Criar modelos de ML em Python ou R
 
-Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a> ou o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> do Azure Machine Learning. Em seguida, você pode expandir para a nuvem. 
+Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a> ou o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> do Azure Machine Learning. Em seguida, você pode escalar horizontalmente para a nuvem. 
 
 Com muitos [destinos de computação](how-to-set-up-training-targets.md) disponíveis, como a Computação do Azure Machine Learning e o [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), além de [serviços avançados de ajuste de hiperparâmetro](how-to-tune-hyperparameters.md), você pode criar modelos melhores com mais rapidez usando o poder da nuvem.
 
@@ -116,7 +116,7 @@ O Azure Machine Learning trabalha com outros serviços na plataforma do Azure e 
 
 Sua conta de Armazenamento do Azure, os destinos de computação e outros recursos podem ser usados com segurança dentro de uma rede virtual para treinar modelos e realizar a inferência. Para obter mais informações, confira [Experimentação segura e inferência em uma rede virtual](how-to-enable-virtual-network.md).
 
-## <a name="sku"></a>Edições Básico e Enterprise
+## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edições Básico e Enterprise
 
 O Azure Machine Learning oferece duas edições personalizadas para suas necessidades de aprendizado de máquina:
 + Básico (geralmente disponível)

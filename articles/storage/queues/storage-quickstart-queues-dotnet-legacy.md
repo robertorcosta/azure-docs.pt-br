@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d5e8250a75cc26d4b9843875f71325e163ef23b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c327629f0c5e88520a8bb0b9c4ff68e6edc00c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943549"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79137332"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Início Rápido: Usar o SDK do Armazenamento do Azure v11 para .NET para gerenciar uma fila
 
@@ -262,7 +262,7 @@ Confira estes recursos adicionais para o desenvolvimento em .NET com as Filas do
 
 ### <a name="binaries-and-source-code"></a>Binários e código-fonte
 
-- Baixar o pacote NuGet para a versão mais recente da [biblioteca de clientes do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage/client)
+- Baixar o pacote NuGet para a versão mais recente da [biblioteca de clientes do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
     - [Comum](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Filas](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Exiba o [código-fonte da biblioteca de clientes .NET](https://github.com/Azure/azure-storage-net) no GitHub.

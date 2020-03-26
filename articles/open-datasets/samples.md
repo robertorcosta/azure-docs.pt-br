@@ -8,10 +8,10 @@ author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
 ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73606136"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exemplo com notebooks Jupyter mostra como aprimorar os dados com conjuntos de dados abertos 
@@ -21,19 +21,19 @@ O exemplo com notebooks Jupyter para Conjunto de Dados Abertos do Azure mostra c
 >Ao trabalhar em um ambiente que não seja Spark, os conjuntos de dados abertos permitem baixar apenas um mês de dados por vez com determinadas classes para evitar erros de memória com grandes conjuntos de dados.
 
 ## <a name="load-noaa-integrated-surface-database-isd-data"></a>Carregar dados do ISD (Banco de Dados de Superfície Integrada) do NOAA 
-|Bloco de notas        | DESCRIÇÃO                                    |
+|Notebook        | Descrição                                    |
 |----------------|------------------------------------------------|
 |[Carregar um mês recente de dados climáticos em um dataframe do Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Saiba como carregar dados climáticos de históricos no seu dataframe favorito do Pandas. |
 |[Carregar um mês recente de dados climáticos em um dataframe do Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Saiba como carregar dados climáticos de históricos no seu dataframe favorito do Spark.  |
 
 ## <a name="join-demo-data-with-noaa-isd-data"></a>Unir dados de demonstração com os dados ISD do NOAA 
-|Bloco de notas        | DESCRIÇÃO                                    |
+|Notebook        | Descrição                                    |
 |----------------|------------------------------------------------|
 |[Unir dados de demonstração e dados climáticos – Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Una um conjunto de dados de demonstração de 1 mês sobre locais de sensores com leituras climáticas em um dataframe do Pandas.  |
 |[Unir dados de demonstração com dados climáticos – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Una um conjunto de dados de demonstração mês sobre locais de sensores com leituras climáticas em um dataframe do Spark. |
 
 ## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Unir dados de táxis de NYC com os dados de ISD do NOAA 
-|Bloco de notas        | DESCRIÇÃO                                    |
+|Notebook        | Descrição                                    |
 |----------------|------------------------------------------------|
 |[Dados de corridas de táxi aprimorados com dados climáticos – Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Carregar dados de corridas de táxis verdes de Nova York (mais de 1 mês) e aprimorá-los com dados climáticos em um dataframe do Pandas. Este exemplo substitui o método `get_pandas_limit` e equilibra o desempenho do carregamento de dados com a quantidade de dados.|
 |[Dados de corridas de táxi aprimorados com dados climáticos – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Carregar dados de corridas de táxis verdes de Nova York e aprimorá-los com dados climáticos no dataframe do Spark.  |

@@ -17,10 +17,10 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfc38f63c5b6361122c236543320b91d22faa70a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72595040"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao BlueJeans para Azure AD
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o BlueJeans para Azure AD ao Azure A
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -137,7 +137,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. Acesse **ADMINISTRADOR \> CONFIGURAÇÕES DE GRUPO \> SEGURANÇA**.
 
-    ![Administrador](./media/bluejeans-tutorial/ic785868.png "Administrador")
+    ![Administrador](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. Na seção **SEGURANÇA**, execute as seguintes etapas:
 
@@ -161,7 +161,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 5. Siga em frente com as seguintes etapas:
 
-    ![Save Changes](./media/bluejeans-tutorial/ic785874.png "Salvar Alterações")
+    ![Salvar alterações](./media/bluejeans-tutorial/ic785874.png "Salvar alterações")
 
     a. Na caixa de texto **ID de usuário**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -179,7 +179,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no BlueJeans p
 
 2. Acesse **ADMINISTRADOR \> GERENCIAR USUÁRIOS \> ADICIONAR USUÁRIO**.
 
-    ![Administrador](./media/bluejeans-tutorial/ic785877.png "Administrador")
+    ![Administrador](./media/bluejeans-tutorial/ic785877.png "Admin")
 
     > [!IMPORTANT]
     > A guia **ADICIONAR USUÁRIO** só estará disponível se, na **guia SEGURANÇA**, a opção **Habilitar provisionamento automático** estiver desmarcada.

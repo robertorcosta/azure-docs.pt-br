@@ -4,10 +4,10 @@ description: Neste tutorial, você cria uma consulta do Resource Graph e compart
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74303957"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e compartilhar uma consulta do Azure Resource Graph no portal do Azure
@@ -24,7 +24,7 @@ Neste tutorial, você concluirá as seguintes tarefas:
 > - Descobrir consultas compartilhadas
 > - Excluir uma consulta compartilhada
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -147,7 +147,7 @@ Você pode excluir uma Consulta compartilhada por meio das seguintes interfaces:
 - A página **Abrir uma consulta** no Resource Graph Explorer
 - Página de grupos de recursos
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este tutorial, exclua as consultas particulares e compartilhadas que você criou se não as quiser mais.
 

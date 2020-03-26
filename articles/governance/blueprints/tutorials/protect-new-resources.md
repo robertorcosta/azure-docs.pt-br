@@ -4,10 +4,10 @@ description: Neste tutorial, você usa as opções Somente Leitura e Não Exclui
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327456"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger recursos novos com bloqueios de recursos do Azure Blueprints
@@ -23,7 +23,7 @@ Neste tutorial, você concluirá estas etapas:
 > - Inspecionar o novo grupo de recursos
 > - Cancelar a atribuição do blueprint para remover os bloqueios
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -39,7 +39,7 @@ Primeiro, crie a definição de blueprint.
 
 1. Insira essas informações na guia **Noções básicas**:
 
-   - **Nome do blueprint**: Forneça um nome para a sua cópia do exemplo de blueprint. Para este tutorial, usaremos o nome **locked-storageaccount**.
+   - **Nome do blueprint**: forneça um nome para a sua cópia do exemplo de blueprint. Para este tutorial, usaremos o nome **locked-storageaccount**.
    - **Descrição do blueprint**: adicione uma descrição da definição do blueprint. Use **Para testar o bloqueio em recursos de blueprint implantados**.
    - **Localização da definição**: selecione o botão de reticências (...) e, em seguida, selecione o grupo de gerenciamento ou a assinatura em que deseja salvar sua definição de blueprint.
 
@@ -152,9 +152,9 @@ Depois que a definição de blueprint for publicada, será possível atribuí-la
 
      Os parâmetros definidos nesta seção se aplicam ao artefato no qual eles foram definidos. Esses são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters), pois são definidos durante a atribuição do blueprint. Para cada artefato, defina o valor de parâmetro para o que é visto na coluna **Valor**.
 
-     |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|DESCRIÇÃO|
+     |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Resource group|NOME|TestingBPLocks|Define o nome do novo grupo de recursos ao qual os bloqueios de blueprint serão aplicados.|
+     |Grupo de recursos RGtoLock|Resource group|Nome|TestingBPLocks|Define o nome do novo grupo de recursos ao qual os bloqueios de blueprint serão aplicados.|
      |Grupo de recursos RGtoLock|Resource group|Location|Oeste dos EUA 2|Define a localização do novo grupo de recursos ao qual os bloqueios de blueprint serão aplicados.|
      |StorageAccount|Modelo do Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|O SKU de armazenamento. O valor padrão é _Standard_LRS_.|
 
@@ -216,7 +216,7 @@ A segurança do grupo de recursos mostra que a atribuição de blueprint não te
 
 Depois que a notificação do portal **A remoção da atribuição do blueprint foi bem-sucedida** for exibida, passe para a próxima etapa.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando concluir este tutorial, exclua estes recursos:
 

@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241605"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Início Rápido: Executar um script R em um cluster de serviços de ML no Azure HDInsight usando o console de R
@@ -21,7 +21,7 @@ O ML Services no Azure HDInsight permite que os scripts R usem Apache Spark e Ap
 
 Neste início rápido, você aprende como executar um script R com o console de R que demonstra o uso do Spark para cálculos de R distribuídos. Você vai definir um contexto de computação para executar cálculos localmente em um nó de borda e distribuídos entre os nós no cluster HDInsight.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster**.
 
@@ -182,7 +182,7 @@ Neste início rápido, você aprende como executar um script R com o console de 
     quit()
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 
@@ -190,7 +190,7 @@ Para excluir um cluster, confira [Delete an HDInsight cluster using your browser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprende a executar um script R com o console de R que demonstra o uso do Spark para cálculos de R distribuídos.  Avance para o próximo artigo e aprenda sobre as opções disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou o cluster HDInsight.
+Neste início rápido, você aprende a executar um script R com o console de R que demonstra o uso do Spark para cálculos de R distribuídos.  Avance para o próximo artigo para aprender sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou no cluster HDInsight.
 
 > [!div class="nextstepaction"]
 >[Opções de contexto de computação para o ML Services no HDInsight](./r-server-compute-contexts.md)

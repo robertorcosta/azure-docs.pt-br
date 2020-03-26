@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494364"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o Apache Storm com o Apache Kafka no HDInsight
@@ -30,9 +30,9 @@ Neste tutorial, você aprenderá como:
 > * Criar o tópico Kafka
 > * Iniciar as topologias
 > * Interromper as topologias
-> * Limpar recursos
+> * Limpar os recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Familiaridade com a criação de tópicos Kafka. Para obter mais informações, consulte o documento [Início rápido do Kafka no HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -366,7 +366,7 @@ streams:
 
 O projeto contém um arquivo chamado `dev.properties` que é usado para passar parâmetros usados pelas topologias. Ele define as seguintes propriedades:
 
-| Arquivo dev.properties | DESCRIÇÃO |
+| Arquivo dev.properties | Descrição |
 | --- | --- |
 | `kafka.zookeeper.hosts` | Os hosts do [Apache Zookeeper](https://zookeeper.apache.org/) para o cluster do Kafka. |
 | `kafka.broker.hosts` | Os hosts do agente do Kafka (nós de trabalho). |
@@ -408,9 +408,9 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e St
 
       | Configuração | Valor |
       | --- | --- |
-      | Assinatura | Sua assinatura do Azure |
-      | Grupo de recursos | O grupo de recursos que contém os recursos. |
-      | Local padrão | A região do Azure em que os recursos são criados. |
+      | Subscription | Sua assinatura do Azure |
+      | Resource group | O grupo de recursos que contém os recursos. |
+      | Location | A região do Azure em que os recursos são criados. |
       | Nome do cluster do Kafka | O nome do cluster do Kafka. |
       | Nome do Cluster Storm | O nome do cluster Storm. |
       | Nome de usuário de logon do cluster | O nome de usuário administrador para os clusters. |
@@ -621,7 +621,7 @@ Em uma sessão SSH ao cluster Storm, use os seguintes comandos para interromper 
   storm kill kafka-reader
   ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este tutorial, você pode excluir o grupo de recursos. A exclusão do grupo de recursos também exclui o cluster HDInsight associado e todos os outros recursos associados ao grupo de recursos.
 

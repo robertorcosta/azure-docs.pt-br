@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 915aca0e95fce05f74477b526de047c829c7f512
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890392"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79367917"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Início Rápido: Executar consultas do Apache Hive no Azure HDInsight com o Apache Zeppelin
 
@@ -21,9 +21,9 @@ Neste início rápido, você aprenderá a usar o Apache Zeppelin para executar c
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Um cluster Consulta interativa do HDInsight. Confira [Criar cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) para criar um cluster HDInsight.  Escolha o tipo de cluster **Consulta interativa**.
+Um cluster Consulta interativa do HDInsight. Confira [Criar cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para criar um cluster HDInsight.  Escolha o tipo de cluster **Consulta interativa**.
 
 ## <a name="create-an-apache-zeppelin-note"></a>Criar uma anotação do Apache Zeppelin
 
@@ -108,7 +108,7 @@ Um cluster Consulta interativa do HDInsight. Confira [Criar cluster](../hadoop/a
 
 Examine o [Manual da linguagem Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) para obter mais sintaxe.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

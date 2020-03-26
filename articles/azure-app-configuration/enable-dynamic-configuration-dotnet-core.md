@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
 ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75433670"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Usar configuração dinâmica em um aplicativo .NET Core
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 > * Configure seu aplicativo .NET Core para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Consuma a configuração mais recente em seu aplicativo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para realizar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 

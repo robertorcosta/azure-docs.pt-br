@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241891"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Início Rápido: Executar um script R em um cluster de serviços de ML no Azure HDInsight usando o RStudio Server
@@ -23,7 +23,7 @@ Neste início rápido, você aprende como executar um script R com o RStudio Ser
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Um cluster do ML Services no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **ML Services** como **tipo de Cluster**.
+Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster**.
 
 ## <a name="connect-to-rstudio-server"></a>Conectar-se ao RStudio Server
 
@@ -33,7 +33,7 @@ O RStudio Server é executado no nó de borda do cluster. Vá até a URL a segui
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Na primeira vez em que você fizer logon, precisará autenticar duas vezes. No primeiro prompt de autenticação, forneça o logon de administrador do cluster e a senha (o padrão é `admin`). No segundo prompt de autenticação, forneça o logon de SSH e a senha (o padrão é `sshuser`). Os logons subsequentes exigirão apenas as credenciais do SSH.
+Na primeira vez em que você fizer logon, precisará autenticar duas vezes. No primeiro prompt de autenticação, forneça o logon de administrador do cluster e a senha (o padrão é `admin`). No segundo prompt de autenticação, forneça o logon de SSH e a senha (o padrão é `sshuser`). As entradas subsequentes exigirão apenas as credenciais do SSH.
 
 Quando você estiver conectado, sua tela deve ser semelhante à captura de tela a seguir:
 
@@ -105,7 +105,7 @@ Quando você estiver conectado, sua tela deve ser semelhante à captura de tela 
      formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
     ```
 
-1. Execute uma regressão logística com os dados usando o contexto de computação **local**. Insira o seguinte código no RStudio:
+1. Execute uma regressão logística nos dados usando o contexto de computação **local**. Insira o seguinte código no RStudio:
 
     ```RStudio
     # Set a local compute context
@@ -120,7 +120,7 @@ Quando você estiver conectado, sua tela deve ser semelhante à captura de tela 
      summary(modelLocal)
     ```
 
-    Os cálculos devem ser concluídos em cerca de 7 minutos. Você deverá visualizar a saída que termina com linhas semelhantes ao seguinte snippet de código:
+    Os cálculos devem demorar cerca de sete minutos. Você deverá visualizar a saída que termina com linhas semelhantes ao seguinte snippet de código:
 
     ```output
     Data: airOnTimeDataLocal (RxTextData Data Source)
@@ -168,9 +168,9 @@ Quando você estiver conectado, sua tela deve ser semelhante à captura de tela 
      summary(modelSpark)
     ```
 
-    Os cálculos devem ser concluídos em cerca de 5 minutos.
+    Os cálculos devem demorar cerca de cinco minutos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o início rápido, poderá ser conveniente excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73062659"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adicionar um aplicativo da galeria à sua organização do Azure AD
@@ -70,13 +70,13 @@ O Azure AD (Azure Active Directory) tem uma galeria que contém milhares de apli
        | Configurações de propriedade do aplicativo | | | Experiência do usuário atribuído | |
        |---|---|---|---|---|
        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários atribuídos podem entrar? | Os usuários atribuídos podem ver o aplicativo?* |
-       | Sim | Sim | Sim | Sim | Sim  |
-       | Sim | Sim | não  | Sim | não   |
-       | Sim | não  | Sim | Sim | Sim  |
-       | Sim | não  | não  | Sim | não   |
-       | não  | Sim | Sim | não  | não   |
-       | não  | Sim | não  | não  | não   |
-       | não  | não  | Sim | não  | não   |
+       | sim | sim | sim | sim | sim  |
+       | sim | sim | não  | sim | não   |
+       | sim | não  | sim | sim | sim  |
+       | sim | não  | não  | sim | não   |
+       | não  | sim | sim | não  | não   |
+       | não  | sim | não  | não  | não   |
+       | não  | não  | sim | não  | não   |
        | não  | não  | não  | não  | não   |
 
       Comportamento de usuários **não atribuídos**:
@@ -84,13 +84,13 @@ O Azure AD (Azure Active Directory) tem uma galeria que contém milhares de apli
        | Configurações de propriedade do aplicativo | | | Experiência de usuário não atribuído | |
        |---|---|---|---|---|
        | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários não atribuídos podem entrar? | Os usuários não atribuídos podem ver o aplicativo?* |
-       | Sim | Sim | Sim | não  | não   |
-       | Sim | Sim | não  | não  | não   |
-       | Sim | não  | Sim | Sim | não   |
-       | Sim | não  | não  | Sim | não   |
-       | não  | Sim | Sim | não  | não   |
-       | não  | Sim | não  | não  | não   |
-       | não  | não  | Sim | não  | não   |
+       | sim | sim | sim | não  | não   |
+       | sim | sim | não  | não  | não   |
+       | sim | não  | sim | sim | não   |
+       | sim | não  | não  | sim | não   |
+       | não  | sim | sim | não  | não   |
+       | não  | sim | não  | não  | não   |
+       | não  | não  | sim | não  | não   |
        | não  | não  | não  | não  | não   |
 
      *O usuário pode ver o aplicativo no painel de acesso e no iniciador de aplicativos do Office 365?

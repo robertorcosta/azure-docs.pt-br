@@ -16,10 +16,10 @@ ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74187290"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutorial: Usar a configuração dinâmica no aplicativo Azure Functions
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Configure seu aplicativo Azure Functions para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Insira a configuração mais recente para suas chamadas do Azure Functions.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento do Azure**
@@ -88,7 +88,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="test-the-function-locally"></a>Testar a função localmente
 
-1. Defina uma variável de ambiente nomeada **ConnectionString** e configure-a como a chave de acesso para o repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -110,7 +110,7 @@ Neste tutorial, você aprenderá como:
 
     ![Inicialização local da Função do Início Rápido](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-5. Entre no [Portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
+5. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
 6. Selecione **Gerenciador de Configurações** e atualize os valores da seguinte chave:
 
@@ -124,7 +124,7 @@ Neste tutorial, você aprenderá como:
 
 O código de exemplo usado neste tutorial pode ser baixado de [Repositório do GitHub da Configuração de Aplicativos](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

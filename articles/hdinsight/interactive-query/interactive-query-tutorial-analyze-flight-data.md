@@ -9,10 +9,10 @@ ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
 ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494151"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando a Consulta Interativa no Azure HDInsight
@@ -28,9 +28,9 @@ Este tutorial cobre as seguintes tarefas:
 > * Criar uma tabela em um Banco de Dados SQL do Azure
 > * Usar Sqoop para exportar dados para um Banco de Dados SQL do Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster de Consulta interativa no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** como **tipo de Cluster**.
+* Um cluster de Consulta Interativa no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** como **tipo de Cluster**.
 
 * Um banco de dados SQL do Azure. Você usa um banco de dados SQL do Azure como um repositório de dados de destino. Se você não tiver um Banco de Dados SQL, consulte [Criar um Banco de Dados SQL do Azure no Portal do Azure](/azure/sql-database/sql-database-single-database-get-started).
 
@@ -42,7 +42,7 @@ Este tutorial cobre as seguintes tarefas:
 
 2. Na página, limpe todos os campos e, em seguida, selecione os seguintes valores:
 
-   | NOME | Valor |
+   | Nome | Valor |
    | --- | --- |
    | Filtrar por ano |2019 |
    | Filtrar por período |Janeiro |
@@ -287,7 +287,7 @@ Nas seções anteriores, você copiou os dados transformados em `/tutorials/flig
 
     Digite `exit` para sair do utilitário tsql.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir o tutorial, convém excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 
