@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364984"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215044"
 ---
 # <a name="what-is-azure-container-instances"></a>O que são as Instâncias de Contêiner do Azure?
 
@@ -70,7 +70,7 @@ As Instâncias de Contêiner do Azure são compatíveis com a programação de [
 
 Atualmente disponível para cargas de trabalho de produção em um subconjunto de regiões do Azure, esse recurso de Instâncias de Contêiner do Azure permite [implantação de instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md). Ao implantar instâncias de contêiner em uma sub-rede em sua rede virtual, elas podem se comunicar com segurança com outros recursos na rede virtual, incluindo os que são locais (por meio do [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Tente implantar um contêiner no Azure com um único comando usando nosso guia de início rápido:
 

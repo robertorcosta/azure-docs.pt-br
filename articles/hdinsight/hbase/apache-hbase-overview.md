@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/03/2020
 ms.openlocfilehash: 97814f4d22629fd74f395887a7361a3aabe55012
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271844"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>O que é o Apache HBase no Azure HDInsight
@@ -38,7 +38,7 @@ Os dados podem ser gerenciados no HBase usando os comandos `create`, `get`, `put
 
 O caso de uso canônico para o qual o BigTable (e por extensão, o HBase) foi criado a partir da pesquisa na web. Os mecanismos de pesquisa criam índices que mapeiam termos nas páginas da web que os contêm. Mas há muitos outros casos de uso aos quais o HBase se ajusta, muitos dos quais são descritos nesta seção.
 
-|Cenário |Descrição |
+|Cenário |DESCRIÇÃO |
 |---|---|
 |Repositório de valor-chave|O HBase pode ser usado como um repositório de pares chave-valor e é adequado para gerenciar sistemas de mensagens. O Facebook usa o HBase para o sistema de mensagens. Ele é ideal para armazenar e gerenciar comunicações pela Internet. O WebTable utiliza o HBase para pesquisar e gerenciar tabelas extraídas de páginas da Web.|
 |Dados de sensor|O HBase é útil para capturar dados que são coletados gradativamente de várias fontes. Isso inclui Análise Social, séries temporais, manter painéis interativos atualizados com tendências e contadores e gerenciar sistemas de log de auditoria. Os exemplos incluem o terminal de comerciantes Bloomberg e o OpenTSDB (Open Time Series Database), que armazena e oferece acesso a métricas coletadas sobre a integridade dos sistemas de servidores.|

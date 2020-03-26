@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb8886987c09b504262d6ea12863a646d6022cc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: MT
+ms.openlocfilehash: fd7a5b186ebc98babe1baacc9f56f39dc8fbc093
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883643"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80049368"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>O que é a federação com o Azure AD?
 
@@ -33,7 +33,7 @@ Você pode estabelecer a federação em seu ambiente local com o Azure AD e usar
 > Se você optar por usar a Federação com o Active Directory Federation Services (AD FS), outra opção será configurar a sincronização de hash de senha como um backup em caso de falha na infraestrutura do AD FS.
 
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - [O que é identidade híbrida?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [O que é o Azure AD Connect e o Connect Health?](whatis-azure-ad-connect.md)

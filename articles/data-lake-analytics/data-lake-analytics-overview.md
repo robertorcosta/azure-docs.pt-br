@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
 ms.openlocfilehash: 3572c308310c49eed48ccb25dfa7cb0fb161515f
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70164502"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>O que é a Análise Azure Data Lake?
@@ -30,7 +30,7 @@ O Data Lake Analytics integra-se ao Visual Studio profundamente. Você pode usar
 
 ### <a name="u-sql-simple-and-familiar-powerful-and-extensible"></a>U-SQL: simples e familiar, poderoso e extensível
   
-A Análise Data Lake inclui o U-SQL, uma linguagem de consulta que estende a natureza declarativa simples e familiar do SQL com o poder expressivo do C#. A linguagem U-SQL usa o mesmo tempo de execução distribuído que alimenta o data lake interno da Microsoft em escala de exabytes. Os desenvolvedores do SQL e do .NET agora podem processar e analisar dados com as habilidades que eles já têm.
+A Análise Data Lake inclui o U-SQL, uma linguagem de consulta que estende a natureza declarativa simples e familiar do SQL com o poder expressivo do C#. A linguagem U-SQL usa o mesmo runtime distribuído que alimenta o data lake interno da Microsoft em escala de exabytes. Os desenvolvedores do SQL e do .NET agora podem processar e analisar dados com as habilidades que eles já têm.
 
 ### <a name="integrates-seamlessly-with-your-it-investments"></a>Integração total com seus investimentos de TI
   

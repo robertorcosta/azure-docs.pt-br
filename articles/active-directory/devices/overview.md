@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378280"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215824"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade do dispositivo?
 
@@ -37,16 +37,16 @@ O gerenciamento de identidades do dispositivo também é a base para o [Acesso C
 Há várias opções para colocar um dispositivo no Azure AD:
 
 - **Registrado no Azure AD**
-   - Dispositivos que são registrados no Azure AD normalmente são dispositivos pessoais ou de propriedade pessoal e são conectados com um conta Microsoft pessoal ou outra conta local.
+   - Os dispositivos que estão registrados no Azure AD normalmente são dispositivos móveis ou de propriedade pessoal e são conectados usando uma conta Microsoft pessoal ou outra conta local.
       - Windows 10
       - iOS
       - Android
       - MacOS
 - **Ingressado no Azure AD**
-   - Os dispositivos que são ingressados no Azure AD são de propriedade de uma organização e são conectados com uma conta do Azure AD que pertence a essa organização. Elas existem somente na nuvem.
+   - Os dispositivos que estão ingressados no Azure AD são de propriedade de uma organização e são conectados usando uma conta do Azure AD que pertence a essa organização. Elas existem somente na nuvem.
       - Windows 10 
 - **Ingressado no Azure AD híbrido**
-   - Os dispositivos que são ingressados no Azure AD híbrido são de propriedade de uma organização e são conectados com uma conta do Azure AD que pertence a essa organização. Eles existem na nuvem e localmente.
+   - Os dispositivos que estão ingressados no Azure AD híbrido são de propriedade de uma organização e são conectados usando uma conta do Azure AD que pertence a essa organização. Eles existem na nuvem e localmente.
       - no Windows 7, 8.1 ou 10
       - no Windows Server 2008 ou mais recente
 
@@ -74,7 +74,7 @@ Os dispositivos ingressados no Azure AD ou no Azure AD híbrido beneficiam-se do
    - Windows Hello
 - Os **dispositivos ingressados no Azure AD ou no Azure AD híbrido** utilizam uma conta organizacional no Azure AD protegida com uma ou mais das opções a seguir.
    - Senha
-   - Windows Hello para Empresas
+   - Windows Hello for Business
 
 ## <a name="provisioning"></a>Provisionamento
 
@@ -91,7 +91,7 @@ Com o gerenciamento de identidade do dispositivo no Azure AD, é possível:
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [dispositivos registrados no Azure AD](concept-azure-ad-register.md)
 - Saiba mais sobre [dispositivos ingressados no Azure AD](concept-azure-ad-join.md)

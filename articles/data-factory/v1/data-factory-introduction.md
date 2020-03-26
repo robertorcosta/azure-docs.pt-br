@@ -1,6 +1,6 @@
 ---
 title: Introdução ao Data Factory, um serviço de integração de dados
-description: 'Saiba o que é o Azure Data Factory: Um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados.'
+description: 'Saiba o que é o Azure Data Factory: um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados.'
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73666812"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
@@ -25,7 +25,7 @@ ms.locfileid: "73666812"
 > * [Versão 2 (versão atual)](../introduction.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Azure Data Factory. Se você estiver usando a versão atual do serviço Data Factory, veja [Introdução ao Data Factory V2](../introduction.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory. Se você estiver usando a versão atual do serviço Data Factory, veja [Introdução ao Data Factory V2](../introduction.md).
 
 
 ## <a name="what-is-azure-data-factory"></a>O que é o Data Factory do Azure?
@@ -118,16 +118,16 @@ Os serviços vinculados são usados para duas finalidades no Data Factory:
 
 ### <a name="relationship-between-data-factory-entities"></a>Relação entre entidades de Data Factory
 
-![Diagrama: Data Factory, um serviço de integração de dados de nuvem – principais conceitos](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagrama: Data Factory, um serviço de integração de dados na nuvem - principais conceitos](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regiões com suporte
-Atualmente, é possível criar data factories nas regiões Oeste dos EUA, Leste dos EUA e Europa Setentrional. No entanto, um data factory pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre os repositórios de dados ou processar dados usando os serviços de computação.
+Atualmente, é possível criar data factories nas regiões Oeste dos EUA, Leste dos EUA e Norte da Europa. No entanto, um data factory pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre os repositórios de dados ou processar dados usando os serviços de computação.
 
 O Azure Data Factory em si não armazena dados. Ele permite criar fluxos de trabalho orientados a dados para orquestrar o movimento de dados entre os [repositórios de dados compatíveis](#data-movement-activities). Ele também permite processar dados usando os [serviços de computação](#data-transformation-activities) em outras regiões ou em um ambiente local. Também permite [monitorar e gerenciar fluxos de trabalho](data-factory-monitor-manage-pipelines.md) usando mecanismos programáticos e de IU.
 
-O Data Factory está disponível somente nas regiões Oeste dos EUA, Leste dos EUA e Europa Setentrional. No entanto, o serviço que possibilita a movimentação de dados no Data Factory está disponível [globalmente](data-factory-data-movement-activities.md#global) em várias regiões. Se um repositório de dados estiver atrás de um firewall, então um [Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) instalado em seu ambiente local moverá os dados.
+O Data Factory está disponível somente nas regiões Oeste dos EUA, Leste dos EUA e Norte da Europa. No entanto, o serviço que possibilita a movimentação de dados no Data Factory está disponível [globalmente](data-factory-data-movement-activities.md#global) em várias regiões. Se um repositório de dados estiver atrás de um firewall, então um [Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) instalado em seu ambiente local moverá os dados.
 
-Por exemplo, vamos supor que seus ambientes de computação, como o cluster do Azure HDInsight e o Azure Machine Learning, estão localizados na região da Europa Ocidental. É possível criar e usar uma instância do Azure Data Factory na Europa Setentrional. Em seguida, você pode usá-la para agendar trabalhos em seus ambientes de computação na Europa Ocidental. Demora alguns milissegundos para o Data Factory disparar o trabalho em seu ambiente de computação, mas o tempo de execução do trabalho em seu ambiente de computação não é alterado.
+Por exemplo, vamos supor que seus ambientes de computação, como o cluster do Azure HDInsight e o Azure Machine Learning, estão localizados na região da Europa Ocidental. É possível criar e usar uma instância do Azure Data Factory no Norte da Europa. Em seguida, você pode usá-la para agendar trabalhos em seus ambientes de computação na Europa Ocidental. Demora alguns milissegundos para o Data Factory disparar o trabalho em seu ambiente de computação, mas o tempo de execução do trabalho em seu ambiente de computação não é alterado.
 
 ## <a name="get-started-with-creating-a-pipeline"></a>Introdução à criação de um pipeline
 Você pode usar uma dessas ferramentas ou APIs para criar pipelines de dados no Azure Data Factory: 

@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
 ms.openlocfilehash: 602de3e23eb5419958f84b071e2220550d1d04d0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73821730"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerenciada do Banco de Dados SQL do Azure
@@ -75,4 +75,4 @@ Saiba mais sobre o [processo de migração recomendado](sql-database-managed-ins
 - Encontre uma [lista de alto nível dos recursos com suporte na instância gerenciada aqui](sql-database-features.md) e [detalhes e problemas conhecidos aqui](sql-database-managed-instance-transact-sql-information.md).
 - Saiba mais sobre as [características técnicas da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 - Encontre instruções mais avançadas em [como usar uma instância gerenciada no Banco de Dados SQL do Azure](sql-database-howto-managed-instance.md).
-- [Identifique a SKU de banco de dados SQL/instância gerenciada do Azure do banco de dados local](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identificar o Banco de dados SQL/SKU de instância gerenciada correto do Azure para seu banco de dados local](/sql/dma/dma-sku-recommend-sql-db/).

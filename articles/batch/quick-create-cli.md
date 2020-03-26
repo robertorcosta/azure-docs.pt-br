@@ -11,13 +11,13 @@ ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 9106741e18354d39909fa84ce6e9f3a66ccf2014
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77024493"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido: Executar o primeiro trabalho em Lote com a CLI do Azure
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido: Executar o primeiro trabalho do Lote com a CLI do Azure
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia de início rápido mostra como usar a CLI do Azure para criar uma conta do Lote, um *pool* de nós de computação (máquinas virtuais) e um *trabalho* que executa *tarefas* no pool. Cada tarefa do exemplo executa um comando básico em um dos nós do pool. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
 

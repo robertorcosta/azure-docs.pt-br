@@ -9,10 +9,10 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 39bff26baea622e6c0ed524ca68c3c8bae4e770d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76020986"
 ---
 1. Para criar um recurso de Serviço do Azure SignalR, primeiro, entre no [portal do Azure](https://portal.azure.com). No canto superior esquerdo da página, escolha **+ Criar um recurso**. Na caixa de texto **Pesquisar no Marketplace**, insira **Serviço do SignalR**.
@@ -21,7 +21,7 @@ ms.locfileid: "76020986"
 
 3. Na nova página de configurações do **SignalR**, adicione as seguintes configurações ao novo recurso do SignalR:
 
-    | Nome | Valor recomendado | Descrição |
+    | Nome | Valor recomendado | DESCRIÇÃO |
     | ---- | ----------------- | ----------- |
     | Nome do recurso | *testsignalr* | Insira um nome exclusivo do recurso a ser usado para o recurso do SignalR. O nome deve ser uma cadeia de caracteres com 1 a 63 caracteres, e deve conter somente números, letras e o hífen (`-`). O nome não pode começar nem terminar com o caractere hífen, e os caracteres hífen consecutivos não serão válidos.|
     | Subscription | Escolha sua assinatura |  Selecione a assinatura do Azure que você deseja usar para testar o SignalR. Se a conta tiver apenas uma assinatura, ela será selecionada automaticamente e a lista suspensa **Assinatura** não será exibida.|

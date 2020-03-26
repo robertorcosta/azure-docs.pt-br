@@ -16,15 +16,15 @@ ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74278084"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparar recursos do produto CDN do Azure
 
-A CDN do Azure (Rede de Distribuição de Conteúdo) inclui quatro produtos: **CDN Standard do Azure da Microsoft**, **CDN Standard do Azure da Akamai**, **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**. Para saber mais sobre como migrar um perfil do **Azure CDN Standard da Verizon** para **Azure CDN Premium da Verizon**, veja [Migrar um perfil do Azure CDN de Standard Verizon para Premium Verizon](cdn-migrate.md). Observe que, embora haja um caminho de atualização do Verizon Standard para o Verizon Premium, no momento, não há nenhum mecanismo de conversão entre outros produtos.
+A CDN (Rede de Distribuição de Conteúdo) do Azure inclui quatro produtos: **Azure CDN Standard da Microsoft**, **Azure CDN Standard da Akamai**, **Azure CDN Standard da Verizon** e **Azure CDN Premium da Verizon**. Para saber mais sobre como migrar um perfil do **Azure CDN Standard da Verizon** para **Azure CDN Premium da Verizon**, veja [Migrar um perfil do Azure CDN de Standard Verizon para Premium Verizon](cdn-migrate.md). Observe que, embora haja um caminho de atualização do Verizon Standard para o Verizon Premium, no momento, não há nenhum mecanismo de conversão entre outros produtos.
 
 A tabela a seguir compara os recursos disponíveis em cada produto.
 

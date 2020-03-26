@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: e133e08e333cb478269a93cce963566e195d6949
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78271947"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>O que é a Consulta Interativa no HDInsight
@@ -36,7 +36,7 @@ Para obter mais informações sobre a criação de um cluster HDInsight, veja [C
 
 Para executar consultas de Hive, você tem as seguintes opções:
 
-|Método |Descrição |
+|Método |DESCRIÇÃO |
 |---|---|
 |Microsoft Power BI|Confira [Visualizar dados do Apache Hive do Interactive Query com o Power BI no Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) e [Visualizar Big Data com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).|
 |Visual Studio|Consulte [Conectar-se ao Azure HDInsight e executar consultas Apache Hive usando Ferramentas do Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).|

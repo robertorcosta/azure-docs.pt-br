@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
 ms.openlocfilehash: ae119dd23da670f16c0239b14119519c431e6326
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827007"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início Rápido: Usar PHP para consultar um banco de dados SQL do Azure
@@ -53,7 +53,7 @@ Para concluir este modelo, é necessário atender aos seguintes pré-requisitos:
 
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL**.
 
@@ -108,4 +108,4 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 - [Relatar problemas ou fazer perguntas](https://github.com/Microsoft/msphpsql/issues)
 
-- [Exemplo de lógica de repetição: Conectar-se de forma resiliente ao SQL com PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Exemplo de lógica de repetição: conectar com resiliência ao SQL usando PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

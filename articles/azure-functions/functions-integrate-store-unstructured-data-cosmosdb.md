@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc
 ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74230557"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando o Azure Functions e o Azure Cosmos DB

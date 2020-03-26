@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183349"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "62106806"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início rápido: Experimentar uma solução baseada em nuvem para executar uma análise de manutenção preditiva em meus dispositivos conectados
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada em nuvem para executar uma análise de manutenção preditiva em meus dispositivos conectados
 
 Este início rápido mostra como implantar o acelerador de solução de manutenção preditiva do Azure IoT para execução como uma solução de manutenção preditiva baseada em nuvem. Após ter implantado o acelerador de solução, você usa página **Painel** da solução para executar uma análise de manutenção preditiva nos dados de um motor de aeronave simulado. Você pode usar esse acelerador de solução como o ponto de partida para sua própria implementação ou como uma ferramenta de aprendizado.
 
@@ -76,7 +76,7 @@ A simulação percorre todo o conjunto de dados dos 148 ciclos e estabelece nos 
 
 Você pode parar a simulação a qualquer momento, mas clicar em **Iniciar Simulação** repetirá a simulação desde o início do conjunto de dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planeja explorar ainda mais, deixe o acelerador de solução de manutenção preditiva implantado.
 

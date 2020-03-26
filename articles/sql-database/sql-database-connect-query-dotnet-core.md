@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
 ms.openlocfilehash: 369c708fd3181076c6deb9d7ac9134c57a18f819
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827102"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início Rápido: Usar o .NET Core (C#) para consultar um banco de dados SQL do Azure
@@ -54,7 +54,7 @@ Para este tutorial, é necessário:
 
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL**.
 
@@ -64,7 +64,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 1. Navegue até a página **mySampleDatabase** e, em **Configurações**, selecione **Cadeias de conexão**.
 
-2. Examine a cadeia de conexão completa do **ADO.NET**.
+2. Examine a cadeia de conexão **ADO.NET** completa.
 
     ![Cadeia de conexão do ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 

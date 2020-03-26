@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792494"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "60889944"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitoramento remoto baseado em nuvem
 
@@ -127,7 +127,7 @@ Para fechar o incidente, navegue até a página **Manutenção**, selecione o al
 
 O valor na coluna de status muda para **Fechado**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planeja passar para outros tutoriais, deixe o acelerador de solução de Monitoramento Remoto implantado.
 

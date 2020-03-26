@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "65467864"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Início Rápido: Implantar e executar uma simulação de dispositivo IoT no Azure
@@ -52,7 +52,7 @@ Clique em **Criar** para começar a provisionar a solução. Esse processo leva 
 
 Quando o processo de provisionamento for concluído, você poderá entrar na instância da Simulação de Dispositivo clicando no botão **Iniciar**:
 
-![Abrir simulação de dispositivo](./media/quickstart-device-simulation-deploy/choosenew.png)
+![Abrir a Simulação de Dispositivo](./media/quickstart-device-simulation-deploy/choosenew.png)
 
 Clique em **Aceitar** para aceitar a solicitação das permissões, o painel de solução de simulação de dispositivo será exibido no seu navegador.
 
@@ -82,7 +82,7 @@ Clique em **Iniciar simulação**. A simulação será executada indefinidamente
 
 Você só pode executar uma simulação por vez em uma instância da Simulação de Dispositivo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planeja levar a exploração adiante, deixe a Simulação de Dispositivo implantada.
 
