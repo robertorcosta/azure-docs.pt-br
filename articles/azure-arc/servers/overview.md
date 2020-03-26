@@ -10,11 +10,11 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 02/24/2020
 ms.topic: overview
 ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372231"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290124"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (versão prévia)
 
@@ -43,16 +43,16 @@ Com o Azure Arc para servidores (versão prévia), só há suporte a determinada
 
 Na maioria dos casos, o local selecionado durante a criação do script de instalação deve ser a região do Azure mais próxima à localização do seu computador. Os dados em repouso serão armazenados na geografia do Azure que contém a região especificada por você, o que também pode afetar sua escolha de região se você tiver requisitos de residência de dados. Se a região do Azure a qual seu computador está conectado for afetada por uma interrupção, a máquina conectada não será afetada, mas talvez as operações de gerenciamento que usam o Azure não possam terminar. Para obter resiliência no caso de uma interrupção regional, se houver várias localizações que fornecem um serviço com redundância geográfica, será melhor conectar os computadores em cada localização a uma região diferente do Azure.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine: 
 
-- Windows Server 2012 R2 e superior (incluindo o Windows Server Core)
+- Windows Server 2012 R2 e versões posteriores (incluindo o Windows Server Core)
 - Ubuntu 16.04 e 18.04
 - CentOS Linux 7
-- SUSE Linux Enterprise Server (SLES) 15
+- SLES (SUSE Linux Enterprise Server) 15
 - Red Hat Enterprise Linux (RHEL) 7
 - Amazon Linux 7
 
@@ -72,7 +72,7 @@ Antes de configurar seus computadores com o Azure Arc para servidores (versão p
 
 ## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 
-Para garantir a segurança dos dados em trânsito para o Azure, recomendamos que você configure o computador para usar o protocolo TLS 1,2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**. 
+Para garantir a segurança de dados em trânsito para o Azure, incentivamos você a configurar o computador para usar o protocolo TLS 1.2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**. 
 
 |Plataforma/linguagem | Suporte | Mais informações |
 | --- | --- | --- |
@@ -92,10 +92,10 @@ Marcas de serviço:
 
 URLs:
 
-| Recurso do agente | Descrição |
+| recurso de agente | DESCRIÇÃO |
 |---------|---------|
 |management.azure.com|Azure Resource Manager|
-|login.windows.net|Active Directory do Azure|
+|login.windows.net|Azure Active Directory|
 |dc.services.visualstudio.com|Application Insights|
 |agentserviceapi.azure-automation.net|Configuração de convidado|
 |*-agentservice-prod-1.azure-automation.net|Configuração de convidado|
@@ -135,7 +135,7 @@ Você também pode registrar os provedores de recursos no portal do Azure seguin
 
 ## <a name="connected-machine-agent"></a>Agente do Connected Machine
 
-Você pode baixar o pacote do agente do computador conectado do Azure para Windows e Linux nos locais listados abaixo.
+Você pode baixar o pacote do agente do Azure Connected Machine para Windows e Linux dos locais listados abaixo.
 
 - [Pacote do Windows Installer do agente do Windows](https://aka.ms/AzureConnectedMachineAgent) do Centro de Download da Microsoft.
 - O pacote do agente do Linux é distribuído do [repositório de pacotes](https://packages.microsoft.com/) da Microsoft usando o formato de pacote preferencial para a distribuição (.RPM ou .DEB).
@@ -143,21 +143,21 @@ Você pode baixar o pacote do agente do computador conectado do Azure para Windo
 >[!NOTE]
 >Durante essa versão prévia, apenas um pacote foi lançado, adequado para Ubuntu 16.04 ou 18.04.
 
-O agente do computador conectado do Azure para Windows e Linux pode ser atualizado para a versão mais recente manualmente ou automaticamente, dependendo dos seus requisitos. Para o Windows, a atualização do agente pode ser realizada automaticamente usando Windows Update e para Ubuntu, usando a ferramenta de linha de comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html) .
+O agente do Azure Connected Machine para Windows e Linux pode ser atualizado para a versão mais recente manual ou automaticamente dependendo de suas necessidades. Para o Windows, a atualização do agente pode ser realizada automaticamente usando o Windows Update; para Ubuntu, usando a ferramenta de linha de comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html).
 
 ### <a name="agent-status"></a>Status do agente
 
-O agente do computador conectado envia uma mensagem de pulsação regular para o serviço a cada 5 minutos. Se um não for recebido por 15 minutos, o computador será considerado offline e o status será automaticamente alterado para **desconectado** no Portal. Após receber uma mensagem de pulsação subsequente do agente do computador conectado, seu status será alterado automaticamente para **conectado**.
+O agente do Connected Machine envia uma mensagem de pulsação regular para o serviço a cada 5 minutos. Se uma não for recebida em 15 minutos, o computador será considerado offline e o status será alterado automaticamente para **Desconectado** no portal. Ao receber uma mensagem de pulsação subsequente do agente do Connected Machine, o status dela será alterado automaticamente para **Conectado**.
 
 ## <a name="install-and-configure-agent"></a>Instalar e configurar o agente
 
 Conectar computadores em seu ambiente híbrido diretamente com o Azure pode ser feito usando métodos diferentes, dependendo das suas necessidades. A tabela a seguir realça cada método para determinar qual funciona melhor para sua organização.
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 |--------|-------------|
 | Interativamente | Instalar manualmente o agente em um número único ou pequeno de computadores seguindo as etapas em [Conectar computadores do portal do Azure](onboard-portal.md).<br> No portal do Azure, você pode gerar um script e executá-lo no computador para automatizar as etapas de instalação e configuração do agente.|
 | Em escala | Instalar e configurar o agente para vários computadores seguindo [Conectar computadores usando uma Entidade de Serviço](onboard-service-principal.md).<br> Esse método cria uma entidade de serviço para conectar computadores de maneira não interativa.|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a avaliar o Azure Arc para servidores (versão prévia), siga o artigo [Conectar computadores híbridos ao Azure do portal do Azure](onboard-portal.md). 

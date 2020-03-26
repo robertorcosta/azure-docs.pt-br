@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dd559a8dd0bd59b50f4a3fa663f57874d948bf71
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438850"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar um modelo do Azure Resource Manager para criar um pipeline do Data Factory para copiar dados 
@@ -43,7 +43,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 > [!NOTE] 
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como transformar dados usando o Azure Data Factory, consulte [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 ## <a name="in-this-tutorial"></a>Neste tutorial
 Neste tutorial, você pode criar um data factory com as seguintes entidades de Data Factory:
 
-| Entidade | DESCRIÇÃO |
+| Entidade | Descrição |
 | --- | --- |
 | Serviço vinculado de armazenamento do Azure |Vincula sua conta de Armazenamento do Azure Data Factory. O Armazenamento do Azure é o armazenamento de dados de origem e o Banco de Dados SQL do Azure é o armazenamento de dados do coletor para a atividade de cópia descrita no tutorial. Ele especifica a conta de armazenamento que contém os dados de entrada para a atividade de cópia. |
 | Serviço vinculado para o Banco de Dados SQL do Azure |Vincula o Banco de Dados SQL do Azure ao data factory. Especifica o Banco de Dados SQL do Azure que contém os dados de saída para a atividade de cópia. |

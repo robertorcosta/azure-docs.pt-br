@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: e301b5503cee939846bdcfd1d0c4e755f3debe21
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 327b48052e0134ae97f0a97f0a43f36e75f2e003
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74686768"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058767"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Criar um backup agendado para um aplicativo do Serviço de Aplicativo usando a CLI
 
@@ -26,7 +26,7 @@ Este script de exemplo cria um aplicativo no Serviço de Aplicativo com seus rec
 
 Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure versão 2.0 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-scheduled/backup-scheduled.sh?highlight=3-7 "Create a scheduled backup for an app")]
 
@@ -34,7 +34,7 @@ Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure 
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

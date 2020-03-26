@@ -4,10 +4,10 @@ description: Aprenda a criar sua primeira Função do Azure para a execução se
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963828"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar um aplicativo de funções em um Plano do Serviço de Aplicativo do Azure
@@ -34,7 +34,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
     ![Definir novas configurações do aplicativo de funções](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
 
-    | Configuração      | Valor sugerido  | Descrição                                        |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do aplicativo** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z`, `0-9` e `-`.  | 
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. | 
@@ -57,7 +57,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
 Em seguida, crie uma nova função no novo aplicativo de funções. Mesmo depois que seu aplicativo de funções estiver disponível, ele poderá levar alguns minutos para ser totalmente inicializado.
 
-## <a name="create-function"></a>Criar uma função disparada por HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Criar uma função disparada por HTTP
 
 Esta seção mostra como criar uma função no novo aplicativo de funções no portal.
 

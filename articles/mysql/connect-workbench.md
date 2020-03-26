@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 16218dcac2f0a4301b52b0efc54fc04ae39d5e22
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 9b6b4143ea2eeefcf0d0afbe281f7e27ca7794a1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770672"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067853"
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar o MySQL Workbench para se conectar e consultar dados
+# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar o MySQL Workbench para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um Banco de Dados do Azure para MySQL usando o aplicativo MySQL Workbench. 
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -40,15 +40,15 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench 
 Para se conectar ao Servidor MySQL do Azure usando a ferramenta de GUI MySQL Workbench:
 
-1.  Inicie o aplicativo MySQL Workbench em seu computador. 
+1.    Inicie o aplicativo MySQL Workbench em seu computador. 
 
-2.  Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
+2.    Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
     ![configurar nova conexão](./media/connect-workbench/2-setup-new-connection.png)
 
     | **Configuração** | **Valor sugerido** | **Descrição do campo** |
     |---|---|---|
-    |   Nome da Conexão | Conexão de demonstração | Especifique um rótulo para essa conexão. |
+    |    Nome da Conexão | Conexão de demonstração | Especifique um rótulo para essa conexão. |
     | Método de Conexão | Padrão (TCP/IP) | Padrão (TCP/IP) é suficiente. |
     | Nome do host | *nome do servidor* | Especifique o valor do nome do servidor que foi usado quando você criou o Banco de Dados do Azure para MySQL anteriormente. Nosso servidor de exemplo mostrado é mydemoserver.mysql.database.azure.com. Use o nome de domínio totalmente qualificado (\*.mysql.database.azure.com) conforme mostrado no exemplo. Siga as etapas na seção anterior para obter as informações da conexão, caso não se lembre do seu nome do servidor.  |
     | Porta | 3306 | Sempre use a porta 3306 ao conectar o Banco de Dados do Azure para MySQL. |

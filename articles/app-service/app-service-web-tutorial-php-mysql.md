@@ -5,13 +5,13 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9375a59fedcd134a64cfa3bf8b92e33d326ee925
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 2dcf1bef27b5d9e1a740f136361b756f59293b00
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500042"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046755"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Criar um aplicativo Web PHP e MySQL no Azure
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -183,7 +183,7 @@ Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semel
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  ...   +  
+  ...    +  
   -  < Output has been truncated for readability >
 }
 ```
@@ -211,7 +211,8 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql_ser
 Na janela do terminal local, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para _&lt;mysql_server_name>_ . Quando for solicitada uma senha, use a que você especificou quando criou o banco de dados no Azure.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p<PASSWORD> --ssl-mode=REQUIRED --ssl-ca=<PATH_TO_PEM>
+
 ```
 
 ### <a name="create-a-production-database"></a>Criar um banco de dados de produção

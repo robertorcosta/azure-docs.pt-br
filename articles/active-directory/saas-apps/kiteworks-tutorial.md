@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68248911"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Tutorial: Integrar o Kiteworks ao Azure Active Directory
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o Kiteworks ao Azure AD (Azure Activ
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 

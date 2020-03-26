@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 09df78955de6423244c2d8ec94e1e1c06ecab257
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648733"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Criar e usar um provedor personalizado
@@ -31,7 +31,7 @@ Depois de criar um ponto de extremidade, crie um provedor personalizado para ger
 }
 ```
 
-Propriedade | Obrigatório | DESCRIÇÃO
+Propriedade | Obrigatório | Descrição
 ---|---|---
 **name** | Sim | O nome da definição do ponto de extremidade. O Azure expõe esse nome por meio de sua API em /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
 **routingType** | Não | O tipo de contrato do ponto de extremidade. Se o valor não for especificado, ele usará "Proxy" como padrão.
@@ -109,7 +109,7 @@ Depois de criar um provedor personalizado, use as novas APIs do Azure. As guias 
 
 ### <a name="custom-actions"></a>Ações personalizadas
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!NOTE]
 > É necessário substituir os espaços reservados `{subscriptionId}` e `{resourceGroupName}` pela assinatura e pelo grupo de recursos nos quais você implantou o provedor personalizado.
@@ -123,13 +123,13 @@ az resource invoke-action --action myCustomAction \
                             }'
 ```
 
-Parâmetro | Obrigatório | DESCRIÇÃO
+Parâmetro | Obrigatório | Descrição
 ---|---|---
 *action* | Sim | O nome da ação definida no provedor personalizado
 *ids* | Sim | A ID do recurso do provedor personalizado
 *request-body* | Não | O corpo da solicitação que será enviado ao ponto de extremidade
 
-# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="template"></a>[Modelo](#tab/template)
 
 Nenhum.
 
@@ -137,7 +137,7 @@ Nenhum.
 
 ### <a name="custom-resources"></a>Recursos personalizados
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!NOTE]
 > É necessário substituir os espaços reservados `{subscriptionId}` e `{resourceGroupName}` pela assinatura e pelo grupo de recursos nos quais você implantou o provedor personalizado.
@@ -156,7 +156,7 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parâmetro | Obrigatório | DESCRIÇÃO
+Parâmetro | Obrigatório | Descrição
 ---|---|---
 *is-full-object* | Sim | Indica se o objeto de propriedades inclui outras opções, como localização, marcas, SKU ou plano.
 *id* | Sim | A ID de recurso referente ao recurso personalizado. Essa ID é uma extensão da ID do recurso do provedor personalizado.
@@ -168,7 +168,7 @@ Parâmetro | Obrigatório | DESCRIÇÃO
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
 ```
 
-Parâmetro | Obrigatório | DESCRIÇÃO
+Parâmetro | Obrigatório | Descrição
 ---|---|---
 *id* | Sim | A ID de recurso referente ao recurso personalizado. Essa ID é uma extensão da ID do recurso do provedor personalizado.
 
@@ -178,11 +178,11 @@ Parâmetro | Obrigatório | DESCRIÇÃO
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
 ```
 
-Parâmetro | Obrigatório | DESCRIÇÃO
+Parâmetro | Obrigatório | Descrição
 ---|---|---
 *id* | Sim | A ID de recurso referente ao recurso personalizado. Essa ID é uma extensão da ID do recurso do provedor personalizado.
 
-# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="template"></a>[Modelo](#tab/template)
 
 Um modelo do Resource Manager de exemplo:
 
@@ -204,7 +204,7 @@ Um modelo do Resource Manager de exemplo:
 }
 ```
 
-Parâmetro | Obrigatório | DESCRIÇÃO
+Parâmetro | Obrigatório | Descrição
 ---|---|---
 *resourceTypeName* | Sim | O valor `name` da propriedade **resourceTypes** definido no provedor personalizado.
 *resourceProviderName* | Sim | O nome de instância do provedor personalizado.

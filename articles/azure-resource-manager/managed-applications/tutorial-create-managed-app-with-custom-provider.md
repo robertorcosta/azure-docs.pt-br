@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.openlocfilehash: c3750da6bd76c8cb3908fbdc71ba676f09d77def
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648803"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: criar um aplicativo gerenciado com ações e recursos personalizados
@@ -26,7 +26,7 @@ Este tutorial inclui as seguintes etapas:
 > * Implantar uma instância do aplicativo gerenciado
 > * Executar ações personalizadas e criar recursos personalizados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará saber:
 
@@ -219,7 +219,7 @@ Execute o script da CLI do Azure abaixo ou siga as etapas no portal do Azure par
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-# <a name="azure-clitabazurecli-interactive"></a>[CLI do Azure](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 resourceGroup="appResourcesGroup"
@@ -244,7 +244,7 @@ az managedapp definition create \
   --package-file-uri "path to your app.zip package"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite e selecione **Centro de Aplicativos Gerenciados**.
 2. No **Centro de Aplicativos Gerenciados**, escolha **definição de aplicativo do catálogo de serviços** e clique em **Adicionar**. 
@@ -277,7 +277,7 @@ az managedapp definition create \
 
 Quando a definição do aplicativo gerenciado for implantada, execute o script abaixo ou siga as etapas no portal do Azure para implantar a instância do seu aplicativo gerenciado com provedor personalizado:
 
-# <a name="azure-clitabazurecli-interactive"></a>[CLI do Azure](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 appResourcesGroup="appResourcesGroup"
@@ -300,7 +300,7 @@ az managedapp create \
   --parameters "{\"funcname\": {\"value\": \"managedusersappfunction\"}, \"storageName\": {\"value\": \"managedusersappstorage\"}}"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite e selecione **Centro de Aplicativos Gerenciados**.
 2. No **Centro de Aplicativos Gerenciados**, escolha **aplicativos do catálogo de serviços** e clique em **Adicionar**. 

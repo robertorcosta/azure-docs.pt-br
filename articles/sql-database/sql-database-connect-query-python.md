@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: e82f8feae0096202e48a58296dd2e9d21bb61885
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768566"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início Rápido: Usar Python para consultar um banco de dados SQL do Azure
@@ -28,13 +28,13 @@ Neste início rápido, você usará o Python para se conectar a um Banco de Dado
 - Um [Banco de Dados SQL do Azure](sql-database-single-database-get-started.md)
 - [Python](https://python.org/downloads) 3 e software relacionado
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Para instalar o Homebrew e o Python, o driver ODBC e o SQLCMD e o driver do Python para SQL Server, use as etapas **1.2**, **1.3** e **2.1** em [criar aplicativos Python usando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   Para obter mais informações, confira [Microsoft ODBC Driver no macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Para instalar o Python e outros pacotes necessários, use `sudo apt-get install python python-pip gcc g++ build-essential`.
 
@@ -42,7 +42,7 @@ Neste início rápido, você usará o Python para se conectar a um Banco de Dado
 
   Para obter mais informações, confira [Microsoft ODBC Driver no Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Para instalar o Python, o driver ODBC, o SQLCMD e o driver do Python para SQL Server, confira [configurar um ambiente para desenvolvimento em Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 

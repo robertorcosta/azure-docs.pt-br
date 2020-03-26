@@ -5,10 +5,10 @@ ms.date: 12/06/2019
 ms.topic: tutorial
 ms.reviewer: chrisseg
 ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74972755"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Tutorial: Criar, compilar e implantar contratos inteligentes no Azure Blockchain Service
@@ -24,7 +24,7 @@ Você usa o Azure Blockchain Development Kit for Ethereum para:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir [Início Rápido: usar o Visual Studio Code para se conectar a uma rede de consórcio do Azure Blockchain Service](connect-vscode.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -104,7 +104,7 @@ Depois que a transação for processada, a seção de interação refletirá as 
 
 A função SendRequest define os campos **RequestMessage** e **Estado**. O estado atual para **RequestMessage** é o argumento para o qual você passou **Olá, Blockchain**. O valor do campo **Estado** permanece **Solicitação**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando eles não forem mais necessários, você poderá excluir os recursos excluindo o grupo de recursos `myResourceGroup` criado no pré-requisito Início Rápido: *Criar um membro do blockchain*.
 

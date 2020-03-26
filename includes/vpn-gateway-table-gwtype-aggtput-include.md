@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,30 +9,30 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74829161"
 ---
 |**Geração do<br>gateway de<br>VPN** |**SKU**   | **S2S/VNet para VNet<br>Túneis** | **P2S<br> Conexões SSTP** | **P2S<br> Conexões IKEv2/OpenVPN** | **Parâmetro de comparação<br>de taxa de transferência total** | **BGP** | **Com redundância de zona** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
-|**Geração1**|**Básico**   | Máx. 10    | Máx. 128  | Sem suporte  | 100 Mbps  | Sem suporte| Não |
-|**Geração1**|**VpnGw1**  | Máx. 30*   | Máx. 128  | Máx. 250       | 650 Mbps  | Com suporte | Não |
-|**Geração1**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Com suporte | Não |
-|**Geração1**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 1,25 Gbps | Com suporte | Não |
-|**Geração1**|**VpnGw1AZ**| Máx. 30*   | Máx. 128  | Máx. 250       | 650 Mbps  | Com suporte | Sim |
-|**Geração1**|**VpnGw2AZ**| Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Com suporte | Sim |
-|**Geração1**|**VpnGw3AZ**| Máx. 30*   | Máx. 128  | Máx. 1000      | 1,25 Gbps | Com suporte | Sim |
+|**Geração1**|**Basic**   | Máx. 10    | Máx. 128  | Sem suporte  | 100 Mbps  | Sem suporte| Não |
+|**Geração1**|**VpnGw1**  | Máx. 30*   | Máx. 128  | Máx. 250       | 650 Mbps  | Suportado | Não |
+|**Geração1**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Suportado | Não |
+|**Geração1**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 1,25 Gbps | Suportado | Não |
+|**Geração1**|**VpnGw1AZ**| Máx. 30*   | Máx. 128  | Máx. 250       | 650 Mbps  | Suportado | Sim |
+|**Geração1**|**VpnGw2AZ**| Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Suportado | Sim |
+|**Geração1**|**VpnGw3AZ**| Máx. 30*   | Máx. 128  | Máx. 1000      | 1,25 Gbps | Suportado | Sim |
 |        |            |            |           |                |           |           |     |
-|**Geração2**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1,25 Gbps | Com suporte | Não |
-|**Geração2**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 2,5 Gbps  | Com suporte | Não |
-|**Geração2**|**VpnGw4**  | Máx. 30*   | Máx. 128  | Máx. 5\.000      | 5 Gbps    | Com suporte | Não |
-|**Geração2**|**VpnGw5**  | Máx. 30*   | Máx. 128  | Máx. 10000      | 10 Gbps   | Com suporte | Não |
-|**Geração2**|**VpnGw2AZ**| Máx. 30*   | Máx. 128  | Máx. 500       | 1,25 Gbps | Com suporte | Sim |
-|**Geração2**|**VpnGw3AZ**| Máx. 30*   | Máx. 128  | Máx. 1000      | 2,5 Gbps  | Com suporte | Sim |
-|**Geração2**|**VpnGw4AZ**| Máx. 30*   | Máx. 128  | Máx. 5\.000      | 5 Gbps    | Com suporte | Sim |
-|**Geração2**|**VpnGw5AZ**| Máx. 30*   | Máx. 128  | Máx. 10000      | 10 Gbps   | Com suporte | Sim |
+|**Geração2**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1,25 Gbps | Suportado | Não |
+|**Geração2**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 2,5 Gbps  | Suportado | Não |
+|**Geração2**|**VpnGw4**  | Máx. 30*   | Máx. 128  | Máx. 5\.000      | 5 Gbps    | Suportado | Não |
+|**Geração2**|**VpnGw5**  | Máx. 30*   | Máx. 128  | Máx. 10000      | 10 Gbps   | Suportado | Não |
+|**Geração2**|**VpnGw2AZ**| Máx. 30*   | Máx. 128  | Máx. 500       | 1,25 Gbps | Suportado | Sim |
+|**Geração2**|**VpnGw3AZ**| Máx. 30*   | Máx. 128  | Máx. 1000      | 2,5 Gbps  | Suportado | Sim |
+|**Geração2**|**VpnGw4AZ**| Máx. 30*   | Máx. 128  | Máx. 5\.000      | 5 Gbps    | Suportado | Sim |
+|**Geração2**|**VpnGw5AZ**| Máx. 30*   | Máx. 128  | Máx. 10000      | 10 Gbps   | Suportado | Sim |
 
 (*) Use [WAN Virtual](../articles/virtual-wan/virtual-wan-about.md) se precisar de mais de 30 túneis de VPN S2S.
 

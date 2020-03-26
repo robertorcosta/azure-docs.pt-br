@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 43668fe1f465a5db74e63b8b1c1ae6cb328d2092
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914119"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80130859"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
 
@@ -93,7 +93,7 @@ New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri ht
 
 
 ### <a name="create-a-table-in-sql-data-warehouse"></a>Criar uma tabela no SQL Data Warehouse 
-Crie uma tabela no SQL data warehouse, executando o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) usando o [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), o [SQL Server Management Studio](../sql-data-warehouse/sql-data-warehouse-query-ssms.md) ou o Editor de Consulta no portal. 
+Crie uma tabela no SQL data warehouse, executando o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) usando o [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), o [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) ou o Editor de Consulta no portal. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (

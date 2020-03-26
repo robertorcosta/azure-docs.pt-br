@@ -17,10 +17,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68227475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Azure Active Directory com o PageDNA
@@ -35,7 +35,7 @@ A integração do PageDNA ao Azure AD oferece os seguintes benefícios:
 
 Para obter detalhes sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao PageDNA, você precisa dos seguintes itens:
 
@@ -56,7 +56,7 @@ O PageDNA dá suporte aos seguintes recursos:
 
 Para configurar a integração do PageDNA ao Azure AD, você precisará adicionar o PageDNA por meio do Azure Marketplace à lista de aplicativos SaaS gerenciados:
 
-1. Entre no [Portal do Azure](https://portal.azure.com?azure-portal=true).
+1. Entre no [portal do Azure](https://portal.azure.com?azure-portal=true).
 1. No painel esquerdo, selecione **Azure Active Directory**.
 
     ![A opção Azure Active Directory](common/select-azuread.png)
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o PageDNA, execute as seguintes e
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. No painel **Configuração Básica do SAML**, conclua as seguintes etapas:
+1. No painel **Configuração Básica de SAML**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do PageDNA](common/sp-identifier.png)
 

@@ -4,10 +4,10 @@ description: Mapeamento de controle da amostra de blueprint do Padrão de Segura
 ms.date: 01/29/2020
 ms.topic: sample
 ms.openlocfilehash: db21ac9d628e777b6ff2cc86516cfb1497f5a62f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76905640"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PCI-DSS v3.2.1

@@ -6,15 +6,15 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75863253"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
-Saiba como criar uma função disparada quando dados são adicionados ou alterados no Azure Cosmos DB. Para saber mais sobre o Azure Cosmos DB, confira [Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions](../cosmos-db/serverless-computing-database.md).
+Saiba como criar uma função disparada quando dados são adicionados ou alterados no Azure Cosmos DB. Para obter mais informações sobre o Azure Cosmos DB, consulte [Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions](../cosmos-db/serverless-computing-database.md).
 
 ![Exiba a mensagem nos logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -61,7 +61,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
     ![Criar a função acionada do Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
 
-    | Configuração      | Valor sugerido  | Descrição                                |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome** | Padrão | Use o nome da função padrão sugerido pelo modelo.|
     | **Conexão de conta do Azure Cosmos DB** | Nova configuração | Selecione **Novo** e depois escolha sua **Assinatura**, a **Conta de banco de dados** criada anteriormente e **Selecionar**. Isso cria uma configuração de aplicativo para sua conexão de conta. Essa configuração é usada pela associação para conexão com o banco de dados. |
@@ -95,7 +95,7 @@ Em seguida, você se conecta à sua conta do Azure Cosmos DB e cria o contêiner
 
     ![Definir o contêiner Tarefas](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | Configuração|Valor sugerido|Descrição |
+    | Configuração|Valor sugerido|DESCRIÇÃO |
     | ---|---|--- |
     | **ID do banco de dados** | Tarefas |O nome do novo banco de dados. Isso deve corresponder ao nome definido na sua associação de função. |
     | **ID do contêiner** | Itens | O nome do novo contêiner. Isso deve corresponder ao nome definido na sua associação de função.  |

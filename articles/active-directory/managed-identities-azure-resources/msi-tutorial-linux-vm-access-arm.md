@@ -17,11 +17,11 @@ ms.author: markvi
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57b68ebb21c0c10c3fbe3fd77d11785d16a10053
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445917"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60443459"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: usar uma identidade gerenciada atribuída pelo usuário em uma VM do Linux para acessar o Azure Resource Manager
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 > * Conceder à identidade gerenciada atribuída pelo usuário acesso a um Grupo de Recursos no Azure Resource Manager 
 > * Obtenha um token de acesso usando a identidade gerenciada atribuída pelo usuário e use-o para chamar o Azure Resource Manager 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

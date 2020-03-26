@@ -6,13 +6,13 @@ ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 0fc5c32570e5a5920d1616a522120ea5d5b251d8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 9bc40e71c1da6eb60b62cd08c51df89a7f35af09
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768320"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80057377"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicativo #
  
@@ -55,7 +55,7 @@ As funções de trabalho são funções que hospedam aplicativos cliente. As fun
 * Dois vCPU/7 GB de RAM
 * Quatro vCPU/14 GB de RAM
 
-Os clientes não precisam gerenciar os front-ends e as funções de trabalho. Toda a infraestrutura é adicionada automaticamente cconforme os clientes dimensionam os planos de Serviço do Aplicativo. Como os planos de Serviço de Aplicativo são criados ou dimensionados em um ASE, a infraestrutura necessária é adicionada ou removida conforme necessário.
+Os clientes não precisam gerenciar os front-ends e as funções de trabalho. Toda a infraestrutura é adicionada automaticamente cconforme os clientes escalonam horizontalmente os planos de Serviço do Aplicativo. Como os planos de Serviço de Aplicativo são criados ou dimensionados em um ASE, a infraestrutura necessária é adicionada ou removida conforme necessário.
 
 Existe uma taxa mensal fixa para um ASE que paga pela infraestrutura e não altera com o tamanho do ASE. Além disso, há um custo por vCPU do plano do Serviço do Aplicativo. Todos os aplicativos hospedados no ASE estão em um SKU de preços Isolado. Para obter informações sobre os preços de um ASE, confira a página [Preços do Serviço de Aplicativo][Pricing] e examine as opções disponíveis para ASEs.
 

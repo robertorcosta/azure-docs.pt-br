@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672246"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222943"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos ingressados no Azure Active Directory híbrido manualmente
+# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: configurar manualmente dispositivos ingressados no Azure Active Directory híbrido
 
 Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, confira [Introdução ao gerenciamento de dispositivos no Azure Active Directory](overview.md).
 
@@ -35,7 +35,7 @@ Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos
 > * Verificar dispositivos ingressados
 > * Solucionar problemas de implementação
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial presume que você já esteja familiarizado com:
 
@@ -64,7 +64,7 @@ Se a organização está planejando usar o SSO Contínuo, as URLs a seguir preci
 
 * `https://autologon.microsoftazuread-sso.com`
 
-Além disso, a seguinte configuração deve ser habilitada na zona de intranet do usuário: "Permitir atualizações à barra de status por meio de script".
+Além disso, a seguinte configuração deve ser habilitada na zona de intranet do usuário: "Permitir atualizações da barra de status por meio de script".
 
 Se sua organização usar a instalação gerenciada (não federada) com o Active Directory local e não usar os Serviços de Federação do Active Directory (AD FS) para federar ao Azure AD, o ingresso no Azure AD híbrido no Windows 10 dependerá de objetos de computador no Active Directory para ser sincronizado com o Azure AD. Verifique se as UOs que contêm os objetos de computador que precisam ser ingressados no Azure AD híbrido estão habilitadas para sincronização na configuração de sincronização do Azure AD Connect.
 
@@ -503,7 +503,7 @@ Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de n�
 
 Para registrar dispositivos de nível inferior do Windows, verifique se a configuração para permitir que os usuários registrem dispositivos no Azure AD está habilitada. No portal do Azure, você pode encontrar essa configuração em **Azure Active Directory** > **Usuários e grupos** > **Configurações de dispositivo**.
 
-A política a seguir deve ser definida como **todos**: **os usuários podem registrar seus dispositivos com o Azure ad**.
+A política a seguir deve ser definida como **Tudo**: **Os usuários podem registrar seus dispositivos no Azure AD**.
 
 ![O botão Tudo que permite que os usuários registrem dispositivos](./media/hybrid-azuread-join-manual/23.png)
 

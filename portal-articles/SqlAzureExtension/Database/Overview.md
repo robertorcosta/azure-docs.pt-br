@@ -9,25 +9,25 @@ ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
 ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "61244452"
 ---
 # <a name="sql-database-documentation"></a>Documentação do Banco de Dados SQL
 
 O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) relacional de uso geral baseado na versão estável mais recente do Mecanismo de Banco de Dados do Microsoft SQL Server. O Banco de dados SQL é um banco de dados na nuvem seguro, confiável e de alto desempenho que você pode usar para criar aplicativos orientados a dados e sites na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infraestrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos.
 
-## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
+## <a name="5-minute-quickstarts"></a>Guias de início rápido de 5 minutos
 
 O Banco de Dados SQL do Azure permite executar facilmente as tarefas básicas de gerenciamento usando o portal do Azure, a CLI do Azure e o Azure PowerShell. Saiba como executar tarefas básicas de gerenciamento usando os seguintes exemplos de início rápido:
 
-- [Portal do Azure](/azure/sql-database/sql-database-single-database-get-started)
+- [Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 - [PowerShell do Azure](/azure/sql-database/sql-database-get-started-powershell)
 - [CLI do Azure](/azure/sql-database/sql-database-get-started-cli)
 
-## <a name="step-by-step-tutorials"></a>Tutoriais Passo a Passo
+## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 
 Saiba como criar, gerenciar e migrar bancos de dados usando o Banco de Dados SQL.
 

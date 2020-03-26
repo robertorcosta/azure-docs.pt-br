@@ -7,13 +7,13 @@ ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 2ee88ef3d125ccc1ec9675437ea99ac11fe65dff
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cb0af65f938baf24b2af574b21e09e099b70ba85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684213"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060293"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Dimensionar um aplicativo Web manualmente usando o PowerShell
 
@@ -21,7 +21,7 @@ Nesse cenário, você aprenderá a criar um grupo de recursos, o aplicativo Web 
 
 Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
@@ -48,6 +48,6 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o módulo do Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../samples-powershell.md).

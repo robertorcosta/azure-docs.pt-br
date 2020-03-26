@@ -17,10 +17,10 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3a54b096019e9e38bc800ae313016a430062dab
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74964303"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integração do Atlassian Cloud com o Azure Active Directory
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Atlassian Cloud ao Azure Active Di
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -156,7 +156,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Para automatizar a configuração no Atlassian Cloud, você precisará instalar a **extensão de navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar extensão**.
 
-    ![Extensão dos meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
 1. Depois de adicionar a extensão ao navegador, clicar em **Instalar Atlassian Cloud** direcionará você ao aplicativo Atlassian Cloud. No aplicativo, forneça as credenciais de administrador para entrar no Atlassian Cloud. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
 

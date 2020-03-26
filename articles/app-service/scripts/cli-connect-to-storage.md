@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: c8fcdae21e1f9b8508649c52480fa4a007a3325b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 92cb41552d246dd30a84ce7bc27573ab6dbb7dae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688447"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80058094"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Conectar um aplicativo do Serviço de Aplicativo a uma conta de armazenamento usando a CLI
 
@@ -27,7 +27,7 @@ Este script de exemplo cria uma conta de Armazenamento do Azure e um aplicativo 
 Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure versão 2.0 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-storage/connect-to-storage.sh "Azure Storage")]
 

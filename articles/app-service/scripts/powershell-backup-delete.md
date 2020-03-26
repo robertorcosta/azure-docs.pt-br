@@ -7,13 +7,13 @@ ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: b8d3175b4266e132d94f6f2dde163cb60fb11396
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 93b53bedef291b9aa740f5bbe9c492185f035f89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685808"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044827"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Excluir um backup de um aplicativo Web usando o Azure PowerShell
 
@@ -21,7 +21,7 @@ Este script de exemplo cria um aplicativo Web no Serviço de Aplicativo com seus
 
 Para executar esse script, você precisará de um backup existente para um aplicativo Web. Para criar um, consulte [Backup up a web app](powershell-backup-onetime.md) (Fazer backup de um aplicativo Web) ou [Create a scheduled backup for a web app](powershell-backup-scheduled.md) (Criar um backup agendado para um aplicativo Web).
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
@@ -46,6 +46,6 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o módulo do Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../samples-powershell.md).

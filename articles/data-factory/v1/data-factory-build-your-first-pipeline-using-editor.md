@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439005"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar seu primeiro data factory usando o portal do Azure
@@ -42,7 +42,7 @@ O pipeline neste tutorial tem uma atividade: atividade de Hive do Azure HDInsigh
 > 
 > Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Leia [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e siga as etapas na seção "Pré-requisitos".
 
 Este artigo não fornece uma visão geral conceitual do serviço do Data Factory. Para obter mais informações sobre o serviço, leia [Introdução ao Azure Data Factory](data-factory-introduction.md).  
@@ -147,7 +147,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-   | Propriedade | DESCRIÇÃO |
+   | Propriedade | Descrição |
    |:--- |:--- |
    | clusterSize |Especifica o tamanho do cluster HDInsight. |
    | timeToLive | Especifica o tempo ocioso do cluster do HDInsight antes de ser excluído. |
@@ -208,7 +208,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
     ```
     A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-   | Propriedade | Aninhado em | DESCRIÇÃO |
+   | Propriedade | Aninhado em | Descrição |
    |:--- |:--- |:--- |
    | type | properties |A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs. |
    | linkedServiceName | format |Refere-se ao AzureStorageLinkedService que você criou anteriormente. |
@@ -435,7 +435,7 @@ Neste tutorial, você criou um data factory para processar dados executando um s
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script de Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados do armazenamento de blobs para um banco de dados SQL, confira [Tutorial: Copiar dados do armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Confira também
-| Tópico | DESCRIÇÃO |
+| Tópico | Descrição |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Data Factory e como usá-los para criar fluxos de trabalho controlado por dados de ponta a ponta para seu cenário ou negócio. |
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Data Factory. |

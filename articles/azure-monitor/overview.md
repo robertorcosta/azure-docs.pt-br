@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: cec437929e2f7ccd94cf4cf94ec81f87dac2678a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: cfdd0beac7d257a424d327df71602b4612c3da3b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669158"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79536846"
 ---
 # <a name="azure-monitor-overview"></a>Visão geral do Azure Monitor
 
@@ -25,6 +25,9 @@ Apenas alguns exemplos do que você pode fazer com o Azure Monitor incluem:
 - Suporte a operações em escala com [alertas inteligentes](platform/alerts-smartgroups-overview.md) e [ações automatizadas](platform/alerts-action-rules.md).
 - Crie visualizações com [painéis](learn/tutorial-logs-dashboards.md) do Azure e [pastas de trabalho](app/usage-workbooks.md).
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
+
+
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="overview"></a>Visão geral
@@ -37,7 +40,7 @@ O diagrama a seguir fornece uma visão geral do Azure Monitor. No centro do diag
 
 Todos os dados coletados pelo Azure Monitor se enquadram em um dos dois tipos fundamentais, [métricas e logs](platform/data-platform.md). As [Métricas](platform/data-platform-metrics.md) são valores numéricos que descrevem algum aspecto de um sistema em um ponto específico no tempo. Elas são leves e podem dar suporte a cenários quase em tempo real. Os [Logs](platform/data-platform-logs.md) contêm diferentes tipos de dados organizados em registros com diferentes conjuntos de propriedades para cada um. Os dados telemétricos, como eventos e rastreamentos, são armazenados como logs acrescidos dos dados de desempenho, de modo que possam todos ser combinados para análise.
 
-Para muitos recursos do Azure, você verá os dados coletados pelo Azure Monitor diretamente em sua página de visão geral no portal do Azure. Dê uma olhada em uma máquina virtual, por exemplo, e você verá vários gráficos que exibem as métricas de desempenho. Clique em um dos gráficos para abrir os dados no [Metrics Explorer](platform/metrics-charts.md), no portal do Azure, que permite fazer o gráfico dos valores de várias métricas ao longo do tempo.  É possível exibir os gráficos interativamente ou fixá-los em um painel para exibi-los com outras visualizações.
+Para muitos recursos do Azure, você verá os dados coletados pelo Azure Monitor diretamente em sua página de visão geral no portal do Azure. Dê uma olhada em um máquina virtual, por exemplo, e você verá vários gráficos que exibem as métricas de desempenho. Clique em um dos gráficos para abrir os dados no [Metrics Explorer](platform/metrics-charts.md), no portal do Azure, que permite fazer o gráfico dos valores de várias métricas ao longo do tempo.  É possível exibir os gráficos interativamente ou fixá-los em um painel para exibi-los com outras visualizações.
 
 ![Métricas](media/overview/metrics.png)
 
@@ -51,11 +54,11 @@ O Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/qu
 
 O Azure Monitor pode coletar dados de várias fontes. Você pode pensar em dados de monitoramento de seus aplicativos em camadas, que vão do aplicativo, de sistema operacional e serviços de que ele depende, até a própria plataforma. O Azure Monitor coleta dados de cada uma dos seguintes camadas:
 
-- **Dados de monitoramento de aplicativo**: Os dados sobre o desempenho e a funcionalidade do código que você gravou, independentemente da plataforma.
-- **Dados de monitoramento de SO Convidado**: Dados sobre o sistema operacional no qual seu aplicativo está em execução. Ele pode estar em execução no Azure, em outra nuvem ou localmente. 
-- **Dados de monitoramento de recursos do Azure**: Dados sobre a operação de um recurso do Azure.
-- **Dados de monitoramento de assinatura do Azure**: Dados sobre a operação e o gerenciamento de uma assinatura do Azure, bem como dados sobre a integridade e a operação do próprio Azure. 
-- **Dados de monitoramento do locatário do Azure**: Dados sobre a operação de serviços do Azure no nível de locatário como Azure Active Directory.
+- **Dados de monitoramento de aplicativo**: dados sobre o desempenho e a funcionalidade do código que você escreveu, independentemente da plataforma.
+- **Dados de monitoramento de SO convidado**: dados sobre o sistema operacional no qual o aplicativo é executado. Ele pode estar em execução no Azure, em outra nuvem ou localmente. 
+- **Dados de monitoramento de recursos do Azure**: dados sobre a operação de um recurso do Azure.
+- **Dados de monitoramento de assinatura do Azure**: dados sobre a operação e o gerenciamento de uma assinatura do Azure, além de dados sobre a integridade e a operação do próprio Azure. 
+- **Dados de monitoramento do inquilino do Azure**: dados sobre a operação de serviços do Azure no nível do locatário, como o Azure Active Directory.
 
 Assim que você cria uma assinatura do Azure e começa a adicionar recursos como máquinas virtuais e aplicativos Web, o Azure Monitor começará a coletar dados.  Os [logs de atividades](platform/platform-logs-overview.md) registram quando os recursos são criados ou modificados. As [métricas](platform/data-platform.md) indicam o desempenho do recurso e os recursos que ele está consumindo. 
 
@@ -71,7 +74,7 @@ O Azure Monitor pode coletar dados de log de qualquer cliente REST usando a [API
 Os dados de monitoramento só serão úteis se puderem aumentar sua visibilidade em relação ao funcionamento do ambiente de computação. O Azure Monitor inclui vários recursos e ferramentas que fornecem insights valiosos sobre seus aplicativos e outros recursos dos quais eles dependem. [Soluções de monitoramento](insights/solutions.md) e recursos como o [Application Insights](app/app-insights-overview.md) e o [Azure Monitor para contêineres](insights/container-insights-overview.md) fornecem insights aprofundados sobre diferentes aspectos do aplicativo e de serviços específicos do Azure. 
 
 ### <a name="application-insights"></a>Application Insights
-O [Application Insights](app/app-insights-overview.md) monitora a disponibilidade, o desempenho e o uso do seu aplicativo, seja hospedado na nuvem ou localmente. Ele aproveita a plataforma avançada de análise de dados no Azure Monitor para fornecer informações detalhadas sobre as operações do aplicativo e diagnosticar erros sem esperar que um usuário relate-os. O Application Insights inclui pontos de conexão com uma variedade de ferramentas de desenvolvimento e integra-se ao Visual Studio para dar suporte a seus processos de DevOps.
+O [Application Insights](app/app-insights-overview.md) monitora a disponibilidade, o desempenho e o uso do seu aplicativo, seja hospedado na nuvem ou localmente. Ele aproveita a plataforma de análise de dados avançada no Azure Monitor para fornecer informações detalhadas sobre as operações do aplicativo e diagnosticar erros sem esperar que um usuário relate-os. O Application Insights inclui pontos de conexão com uma variedade de ferramentas de desenvolvimento e integra-se ao Visual Studio para dar suporte a seus processos de DevOps.
 
 ![Insights de aplicativo](media/overview/app-insights.png)
 

@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: criar uma definição de política personalizada'
+title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386780"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222743"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: criar uma definição de política personalizada
+# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
 Uma definição de política personalizada permite que os clientes definam suas próprias regras para uso do Azure. Geralmente, essas regras impõem:
 
@@ -31,7 +31,7 @@ A abordagem para criação de uma política personalizada segue estas etapas:
 > - Determinar qual efeito será usado
 > - Redigir a definição de política
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -386,7 +386,7 @@ A redação da [regra de política](../concepts/definition-structure.md#policy-r
 - Que o **tipo** da conta de armazenamento é **Microsoft.Storage/storageAccounts**
 - Que a conta de armazenamento **supportsHttpsTrafficOnly** não é **true**
 
-Como precisamos que as duas instruções sejam verdadeiras, usaremos o **operador lógico** [allOf](../concepts/definition-structure.md#logical-operators). Passaremos o parâmetro **effectType** para o efeito, em vez de fazer uma declaração estática. Nossa regra concluída é parecida com este exemplo:
+Como precisamos que as duas instruções sejam verdadeiras, usaremos o [operador lógico](../concepts/definition-structure.md#logical-operators) **allOf**. Passaremos o parâmetro **effectType** para o efeito, em vez de fazer uma declaração estática. Nossa regra concluída é parecida com este exemplo:
 
 ```json
 "if": {

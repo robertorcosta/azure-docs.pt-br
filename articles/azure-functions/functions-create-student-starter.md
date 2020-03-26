@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
 ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75921125"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando o Microsoft Azure for Students Starter
@@ -43,7 +43,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
     <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
 
-    | Configuração      | Valor sugerido  | Descrição                                        |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do aplicativo** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z`, `0-9` e `-`.  | 
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. | 
@@ -72,7 +72,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
 Em seguida, crie uma nova função no novo aplicativo de funções.
 
-## <a name="create-function"></a>Criar uma função disparada por HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Criar uma função disparada por HTTP
 
 1. Expanda seu novo aplicativo de funções e selecione o botão **+** ao lado de **Functions**, escolha **No portal** e selecione **Continuar**.
 

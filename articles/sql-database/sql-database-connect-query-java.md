@@ -12,10 +12,10 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
 ms.openlocfilehash: 034f92ca3b7552373ae69148d09d58d3a5dd166a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768656"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início Rápido: Como usar o Java para consultar um banco de dados SQL do Azure
@@ -28,15 +28,15 @@ Neste início rápido, você usará o Java para se conectar a um Banco de Dados 
 - Um [Banco de Dados SQL do Azure](sql-database-single-database-get-started.md)
 - Software relacionado a [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Instale o Homebrew, o Java e, em seguida, o Maven usando as etapas **1.2** e **1.3** em [Criar aplicativos Java usando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Instale o Java, o Java Development Kit e, em seguida, o Maven usando as etapas **1.2**, **1.3** e **1.4** em [Criar aplicativos Java usando o SQL Server no Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Instale o Java e, em seguida, o Maven usando as etapas **1.2** e **1.3** em [Criar aplicativos Java usando o SQL Server no Windows](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 

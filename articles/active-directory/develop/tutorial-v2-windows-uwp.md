@@ -16,10 +16,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79129891"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)
@@ -206,7 +206,7 @@ Esta seção mostra como usar a MSAL para obter um token para a API do Microsoft
     }
     ```
 
-#### Obter um token de usuário interativamente<a name="more-information"></a>
+#### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente<a name="more-information"></a>
 
 O método `AcquireTokenInteractive` resulta em uma janela que solicita a conexão do usuário. Os aplicativos geralmente exigem que os usuários entrem interativamente na primeira vez para acessar um recurso protegido. Eles também podem precisar entrar quando uma operação silenciosa para adquirir um token falhar. Por exemplo, quando a senha do usuário expirou.
 
@@ -295,7 +295,7 @@ Para desconectar o usuário, adicione o seguinte método a *MainPage.xaml.cs*:
 > [!NOTE]
 > MSAL.NET usa métodos assíncronos para adquirir tokens ou manipular contas. Você precisa dar suporte a ações da interface do usuário no thread da IU. Esse é o motivo para a chamada `Dispatcher.RunAsync` e as precauções para chamar `ConfigureAwait(false)`.
 
-#### Mais informações sobre sair<a name="more-information-on-sign-out"></a>
+#### <a name="more-information-about-signing-out"></a>Mais informações sobre sair<a name="more-information-on-sign-out"></a>
 
 O método `SignOutButton_Click` remove o usuário do cache do usuário da MSAL. Esse método informa efetivamente a MSAL para esquecer o usuário atual. Uma solicitação futura para adquirir um token só terá êxito se for interativa.
 
@@ -320,7 +320,7 @@ Adicione o seguinte método a *MainPage.xaml.cs* para exibir informações bási
    }
    ```
 
-#### Mais informações<a name="more-information-1"></a>
+#### <a name="more-information"></a>Mais informações<a name="more-information-1"></a>
 
 Os tokens de ID adquiridos usando **OpenID Connect** também contêm um pequeno subconjunto de informações pertinentes ao usuário. `DisplayBasicTokenInfo` exibe informações básicas contidas no token. Essas informações incluem o nome de exibição e a ID do usuário. Elas também incluem a data de validade do token e a cadeia de caracteres que representa o token de acesso em si. Caso selecione o botão **Chamar API do Microsoft Graph** diversas vezes, você verá que o mesmo token foi reutilizado em solicitações posteriores. Veja também que a data de expiração é estendida quando a MSAL decide que é a hora de renovar o token.
 

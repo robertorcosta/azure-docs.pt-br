@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
 ms.openlocfilehash: 393993a44c860525b9bd9a540ed7afff78e5b93c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648503"
 ---
 # <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Início Rápido: Criar um provedor personalizado e implantar recursos personalizados
 
 Neste início rápido, você cria seu próprio provedor de recursos e implanta tipos de recurso personalizados para o provedor de recursos. Para saber mais sobre provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas deste início rápido, você precisará chamar operações REST. Há [diferentes maneiras de enviar solicitações REST](/rest/api/azure/). Se você ainda não tiver uma ferramenta para operações REST, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É a ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager.
 

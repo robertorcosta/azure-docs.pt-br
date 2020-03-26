@@ -11,10 +11,10 @@ ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: b0103f7b827de77c522f78000c8d28683ac85f4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75441894"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutorial: Criar uma conta de API do Cassandra no Azure Cosmos DB por meio de um aplicativo Java para armazenar dados de chave/valor
@@ -30,7 +30,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Adicionar um banco de dados e uma tabela
 > * Executar o aplicativo
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar. 
 
@@ -47,7 +47,7 @@ Este tutorial cobre as seguintes tarefas:
 
 3. No painel **Nova conta**, insira as configurações da nova conta do Azure Cosmos. 
 
-   |Configuração   |Valor sugerido  |DESCRIÇÃO  |
+   |Configuração   |Valor sugerido  |Descrição  |
    |---------|---------|---------|
    |ID   |   Insira um nome exclusivo    | Insira um nome exclusivo para identificar essa conta do Azure Cosmos. <br/><br/>Como cassandra.cosmosdb.azure.com é acrescentado à ID fornecida para criar seu ponto de contato, use uma ID exclusiva, mas identificável.         |
    |API    |  Cassandra   |  A API determina o tipo de conta a ser criada. <br/> Selecione **Cassandra**, pois neste artigo, você criará um banco de dados de colunas largas que pode ser consultado usando a sintaxe CQL (Linguagem de Consulta do Cassandra).  |

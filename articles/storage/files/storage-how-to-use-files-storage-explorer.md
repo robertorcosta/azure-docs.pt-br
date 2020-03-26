@@ -8,13 +8,13 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431814"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos com o Gerenciador de Armazenamento do Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início Rápido: criar e gerenciar compartilhamentos de arquivos do Gerenciador de Armazenamento do Azure
 Este guia percorre os fundamentos de trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) com o Gerenciador de Armazenamento do Azure. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
 
 O Gerenciador de Armazenamento do Azure é uma ferramenta popular de cliente disponível para Windows, macOS e Linux. Você pode usar o Gerenciador de Armazenamento para gerenciar compartilhamentos de arquivo e outros recursos de armazenamento.
@@ -32,9 +32,9 @@ Você não pode usar o Gerenciador de Armazenamento para criar novos recursos. P
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Conecte o Gerenciador de Armazenamento aos recursos do Azure
 Quando você iniciar o Gerenciador de Armazenamento pela primeira vez, a janela **Gerenciador de Armazenamento do Microsoft Azure - Conectar** será exibida. O Gerenciador de Armazenamento fornece várias maneiras de se conectar às contas de armazenamento: 
 
-- **Entre usando sua conta do Azure**: você pode entrar usando as credenciais do usuário de sua organização ou sua conta Microsoft. 
-- **Conectar-se a uma conta de armazenamento específica usando uma cadeia de conexão ou token SAS**: uma cadeia de conexão é uma cadeia de caracteres especial que contém um nome de conta de armazenamento e um token SAS/chave de conta de armazenamento. Com o token, o Gerenciador de Armazenamento acessa diretamente a conta de armazenamento (ao invés de simplesmente ver todas as contas de armazenamento em uma conta do Azure). Para saber mais sobre cadeias de conexão, confira [Configurar cadeia de conexão do Armazenamento do Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-- **Conectar-se a uma conta de armazenamento específica usando um nome e uma chave de conta de armazenamento**: use o nome e a chave da conta de armazenamento para se conectar ao armazenamento do Azure.
+- **Entre usando a sua conta do Azure**: Você pode entrar usando as credenciais do usuário para a sua organização ou a sua conta da Microsoft. 
+- **Conecte-se a uma conta de armazenamento específica usando uma cadeia de conexão ou um token SAS**: Uma cadeia de conexão é uma cadeia de caracteres especial que contém um nome de conta de armazenamento e a chave da conta de armazenamento/token SAS. Com o token, o Gerenciador de Armazenamento acessa diretamente a conta de armazenamento (ao invés de simplesmente ver todas as contas de armazenamento em uma conta do Azure). Para saber mais sobre cadeias de conexão, confira [Configurar cadeia de conexão do Armazenamento do Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- **Conectar-se a uma conta de armazenamento específico usando um nome de conta de armazenamento e uma chave**: use o nome e a chave da conta de armazenamento para se conectar ao armazenamento do Azure.
 
 Para os fins deste início rápido, entre com sua conta do Azure. Selecione **Adicionar uma Conta do Azure** e, em seguida, selecione **Entrar**. Siga os prompts para entrar na sua conta do Azure.
 

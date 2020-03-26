@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, guia estratégico, aks, cont
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76836959"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configurar funções de controle de acesso baseado em função (RBAC) no Serviço de Kubernetes do Azure (AKS) usando o Ansible
@@ -26,7 +26,7 @@ O AKS pode ser configurado para usar o [Azure AD (Active Directory)](/azure/acti
 > * Criar um cluster AKS habilitado para Azure AD
 > * Configurar uma função RBAC no cluster
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

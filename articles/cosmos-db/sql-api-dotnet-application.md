@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: sngun
 ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274067"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver um aplicativo Web ASP.NET Core MVC com o Azure Cosmos DB usando o SDK do .NET
@@ -42,7 +42,7 @@ Este tutorial abrange:
 > [!TIP]
 > Este tutorial pressupõe que você tenha experiência anterior com o uso do ASP.NET Core MVC e o Serviço de Aplicativo do Azure. Caso esteja conhecendo agora o ASP.NET Core ou as [ferramentas de pré-requisito](#prerequisites), recomendamos que você baixe o projeto de exemplo completo no [GitHub][GitHub], adicione os pacotes NuGet necessários e execute-o. Depois de compilar o projeto, você poderá consultar esse artigo para obter insights sobre o código no contexto do projeto.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a><a name="prerequisites"></a>Pré-requisitos
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes recursos:
 
@@ -54,7 +54,7 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 Todas as capturas de tela deste artigo são do Microsoft Visual Studio Community 2019. Se você usar uma versão diferente, suas telas e opções poderão não coincidir totalmente. A solução deverá funcionar se você atender aos pré-requisitos.
 
-## <a name="create-an-azure-cosmos-account"></a>Etapa 1: Criar uma conta do Azure Cosmos
+## <a name="step-1-create-an-azure-cosmos-account"></a><a name="create-an-azure-cosmos-account"></a>Etapa 1: Criar uma conta do Azure Cosmos
 
 Vamos começar criando uma conta do Azure Cosmos. Se já tiver uma conta da API SQL do Azure Cosmos DB ou se estiver usando o emulador do Azure Cosmos DB, passe para a [Etapa 2: Criar um novo aplicativo MCV do ASP.NET](#create-a-new-mvc-application).
 
@@ -64,7 +64,7 @@ Vamos começar criando uma conta do Azure Cosmos. Se já tiver uma conta da API 
 
 Na próxima seção, você criará um aplicativo ASP.NET Core MVC.
 
-## <a name="create-a-new-mvc-application"></a>Etapa 2: Criar um aplicativo ASP.NET Core MVC
+## <a name="step-2-create-a-new-aspnet-core-mvc-application"></a><a name="create-a-new-mvc-application"></a>Etapa 2: Criar um aplicativo ASP.NET Core MVC
 
 1. Abra o Visual Studio e selecione **Criar um projeto**.
 
@@ -80,7 +80,7 @@ Na próxima seção, você criará um aplicativo ASP.NET Core MVC.
 
 1. Selecione **Depurar** > **Iniciar Depuração** ou pressione F5 para executar o aplicativo ASP.NET localmente.
 
-## <a name="add-nuget-packages"></a>Etapa 3: Adicionar o pacote NuGet do Azure Cosmos DB ao projeto
+## <a name="step-3-add-azure-cosmos-db-nuget-package-to-the-project"></a><a name="add-nuget-packages"></a>Etapa 3: Adicionar o pacote NuGet do Azure Cosmos DB ao projeto
 
 Agora que temos a maior parte do código da estrutura ASP.NET Core MVC de que precisamos para esta solução, vamos adicionar os pacotes NuGet necessários para a conexão com o Azure Cosmos DB.
 
@@ -98,11 +98,11 @@ Agora que temos a maior parte do código da estrutura ASP.NET Core MVC de que pr
    Install-Package Microsoft.Azure.Cosmos
    ```
   
-## <a name="set-up-the-mvc-application"></a>Etapa 4: Configurar o aplicativo ASP.NET Core MVC
+## <a name="step-4-set-up-the-aspnet-core-mvc-application"></a><a name="set-up-the-mvc-application"></a>Etapa 4: Configurar o aplicativo ASP.NET Core MVC
 
 Agora, vamos adicionar os modelos, as exibições e os controladores ao aplicativo MVC.
 
-### <a name="add-a-model"></a> Adicionar um modelo
+### <a name="add-a-model"></a><a name="add-a-model"></a> Adicionar um modelo
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, selecione **Adicionar** > **Classe**.
 
@@ -114,7 +114,7 @@ Agora, vamos adicionar os modelos, as exibições e os controladores ao aplicati
 
 O Azure Cosmos DB usa JSON para mover e armazenar dados. Você pode usar o atributo `JsonProperty` para controlar como o JSON serializa e desserializa objetos. A classe `Item` demonstra o atributo `JsonProperty`. Esse código controla o formato do nome da propriedade recebida pelo JSON. Ele também renomeia a propriedade do .NET `Completed`.
 
-### <a name="add-views"></a>Adicionar exibições
+### <a name="add-views"></a><a name="add-views"></a>Adicionar exibições
 
 Em seguida, vamos criar as três exibições abaixo.
 
@@ -122,7 +122,7 @@ Em seguida, vamos criar as três exibições abaixo.
 * Adicionar uma nova exibição de item
 * Adicionar uma exibição Editar item
 
-#### <a name="AddItemIndexView"></a>Adicionar uma exibição de item de lista
+#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Adicionar uma exibição de item de lista
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Exibições** e selecione **Adicionar** > **Nova Pasta**. Nomeie a pasta *Item*.
 
@@ -141,7 +141,7 @@ Em seguida, vamos criar as três exibições abaixo.
 
 Depois de concluído, o Visual Studio abre o arquivo *cshtml* que é criado. Você pode fechar esse arquivo no Visual Studio. Voltaremos a ele mais tarde.
 
-#### <a name="AddNewIndexView"></a>Adicionar uma nova exibição de item
+#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>Adicionar uma nova exibição de item
 
 Da mesma forma que você criou uma exibição para itens de lista, crie uma nova exibição para criar itens usando as seguintes etapas:
 
@@ -155,7 +155,7 @@ Da mesma forma que você criou uma exibição para itens de lista, crie uma nova
    * Selecione **Usar uma página de layout** e insira *~/Views/Shared/_Layout.cshtml*.
    * Selecione **Adicionar**.
 
-#### <a name="AddEditIndexView"></a>Adicionar uma exibição Editar item
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Adicionar uma exibição Editar item
 
 E, finalmente, adicione um modo de exibição para editar um item com as seguintes etapas:
 
@@ -171,7 +171,7 @@ E, finalmente, adicione um modo de exibição para editar um item com as seguint
 
 Após concluir essas etapas, feche todos os documentos *cshtml* no Visual Studio, pois você voltará a essas exibições mais tarde.
 
-### <a name="initialize-services"></a>Declarar e inicializar serviços
+### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Declarar e inicializar serviços
 
 Primeiro, adicionaremos uma classe que contenha a lógica para conectar e usar o Azure Cosmos DB. Para este tutorial, encapsularemos essa lógica em uma classe chamada `CosmosDBService` e uma interface chamada `ICosmosDBService`. Esse serviço executa as operações CRUD. Ele também executa operações de leitura de feed, como listar itens incompletos, criar, editar e excluir os itens.
 
@@ -203,7 +203,7 @@ Primeiro, adicionaremos uma classe que contenha a lógica para conectar e usar o
 
    :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
 
-### <a name="add-a-controller"></a>Adicionar um controlador
+### <a name="add-a-controller"></a><a name="add-a-controller"></a>Adicionar um controlador
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Controladores**, selecione **Adicionar** > **Controlador**.
 
@@ -221,7 +221,7 @@ O atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger ess
 
 Também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques overposting. Para saber mais, confira [Tutorial: Implementar a funcionalidade CRUD com o Entity Framework no MVC do ASP.NET][Basic CRUD Operations in ASP.NET MVC].
 
-## <a name="run-the-application"></a>Etapa 5: Executar o aplicativo localmente
+## <a name="step-5-run-the-application-locally"></a><a name="run-the-application"></a>Etapa 5: Executar o aplicativo localmente
 
 Use as etapas abaixo para testar o aplicativo em seu computador local:
 
@@ -245,7 +245,7 @@ Use as etapas abaixo para testar o aplicativo em seu computador local:
 
 1. Depois de testar o aplicativo, pressione Ctrl + F5 para parar a depuração do aplicativo. Você está pronto para implantar!
 
-## <a name="deploy-the-application-to-azure"></a>Etapa 6: Implantar o aplicativo
+## <a name="step-6-deploy-the-application"></a><a name="deploy-the-application-to-azure"></a>Etapa 6: Implantar o aplicativo
 
 Agora que você tem o aplicativo completo funcionando corretamente no Azure Cosmos DB, vamos implantar esse aplicativo Web no Serviço de Aplicativo do Azure.  
 

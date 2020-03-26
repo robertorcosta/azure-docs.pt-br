@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bfda5fe7592d4c3f3f9550f406cf7635c43168ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896205"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80159465"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -49,7 +49,7 @@ Todos os recursos criados no Azure são distribuídos entre várias [regiões ge
 
 Esta tabela mostra algumas das maneiras de obter uma lista dos locais disponíveis.
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 | --- | --- |
 | Portal do Azure |Selecione um local na lista quando você criar uma VM. |
 | Azure PowerShell |Use o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
@@ -93,10 +93,6 @@ A Microsoft trabalha junto com parceiros para garantir que as imagens disponíve
 * Docker - [Azure Marketplace – Serviço de Contêiner do Azure com Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
-## <a name="vm-sizes"></a>Tamanhos de VM
-O [tamanho](sizes.md) da VM que você usa é determinado pela carga de trabalho que deseja executar. O tamanho que você escolhe, em seguida, determina fatores como capacidade de processamento, memória e armazenamento. O Azure oferece uma grande variedade de tamanhos para oferecer suporte a muitos tipos de usos.
-
-O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) com base no tamanho da VM e do sistema operacional. Para horas parciais, o Azure cobrará somente os minutos usados. O armazenamento terá o preço e será cobrado separadamente.
 
 ## <a name="cloud-init"></a>Cloud-init 
 
@@ -108,12 +104,6 @@ Para obter uma cultura apropriada do DevOps, toda a infraestrutura deve ser codi
 O Azure dá suporte a [cloud-init](https://cloud-init.io/) na maioria das distribuições Linux que dão suporte a ele.  Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as implantações e as configurações de cloud-init funcionem perfeitamente com VMs e conjuntos de dimensionamento de máquinas virtuais.
 
 * [Como usar o cloud-init em VMs Linux do Azure](using-cloud-init.md)
-
-## <a name="quotas"></a>Cotas
-Cada assinatura do Azure tem limites de cota padrão que podem afetar a implantação de um grande número de VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região.  Os limites de cota podem ser aumentados de forma rápida e fácil com a emissão de um tíquete de suporte para solicitar um aumento de limite.  Para obter mais detalhes sobre os limites de cota:
-
-* [Limites de Serviço da assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
-
 
 ## <a name="storage"></a>Armazenamento
 * [Introdução ao Armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74846344"
 ---
 # <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar detecções de risco para disparar a Autenticação Multifator e alterações de senha
@@ -40,7 +40,7 @@ Mais informações sobre o Azure AD Identity Protection podem ser encontradas no
 > * Habilitar alterações de senha com base em risco
 > * Habilitar Autenticação Multifator baseada em risco
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Acesso a um locatário do Azure AD ativo com pelo menos uma licença de avaliação do Azure AD Premium P2 atribuída.
 * Uma conta com privilégios de Administrador Global em seu locatário do Azure AD.
@@ -54,7 +54,7 @@ A habilitação das políticas baseadas em risco é um processo simples. As etap
 
 O Azure AD Identity Protection inclui uma política padrão que pode ajudá-lo a registrar seus usuários na Autenticação Multifator e a identificar facilmente o status do registro atual. A habilitação dessa política não começa a exigir que os usuários realizem a Autenticação Multifator, mas pedirá que eles façam um registro prévio.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Clique em **Todos os serviços** e navegue até **Azure AD Identity Protection**.
 1. Clique em **Registro de MFA**.
 1. Definir Impor Política como **Ativo**.
@@ -87,6 +87,6 @@ A maioria dos usuários tem um comportamento normal que pode ser acompanhado; qu
 1. Definir Impor Política como **Ativo**.
 1. Clique em **Salvar**
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você tiver concluído o teste e não desejar mais ter as políticas baseadas em risco habilitadas, volte para cada política que deseja desabilitar e defina **Impor política** à **Desativado**.

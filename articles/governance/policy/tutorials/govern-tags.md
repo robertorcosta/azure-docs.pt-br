@@ -4,10 +4,10 @@ description: Neste tutorial, use o efeito Modificar do Azure Policy para criar e
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75965991"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerenciar a governança de marca com o Azure Policy
@@ -28,7 +28,7 @@ Neste tutorial, você concluirá as seguintes tarefas:
 > - Mapear cada requisito para uma definição de política
 > - Agrupar as políticas de tag em uma iniciativa
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66473016"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integrar uma única floresta do AD usando a autenticação de passagem (PTA)
@@ -24,7 +24,7 @@ ms.locfileid: "66473016"
 
 O tutorial a seguir o orientará na criação de um ambiente de identidade híbrido usando a autenticação de passagem.  Esse ambiente pode ser usado para testes ou para familiarizar-se mais com o funcionamento de uma identidade híbrida.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 A seguir estão os pré-requisitos necessários para concluir este tutorial
 - Um computador com [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  É recomendável fazer isso em um computador [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou um computador [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Uma [assinatura do Azure](https://azure.microsoft.com/free)
@@ -86,11 +86,11 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 6. Insira a chave de licença e clique em **Avançar**.
 7. Marque **Eu aceito os termos da licença e clique em **Avançar**.
 8. Selecione **Personalizado:  Instalar somente o Windows (Avançado)**
-9. Clique em **Avançar**
-10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as atualizações mais recentes.
+9. Clique em **Avançar**.
+10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as últimas atualizações.
 
 ## <a name="install-active-directory-prerequisites"></a>Instalar os pré-requisitos do Active Directory
-Agora que temos uma máquina virtual ativa, precisamos fazer algumas coisas antes de instalar o Active Directory.  Ou seja, precisamos renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as ferramentas de Administração de Servidor Remoto.   Faça o seguinte:
+Agora que temos uma máquina virtual ativa, precisamos executar algumas etapas antes de instalar o Active Directory.  Ou seja, precisamos renomear a máquina virtual, definir um endereço IP estático e informações de DNS e instalar as ferramentas de Administração de Servidor Remoto.   Faça o seguinte:
 
 1. Abra o ISE do PowerShell como Administrador.
 2. Execute `Set-ExecutionPolicy remotesigned` e indique sim para todos [A].  Pressione Enter.
@@ -209,12 +209,12 @@ Agora que temos um locatário e um administrador global, precisamos adicionar no
 1. De volta ao [portal do Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) certifique-se de fechar a folha **Todos os Usuários**.
 2. À esquerda, selecione **Personalizar nomes de domínio**.
 3. Selecione **Adicionar domínio personalizado**.</br>
-![Personalizado](media/tutorial-federation/custom1.png)</br>
+![Custom](media/tutorial-federation/custom1.png)</br>
 4. Em **Nomes de domínio personalizados**, insira o nome do domínio personalizado na caixa e clique em **Adicionar Domínio**.
 5. Na tela de nome de domínio personalizado, você será fornecido com informações TXT ou MX.  Essas informações devem ser adicionadas às informações de DNS do registrador de domínios em seu domínio.  Portanto, você precisa acessar o registrador de domínios e inserir as informações de TXT ou MX nas configurações de DNS do seu domínio.  Isso permitirá que o Azure verifique o domínio.  Pode demorar até 24 horas até que o Azure conclua a verificação.  Para obter mais informações, consulte a documentação [adicionar um domínio personalizado](../../active-directory/fundamentals/add-custom-domain.md).</br>
-![Personalizado](media/tutorial-federation/custom2.png)</br>
+![Custom](media/tutorial-federation/custom2.png)</br>
 6. Para garantir que é verificado, clique no botão Verificar.</br>
-![Personalizado](media/tutorial-federation/custom3.png)</br>
+![Custom](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Baixe e instale o Azure AD Connect
 Agora é hora de baixar e instalar o Azure AD Connect.  Uma vez instalado, vamos executar a instalação expressa.  Faça o seguinte:
@@ -233,7 +233,7 @@ Agora é hora de baixar e instalar o Azure AD Connect.  Uma vez instalado, vamos
 5. Na tela Filtragem de Domínio e UO, clique em **Avançar**.
 6. Na tela Identificar com exclusividade seus usuários, clique em **Avançar**.
 7. Na tela Filtrar usuários e dispositivos, clique em **Avançar**.
-8. Na tela de recursos opcionais, clique em **próxima**.
+8. Na tela Recursos opcionais, clique em **Avançar**.
 9. Na página Habilitar credenciais de logon único, insira o nome de usuário e senha contoso \ Administrator e clique em **Avançar.**
 10. Na tela Pronto para configurar, clique em **Instalar**.
 11. Quando a instalação for concluída, clique em **Sair**.

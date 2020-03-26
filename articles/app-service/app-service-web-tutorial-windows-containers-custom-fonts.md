@@ -3,13 +3,13 @@ title: 'Tutorial: Aplicativo herdado com um contêiner (versão prévia)'
 description: Saiba como migrar um contêiner personalizado do Windows para o Serviço de Aplicativo do Azure e implantar um software personalizado no contêiner.
 ms.topic: tutorial
 ms.date: 10/22/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671969"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046610"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar um aplicativo ASP.NET para o Serviço de Aplicativo do Azure usando um contêiner do Windows (versão prévia)
 
@@ -17,7 +17,7 @@ ms.locfileid: "74671969"
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -45,7 +45,7 @@ No Windows Explorer, navegue até _custom-font-win-container-master/CustomFontSa
 
 Essa fonte está publicamente disponível no [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
-### <a name="run-the-app"></a>Execute o aplicativo
+### <a name="run-the-app"></a>Executar o aplicativo
 
 Abra o arquivo *custom-font-win-container/CustomFontSample.sln* no Visual Studio. 
 

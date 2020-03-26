@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: overview
 ms.date: 03/11/2020
 ms.openlocfilehash: 38936000e426d560237295105b5456429d9ae16d
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79126372"
 ---
 # <a name="azure-cache-for-redis-description"></a>Descrição do Cache Redis do Azure
@@ -25,7 +25,7 @@ O Cache do Azure para Redis fornece acesso a um cache Redis seguro e dedicado. O
 
 O Cache do Azure para Redis aprimora o desempenho do aplicativo dando suporte a padrões de arquitetura de aplicativo comuns. Alguns dos mais comuns incluem o seguinte:
 
-| Padrão      | Descrição                                        |
+| Padrão      | DESCRIÇÃO                                        |
 | ------------ | -------------------------------------------------- |
 | [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Os bancos de dados geralmente são grandes demais para serem carregados diretamente em um cache. É comum usar o padrão [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) para carregar dados no cache, somente conforme necessário. Quando o sistema faz alterações nos dados, ele também pode atualizar o cache, que será distribuído a outros clientes. Além disso, o sistema pode definir uma expiração em dados ou usar uma política de remoção para disparar atualizações de dados para o cache.|
 | [Cache de conteúdo](cache-aspnet-output-cache-provider.md) | Muitas páginas da Web são geradas com base em modelos que usam conteúdo estático, como cabeçalhos, rodapés e faixas. Esses itens estáticos não devem ser alterados com frequência. O uso de um cache na memória fornece acesso rápido a conteúdo estático em comparação com armazenamentos de dados de back-end. Esse padrão reduz o tempo de processamento e a carga do servidor, permitindo que servidores Web sejam mais responsivos. Ele pode permitir que você reduza o número de servidores necessários para lidar com cargas. O Cache do Azure para Redis fornece o Provedor de Cache de Saída do Redis para dar suporte a esse padrão com o ASP.NET.|
@@ -37,7 +37,7 @@ O Cache do Azure para Redis aprimora o desempenho do aplicativo dando suporte a 
 
 O Cache do Azure para Redis está disponível nas seguintes camadas:
 
-| Camada | Descrição |
+| Camada | DESCRIÇÃO |
 |---|---|
 Basic | Um cache de nó único. Essa camada dá suporte a vários tamanhos de memória (250 MB a 53 GB) e é ideal para o desenvolvimento/teste e para cargas de trabalho não críticas. A camada Básica não tem nenhum SLA (Contrato de Nível de Serviço) |
 | Standard | Um cache replicado em uma configuração primária/secundária de dois nós gerenciado pelo Azure com um SLA de alta disponibilidade (99,9%) |

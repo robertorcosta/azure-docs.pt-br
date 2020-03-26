@@ -7,13 +7,13 @@ ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: f7de667292ed89caa2895f6db3f7d8d6abf15f85
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 4629157142c17122c0aa6c74c1918c1d01d796c0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685581"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044733"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app-using-powershell"></a>Atribuir um domínio personalizado para um aplicativo Web usando o PowerShell
 
@@ -21,7 +21,7 @@ Este script de exemplo cria um aplicativo Web no serviço de aplicativo com seus
 
 Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure. Além disso, você precisa ter acesso à página de configuração do DNS do registrador de domínios.
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
@@ -49,6 +49,6 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o módulo do Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../samples-powershell.md).

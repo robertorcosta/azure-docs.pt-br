@@ -10,15 +10,15 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76514129"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cabear e conectar-se ao Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: cabear e conectar-se ao Azure Data Box
 
 ::: zone-end
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: Solicitar o Azure Data Box](data-box-deploy-ordered.md).
+1. Você concluiu o [Tutorial: solicitar o Azure Data Box](data-box-deploy-ordered.md).
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. 
     - Há uma etiqueta de remessa na bolsa transparente afixada ao dispositivo sob o rótulo atual. Mantenha essa etiqueta segura, pois você a usará para remessa de devolução.
     - Algumas regiões da Europa podem receber o dispositivo empacotado em uma caixa. Retire o dispositivo do pacote e guarde a caixa para devolução da remessa.

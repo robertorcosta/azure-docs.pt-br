@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769176"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
@@ -26,7 +26,7 @@ Para concluir este guia de início rápido:
 
 * Instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/). Esta é uma ferramenta que você usará para examinar a fila de mensagens cuja sua associação de saída cria.
 
-## <a name="add-binding"></a>Adicionar uma associação de saída
+## <a name="add-an-output-binding"></a><a name="add-binding"></a>Adicionar uma associação de saída
 
 Nesta seção, você usa a interface do usuário do portal para adicionar uma associação de saída de armazenamento de filas para a função criada anteriormente. Essa associação tornará possível gravar com o mínimo de código para criar uma mensagem em uma fila. Você não precisa escrever códigos para tarefas como abrir uma conexão de armazenamento, criar uma fila ou obter uma referência a uma fila. O Azure Functions runtime e a associação de saída da fila cuidam dessas tarefas para você.
 
@@ -48,7 +48,7 @@ Nesta seção, você usa a interface do usuário do portal para adicionar uma as
 
     ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Configuração      |  Valor sugerido   | Descrição                              |
+    | Configuração      |  Valor sugerido   | DESCRIÇÃO                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do parâmetro de mensagem** | outputQueueItem | O nome do parâmetro de associação de saída. | 
     | **Conexão da conta de armazenamento** | AzureWebJobsStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
@@ -60,13 +60,13 @@ Agora que você tem uma associação de saída definida, você precisa atualizar
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicionar o código que usa a associação de saída
 
-Nesta seção, você adiciona o código que grava uma mensagem na fila de saída. A mensagem inclui o valor que é passado para o gatilho HTTP na cadeia de consulta. Por exemplo, se a cadeia de consulta incluir `name=Azure`, a mensagem da fila será *Nome transmitido para a função: Azure*.
+Nesta seção, você adiciona o código que grava uma mensagem na fila de saída. A mensagem inclui o valor que é passado para o gatilho HTTP na cadeia de consulta. Por exemplo, se a cadeia de consulta inclui `name=Azure`, a mensagem da fila será *Nome transmitido para a função: Azure*.
 
 1. Selecione sua função para exibir o código de função no editor.
 
 1. Atualize o código de função, dependendo da linguagem de programação de sua função:
 
-    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[C\#](#tab/csharp)
 
     Adicione um parâmetro **outputQueueItem** à assinatura do método, conforme mostrado no exemplo a seguir.
 
@@ -84,7 +84,7 @@ Nesta seção, você adiciona o código que grava uma mensagem na fila de saída
     outputQueueItem.Add("Name passed to the function: " + name);
     ```
 
-    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+    # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
     Adicione código que usa a associação de saída no objeto `context.bindings` para criar uma mensagem da fila. Adicione esse código antes da instrução `context.done`.
 
@@ -143,7 +143,7 @@ Ignore esta seção caso já tenha instalado o Gerenciador de Armazenamento e o 
 
 1. Expanda o nó **Filas** e selecione a fila denominada **outqueue**. 
 
-   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você tiver invocado a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
+   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você invocou a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
 
     ![Mensagem da fila mostrada no Gerenciador de Armazenamento](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

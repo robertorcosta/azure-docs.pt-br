@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e6c4fb767e6237f390cdb467b35c323f637bebf2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76264145"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>Integração com Aplicativos Móveis do Serviço de Aplicativo
@@ -40,9 +40,9 @@ Os desenvolvedores de aplicativos móveis podem utilizar Hubs de notificação c
 
 Aqui estão alguns recursos convenientes para desenvolvedores com essa integração:
 
-- **SDKs de cliente de Aplicativos Móveis**:  Estes SDKs de várias plataformas fornecem APIs simples para registro e se comunicam com o hub de notificação vinculado automaticamente com o aplicativo móvel. Os desenvolvedores não precisam se aprofundar nas credenciais de Hubs de Notificação e trabalhar com um serviço adicional.
-  - *Enviar por push para um usuário*: Os SDKs marcam automaticamente o dispositivo fornecido com a ID de usuário autenticada de Aplicativos Móveis para habilitar o envio por push para o cenário do usuário.
-  - *Enviar por push para o dispositivo*: Os SDKs usam automaticamente a ID de instalação de Aplicativos Móveis como GUID para se registrar com Hubs de Notificação, poupando os desenvolvedores da dificuldade de manter vários GUIDs de serviço.
-- **Modelo de instalação**:  Os Aplicativos Móveis funcionam com o modelo de push mais recente dos Hubs de Notificação para representar todas as propriedades de push associadas a um dispositivo em uma instalação de JSON que se alinha com Serviços de Notificação por Push e é fácil de usar.
-- **Flexibilidade**:  Os desenvolvedores sempre podem optar por trabalhar com Hubs de Notificação diretamente até mesmo com a integração em vigor.
-- **Experiência integrada no [portal do Azure](https://portal.azure.com)** :  O Push como um recurso é representado visualmente em aplicativos móveis e os desenvolvedores podem trabalhar facilmente com o hub de notificação associado por meio de aplicativos móveis.
+- **SDKs do cliente de Aplicativos Móveis**: estes SDKs de várias plataformas fornecem APIs simples para registro e se comunicam com o hub de notificação vinculado automaticamente com o aplicativo móvel. Os desenvolvedores não precisam se aprofundar nas credenciais de Hubs de Notificação e trabalhar com um serviço adicional.
+  - *Notificações por push para um usuário*: os SDKs marcam automaticamente o dispositivo fornecido com a ID de usuário autenticada de Aplicativos Móveis para habilitar o envio de notificações por push para o cenário do usuário.
+  - *Notificações por push para um dispositivo*: os SDKs usam automaticamente a ID de instalação de Aplicativos Móveis como GUID para se registrar com os Hubs de Notificação, poupando os desenvolvedores da dificuldade de manter vários GUIDs de serviço.
+- **Modelo de instalação**: os Aplicativos móveis funcionam com o modelo de push mais recente dos Hubs de Notificação para representar todas as propriedades de push associadas a um dispositivo em uma instalação de JSON que se alinha com os Serviços de Notificação por Push e é fácil de usar.
+- **Flexibilidade**: os desenvolvedores sempre podem optar por trabalhar com os Hubs de Notificação diretamente até mesmo com a integração em vigor.
+- **Experiência integrada no [portal do Azure](https://portal.azure.com)** : o Push como uma funcionalidade é representado visualmente em Aplicativos Móveis e os desenvolvedores podem facilmente trabalhar com o hub de notificação associado por meio de Aplicativos Móveis.

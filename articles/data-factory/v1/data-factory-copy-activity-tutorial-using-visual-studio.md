@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d9059c9386af6fab6bb1068d6a9e64b763206f94
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74929199"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
@@ -27,7 +27,7 @@ ms.locfileid: "74929199"
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -37,14 +37,14 @@ ms.locfileid: "74929199"
 
 Neste artigo, você aprenderá a usar o Microsoft Visual Studio para criar um data factory com um pipeline que copia dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. Se você ainda está se familiarizando com o Azure Data Factory, leia o artigo [Introdução ao Azure Data Factory](data-factory-introduction.md) antes de fazer este tutorial.   
 
-Neste tutorial, você criará um pipeline com uma atividade: Atividade de Cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
+Neste tutorial, você criará um pipeline com uma atividade: Atividade de cópia. A atividade de cópia copia dados de um armazenamento de dados com suporte para um armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
 Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Várias atividades em um pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE] 
-> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, confira [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como transformar dados usando o Azure Data Factory, consulte [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -80,7 +80,7 @@ Eis as etapas executadas como parte deste tutorial:
     ![Caixa de diálogo Novo projeto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
 3. Especifique o nome do projeto, o local e o nome da solução e, em seguida, clique em **OK**.
    
-    ![Gerenciador de soluções](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
+    ![Gerenciador de Soluções](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 Os serviços vinculados são criados em um data factory para vincular seus armazenamentos de dados e serviços de computação ao data factory. Neste tutorial, você não usa serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Você usa dois armazenamentos de dados do tipo Armazenamento do Azure (origem) e o banco de dados SQL do Azure (destino). 
@@ -163,7 +163,7 @@ Aqui, você usa o termo "tabelas" em vez de "conjuntos de dados". Uma tabela é 
    ``` 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     |:--- |:--- |
     | type | A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure. |
     | linkedServiceName | Refere-se ao **AzureStorageLinkedService** que você criou anteriormente. |
@@ -211,7 +211,7 @@ Nesta etapa, você cria um conjunto de dados de saída denominado **OutputDatase
     ```
     A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     |:--- |:--- |
     | type | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
     | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que você criou anteriormente. |
@@ -329,7 +329,7 @@ Nesta etapa, você publica as entidades de Data Factory (serviços vinculados, c
 
 Observe os seguintes pontos: 
 
-* Se você receber o erro "Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory", siga um dos seguintes procedimentos e tente a publicação novamente: 
+* Se você receber o erro: "Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory", siga um dos seguintes procedimentos e tente a publicação novamente: 
   
   * No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory. 
 
@@ -365,7 +365,7 @@ Navegue até a home page do seu data factory:
 ## <a name="summary"></a>Resumo
 Neste tutorial, você criou uma data factory do Azure para copiar dados de um blob do Azure para um banco de dados SQL do Azure. Você utilizou o Visual Studio para criar a data factory, os serviços vinculados, os conjuntos de dados e um pipeline. Aqui estão as etapas de alto nível executadas nesse tutorial:  
 
-1. Foi criado um **data factory**do Azure.
+1. Foi criada uma **data factory**do Azure.
 2. Foram criados **serviços vinculados**:
    1. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta do Armazenamento do Azure que contém os dados de entrada.     
    2. Um serviço vinculado do **SQL Azure** para vincular o banco de dados SQL do Azure que contém os dados de saída. 

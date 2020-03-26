@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425300"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223913"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no Serviço de Aplicativo do Azure
 
@@ -29,7 +29,7 @@ A tabela a seguir lista as opções disponíveis para adição de certificados n
 | Carregar um certificado privado | Se você já tiver um certificado privado de um provedor de terceiros, poderá carregá-lo. Consulte [Requisitos do certificado privado](#private-certificate-requirements). |
 | Carregar um certificado público | Os certificados públicos não são usados para proteger domínios personalizados, mas você pode carregá-los em seu código se precisar que eles acessem recursos remotos. |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este guia de instruções, é necessário ter:
 
@@ -349,7 +349,7 @@ O arquivo *appservicecertificate.pfx* baixado é um arquivo PKCS12 bruto que con
 
 ### <a name="delete-certificate"></a>Excluir Certificado 
 
-A exclusão de um certificado do Serviço de Aplicativo é final e irreversível. Qualquer associação no Serviço de Aplicativo com esse certificado ficará inválida. Para evitar a exclusão acidental, o Azure coloca um bloqueio no certificado. Para excluir um certificado do Serviço de Aplicativo, primeiro remova o bloqueio de exclusão no certificado.
+A exclusão de um certificado do Serviço de Aplicativo é final e irreversível. A exclusão de um recurso de Certificado do Serviço de Aplicativo resulta na revogação do certificado. Qualquer associação no Serviço de Aplicativo com esse certificado ficará inválida. Para evitar a exclusão acidental, o Azure coloca um bloqueio no certificado. Para excluir um certificado do Serviço de Aplicativo, primeiro remova o bloqueio de exclusão no certificado.
 
 Selecione o certificado na página [Certificados do Serviço de Aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e, em seguida, selecione **Bloqueios** na navegação à esquerda.
 

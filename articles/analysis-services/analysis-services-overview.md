@@ -8,11 +8,11 @@ ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375103"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215544"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -84,7 +84,7 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 |Leste dos EUA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Leste dos EUA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Leste dos EUA 2     |     S8, S9, S8v2, S9v2   |    1    |
-|Centro Norte dos EUA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Centro-Norte dos EUA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro dos EUA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Sul dos Estados Unidos     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Oeste dos EUA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
@@ -146,7 +146,7 @@ O modo DirectQuery* aproveita o banco de dados relacional back-end para armazena
 
 Modelos tabulares no Azure Analysis Services dão suporte a uma ampla variedade de fontes de dados, desde arquivos de texto simples até Big Data no Azure Data Lake Store. Para saber mais, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
 
-## <a name="compatibility-level"></a>Nível de compatibilidade
+## <a name="compatibility-level"></a>Nível de Compatibilidade
 
 O nível de compatibilidade refere-se a comportamentos específicos à versão no mecanismo do Analysis Services. O Azure Analysis Services dá suporte a modelos de tabela nos níveis de compatibilidade 1200 e superior. Para saber mais, confira [Nível de compatibilidade para modelos de tabela](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
@@ -165,7 +165,7 @@ O Firewall do Azure Analysis Services bloqueia todas as conexões de clientes qu
 
 A autenticação do usuário é tratada pelo [ AAD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md). Ao fazer logon, os usuários usam uma identidade de conta da organização com acesso baseado em função ao banco de dados. As identidades de usuário devem ser membros do Azure Active Directory padrão para a assinatura em que reside o servidor. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
-### <a name="data-security"></a>Segurança dos dados
+### <a name="data-security"></a>Segurança de dados
 
 O Azure Analysis Services usa o Armazenamento de Blobs do Azure para persistir o armazenamento e os metadados em bancos de dados do Analysis Services. Os arquivos de dados no blob são criptografados usando o [ SSE (Criptografia do Servidor de Blobs) do Azure](../storage/common/storage-service-encryption.md). Ao usar o modo Consulta Direta, apenas os metadados serão armazenados. Os dados reais são acessados por meio de protocolo criptografado da fonte de dados no momento da consulta.
 
@@ -198,7 +198,7 @@ Para saber mais sobre a Segurança do Azure, confira a [Central de Confiabilidad
 
 ![Ferramentas de desenvolvedor BI](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### <a name="visual-studio"></a>{1&gt;Visual Studio&lt;1}
+### <a name="visual-studio"></a>Visual Studio
 
 Desenvolva e implante modelos com o Visual Studio com projetos do Analysis Services. A extensão projetos do Analysis Services inclui modelos e assistentes que o deixa pronto rapidamente. O ambiente de criação de modelos no Visual Studio inclui agora a funcionalidade moderna de mashup e consulta da fonte de dados Get Data para modelos tabulares 1400 e superiores. Se você estiver familiarizado com o Obter Dados no Power BI Desktop e Excel 2016, já sabe como é fácil criar consultas de fonte de dados altamente personalizadas. 
 
@@ -254,7 +254,7 @@ As coisas estão mudando rapidamente. Confira as últimas informações no [Blog
 
 O Analysis Services tem uma comunidade de usuários vibrante. Participe das conversas no [Fórum do Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Inscrever-se para um teste gratuito do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   

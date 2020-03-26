@@ -12,13 +12,13 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: c0da38a41bf613237ea3b164d70e4729a7284ca7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768598"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Usar o Node.js para consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Use o Node.js para consultar um banco de dados SQL do Azure
 
 Neste início rápido, você usará o Node.js para se conectar a um Banco de Dados SQL do Azure e usar instruções T-SQL para consultar dados.
 
@@ -28,15 +28,15 @@ Neste início rápido, você usará o Node.js para se conectar a um Banco de Dad
 - Um [Banco de Dados SQL do Azure](sql-database-single-database-get-started.md)
 - Software relacionado ao [Node.js](https://nodejs.org)
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Instale o Homebrew e o Node.js e, em seguida, instale o driver ODBC e o SQLCMD usando as etapas **1.2** e **1.3** em [Criar aplicativos Node.js usando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Instale o Node.js e, em seguida, instale o driver ODBC e o SQLCMD usando as etapas **1.2** e **1.3** em [Criar aplicativos Node.js usando o SQL Server no Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Instale o Chocolatey e o Node.js e, em seguida, instale o driver ODBC e o SQLCMD usando as etapas **1.2** e **1.3** em [Criar aplicativos Node.js usando o SQL Server no Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 

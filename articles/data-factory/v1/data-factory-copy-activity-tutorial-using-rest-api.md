@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438869"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Usar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
@@ -46,7 +46,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 >  
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como transformar dados usando o Azure Data Factory, consulte [Tutorial: Criar um pipeline para transformar dados usando um cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -177,7 +177,7 @@ Para obter detalhes sobre as propriedades JSON, confira [Serviço vinculado do A
 
 A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | type | A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure. |
 | linkedServiceName | Refere-se ao **AzureStorageLinkedService** que você criou anteriormente. |
@@ -220,7 +220,7 @@ Para saber mais sobre essas propriedades JSON, confira o [artigo sobre o conecto
 ```
 A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | type | A propriedade type é definida como **AzureSqlTable** porque os dados são copiados para uma tabela em um banco de dados SQL do Azure. |
 | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que você criou anteriormente. |

@@ -9,17 +9,17 @@ ms.topic: overview
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: c4a406961444845fef783c47942924b01b7aa646
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356347"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290244"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é o Gateway de VPN?
 
 Um gateway de VPN é um tipo específico de gateway de rede virtual que é usado para enviar tráfego criptografado entre uma rede virtual do Azure e um local na Internet pública. Você também pode usar um gateway de VPN para enviar tráfego criptografado entre as redes virtuais do Azure pela rede da Microsoft. Uma rede virtual pode ter apenas um gateway de VPN. No entanto, você pode criar várias conexões com o mesmo gateway de VPN. Quando você cria várias conexões com o mesmo gateway de VPN, todos os túneis de VPN compartilham a largura de banda de gateway disponível.
 
-## <a name="whatis"></a>O que é um gateway da rede virtual?
+## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>O que é um gateway da rede virtual?
 
 Um gateway de rede virtual é composto por duas ou mais máquinas virtuais implantadas em uma sub-rede específica chamada de *sub-rede de gateway*. As VMs de gateway de rede virtual são configuradas para conter tabelas de roteamento e executar serviços de gateway específicos. Essas VMs são criadas quando você cria o gateway de rede virtual. Não é possível configurar diretamente as VMs que fazem parte do gateway de rede virtual.
 
@@ -29,42 +29,42 @@ O tipo de gateway é uma configuração que você define para um gateway de rede
 
 A criação de um gateway de rede virtual pode levar até 45 minutos para ser concluída. Quando você cria um gateway de rede virtual, as VMs de gateway são implantadas na sub-rede de gateway e definidas com as configurações especificadas. Depois de criar um gateway de VPN, você pode criar uma conexão de túnel de VPN IPsec/IKE entre o gateway de VPN e o outro gateway de VPN (rede virtual a rede virtual), ou criar uma conexão de túnel de VPN IPsec/IKE entre locais, entre o gateway de VPN e um dispositivo VPN local (Site a Site). Você também pode criar uma conexão VPN Ponto a Site (VPN sobre OpenVPN, IKEv2 ou SSTP), que permite a você se conectar à sua rede virtual de um local remoto, como de uma conferência ou em casa.
 
-## <a name="configuring"></a>Configurando um Gateway de VPN
+## <a name="configuring-a-vpn-gateway"></a><a name="configuring"></a>Configurando um Gateway de VPN
 
 Uma conexão de gateway VPN conta com vários recursos que são configurados com definições específicas. A maioria dos recursos pode ser configurada separadamente, embora alguns deles devam ser configurados em determinada ordem.
 
-### <a name="settings"></a>Configurações
+### <a name="settings"></a><a name="settings"></a>Configurações
 
 As configurações que você escolheu para cada recurso são essenciais para a criação de uma conexão bem-sucedida. Para obter informações sobre os recursos individuais e as configurações do Gateway de VPN, consulte [Sobre as configurações do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md). Este artigo contém informações para ajudar você a entender tipos de gateway, SKUs de gateway, tipos de VPN, tipos de conexão, sub-redes de gateway, gateways de rede local e várias outras configurações de recursos que você possa considerar.
 
-### <a name="tools"></a>Ferramentas de implantação
+### <a name="deployment-tools"></a><a name="tools"></a>Ferramentas de implantação
 
 Você pode começar criando e configurando os recursos usando uma ferramenta de configuração, como o portal do Azure. Você pode decidir trocar para outra ferramenta, como o PowerShell, para configurar recursos adicionais ou modificar os recursos existentes, quando aplicável. Atualmente, não é possível configurar cada recurso e definição de recursos no portal do Azure. As instruções nos artigos para cada topologia de conexão especificam quando uma ferramenta de configuração específica é necessária. 
 
-### <a name="models"></a>Modelo de implantação
+### <a name="deployment-model"></a><a name="models"></a>Modelo de implantação
 
 Atualmente, há dois modelos de implantação do Azure. Quando você configura um gateway de VPN, as etapas efetuadas dependem do modelo de implantação utilizado para criar sua rede virtual. Por exemplo, se tiver criado a rede virtual usando o modelo de implantação clássico, você usará as diretrizes e instruções do modelo de implantação clássico para criar e configurar o gateway de VPN. Para obter mais informações sobre os modelos de implantação, consulte [Noções básicas sobre o Resource Manager e os modelos de implantação clássicos](../azure-resource-manager/management/deployment-models.md).
 
-### <a name="planningtable"></a>Tabela de planejamento
+### <a name="planning-table"></a><a name="planningtable"></a>Tabela de planejamento
 
 A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade para sua solução.
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-## <a name="gwsku"></a>SKUs do Gateway
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs do Gateway
 
 Ao criar um gateway de rede virtual, especifique a SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, recursos e SLAs.
 
 * Para obter mais informações sobre as SKUs do gateway, incluindo recursos compatíveis, produção e teste de desenvolvimento e etapas de configuração, confira o artigo [Configurações do Gateway de VPN – SKUs do Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 * Para obter informações sobre a SKU herdada, confira [Como trabalhar com SKUs herdadas](vpn-gateway-about-skus-legacy.md).
 
-### <a name="benchmark"></a>SKUs de gateway pelo túnel, a conexão e a taxa de transferência
+### <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>SKUs de gateway pelo túnel, a conexão e a taxa de transferência
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-## <a name="diagrams"></a>Diagramas de topologia de conexão
+## <a name="connection-topology-diagrams"></a><a name="diagrams"></a>Diagramas de topologia de conexão
 
-É importante saber que há diferentes configurações disponíveis para conexões de gateway de VPN. Você precisa determinar qual configuração melhor atende às suas necessidades. Nas seções a seguir, você pode exibir informações e diagramas de topologia sobre as seguintes conexões de gateway VPN: As seções abaixo contêm tabelas que listam:
+É importante saber que há diferentes configurações disponíveis para conexões de gateway de VPN. Você precisa determinar qual configuração melhor atende às suas necessidades. Nas seções a seguir, você pode exibir diagramas de topologia e informações sobre as conexões de gateway de VPN a seguir: as seções a seguir contêm tabelas que listam:
 
 * Modelo de implantação disponível
 * Ferramentas de configuração disponíveis
@@ -72,15 +72,15 @@ Ao criar um gateway de rede virtual, especifique a SKU do gateway que você dese
 
 Use os diagramas e as descrições para ajudar a selecionar a topologia de conexão adequada a seus requisitos. Os diagramas mostram as principais topologias de linha de base, mas é possível criar topologias mais complexas usando os diagramas como uma diretriz.
 
-## <a name="s2smulti"></a>Site a Site e Vários Sites (túnel VPN IPsec/IKE)
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a><a name="s2smulti"></a>Site a Site e Vários Sites (túnel VPN IPsec/IKE)
 
-### <a name="S2S"></a>Site a site
+### <a name="site-to-site"></a><a name="S2S"></a>Site a site
 
 Uma conexão de gateway VPN Site a Site (S2S) é uma conexão por túnel VPN IPsec/IKE (IKEv1 ou IKEv2). As conexões S2S podem ser usadas para configurações entre instalações e híbridas. Uma conexão site a site exige um dispositivo VPN local com um endereço IP público atribuído a ele. Para saber mais sobre como selecionar um dispositivo VPN, confira as [Perguntas Frequentes de Gateway de VPN – dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Exemplo de conexão Site a Site do Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="Multi"></a>Vários Sites
+### <a name="multi-site"></a><a name="Multi"></a>Vários Sites
 
 Esse tipo de conexão é uma variação da conexão Site a Site. Você pode criar mais de uma conexão de VPN em seu gateway de rede virtual, normalmente se conectando a vários sites locais. Ao trabalhar com várias conexões, você deve usar um tipo de VPN baseado em rota (conhecido como gateway dinâmico ao trabalhar com redes virtuais clássicas). Como cada rede virtual pode ter apenas um gateway de VPN, todas as conexões por meio do gateway compartilham a largura de banda disponível. Esse tipo de conexão é frequentemente chamado de conexão de "vários sites".
 
@@ -90,7 +90,7 @@ Esse tipo de conexão é uma variação da conexão Site a Site. Você pode cria
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>VPN ponto a site
+## <a name="point-to-site-vpn"></a><a name="P2S"></a>VPN ponto a site
 
 Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Essa solução é útil para pessoas que trabalham remotamente que querem se conectar às VNets do Azure de um local remoto, como de casa ou de uma conferência. A VPN P2S também é uma solução útil para usar em vez de uma VPN S2S, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.
 
@@ -102,7 +102,7 @@ Ao contrário das conexões S2S, as conexões P2S não exigem um endereço IP p�
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
-## <a name="V2V"></a>Conexões de VNet para VNet (túnel VPN IPsec/IKE)
+## <a name="vnet-to-vnet-connections-ipsecike-vpn-tunnel"></a><a name="V2V"></a>Conexões de VNet para VNet (túnel VPN IPsec/IKE)
 
 Conectar uma rede virtual a outra rede virtual é semelhante a conectar uma rede virtual (Rede Virtual para Rede Virtual) a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. Você pode até combinar a comunicação VNet a VNet com as configurações de conexão de vários sites. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
 
@@ -126,7 +126,7 @@ Talvez você possa usar o emparelhamento VNet para criar sua conexão, desde que
 
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-## <a name="ExpressRoute"></a>ExpressRoute (conexão privada)
+## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (conexão privada)
 
 O ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de conexão privada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização.
 
@@ -134,7 +134,7 @@ As conexões de ExpressRoute não passam pela Internet pública. Isso permite qu
 
 Uma conexão ExpressRoute usa um gateway de rede virtual como parte da configuração necessária. Em uma conexão ExpressRoute, um gateway de rede virtual é configurado com o tipo de gateway 'ExpressRoute', em vez de 'Vpn'. Embora o tráfego que passa por um circuito do ExpressRoute não seja criptografado por padrão, é possível criar uma solução que permite enviar tráfego criptografado em um circuito ExpressRoute. Para obter mais informações sobre o ExpressRoute, consulte a [Visão geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="coexisting"></a>Conexões coexistentes Site a Site e de ExpressRoute
+## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Conexões coexistentes Site a Site e de ExpressRoute
 
 O ExpressRoute é uma conexão direta e privada da sua WAN (não pela Internet pública) para Serviços Microsoft, incluindo o Azure. O tráfego da VPN Site a Site é criptografado ao percorer a Internet pública. Poder configurar conexões VPN Site a Site e o ExpressRoute para a mesma rede virtual oferece várias vantagens.
 
@@ -152,7 +152,7 @@ Você pode configurar uma VPN Site a Site como um caminho de failover seguro par
 
 Para saber mais sobre as SKUs de gateway para Gateway de VPN, veja [SKUs de Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a><a name="faq"></a>Perguntas frequentes
 
 Para perguntas frequentes sobre o gateway de VPN, consulte [Perguntas frequentes sobre o gateway de VPN](vpn-gateway-vpn-faq.md).
 

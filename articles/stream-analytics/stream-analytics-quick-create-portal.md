@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431544"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure
 
 Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics. Neste início rápido, você define um trabalho do Stream Analytics que lê dados de streaming em tempo real e filtra mensagens indicando temperatura acima de 27 graus. Seu trabalho do Stream Analytics lerá dados do Hub IoT, transformará os dados e fará write-back para um contêiner no armazenamento de blobs. Os dados de entrada usados neste início rápido são gerados por um simulador online do Raspberry Pi. 
 
@@ -43,7 +43,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados de
 
    ![Crie um Hub IoT](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Selecione **Avançar: Definir o tamanho e a escala**.
+4. Selecione **Avançar: definir o tamanho e a escala**.
 
 5. Escolha **Tipo de preço e escala**. Para este início rápido, selecione a camada **F1 – Gratuita**, caso ela ainda esteja disponível em sua assinatura. Para obter mais informações, consulte [Preço do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
