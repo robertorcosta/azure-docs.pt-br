@@ -4,10 +4,10 @@ description: Etapas de implantação do modelo de blueprint autônomo da ISO 270
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75922515"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implantar a amostra de blueprint ISO 27001

@@ -8,21 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e22a9ae2888187dc877876ee5d4d4ec4ecb7c6e5
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329435"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80064411"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play (versão prévia) e conectá-lo ao aplicativo do IoT Central
 
 Um DCM _(modelo de funcionalidade do dispositivo)_ descreve as funcionalidades de um dispositivo [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) (versão prévia). O IoT Central pode usar um DCM para criar um modelo de dispositivo e visualizações para um dispositivo quando o dispositivo se conecta pela primeira vez.
 
 O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em versão prévia e só tem suporte em regiões selecionadas.
-
-> [!NOTE]
-> Entre em contato com o suporte técnico para obter acesso para criar um aplicativo de versão prévia com suporte para dispositivos IoT Plug and Play.
 
 Neste tutorial, você aprenderá como:
 

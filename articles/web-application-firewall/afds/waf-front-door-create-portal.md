@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/07/2019
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186718"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475834"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de Firewall do Aplicativo Web no Azure Front Door usando o portal do Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > * Associá-la a um host de front-end
 > * Configurar regras de WAF
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Crie um perfil de Front Door seguindo as instruções descritas no [Guia de Início Rápido: Crie um perfil de Front Door](../../frontdoor/quickstart-create-front-door.md). 
 
@@ -40,7 +40,7 @@ Primeiro, crie uma política básica de WAF com DRS (Conjunto de Regras Padrão)
     | ---                     | ---                                                |
     | Subscription            |Selecione o nome da assinatura do Front Door.|
     | Resource group          |Selecione o nome do grupo de recursos do Front Door.|
-    | Nome da política             |Insira um nome exclusivo para a política de WAF.|
+    | Nome de política             |Insira um nome exclusivo para a política de WAF.|
 
    ![Criar uma política de WAF](../media/waf-front-door-create-portal/basic.png)
 

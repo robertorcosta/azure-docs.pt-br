@@ -14,25 +14,32 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462092"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067759"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder a eventos do Barramento de Serviço do Azure recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure
-Neste tutorial, você aprenderá a responder a eventos do Barramento de Serviço do Azure que são recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure. Siga as seguintes etapas:
- 
-- Crie um teste de função do Azure para depurar e ver o fluxo inicial de eventos na Grade de Eventos.
-- Crie uma função do Azure para receber e processar mensagens do Barramento de Serviço do Azure com base em eventos da Grade de Eventos.
-- Crie um aplicativo lógico para responder a eventos da Grade de Eventos
+Neste tutorial, você aprenderá a responder a eventos do Barramento de Serviço do Azure que são recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure. 
 
-Depois de criar os artefatos do Barramento de Serviço, da Grade de Eventos, do Azure Functions e dos Aplicativos Lógicos, você poderá executar as seguintes ações: 
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> * Criar um namespace do Barramento de Serviço
+> * Preparar um aplicativo de exemplo para enviar as mensagens
+> * Configurar uma função de teste no Azure
+> * Conecte a função e o namespace através da Grade de Eventos
+> * Enviar mensagens para o tópico do Barramento de Serviço
+> * Receber mensagens usando o Azure Functions
+> * Receber mensagens usando os Aplicativos Lógicos
 
-1. Enviar mensagens para um tópico do Barramento de Serviço. 
-2. Verificar se as assinaturas do tópico receberam essas mensagens
-3. Verificar se o aplicativo lógico ou a função inscritos receberam o evento. 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, verifique se você tem o seguinte instalado:
+
+- [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
+- [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 ## <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
 Siga as instruções deste tutorial: [Início Rápido: Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para executar as seguintes tarefas:
@@ -65,7 +72,7 @@ Antes de trabalhar com todo o cenário, configure pelo menos uma função de tes
 Depois, execute as etapas a seguir: 
 
 
-# <a name="azure-functions-v2tabv2"></a>[Azure Functions V2](#tab/v2)
+# <a name="azure-functions-v2"></a>[Azure Functions V2](#tab/v2)
 
 1. Expanda as **Funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
@@ -122,7 +129,7 @@ Depois, execute as etapas a seguir:
 
     ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[Azure Functions V1](#tab/v1)
+# <a name="azure-functions-v1"></a>[Azure Functions V1](#tab/v1)
 
 1. Configurar a função para usar a versão **V1**: 
     1. Selecione seu aplicativo de funções no modo de exibição de árvore e selecione **Configurações do aplicativo de funções**. 

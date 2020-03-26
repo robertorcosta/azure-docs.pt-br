@@ -10,10 +10,10 @@ ms.date: 06/20/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971566"
 ---
 # <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Implantar continuamente no Azure Functions com DevOps Projects
@@ -35,11 +35,11 @@ Neste tutorial, você irá:
 >* Examinar o pipeline de CI
 >* Examinar o pipeline de CD
 >* Confirmar alterações no Git e implantá-las automaticamente no Azure
->* Limpar recursos
+>* Limpar os recursos
 
 Atualmente, os runtimes com suporte para as funções são **.NET** e **Node.js**. Usamos o tempo de execução do .NET para este tutorial para implantação no Azure Functions. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
@@ -97,7 +97,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD em sua organiza
 
 1. Clique no hiperlink em **Build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-    ![Compilação](_img/azure-devops-project-functions/build.png)
+    ![Build](_img/azure-devops-project-functions/build.png)
 
 1. Selecione **Editar**. Nesse painel, é possível examinar as diversas tarefas do pipeline de build. O build realiza várias tarefas, como buscar código-fonte no repositório Git, compilar o aplicativo, executar testes de unidade e publicar as saídas usadas para implantações.
 
@@ -136,7 +136,7 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
 > [!NOTE]
 > O procedimento a seguir testa o pipeline de CI/CD fazendo uma alteração de texto simples.
 
-Agora você está pronto para colaborar com uma equipe em seu aplicativo usando um processo de CI/CD que implanta automaticamente o trabalho mais recente em sua Função do Azure. Cada alteração do repositório Git inicia um build no Azure DevOps, e um pipeline de CD executa uma implantação no Azure. Siga o procedimento nesta seção ou use outra técnica para confirmar as alterações ao seu repositório. Por exemplo, é possível clonar o repositório Git em sua ferramenta favorita ou IDE e depois efetuar push nas alterações desse repositório.
+Agora você está pronto para colaborar com uma equipe em seu aplicativo usando um processo de CI/CD que implanta automaticamente o trabalho mais recente em sua Função do Azure. Cada alteração do repositório Git inicia um build no Azure DevOps, e um pipeline de CD executa uma implantação no Azure. Siga o procedimento nesta seção ou use outra técnica para confirmar as alterações em seu repositório. Por exemplo, é possível clonar o repositório Git em sua ferramenta favorita ou IDE e depois efetuar push nas alterações desse repositório.
 
 1. No menu do Azure DevOps, selecione **Repositórios | Arquivos** e, em seguida, vá até o repositório.
 
@@ -152,13 +152,13 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
      Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status do build no painel do DevOps Projects ou no navegador com sua organização do Azure DevOps.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua os recursos relacionados que você criou quando não precisar mais deles. Use a funcionalidade **Excluir** no painel do DevOps Projects.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Como opção, você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu como:
+Como opção, você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o DevOps Projects para implantar um aplicativo ASP.NET Core em uma Função do Azure
@@ -167,5 +167,5 @@ Como opção, você pode modificar esses pipelines de build e de lançamento par
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Confirmar alterações no Git e implantá-las automaticamente no Azure
-> * Limpar recursos
+> * Limpar os recursos
 

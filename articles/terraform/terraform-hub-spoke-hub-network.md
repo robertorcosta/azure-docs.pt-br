@@ -4,10 +4,10 @@ description: Tutorial que ilustra como criar uma rede virtual de hub no Azure qu
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 6669e90c3d12fcf55bcb1ad69c3b275c5117a8fc
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159050"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-in-azure-by-using-terraform"></a>Tutorial: Criar uma rede virtual de hub no Azure usando o Terraform
@@ -22,7 +22,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Usar o Terraform para criar um gateway de rede virtual privada do hub.
 > * Usar o Terraform para criar conexões de hub e gateway locais.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Criar uma topologia de rede híbrida de hub e spoke com o Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Criar uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).

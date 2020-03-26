@@ -12,10 +12,10 @@ ms.topic: overview
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: c95ae2e48a7d5a3b9e9e28b1d4e14b670205c043
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77062278"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é o aplicativo Microsoft Authenticator?
@@ -37,7 +37,7 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
 
 ## <a name="terminology"></a>Terminologia
 
-| Termo|Descrição|
+| Termo|DESCRIÇÃO|
 | ----|-----------|
 | Verificação de dois fatores | Um processo de verificação que exige que você use especificamente a apenas duas partes das informações de verificação, como uma senha e um PIN. O aplicativo Microsoft Authenticator dá suporte tanto para verificação de dois fatores padrão quanto para entrada sem senha. |
 | Autenticação Multifator (MFA) | Toda a verificação de dois fatores é uma autenticação multifator, exigindo que você use *pelo menos* duas partes das informações de verificação, dependendo dos requisitos da sua organização. |
@@ -71,7 +71,7 @@ Dependendo do tipo de conta, sua organização pode decidir o que você deve usa
 
 ## <a name="in-this-section"></a>Nesta seção
 
-| Artigo | Descrição |
+| Artigo | DESCRIÇÃO |
 | ------ | ------------ |
 | [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md) | Descreve em que local e como obter e instalar o aplicativo Microsoft Authenticator para dispositivos que executam Android e iOS. |
 | [Adicionar suas contas corporativas ou de estudante](user-help-auth-app-add-work-school-account.md) | Descreve como adicionar suas várias contas corporativas ou de estudante ao aplicativo Microsoft Authenticator. |

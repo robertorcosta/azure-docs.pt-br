@@ -10,11 +10,11 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380299"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215704"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -56,10 +56,10 @@ O Data Box foi projetado para mover grandes quantidades de dados para o Azure co
 
 O dispositivo Data Box tem os seguintes recursos nesta versão.
 
-| Especificações                                          | Descrição              |
+| Especificações                                          | DESCRIÇÃO              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | <50 lb                |
-| Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
+| Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
 | Espaço em rack                                              | 7 U quando colocado no rack em seu lado (não pode ser montado em rack)|
 | Cabos necessários                                         | 1 x cabo de alimentação (incluído) <br> 2 cabos de conector RJ-45 <br> 2 x cabos de cobre SFP+ Twinax|
 | Capacidade de armazenamento                                        | Dispositivo de 100 TB tem capacidade utilizável de 80 TB após a proteção RAID 5|

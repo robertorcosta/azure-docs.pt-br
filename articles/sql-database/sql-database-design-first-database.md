@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75459637"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: Criar um banco de dados relacional em um banco de dados individual dentro do Banco de Dados SQL do Azure usando o SSMS
@@ -35,7 +35,7 @@ O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Micr
 > [!NOTE]
 > Para os fins deste tutorial, estamos usando um banco de dados individual. Você também pode usar um banco de dados em pool em um pool elástico ou um banco de dados de instância em uma instância gerenciada. Para a conectividade com uma instância gerenciada, confirme esses inícios rápidos de instância gerenciada: [Início Rápido: Configurar a VM do Azure para conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-configure-vm.md) e [Início Rápido: Configurar uma conexão ponto a site para uma Instância Gerenciada do Banco de Dados SQL do Azure do local](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se você instalou:
 
@@ -59,7 +59,7 @@ Siga estas etapas para criar um banco de dados individual em branco.
 
 3. Preencha o formulário do **Banco de Dados SQL** com as informações abaixo, conforme mostrado na imagem anterior:
 
-    | Configuração       | Valor sugerido | DESCRIÇÃO |
+    | Configuração       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome do banco de dados** | *yourDatabase* | Para ver os nomes do banco de dados válidos, confira [Identificadores do banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Assinatura** | *yourSubscription*  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +68,7 @@ Siga estas etapas para criar um banco de dados individual em branco.
 
 4. Clique em **Servidor** para usar um servidor de banco de dados existente ou criar e configurar um novo servidor de banco de dados. Selecione um servidor existente ou clique em **Criar um servidor** e preencha o formulário **Novo servidor** com as seguintes informações:
 
-    | Configuração       | Valor sugerido | DESCRIÇÃO |
+    | Configuração       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
     | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, confira [Identificadores do banco de dados](/sql/relational-databases/databases/database-identifiers). |
@@ -127,7 +127,7 @@ Use o [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
 1. Abra o SQL Server Management Studio.
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
-   | Configuração       | Valor sugerido | DESCRIÇÃO |
+   | Configuração       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Tipo de servidor** | Mecanismo de banco de dados | Esse valor é necessário. |
    | **Nome do servidor** | O nome do servidor totalmente qualificado | Por exemplo, *yourserver.database.windows.net*. |

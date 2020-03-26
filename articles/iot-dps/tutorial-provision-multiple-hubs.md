@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74976733"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Provisionar dispositivos entre Hubs IoT com balanceamento de carga
@@ -27,7 +27,7 @@ Este tutorial mostra como provisionar dispositivos para vários Hubs IoT com bal
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial baseia-se no tutorial anterior [Provisionar o dispositivo em um hub](tutorial-provision-device-to-hub.md).
 
@@ -48,7 +48,7 @@ A lista de registro informa ao Serviço de Provisionamento de Dispositivos qual 
 A política de alocação é uma configuração do Serviço de Provisionamento de Dispositivos que determina como os dispositivos são atribuídos a um Hub IoT. Há três políticas de alocação com suporte: 
 
 1. **Menor latência**: Os dispositivos são provisionados para um Hub IoT com base no hub com a menor latência para o dispositivo.
-2. **Distribuição uniformemente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Esta é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
+2. **Distribuição uniformemente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Essa é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
 3. **Configuração estática através da lista de registro**: A especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do Serviço de Provisionamento de Dispositivos.
 
 Siga estas etapas para definir a política de alocação:
@@ -69,7 +69,7 @@ Vincule o Serviço de Provisionamento de Dispositivos e o Hub IoT para que o Ser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar o Portal do Azure para provisionar um segundo dispositivo a um segundo Hub IoT 

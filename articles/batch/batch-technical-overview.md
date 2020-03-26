@@ -15,10 +15,10 @@ ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
 ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77022793"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
@@ -58,7 +58,7 @@ Muitos trabalhos firmemente acoplados podem ser executados em paralelo usando o 
 
 Recursos de nível superior e específicos para a carga de trabalho estão disponíveis para o Lote do Azure:
 * O Lote dá suporte a [cargas de trabalho de renderização](batch-rendering-service.md) em larga escala com ferramentas de renderização, incluindo Autodesk Maya, 3ds Max, Arnold e V-Ray. 
-* Os usuários de R podem instalar o [pacote R doAzureParallel](https://github.com/Azure/doAzureParallel) e expandir facilmente a execução de algoritmos de R em pools do Lote.
+* Os usuários de R podem instalar o [pacote R doAzureParallel](https://github.com/Azure/doAzureParallel) e escalar horizontalmente de modo fácil a execução de algoritmos de R em pools do Lote.
 
 Você também pode executar trabalhos do Lote como parte de um fluxo de trabalho do Azure maior para transformar dados, gerenciados por ferramentas como o [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 

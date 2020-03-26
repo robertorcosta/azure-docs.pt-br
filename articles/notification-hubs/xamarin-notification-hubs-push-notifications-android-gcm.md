@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
 ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387661"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos Xamarin.Android usando os Hubs de Notificação
@@ -40,7 +40,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Criar um aplicativo Xamarin.Android e conectar-se ao hub de notificação
 > * Enviar notificações por push de teste do portal do Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * [Visual Studio com Xamarin] no Windows ou [Visual Studio para Mac] no OS X.
@@ -135,8 +135,8 @@ Seu hub de notificação está configurado para funcionar com o FCM e você tem 
 
 3. Colete as informações a seguir para o aplicativo Android e o hub de notificação:
 
-   * **Escutar cadeia de conexão**: no painel, no [portal do Azure], escolha **Exibir cadeias de conexão**. Copie a cadeia de conexão `DefaultListenSharedAccessSignature` para esse valor.
-   * **Nome do hub**: nome do seu hub no [portal do Azure]. Por exemplo, *mynotificationhub2*.
+   * **Escutar cadeia de conexão**: no painel, no [Azure portal], escolha **Exibir cadeias de conexão**. Copie a cadeia de conexão `DefaultListenSharedAccessSignature` para esse valor.
+   * **Nome do hub**: nome do seu hub no [Azure portal]. Por exemplo, *mynotificationhub2*.
 4. Na janela **Gerenciador de Soluções**, clique com o botão direito do mouse no **projeto**, selecione **Adicionar** e, em seguida, **Classe**.
 5. Crie uma classe `Constants.cs` para seu projeto Xamarin e defina os valores de constantes a seguir na classe. Substitua os espaços reservados pelos seus valores.
 
@@ -318,7 +318,7 @@ Seu hub de notificação está configurado para funcionar com o FCM e você tem 
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Enviar notificação por push de teste do portal do Azure
 
-Você pode testar o recebimento de notificações no aplicativo com a opção **Envio de Teste** no [Portal do Azure]. Isso envia uma notificação por push de teste para seu dispositivo.
+Você pode testar o recebimento de notificações no aplicativo com a opção **Envio de Teste** no [Azure portal]. Isso envia uma notificação por push de teste para seu dispositivo.
 
 ![Portal do Azure – Envio de Teste](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
@@ -361,7 +361,7 @@ Neste tutorial, você envia notificações de transmissão para todos os seus di
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Visual Studio com Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio para Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: bf9172f0c84834c951446520ff0bfcc3ef756c9c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c6334aa20b543dfbf87fedcfe45d54bbcf7a219a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278318"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477010"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Tutorial: Dimensionar um cluster do Red Hat OpenShift no Azure
 
@@ -28,7 +28,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * Dimensionar um cluster do Red Hat OpenShift no Azure
 > * [Excluir um cluster do Red Hat OpenShift no Azure](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
@@ -38,7 +38,7 @@ Antes de começar este tutorial:
 
 Se você estiver executando a CLI do Azure localmente, execute `az login` para entrar no Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -54,7 +54,7 @@ CLUSTER_NAME=yourclustername
 
 Agora vamos dimensionar o cluster com cinco nós usando a CLI do Azure:
 
-```bash
+```azurecli
 az openshift scale --resource-group $CLUSTER_NAME --name $CLUSTER_NAME --compute-count 5
 ```
 

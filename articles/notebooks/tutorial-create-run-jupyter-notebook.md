@@ -4,10 +4,10 @@ description: Saiba como criar e executar um Jupyter Notebook na Versão prévia 
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75660810"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
@@ -151,15 +151,15 @@ O Jupyter fornece um tour interno pelos elementos da interface do usuário princ
 
 Os grupos de comandos de menu são os seguintes:
 
-| Menu | DESCRIÇÃO |
+| Menu | Descrição |
 | --- | --- |
 | Arquivo | Comandos para gerenciar o arquivo do notebook, inclusive comandos para criar e copiar notebooks, mostram uma visualização de impressão e baixam o notebook em diferentes formatos. |
 | Editar | Comandos comuns para recortar, copiar e colar células, localizar e substituir valores, gerenciar anexos de célula e inserir imagens.  |
 | Visualizar | Comandos para controlar a visibilidade de partes diferentes da interface do usuário do Jupyter. |
-| Insert | Comandos para inserir uma nova célula acima ou abaixo da célula atual. Você usa esses comandos com frequência durante a criação de um notebook. |
+| Inserir | Comandos para inserir uma nova célula acima ou abaixo da célula atual. Você usa esses comandos com frequência durante a criação de um notebook. |
 | Célula | Os vários comandos **Executar** executam uma ou mais células em combinações diferentes. Os comandos **Tipo de Célula** alteram o tipo de uma célula entre **Código**, **Markdown** e **NBConvert Bruto** (texto sem formatação). Os comandos **Saídas Atuais** e **Todas as Saídas** controlam como a saída da execução do código é mostrada e inclui um comando para limpar todas as saídas. |
 | Kernel | Comandos para gerenciar como o código está sendo executado no kernel, juntamente com **Alterar kernel** a fim de alterar a linguagem ou a versão do Python usada para executar o notebook. |
-| data | Comandos para carregar e baixar arquivos do projeto ou da sessão. Consulte [Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md) |
+| Dados | Comandos para carregar e baixar arquivos do projeto ou da sessão. Consulte [Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md) |
 | Widgets | Comandos para gerenciar [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), que fornecem recursos adicionais de visualização, mapeamento e plotagem.|
 | Ajuda | Comandos que fornecem ajuda e documentação para a interface do Jupyter. |
 

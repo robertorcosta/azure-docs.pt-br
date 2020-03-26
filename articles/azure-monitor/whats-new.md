@@ -6,17 +6,17 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: b42acdf64612da6837bc67752f7a22169ddef7e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673318"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79500504"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais são as novidades da documentação do Azure Monitor?
 Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram atualizados de maneira significativa. Ele será atualizado na primeira semana de cada mês para incluir as atualizações de artigos do mês anterior.
 
-## <a name="march-2020"></a>Março de 2020
+## <a name="february-2020"></a>Fevereiro de 2020
 
 ### <a name="agents"></a>Agentes
 Várias atualizações como parte da reformulação do conteúdo da extensão de diagnóstico.
@@ -27,7 +27,7 @@ Várias atualizações como parte da reformulação do conteúdo da extensão de
 - [Instalar e configurar a extensão do WAD (Diagnóstico do Azure para Windows)](platform/diagnostics-extension-windows-install.md): novo artigo. 
 - [Esquema de extensão de diagnóstico do Windows](platform/diagnostics-extension-schema-windows.md): reorganizado.
 - [Enviar dados da extensão de diagnóstico do Azure para Windows para os Hubs de Eventos do Azure](platform/diagnostics-extension-stream-event-hubs.md): reformulação e atualização completas.
-- [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](platform/diagnostics-extension-to-storage.md): reformulação e atualização completas.
+- [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](/azure/cloud-services/diagnostics-extension-to-storage): reformulação e atualização completas.
 - [Extensão da máquina virtual do Log Analytics para Windows](../virtual-machines/extensions/oms-windows.md): melhor esclarecimento da relação com o agente do Log Analytics.
 - [Extensão da máquina virtual do Azure Monitor para Linux](../virtual-machines/extensions/oms-linux.md): melhor esclarecimento da relação com o agente do Log Analytics.
 

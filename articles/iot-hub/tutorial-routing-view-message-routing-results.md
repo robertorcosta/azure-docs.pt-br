@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890400"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 – Exibir as mensagens roteadas
@@ -40,7 +40,7 @@ Agora você pode criar os recursos para os quais as mensagens serão roteadas, e
 
 1. No [portal do Azure](https://portal.azure.com), selecione **+ Criar um recurso**. Coloque o **aplicativo lógico** na caixa de pesquisa e clique em Enter. Nos resultados da pesquisa exibidos, selecione o aplicativo lógico e selecione **Criar** para continuar para o painel **Criar aplicativo lógico**. Preencha os campos.
 
-   **Nome**: este campo é o nome do aplicativo lógico. Este tutorial usa **ContosoLogicApp**.
+   **Name**: este campo é o nome do aplicativo lógico. Este tutorial usa **ContosoLogicApp**.
 
    **Assinatura**: Selecione sua assinatura do Azure.
 
@@ -270,7 +270,7 @@ Você deve ser capaz de visualizar dados em ambos os gráficos. Esse resultado s
 
 Você pode atualizar os gráficos para ver os dados mais recentes, selecionando o botão Atualizar na parte superior da janela do Power BI. 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 
 Se você quiser remover todos os recursos do Azure criados por meio de ambas as partes deste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ele remove o Hub IoT, a fila e namespace do Barramento de Serviço, o aplicativo lógico, a conta de armazenamento e o próprio grupo de recursos. Você também pode remover os recursos de Power BI e limpar os emails enviados durante o tutorial.
 

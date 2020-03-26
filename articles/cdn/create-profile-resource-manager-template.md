@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b711a12161bc134bdcbb8c1f3e74f2e5ae06e701
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3cda4db558210ecbfcfc8ce2aaed8c6f69f5e026
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083132"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79458776"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Início Rápido: Criar um ponto de extremidade e perfil de CDN do Azure usando um modelo do Resource Manager
 
@@ -42,7 +42,7 @@ Todos os recursos precisam ser implantados no mesmo grupo de recursos.
 
 Crie o grupo de recursos no local selecionado. Este exemplo mostra a criação de um grupo de recursos chamado cdn na localização Leste dos EUA.
 
-```bash
+```azurecli-interactive
 az group create --name cdn --location eastus
 ```
 
@@ -189,7 +189,7 @@ Implante o modelo usando a CLI do Azure. Será solicitado que você forneça dua
 
 **endpointOriginHostName** – o ponto de extremidade que será atendido por meio do CDN, por exemplo, cdndemo.azurewebsites.net.
 
-```bash
+```azurecli-interactive
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
@@ -197,7 +197,7 @@ az group deployment create --resource-group cdn --template-file arm-cdn.json
 
 ## <a name="view-the-cdn-profile"></a>Exibir o perfil CDN
 
-```bash
+```azurecli-interactive
 az cdn profile list --resource-group cdn -o table
 ```
 
@@ -205,7 +205,7 @@ az cdn profile list --resource-group cdn -o table
 
 ## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Exibir o ponto de extremidade de CDN para o perfil padrão Microsoft
 
-```bash
+```azurecli-interactive
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
@@ -217,7 +217,7 @@ Use o nome do host para exibir o conteúdo. Por exemplo, acesse https://cdndemo-
 
 Excluir o grupo de recursos remove automaticamente todos os recursos que foram implantados nele.
 
-```bash
+```azurecli-interactive
 az group delete --name cdn
 ```
 

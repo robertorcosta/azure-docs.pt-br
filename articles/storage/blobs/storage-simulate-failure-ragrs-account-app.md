@@ -5,16 +5,17 @@ description: Simule um erro na leitura de dados da região primária quando o RA
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 3693ae8c9c425c35ab1a4ebf88b6cd3dfb58f92c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162694"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061285"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simule uma falha na leitura de dados da região primária
 
@@ -31,7 +32,7 @@ Na segunda parte da série, você aprenderá como:
 > * Simular uma falha com [uma rota estática inválida](#simulate-a-failure-with-an-invalid-static-route) ou o [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simular a restauração do ponto de extremidade primário
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, conclua o tutorial anterior: [Tornar os dados de seu aplicativo altamente disponíveis com o Armazenamento do Azure][previous-tutorial].
 

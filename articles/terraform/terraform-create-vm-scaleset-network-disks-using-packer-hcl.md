@@ -4,10 +4,10 @@ description: Use o Terraform para configurar e controlar a versão de um conjunt
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472190"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais do Azure com base em uma imagem personalizada do Packer usando o Terraform
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Terraform**: [Instalar o Terraform e configurar o acesso ao Azure](terraform-install-configure.md).
 - **Par de chaves SSH**: [Criar um par de chaves SSH](/azure/virtual-machines/linux/mac-create-ssh-keys).

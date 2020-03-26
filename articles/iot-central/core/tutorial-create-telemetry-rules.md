@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77167476"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Criar uma regra e configurar notificações no aplicativo Azure IoT Central
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma regra
 > * Adicionar uma ação de e-mail
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você deve concluir os inícios rápidos [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) para criar o modelo de dispositivo **MXChip IoT DevKit** com o qual trabalhar.
 
@@ -100,7 +100,7 @@ Se você não precisar mais de uma regra, exclua-a, abrindo a regra e escolhendo
 
 ## <a name="enable-or-disable-a-rule"></a>Habilitar ou desabilitar uma regra
 
-Escolha a regra que você deseja habilitar ou desabilitar. Alterne o botão **Habilitar** ou **Desabilitar** na regra para habilitá-la ou desabilitá-la em todos os dispositivos no escopo.
+Escolha a regra que você deseja habilitar ou desabilitar. Alterne o botão **Habilitar** ou **Desabilitar** na regra para habilitá-la ou desabilitá-la para todos os dispositivos cujo escopo está na regra.
 
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>Habilitar ou desabilitar uma regra para um dispositivo
 

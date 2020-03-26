@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851682"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronizar dados do Banco de Dados SQL no Edge para o Armazenamento de Blobs do Azure usando o Azure Data Factory
@@ -195,10 +195,10 @@ Crie um Data Factory seguindo as instruções fornecidas [neste tutorial](../dat
 
     2. Para especificar valores para os parâmetros de procedimento armazenado, selecione **Importar parâmetro** e insira estes valores para os parâmetros:
 
-    |NOME|Tipo|Valor|
+    |Nome|Type|Valor|
     |-----|----|-----|
     |LastModifiedtime|Datetime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
-    |TableName|Cadeia de caracteres|@{activity('OldWaterMark').output.firstRow.TableName}|
+    |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
 
 33. Para validar as configurações de pipeline, selecione **Validar** na barra de ferramentas. Confirme se não houver nenhum erro de validação. Para fechar a janela **Relatório de Validação do Pipeline** selecione **>>** .
 

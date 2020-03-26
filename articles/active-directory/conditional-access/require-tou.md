@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74380094"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início Rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Guia de início rápido: Exigem termos de uso para ser aceito antes de acessar a aplicativos de nuvem
 
 Antes de acessar determinados aplicativos de nuvem em seu ambiente, talvez você queira obter o consentimento dos usuários na forma de aceitar os termos de uso (ToU). O Acesso Condicional do Azure AD (Active Directory do Azure) oferece:
 
@@ -55,7 +55,7 @@ Esta seção fornece as etapas para criar um exemplo de termos de uso. Quando vo
 
 1. No Microsoft Word, crie um novo documento.
 1. Digite **meu termos de uso**e, em seguida, salve o documento no seu computador como **mytou.pdf**.
-1. Faça login no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de Acesso Condicional.
+1. Faça login no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. No portal do Azure, na barra de navegação à esquerda, clique em **Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
@@ -84,9 +84,9 @@ Esta seção fornece as etapas para criar um exemplo de termos de uso. Quando vo
    1. Para **Impor com modelos da política de Acesso Condicional**, selecione **Políticas personalizadas**.
    1. Clique em **Criar**.
 
-## <a name="create-your-conditional-access-policy"></a>Criar sua política de Acesso Condicional
+## <a name="create-your-conditional-access-policy"></a>Criar sua política de acesso condicional
 
-Esta seção mostra como criar a política de Acesso Condicional necessária. O cenário deste início rápido usa:
+Esta seção mostra como criar a política de acesso condicional necessária. O cenário deste início rápido usa:
 
 - O portal do Azure como espaço reservado para um aplicativo de nuvem que requer seus termos de uso serem aceitos. 
 - Seu usuário de exemplo para testar a política de Acesso Condicional.  
@@ -101,11 +101,11 @@ Em sua política, defina:
 
 ![Criar política](./media/require-tou/1234.png)
 
-**Para configurar sua política de Acesso Condicional:**
+**Para configurar sua política de acesso condicional:**
 
 1. Na página **Novo**, na caixa de texto **Nome**, digite **Exige Termos de uso para Isabella**.
 
-   ![NOME](./media/require-tou/71.png)
+   ![Nome](./media/require-tou/71.png)
 
 1. Na seção **Atribuição**, clique em **Usuários e Grupos**.
 
@@ -137,7 +137,7 @@ Em sua política, defina:
 
 1. Na página **Grant**:
 
-   ![Concessão](./media/require-tou/111.png)
+   ![Conceder](./media/require-tou/111.png)
 
    1. Selecione **Conceder acesso**.
    1. Selecione **Meus Termos de uso**.
@@ -150,7 +150,7 @@ Em sua política, defina:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar uma entrada simulada
 
-Agora que você configurou a política de Acesso Condicional, provavelmente deseja saber se ela funciona conforme o esperado. Como primeira etapa, use a ferramenta de política What If do Acesso Condicional para simular uma entrada de seu usuário de teste. A simulação calcula o impacto que esse logon tem em suas políticas e gera um relatório de simulação.  
+Agora que você configurou a política de acesso condicional, provavelmente deseja saber se ela funciona conforme o esperado. Como primeira etapa, use a ferramenta de política What If do Acesso Condicional para simular uma entrada de seu usuário de teste. A simulação calcula o impacto que esse logon tem em suas políticas e gera um relatório de simulação.  
 
 Para inicializar a ferramenta de avaliação de política **What If**, defina:
 
@@ -164,7 +164,7 @@ Ao clicar em **What If**, é criado um relatório de simulação que mostra:
 
 ![Ferramenta de política “What If”](./media/require-tou/79.png)
 
-**Para avaliar sua política de Acesso Condicional:**
+**Para avaliar sua política de acesso condicional:**
 
 1. Na página [Acesso Condicional – Políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies), no menu superior, clique em **What If**.  
 
@@ -193,7 +193,7 @@ Para testar sua política, tente entrar no seu [portal do Azure](https://portal.
 
 ![Termos de uso](./media/require-tou/57.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o usuário de teste e a política de acesso condicional:
 

@@ -8,10 +8,10 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75459960"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure
@@ -28,7 +28,7 @@ Neste tutorial, você usará o Portal do Azure para aprender a:
 > * Atualizar dados
 > * Restaurar dados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Criar um Banco de Dados do Azure para o PostgreSQL
@@ -48,7 +48,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
     ![Criar um servidor](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-    Configuração|Valor sugerido|DESCRIÇÃO
+    Configuração|Valor sugerido|Descrição
     ---|---|---
     Subscription|O nome da sua assinatura|A assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura para a qual você recebe a cobrança do recurso.
     Resource group|*myresourcegroup*| Um novo nome do grupo de recursos ou um existente de sua assinatura.

@@ -3,12 +3,12 @@ title: Tutorial – Testar módulos do Terraform no Azure usando o Terratest
 description: Saiba como usar o Terratest para testar seus módulos do Terraform.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 41f7f9c00f626cf622ea781f01da6db1f46cd805
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 687a793af2b9b75efe463b042d121c32f18974d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158955"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370790"
 ---
 # <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Tutorial: Testar módulos do Terraform no Azure usando o Terratest
 
@@ -26,7 +26,7 @@ Nós examinamos a maioria das infraestruturas de teste populares e escolhemos o 
 - **Todos os casos de teste são escritos em linguagem Go.** A maioria dos desenvolvedores que usa o Terraform é de desenvolvedores Go. Se você for um desenvolvedor Go, não precisará aprender outra linguagem de programação para usar o Terratest. Além disso, as únicas dependências necessárias para executar casos de teste no Terratest são Go e Terraform.
 - **A infraestrutura é altamente extensível**. Você pode estender funções adicionais sobre o Terratest, incluindo recursos específicos do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo prático não depende de plataforma. Você pode executar os exemplos de código que usamos neste artigo no Windows, no Linux ou no MacOS. 
 
@@ -248,14 +248,17 @@ func TestUT_StorageAccountName(t *testing.T) {
 
 Para executar os testes de unidade, conclua as etapas abaixo na linha de comando:
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-GoPath/src/staticwebpage$ cd test
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage/test$ go test -run TestUT_StorageAccountName
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in test cases
+cd test
+go fmt
+go test -run TestUT_StorageAccountName
 ```
 
 O resultado do teste Go tradicional é retornado em cerca de um minuto.
@@ -369,21 +372,24 @@ func TestIT_HelloWorldExample(t *testing.T) {
 
 Para executar os testes de integração, conclua as etapas abaixo na linha de comando:
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-GoPath/src/staticwebpage$ cd test
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage/test$ go test -run TestIT_HelloWorldExample
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in test cases
+cd test
+go fmt
+go test -run TestIT_HelloWorldExample
 ```
 
 O resultado do teste Go tradicional é retornado em cerca de dois minutos. Você também pode executar testes de unidade e testes de integração executando estes comandos:
 
 ```shell
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ go test
+go fmt
+go test
 ```
 
 Os testes de integração levam muito mais tempo do que os testes de unidade (dois minutos para um caso de integração comparados com um minuto para cinco casos de unidade). Mas você é que decide se quer usar testes de unidade ou testes de integração em um cenário. Normalmente, preferimos usar testes de unidade para uma lógica complexa usando funções HCL do Terraform. Geralmente, podemos usar testes de integração para a perspectiva de ponta a ponta de um usuário.
@@ -496,13 +502,16 @@ func Clean() error {
 
 Você pode usar os comandos a seguir para executar um conjunto de testes completo. O código é semelhante ao das etapas de execução usadas em uma seção anterior. 
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
-GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage$ mage
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in magefile or test cases
+go fmt      # Only required when you change the magefile
+mage
 ```
 
 Você pode substituir a última linha de comando por etapas adicionais do mage. Por exemplo, você pode usar `mage unit` ou `mage clean`. É uma boa ideia incorporar comandos `dep` e `az login` no magefile. Não exibimos o código aqui. 

@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75372084"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Fazer o download de grandes quantidades de dados aleatórios a partir do armazenamento do Microsoft Azure
@@ -25,7 +25,7 @@ Na terceira parte da série, você aprenderá a:
 > * Executar o aplicativo
 > * Validar o número de conexões
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure][previous-tutorial].
 
@@ -98,7 +98,7 @@ dotnet run
 O aplicativo lê os contêineres localizados na conta de armazenamento especificada no **storageconnectionstring**. Ele itera pelos 10 blobs de uma vez, usando o método [ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) nos contêineres e faz o download deles para o computador local usando o método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync).
 A tabela a seguir mostra o [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) definido para cada blob conforme ele é baixado.
 
-|Propriedade|Valor|DESCRIÇÃO|
+|Propriedade|Valor|Descrição|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Essa propriedade desabilita a verificação de hash MD5 do conteúdo carregado. Desabilitar a validação de MD5 produz uma transferência mais rápida. Mas não confirma a validade ou a integridade dos arquivos que estão sendo transferidos. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Essa propriedade determina se um hash MD5 é calculado e armazenado.   |

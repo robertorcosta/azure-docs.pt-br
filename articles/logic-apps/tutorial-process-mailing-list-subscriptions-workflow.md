@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
 ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75456602"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação usando os Aplicativos Lógicos do Azure
@@ -33,7 +33,7 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 ![Visão geral de aplicativo lógico concluído em alto nível](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Caso você não tenha uma assinatura, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
@@ -55,12 +55,12 @@ Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da con
 
    ![Fornecer informações sobre seu aplicativo lógico](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | LA-MailingList | O nome do seu aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "LA-MailingList". |
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | Seu nome da assinatura do Azure |
    | **Grupo de recursos** | LA-MailingList-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), usado para organizar os recursos relacionados. Este exemplo usa "LA-MailingList-RG". |
-   | **Localidade** | Oeste dos EUA | A região em que as informações de seu aplicativo lógico são armazenadas. Este exemplo usa "Leste dos EUA". |
+   | **Localidade** | Oeste dos EUA | A região em que as informações de seu aplicativo lógico são armazenadas. Este exemplo usa "Oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a configuração **Desligado** para o log de diagnósticos. |
    ||||
 
@@ -95,7 +95,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
       ![Especificar a pasta, intervalo e frequência de verificação de emails](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-      | Propriedade | Valor | DESCRIÇÃO |
+      | Propriedade | Valor | Descrição |
       |----------|-------|-------------|
       | **Pasta** | `Inbox` | A pasta de email a ser monitorada |
       | **Intervalo** | `1` | O número de intervalos de espera entre as verificações |
@@ -136,7 +136,7 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
 
    ![Propriedades de Enviar email de aprovação](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Para** | <*your-email-address*> | Endereço de email do aprovador. Para fins de teste, você pode usar seu próprio endereço. Este exemplo usa o endereço de email fictício "sophia.owen@fabrikam.com". |
    | **Assunto** | `Approve member request for test-members-ML` | Um assunto de email descritivo |
@@ -203,7 +203,7 @@ Agora adicione uma ação que adiciona o membro aprovado à sua lista de endere�
 
    ![Fornecer informações para "Adicionar membros à lista"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **ID da lista** | Sim | `test-members-ML` | O nome da lista de endereçamento do MailChimp. Este exemplo usa "test-members-ML". |
    | **Status** | Sim | `subscribed` | Selecione o status da assinatura para o novo membro. Este exemplo usa "subscribed". <p>Para saber mais, confira [Gerenciar assinantes com a API do MailChimp](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
@@ -258,7 +258,7 @@ Em seguida, configure os emails para envio quando o membro aprovado tem êxito o
 
    ![Fornecer informações de email de êxito](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Para** | Sim | <*your-email-address*> | O endereço de email para onde enviar o email de êxito. Para fins de teste, você pode usar seu próprio endereço de email. |
    | **Assunto** | Sim | <*subject-for-success-email*> | O assunto do email de êxito. Para este tutorial, digite este texto: <p>`Success! Member added to "test-members-ML": ` <p>Na lista conteúdo dinâmico, em **Adicionar membro à lista**, selecione a propriedade **Endereço de Email**. |
@@ -283,7 +283,7 @@ Em seguida, configure os emails para envio quando o membro aprovado tem êxito o
 
    ![Fornecer informações de email de falha](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Para** | Sim | <*your-email-address*> | O endereço de email para onde enviar o email de falha. Para fins de teste, você pode usar seu próprio endereço de email. |
    | **Assunto** | Sim | <*subject-for-failure-email*> | O assunto do email de falha. Para este tutorial, digite este texto: <p>`Failed, member not added to "test-members-ML": ` <p>Na lista conteúdo dinâmico, em **Adicionar membro à lista**, selecione a propriedade **Endereço de Email**. |

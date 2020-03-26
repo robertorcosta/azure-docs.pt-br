@@ -4,13 +4,13 @@ description: Saiba como configurar um contêiner pré-criado do Ruby para seu ap
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: seodec18
-ms.openlocfilehash: 2b096725575598bd44d7da39f77f85dee5b5e40e
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 8daebba840223d050a14b4b99cb6ae15472ee4f5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255832"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046335"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurar um aplicativo Ruby do Linux para o Serviço de Aplicativo do Azure
 
@@ -131,7 +131,7 @@ No entanto, essa configuração isolada faz com que o servidor Rails seja inicia
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### <a name="set-secret_key_base-manually"></a>Definir secret_key_base manualmente
+### <a name="set-secret_key_base-manually"></a><a name="set-secret_key_base-manually"></a>Definir secret_key_base manualmente
 
 Para usar seu valor `secret_key_base` em vez de deixar o Serviço de Aplicativo gerar um para você, defina a [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` com o valor desejado. Por exemplo:
 

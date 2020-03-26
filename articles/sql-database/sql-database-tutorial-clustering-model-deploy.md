@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640914"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implantar um modelo de clustering no R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
@@ -29,8 +29,8 @@ Você criará um procedimento armazenado com um script R inserido que executa o 
 Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
-> * Criar um procedimento armazenado que gera o modelo
-> * Executar o clustering no Banco de Dados SQL
+> * Criar o procedimento armazenado que gera o modelo
+> * Executar clustering no Banco de Dados SQL
 > * Usar as informações de clustering
 
 Na [primeira parte](sql-database-tutorial-clustering-model-prepare-data.md), você aprendeu a preparar os dados de um banco de dados SQL do Azure para executar o clustering.
@@ -39,15 +39,15 @@ Na [segunda parte](sql-database-tutorial-clustering-model-build.md), você apren
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Na parte 3 deste tutorial, assumimos que você concluiu a [**parte 1**](sql-database-tutorial-clustering-model-prepare-data.md) e a [**parte 2**](sql-database-tutorial-clustering-model-build.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Criar um procedimento armazenado que gera o modelo
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Criar o procedimento armazenado que gera o modelo
 
-Execute o script T-SQL a seguir para criar o procedimento armazenado. O procedimento recria as etapas que você desenvolveu na primeira e na segunda parte desta série de tutoriais:
+Execute o seguinte script T-SQL para criar o procedimento armazenado. O procedimento recria as etapas que você desenvolveu na primeira e na segunda parte desta série de tutoriais:
 
-* classificar os clientes com base em suas compras e o histórico de devoluções
+* classificar clientes com base em seu histórico de compras e devoluções e
 * gerar quatro clusters de clientes usando um algoritmo K-means
 
 O procedimento armazena os mapeamentos de cluster do cliente resultantes na tabela de banco de dados **customer_return_clusters**.
@@ -175,7 +175,7 @@ END;
 GO
 ```
 
-## <a name="perform-clustering-in-sql-database"></a>Executar o clustering no Banco de Dados SQL
+## <a name="perform-clustering-in-sql-database"></a>Executar clustering no Banco de Dados SQL
 
 Agora que você criou o procedimento armazenado, execute o script a seguir para executar o clustering.
 
@@ -208,7 +208,7 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 
 ## <a name="use-the-clustering-information"></a>Usar as informações de clustering
 
-Como você armazenou o procedimento de clustering no banco de dados, ele pode executar o clustering com eficiência nos dados do cliente armazenados no mesmo banco de dados. Você poderá executar o procedimento sempre que os dados do cliente forem atualizados e usarem as informações de clustering atualizadas.
+Como você armazenou o procedimento de clustering no banco de dados, ele pode realizar o clustering com eficiência em relação aos dados do cliente armazenados no mesmo banco de dados. Você pode executar o procedimento sempre que os dados do cliente são atualizados e usar as informações de clustering atualizadas.
 
 Suponha que você deseje enviar um email promocional para os clientes no cluster 3, o grupo que tem o comportamento mais ativo de devoluções (veja como os quatro clusters foram descritos na [segunda parte](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). O código a seguir seleciona os endereços de email de clientes no cluster 3.
 
@@ -224,7 +224,7 @@ WHERE r.cluster = 3
 
 Você pode alterar o valor **r.cluster** para retornar os endereços de email dos clientes em outros clusters.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este tutorial, exclua o banco de dados tpcxbb_1gb do servidor do Banco de Dados SQL do Azure.
 
@@ -237,10 +237,10 @@ No portal do Azure, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na terceira parte desta série de tutoriais, você concluiu estas etapas:
+Na parte três desta série de tutoriais, você concluiu estas etapas:
 
-* Criar um procedimento armazenado que gera o modelo
-* Executar o clustering no Banco de Dados SQL
+* Criar o procedimento armazenado que gera o modelo
+* Executar clustering no Banco de Dados SQL
 * Usar as informações de clustering
 
 Para saber mais sobre como usar o R nos Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia), confira:

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.custom: mvc
 ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76166186"
 ---
 # <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Executar uma simulação de recuperação de desastre para uma região secundária para VMs do Azure
@@ -25,7 +25,7 @@ Este tutorial mostra a você como realizar uma simulação de recuperação de d
 > [!NOTE]
 > Este tutorial ajuda você a executar uma simulação de recuperação de desastre com etapas mínimas. Para saber mais sobre as várias funções relacionadas à realização de uma simulação de recuperação de desastre, confira a documentação de [replicação](azure-to-azure-how-to-enable-replication.md), [rede](azure-to-azure-about-networking.md), [automação](azure-to-azure-powershell.md) ou [solução de problemas](azure-to-azure-troubleshoot-errors.md) das VMs do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique os seguintes itens antes de iniciar este tutorial:
 

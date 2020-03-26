@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 4236b7ad3b15d1bb58a146f5905d226e0c3833d5
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76760940"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C para dispositivos Linux
@@ -44,7 +44,7 @@ Use a tabela a seguir para entender as opções para desenvolver e implantar mó
 | **Linux AMD64** | ![Usar o VS Code para módulos em C no Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Usar o VS para módulos em C no Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Usar o VS Code para módulos em C no Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Usar o VS para módulos em C no Linux ARM32](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos implementados:
 

@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machi
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155830"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Tutorial: Criar uma VM ou um conjunto de dimensionamento de máquinas virtuais da Galeria de Imagens Compartilhadas do Azure usando o Ansible
@@ -28,7 +28,7 @@ A [Galeria de Imagens Compartilhadas](/azure/virtual-machines/windows/shared-ima
 > * Criar um conjunto de dimensionamento de máquinas virtuais usando a imagem generalizada
 > * Obtenha informações sobre a Galeria de Imagens Compartilhadas, a imagem e a versão.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -364,7 +364,7 @@ Execute o guia estratégico usando o comando `ansible-playbook`:
 ansible-playbook 07-delete-gallery.yml
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo. 
 

@@ -4,10 +4,10 @@ description: Saiba como usar o Terraform para configurar e fazer a versão de um
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.openlocfilehash: 4e445d5e6ae4b7fc4528c6d61ee2bc86870827b1
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472223"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais do Azure usando o Terraform
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como usar o [Azure Cloud Shell](/azure/cloud-sh
 > [!NOTE]
 > A versão mais recente dos arquivos de configuração do Terraform usados neste artigo estão no [Repositório Awesome Terraform no GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 

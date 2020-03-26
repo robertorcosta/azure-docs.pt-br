@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 7c38ba6dbabef4affd8672295a93d46fd4b0e494
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74384175"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sincronizar dados do Banco de Dados SQL no Edge para o Banco de Dados SQL do Azure usando a Sincronização de Dados SQL
@@ -22,7 +22,7 @@ Neste tutorial, você aprenderá a usar o *grupo de sincronização* da Sincroni
 
 Já que o Banco de Dados SQL no Edge é criado nas versões mais recentes do [Mecanismo de Banco de Dados do SQL Server](/sql/sql-server/sql-server-technical-documentation/), qualquer mecanismo de sincronização de dados aplicável a uma instância local do SQL Server também pode ser usado para sincronizar dados de ou para uma instância do Banco de Dados SQL no Edge em execução em um dispositivo de borda.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial requer um computador Windows configurado com o [Data Sync Agent para a Sincronização de Dados SQL do Azure](../sql-database/sql-database-data-sync-agent.md).
 

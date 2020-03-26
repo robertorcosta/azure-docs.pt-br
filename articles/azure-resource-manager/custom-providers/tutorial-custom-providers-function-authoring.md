@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648723"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Criar um ponto de extremidade RESTful para provedores personalizados
@@ -43,7 +43,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 
 Com base no cabeçalho `x-ms-customproviders-requestpath` do exemplo, você pode criar os parâmetros *partitionKey* and *rowKey* para o armazenamento, conforme mostrado na seguinte tabela:
 
-Parâmetro | Modelo | DESCRIÇÃO
+Parâmetro | Modelo | Descrição
 ---|---|---
 *partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | O parâmetro *partitionKey* especifica como os dados são particionados. Geralmente, os dados são particionados pela instância do provedor personalizado.
 *rowKey* | `{myResourceType}:{myResourceName}` | O parâmetro *rowKey* especifica o identificador individual dos dados. Geralmente, o identificador é o nome do recurso.
@@ -134,7 +134,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 
 O método **CreateCustomResource** atualiza a solicitação de entrada para incluir os campos específicos do Azure **id**, **name** e **type**. Esses campos são propriedades de alto nível usadas pelos serviços no Azure. Eles permitem que o provedor personalizado interopere com outros serviços, como Azure Policy, modelos do Azure Resource Manager e Log de Atividades do Azure.
 
-Propriedade | Exemplo | DESCRIÇÃO
+Propriedade | Exemplo | Descrição
 ---|---|---
 **name** | {myCustomResourceName} | O nome do recurso personalizado
 **tipo** | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | O namespace do tipo de recurso

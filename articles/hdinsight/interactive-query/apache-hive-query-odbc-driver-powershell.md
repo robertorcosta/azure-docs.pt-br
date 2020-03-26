@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494321"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consultar o Apache Hive com ODBC e PowerShell
@@ -28,7 +28,7 @@ Neste tutorial, você executará as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
@@ -52,9 +52,9 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Apache Hive.
 
 1. Digite ou selecione os valores a seguir:
 
-   | Propriedade | DESCRIÇÃO |
+   | Propriedade | Descrição |
    | --- | --- |
-   |  Nome da fonte de dados |Forneça um nome para a sua fonte de dados |
+   |  Nome da Fonte de Dados |Forneça um nome para a sua fonte de dados |
    |  Hosts |Digite `CLUSTERNAME.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net` |
    |  Porta |Use **443**.|
    |  Banco de dados |Use **padrão**. |
@@ -64,7 +64,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Apache Hive.
 
 1. Opcional: Selecione **Opções Avançadas**.  
 
-   | Parâmetro | DESCRIÇÃO |
+   | Parâmetro | Descrição |
    | --- | --- |
    |  Use Consulta Nativa |Quando selecionado, o driver ODBC NÃO tenta converter TSQL em HiveQL. Use essa opção somente se você tiver plena certeza de que está enviando instruções HiveQL puras. Ao conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure, deixe-a desmarcada. |
    |  Linhas buscadas por bloco |Ao buscar uma grande quantidade de registros, o ajuste desse parâmetro poderá ser necessário para garantir o desempenho ideal. |
@@ -120,7 +120,7 @@ $query = "select count(distinct clientid) AS total_clients from hivesampletable"
 Get-ODBC-Data -query $query -dsn $dsn
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o cluster HDInsight e a conta de armazenamento. Para fazer isso, selecione o grupo de recursos em que o cluster foi criado e clique em **Excluir**.
 

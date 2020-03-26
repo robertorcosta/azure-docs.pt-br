@@ -11,11 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165969"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224093"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Introdução à criação de seu primeiro experimento de ML com o SDK de Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Você cria um workspace pelo portal do Azure, um console baseado na Web para ger
 >[!IMPORTANT] 
 > Anote seu **workspace** e sua **assinatura**. Você precisará dessas informações para criar o experimento no local certo. 
 
-## <a name="azure"></a>Executar o notebook em seu workspace
+## <a name="run-notebook-in-your-workspace"></a><a name="azure"></a>Executar o notebook em seu workspace
 
 Este tutorial usa o servidor de notebook em nuvem em seu workspace para uma experiência pré-configurada e sem instalação. Use [seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controle sobre seu ambiente, pacotes e dependências.
 

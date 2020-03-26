@@ -4,19 +4,16 @@ ms.author: baanders
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/24/2019
-ms.openlocfilehash: 3f3e7c54ec59c42ed102da682fc9aa077709ef3f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a3340eb9e53afa83c35109bad7d22f81413dd644
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78262489"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80234189"
 ---
 ## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
 
 Você também precisará de um Hub IoT do Azure em sua assinatura do Azure para concluir este início rápido. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Caso não tenha um hub IoT, siga [estas instruções para criar um](../articles/iot-hub/iot-hub-create-using-cli.md).
-
-> [!IMPORTANT]
-> Durante a versão prévia pública, os recursos de IoT Plug and Play estão disponíveis apenas em hubs IoT criados nas regiões **EUA Central**, **Norte da Europa** e **Leste do Japão**.
 
 Se estiver usando a CLI do Azure localmente, primeiro entre na assinatura do Azure usando `az login`. Se estiver executando esses comandos no Azure Cloud Shell, você entrará automaticamente.
 

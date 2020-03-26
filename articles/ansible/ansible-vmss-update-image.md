@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, con
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155855"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Tutorial: Atualizar a imagem personalizada dos conjuntos de dimensionamento de máquinas virtuais do Azure usando o Ansible
@@ -28,7 +28,7 @@ Depois que uma VM for implantada, configure-a com o software de que seu aplicati
 > * Criar um conjunto de dimensionamento a partir de uma imagem
 > * Atualizar a imagem personalizada
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -403,7 +403,7 @@ Você verá que a imagem personalizada subjacente da máquina virtual é atualiz
 
 ![O conjunto de dimensionamento está associado à segunda máquina virtual](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo. 
 

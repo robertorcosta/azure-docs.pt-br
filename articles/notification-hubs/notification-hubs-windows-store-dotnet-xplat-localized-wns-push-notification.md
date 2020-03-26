@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387410"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push localizadas para aplicativos Windows usando Hubs de Notificação do Azure
@@ -46,7 +46,7 @@ Neste tutorial, você aprenderá como:
 > * Atualizar aplicativo de back-end para enviar notificações localizadas
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
@@ -269,7 +269,7 @@ Execute o **aplicativo de console** para enviar notificações para cada categor
 Neste tutorial, você aprendeu como enviar notificações localizadas por push para dispositivos específicos que têm tags associadas seus registros. Para saber como enviar notificações por push para usuários específicos que podem estar usando mais de um dispositivo, vá para o tutorial a seguir:
 
 > [!div class="nextstepaction"]
->[Notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+>[Enviar notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 <!-- Anchors. -->
 [Template concepts]: #concepts

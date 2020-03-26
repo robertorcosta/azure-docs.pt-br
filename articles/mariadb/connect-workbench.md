@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2018
-ms.openlocfilehash: 85a38fe3e2d17eb53d1ed5f8f231898849bd01db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 4bb1a71c5d8a58e6d94007554c72019001d395db
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772054"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79528993"
 ---
-# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MariaDB: Usar o MySQL Workbench para se conectar e consultar dados
+# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Banco de Dados do Azure para MariaDB: use o MySQL Workbench para conectar e consultar dados
 
 Este início rápido demonstra como se conectar a um Banco de Dados do Azure para MariaDB usando o MySQL Workbench. 
 
@@ -33,7 +33,7 @@ Este guia de início rápido usa os recursos que são criados em um destes guias
 
 Obtenha as informações de conexão necessárias para se conectar à instância do Banco de Dados do Azure para MariaDB. Você precisa do nome do servidor e das credenciais de entrada totalmente qualificados.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. No menu à esquerda no portal do Azure, selecione **Todos os recursos**. Pesquise o servidor que você criou (como **mydemoserver**).
 
@@ -58,11 +58,11 @@ Para conectar-se ao servidor do Banco de Dados do Azure para MariaDB usando o My
    | Nome do host | *nome do servidor* | Especifique o valor do nome do servidor usado para criar a instância de Banco de Dados do Azure para MariaDB. Nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Use o nome de domínio totalmente qualificado (\*.mariadb.database.azure.com) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, conclua as etapas da seção anterior para ter acesso às informações de conexão.  |
    | Porta | **3306** | Sempre use a porta 3306 ao conectar-se ao Banco de Dados do Azure para MariaDB. |
    | Nome de Usuário |  *nome de logon do administrador do servidor* | Insira o nome de usuário do logon do administrador do servidor usado para criar a instância de Banco de Dados do Azure para MariaDB. Nosso nome de usuário de exemplo é **myadmin\@mydemoserver**. Caso não se lembre do nome de logon do administrador do servidor, complete as etapas da seção anterior para obter as informações de conexão. O formato é *nome de usuário\@nome do servidor*.
-   | Senha | *sua senha* | Para salvar a senha, selecione **Armazenar no cofre**. |
+   | Senha | *sua senha* | Para salvar a senha, escolha **Armazenar no Cofre** . |
 
    ![Configurar uma nova conexão](./media/connect-workbench/2-setup-new-connection.png)
 
-3. Para verificar se todos os parâmetros estão configurados corretamente, selecione **Testar conexão**. 
+3. Para testar se todos os parâmetros estão configurados corretamente, escolha **Testar Conexão**. 
 
 4. Selecione **OK** para salvar a conexão. 
 
@@ -71,7 +71,7 @@ Para conectar-se ao servidor do Banco de Dados do Azure para MariaDB usando o My
    Uma nova guia do SQL é aberta, com um editor em branco no qual você pode digitar suas consultas.
     
    > [!NOTE]
-   > Por padrão, a segurança da conexão SSL é exigida e imposta no servidor do Banco de Dados do Azure para MariaDB. Embora normalmente nenhuma configuração adicional para certificados SSL seja necessária para que o MySQL Workbench se conecte ao servidor, recomendamos associar a certificação de AC SSL com o MySQL Workbench. Caso precise desabilitar o SSL, na página de visão geral do servidor no portal do Azure, selecione **Segurança de conexão** no menu. Para **Impor a conexão SSL**, selecione **Desabilitado**.
+   > Por padrão, a segurança da conexão SSL é exigida e imposta no servidor do Banco de Dados do Azure para MariaDB. Embora normalmente nenhuma configuração adicional para certificados SSL seja necessária para que o MySQL Workbench se conecte ao servidor, recomendamos associar a certificação de AC SSL com o MySQL Workbench. Caso precise desabilitar o SSL, na página de visão geral do servidor no portal do Azure, selecione **Segurança de conexão** no menu. Em **Impor conexão SSL**, marque **Desabilitado**.
 
 ## <a name="create-table-and-insert-read-update-and-delete-data"></a>Criar tabela e inserir, ler, atualizar e excluir dados
 

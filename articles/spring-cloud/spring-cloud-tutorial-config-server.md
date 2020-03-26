@@ -7,10 +7,10 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.openlocfilehash: 5e0b5633a153583117cfe0d90ec5c0e7c5f2a147
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277523"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutorial: Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
@@ -19,7 +19,7 @@ Este artigo mostra como conectar uma instância do Servidor de Configuração do
 
 A configuração do Spring Cloud oferece suporte no lado do servidor e do cliente para configuração externalizada em um sistema distribuído. Com a instância do Servidor de Configuração, você tem um local central para gerenciar propriedades externas para aplicativos em todos os ambientes. Para obter mais informações, confira a [Referência do Servidor de Configuração do Spring Cloud](https://spring.io/projects/spring-cloud-config).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 * Um serviço do Azure Spring Cloud já provisionado e em execução. Para configurar e iniciar um serviço do Azure Spring Cloud, confira [Início Rápido: iniciar um aplicativo Java Spring usando a CLI do Azure](spring-cloud-quickstart-launch-app-cli.md).
 

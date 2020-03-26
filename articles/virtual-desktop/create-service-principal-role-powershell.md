@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5bdc51f47a170922d4fc33e8538695af29e5159c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128117"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79365416"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar entidades de serviço e atribuições de função usando o PowerShell
 
@@ -113,4 +113,4 @@ Depois de conectado, verifique se tudo está funcionando testando alguns cmdlets
 Depois de criar a entidade de serviço e atribuí-la uma função no locatário da Área de Trabalho Virtual do Windows, você poderá usá-la para criar um pool de host. Para saber mais sobre os pools de host, continue com o tutorial para criar um pool de hosts na Área de Trabalho Virtual do Windows.
 
  > [!div class="nextstepaction"]
- > [Tutorial de pool de hosts da Área de Trabalho Virtual do Windows](./create-host-pools-azure-marketplace.md)
+ > [Criar um pool de host com o Azure Marketplace](./create-host-pools-azure-marketplace.md)

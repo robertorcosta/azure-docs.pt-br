@@ -10,10 +10,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
 ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76719884"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre duas instâncias gerenciadas e o SQL Server
@@ -34,7 +34,7 @@ Para saber mais, confira os artigos [Visão geral da instância gerenciada do Ba
 
 Para configurar a replicação entre um publicador da instância gerenciada e um assinante da instância gerenciada, confira [Configurar a replicação transacional entre duas instâncias gerenciadas](replication-with-sql-database-managed-instance.md). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 

@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596800"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Criar um modelo preditivo no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
@@ -37,7 +37,7 @@ Na [parte três](sql-database-tutorial-predictive-model-deploy.md), você aprend
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * A parte dois deste tutorial presume que você concluiu a [**parte um**](sql-database-tutorial-predictive-model-prepare-data.md) e seus pré-requisitos.
 
@@ -108,7 +108,7 @@ plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Diffe
 
 Parece que o modelo de árvore de decisão é mais preciso dos dois.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não pretende continuar este tutorial, exclua o banco de dados TutorialDB do seu servidor do Banco de Dados SQL do Azure.
 
@@ -121,7 +121,7 @@ No portal do Azure, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Na segunda parte desta série de tutoriais, você concluiu estas etapas:
+Na parte dois desta série de tutoriais, você concluiu estas etapas:
 
 * Treinar dois modelos de machine learning
 * Fazer previsões de ambos os modelos

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: ramkris
 ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720842"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de SQL
@@ -39,7 +39,7 @@ Este tutorial de aplicativo Java mostra como criar um aplicativo de gerenciament
 > 
 > 
 
-## <a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicativo Web Java
+## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicativo Web Java
 Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
@@ -52,14 +52,14 @@ Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter
 
 Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção de Início rápido do artigo [Tutorial: Instalar TomCat7 e usá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-## <a id="CreateDB"></a>Etapa 1: Criar uma conta do Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Etapa 1: Criar uma conta do Azure Cosmos DB
 Vamos começar criando uma conta do Azure Cosmos DB. Se você já tiver uma conta ou se estiver usando o Emulador do Azure Cosmos DB para este tutorial, pule para a [Etapa 2: Criar o aplicativo JSP Java](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>Etapa 2: Criar o aplicativo JSP Java
+## <a name="step-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Etapa 2: Criar o aplicativo JSP Java
 Para criar o aplicativo JSP:
 
 1. Primeiro, começaremos criando um projeto Java. Inicie o Eclipse, clique em **Arquivo**, **Novo** e clique em **Projeto Web dinâmico**. Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível, faça o seguinte: clique em **Arquivo**, **Novo**, **Projeto...** , expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**.
@@ -81,7 +81,7 @@ Para criar o aplicativo JSP:
    
     ![Hello World — tutorial de aplicativo Java](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Etapa 3: Instalar o SDK Java do SQL
+## <a name="step-3-install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Etapa 3: Instalar o SDK Java do SQL
 É a maneira mais fácil de obter o SDK do Java do SQL e suas dependências por meio do [Apache Maven](https://maven.apache.org/).
 
 Para fazer isso, você precisará converter o projeto para um projeto Maven concluindo as etapas a seguir:
@@ -109,7 +109,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 6. Clique em **Ok** e o Maven instalará o SDK do Java do SQL.
 7. Salve o arquivo pom.xml.
 
-## <a id="UseService"></a>Etapa 4: Usar o serviço do Azure Cosmos DB em um aplicativo Java
+## <a name="step-4-using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Etapa 4: Usar o serviço do Azure Cosmos DB em um aplicativo Java
 1. Primeiro, vamos definir o objeto TodoItem no TodoItem.java:
    
         @Data
@@ -343,7 +343,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
             return true;
         }
 
-## <a id="Wire"></a>Etapa 5: Conectar o restante do projeto de desenvolvimento de aplicativo Java
+## <a name="step-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Etapa 5: Conectar o restante do projeto de desenvolvimento de aplicativo Java
 Agora que concluímos a parte divertida - tudo que restou é criar uma interface de usuário rápida e conectá-la ao nosso DAO.
 
 1. Primeiro, vamos começar com a criação de um Controlador para chamar nosso DAO:
@@ -715,7 +715,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
 5. Incrível! Agora tudo o que resta é testar o aplicativo. Executar o aplicativo localmente e adicionar alguns itens de tarefas, preenchendo o nome do item e a categoria e clicando em **Adicionar tarefa**.
 6. Quando o item aparecer, você poderá atualizar se ele está concluído alternando a caixa de seleção e clicando em **Atualizar Tarefas**.
 
-## <a id="Deploy"></a>Etapa 6: Implantar seu aplicativo Java em sites do Azure
+## <a name="step-6-deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Etapa 6: Implantar seu aplicativo Java em sites do Azure
 Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a exportação de seu aplicativo como um arquivo WAR e por carregamento ou por meio do controle de origem (por exemplo, Git) ou FTP.
 
 1. Para exportar seu aplicativo como um arquivo WAR, clique com o botão direito em seu projeto no **Explorador de Projeto**, clique em **Exportar** e clique em **Arquivo WAR**.
@@ -729,7 +729,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
     Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de runtime irá detectar que você o adicionou e o carregará automaticamente.
 4. Para exibir seu produto final, navegue até `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` e comece a adicionar tarefas!
 
-## <a id="GetProject"></a>Obtenha o projeto do GitHub
+## <a name="get-the-project-from-github"></a><a id="GetProject"></a>Obtenha o projeto do GitHub
 Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://github.com/Azure-Samples/documentdb-java-todo-app) no GitHub. Para importar o projeto de tarefas no Eclipse, certifique-se de ter o software e os recursos listados na seção [pré-requisitos](#Prerequisites) e, em seguida, faça o seguinte:
 
 1. Instalar [Project Lombok](https://projectlombok.org/). Lombok é usado para gerar construtores, getters e setters no projeto. Depois que você baixou o arquivo lombok.jar, clique duas vezes nele para instalá-lo ou instalá-lo a partir da linha de comando.

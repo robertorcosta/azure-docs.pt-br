@@ -7,10 +7,10 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277470"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Dimensionar um aplicativo no Azure Spring Cloud
@@ -21,7 +21,7 @@ Escale e reduza verticalmente seu aplicativo modificando o número de vCPUs (CPU
 
 Quando terminar, você saberá como fazer alterações manuais rápidas em cada aplicativo do serviço. O dimensionamento entra em vigor em segundos e não exige nenhuma alteração de código ou reimplantação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -51,7 +51,7 @@ Se você modificar os atributos de dimensionamento, lembre-se das seguintes obse
 
 * **Memória/GB**: a quantidade máxima de memória por instância de aplicativo é 8 GB. A quantidade total de memória para um aplicativo é o valor definido aqui multiplicado pelo número de instâncias do aplicativo.
 
-* **Contagem de instâncias do aplicativo**: No nível Standard, é possível um aumento para um máximo de 20 instâncias. Esse valor altera o número de instâncias em execução separadas do aplicativos de microsserviço.
+* **Contagem de instâncias do aplicativo**: No nível Standard, é possível escalar horizontalmente para um máximo de 20 instâncias. Esse valor altera o número de instâncias em execução separadas do aplicativos de microsserviço.
 
 Selecione **Salvar** para aplicar as configurações de dimensionamento.
 

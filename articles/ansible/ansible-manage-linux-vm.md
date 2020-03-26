@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 90113373535c835e5cddf707bcb520789e596aec
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: d94858391951aaf9387394afeb5ad2ae373fa7b5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202428"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239525"
 ---
 # <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Início Rápido: Gerenciar Máquinas Virtuais do Linux no Azure usando o Ansible
 
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Neste artigo, você usará um guia estratégico do Ansible para iniciar e parar uma Máquina Virtual do Linux. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -34,7 +34,7 @@ Nesta seção, você usará o Ansible para desalocar (parar) uma máquina virtua
 
 1. Crie um arquivo chamado `azure-vm-stop.yml` e abra-o no editor:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-stop.yml
     ```
 
@@ -87,7 +87,7 @@ Nesta seção, você usará o Ansible para iniciar uma máquina virtual do Azure
 
 1. Crie um arquivo chamado `azure-vm-start.yml` e abra-o no editor:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-start.yml
     ```
 

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74892882"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial – Criptografar e descriptografar blobs usando o Azure Key Vault
@@ -27,9 +27,9 @@ Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte [O qu
 
 Para obter informações gerais sobre a criptografia de cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir este tutorial, é necessário ter o seguinte:
 
 * Uma conta de armazenamento do Azure
 * Visual Studio 2013 ou posterior.
@@ -52,7 +52,7 @@ Para continuar com este tutorial, você precisa realizar as etapas a seguir, que
 
 * Crie um cofre da chave.
 * Adicionar uma chave ou segredo ao cofre da chave.
-* Registre um aplicativo com o Active Directory do Azure.
+* Registre um aplicativo com o Azure Active Directory.
 * Autorize o aplicativo a usar a chave ou segredo.
 
 Anote o ClientID e ClientSecret que foram gerados ao registrar um aplicativo com o Active Directory do Azure.

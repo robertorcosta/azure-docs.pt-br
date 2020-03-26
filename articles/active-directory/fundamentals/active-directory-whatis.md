@@ -12,11 +12,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368041"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215804"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 
@@ -57,13 +57,13 @@ Para aprimorar a implementação do Azure AD, também é possível adicionar rec
 
 - **Licenças de recurso de "Pagamento conforme o uso".** Você também pode obter licenças de outros recursos, como o Azure Active Directory B2C (Entre empresa e consumidor). O B2C pode ajudar você a fornecer soluções de gerenciamento de acesso e identidade para seus aplicativos voltados ao cliente. Para saber mais, confira a [Documentação sobre o Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Para obter mais informações sobre como associar uma assinatura do Azure com o Azure AD, confira [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) e, para obter mais informações sobre como atribuir licenças aos usuários, confira [Como atribuir ou remover licenças do Azure Active Directory](license-users-groups.md).
+Para saber mais sobre como associar uma assinatura do Azure ao Azure AD, confira [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) e, para saber mais sobre como atribuir licenças aos usuários, confira [Como atribuir ou remover licenças do Azure Active Directory](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminologia
 
 Para entender melhor o Azure AD e sua documentação, recomendamos ler os termos a seguir.
 
-|Termo ou conceito|Descrição|
+|Termo ou conceito|DESCRIÇÃO|
 |---------------|-----------|
 |Identidade| Um item que possa ser autenticado. Uma identidade pode ser um usuário com um nome de usuário e senha. Identidades também incluem aplicativos ou outros servidores que podem exigir a autenticação por meio de certificados ou chaves secretas.|
 |Conta| Uma identidade que tenha dados associados a ela. Você não pode ter uma conta sem uma identidade.|
@@ -84,7 +84,7 @@ Para entender melhor o Azure AD e sua documentação, recomendamos ler os termos
 
 Depois de escolher sua licença do Azure AD, você obterá acesso a alguns ou a todos os seguintes recursos para sua organização:
 
-|Categoria|Descrição|
+|Categoria|DESCRIÇÃO|
 |-------|-----------|
 |Gerenciamento de aplicativos|Gerencie seus aplicativos de nuvem e locais usando o Proxy de Aplicativo, o logon único, o portal Meus aplicativos (também conhecido como Painel de acesso) e aplicativos SaaS (software como serviço). Para saber mais, confira [Como fornecer acesso remoto seguro a aplicativos locais](../manage-apps/application-proxy.md) e a [Documentação sobre gerenciamento de aplicativo](../manage-apps/index.yml).|
 |Autenticação|Gerencie a redefinição de senha por autoatendimento do Azure Active Directory, a Autenticação Multifator, a lista personalizada de senhas banidas e o bloqueio inteligente. Para saber mais, confira a [Documentação sobre a autenticação do Azure AD](../authentication/index.yml).|

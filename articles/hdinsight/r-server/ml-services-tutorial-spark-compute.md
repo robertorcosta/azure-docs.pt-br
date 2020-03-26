@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71121929"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Usar R em um contexto de computação do Spark Azure HDInsight
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Usar arquivos de composição XDF
 > * Converter XDF em CSV
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster de serviços de Machine Learning do Azure HDInsight. Acesse [Criar clusters do Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e, para **Tipo de cluster**, selecione **Serviços de ML**.
 
@@ -160,7 +160,7 @@ A etapa deve ser concluída em aproximadamente dez segundos.
 
 Em um contexto de computação do Spark, você pode criar fontes de dados usando as funções a seguir:
 
-|Função | DESCRIÇÃO |
+|Função | Descrição |
 |---------|-------------|
 |`RxTextData` | Uma fonte de dados de texto delimitado por vírgula. |
 |`RxXdfData` | Dados no formato de arquivo de dados XDF. No RevoScaleR, o formato de arquivo XDF é modificado para Hadoop para armazenar os dados em um conjunto composto por arquivos, em vez de um único arquivo. |
@@ -355,7 +355,7 @@ Ao usar um contexto de computação `RxSpark`, `createFileSet` usa `TRUE` como p
     quit()
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de concluir o tutorial, talvez você queira excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Já que os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estão em uso.
 

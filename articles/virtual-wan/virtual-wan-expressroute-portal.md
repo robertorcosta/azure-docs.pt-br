@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209419"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure
@@ -44,7 +44,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="openvwan"></a>Criar uma WAN Virtual
+## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Criar uma WAN Virtual
 
 Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 
@@ -62,19 +62,19 @@ Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre co
 4. Quando terminar de preencher os campos, selecione **Examinar + Criar**.
 5. Depois que a validação for aprovada, selecione **Criar** para criar a WAN Virtual.
 
-## <a name="hub"></a>Criar um hub virtual e um gateway
+## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Criar um hub virtual e um gateway
 
 Um hub virtual é uma rede virtual criada e usada pela WAN Virtual. Ele pode conter vários gateways, tais como VPN e ExpressRoute. Nesta seção, você criará um gateway do ExpressRoute para o seu hub virtual. Você pode criar o gateway ao [criar um hub virtual](#newhub) ou então pode criar o gateway em um [hub existente](#existinghub), editando-o. 
 
 Os gateways do ExpressRoute são provisionados em unidades de 2 Gbps. 1 unidade de escala = 2 Gbps com suporte para até 10 unidades de escala = 20 Gbps. Leva cerca de 30 minutos para que um gateway e um hub virtual sejam totalmente criados.
 
-### <a name="newhub"></a>Para criar um novo hub virtual e um gateway
+### <a name="to-create-a-new-virtual-hub-and-a-gateway"></a><a name="newhub"></a>Para criar um novo hub virtual e um gateway
 
 Crie um novo hub virtual. Depois que o hub é criado, você será cobrado por ele, mesmo se não anexar nenhum site.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-### <a name="existinghub"></a>Para criar um gateway em um hub existente
+### <a name="to-create-a-gateway-in-an-existing-hub"></a><a name="existinghub"></a>Para criar um gateway em um hub existente
 
 Você também pode criar um gateway em um hub existente editando-o.
 
@@ -90,7 +90,7 @@ Depois de criar um gateway do ExpressRoute, você poderá exibir detalhes do gat
 
 ![Exibir gateway](./media/virtual-wan-expressroute-portal/viewgw.png "exibir gateway")
 
-## <a name="connectvnet"></a>Conectar sua VNET ao hub
+## <a name="connect-your-vnet-to-the-hub"></a><a name="connectvnet"></a>Conectar sua VNET ao hub
 
 Nesta seção, você pode criar a conexão de emparelhamento entre uma VNET e seu hub. Repita as etapas para cada VNET que você deseja se conectar.
 
@@ -103,7 +103,7 @@ Nesta seção, você pode criar a conexão de emparelhamento entre uma VNET e se
     * **Assinatura**: verifique a assinatura.
     * **Rede virtual:** selecione a rede virtual que você deseja conectar a esse hub. A rede virtual não pode ter um gateway de rede virtual já existente (nem VPN, nem ExpressRoute).
 
-## <a name="connectcircuit"></a>Conectar seu circuito ao gateway do hub
+## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conectar seu circuito ao gateway do hub
 
 Depois que o gateway é criado, você pode conectar um [circuito de ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) a ele. Os circuitos do ExpressRoute Premium que estão em localizações do ExpressRoute compatíveis com o Alcance Global podem se conectar a um gateway do ExpressRoute da WAN Virtual.
 
@@ -116,7 +116,7 @@ No portal, vá para a página **Hub virtual -> Conectividade -> ExpressRoute**. 
 
    ![conectar circuitos](./media/virtual-wan-expressroute-portal/cktconnect.png "conectar circuitos")
 
-### <a name="authkey"></a>Para conectar resgatando uma chave de autorização
+### <a name="to-connect-by-redeeming-an-authorization-key"></a><a name="authkey"></a>Para conectar resgatando uma chave de autorização
 
 Use a chave de autorização e o URI de circuito que você forneceu para se conectar.
 

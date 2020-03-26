@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
 ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75456624"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados, recorrentes e com base em agendamento usando Aplicativos Lógicos do Azure
@@ -32,7 +32,7 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 ![Visão geral do fluxo de trabalho de aplicativo lógico de alto nível](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Caso você não tenha uma assinatura, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
@@ -54,12 +54,12 @@ Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da con
 
    ![Fornecer informações sobre seu aplicativo lógico](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | LA-TravelTime | O nome do seu aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa o “LA-TravelTime”. |
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | Seu nome da assinatura do Azure |
    | **Grupo de recursos** | LA-TravelTime-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), usado para organizar os recursos relacionados. Este exemplo usa "LA-TravelTime-RG”. |
-   | **Localidade** | Oeste dos EUA | A região em que as informações de seu aplicativo lógico são armazenadas. Este exemplo usa "Leste dos EUA". |
+   | **Localidade** | Oeste dos EUA | A região em que as informações de seu aplicativo lógico são armazenadas. Este exemplo usa "Oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a configuração **Desligado** para o log de diagnósticos. |
    ||||
 
@@ -89,7 +89,7 @@ Em seguida, adicione o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Alterar o intervalo e a frequência do Gatilho de recorrência](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Intervalo** | Sim | 1 | O número de intervalos de espera entre as verificações |
    | **Frequência** | Sim | Semana | A unidade de tempo a ser usada para a recorrência |
@@ -107,7 +107,7 @@ Em seguida, adicione o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Fornecer detalhes de agenda e recorrência](./media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png)
 
-   | Propriedade | Valor | DESCRIÇÃO |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nestes dias** | Segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira | Disponível apenas quando **Frequência** está definido como “Semana” |
    | **A estas horas** | 7,8,9 | Disponível apenas quando **Frequência** está definido como "Semana" ou "Dia". Selecione as horas do dia para executar essa recorrência. Este exemplo é executado nas marcas de horas 7, 8 e 9. |
@@ -138,7 +138,7 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
 
    ![Criar conexão com a API do Bing Mapas](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome da conexão** | Sim | BingMapsConnection | Forneça um nome para a conexão. Este exemplo usa “BingMapsConnection”. |
    | **Chave de API** | Sim | <*your-Bing-Maps-key*> | Insira a chave do Bing Mapas que você recebeu anteriormente. Se você não tiver uma chave do Bing Mapas, saiba [como obter uma chave](https://msdn.microsoft.com/library/ff428642.aspx). |
@@ -158,7 +158,7 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
 
    ![Fornecer detalhes para a ação “Obter rota”](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Localizador 1** | Sim | <*start-location*> | Origem da rota |
    | **Localizador 2** | Sim | <*end-location*> | Destino da rota |
@@ -189,7 +189,7 @@ Por padrão, a ação **Obter rota** anterior retorna o tempo de viagem atual co
 
 1. Forneça os detalhes para a variável conforme descrito aqui:
 
-   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome** | Sim | travelTime | O nome da sua variável. Este exemplo usa “travelTime”. |
    | **Tipo** | Sim | Integer | O tipo de dados da variável |

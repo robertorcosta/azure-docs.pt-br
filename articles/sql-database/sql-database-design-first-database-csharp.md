@@ -11,10 +11,10 @@ ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
 ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75354951"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar um banco de dados relacionam em um banco de dados individual dentro de C&#x23; e ADO.NET do Banco de Dados SQL do Azure
@@ -34,7 +34,7 @@ O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Micr
 > [!TIP]
 > O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente como [Desenvolver e configurar um aplicativo ASP.NET que consulta um Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), incluindo a criação de um banco de dados simples.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Uma instalação do [Visual Studio 2019](https://www.visualstudio.com/downloads/) ou posterior.
 
@@ -51,7 +51,7 @@ Siga estas etapas para criar um banco de dados individual em branco.
 
 3. Preencha o formulário do **Banco de Dados SQL** com as informações abaixo, conforme mostrado na imagem anterior:
 
-    | Configuração       | Valor sugerido | DESCRIÇÃO |
+    | Configuração       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome do banco de dados** | *yourDatabase* | Para ver os nomes do banco de dados válidos, confira [Identificadores do banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Assinatura** | *yourSubscription*  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
@@ -60,7 +60,7 @@ Siga estas etapas para criar um banco de dados individual em branco.
 
 4. Clique em **Servidor** para usar um servidor de banco de dados existente ou criar e configurar um novo servidor de banco de dados. Selecione um servidor existente ou clique em **Criar um servidor** e preencha o formulário **Novo servidor** com as seguintes informações:
 
-    | Configuração       | Valor sugerido | DESCRIÇÃO |
+    | Configuração       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
     | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, confira [Identificadores do banco de dados](/sql/relational-databases/databases/database-identifiers). |
