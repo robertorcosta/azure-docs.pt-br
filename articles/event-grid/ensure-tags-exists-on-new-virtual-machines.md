@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: eamono
 ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65521423"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integrar a Automação do Azure à Grade de Eventos e ao Microsoft Teams
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -126,7 +126,7 @@ Para concluir este tutorial, uma [conta de Automação do Azure](../automation/a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você configurou a integração entre a Grade de Eventos e a Automação. Você aprendeu como:
+Neste tutorial, você configurou a integração entre a Grade de Eventos e a Automação. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Importar um runbook de exemplo da Grade de Eventos.

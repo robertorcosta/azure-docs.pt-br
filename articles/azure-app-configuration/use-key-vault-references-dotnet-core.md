@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: eceb4a9d4e0cc84166280f30b094b82088f53a4a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116610"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475299"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Usar referências do Key Vault em um aplicativo ASP.NET Core
 
@@ -41,7 +41,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma chave da Configuração de Aplicativos que referencia um valor armazenado no Key Vault.
 > * Acessar o valor dessa chave por meio de um aplicativo Web ASP.NET Core.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 
@@ -110,7 +110,6 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -245,13 +244,13 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
 1. Para criar o aplicativo usando a CLI do .NET Core, execute o seguinte comando no shell de comando:
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. Depois que o build é concluído, use o comando a seguir para executar o aplicativo Web localmente:
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 

@@ -10,13 +10,13 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384743"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222883"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Tutorial: transformar dados com Azure Data Box Edge para o fluxo de implantação avançada
+# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com o Azure Data Box Edge para o fluxo de implantação avançada
 
 Este tutorial descreve como configurar uma função de computação para um fluxo de implantação avançada no dispositivo do Azure Data Box Edge. Depois de configurar a função de computação, o Data Box Edge pode transformar os dados antes de enviar para o Azure.
 
@@ -25,7 +25,7 @@ Computação pode ser configurada para o fluxo de implantação simples ou avan�
 |                  | Implantação simples                                | Implantação avançada                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Destinado a     | Administradores de TI                                | Desenvolvedores                            |
-| Tipo             | Usar o serviço Data Box Edge para implantar módulos      | Usar o serviço de Hub IoT para implantar módulos |
+| Type             | Usar o serviço Data Box Edge para implantar módulos      | Usar o serviço de Hub IoT para implantar módulos |
 | Módulos implantados | Single                                           | Módulos múltiplos ou encadeados           |
 
 
@@ -41,7 +41,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar a transformação e a transferência de dados
 
  
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de configurar uma função de computação em seu dispositivo do Data Box Edge, certifique-se de que:
 
@@ -63,10 +63,10 @@ Para configurar a computação no Data Box Edge, você criará um recurso do Hub
 3. Na folha **Configurar computação de borda**, insira o seguinte:
 
    
-    |Campo  |{1&gt;Valor&lt;1}  |
+    |Campo  |Valor  |
     |---------|---------|
     |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Data Box Edge.     |
-    |{1&gt;Nome&lt;1}     |Insira um nome para o recurso do Hub IoT.         |
+    |Nome     |Insira um nome para o recurso do Hub IoT.         |
 
     ![Introdução à computação](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
@@ -130,7 +130,7 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
 
 2. Na folha **Adicionar gatilho**, adicione os valores de entrada a seguir.
 
-    |Campo  |{1&gt;Valor&lt;1}  |
+    |Campo  |Valor  |
     |---------|---------|
     |Nome do gatilho     | Um nome exclusivo para o gatilho.         |
     |Tipo de gatilho     | Selecione o gatilho **Arquivo**. Um gatilho de arquivo é acionado sempre que ocorre um evento de arquivo, como uma gravação de arquivo no compartilhamento de entrada. Um gatilho agendado, por sua vez, é acionado de acordo com um agendamento definido por você. Neste exemplo, precisamos de um gatilho de arquivo.    |
@@ -181,9 +181,9 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
  
     2. Especifique as configurações para o módulo personalizado do IoT Edge. Insira os valores a seguir.
      
-        |Campo  |{1&gt;Valor&lt;1}  |
+        |Campo  |Valor  |
         |---------|---------|
-        |{1&gt;Nome&lt;1}     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Data Box Edge.        |
+        |Nome     | Um nome exclusivo para o módulo. Esse módulo é um contêiner do Docker que você pode implantar no dispositivo do IoT Edge associado ao Data Box Edge.        |
         |URI da imagem     | O URI da imagem para a imagem de contêiner correspondente ao módulo.        |
         |Credenciais necessárias     | Se essa opção for marcada, o nome de usuário e a senha serão usados para recuperar os módulos com uma URL correspondente.        |
     
@@ -259,7 +259,7 @@ Execute as etapas a seguir para verificar a transformação e transferência de 
  
 Você concluiu o processo de validação.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 

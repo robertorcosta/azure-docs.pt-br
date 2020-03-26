@@ -6,17 +6,17 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648603"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Tutorial: Integração de recursos com os Provedores Personalizados do Azure
 
 Neste tutorial, você implantará no Azure um provedor de recursos personalizado que estende a API do Azure Resource Manager com o tipo de recurso Microsoft.CustomProviders/associations. O tutorial mostra como estender os recursos existentes que estão fora do grupo de recursos em que a instância do provedor personalizado está localizada. Neste tutorial, o provedor de recursos personalizado é ativado por um aplicativo lógico do Azure, mas você pode usar qualquer ponto de extremidade de API pública.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará saber:
 
@@ -235,7 +235,7 @@ Vamos implantar a infraestrutura do provedor personalizado. Copie, salve e impla
 
 8. Insira as configurações para os campos obrigatórios e, em seguida, selecione a assinatura e o grupo de recursos. Deixe a caixa **ID do Provedor de Recursos Personalizado** vazia.
 
-   | Nome da configuração | Obrigatório? | DESCRIÇÃO |
+   | Nome da configuração | Obrigatório? | Descrição |
    | ------------ | -------- | ----------- |
    | Location | Sim | A localização dos recursos no modelo. |
    | Nome do Aplicativo Lógico | Não | O nome do aplicativo lógico. |

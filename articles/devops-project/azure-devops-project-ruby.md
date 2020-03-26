@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70899577"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Criar um pipeline de CI/CD para Ruby on Rails usando o Azure DevOps Projects
@@ -33,7 +33,7 @@ Caso não tenha uma assinatura do Azure, você pode obter uma gratuita via [Visu
 
 O Azure DevOps Projects cria um pipeline de CI/CD no Azure Repos. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure na assinatura do Azure de sua escolha.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
@@ -114,7 +114,7 @@ O Azure DevOps Projects configura automaticamente um pipeline de CI/CD completo 
 1. Selecione **Retenção**.  
     Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
-1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  
     O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
 
 1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**.  
@@ -135,12 +135,12 @@ O Azure DevOps Projects configura automaticamente um pipeline de CI/CD completo 
     É possível explorar vários menus, como um resumo da versão, itens de trabalho associados e testes.
 
 1. Selecione **Confirmações**.  
-    Essa exibição mostra as confirmações de código associadas à essa implantação. 
+    Essa exibição mostra as confirmações de código associadas a essa implantação. 
 
 1. Selecione **Logs**.  
     Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando eles não forem mais necessários, é possível excluir a instância de Serviço de Aplicativo do Azure e recursos relacionados criados neste início rápido. Para isso, use a funcionalidade **Excluir** no painel do DevOps Projects.
 
@@ -149,4 +149,4 @@ Quando eles não forem mais necessários, é possível excluir a instância de S
 Para saber mais sobre como modificar os pipelines de build e de lançamento para atender às necessidades de sua equipe, confira:
 
 > [!div class="nextstepaction"]
-> [Definir seu pipeline de implantação contínua (CD) de vários estágios](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definir seu pipeline de CD (implantação contínua) de vários estágios](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

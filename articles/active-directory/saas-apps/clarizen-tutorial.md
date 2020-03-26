@@ -17,10 +17,10 @@ ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b34e6087f3a6e7f3cc0f46c53d4fe903838d210
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Active Directory do Azure ao Clarizen
@@ -35,7 +35,7 @@ A integração do Clarizen ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Clarizen, você precisará dos seguintes itens:
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Clarizen, execute as seguintes 
 
 1. Clique na guia **Configurações Globais**. Em seguida, próximo a **Autenticação Federada**, clique em **editar**.
 
-    ![Guia "Configurações Globais"](./media/clarizen-tutorial/tutorial_clarizen_002.png "Configurações Globais")
+    ![Guia "Configurações Globais"](./media/clarizen-tutorial/tutorial_clarizen_002.png "Configurações globais")
 
 1. Na caixa de diálogo **Autenticação Federada**, execute as seguintes etapas:
 

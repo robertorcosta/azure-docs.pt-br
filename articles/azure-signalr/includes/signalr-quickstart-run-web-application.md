@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 author: anthonychu
 ms.service: signalr
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 73d4d4e1a5f148dce6099b2d747ee1c290bcf7c1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67172293"
 ---
 ## <a name="run-the-web-application"></a>Executar o aplicativo Web
@@ -34,4 +34,4 @@ ms.locfileid: "67172293"
 1. Abra outra instância do aplicativo Web em outra janela do navegador. Você verá que todas as mensagens enviadas serão exibidas em todas as instâncias do aplicativo.
 
 > [!IMPORTANT]
-> Como a página HTML é atendida usando HTTPS, mas o tempo de execução local do Azure Functions está usando HTTP por padrão, seu navegador (como o Firefox) pode impor uma política de conteúdo misto que bloqueia as solicitações da página da web para suas funções. Para resolver isso, use um navegador que não tenha essa restrição ou inicie um servidor HTTP local, como [servidor http](https://www.npmjs.com/package/http-server) no diretório */docs/demo/chat-v2*. Verifique se a origem foi adicionada para a `CORS` configuração em *local.settings.json*.
+> Como a página HTML é atendida usando HTTPS, mas o runtime local do Azure Functions está usando HTTP por padrão, seu navegador (como o Firefox) pode impor uma política de conteúdo misto que bloqueia as solicitações da página da web para suas funções. Para resolver isso, use um navegador que não tenha essa restrição ou inicie um servidor HTTP local, como [servidor http](https://www.npmjs.com/package/http-server) no diretório */docs/demo/chat-v2*. Verifique se a origem foi adicionada para a `CORS` configuração em *local.settings.json*.

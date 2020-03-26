@@ -10,10 +10,10 @@ ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084382"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Usar a CLI do Azure e o portal do Azure para configurar o roteamento de mensagens do Hub IoT
@@ -162,7 +162,7 @@ Agora, configure o roteamento para a conta de armazenamento. Acesse o painel Rot
 
 9. Agora, preencha o restante das informações da consulta de roteamento. Essa consulta especifica os critérios para enviar mensagens ao contêiner de armazenamento que você acabou de adicionar como um ponto de extremidade. Preencha os campos na tela.
 
-   **Nome**: insira um nome para a consulta de roteamento. Este tutorial usa **ContosoStorageRoute**.
+   **Name**: insira um nome para a consulta de roteamento. Este tutorial usa **ContosoStorageRoute**.
 
    **Ponto de extremidade**: mostra o ponto de extremidade que você acabou de configurar.
 
@@ -200,7 +200,7 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Acesse o pa
 
 6. Agora, preencha o restante das informações da consulta de roteamento. Essa consulta especifica os critérios para enviar mensagens à fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Preencha os campos na tela. 
 
-   **Nome**: insira um nome para a consulta de roteamento. Este tutorial usa **ContosoSBQueueRoute**. 
+   **Name**: insira um nome para a consulta de roteamento. Este tutorial usa **ContosoSBQueueRoute**. 
 
    **Ponto de extremidade**: mostra o ponto de extremidade que você acabou de configurar.
 

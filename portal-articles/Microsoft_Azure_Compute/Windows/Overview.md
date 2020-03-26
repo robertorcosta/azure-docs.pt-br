@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 15a89a03e07deb02a812e54c01e857f972681931
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "64710785"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Windows
 
-As Máquinas Virtuais do Windows Azure fornece infraestrutura sob demanda, de alta escala, segura e virtualizada usando o Windows Server. Aprenda a criar, configurar, gerenciar e dimensionar as VMs do Windows com nossos guias de início rápido, tutoriais e exemplos.
+As Máquinas Virtuais do Windows Azure fornecem infraestrutura sob demanda, de alta escalabilidade, segura e virtualizada usando o Windows Server. Aprenda a criar, configurar, gerenciar e dimensionar as VMs do Windows com nossos guias de início rápido, tutoriais e exemplos.
 
-## <a name="5-minute-quickstarts"></a>Guia de início rápido de 5 minutos
+## <a name="5-minute-quickstarts"></a>Guias de início rápido de 5 minutos
 
 Saiba como implantar um servidor Web IIS em uma Máquina Virtual executando o Windows Server 2016:
 
@@ -27,7 +27,7 @@ Saiba como implantar um servidor Web IIS em uma Máquina Virtual executando o Wi
 - [PowerShell do Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [CLI do Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="step-by-step-tutorials"></a>Tutoriais Passo a Passo
+## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 
 Saiba como implantar, gerenciar e monitorar as VMs do Windows no Azure.
 

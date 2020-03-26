@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
 ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73172687"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Tutorial: Configurar um emparelhamento de rede para uma instância do Azure Active Directory Domain Services
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -104,7 +104,7 @@ Para emparelhar uma rede virtual com a rede virtual de domínio gerenciado do Az
 1. Para criar um emparelhamento, selecione **+ Adicionar**. No exemplo a seguir, a *aadds-vnet* padrão é emparelhada com uma rede virtual chamada *myVnet*. Defina as seguintes configurações com seus próprios valores:
 
     * **Nome do emparelhamento de aadds-vnet para a rede virtual remota**: Um identificador descritivo das duas redes, como *aadds-vnet-to-myvnet*
-    * **Tipo de implantação da rede virtual**: *Gerenciador de Recursos*
+    * **Tipo de implantação da rede virtual**: *Resource Manager*
     * **Assinatura**: A assinatura da rede virtual com a qual deseja emparelhar, como *Azure*
     * **Rede virtual**: A rede virtual com a qual deseja emparelhar, como *myVnet*
     * **Nome do emparelhamento de myVnet para aadds-vnet**: Um identificador descritivo das duas redes, como *myvnet-to-aadds-vnet*
@@ -141,7 +141,7 @@ Ao criar uma VM que precisa usar o domínio gerenciado do Azure AD DS, selecione
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Entender as opções de conectividade de rede virtual para os recursos ingressados no domínio no Azure AD DS

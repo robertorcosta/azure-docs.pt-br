@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 7c097c2a7247c9cad6cdce8a89059ee8d90d159e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70899586"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para PHP com o Azure DevOps Projects
@@ -113,10 +113,10 @@ Agora você deve ver uma compilação em andamento. As alterações que você ac
 1. Selecione **Retenção**.   
     Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
-1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  
      O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
 
-1. Selecione as reticências (...) ao lado do pipeline de lançamento, depois selecione **Editar**.  
+1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**.  
     O pipeline de lançamento contém um pipeline, o qual define o processo de lançamento. 
 
 12. Em **Artefatos**, selecione **Soltar**.  
@@ -139,7 +139,7 @@ Agora você deve ver uma compilação em andamento. As alterações que você ac
 1. Selecione **Logs**.  
         Os logs contêm informações úteis sobre o processo de implantação. Eles podem ser exibidos durante e após as implantações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 É possível excluir o Serviço de Aplicativo do Azure e outros recursos relacionados quando você não precisa mais deles. Use a funcionalidade **Excluir** no painel do DevOps Projects.
 
