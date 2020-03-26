@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74868670"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrar uma floresta existente e uma nova com um único locatário do Azure AD
@@ -28,7 +28,7 @@ Você pode usar o ambiente criado neste tutorial para testes ou para se familiar
 
 Nesse cenário, há uma floresta sincronizada usando a sincronização do Azure AD Connect para um locatário do Azure AD. Além disso, você tem uma nova floresta que deseja sincronizar com o mesmo locatário do Azure AD. Você configurará o provisionamento de nuvem para a nova floresta. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Azure Active Directory
 
 1. Crie uma conta de administrador global somente em nuvem no seu locatário do Azure AD. Dessa forma, você pode gerenciar a configuração do seu locatário caso seus serviços locais falhem ou fiquem indisponíveis. Saiba mais sobre [adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A conclusão dessa etapa é essencial para garantir que você não seja bloqueado de seu locatário.
@@ -56,7 +56,7 @@ Nesse cenário, há uma floresta sincronizada usando a sincronização do Azure 
 1. Entre no servidor ingressado no domínio.  Se você estiver usando o tutorial [Ambiente básico do AD e Azure](tutorial-basic-ad-azure.md), será o DC1.
 2. Entre no portal do Azure usando credenciais de administrador global somente para nuvem.
 3. À esquerda, selecione **Azure Active Directory**, clique em **Azure AD Connect** e, no centro, selecione **Gerenciar provisionamento (versão prévia)** .</br>
-![Portal do Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 4. Clique em "Baixar agente"
 5. Execute o agente de provisionamento Azure AD Connect
 6. Na tela inicial, **Aceite** os termos de licenciamento e clique em **Instalar**.</br>
@@ -80,9 +80,9 @@ A verificação do agente ocorre no portal do Azure e no servidor local que est�
 ### <a name="azure-portal-agent-verification"></a>Verificação do agente de portal do Azure
 Para verificar se o agente está sendo visto pelo Azure, siga estas etapas:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. À esquerda, selecione **Azure Active Directory**, clique em **Azure AD Connect** e, no centro, selecione **Gerenciar provisionamento (versão prévia)** .</br>
-![Portal do Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 
 3.  Na tela **Provisionamento do Azure AD (versão prévia)** , clique em **Examinar todos os agentes**.
 ![Provisionamento do Azure AD](media/how-to-install/install7.png)</br>
@@ -123,7 +123,7 @@ Agora, você verificará se os usuários que você tinha em nosso diretório loc
 4. Verifique se você vê os novos usuários em nosso inquilino</br>
 ![Sincronização](media/tutorial-single-forest/synchronize1.png)</br>
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Teste fazendo login com um de nossos usuários
+## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
 
 1. Navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar localmente.</br>
