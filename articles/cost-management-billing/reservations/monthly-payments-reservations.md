@@ -5,36 +5,24 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.author: banders
-ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ede60adc13dadc38e18ee5ade468e01b16523f4f
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587083"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80235738"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
 
-Até agora, as reservas do Azure exigiam pagamento antecipado. Agora, você pode pagar por elas fazendo pagamentos mensais. Diferente de uma compra antecipada em que você paga o valor total, a forme de pagamento mensal divide o custo total da reserva uniformemente em cada mês do termo. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente.
+Você pode pagar por elas fazendo pagamentos mensais. Diferente de uma compra antecipada em que você paga o valor total, a forme de pagamento mensal divide o custo total da reserva uniformemente em cada mês do termo. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente.
 
-O valor do pagamento mensal poderá variar de acordo com o câmbio da moeda local do mercado para o mês corrente.
+Se a reserva for comprada usando o MCA (Contrato de Cliente da Microsoft), o valor do pagamento mensal poderá variar de acordo com o câmbio da moeda local do mercado para o mês corrente.
 
-Os pagamentos mensais estão disponíveis para:
+Os pagamentos mensais não estão disponíveis para: Databricks, reservas do SUSE Linux, planos de Red Hat e Computação do Red Hat OpenShift no Azure.
 
-- Máquinas virtuais
-- Armazenamento do Azure
-- BANCOS DE DADOS SQL
-- SQL Data Warehouse
-- Cosmos DB
-- Imposto de selo do Serviço de Aplicativo
-- Disco Gerenciado
-- Azure Data Explorer
-- Banco de Dados do Azure para MariaDB, MySQL e PostgreSQL
-- Solução VMware no Azure pela CloudSimple
-
-
-Compre as reservas no [portal do Azure](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
+Compre as reservas no [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs).
 
 ![Exemplo mostrando a compra da reserva](./media/monthly-payments-reservations/purchase-reservation.png)
 
@@ -58,11 +46,11 @@ Ao renovar uma reserva, você pode alterar a frequência de cobrança para mensa
 
 ## <a name="exchange-and-refunds"></a>Trocas e reembolsos
 
-Assim como outras reservas, você pode reembolsar ou trocar reservas adquiridas com cobrança mensal. No momento, você pode enviar uma solicitação de suporte para iniciar uma troca ou reembolso para uma reserva adquirida com cobrança mensal.
+Assim como outras reservas, você pode reembolsar ou trocar reservas adquiridas com cobrança mensal. 
 
 Quando você troca uma reserva paga mensalmente, o custo total do tempo de vida da nova compra deve ser maior do que os pagamentos restantes cancelados referentes à reserva devolvida. Não há outros limites ou taxas para trocas. Você pode trocar uma reserva paga antecipadamente para comprar uma nova reserva cobrada mensalmente. No entanto, o valor do tempo de vida da nova reserva deve ser maior que o valor rateado da reserva que está sendo devolvida.
 
-Se você cancelar uma reserva paga mensalmente, a Microsoft poderá aplicar um valor de cancelamento de 12% aos pagamentos confirmados que foram cancelados. No entanto, a Microsoft não está cobrando a penalidade no momento. Os pagamentos confirmados cancelados se acumulam até o limite de reembolso de US$ 50.000 USD. Se uma penalidade de cancelamento for cobrada, ela não afetará o limite de reembolso.
+Se você cancelar uma reserva paga mensalmente, os pagamentos futuros cancelados se acumularão até o limite de reembolso de US$ 50.000.
 
 Para saber mais sobre trocas e reembolsos, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](exchange-and-refund-azure-reservations.md).
 

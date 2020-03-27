@@ -53,7 +53,7 @@
               href: mobile-apps-with-xamarin.md
     - name: 2 - Migrar dados
       items:
-        - name: Usar a ferramenta de Migração de dados
+        - name: Como usar a ferramenta de Migração de Dados
           href: import-data.md
         - name: Usar o suporte em massa do .NET
           href: tutorial-sql-api-dotnet-bulk-import.md
@@ -85,7 +85,7 @@
       href: resource-manager-samples.md
 - name: Conceitos
   items:
-    - name: Bancos de dados relacionais vs. NoSQL
+    - name: Bancos de dados relacionais versus NoSQL
       href: relational-nosql.md
     - name: Distribuição global
       items:
@@ -549,8 +549,8 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Proteção avançada contra ameaças
-        - name: Controles de segurança interna
-          href: cosmos-db-security-controls.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Preparação corporativa
       items:
         - name: Backup online e restauração sob demanda
@@ -600,7 +600,7 @@
             - name: Feed de alteração
               href: cassandra-change-feed.md
             - name: Armazenar e gerenciar dados do Spring
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra e Spark
               items:
                 - name: Introdução
@@ -609,7 +609,7 @@
                   href: cassandra-spark-databricks.md
                 - name: Conectar-se usando o HDInsight
                   href: cassandra-spark-hdinsight.md
-                - name: Criar keyspace e tabela
+                - name: Criar tabela e keyspace
                   href: cassandra-spark-ddl-ops.md
                 - name: Inserir dados
                   href: cassandra-spark-create-ops.md
@@ -709,7 +709,7 @@
             - name: Gerenciar indexação de dados
               href: mongodb-indexing.md
             - name: Armazenar e gerenciar dados do Spring
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Comandos de extensão do MongoDB
               href: mongodb-custom-commands.md
               displayName: custom commands
@@ -776,7 +776,7 @@
             - name: Visualizar dados de gráfico
               href: graph-visualization.md
             - name: Armazenar e gerenciar dados do Spring
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Gerenciar usando modelos do Resource Manager
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
@@ -1073,9 +1073,9 @@
         - name: Hubs de Eventos do Azure e Armazenamento do Azure
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Usar iniciador do Spring Boot
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
         - name: Guia do desenvolvedor do Spring Data
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
         - name: Driver ODBC
           href: odbc-driver.md
     - name: Migrar dados para o Cosmos DB

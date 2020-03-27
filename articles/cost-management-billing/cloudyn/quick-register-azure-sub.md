@@ -1,24 +1,26 @@
 ---
-title: Registre sua assinatura do Azure no Cloudyn | Microsoft Docs
+title: Registrar a assinatura do Azure no Cloudyn
 description: Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 084cd852e0211ea494504a0d6e2350df567de0b1
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3b529d3dbe0fe41fb13fabfe32dfad208ef5012
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117790"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474621"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar uma assinatura individual do Azure e exibir dados de custo
 
 Você pode usar sua assinatura do Azure para registrar com Cloudyn. O registro fornece acesso ao portal do Cloudyn. Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn. Também mostra como começar a exibir dados de custo imediatamente.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

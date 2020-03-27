@@ -1,20 +1,20 @@
 ---
-title: Configurar contas de armazenamento para o Cloudyn no Azure | Microsoft Docs
+title: Configurar contas de armazenamento para Cloudyn no Azure
 description: Este artigo descreve como configurar contas de armazenamento do Azure e buckets de armazenamento AWS para Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: c741f303958630415d54cabc62c04430f0b8b89d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117634"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474587"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurar contas de armazenamento para Cloudyn
 
@@ -22,7 +22,9 @@ ms.locfileid: "77117634"
 
 Você pode salvar relatórios do Cloudyn no portal do Cloudyn, armazenamento do Azure ou AWS buckets de armazenamento. Salvar seus relatórios no portal de Cloudyn é gratuito. No entanto, salvar seus relatórios para o armazenamento de seu provedor serviço de nuvem é opcional e incorre em custos adicionais. Este artigo o ajudará a configurar contas de armazenamento do Azure e buckets de armazenamento Amazon Web Services (AWS) para armazenar seus relatórios.
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você deve ter uma conta de armazenamento do Azure ou uma bucket de armazenamento da Amazon.
 

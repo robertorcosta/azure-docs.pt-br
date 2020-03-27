@@ -1,19 +1,19 @@
 ---
-title: Início Rápido – Explorar os custos do Azure com análise de custo | Microsoft Docs
+title: Início Rápido – Explorar os custos do Azure com a análise de custo
 description: Este início rápido ajuda você a usar a análise de custo para explorar e analisar os custos organizacionais do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/11/2020
+ms.date: 03/24/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 82cd596f08136f6d9b327fc83122c0f32d8f9914
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649289"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155946"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custo
 
@@ -27,12 +27,13 @@ Neste guia de início rápido, você aprende a:
 - Personalizar as exibições de custo
 - Baixar dados de análise de custo
 
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 A análise de custo dá suporte a diferentes tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os dados de custo, você precisará de, pelo menos, acesso de leitura em sua conta do Azure.
 
 Para obter informações sobre como atribuir o acesso aos dados do Gerenciamento de Custos do Azure, confira [Atribuir acesso aos dados](../../cost-management/assign-access-acm-data.md).
+
+Se você tiver uma nova assinatura, não poderá usar imediatamente os recursos do Gerenciamento de Custos. Poderá levar até 48 horas para você poder usar todos os recursos do Gerenciamento de Custos.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -43,6 +44,10 @@ Para obter informações sobre como atribuir o acesso aos dados do Gerenciamento
 Para examinar os custos de análise de custo, abra o escopo no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e depois escolha **Análise de custo** no menu. Use o item **Escopo** para alterar para um escopo diferente na análise de custo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 O escopo que você seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, você não faz multisseleção. Em vez disso, selecione um escopo mais amplo em que os outros fiquem acumulados e, em seguida, filtre os escopos aninhados de que você precisa. É importante compreender essa abordagem pois algumas pessoas podem não ter acesso a um escopo pai único, que abranja vários escopos aninhados.
+
+Assista ao vídeo [como usar o Gerenciamento de Custos no portal do Azure](https://www.youtube.com/watch?v=mfxysF-kTFA) para saber mais sobre como usar a análise de custo.
+
+>[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
 A exibição inicial da análise de custos inclui as áreas a seguir.
 
@@ -65,7 +70,6 @@ A exibição inicial da análise de custos inclui as áreas a seguir.
 A previsão de custos mostra uma projeção dos custos estimados para o período de tempo selecionado. O modelo tem base em um modelo de regressão de série temporal. Ele exige pelo menos 10 dias de dados de uso e de custo recentes para prever custos com precisão. Para um determinado período de tempo, o modelo de previsão exige partes iguais de dados de treinamento para o período de previsão. Por exemplo, uma projeção de três meses exige pelo menos três meses de dados de custo e de uso recentes.
 
 O modelo usa no máximo seis meses de dados de treinamento para projetar os custos de um ano. No mínimo, ele precisa de sete dias de dados de treinamento para alterar sua previsão. A previsão tem base em mudanças drásticas, como picos e quedas, em padrões de custo e de uso. A previsão não gera projeções individuais para cada item nas propriedades **Agrupar por**. Ela fornece apenas uma previsão para os custos totais acumulados. Se você usar várias moedas, o modelo fornecerá a previsão apenas dos custos em USD.
-
 
 ## <a name="customize-cost-views"></a>Personalizar as exibições de custo
 
@@ -174,11 +178,17 @@ Para obter mais informações sobre termos, confira [Compreender os termos usado
 
 Salve e compartilhe exibições personalizadas com outras pessoas fixando a análise de custo ao painel do portal do Azure ou copiando um link para análise de custo.
 
+Assista ao vídeo [Como compartilhar e salvar exibições no Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=kQkXXj-SmvQ) para saber mais sobre como usar o portal para compartilhar conhecimento sobre custos em toda a sua organização.
+
+>[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
+
 Para fixar a análise de custo, selecione o ícone de alfinete no canto superior direito. Fixar a análise de custo salvará apenas a exibição principal de gráfico ou a tabela. Compartilhe o painel para dar a outras pessoas acesso ao bloco. Observe que isso compartilha apenas a configuração do painel e não concede acesso a outras pessoas aos dados subjacentes. Se você não tiver acesso aos custos, mas tiver acesso a um painel compartilhado, verá a mensagem "acesso negado".
 
 Para compartilhar um link para a análise de custo, selecione **Compartilhar** na parte superior da folha. Uma URL personalizada será mostrada, abrindo a exibição específica para esse escopo específico. Se você não tiver acesso aos custos e receber essa URL, verá a mensagem de "acesso negado".
 
 Para saber mais sobre como conceder acesso aos custos para cada escopo com suporte, examine [Entender e trabalhar com escopos](understand-work-scopes.md).
+
+
 
 ## <a name="automation-and-offline-analysis"></a>Automação e análise offline
 

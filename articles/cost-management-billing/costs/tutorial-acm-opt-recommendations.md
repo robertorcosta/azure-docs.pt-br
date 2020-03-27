@@ -3,21 +3,25 @@ title: Tutorial – Reduzir os custos do Azure com recomendações
 description: Este tutorial o ajuda a reduzir os custos do Azure quando você age com base em recomendações de otimização.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: de558ddad37e1621c633d26fff51d1506c237577
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245408"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155912"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos usando recomendações
 
 O Gerenciamento de Custos do Azure funciona com o Assistente do Azure para fornecer recomendações de otimização de custo. O Assistente do Azure ajuda você a otimizar e melhorar a eficiência identificando recursos ociosos e subutilizados. Este tutorial o conduz por um exemplo em que você identifica recursos do Azure subutilizados e, em seguida, você age para reduzir os custos.
+
+Assista ao vídeo [Como otimizar os investimentos em nuvem no Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=cSNPoAb-TNc) para saber mais sobre como usar o Assistente para otimizar os custos.
+
+>[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 
 Neste tutorial, você aprenderá como:
 

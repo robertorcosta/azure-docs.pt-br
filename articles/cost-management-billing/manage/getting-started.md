@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 3/11/2020
 ms.author: banders
-ms.openlocfilehash: e22663cf8cabd5d2abf487c96f2d69aeaaa90ab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199697"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238135"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -25,6 +25,8 @@ Ao se inscrever no Azure, há várias coisas que podem ser feitas para você ter
 - Integre os dados de cobrança e custo ao seu próprio sistema de relatórios usando APIs de [cobrança](https://docs.microsoft.com/rest/api/billing/) e [consumo](https://docs.microsoft.com/rest/api/consumption/).
 - Use recursos e ferramentas adicionais para clientes do EA (Contrato Enterprise), do CSP (Provedor de Soluções na Nuvem) e do Azure Sponsorship.
 - Use [alguns dos serviços mais populares do Azure gratuitamente por 12 meses](create-free-services.md) disponíveis com a [conta gratuita do Azure](https://azure.microsoft.com/free/). Juntamente com as recomendações listadas abaixo, consulte [Evitar ser cobrado na conta gratuita](avoid-charges-free-account.md).
+
+Se você precisar cancelar sua assinatura do Azure, confira [Cancelar sua assinatura do Azure](cancel-azure-subscription.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obter custos estimados antes de adicionar serviços do Azure
 
@@ -67,7 +69,7 @@ Exiba o custo estimado por mês durante a adição de um serviço no portal do A
 
 Crie [orçamentos](../costs/tutorial-acm-create-budgets.md) para gerenciar custos e crie [alertas](../costs/cost-mgt-alerts-monitor-usage-spending.md) que notificam você e os stakeholders automaticamente de anomalias de gastos e gastos em excesso.
 
-### <a name="costs"></a> Explorar e analisar os custos com a análise de custos
+### <a name="explore-and-analyze-costs-with-cost-analysis"></a><a name="costs"></a> Explorar e analisar os custos com a análise de custos
 
 Depois que os serviços do Azure estiverem em execução, verifique os custos regularmente para acompanhar seus gastos do Azure. Use a análise de custo para entender a procedência dos custos para o uso do Azure.
 
@@ -120,7 +122,7 @@ Caso esteja usando o Azure por meio de um MCA (Contrato de Cliente da Microsoft)
 
 Use as APIs de [cobrança](https://docs.microsoft.com/rest/api/billing/) e [consumo](https://docs.microsoft.com/rest/api/consumption/) do Azure para obter dados de cobrança e custo de forma programática. Use a API RateCard junto com a API de Uso para obter seu uso cobrado. Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](usage-rate-card-overview.md).
 
-## <a name="other-offers"></a> Casos especiais e recursos adicionais
+## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Casos especiais e recursos adicionais
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>Clientes do EA, CSP e Sponsorship
 Fale com seu gerente de conta ou parceiro do Azure para começar.
@@ -133,7 +135,7 @@ Fale com seu gerente de conta ou parceiro do Azure para começar.
 
 Se estiver gerenciando TI em uma grande organização, recomendamos a leitura de [Azure enterprise scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) e [enterprise IT white paper](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (baixe o .pdf, somente em inglês).
 
-### <a name="EA"></a> Visualizações de custo do Contrato Enterprise no portal do Azure
+### <a name="enterprise-agreement-cost-views-in-the-azure-portal"></a><a name="EA"></a> Visualizações de custo do Contrato Enterprise no portal do Azure
 
 As visualizações de custo Enterprise estão, no momento, em Visualização Pública. Itens a serem observados:
 
@@ -159,7 +161,7 @@ Caso tenha acesso ao Azure por meio de uma conta de cobrança do MCA (Contrato d
 
 ### <a name="request-a-service-level-agreement-credit-for-a-service-incident"></a>Solicitar um crédito do Contrato de Nível de Serviço para um incidente de serviço
 
-O SLA (contrato de nível de serviço) descreve os compromissos da Microsoft com relação ao tempo de atividade e à conectividade. Um incidente de serviço é relatado quando os serviços do Azure enfrentam um problema que afeta o tempo de atividade ou a conectividade, geralmente denominado *interrupção*. Se não alcançarmos e mantivermos os Níveis de Serviço para cada serviço, conforme descrito no SLA, você poderá ser qualificado para um crédito para uma parte de seus valores de serviço mensais.
+O SLA (Contrato de Nível de Serviço) descreve os compromissos da Microsoft com relação ao tempo de atividade e à conectividade. Um incidente de serviço é relatado quando os serviços do Azure enfrentam um problema que afeta o tempo de atividade ou a conectividade, geralmente denominado *interrupção*. Se não alcançarmos e mantivermos os Níveis de Serviço para cada serviço, conforme descrito no SLA, você poderá ser qualificado para um crédito para uma parte de seus valores de serviço mensais.
 
 Para solicitar um crédito:
 
@@ -167,7 +169,7 @@ Para solicitar um crédito:
 2. Crie uma solicitação de suporte.
 3. Em **Tipo de problema**, selecione **Cobrança**.
 4. Em **Tipo de problema**, selecione **Solicitação de Reembolso**.
-5. Adicione detalhes para especificar que você está solicitando um crédito SLA, mencione a data/hora/fuso horário, além dos serviços afetados (VMs, sites, etc.)
+5. Adicione detalhes para especificar que você está solicitando um crédito SLA, mencione a data/hora/fuso horário, além dos serviços afetados (VMs, sites etc.)
 6. Verifique seus detalhes de contato e selecione **Criar** para enviar sua solicitação.
 
 Os limites de SLA variam por serviço. Por exemplo, a Camada da Web do SQL tem um SLA de 99,9%, as VMs têm um SLA de 99,95% e a Camada Padrão do SQL tem um SLA de 99,99%.

@@ -1,26 +1,28 @@
 ---
-title: Usar relatórios do Cloudyn no Azure | Microsoft Docs
+title: Usar relatórios do Cloudyn no Azure
 description: Este artigo descreve a finalidade dos relatórios do Cloudyn incluídos no portal do Cloudyn para ajudar a usá-los efetivamente.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b3563e08963b0b32542dcbece2529c350981f557
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 633bf8126c1745cfd8db117966975bbf4ea2c9c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200003"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463536"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal Cloudyn
 
 Este artigo descreve a finalidade dos relatórios Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como você pode usar com eficiência os relatórios. A maioria dos relatórios é intuitiva e tem uma aparência uniforme. A maioria das ações que você pode fazer em um relatório, também poderá fazer em outros. Para obter uma visão geral sobre como usar os relatórios da Cloudyn, incluindo como personalizar e salvar ou agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
 
 O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda a analisar custos, criar e gerenciar orçamentos, exportar dados e examinar e agir de acordo com as recomendações de otimização que visam economizar dinheiro. Para obter mais informações, consulte [gerenciamento de custos do Azure](../cost-management-billing-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-types"></a>Tipos de relatório
 

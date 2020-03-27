@@ -84,7 +84,7 @@
           href: hana-large-instance-virtual-machine-migration.md
 - name: SAP HANA em Máquinas Virtuais do Azure
   items:
-    - name: Instalação da única instância SAP HANA
+    - name: Instalação do SAP HANA em VMs do Azure
       href: hana-get-started.md
     - name: Guia de implantação de CAL do SAP HANA S/4 ou HANA BW/4
       href: cal-s4h.md

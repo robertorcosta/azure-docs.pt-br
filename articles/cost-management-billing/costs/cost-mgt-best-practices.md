@@ -1,24 +1,23 @@
 ---
-title: Otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure | Microsoft Docs
+title: Otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 description: Este artigo ajuda a obter o valor máximo dos seus investimentos de nuvem, reduzir os custos e avaliar onde seu dinheiro está sendo gasto.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201060"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80157204"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
-O Gerenciamento de Custos do Azure fornece as ferramentas para planejar, analisar e reduzir os gastos para maximizar seu investimento na nuvem. Este documento fornece uma abordagem metódica do gerenciamento de custos e destaca as ferramentas disponíveis conforme você resolve os desafios de custo sua organização. O Azure facilita a criação e a implantação de soluções de nuvem. No entanto, é importante que essas soluções sejam otimizadas para minimizar os custos da organização. Siga os princípios descritos neste documento e use nossas ferramentas para ajudar a assegurar que sua organização esteja preparada para o sucesso.
+O Gerenciamento de Custos do Azure fornece as ferramentas para planejar, analisar e reduzir os gastos para maximizar seu investimento na nuvem. Este documento fornece uma abordagem metódica do gerenciamento de custos e destaca as ferramentas disponíveis conforme você resolve os desafios de custo da sua organização. O Azure facilita a criação e a implantação de soluções de nuvem. No entanto, é importante que essas soluções sejam otimizadas para minimizar os custos da organização. Siga os princípios descritos neste documento e use nossas ferramentas para ajudar a assegurar que sua organização esteja preparada para o sucesso.
 
 ## <a name="methodology"></a>Metodologia
 
@@ -116,7 +115,7 @@ Para obter mais informações, confira a [Calculadora de preços do Azure](https
 
 As Migrações para Azure são um serviço que avalia as cargas de trabalho atuais da organização nos datacenters locais. Ele fornece insights sobre o que uma solução de substituição do Azure deverá lhe oferecer. Primeiro, as Migrações analisam os computadores locais para determinar se a migração é viável. Em seguida, ela recomenda o dimensionamento da VM no Azure para maximizar o desempenho. Por fim, ele também cria uma estimativa de custo de uma solução baseada no Azure.
 
-Para obter mais informações, confira [Migrações para Azure](../../site-recovery/migrate-overview.md).
+Para obter mais informações, confira [Migrações para Azure](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
 
 ## <a name="analyze-and-manage-your-costs"></a>Analisar e gerenciar seus custos
 
@@ -125,6 +124,11 @@ Mantenha-se informado sobre como os custos da sua organização evoluem ao longo
 ### <a name="organize-and-tag-your-resources"></a>Organizar e marcar seus recursos
 
 Organize seus recursos com o custo em mente. Ao criar assinaturas e grupos de recursos, pense em quais são equipes responsáveis pelos custos associados. Faça com que os relatórios mantenham a organização em mente. As assinaturas e os grupos de recursos fornecem bons buckets para organizar e atribuir gastos em sua organização. As marcas fornecem uma boa maneira atribuir custos. Você pode usar as marcas como um filtro. E você pode usá-las para agrupar ao analisar dados e investigar custos. Os clientes do Enterprise Agreement também podem criar departamentos e colocar assinaturas neles. A organização baseada em custos no Azure ajuda a responsabilizar as pessoas relevantes na organização pelos custos para reduzir os gastos da equipe.
+
+Assista ao vídeo [Como examinar as políticas de marcação com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=nHQYcYGKuyw) para entender as ferramentas disponíveis e impor a marcação de recursos escalonáveis em sua organização.
+
+>[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
+
 
 ### <a name="use-cost-analysis"></a>Usar análise de custo
 

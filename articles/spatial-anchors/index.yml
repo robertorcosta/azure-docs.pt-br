@@ -1,91 +1,73 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação das Âncoras Espaciais do Azure
+summary: As Âncoras Espaciais são um serviço de desenvolvedor multiplataforma para você criar experiências de realidade misturada usando objetos que mantêm seu local em todos os dispositivos ao longo do tempo.
 metadata:
   title: Documentação das Âncoras Espaciais do Azure
-  meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
+  description: Use as Âncoras Espaciais do Azure para aplicativos com âncoras espaciais duráveis. Saiba mais sobre autenticação, descoberta de modos, experiência, registro em log e relocalização grosseira.
   services: azure-spatial-anchors
-  author: craigktreasure
-  manager: aliemami
   ms.service: azure-spatial-anchors
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 02/24/2019
+  author: craigktreasure
   ms.author: crtreasu
-abstract:
-  description: As Âncoras Espaciais são um serviço de desenvolvedor multiplataforma para você criar experiências de realidade misturada usando objetos que mantêm seu local em todos os dispositivos ao longo do tempo.
-sections:
-  - title: Conceitos
-    items:
-      - type: paragraph
-        text: 'Aprenda os principais conceitos para ajudar você a começar a usar as Âncoras Espaciais do Azure:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/spatial-anchors/concepts/authentication">Autenticação.</a>
-          - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Relacionamentos de Âncora e localização de caminho.</a>
-          - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Diretrizes de experiência.</a>
-          - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Registro em log e diagnósticos.</a>
-          - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Relocalização grosseira.</a>
-  - title: Guias de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: 'Saiba como criar seu primeiro aplicativo usando as Âncoras Espaciais do Azure:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /media/logos/logo_Windows.svg
-              alt: null
-            text: Unity HoloLens
-            href: quickstarts/get-started-unity-hololens.md
-          - image:
-              src: /media/logos/logo_android.svg
-              alt: null
-            text: Unity Android
-            href: quickstarts/get-started-unity-android.md
-          - image:
-              src: /media/logos/logo_ios.svg
-              alt: null
-            text: Unity iOS
-            href: quickstarts/get-started-unity-ios.md
-          - image:
-              src: /media/logos/logo_Windows.svg
-              alt: null
-            text: HoloLens
-            href: quickstarts/get-started-hololens.md
-          - image:
-              src: /media/logos/logo_android.svg
-              alt: null
-            text: Android
-            href: quickstarts/get-started-android.md
-          - image:
-              src: /media/logos/logo_ios.svg
-              alt: null
-            text: iOS
-            href: quickstarts/get-started-ios.md
-          - image:
-              src: /media/logos/logo_xamarin.svg
-              alt: null
-            text: Xamarin Android
-            href: quickstarts/get-started-xamarin-android.md
-          - image:
-              src: /media/logos/logo_xamarin.svg
-              alt: null
-            text: Xamarin iOS
-            href: quickstarts/get-started-xamarin-ios.md
-  - title: Tutoriais passo a passo
-    items:
-      - type: paragraph
-        text: 'Saiba como configurar, gerenciar, criar e implantar um aplicativo usando as Âncoras Espaciais do Azure:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Compartilhar entre sessões e dispositivos.</a>
-          - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Compartilhamento persistente com o Azure Cosmos DB.</a>
-          - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-unity-hololens-app">Iniciar um novo aplicativo do Unity HoloLens.</a>
-          - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">Iniciar um novo aplicativo Android.</a>
-  - title: Notas de versão
-    items:
-      - type: paragraph
-        text: '<a href="https://github.com/Azure/azure-spatial-anchors-samples/releases">Exibir notas sobre a versão no GitHub.</a>'
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 9a5d087416f29f0e4a15ae749453438a05f8ee9d
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79471227"
+landingContent:
+- title: Sobre as Âncoras Espaciais do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são as Âncoras Espaciais do Azure?
+      url: overview.md
+    - text: Exibir notas sobre a versão no GitHub
+      url: https://github.com/Azure/azure-spatial-anchors-samples/releases
+- title: Aprenda os principais conceitos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Autenticação
+      url: ./concepts/authentication.md
+    - text: Relacionamentos de Âncora e descoberta de caminho
+      url: ./concepts/anchor-relationships-way-finding.md
+    - text: Diretrizes de experiência
+      url: ./concepts/guidelines-effective-anchor-experiences.md
+    - text: Logon e diagnósticos
+      url: ./concepts/logging-diagnostics.md
+    - text: Relocalização grosseira
+      url: ./concepts/coarse-reloc.md
+- title: Crie seu primeiro aplicativo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Unity HoloLens
+      url: ./quickstarts/get-started-unity-hololens.md
+    - text: Unity Android
+      url: ./quickstarts/get-started-unity-android.md
+    - text: Unity iOS
+      url: ./quickstarts/get-started-unity-ios.md
+    - text: HoloLens
+      url: ./quickstarts/get-started-hololens.md
+    - text: Android
+      url: ./quickstarts/get-started-android.md
+    - text: iOS
+      url: ./quickstarts/get-started-ios.md
+    - text: Xamarin Android
+      url: ./quickstarts/get-started-xamarin-android.md
+    - text: Xamarin iOS
+      url: ./quickstarts/get-started-xamarin-ios.md
+- title: Configurar, gerenciar, compilar e implantar um aplicativo
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Compartilhar entre sessões e dispositivos
+      url: ./tutorials/tutorial-share-anchors-across-devices.md
+    - text: Compartilhamento persistente com o Azure Cosmos DB
+      url: ./tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+    - text: Iniciar um novo aplicativo do Unity HoloLens
+      url: ./tutorials/tutorial-new-unity-hololens-app.md
+    - text: Como iniciar um novo aplicativo Android
+      url: ./tutorials/tutorial-new-android-app.md

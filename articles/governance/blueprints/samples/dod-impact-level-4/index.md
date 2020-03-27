@@ -1,18 +1,18 @@
 ---
 title: Visão geral do exemplo de blueprint do Nível de Impacto 4 do DoD
 description: Visão geral do exemplo de Nível de Impacto 4 do DoD. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do Nível de Impacto 4 do DoD.
-ms.date: 02/09/2020
+ms.date: 03/12/2020
 ms.topic: sample
-ms.openlocfilehash: faac024a0bd18f6a2f10e441ca9e44526463e435
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: a67dae5399d3e2e24c226c53f915b91e2524e735
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154600"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "79415369"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Visão geral do exemplo de blueprint do Nível de Impacto 4 do DoD
 
-O exemplo de blueprint do DoD IL4 (Nível de Impacto 4 do Departamento de Defesa Americano) oferece proteções de governança por meio do [Azure Policy](../../../policy/overview.md) que ajudam a avaliar controles específicos do Nível de Impacto 4 do DoD. Esse blueprint ajuda os clientes a implantar um conjunto principal de políticas em qualquer arquitetura implantada pelo Azure que precise implementar os controles do Nível de Impacto 4 do DoD.
+O exemplo de blueprint do DoD IL4 (Nível de Impacto 4 do Departamento de Defesa Americano) oferece proteções de governança por meio do [Azure Policy](../../../policy/overview.md) que ajudam a avaliar controles específicos do Nível de Impacto 4 do DoD. Esse blueprint ajuda os clientes a implantar um conjunto principal de políticas em qualquer arquitetura implantada pelo Azure que precise implementar os controles do Nível de Impacto 4 do DoD. Para obter informações mais recentes sobre quais nuvens e serviços do Azure atendem à autorização de Nível de Impacto 4 do DoD, confira [Serviços do Azure por FedRAMP e escopo de auditoria SRG do DoD CC](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ## <a name="control-mapping"></a>Mapeamento de controle
 

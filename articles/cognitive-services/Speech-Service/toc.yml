@@ -5,20 +5,25 @@
   items:
     - name: O que é Serviço de fala?
       href: overview.md
-    - name: Experimentar o Serviço de Fala gratuitamente
+    - name: Experimente o serviço de Fala gratuitamente
       href: get-started.md
-    - name: Suporte de idioma e região
+    - name: Suporte a idiomas e voz
+      displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md
-      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice'
+    - name: Suporte de regiões
+      href: regions.md
 - name: Conversão de fala em texto
-  expanded: false
   items:
     - name: Documentação de conversão de fala em texto
       href: index-speech-to-text.yml
     - name: Visão geral
       items:
-        - name: O que é conversão de fala em texto?
+        - name: O que é a conversão de fala em texto em tempo real?
           href: speech-to-text.md
+        - name: O que é a conversão de fala em texto em lote?
+          href: batch-transcription.md
+        - name: Noções básicas de reconhecimento de fala
+          href: speech-to-text-basics.md
     - name: Guia de Início Rápido
       items:
         - name: Reconhecer uma fala com a entrada do microfone
@@ -29,31 +34,34 @@
           href: quickstarts/from-blob.md
     - name: Guias de instruções
       items:
-        - name: Alterar o idioma de origem do reconhecimento de fala
-          href: how-to-specify-source-language.md
         - name: Escolher o modo de reconhecimento de fala
           href: how-to-choose-recognition-mode.md
+        - name: Alterar o idioma de origem do reconhecimento de fala
+          href: how-to-specify-source-language.md
         - name: Melhorar a precisão com a Fala Personalizada
           href: how-to-custom-speech.md
+        - name: Usar formatos de entrada de áudio compactados
+          href: how-to-use-codec-compressed-audio-input-streams.md
+          displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
         - name: Melhorar a precisão com listas de frases
           href: how-to-phrase-lists.md
-        - name: Melhorar a precisão com modelos de locatário
-          href: tutorial-tenant-model.md
         - name: Selecionar um dispositivo de entrada de microfone específico
           href: how-to-select-audio-input-devices.md
         - name: Usar a detecção automática de idioma de origem
           href: how-to-automatic-language-detection.md
-        - name: Usar formatos de entrada de áudio compactados
-          href: how-to-use-codec-compressed-audio-input-streams.md
+    - name: Tutoriais
+      items:
+        - name: Melhorar a precisão com modelos de locatário
+          href: tutorial-tenant-model.md
     - name: Personalização
       items:
-        - name: Preparar dados
+        - name: Preparar dados para Fala Personalizada
           href: how-to-custom-speech-test-data.md
-        - name: Inspecionar os dados
+        - name: Inspecionar dados da Fala Personalizada
           href: how-to-custom-speech-inspect-data.md
-        - name: Avaliar a precisão
+        - name: Avaliar a precisão da Fala Personalizada
           href: how-to-custom-speech-evaluate-data.md
-        - name: Treinar um modelo personalizado
+        - name: Treinar um modelo para Fala Personalizada
           href: how-to-custom-speech-train-model.md
         - name: Implantar um modelo personalizado
           href: how-to-custom-speech-deploy-model.md
@@ -68,39 +76,40 @@
         - name: APIs do SDK de Fala
           items:
             - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/cppref'
             - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/javaref'
             - name: JavaScript
+              displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
               displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/objectivecref'
             - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
               displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/pythonref'
             - name: Notas de versão
-              href: releasenotes.md
               displayName: 'release notes,updates,what''s new,what is new,changes'
+              href: releasenotes.md
         - name: APIs REST
           items:
             - name: API REST de conversão de fala em texto
               href: rest-speech-to-text.md
-            - name: API REST de transcrição em lote
-              href: batch-transcription.md
     - name: Recursos
       items:
+        - name: Suporte ao idioma
+          href: 'language-support.md#speech-to-text'
+        - name: Suporte de regiões
+          href: 'regions.md#speech-to-text-text-to-speech-and-translation'
         - name: Perguntas frequentes sobre conversão de fala em texto
-          href: faq-stt.md
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
+          href: faq-stt.md
 - name: Conversão de texto em fala
-  expanded: false
   items:
     - name: Documentação de conversão de texto em fala
       href: index-text-to-speech.yml
@@ -120,9 +129,6 @@
       items:
         - name: Melhorar a sintetização com o SSML
           href: speech-synthesis-markup.md
-        - name: Melhorar a sintetização com a Voz Personalizada
-          href: how-to-custom-voice.md
-          displayName: custom voice
         - name: Sintetizar uma fala com a API de Áudio Longo
           href: long-audio-api.md
         - name: Obter uma lista de vozes com REST (Python)
@@ -148,8 +154,8 @@
         - name: Portal da Voz Personalizada
           items:
             - name: Introdução à Voz Personalizada
-              href: how-to-custom-voice.md
               displayName: 'custom voice, neural voice'
+              href: how-to-custom-voice.md
             - name: Preparar dados
               href: how-to-custom-voice-prepare-data.md
             - name: Criar e usar modelos de Voz Personalizada
@@ -165,39 +171,44 @@
         - name: SDK de fala
           items:
             - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/cppref'
             - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/javaref'
             - name: JavaScript
+              displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
               displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/objectivecref'
             - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
               displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/pythonref'
             - name: Notas de versão
-              href: releasenotes.md
               displayName: 'release notes,updates,what''s new,what is new,changes'
+              href: releasenotes.md
         - name: APIs REST
           items:
             - name: API REST conversão de texto em fala
               href: rest-text-to-speech.md
-        - name: Conjuntos fonéticos de SSML
-          href: speech-ssml-phonetic-sets.md
     - name: Recursos
       items:
+        - name: Suporte de voz Standard
+          href: 'language-support.md#standard-voices'
+        - name: Suporte de voz neural
+          href: 'language-support.md#neural-voices'
+        - name: Suporte de regiões
+          href: 'regions.md#speech-to-text-text-to-speech-and-translation'
+        - name: Conjuntos fonéticos de SSML
+          href: speech-ssml-phonetic-sets.md
         - name: Perguntas frequentes sobre conversão de texto em fala
-          href: faq-text-to-speech.md
           displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
+          href: faq-text-to-speech.md
 - name: Tradução de fala
-  expanded: false
   items:
     - name: Documentação da tradução de fala
       href: index-speech-translation.yml
@@ -215,47 +226,50 @@
           href: quickstarts/translate-speech-to-speech.md
     - name: Tutoriais
       items:
-        - name: Criar um aplicativo Flask para traduzir e sintetizar textos com as APIs REST
+        - name: Traduzir e sintetizar textos com as APIs REST
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
     - name: Referência
       items:
         - name: SDK de fala
           items:
             - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/cppref'
             - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/javaref'
             - name: JavaScript
+              displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
               displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/objectivecref'
             - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
               displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/pythonref'
             - name: Notas de versão
-              href: releasenotes.md
               displayName: 'release notes,updates,what''s new,what is new,changes'
+              href: releasenotes.md
     - name: Recursos
       items:
+        - name: Suporte ao idioma
+          href: 'language-support.md#speech-translation'
+        - name: Suporte de regiões
+          href: 'regions.md#speech-to-text-text-to-speech-and-translation'
         - name: Perguntas frequentes sobre tradução de fala
           href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: Reconhecimento de intenção
-  expanded: false
   items:
     - name: Documentação do reconhecimento de intenção
       href: index-intent-recognition.yml
     - name: Guia de Início Rápido
       items:
         - name: 'Reconhecer uma fala, intenções e entidades'
-          href: quickstarts/intent-recognition.md
           displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
+          href: quickstarts/intent-recognition.md
     - name: Guias de instruções
       items:
         - name: 'Reconhecer intenções de Fala com o LUIS, C#'
@@ -265,46 +279,52 @@
         - name: SDK de fala
           items:
             - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/cppref'
             - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
               displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/csharpref'
             - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/javaref'
             - name: JavaScript
+              displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
               href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
             - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
               displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/objectivecref'
             - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
               displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/pythonref'
             - name: Notas de versão
-              href: releasenotes.md
               displayName: 'release notes,updates,what''s new,what is new,changes'
+              href: releasenotes.md
         - name: Serviço LUIS
           items:
             - name: Recursos para desenvolvedores do LUIS
               href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
+    - name: Recursos
+      items:
+        - name: Suporte ao idioma
+          href: ../luis/luis-language-support.md
+        - name: Suporte de regiões
+          href: 'regions.md#intent-recognition'
 - name: Cenários de conversa
-  expanded: false
   items:
     - name: Documentação de cenários de conversa
+      displayName: 'meeting, meetings, conversation, call center, transcription, multi-device conversation'
       href: index-conversation-scenarios.yml
     - name: Transcrição de conversa
       items:
         - name: Visão geral
           items:
-            - name: Sobre a transcrição de conversas
+            - name: O que é transcrição de conversas?
               href: conversation-transcription.md
         - name: Guias de instruções
           items:
             - name: Lidar com cenários de call center
-              href: call-center-transcription.md
               displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
+              href: call-center-transcription.md
             - name: Transcrição de conversas em tempo real
               href: how-to-use-conversation-transcription.md
             - name: Transcrição de conversas assíncrona
@@ -314,26 +334,26 @@
             - name: SDK de fala
               items:
                 - name: C++
-                  href: 'https://aka.ms/csspeech/cppref'
                   displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+                  href: 'https://aka.ms/csspeech/cppref'
                 - name: 'C#'
-                  href: 'https://aka.ms/csspeech/csharpref'
                   displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+                  href: 'https://aka.ms/csspeech/csharpref'
                 - name: Java
-                  href: 'https://aka.ms/csspeech/javaref'
                   displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+                  href: 'https://aka.ms/csspeech/javaref'
                 - name: JavaScript
+                  displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
                   href: 'https://aka.ms/csspeech/javascriptref'
-                  displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
                 - name: Objective-C
-                  href: 'https://aka.ms/csspeech/objectivecref'
                   displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+                  href: 'https://aka.ms/csspeech/objectivecref'
                 - name: Python
-                  href: 'https://aka.ms/csspeech/pythonref'
                   displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+                  href: 'https://aka.ms/csspeech/pythonref'
                 - name: Notas de versão
-                  href: releasenotes.md
                   displayName: 'release notes,updates,what''s new,what is new,changes'
+                  href: releasenotes.md
             - name: APIs REST
               items:
                 - name: APIs REST de transcrição de conversas
@@ -342,7 +362,7 @@
       items:
         - name: Visão geral
           items:
-            - name: Sobre conversa em vários dispositivos
+            - name: O que é a conversa em vários dispositivos?
               href: multi-device-conversation.md
         - name: Guia de Início Rápido
           items:
@@ -357,7 +377,6 @@
                 - name: 'C#'
                   href: 'https://aka.ms/csspeech/csharpref'
 - name: Assistentes de voz
-  expanded: false
   items:
     - name: Documentação de assistentes de voz
       href: index-voice-assistants.yml
@@ -367,27 +386,27 @@
           href: voice-assistants.md
     - name: Comandos personalizados (versão prévia)
       items:
-        - name: O que são comandos personalizados?
+        - name: O que é o aplicativo de Comandos Personalizados?
           href: custom-commands.md
         - name: Inícios rápidos
           items:
-            - name: Criar um comando personalizado (versão prévia)
+            - name: Criar um aplicativo de Comandos Personalizados
               href: quickstart-custom-speech-commands-create-new.md
-            - name: Criar um comando personalizado com parâmetros (versão prévia)
+            - name: Criar um comando personalizado com parâmetros
               href: quickstart-custom-speech-commands-create-parameters.md
-            - name: Usar comandos personalizados com Voz Personalizada (versão prévia)
+            - name: Usar Comandos Personalizados com Voz Personalizada
               href: quickstart-custom-speech-commands-select-custom-voice.md
-            - name: Usar comandos personalizados com o SDK de Fala (versão prévia)
+            - name: Usar Comandos Personalizados com o SDK de Fala
               href: quickstart-custom-speech-commands-speech-sdk.md
         - name: Guias de instruções
           items:
-            - name: Atender a comandos personalizados com o SDK de Fala
+            - name: Preencher comandos de um cliente
               href: how-to-custom-speech-commands-fulfill-sdk.md
-            - name: Adicionar a validação de parâmetro a um comando personalizado
+            - name: Adicionar a validação de parâmetro
               href: how-to-custom-speech-commands-validations.md
-            - name: Adicionar uma confirmação a um Comando Personalizado
+            - name: Adicionar uma confirmação
               href: how-to-custom-speech-commands-confirmations.md
-            - name: Adicionar uma correção de uma etapa a um Comando Personalizado
+            - name: Adicionar uma correção em uma etapa
               href: how-to-custom-speech-commands-one-step-correction.md
     - name: Direct Line Speech
       items:
@@ -395,12 +414,8 @@
           href: direct-line-speech.md
         - name: Inícios rápidos
           items:
-            - name: 'C# (UWP)'
-              href: quickstart-voice-assistant-csharp-uwp.md
-            - name: 'Java (Windows, macOS, Linux)'
-              href: quickstart-voice-assistant-java-jre.md
-            - name: Java (Android)
-              href: quickstart-voice-assistant-java-android.md
+            - name: Assistente Criar uma voz personalizada
+              href: quickstarts/voice-assistants.md
         - name: Tutoriais
           items:
             - name: Habilitar o bot por voz com o SDK de Fala
@@ -416,26 +431,24 @@
         - name: Detecção de palavra-chave personalizada
           href: speech-devices-sdk-create-kws.md
 - name: Hosting
-  expanded: false
   items:
     - name: Documentação de hosting
       href: index-hosting.yml
     - name: Guias de instruções
       items:
-        - name: Instalar e executar contêineres
-          href: speech-container-howto.md
+        - name: Instalar e executar contêineres de Fala
           displayName: 'containers,install container,run container'
-        - name: Configurar contêineres
-          href: speech-container-configuration.md
+          href: speech-container-howto.md
+        - name: Configurar contêineres de fala
           displayName: 'containers,configure containers,container config,configuration'
-        - name: Kubernetes e Helm
-          href: speech-container-howto-on-premises.md
+          href: speech-container-configuration.md
+        - name: Contêineres de Fala com o Kubernetes e o Helm
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
-        - name: Instâncias de Contêiner do Azure
-          href: deploy-speech-on-container-instances.md
+          href: speech-container-howto-on-premises.md
+        - name: Contêineres de Fala em instâncias de contêiner do Azure
           displayName: 'ACI,azure container instances,container instances,containers'
+          href: deploy-speech-on-container-instances.md
 - name: SDK de fala
-  expanded: false
   items:
     - name: Visão geral
       items:
@@ -448,8 +461,8 @@
     - name: Guia de Início Rápido
       items:
         - name: Configurar o SDK de Fala
-          href: quickstarts/setup-platform.md
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+          href: quickstarts/setup-platform.md
     - name: Guias de instruções
       items:
         - name: Habilitar o registro em log
@@ -457,13 +470,13 @@
         - name: Acompanhar o uso de memória
           href: how-to-track-speech-sdk-memory-usage.md
         - name: Configurar o OpenSSL para Linux
-          href: how-to-configure-openssl-linux.md
           displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+          href: how-to-configure-openssl-linux.md
     - name: Exemplos
       items:
         - name: Amostras do SDK de Fala (GitHub)
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Amostras do SDK de Dispositivos de Fala (GitHub)
+        - name: Amostras do SDK de dispositivos de Fala (GitHub)
           href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: Referência
       items:
@@ -482,15 +495,14 @@
         - name: Notas de Versão do SDK de Fala
           href: releasenotes.md
 - name: Dispositivos
-  expanded: false
   items:
     - name: Documentação dos dispositivos de fala
       href: index-devices.yml
     - name: Visão geral
       items:
-        - name: Sobre os dispositivos de fala do SDK
+        - name: O que é o SDK dos dispositivos de Fala?
           href: speech-devices-sdk.md
-        - name: Obter SDK dos dispositivos de fala
+        - name: Obter o SDK dos dispositivos de Fala
           href: get-speech-devices-sdk.md
     - name: Hardware
       items:
@@ -502,42 +514,40 @@
           href: speech-devices-sdk-roobo-v2.md
     - name: Guia de Início Rápido
       items:
-        - name: Usar o SDK dos dispositivos de fala
+        - name: Usar o SDK dos dispositivos de Fala
           href: speech-devices-sdk-quickstart.md
     - name: Recursos
       items:
-        - name: Solução de problemas do SDK de Dispositivos de Fala
+        - name: Solução de problemas do SDK de dispositivos de Fala
           href: speech-devices-sdk-troubleshooting.md
     - name: Referência
       items:
-        - name: Notas sobre a versão do SDK de Dispositivos de Fala
+        - name: Notas sobre a versão do SDK de dispositivos de Fala
           href: devices-sdk-release-notes.md
 - name: Migração
-  expanded: false
   items:
     - name: Da Fala do Bing
       href: how-to-migrate-from-bing-speech.md
-    - name: Do Serviço de Fala Personalizado
-      href: how-to-migrate-from-custom-speech-service.md
     - name: Da API de Tradução de Fala
       href: how-to-migrate-from-translator-speech-api.md
 - name: Recursos
-  expanded: false
   items:
     - name: Suporte
-      href: support.md
       displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
+      href: support.md
     - name: Regiões
       href: regions.md
     - name: Documentação do Swagger
       href: swagger-documentation.md
     - name: Nuvens Soberanas
-      href: sovereign-clouds.md
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
+      href: sovereign-clouds.md
     - name: Preços e limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Criptografia
+      href: speech-encryption-of-data-at-rest.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacidade e cookies

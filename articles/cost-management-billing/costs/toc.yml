@@ -22,6 +22,8 @@
       items:
         - name: Práticas recomendadas de Gerenciamento de Custos do Azure
           href: cost-mgt-best-practices.md
+        - name: Escolher entre o Gerenciamento de Custos e o Cloudyn
+          href: choose-between-azure-cost-management-cloudyn.md
         - name: Entender os dados de Gerenciamento de Custos
           href: understand-cost-mgt-data.md
         - name: Entender e trabalhar com escopos

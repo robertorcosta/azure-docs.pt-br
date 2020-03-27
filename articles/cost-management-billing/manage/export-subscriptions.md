@@ -1,7 +1,6 @@
 ---
-title: Exportar as informações de nível superior da assinatura do Azure | Microsoft Docs
+title: Exportar as informações de nível superior da assinatura do Azure
 description: Descreve como é possível exibir todas as IDs da assinatura do Azure associadas à conta.
-keywords: ''
 author: bandersmsft
 ms.reviewer: matrive
 tags: billing
@@ -9,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 83b6a9db0107cb35448aec491c81c2630e87ddd7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 87135b309f0406528bcada1cd906dd2f8535d1ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199714"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202889"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exportar e exibir as informações da assinatura de nível superior
 Caso seja necessário exibir o conjunto de IDs da assinatura associadas às credenciais do usuário, [baixe um arquivo .json com as informações da assinatura no Centro de Contas do Azure](https://account.azure.com/subscriptions/download).

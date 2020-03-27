@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6ef96bf248c449b318cebaba9c53f63e448855
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c6883dfd0f4c3bc11afdd68ead8c8c84729b1880
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199153"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065696"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no arquivo de uso e encargos do Azure de um Contrato de Cliente da Microsoft
 
@@ -88,6 +88,8 @@ meterCategory | Nome da categoria de classificação do medidor. Por exemplo, *S
 meterSubCategory | Nome da categoria de subclassificação do medidor
 meterRegion | Nome da região em que o medidor do serviço está disponível. Identifica a localização do data center para determinados serviços que são cobrados com base na localização do data center.
 oferta | Nome da oferta comprada
+PayGPrice | Preço de varejo do recurso.
+PricingModel | Identificador que indica como o medidor é cobrado (valores: Sob demanda, Reserva, Spot)
 productId | Identificador exclusivo do produto que acumula os encargos
 product | Nome do produto que acumula os encargos
 ID da assinatura | Identificador exclusivo da assinatura que acumula os encargos

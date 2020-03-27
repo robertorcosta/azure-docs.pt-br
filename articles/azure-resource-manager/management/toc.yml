@@ -66,9 +66,13 @@
               href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
     - name: Marcas
       items:
-        - name: Recursos de marca
+        - name: Guia de decisão
+          href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Usar marcações
           href: tag-resources.md
-        - name: Suporte a marcas
+        - name: Políticas – conformidade
+          href: tag-policies.md
+        - name: Tipos de recurso compatíveis
           href: tag-support.md
     - name: Gerenciar grupos de recursos
       items:

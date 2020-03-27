@@ -39,7 +39,7 @@ Transmita logs da plataforma no Azure para os hubs de eventos para fornecer a se
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você já tiver uma configuração de diagnóstico usando esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
 
 A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado no portal do Azure na guia Configurar para seu namespace de hubs de eventos.

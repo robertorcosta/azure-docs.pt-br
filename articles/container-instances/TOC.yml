@@ -59,6 +59,8 @@
           href: container-instances-vnet.md
         - name: Implantar a partir do Registro de Contêiner do Azure
           href: container-instances-using-azure-container-registry.md
+        - name: Implantar com GitHub Actions (versão prévia)
+          href: container-instances-github-action.md
         - name: Criptografar dados de implantação
           href: container-instances-encrypt-data.md
         - name: Implantar em hosts dedicados
@@ -83,6 +85,8 @@
           href: container-instances-gpu.md
         - name: Habilitar ponto de extremidade SSL no sidecar
           href: container-instances-container-group-ssl.md
+        - name: Expor endereço IP estático
+          href: container-instances-application-gateway.md
     - name: Montar volumes de dados
       items:
         - name: Compartilhamento de arquivos do Azure

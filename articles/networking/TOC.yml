@@ -22,6 +22,8 @@
           href: disaster-recovery-dns-traffic-manager.md
     - name: Planejar e projetar
       items:
+        - name: Suporte para trabalhar remotamente
+          href: working-remotely-support.md
         - name: Redes virtuais
           href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Conectividade entre locais – VPN
@@ -59,7 +61,7 @@
           href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Conectar local – dedicado
           href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: Início rápido
+- name: Guia de Início Rápido
   items:
     - name: Criar sua primeira rede virtual
       href: ../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json

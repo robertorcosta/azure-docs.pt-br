@@ -1,20 +1,20 @@
 ---
-title: Conectar uma conta do Amazon Web Services para o Cloudyn no Azure | Microsoft Docs
+title: Conectar uma conta do Amazon Web Services para o Cloudyn no Azure
 description: Conectar uma conta do Amazon Web Services para exibição dos dados de uso e custo em relatórios do Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 28229ad71327daefb8e42881cf001b6a3ddd3a53
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ROBOTS: NOINDEX
+ms.openlocfilehash: 38e5e253c32a2f85e18c80bdefa7d3b640da2e50
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086849"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464435"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectar uma conta do Amazon Web Services
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre as identidades IAM do AWS, consulte [Identid
 
 Além disso, você habilita os relatórios de cobrança detalhados do AWS e armazena as informações em bucket de serviço (S3) de armazenamento simples do AWS. Relatórios detalhados de cobrança incluem encargos de cobrança com informações de marca e recurso por hora. Armazenar os relatórios permite ao Cloudyn recuperá-los do bucket e exibir as informações em seus relatórios.
 
-
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 ## <a name="aws-role-based-access"></a>Acesso baseado em função do AWS
 
 As seções a seguir detalham como criar uma função IAM somente leitura para fornecer acesso ao Cloudyn.
@@ -131,43 +131,43 @@ Crie um bucket S3 para armazenar informações de cobrança detalhadas.
 
    ```json
    {
-    "Version": "2012-10-17",
-    "Id": "Policy1426774604000",
-    "Statement": [
-        {
-            "Sid": "Stmt1426774604000",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::386209384616:root"
-            },
-            "Action": [
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicy"
-            ],
-            "Resource": "arn:aws:s3:::<BillingBucketName>"
-        },
-        {
-            "Sid": "Stmt1426774604001",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::386209384616:root"
-            },
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::<BillingBucketName>/*"
-        },
-        {
-            "Sid": "Stmt1426774604002",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "<ReadOnlyUserOrRole>"
-            },
-            "Action": [
-                "s3:List*",
-                "s3:Get*"
-            ],
-            "Resource": "arn:aws:s3:::<BillingBucketName>/*"
-        }
-    ]
+      "Version": "2012-10-17",
+      "Id": "Policy1426774604000",
+      "Statement": [
+          {
+              "Sid": "Stmt1426774604000",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": [
+                  "s3:GetBucketAcl",
+                  "s3:GetBucketPolicy"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>"
+          },
+          {
+              "Sid": "Stmt1426774604001",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": "s3:PutObject",
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          },
+          {
+              "Sid": "Stmt1426774604002",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "<ReadOnlyUserOrRole>"
+              },
+              "Action": [
+                  "s3:List*",
+                  "s3:Get*"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          }
+      ]
    }
    ```
 

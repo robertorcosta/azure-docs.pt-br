@@ -23,23 +23,10 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: Conectar redes virtuais
       href: tutorial-connect-virtual-networks-portal.md
-    - name: NAT
-      items:
-        - name: Criar gateway NAT – Portal
-          href: quickstart-create-nat-gateway-portal.md
-        - name: Criar gateway NAT – PowerShell
-          href: quickstart-create-nat-gateway-powershell.md
-        - name: Criar gateway NAT – CLI
-          href: quickstart-create-nat-gateway-cli.md
-        - name: Criar gateway NAT – Modelo ARM
-          displayname: Resource Manager
-          href: quickstart-create-nat-gateway-template.md
-        - name: Criar e validar o gateway NAT – Portal
-          href: tutorial-create-validate-nat-gateway-portal.md
-        - name: Criar e validar o gateway NAT – PowerShell
-          href: tutorial-create-validate-nat-gateway-powershell.md
-        - name: Criar e validar o gateway NAT – CLI
-          href: tutorial-create-validate-nat-gateway-cli.md
+    - name: Criar gateway NAT
+      href: quickstart-create-nat-gateway-portal.md
+    - name: Criar e validar gateway NAT
+      href: tutorial-create-validate-nat-gateway-portal.md
 - name: Exemplos
   items:
     - name: CLI do Azure
@@ -359,6 +346,19 @@
           href: move-across-regions-publicip-portal.md
         - name: IPs públicos – PowerShell
           href: move-across-regions-publicip-powershell.md
+    - name: NAT
+      items:
+        - name: Criar gateway NAT – PowerShell
+          href: quickstart-create-nat-gateway-powershell.md
+        - name: Criar gateway NAT – CLI
+          href: quickstart-create-nat-gateway-cli.md
+        - name: Criar gateway NAT – Modelo ARM
+          displayname: Resource Manager
+          href: quickstart-create-nat-gateway-template.md
+        - name: Criar e validar o gateway NAT – PowerShell
+          href: tutorial-create-validate-nat-gateway-powershell.md
+        - name: Criar e validar o gateway NAT – CLI
+          href: tutorial-create-validate-nat-gateway-cli.md
     - name: Solucionar problemas
       items:
         - name: Solucionar problemas de emparelhamento de rede virtual

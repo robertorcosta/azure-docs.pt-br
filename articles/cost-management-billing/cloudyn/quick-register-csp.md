@@ -1,25 +1,27 @@
 ---
 title: Registrar-se usando as informações do Parceiro CSP com o Cloudyn no Azure
 description: Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: ea156e8efabcb73b324f0a102945b227558cece9
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: ecf9603f8519cf3ab0e497290f04f66e6e19434d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117782"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463927"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
 Como parceiro CSP, você pode registrar-se com o Cloudyn. O registro fornece acesso ao portal do Cloudyn. Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn. Também mostra como começar a exibir dados de custo imediatamente.
 
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 > [!NOTE]
 >

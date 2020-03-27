@@ -44,9 +44,14 @@
     - name: Exibir e gerenciar clientes
       displayName: my customers
       href: ./how-to/view-manage-customers.md
-    - name: Usar logs do Azure Monitor em escala
-      displayName: 'log, analytics, analyze, activity'
-      href: ./how-to/monitor-at-scale.md
+    - name: Integração com o Azure Monitor
+      items:
+        - name: Usar logs do Azure Monitor em escala
+          displayName: 'log, analytics, analyze, activity'
+          href: ./how-to/monitor-at-scale.md
+        - name: Monitorar alterações na delegação
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Integração do Azure Policy
       items:
         - name: Implantar uma política em escala

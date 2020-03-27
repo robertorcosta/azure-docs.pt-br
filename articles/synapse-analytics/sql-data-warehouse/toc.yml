@@ -1,0 +1,407 @@
+- name: Documentação do Azure Synapse Analytics
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Azure Synapse Analytics?
+      href: sql-data-warehouse-overview-what-is.md
+    - name: Arquitetura do Azure Synapse Analytics
+      href: massively-parallel-processing-mpp-architecture.md
+    - name: Unidades de data warehouse
+      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+    - name: Roteiro
+      href: cheat-sheet.md
+    - name: Práticas recomendadas
+      href: sql-data-warehouse-best-practices.md
+    - name: Limites de capacidade
+      href: sql-data-warehouse-service-capacity-limits.md
+    - name: Perguntas frequentes
+      href: sql-data-warehouse-overview-faq.md
+- name: Notas de versão
+  items:
+    - name: Versão recente
+      href: release-notes-10-0-10106-0.md
+    - name: Agenda da atualização da região Gen2
+      href: gen2-migration-schedule.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Criar e conectar
+      items:
+        - name: Portal
+          href: create-data-warehouse-portal.md
+        - name: PowerShell
+          href: create-data-warehouse-powershell.md
+    - name: Pausar e retomar
+      items:
+        - name: Portal
+          href: pause-and-resume-compute-portal.md
+        - name: PowerShell
+          href: pause-and-resume-compute-powershell.md
+    - name: Escala
+      items:
+        - name: Portal
+          href: quickstart-scale-compute-portal.md
+        - name: PowerShell
+          href: quickstart-scale-compute-powershell.md
+        - name: T-SQL
+          href: quickstart-scale-compute-tsql.md
+    - name: Gerenciamento de carga de trabalho
+      items:
+        - name: Criar um classificador de carga de trabalho
+          items:
+            - name: T-SQL
+              href: quickstart-create-a-workload-classifier-tsql.md
+        - name: Criar isolamento de carga de trabalho
+          items:
+            - name: T-SQL
+              href: quickstart-configure-workload-isolation-tsql.md
+- name: Conceitos
+  items:
+    - name: Segurança
+      items:
+        - name: Visão geral
+          href: sql-data-warehouse-overview-manage-security.md
+        - name: Segurança de dados avançada
+          items:
+            - name: Visão geral
+              href: /azure/sql-database/sql-database-advanced-data-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Descoberta e classificação de dados
+              href: /azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Avaliação de vulnerabilidade
+              href: /azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Proteção Avançada contra Ameaças
+              href: /azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Auditoria
+          href: /azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Segurança de rede
+          items:
+            - name: Regras de firewall
+              href: /azure/sql-database/sql-database-firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Link Privado
+              href: /azure/sql-database/sql-database-private-endpoint-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Pontos de extremidade de serviço de rede virtual
+              href: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Autenticação
+          items:
+            - name: Visão geral
+              href: sql-data-warehouse-authentication.md
+            - name: Azure Active Directory
+              href: /azure/sql-database/sql-database-aad-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Logons e usuários
+              href: /azure/sql-database/sql-database-manage-logins?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Multi-Factor Auth
+              href: /azure/sql-database/sql-database-ssms-mfa-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Controle de acesso
+          items:
+            - name: Visão geral
+              href: /azure/sql-database/sql-database-manage-logins?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Segurança ao nível da coluna
+              href: column-level-security.md
+            - name: Segurança em nível de linha
+              href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Proteção de dados
+          items:
+            - name: Mascaramento de dados dinâmicos
+              href: /azure/sql-database/sql-database-dynamic-data-masking-get-started?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: Visão geral do TDE (Transparent Data Encryption)
+              href: /azure/sql-database/transparent-data-encryption-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+            - name: TDE com Bring Your Own Key
+              href: /azure/sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+    - name: Carregamento de dados
+      items:
+        - name: Visão geral
+          href: design-elt-data-loading.md
+        - name: Práticas recomendadas
+          href: guidance-for-loading-data.md
+        - name: Compactação ColumnStore
+          href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
+    - name: Desenvolvimento
+      items:
+        - name: Visão geral
+          href: sql-data-warehouse-overview-develop.md
+        - name: Práticas recomendadas
+          href: sql-data-warehouse-best-practices-development.md
+        - name: JSON
+          items:
+            - name: JSON
+              href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: ISJSON
+              href: /sql/t-sql/functions/isjson-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: JSON_VALUE
+              href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: JSON_QUERY
+              href: /sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: JSON_MODIFY
+              href: /sql/t-sql/functions/json-modify-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: OPENJSON
+              href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Exibição materializada
+          items:
+            - name: Diretrizes para ajuste do desempenho
+              href: performance-tuning-materialized-views.md
+            - name: Criar
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: Alterar
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: Verificar sobrecarga de exibição
+              href: /sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Índice columnstore clusterizado ordenado
+          items:
+            - name: Diretrizes para ajuste do desempenho
+              href: performance-tuning-ordered-CCI.md
+            - name: Criar Tabela
+              href: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: CTAS
+              href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: Criar e alterar índice
+              href: /sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Cache de conjunto de resultados
+          items:
+            - name: Diretrizes para ajuste do desempenho
+              href: performance-tuning-result-set-caching.md
+            - name: Configurar para um banco de dados
+              href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: Configurar para uma sessão
+              href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: Verificar o tamanho do cache
+              href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+            - name: Limpar o cache
+              href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Tabelas
+          items:
+            - name: Visão geral
+              href: sql-data-warehouse-tables-overview.md
+            - name: CTAS
+              href: sql-data-warehouse-develop-ctas.md
+            - name: Tipos de dados
+              href: sql-data-warehouse-tables-data-types.md
+            - name: Tabelas distribuídas
+              href: sql-data-warehouse-tables-distribute.md
+            - name: Restrições de tabela
+              href: sql-data-warehouse-table-constraints.md
+            - name: Índices
+              href: sql-data-warehouse-tables-index.md
+            - name: Identidade
+              href: sql-data-warehouse-tables-identity.md
+            - name: Partições
+              href: sql-data-warehouse-tables-partition.md
+            - name: Tabelas replicadas
+              href: design-guidance-for-replicated-tables.md
+            - name: Estatísticas
+              href: sql-data-warehouse-tables-statistics.md
+            - name: Temporário
+              href: sql-data-warehouse-tables-temporary.md
+        - name: Elementos de linguagem T-SQL
+          items:
+            - name: Loops
+              href: sql-data-warehouse-develop-loops.md
+            - name: Procedimentos armazenados
+              href: sql-data-warehouse-develop-stored-procedures.md
+            - name: Transactions
+              href: sql-data-warehouse-develop-transactions.md
+            - name: Melhores práticas de transações
+              href: sql-data-warehouse-develop-best-practices-transactions.md
+            - name: Esquemas definidos pelo usuário
+              href: sql-data-warehouse-develop-user-defined-schemas.md
+            - name: Atribuição de variável
+              href: sql-data-warehouse-develop-variable-assignment.md
+            - name: Exibições
+              href: sql-data-warehouse-develop-views.md
+    - name: Consultas
+      items:
+        - name: SQL dinâmico
+          href: sql-data-warehouse-develop-dynamic-sql.md
+        - name: Isolamento de instantâneo de leitura confirmada
+          href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Agrupar por opções
+          href: sql-data-warehouse-develop-group-by-options.md
+        - name: Rótulos
+          href: sql-data-warehouse-develop-label.md
+    - name: Gerenciamento de carga de trabalho
+      items:
+        - name: Visão geral
+          href: sql-data-warehouse-workload-management.md
+        - name: Classificação de carga de trabalho
+          href: sql-data-warehouse-workload-classification.md
+        - name: Importância da carga de trabalho
+          href: sql-data-warehouse-workload-importance.md
+        - name: Isolamento de carga de trabalho
+          href: sql-data-warehouse-workload-isolation.md
+        - name: Monitoramento do gerenciamento de carga de trabalho
+          href: sql-data-warehouse-workload-management-portal-monitor.md
+        - name: Memória e limites de simultaneidade
+          href: memory-concurrency-limits.md
+        - name: Classes de recursos
+          href: resource-classes-for-workload-management.md
+    - name: Gerenciamento e monitoramento
+      items:
+        - name: Visão geral
+          href: sql-data-warehouse-overview-manageability-monitoring.md
+        - name: 'Expandir, pausar, retomar'
+          href: sql-data-warehouse-manage-compute-overview.md
+        - name: Utilização de recursos e atividade de consulta
+          href: sql-data-warehouse-concept-resource-utilization-query-activity.md
+        - name: Proteção de dados
+          href: backup-and-restore.md
+        - name: Recomendações
+          href: sql-data-warehouse-concept-recommendations.md
+        - name: Solucionar problemas
+          href: sql-data-warehouse-troubleshoot.md
+    - name: Agendas de manutenção
+      href: maintenance-scheduling.md
+    - name: Integração
+      items:
+        - name: Visão geral
+          href: sql-data-warehouse-overview-integrate.md
+- name: Guias de instruções
+  items:
+    - name: Seguro
+      items:
+        - name: Configurar a autenticação do Azure AD
+          href: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Acesso Condicional
+          href: /azure/sql-database/sql-database-conditional-access?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Regras da rede virtual pelo PowerShell
+          href: /azure/sql-database/sql-database-vnet-service-endpoint-rule-powershell?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Habilitar criptografia - portal
+          href: sql-data-warehouse-encryption-tde.md
+        - name: Habilitar criptografia - T-SQL
+          href: sql-data-warehouse-encryption-tde-tsql.md
+    - name: Carregar dados
+      items:
+        - name: Do ADLS (Azure Data Lake Storage)
+          href: sql-data-warehouse-load-from-azure-data-lake-store.md
+        - name: Usar o ADB (Azure Databricks)
+          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Usar o ADF (Azure Data Factory)
+          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Usar o SSIS (SQL Server Integration Services)
+          href: /sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+        - name: Exemplos
+          items:
+            - name: New York Taxi
+              href: load-data-from-azure-blob-storage-using-polybase.md
+            - name: Contoso
+              href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+            - name: Wide World Importers
+              href: load-data-wideworldimportersdw.md
+    - name: Desenvolver
+      items:
+        - name: Visão geral
+          href: sql-data-warehouse-connect-overview.md
+        - name: Cadeias de conexão
+          href: sql-data-warehouse-connection-strings.md
+        - name: Alterar gerenciamento e implantação
+          items:
+            - name: Instalar o SSDT do Visual Studio
+              href: sql-data-warehouse-install-visual-studio.md
+            - name: Integração de controle do código-fonte
+              href: sql-data-warehouse-source-control-integration.md
+            - name: Integração e implantação contínuas
+              href: sql-data-warehouse-continuous-integration-and-deployment.md
+        - name: Conectar e consultar
+          items:
+            - name: SSDT do Visual Studio
+              href: sql-data-warehouse-query-visual-studio.md
+            - name: SSMS
+              href: sql-data-warehouse-query-ssms.md
+            - name: sqlcmd
+              href: sql-data-warehouse-get-started-connect-sqlcmd.md
+    - name: Gerenciamento de carga de trabalho
+      items:
+        - name: Analisar sua carga de trabalho
+          href: analyze-your-workload.md
+        - name: Gerenciar e monitorar a importância da carga de trabalho
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: Configurar a importância da carga de trabalho
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
+        - name: Converter classes de recursos em grupos de cargas de trabalho
+          href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
+    - name: Gerenciar e monitorar
+      items:
+        - name: Atualizar para Gen2
+          href: upgrade-to-latest-generation.md
+        - name: Gerenciar a computação
+          href: manage-compute-with-azure-functions.md
+        - name: Monitorar sua carga de trabalho – Portal
+          href: sql-data-warehouse-monitor-workload-portal.md
+        - name: Monitorar sua carga de trabalho – DMVs
+          href: sql-data-warehouse-manage-monitor.md
+        - name: Monitorar cache do Gen2
+          href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Backup e restauração
+      items:
+        - name: Criar pontos de restauração
+          href: sql-data-warehouse-restore-points.md
+        - name: Restaurar um data warehouse existente
+          href: sql-data-warehouse-restore-active-paused-dw.md
+        - name: Restaurar um data warehouse excluído
+          href: sql-data-warehouse-restore-deleted-dw.md
+        - name: Restaurar de um backup geográfico
+          href: sql-data-warehouse-restore-from-geo-backup.md
+    - name: Integração
+      items:
+        - name: Usar o aprendizado de máquina
+          href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+        - name: Criar pipelines de dados
+          items:
+            - name: Conectar com Fivetran
+              href: fivetran-quickstart.md
+            - name: Introdução ao Striim
+              href: striim-quickstart.md
+            - name: Adicionar um trabalho do Azure Stream Analytics
+              href: sql-data-warehouse-integrate-azure-stream-analytics.md
+        - name: Criar painéis e relatórios
+          items:
+            - name: Visualizar com o Power BI
+              href: sql-data-warehouse-get-started-visualize-with-power-bi.md
+    - name: Solucionar problemas
+      items:
+        - name: Conectividade
+          href: sql-data-warehouse-troubleshoot-connectivity.md
+- name: Referência
+  items:
+    - name: Tipos de ordenação do banco de dados
+      href: sql-data-warehouse-reference-collation-types.md
+    - name: T-SQL
+      items:
+        - name: Referência completa
+          href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Elementos da linguagem TSQL do Azure Synapse Analytics
+          href: sql-data-warehouse-reference-tsql-language-elements.md
+        - name: Instruções TSQL do Azure Synapse Analytics
+          href: sql-data-warehouse-reference-tsql-statements.md
+    - name: Exibições do sistema
+      href: sql-data-warehouse-reference-tsql-system-views.md
+    - name: Cmdlets do PowerShell
+      href: sql-data-warehouse-reference-powershell-cmdlets.md
+    - name: APIs REST
+      href: sql-data-warehouse-manage-compute-rest-api.md
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Fórum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Solicitações de recursos
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
+    - name: Suporte
+      href: sql-data-warehouse-get-started-create-support-ticket.md
+    - name: vídeos
+      href: sql-data-warehouse-videos.md
+    - name: Parceiros
+      items:
+        - name: Business intelligence
+          href: sql-data-warehouse-partner-business-intelligence.md
+        - name: Integração de dados
+          href: sql-data-warehouse-partner-data-integration.md
+        - name: Gerenciamento de dados
+          href: sql-data-warehouse-partner-data-management.md

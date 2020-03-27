@@ -7,12 +7,28 @@
       href: Welcome.md
     - name: Serviços Cognitivos e aprendizado de máquina
       href: cognitive-services-and-machine-learning.md
-    - name: Redes virtuais para Serviços Cognitivos
-      href: cognitive-services-virtual-networks.md
     - name: Subdomínios personalizados para Serviços Cognitivos
       href: cognitive-services-custom-subdomains.md
     - name: Suporte ao idioma
       href: language-support.md
+- name: Inícios rápidos
+  items:
+    - name: Criar um recurso usando o portal do Azure
+      href: cognitive-services-apis-create-account.md
+    - name: Criar um recurso usando a CLI do Azure
+      href: cognitive-services-apis-create-account-cli.md
+    - name: Registro de diagnóstico
+      href: diagnostic-logging.md
+- name: Segurança
+  items:
+    - name: Segurança dos Serviços Cognitivos
+      href: cognitive-services-security.md
+    - name: Redes virtuais para Serviços Cognitivos
+      href: cognitive-services-virtual-networks.md
+    - name: Configurar chaves gerenciadas pelo cliente
+      href: ./encryption/cognitive-services-encryption-keys-portal.md
+    - name: Autenticar solicitações para os Serviços Cognitivos
+      href: authentication.md
 - name: Suporte a contêiner
   items:
     - name: Suporte a contêiner
@@ -39,16 +55,6 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: AKS (Serviço de Kubernetes do Azure)
           href: ../aks/tutorial-kubernetes-prepare-app.md
-- name: Guia de início rápido
-  items:
-    - name: Criar um recurso usando o portal do Azure
-      href: cognitive-services-apis-create-account.md
-    - name: Criar um recurso usando a CLI do Azure
-      href: cognitive-services-apis-create-account-cli.md
-    - name: Authentication
-      href: authentication.md
-    - name: Registro em log de diagnóstico
-      href: diagnostic-logging.md
 - name: Recursos
   items:
     - name: Roteiro do Azure
@@ -61,7 +67,7 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de Ajuda e suporte
       href: cognitive-services-support-options.md
-    - name: SLA (Contrato de Nível de Serviço)
+    - name: Contrato de nível de serviço (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'

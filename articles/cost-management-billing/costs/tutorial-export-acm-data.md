@@ -3,23 +3,25 @@ title: Tutorial – Criar e gerenciar dados exportados do Gerenciamento de Custo
 description: Este artigo mostra como você pode criar e gerenciar dados exportados do Gerenciamento de Custos do Azure para que você possa usá-los em sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 04228a5f3f7e0b10e3cd881043af7861bb9fb347
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b950235eccbd41b1dfa46c23985e804212d9e8f2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251131"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155895"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
 Se leu o tutorial de análise de custo, você está familiarizado com o download manual dos dados do Gerenciamento de Custos. No entanto, você pode criar uma tarefa recorrente que exporta automaticamente seus dados de Gerenciamento de Custos para o Armazenamento do Azure com uma frequência diária, semanal ou mensal. Os dados exportados estão no formato CSV e contém todas as informações que são coletadas pelo Gerenciamento de Custos. Em seguida, você pode usar os dados exportados no Armazenamento do Azure com sistemas externos e combiná-los com seus próprios dados personalizados. Você também pode usar os dados exportados em um sistema externo, tal como um painel ou outro sistema financeiro.
 
 Assista ao vídeo [Como agendar exportações para o armazenamento com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=rWa_xI1aRzo) sobre como criar uma exportação agendada dos seus dados de custo do Azure no Armazenamento do Azure.
+
+>[!VIDEO https://www.youtube.com/embed/rWa_xI1aRzo]
 
 Os exemplos neste tutorial orientam você ao exportar os dados do Gerenciamento de Custos e, em seguida, verificar se eles foram exportados com êxito.
 

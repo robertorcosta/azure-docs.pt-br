@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 2896bee8f5a07a7432ca3fa2ca49caa529fdeb1e
-  ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+  ms.openlocfilehash: a1d764ce1ce332290c1bd68c5beb5f2731ae5e41
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77604771"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80159295"
 landingContent:
 - title: Sobre a Central de Segurança
   linkLists:
@@ -32,15 +32,15 @@ landingContent:
     links:
     - text: Proteja seus contêineres
       url: container-security.md
-    - text: Adicione pacotes de conformidade dinâmica
-      url: update-regulatory-compliance-packages.md
-    - text: Integre-se ao Windows Admin Center
-      url: windows-admin-center-integration.md
+    - text: Avaliação de vulnerabilidades integrada para VMs
+      url: built-in-vulnerability-assessment.md
+    - text: Examinar os esquemas de alertas de segurança
+      url: alerts-schemas.md
     - text: Automatize respostas a alertas e recomendações
       url: workflow-automation.md
     - text: Exporte alertas e recomendações
       url: continuous-export.md
-    - text: Configure a proteção avançada contra ameaças do Azure Key Vault
+    - text: Configure a proteção contra ameaças do Azure Key Vault
       url: advanced-threat-protection-key-vault.md
 - title: Introdução
   linkLists:
@@ -56,8 +56,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: O que é uma classificação de segurança?
-      url: security-center-secure-score.md
+    - text: Noções básicas sobre a classificação de segurança
+      url: secure-score-security-controls.md
     - text: Corrigir recomendações de segurança
       url: security-center-remediate-recommendations.md
     - text: Personalizar as recomendações de segurança

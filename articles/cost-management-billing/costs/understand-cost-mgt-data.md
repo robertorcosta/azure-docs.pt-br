@@ -1,20 +1,18 @@
 ---
-title: Entender os dados do Gerenciamento de Custos do Azure | Microsoft Docs
+title: Noções básicas dos dados do Gerenciamento de Custos do Azure
 description: Este artigo ajuda você a entender melhor os dados incluídos em seu Gerenciamento de Custos do Azure e a frequência com que eles são processados, coletados, mostrados e fechados.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom: ''
-ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245367"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203008"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -165,9 +163,9 @@ Se você usa as [APIs de Gerenciamento de Custos](../index.yml), o Power BI ou o
 Os custos mostrados no Gerenciamento de Custos são arredondados. Os custos retornados pela API de Consulta não são arredondados. Por exemplo:
 
 - análise de custo no portal do Azure – as cobranças são arredondadas usando regras de arredondamento padrão: valores iguais a 0,5 e superiores são arredondados para cima, caso contrário os custos são arredondados para baixo. O arredondamento ocorre somente quando os valores são mostrados. O arredondamento não ocorre durante o processamento de dados e a agregação. Por exemplo, a análise de custo agrega os custos da seguinte maneira:
-  - Preço 1: $0,004
+  -    Preço 1: $0,004
   - Preço 2: $0,004
-  - Preço agregado renderizado: 0,004 + 0,004 = 0,008. O preço mostrado será $0,01.
+  -    Preço agregado renderizado: 0,004 + 0,004 = 0,008. O preço mostrado será $0,01.
 - API de consulta – os preços são mostrados em oito casas decimais e o arredondamento não ocorre.
 
 

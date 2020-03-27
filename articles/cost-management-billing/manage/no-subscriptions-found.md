@@ -1,5 +1,5 @@
 ---
-title: Erro Nenhuma assinatura encontrada - Entrada no portal do Azure | Microsoft Docs
+title: Erro Nenhuma assinatura encontrada – Entrada no portal do Azure
 description: Fornece a solução para um problema no qual o erro Nenhuma assinatura encontrada ocorre ao entrar no Portal do Azure ou no centro de contas do Azure.
 author: genlin
 ms.reviewer: dcscontentpm
@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5011f0a09e33221650cf050578db5ab1d6b0a033
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 709d30d3d8563b07c73658a0a9d96748615eb899
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200615"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202872"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Erro de entrada Nenhuma assinatura encontrada no portal do Azure ou no centro de contas do Azure
 

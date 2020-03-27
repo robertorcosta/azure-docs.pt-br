@@ -1,20 +1,20 @@
 ---
-title: Tutorial - Atribuir acesso com Cloudyn no Azure | Microsoft Docs
+title: 'Tutorial: atribuir acesso com Cloudyn no Azure'
 description: Neste tutorial, você aprende como atribuir acesso a dados do Cloudyn com contas de usuário que definem níveis de acesso a entidades.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b93dfd7699ab2f1e2851b4d1f7e6d4c721186a2e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: e8fff8b75ff419cffc7f496f921dcba734109e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773998"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463604"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: atribuir acesso aos dados do Cloudyn
 
@@ -34,7 +34,9 @@ Quando você registrou sua conta ou um contrato do Azure, uma conta com permiss�
 
 Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter uma conta do Azure.
 - Você precisa ter um registro de avaliação ou uma assinatura paga do Cloudyn.
@@ -68,9 +70,9 @@ Não é possível remover a si mesmo como um usuário.
 > [!WARNING]
 > Quando você exclui um usuário, ele não pode ser restaurado.
 
-1.  No portal do Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Usuários**.
-2.  Na lista de usuários, selecione o usuário que você deseja excluir e, em seguida, clique em **Excluir usuário** (o símbolo de lixeira).
-3.  Na caixa Excluir usuário, clique em **Sim** e, em seguida, clique em **OK**.
+1.    No portal do Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Usuários**.
+2.    Na lista de usuários, selecione o usuário que você deseja excluir e, em seguida, clique em **Excluir usuário** (o símbolo de lixeira).
+3.    Na caixa Excluir usuário, clique em **Sim** e, em seguida, clique em **OK**.
 
 
 ## <a name="delete-or-export-personal-data"></a>Excluir ou exportar dados pessoais

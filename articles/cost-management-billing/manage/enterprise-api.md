@@ -1,5 +1,5 @@
 ---
-title: APIs Enterprise de cobrança do Azure | Microsoft Docs
+title: APIs de Cobrança Enterprise do Azure
 description: Saiba mais sobre as APIs de Relatório que permitem a clientes Enterprise do Azure efetuar pull dos dados de consumo de modo programático.
 author: mumami
 tags: billing
@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: 9f9552c134fa7653e4100cae3c731e4c670d44e3
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560534"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202906"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Visão geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que clientes Enterprise do Azure efetuem pull de modo programático dos dados de consumo e cobrança nas ferramentas preferidas de análise de dados. Os clientes Enterprise assinaram um [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer compromissos financeiros negociados e obter acesso a preços personalizados para recursos do Azure.

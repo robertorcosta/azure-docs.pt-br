@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o acesso a cobrança do Azure | Microsoft Docs
+title: Gerenciar o acesso à cobrança do Azure
 description: Saiba como conceder acesso às informações de cobrança do Azure para membros da equipe.
 author: vikramdesai01
 ms.reviewer: amberb
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5a4d725d88ee38bb68ea3da4f3e2a6a9bfc7e201
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: e7a6f105c6c8292e8e95b388d60dd95c3548dbb5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200686"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237659"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerenciar acesso a informações de cobrança do Azure
 
@@ -44,7 +44,7 @@ Para atribuir funções, confira [Gerenciar acesso usando o RBAC e o portal do A
 ** Se você é um cliente do EA, um proprietário da conta pode atribuir a função acima a outros usuários de sua equipe. No entanto, para que esses usuários exibam informações de cobrança, o administrador corporativo precisa habilitar a exibição de encargos pelo AO no Enterprise Portal.
 
 
-### <a name="opt-in"></a> Permitir que os usuários façam download de faturas
+### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> Permitir que os usuários façam download de faturas
 
 Depois que um administrador da conta atribuir as funções apropriadas a outros usuários, ele precisará ativar o acesso para baixar faturas no portal do Azure. Faturas anteriores a dezembro de 2016 ficam disponíveis apenas para o Administrador de Conta por enquanto.
 

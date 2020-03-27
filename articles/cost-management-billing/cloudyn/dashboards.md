@@ -1,24 +1,26 @@
 ---
-title: Exibir principais métricas com painéis do Cloudyn no Azure | Microsoft Docs
+title: Exibir principais métricas com painéis do Cloudyn no Azure
 description: Este artigo descreve como é possível exibir as principais métricas com painéis no Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 78af8f2541eb0b28d75be89612d158c889261adc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 892df9a6e0eb4d791f818eed0a78c96a829e25a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770121"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464216"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Exibir chave métricas com painéis de custo
 
 Painéis no Cloudyn fornecem uma visão geral de relatórios. Painéis permitem exibir a métrica de custo de chave em uma única exibição. Eles também fornecem a tendência de negócios realça para ajudá-lo a tomar decisões de negócios importantes.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 Painéis também são usados para criar exibições para pessoas com responsabilidades diferentes em sua organização, que pode incluir:
 

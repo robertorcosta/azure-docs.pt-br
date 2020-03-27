@@ -1,5 +1,5 @@
 ---
-title: Inscreva-se para o Azure com uma conta do Office 365 | Microsoft Docs
+title: Inscrever-se no Azure com uma conta do Office 365
 description: Saiba como criar uma assinatura do Azure usando uma conta do Office 365
 author: JiangChen79
 ms.reviewer: adwise
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 265d9bcafa7caf9af0f8c4c7f33de044fa02349c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: b42a5b83f5442755614a3cb2ae81cffda09b4b3b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199578"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238101"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscreva-se para obter uma assinatura do Azure com sua conta do Office 365
 Se você tiver uma assinatura do Office 365, você pode usar sua conta do Office 365 para criar uma assinatura do Azure. Entre no [Portal do Azure](https://portal.azure.com/) usando seu nome de usuário e a senha do Office 365. No entanto, se você desejar configurar máquinas virtuais ou usar outros serviços do Azure, deverá inscrever-se para uma assinatura do Azure. Você pode compartilhar sua assinatura do Azure com outras pessoas e [usar o controle de acesso baseado em função para gerenciar o acesso à sua assinatura e recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -35,7 +35,7 @@ Economize tempo e evite a proliferação de conta inscrevendo-se no Azure usando
 
 - Se precisar adicionar outras pessoas de sua organização à assinatura do Azure, consulte [Introdução ao gerenciamento de acesso no Portal do Azure](../../role-based-access-control/overview.md).
 
-## <a id="more-about-subs">Mais sobre as assinaturas do Azure e do Office 365</a>
+## <a name=""></a><a id="more-about-subs">Mais sobre as assinaturas do Azure e do Office 365</a>
 O Office 365 e o Azure usam o serviço do Azure AD para gerenciar usuários e assinaturas. O diretório do Azure é como um contêiner no qual você pode agrupar usuários e assinaturas. Para usar as mesmas contas de usuário para suas assinaturas do Azure e do Office 365, você precisa garantir que as assinaturas do Azure sejam criadas no mesmo diretório que as assinaturas do Office 365. Tenha em mente os seguintes pontos:
 
 * Uma assinatura é criada em um diretório

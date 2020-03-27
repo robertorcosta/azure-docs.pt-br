@@ -263,6 +263,8 @@
           href: search-pagination-page-layout.md
         - name: Ajuste de relevância (perfis de pontuação)
           href: index-add-scoring-profiles.md
+        - name: Ajuste de relevância (algoritmo de similaridade)
+          href: index-ranking-similarity.md
     - name: Plano
       items:
         - name: Escolha uma faixa

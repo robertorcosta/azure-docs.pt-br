@@ -1,5 +1,5 @@
 - name: Documentação do StorSimple
-  href: index.md
+  href: index.yml
 - name: Matriz Virtual do StorSimple
   items:
     - name: Visão geral
@@ -45,7 +45,7 @@
                   href: storsimple-virtual-array-install-update-1.md
                 - name: Instalar a Atualização 0.6
                   href: storsimple-virtual-array-install-update-06.md
-                - name: Arquivo
+                - name: Archive
                   items:
                     - name: Instalar a Atualização 0.5
                       href: storsimple-virtual-array-install-update-05.md
@@ -93,7 +93,7 @@
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: Atualização 1
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: Arquivo
+        - name: Archive
           items:
             - name: Atualização 0.6
               href: storsimple-virtual-array-update-06-release-notes.md
@@ -155,7 +155,7 @@
               href: storsimple-8000-cloud-appliance-u2.md
             - name: StorSimple Snapshot Manager
               href: storsimple-snapshot-manager-deployment.md
-            - name: Adaptador do StorSimple para SharePoint
+            - name: StorSimple Adapter for SharePoint
               href: storsimple-adapter-for-sharepoint.md
     - name: Como
       items:
@@ -337,7 +337,7 @@
           href: storsimple-update5-release-notes.md
         - name: Atualização 4
           href: storsimple-update4-release-notes.md
-        - name: Arquivo
+        - name: Archive
           items:
             - name: Atualização 3
               href: storsimple-update3-release-notes.md

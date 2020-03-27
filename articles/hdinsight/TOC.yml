@@ -19,6 +19,8 @@
           href: ./hdinsight-administer-use-powershell.md
         - name: Criar clusters com runbooks
           href: ./manage-clusters-runbooks.md
+        - name: Notificações por email do Apache Ambari
+          href: ./apache-ambari-email.md
         - name: Criar um pipeline ETL
           href: ./hdinsight-sales-insights-etl.md
     - name: Exemplos
@@ -272,7 +274,8 @@
           href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
         - name: Criar o cluster do Apache Spark – CLI do Azure
           href: ./spark/apache-spark-create-cluster-cli.md
-        - name: Criar o cluster do Apache Spark – Modelo
+        - name: Criar o cluster do Apache Spark – Modelo ARM
+          displayName: Resource Manager
           href: ./spark/apache-spark-jupyter-spark-sql.md
     - name: Tutoriais
       items:
@@ -416,8 +419,8 @@
       items:
         - name: Criar o cluster do Apache Hadoop - Portal
           href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
-        - name: Criar o cluster do Apache Hadoop – Modelo
-          displayName: 'resource manager template, arm template, resource manager group'
+        - name: Criar o cluster do Apache Hadoop – Modelo ARM
+          displayName: Resource Manager
           href: ./hadoop/apache-hadoop-linux-tutorial-get-started.md
     - name: Tutoriais
       items:
@@ -435,8 +438,54 @@
               href: use-pig.md
         - name: Desenvolver
           items:
-            - name: Usar nós de borda vazios
-              href: ./hdinsight-apps-use-edge-node.md
+            - name: Usar MapReduce com Apache Hadoop
+              items:
+                - name: Visão geral do MapReduce
+                  href: ./hadoop/hdinsight-use-mapreduce.md
+                - name: Usar SSH
+                  href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
+                - name: Usar cURL
+                  href: ./hadoop/apache-hadoop-use-mapreduce-curl.md
+                - name: Usar PowerShell do Azure
+                  href: ./hadoop/apache-hadoop-use-mapreduce-powershell.md
+                - name: Usar o SDK para .NET
+                  href: ./hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md
+                - name: Executar exemplos do MapReduce
+                  href: ./hadoop/apache-hadoop-run-samples-linux.md
+                - name: Executar programas personalizados do Apache Hadoop MapReduce
+                  href: ./hadoop/apache-hadoop-run-custom-programs.md
+                - name: 'Desenvolver programas MapReduce de streaming C#'
+                  href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
+                - name: Desenvolver programas Java MapReduce
+                  href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
+            - name: 'Use o Apache Hive como uma ferramenta de extração, transformação e carregamento (ETL)'
+              href: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
+            - name: 'Extrair, transformar e carregar em escala'
+              href: ./hadoop/apache-hadoop-etl-at-scale.md
+            - name: Criar aplicativos .NET HDInsight de autenticação não interativa
+              href: ./hdinsight-create-non-interactive-authentication-dotnet-applications.md
+            - name: Analisar big data
+              items:
+                - name: Analisar usando Power Query
+                  href: ./hadoop/apache-hadoop-connect-excel-power-query.md
+                - name: Conectar o Power BI à Consulta Interativa
+                  href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+                - name: Conectar o Power BI ao Apache Hadoop
+                  href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
+                - name: Conectar o Excel ao Apache Hadoop
+                  href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
+                - name: Conectar usando o driver JDBC do Apache Hive
+                  href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
+                - name: Analisar tweets armazenados
+                  href: ./hdinsight-analyze-twitter-data-linux.md
+                - name: Gerar recomendações com Apache Mahout
+                  href: ./hadoop/apache-hadoop-mahout-linux-mac.md
+                - name: Análise avançada para HDInsight
+                  href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
+            - name: Gerenciar
+              items:
+                - name: Usar nós de borda vazios
+                  href: ./hdinsight-apps-use-edge-node.md
         - name: Solucionar problemas
           items:
             - name: Problemas comuns
@@ -499,8 +548,8 @@
           href: ./kafka/apache-kafka-get-started.md
         - name: Criar o cluster do Apache Kafka – PowerShell
           href: ./kafka/apache-kafka-quickstart-powershell.md
-        - name: Criar o cluster do Apache Kafka – Modelo
-          displayName: 'resource manager template, arm template, resource manager group'
+        - name: Criar o cluster do Apache Kafka – Modelo ARM
+          displayName: Resource Manager
           href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
     - name: Tutoriais
       items:
@@ -564,6 +613,9 @@
           href: ./hbase/apache-hbase-overview.md
     - name: Inícios rápidos
       items:
+        - name: Criar cluster do Apache HBase – Modelo ARM
+          displayName: Resource Manager
+          href: ./hbase/quickstart-resource-manager-template.md
         - name: Consultar o Apache Hive – Apache Phoenix
           href: ./hbase/apache-hbase-query-with-phoenix.md
         - name: Consultar o Apache HBase – Shell do HBase
@@ -636,6 +688,9 @@
           href: ./interactive-query/apache-interactive-query-get-started.md
     - name: Inícios rápidos
       items:
+        - name: Criar um cluster de Interactive Query – Modelo ARM
+          displayName: Resource Manager
+          href: ./interactive-query/quickstart-resource-manager-template.md
         - name: Executar consultas do Apache Hive – Apache Zeppelin
           href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
     - name: Tutoriais
@@ -718,6 +773,9 @@
           href: ./r-server/r-server-overview.md
     - name: Inícios rápidos
       items:
+        - name: Criar cluster dos Serviços de ML – Modelo ARM
+          displayName: Resource Manager
+          href: ./r-server/quickstart-resource-manager-template.md
         - name: Trabalho de amostra – RStudio Server
           href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
         - name: Trabalho de amostra – Console R
@@ -800,8 +858,6 @@
           href: ./domain-joined/hdinsight-security-overview.md
     - name: Tutoriais
       items:
-        - name: Usar o firewall para restringir o tráfego de saída
-          href: ./hdinsight-restrict-outbound-traffic.md
         - name: Apache HBase RBAC com o Apache Ranger
           href: ./domain-joined/apache-domain-joined-run-hbase.md
         - name: Apache Hive RBAC com Apache Ranger
@@ -850,6 +906,8 @@
           href: ./domain-joined/ssh-domain-accounts.md
         - name: Proteção de dados
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+        - name: Usar o firewall para restringir o tráfego de saída
+          href: ./hdinsight-restrict-outbound-traffic.md
         - name: Solucionar problemas
           items:
             - name: Problemas de autenticação do ESP

@@ -58,7 +58,21 @@
     - name: Conceitos
       items:
         - name: Como o Dev Spaces funciona
-          href: how-dev-spaces-works.md
+          items:
+            - name: Visão geral
+              href: how-dev-spaces-works.md
+            - name: Como configurar um cluster
+              href: how-dev-spaces-works-cluster-setup.md
+            - name: Como preparar um projeto
+              href: how-dev-spaces-works-prep.md
+            - name: Como executar código
+              href: how-dev-spaces-works-up.md
+            - name: Roteamento entre espaços de desenvolvimento
+              href: how-dev-spaces-works-routing.md
+            - name: Depuração remota
+              href: how-dev-spaces-works-remote-debugging.md
+            - name: Conectar seu computador de desenvolvimento ao AKS
+              href: how-dev-spaces-works-connect.md
         - name: Como o VS Code funciona com o Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Configuração de rede em diferentes topologias de rede

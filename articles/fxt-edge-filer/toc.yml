@@ -20,10 +20,10 @@
       href: fxt-add-storage.md
     - name: 7 – Definir as configurações de rede do cluster
       href: fxt-configure-network.md
+    - name: 8 – Clientes de montagem
+      href: fxt-mount-clients.md
 - name: Guias de instruções
   items:
-    - name: Clientes de montagem
-      href: fxt-mount-clients.md
     - name: Monitorar o hardware do Azure FXT Edge Filer
       href: fxt-monitor.md
     - name: Desligar com segurança um nó de hardware

@@ -35,6 +35,10 @@
     - name: Conceitos
       expanded: false
       items:
+        - name: Segurança
+          items:
+            - name: Linha de base de segurança
+              href: security-baseline.md
         - name: SKUs de registro de contêiner e limites
           href: container-registry-skus.md
         - name: 'Registros, repositórios e imagens'
@@ -120,7 +124,7 @@
         - name: Monitoramento
           expanded: false
           items:
-            - name: Logs de diagnóstico e auditoria (versão prévia)
+            - name: Logs de diagnóstico e auditoria
               href: container-registry-diagnostics-audit-logs.md
             - name: Auditar a conformidade usando o Azure Policy (versão prévia)
               href: container-registry-azure-policy.md

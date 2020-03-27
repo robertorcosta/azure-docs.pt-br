@@ -4,6 +4,7 @@ title: Serviço de Contêiner do Azure com controlador de domínio/sistema opera
 metadata:
   title: 'Serviço de Contêiner do Azure com controlador de domínio/sistema operacional e Documentação do Swarm - Tutoriais, Referência de API | Microsoft Docs'
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  description: 'O Serviço de Contêiner do Azure permite implantar rapidamente um controlador de domínio/sistema operacional ou cluster do Docker Swarm pronto para produção. Saiba como fazer isso com estes guias de início rápido, tutoriais e exemplos.'
   services: container-service
   author: georgewallace
   manager: gwallace

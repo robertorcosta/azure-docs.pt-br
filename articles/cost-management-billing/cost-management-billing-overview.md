@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970114"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474519"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>O que são a Cobrança e o Gerenciamento de Custos do Azure?
 
@@ -89,13 +89,13 @@ As recomendações mostram como você pode otimizar e melhorar a eficiência ide
 
 Se você usar sistemas externos para acessar ou revisar dados de gerenciamento de custos, poderá exportar facilmente os dados do Azure. E você pode definir uma exportação agendada diariamente no formato CSV e armazenar os arquivos de dados no armazenamento do Azure. Então, você pode acessar os dados do seu sistema externo.
 
-### <a name="consider-cloudyn"></a>Considere o Cloudyn
+### <a name="cloudyn-deprecation"></a>Preterição do Cloudyn
 
-[Cloudyn](./cloudyn/overview.md) é um serviço do Azure relacionado ao Gerenciamento de Custos. Com o Cloudyn, você pode rastrear o uso e os gastos da nuvem para os recursos do Azure. Ele também suporta outros provedores de nuvem, incluindo AWS e Google. Os relatórios do painel fáceis de entender ajudam com a alocação de custos e showbacks/estornos também. Atualmente, o Gerenciamento de Custos não suporta showback / chargeback ou outros provedores de serviços de nuvem. No entanto, o Cloudyn é uma opção que _dá_ suporte a eles. No momento, o Gerenciamento de Custos não dá suporte a contas CSP (provedor de serviços de nuvem) da Microsoft, mas o Cloudyn, sim. Se você tiver contas CSP ou se desejar usar análise/estorno, será possível usar o Cloudyn para ajudar a gerenciar os custos.
-
-Assista ao [vídeo do Gerenciamento de Custos do Azure e Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) para ver recomendações sobre quando você deve usar o Gerenciamento de Custos do Azure ou o Cloudyn com base em suas necessidades de negócios.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
+O [Cloudyn](./cloudyn/overview.md) é um serviço do Azure relacionado ao Gerenciamento de Custos que será preterido até o final de 2020. Os recursos do Cloudyn existentes estão sendo integrados diretamente no portal do Azure, sempre que possível. Nenhum novo cliente está sendo integrado no momento, mas o suporte permanecerá para o produto até que ele seja totalmente preterido.
+ 
+Assista ao [vídeo do Gerenciamento de Custos do Azure e do Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) para saber mais sobre quando você deve usar o Gerenciamento de Custos do Azure ou o Cloudyn com base em suas necessidades de negócios.
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ### <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 

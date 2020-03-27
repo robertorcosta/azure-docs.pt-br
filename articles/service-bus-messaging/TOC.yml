@@ -19,7 +19,7 @@
               href: service-bus-quickstart-powershell.md
             - name: CLI do Azure
               href: service-bus-quickstart-cli.md
-            - name: Modelo do Azure Resource Manager
+            - name: Modelo de ARM
               href: service-bus-resource-manager-namespace-queue.md
         - name: Enviar e receber mensagens
           items:
@@ -41,7 +41,7 @@
           items:
             - name: Portal do Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
-            - name: Modelo do Azure Resource Manager
+            - name: Modelo de ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publicar e assinar mensagens
           items:
@@ -65,6 +65,8 @@
       href: service-bus-tutorial-topics-subscriptions-portal.md
     - name: Atualizar inventário - CLI
       href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: Responder a eventos por meio da Grade de Eventos
+      href: service-bus-to-event-grid-integration-example.md
 - name: Exemplos
   items:
     - name: Exemplos do Barramento de Serviço
@@ -104,6 +106,8 @@
                   href: authenticate-application.md
         - name: Controles de segurança interna
           href: service-bus-messaging-security-controls.md
+        - name: Segurança de rede
+          href: network-security.md
 - name: Guias de instruções
   items:
     - name: Migrar de APIs do Azure Service Manager (clássico) para APIs do Resource Manager
@@ -126,8 +130,6 @@
               href: message-expiration.md
             - name: Lidar com mensagens usando a Grade de Eventos do Azure
               href: service-bus-to-event-grid-integration-concept.md
-            - name: Exemplos de Grade de Eventos do Azure
-              href: service-bus-to-event-grid-integration-example.md
         - name: Ações e filtros de tópico
           href: topic-filters.md
         - name: Migrar de namespaces Standard para Premium
@@ -152,10 +154,6 @@
               href: service-bus-amqp-troubleshoot.md
         - name: Recursos avançados
           items:
-            - name: Usar firewalls
-              href: service-bus-ip-filtering.md
-            - name: Pontos de extremidade de serviço de Rede Virtual
-              href: service-bus-service-endpoints.md
             - name: Filas de mensagens mortas
               href: service-bus-dead-letter-queues.md
             - name: Mensagens de pré-busca
@@ -192,7 +190,7 @@
           href: service-bus-diagnostic-logs.md
         - name: Suspender e reativar entidades de mensagens
           href: entity-suspend.md
-        - name: Usar modelos do Gerenciador de Recursos do Azure
+        - name: Usar modelos ARM
           href: service-bus-resource-manager-overview.md
           items:
             - name: Criar um namespace
@@ -203,7 +201,13 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Seguro
       items:
-        - name: Configurar chaves gerenciadas pelo cliente para criptografia em repouso
+        - name: Configurar firewalls
+          href: service-bus-ip-filtering.md
+        - name: Configurar pontos de extremidade de serviço de rede virtual
+          href: service-bus-service-endpoints.md
+        - name: Configurar pontos de extremidade privados (versão prévia)
+          href: private-link-service.md
+        - name: Configurar chaves gerenciadas pelo cliente
           href: configure-customer-managed-key.md
     - name: Solucionar problemas
       items:

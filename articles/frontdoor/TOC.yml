@@ -1,8 +1,8 @@
-- name: Documentação do Front Door Service
+- name: Documentação do Front Door
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Azure Front Door Service?
+    - name: O que é o Azure Front Door?
       href: front-door-overview.md
 - name: Inícios rápidos
   expanded: true
@@ -27,6 +27,8 @@
       href: front-door-backend-pool.md
     - name: Armazenando em cache com o Front Door
       href: front-door-caching.md
+    - name: Perguntas frequentes sobre o Front Door
+      href: front-door-faq.md
     - name: Filtragem geográfica
       href: front-door-geo-filtering.md
     - name: Investigações de integridade
@@ -49,6 +51,8 @@
       href: front-door-url-rewrite.md
     - name: Redirecionamento de URL
       href: front-door-url-redirect.md
+    - name: Domínio de curinga
+      href: front-door-wildcard-domain.md
 - name: Guias de instruções
   items:
     - name: Redirecionar o tráfego
@@ -65,10 +69,6 @@
           href: front-door-troubleshoot-routing.md
         - name: Autoridades de certificação habilitadas
           href: front-door-troubleshoot-allowed-ca.md
-- name: Perguntas frequentes
-  items:
-    - name: Perguntas frequentes sobre o Front Door
-      href: front-door-faq.md
 - name: Referência
   items:
     - name: CLI do Azure
