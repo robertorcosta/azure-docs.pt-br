@@ -423,7 +423,7 @@ Online: [AZ-idb01 AZ-idb02]
 
 Lista completa de recursos:
 
- rsc_st_azure (stonith: fence_azure_arm): iniciado AZ-idb01 Master/escravo set: Db2_HADR_ID2-Master [Db2_HADR_ID2] mestres: [AZ-idb01] servidores subordinados: [AZ-idb02] grupo de recursos: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (OCF:: Heartbeat: IPaddr2): Started AZ-idb01 nc_db2id2_ID2 (OCF:: Heartbeat: Azure-lb): iniciado AZ-idb01
+ rsc_st_azure (stonith: fence_azure_arm): iniciado AZ-idb01 Master/subordinado set: Db2_HADR_ID2-Master [Db2_HADR_ID2] mestres: [AZ-idb01] servidores subordinados: [AZ-idb02] grupo de recursos: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (OCF:: Heartbeat: IPaddr2): Started AZ-idb01 nc_db2id2_ID2 (OCF:: Heartbeat: Azure-lb): iniciado AZ-idb01
 
 Status do daemon: corosync: ativo/desabilitado pacemaker: ativo/desabilitado PCSD: ativo/habilitado
 </pre>
