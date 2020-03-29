@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
 ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74012020"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Conteúdo gerado pelo usuário em destaque para a API do Detector de Anomalias
 
-Use este artigo para descobrir como os outros clientes estão pensando e usando a API do Detector de Anomalias. Os seguintes recursos foram criados pela comunidade de usuários do Detector de Anomalias. Eles incluem projetos de código-fonte aberto e outras contribuições criadas por usuários da Microsoft e de terceiros. Alguns dos links a seguir são hospedados em sites externos e a Microsoft não é responsável por esse conteúdo. Tenha cuidado ao consultar esses recursos.
+Use este artigo para descobrir como os outros clientes estão pensando e usando a API do Detector de Anomalias. Os seguintes recursos foram criados pela comunidade de usuários do Detector de Anomalias. Eles incluem projetos de código aberto e outras contribuições criadas tanto pela Microsoft quanto por usuários de terceiros. Alguns dos links a seguir são hospedados em sites externos e a Microsoft não é responsável por esse conteúdo. Tenha cuidado ao consultar esses recursos.
 
 ## <a name="technical-blogs"></a>Blogs técnicos
 
-* [Experimentando o serviço cognitiva: API do detector de anomalias (em Japonês)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* [Tentando o Serviço Cognitivo: API do detector de anomalias (em japonês)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
 
 ## <a name="open-source-projects"></a>Projetos de software livre
 

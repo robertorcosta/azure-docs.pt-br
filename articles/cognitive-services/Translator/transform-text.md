@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68594902"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como usar o método TransformText
 
 > [!NOTE]
-> Este método foi preterido. Ele não está disponível na versão V3.0 da API de Tradução de Texto.
+> Esse método é preterido. Ele não está disponível na versão V3.0 da API de Tradução de Texto.
 
 O método TransformText é uma função de normalização do texto para mídias sociais, que retorna um formato normalizado da entrada. O método pode ser usado como uma etapa de pré-processamento de tradução automática ou outros aplicativos que esperam um texto de entrada limpo que normalmente não é encontrado em mídias sociais ou conteúdo gerado pelo usuário. A função atualmente só funciona com entrada em inglês.
 
@@ -30,12 +30,12 @@ O método é um serviço RESTful usando GET via HTTP. Ele dá suporte a serializ
 
 | Parâmetro | Descrição |
 |:---|:---|
-| Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar o aplicativo. Use a chave: “Authorization” e o valor: "Bearer" + " " + token de acesso. Para obter detalhes, clique aqui.|
-| language | **Obrigatório** Uma cadeia de caracteres que representa o código do idioma. Esse parâmetro é suportado apenas em inglês com **en** como o nome do idioma.|
+| Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar o aplicativo. Usar chave: “Autorização” e valor “Portador” + “” + o token de acesso. Para obter detalhes, clique aqui.|
+| Linguagem | **Obrigatório** Uma cadeia de caracteres que representa o código do idioma. Esse parâmetro é suportado apenas em inglês com **en** como o nome do idioma.|
 | category | **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro oferece suporte apenas à opção padrão **general**.|
 | sentence | **Obrigatório** Uma frase que você deseja corrigir. |
 
-## <a name="return-value"></a>Valor de retorno
+## <a name="return-value"></a>Valor retornado
 
 O valor retornado fornece a sentença transformada.
 

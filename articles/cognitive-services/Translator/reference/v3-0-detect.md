@@ -1,7 +1,7 @@
 ---
 title: Método Detectar da API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Identifique o idioma de um pedaço de texto com o método de detecção API de Tradução de Texto de serviços cognitivas do Azure.
+description: Identifique a linguagem de um texto com o método Azure Cognitive Services Translator Text API Detect.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837288"
 ---
 # <a name="translator-text-api-30-detect"></a>API de Tradução de Texto 3.0: detectar
@@ -35,20 +35,20 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
 </table> 
 
-Os cabeçalhos da solicitação incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Descrição</th>
   <tr>
-    <td>Cabeçalho (s) de autenticação</td>
+    <td>Cabeçalho de autenticação(s)</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@ As seguintes limitações se aplicam:
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
   * `language`: o código do idioma detectado.
 
@@ -125,8 +125,8 @@ Um exemplo de resposta JSON é:
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Descrição</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
@@ -139,7 +139,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Sucesso.</td>

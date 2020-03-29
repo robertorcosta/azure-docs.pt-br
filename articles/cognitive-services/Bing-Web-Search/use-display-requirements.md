@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60499875"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de uso e exibição da API de Pesquisa do Bing
@@ -34,10 +34,10 @@ Esses requisitos de uso e exibição se aplicam a qualquer implementação do co
 ## <a name="definitions"></a>Definições
 
 
-|Termo  |DESCRIÇÃO  |
+|Termo  |Descrição  |
 |---------|---------|
 |Resposta     | Uma categoria de resultados retornados em uma resposta. Por exemplo, uma resposta da API de Pesquisa de Web do Bing pode incluir respostas nas categorias de resultados de página da Web, imagens, vídeo, visual e notícias. |
-|Response     | Quaisquer respostas e dados associados recebidos em resposta a uma única chamada a uma API de Pesquisa. |
+|Resposta     | Quaisquer respostas e dados associados recebidos em resposta a uma única chamada a uma API de Pesquisa. |
 |Result    | Um item de informação em uma resposta. Por exemplo, o conjunto de dados conectados com um artigo de notícias único é um resultado em uma resposta de notícias. |
 |APIs de pesquisa    | coletivamente, a Pesquisa Personalizada do Bing, a Pesquisa de Entidade, a Pesquisa de Imagem, a Pesquisa de Notícias, a Pesquisa de Vídeo, a Pesquisa Visual, a Pesquisa de Empresas Locais e as APIs de Pesquisa na Web. |
 
@@ -99,7 +99,7 @@ Não:
 ### <a name="notices-and-branding"></a>Notificações e identidade visual 
 Fazem:
 
-- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Hiperlink de rótulo **Declaração de Privacidade da Microsoft**.
+- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotular o hyperlink **Microsoft Privacy Statement**.
 
 - Exibir em proeminentemente a identidade visual do Bing, consistente com as [Diretrizes de Uso da Marca Registrada do Bing](https://go.microsoft.com/fwlink/?linkid=833278), perto de cada ponto de UX que oferece a capacidade de uma consulta de pesquisa de entrada a um usuário. Essa marca deve claramente indicar ao usuário que a Microsoft está incluindo a experiência de pesquisa da Internet.
 

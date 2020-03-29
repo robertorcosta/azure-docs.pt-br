@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
 ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71720234"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Diretrizes para a implementação responsável do Personalizador
@@ -25,7 +25,7 @@ Essas diretrizes não foram criadas como orientação jurídica, e você deve ve
 
 Além disso, ao criar seu aplicativo usando o Personalizador, você deverá considerar uma ampla variedade de responsabilidades que se tem ao desenvolver qualquer sistema de IA centrado em dados, incluindo ética, privacidade, segurança, inclusão, transparência e responsabilidade. Leia mais sobre isso na seção [Leitura recomendada](#recommended-reading).
 
-É possível usar o conteúdo a seguir como uma lista de verificação de iniciante, além de personalizá-lo e refiná-lo de acordo com o seu cenário. Este documento tem duas seções principais: a primeira dedica-se a destacar as considerações de uso responsável ao escolher cenários, recursos e recompensas para o Personalizador. A segunda usa um conjunto de valores nos quais a Microsoft acredita e que devem ser considerados ao criar sistemas de IA, além de fornecer sugestões acionáveis e riscos sobre como o uso do Personalizador os influencia. 
+É possível usar o conteúdo a seguir como uma lista de verificação de iniciante, além de personalizá-lo e refiná-lo de acordo com o seu cenário. Este documento tem duas seções principais: A primeira é dedicada a destacar considerações de uso responsável ao escolher cenários, recursos e recompensas para o Personalizador. A segunda usa um conjunto de valores nos quais a Microsoft acredita e que devem ser considerados ao criar sistemas de IA, além de fornecer sugestões acionáveis e riscos sobre como o uso do Personalizador os influencia. 
 
 
 ## <a name="your-responsibility"></a>Sua responsabilidade
@@ -50,21 +50,21 @@ A implementação do Personalizador pode ser de grande valor para seus usuários
 
 Usar um serviço que aprende a personalizar conteúdo e interfaces do usuário é útil. Isso também poderá ser aplicado de maneira indevida se a personalização criar efeitos colaterais negativos no mundo real, incluindo se os usuários não estiverem cientes da personalização do conteúdo. 
 
-Exemplos de usos do Personalizador com maior potencial para efeitos colaterais negativos ou uma falta de transparência incluem cenários em que a “recompensa” depende de muitos fatores complexos de longo prazo que, quando muito simplificados em uma recompensa imediata, podem ter resultados desfavoráveis para indivíduos. Eles tendem a ser considerados opções “consequentes” ou opções que envolvem um risco de danos. Por exemplo: 
+Exemplos de usos do Personalizador com maior potencial para efeitos colaterais negativos ou uma falta de transparência incluem cenários em que a “recompensa” depende de muitos fatores complexos de longo prazo que, quando muito simplificados em uma recompensa imediata, podem ter resultados desfavoráveis para indivíduos. Eles tendem a ser considerados opções “consequentes” ou opções que envolvem um risco de danos. Por exemplo:  
 
 
-* **Finanças**: personalizar ofertas sobre produtos de empréstimo, de seguro e financeiros, em que fatores de risco baseiam-se nos dados que os indivíduos não conhecem, não podem obter nem podem disputar. 
-* **Educação**: personalizar classificações para cursos escolares e instituições educacionais em que as recomendações podem propagar propensões e reduzir o conhecimento dos usuários de outras opções.
-* **Democracia e participação cívica**: personalizar conteúdo para usuários com a meta de influenciar opiniões é consequencial e manipulador.
-* **Avaliação de recompensa de terceiros**: personalizar itens em que a recompensa é baseada em uma avaliação de terceiros posterior dos usuários, em vez de ter uma recompensa gerada pelo próprio comportamento do usuário.
-* **Intolerância com a exploração**: qualquer situação em que o comportamento de exploração do Personalizador pode causar danos.
+* **Finanças**: Personalizar ofertas em produtos de empréstimo, financeiro e seguro, onde os fatores de risco são baseados em dados que os indivíduos não conhecem, não podem obter ou não podem contestar. 
+* **Educação**: Personalização de postos para cursos escolares e instituições de ensino onde as recomendações podem propagar preconceitos e reduzir a conscientização dos usuários sobre outras opções.
+* **Democracia e Participação Cívica**: Personalizar conteúdo para usuários com o objetivo de influenciar opiniões é conseqüente e manipulador.
+* **Avaliação de recompensa de terceiros**: Personalização de itens onde a recompensa é baseada em uma última avaliação de terceiros do usuário, em vez de ter uma recompensa gerada pelo próprio comportamento do usuário.
+* **Intolerância à Exploração**: Qualquer situação em que o comportamento de exploração do Personaland pode causar danos.
 
 Ao escolher casos de uso para o Personalizador:
 
 * Inicie o processo de criação considerando como a personalização ajuda os seus usuários.
 * Considere as consequências negativas no mundo real se alguns itens não forem classificados para os usuários devido a padrões ou à exploração da personalização.
-* Considere se o seu caso de uso constitui o processamento automatizado, que afeta significativamente os assuntos de dados que são regulamentados em [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) artigo 22 ou outras leis.
-* Considere ciclos de profecia autocumprida. Isso poderá acontecer se uma recompensa de personalização treinar um modelo para que ele possa excluir subsequentemente ainda mais um grupo demográfico do acesso ao conteúdo relevante. Por exemplo, a maioria das pessoas em um ambiente de baixa renda não obtém uma oferta de seguro Premium, e ninguém mais lento na vizinhança tende a ver a oferta se não houver exploração suficiente.
+* Considere se o seu caso de uso constitui processamento automatizado que afeta significativamente os sujeitos de dados que são regulados o artigo 22 do [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) ou outras leis.
+* Considere ciclos de profecia autocumprida. Isso poderá acontecer se uma recompensa de personalização treinar um modelo para que ele possa excluir subsequentemente ainda mais um grupo demográfico do acesso ao conteúdo relevante. Por exemplo, a maioria das pessoas em um bairro de baixa renda não obtém uma oferta de seguro premium, e lentamente ninguém no bairro tende a ver a oferta em tudo se não houver exploração suficiente.
 * Salve cópias de modelos e políticas de aprendizado caso seja necessário reproduzir o Personalizador no futuro. É possível fazer isso periodicamente ou a cada período de atualização do modelo.
 * Considere o nível de exploração adequado para o espaço e como usá-lo como uma ferramenta para mitigar os efeitos de “câmara de ressonância”.
 
@@ -75,16 +75,16 @@ A personalização de conteúdo depende se você tem informações úteis sobre 
 
 Considere o efeito destas informações:
 
-* **Dados demográficos do usuário**: informações relativas a sexo, gênero, idade, etnia, religião: essas informações podem não ser permitidas em determinados aplicativos por motivos regulatórios, e talvez não seja ético personalizar com relação a eles, porque a personalização propagaria generalizações e propensões. Um exemplo dessa propagação de propensão é a postagem de um trabalho de engenharia não ser mostrada para públicos-alvo mais velhos ou com base no gênero.
-* **Informações de localidade**: em muitos lugares do mundo, informações sobre o local (como CEP, código postal ou nome do bairro) podem estar altamente correlacionadas a renda, etnia e religião.
-* **Percepção do usuário sobre imparcialidade**: mesmo nos casos em que seu aplicativo estiver tomando decisões sensatas, considere o efeito de os usuários perceberem que o conteúdo exibido em seu aplicativo muda da maneira como parece estar correlacionado às informações que seriam discriminatórias.
-* **Propensão não intencional de informações**:  há tipos de propensões que podem ser introduzidas usando informações que só afetam um subconjunto da população. Isso requererá atenção extra se as informações estiverem sendo geradas de modo algorítmico, por exemplo, ao usar a análise de imagem para extrair itens em uma análise de texto ou de imagem para descobrir entidades no texto. Conscientize-se sobre as características dos serviços que você usa para criar informações.
+* **Demografia do usuário**: Características relativas ao sexo, sexo, idade, raça, religião: Essas características podem não ser permitidas em determinadas aplicações por razões regulatórias, e pode não ser ético personalizar ao seu redor porque a personalização propagaria generalizações e preconceitos. Um exemplo dessa propagação de propensão é a postagem de um trabalho de engenharia não ser mostrada para públicos-alvo mais velhos ou com base no gênero.
+* **Informações locais**: Em muitos lugares do mundo, informações de localização (como CEP, código postal ou nome de bairro) podem ser altamente correlacionadas com renda, raça e religião.
+* **Percepção do Usuário da Justiça**: Mesmo nos casos em que seu aplicativo está tomando decisões sólidas, considere o efeito dos usuários percebendo que o conteúdo exibido em seu aplicativo muda de uma forma que parece estar correlacionada a recursos que seriam discriminatórios.
+* **Viés não intencional em características**: Existem tipos de vieses que podem ser introduzidos usando recursos que afetam apenas um subconjunto da população. Isso requererá atenção extra se as informações estiverem sendo geradas de modo algorítmico, por exemplo, ao usar a análise de imagem para extrair itens em uma análise de texto ou de imagem para descobrir entidades no texto. Conscientize-se sobre as características dos serviços que você usa para criar informações.
 
 Aplique as seguintes práticas ao escolher as informações a serem enviadas em contextos e ações para o Personalizador:
 
 * Considere a legalidade e a ética de usar determinadas informações para alguns aplicativos e se informações que aparentam ser ingênuas podem atrair outras pessoas que você queira ou deva evitar.
 * Seja transparente com os usuários informando que algoritmos e análises de dados estão sendo usados para personalizar as opções que eles veem.
-* Pergunte-se: meus usuários se importariam e ficariam felizes se eu usasse essas informações para personalizar o conteúdo para eles? Eu me sentiria confortável mostrando a eles como a decisão foi tomada para destacar ou ocultar determinados itens?
+* Pergunte a si mesmo: Meus usuários se importariam e ficariam felizes se eu usasse essas informações para personalizar o conteúdo para eles? Eu me sentiria confortável mostrando a eles como a decisão foi tomada para destacar ou ocultar determinados itens?
 * Use dados comportamentais em vez de dados de classificação ou de segmentação com base em outras características. Informações demográficas foram tradicionalmente usadas por varejistas por motivos históricos (os atributos demográficos pareciam simples de coletar e de dar seguimento antes da era digital), mas questione qual é a relevância das informações demográficas quando você tiver dados reais de interação, contextuais e históricos que se relacionam mais estritamente às preferências e à identidade dos usuários.
 * Considere como impedir a falsificação de informações por usuários mal-intencionados que, se exploradas em grandes números, podem levar ao treinamento do Personalizador de maneira indevida para perturbar, constranger e importunar determinadas classes de usuários. 
 * Quando adequado e viável, crie seu aplicativo para permitir que seus usuários aceitem ou recusem que determinadas informações pessoais sejam usadas. Elas poderiam ser agrupadas como “Informações sobre o local”, “Informações sobre o dispositivo”, “Histórico de compras” etc.
@@ -184,7 +184,7 @@ Considere a criação de métodos para membros da equipe, usuários e proprietá
 
 Qualquer pessoa que pensar nos efeitos colaterais do uso de qualquer tecnologia estará limitada à sua perspectiva e experiência de vida. Expanda a variedade de opiniões disponíveis levando vozes mais diversas para suas equipes, usuários ou conselhos, de forma que eles possam se manifestar e serem incentivados a fazer isso. Considere materiais de treinamento e de aprendizado para expandir mais ainda o conhecimento da equipe nesse domínio e para adicionar uma funcionalidade para discutir tópicos complexos e confidenciais.
 
-Considere tratar tarefas relacionadas ao uso responsável, assim como outras tarefas de transversais no ciclo de vida do aplicativo, como tarefas relacionadas à experiência do usuário, segurança ou DevOps. Essas tarefas e seus respectivos requisitos não podem ser uma consideração a posteriori. O uso responsável deve ser discutido e verificado ao longo do ciclo de vido do aplicativo.
+Considere tratar tarefas relativas ao uso responsável, assim como outras tarefas transversais no ciclo de vida do aplicativo, como tarefas relacionadas à experiência do usuário, segurança ou DevOps. Essas tarefas e seus respectivos requisitos não podem ser uma consideração a posteriori. O uso responsável deve ser discutido e verificado ao longo do ciclo de vido do aplicativo.
  
 ## <a name="questions-and-feedback"></a>Perguntas e comentários
 
@@ -203,4 +203,4 @@ A Microsoft está continuamente dispendendo esforços em ferramentas e documento
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Informações: ação e contexto](concepts-features.md).
+[Características: ação e contexto](concepts-features.md).

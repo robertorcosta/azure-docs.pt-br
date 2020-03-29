@@ -1,7 +1,7 @@
 ---
 title: Método de idiomas de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: O método Languages Obtém o conjunto de idiomas com suporte no momento por outras operações do API de Tradução de Texto.
+description: O método Languages recebe o conjunto de idiomas atualmente suportado por outras operações da API de texto tradutor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73835824"
 ---
 # <a name="translator-text-api-30-languages"></a>API de Tradução de Texto 3.0: idiomas
@@ -34,10 +34,10 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>api-version</td>
-    <td><em>Parâmetro necessário</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+    <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
     <td>scope</td>
@@ -48,8 +48,8 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 Os cabeçalhos de solicitação são:
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Descrição</th>
   <tr>
     <td>Idioma aceito</td>
     <td>*Cabeçalho de solicitação opcional*.<br/>O idioma a ser usado para cadeias de caracteres de interface do usuário. Alguns dos campos na resposta são nomes de idiomas ou nomes de regiões. Use esse parâmetro para definir o idioma no qual esses nomes são retornados. O idioma é especificado fornecendo uma marcação de idioma BCP 47 bem formada. Por exemplo, use o valor `fr` para solicitar nomes em francês ou use o valor `zh-Hant` para solicitar nomes em chinês tradicional.<br/>Os nomes são fornecidos em inglês quando um idioma de destino não é especificado ou quando a localização não está disponível.
@@ -229,8 +229,8 @@ A lista de idiomas compatíveis não será alterada com frequência. Para econom
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Descrição</th>
   <tr>
     <td>ETag</td>
     <td>Valor atual da marca da entidade para os grupos solicitados de idiomas compatíveis. Para tornar as solicitações seguintes mais eficientes, o cliente pode enviar o valor `ETag` em um campo de cabeçalho `If-None-Match`.
@@ -248,7 +248,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Sucesso.</td>

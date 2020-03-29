@@ -1,7 +1,7 @@
 ---
-title: Emparelhamento e alinhamento de sentença-Tradutor personalizado
+title: Pareamento e alinhamento de frases - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Durante a execução do treinamento, as frases presentes em documentos paralelos são emparelhadas ou alinhadas. O tradutor personalizado aprende uma frase por vez, lendo uma frase, a tradução desta sentença. Em seguida, ele alinha palavras e frases nessas duas frases entre si.
+description: Durante a execução do treinamento, as sentenças presentes em documentos paralelos são emparelhadas ou alinhadas. Tradutor personalizado aprende traduções uma frase de cada vez, lendo uma frase, a tradução desta frase. Em seguida, alinha palavras e frases nessas duas frases entre si.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,43 +9,43 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: adbc21c3e963a98a8482de0c26bf5e257f43013e
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: cf5b2b84142c9104ea5b3afa3ad179fd0ec07449
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675445"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80370129"
 ---
-# <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento e alinhamento de sentença em documentos paralelos
+# <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
-Durante o treinamento, as frases presentes em documentos paralelos são emparelhadas ou alinhadas. O tradutor personalizado relata o número de frases que foi capaz de emparelhar como as sentenças alinhadas em cada um dos conjuntos de dados.
+Durante o treinamento, as frases presentes em documentos paralelos são emparelhadas ou alinhadas. O Custom Translator relata o número de sentenças que conseguiu emparelhar como as Sentenças Alinhadas em cada um dos conjuntos de dados.
 
 ## <a name="pairing-and-alignment-process"></a>Processo de emparelhamento e alinhamento
 
-O tradutor personalizado aprende traduções de sentenças uma frase por vez. Ele leituras uma frase da origem e, em seguida, a tradução desta frase do destino. Em seguida, ele alinha palavras e frases nessas duas frases entre si. Esse processo permite que ele crie um mapa das palavras e frases em uma frase para as palavras e frases equivalentes na tradução desta frase. O alinhamento tenta garantir que o sistema se treina em frases que são traduções umas das outras.
+O Custom Translator aprende traduções de sentenças uma sentença de cada vez. Ele lê uma sentença da fonte e, em seguida, a tradução desta frase do alvo. Em seguida, alinha palavras e frases nessas duas frases entre si. Este processo permite criar um mapa das palavras e frases em uma frase para as palavras e frases equivalentes na tradução desta frase. O alinhamento tenta garantir que o sistema treine em sentenças que são traduções uma da outra.
 
-## <a name="pre-aligned-documents"></a>Documentos alinhados previamente
+## <a name="pre-aligned-documents"></a>Documentos previamente alinhados
 
-Se você souber que tem documentos paralelos, poderá substituir o alinhamento da frase fornecendo arquivos de texto alinhados. Você pode extrair todas as frases de ambos os documentos para o arquivo de texto, organizar uma frase por linha e carregar com uma extensão de `.align`. A extensão de `.align` sinaliza ao Tradutor personalizado que ele deve ignorar o alinhamento da frase.
+Se você souber que possui documentos paralelos, poderá substituir o alinhamento de sentenças fornecendo arquivos de texto pré-alinhados. Você pode extrair todas as sentenças de ambos os documentos em um arquivo de texto, organizar uma sentença por linha e fazer o upload com uma extensão `.align`. A extensão `.align` sinaliza ao Custom Translator que deve pular o alinhamento das frases.
 
-Para obter melhores resultados, tente certificar-se de que você tem uma frase por linha em seus arquivos. Não têm caracteres de nova linha dentro de uma frase, pois isso causará alinhamentos inadequados.
+Para obter melhores resultados, verifique se você tem uma frase por linha em seus arquivos.Não tem caracteres de nova linha dentro de uma frase, pois isso causará alinhamentos ruins.
 
 ## <a name="suggested-minimum-number-of-sentences"></a>Número mínimo sugerido de frases
 
-Para que um treinamento tenha sucesso, a tabela a seguir mostra o número mínimo de frases necessárias em cada tipo de documento. Essa limitação é uma rede de segurança para garantir que suas frases paralelas contenham um vocabulário exclusivo suficiente para treinar com êxito um modelo de tradução. A diretriz geral é ter mais frases paralelas no domínio de qualidade de tradução humana deve produzir modelos de alta qualidade.
+Para que um treinamento tenha sucesso, a tabela abaixo mostra o número mínimo de frases exigidas em cada tipo de documento.Essa limitação é uma rede de segurança para garantir que suas frases paralelas contenham vocabulário único suficiente para treinar com sucesso um modelo de tradução. A diretriz geral é ter mais frases paralelas em domínio da qualidade da tradução humana deve produzir modelos de maior qualidade.
 
-| Tipo de documento   | Contagem de sentenças mínimas sugeridas | Contagem máxima de sentenças |
+| Tipo de documento   | Contagem mínima sugerida de sentenças | Contagem máxima de sentenças |
 |------------|--------------------------------------------|--------------------------------|
-| Treinamento   | 10.000                                     | Sem limite superior                 |
-| Orienta     | 5\.000                                      | 2\.500                          |
-| Testando    | 5\.000                                      | 2\.500                          |
-| Dicionário | 0                                          | Sem limite superior                 |
+| Treinamento   | 10.000                                     | Nenhum limite superior                 |
+| Ajuste     | 500                                      | 2.500       |
+| Testes    | 500                                      | 2.500  |
+| Dicionário | 0                                          | Nenhum limite superior                 |
 
 > [!NOTE]
-> - O treinamento não será iniciado e falhará se a contagem mínima de sentenças 10.000 para treinamento não for atendida. 
-> - O ajuste e o teste são opcionais. Se você não os fornecer, o sistema removerá uma porcentagem apropriada do treinamento a ser usado para validação e teste. 
-> - Você pode treinar um modelo usando apenas dados de dicionário. Veja [o que é o dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
+> - O treinamento não começará e falhará se a contagem mínima de 10.000 sentenças para treinamento não for cumprida. 
+> - A finação e o teste são opcionais. Se você não fornecê-los, o sistema removerá uma porcentagem apropriada do treinamento para usar para validação e teste. 
+> - Você pode treinar um modelo usando apenas dados do dicionário. Por favor, consulte [o que é dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar um [dicionário](what-is-dictionary.md) no Tradutor personalizado.
+- Saiba como usar um [dicionário](what-is-dictionary.md) no tradutor personalizado.

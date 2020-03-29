@@ -1,7 +1,7 @@
 ---
 title: Exporte seu modelo para celular - Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostrará como exportar seu modelo para uso na criação de aplicativos móveis ou execução local para classificação em tempo real.
+description: Este artigo mostrará como exportar seu modelo para uso na criação de aplicativos móveis ou executado localmente para classificação em tempo real.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
 ms.openlocfilehash: f734f4f1a11f57b759615e7a9ce2cd2f7f8028fb
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73718957"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exportar seu modelo para uso com dispositivos móveis
@@ -28,8 +28,8 @@ O Serviço de Visão Personalizada dá suporte às seguintes exportações:
 * __Tensorflow__ para __Android__.
 * __CoreML__ para __iOS11__.
 * __ONNX__ para __Windows ML__.
-* __[Kit de desenvolvedor de ia de visão](https://azure.github.io/Vision-AI-DevKit-Pages/)__ .
-* Um __contêiner do Docker__ para arquitetura Windows, Linux ou ARM. O contêiner inclui um modelo Tensorflow e um código de serviço para usar a API Visão Personalizada.
+* __[Kit de desenvolvedor de IA Vision](https://azure.github.io/Vision-AI-DevKit-Pages/)__.
+* Um __contêiner Docker__ para arquitetura Windows, Linux ou ARM. O contêiner inclui um modelo tensorflow e um código de serviço para usar a API de visão personalizada.
 
 > [!IMPORTANT]
 > O Serviço de Visão Personalizada exporta apenas domínios __compactos__. Os modelos gerados por domínios compactos são otimizados para as restrições de classificação em tempo real em dispositivos móveis. Classificadores compilados com um domínio compacto podem ser ligeiramente menos precisos que um domínio padrão com a mesma quantidade de dados de treinamento.
@@ -39,11 +39,11 @@ O Serviço de Visão Personalizada dá suporte às seguintes exportações:
 ## <a name="convert-to-a-compact-domain"></a>Converter para um domínio compacto
 
 > [!NOTE]
-> As etapas nesta seção se aplicam somente se você tiver um modelo existente que não esteja definido para o domínio compacto.
+> As etapas nesta seção só se aplicam se você tiver um modelo existente que não esteja definido como domínio compacto.
 
-Para converter o domínio de um modelo existente, execute as seguintes etapas:
+Para converter o domínio de um modelo existente, tome as seguintes etapas:
 
-1. No [site da visão personalizada](https://customvision.ai), selecione o ícone __página inicial__ para exibir uma lista de seus projetos.
+1. No [site visão personalizada,](https://customvision.ai)selecione o ícone __Home__ para exibir uma lista de seus projetos.
 
     ![Imagem do ícone de página inicial e lista de projetos](./media/export-your-model/projects-list.png)
 
@@ -51,10 +51,10 @@ Para converter o domínio de um modelo existente, execute as seguintes etapas:
 
     ![Imagem do ícone de engrenagem](./media/export-your-model/gear-icon.png)
 
-1. Na seção __domínios__ , selecione um dos domínios do __Compact__ . Selecione __Salvar Alterações__ para salvar as alterações. 
+1. Na seção __Domínios,__ selecione um dos domínios __compactos.__ Selecione __Salvar Alterações__ para salvar as alterações. 
 
     > [!NOTE]
-    > Para o kit de desenvolvimento de ia de visão, o projeto deve ser criado com o domínio __geral (compacto)__ e você deve especificar a opção **visão de kit de desenvolvimento de ia** na seção recursos de **exportação** .
+    > Para o Vision AI Dev Kit, o projeto deve ser criado com o domínio __Geral (Compact)__ e você deve especificar a opção **Kit de desenvolvimento do Vision AI** na seção **Capacidades de exportação.**
 
     ![Imagem da seleção de domínios](./media/export-your-model/domains.png)
 
@@ -71,14 +71,14 @@ Para exportar o modelo após o retreinamento, use as seguintes etapas:
     > [!TIP]
     > Se a entrada __Exportar__ não estiver disponível, a iteração selecionada não utilizará um domínio compacto. Use a seção __Iterações__ desta página para selecionar uma iteração que usa um domínio compacto e, em seguida, selecione __Exportar__.
 
-1. Selecione o formato de exportação desejado e, em seguida, selecione __Exportar__ para baixar o modelo.
+1. Selecione o formato de exportação desejado e selecione __Exportar__ para baixar o modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Integre seu modelo exportado a um aplicativo explorando um dos seguintes artigos ou exemplos:
+Integre seu modelo exportado em um aplicativo explorando um dos seguintes artigos ou amostras:
 
-* [Usar seu modelo Tensorflow com Python](export-model-python.md)
-* [Usar seu modelo ONNX com o Windows Machine Learning](custom-vision-onnx-windows-ml.md)
-* Consulte o exemplo para o [modelo do coreml em um aplicativo IOS](https://go.microsoft.com/fwlink/?linkid=857726) para classificação de imagem em tempo real com Swift.
-* Consulte o exemplo para o [modelo Tensorflow em um aplicativo Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) para classificação de imagem em tempo real no Android.
-* Consulte o exemplo de [modelo do coreml com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) para classificação de imagem em tempo real em um aplicativo Xamarin Ios.
+* [Use seu modelo Tensorflow com Python](export-model-python.md)
+* [Use seu modelo ONNX com o Windows Machine Learning](custom-vision-onnx-windows-ml.md)
+* Consulte a amostra para [o modelo CoreML em um aplicativo iOS](https://go.microsoft.com/fwlink/?linkid=857726) para classificação de imagem em tempo real com swift.
+* Veja a amostra do [modelo Tensorflow em um aplicativo Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) para classificação de imagem em tempo real no Android.
+* Consulte a amostra para [o modelo CoreML com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) para classificação de imagem em tempo real em um aplicativo IOS Xamarin.

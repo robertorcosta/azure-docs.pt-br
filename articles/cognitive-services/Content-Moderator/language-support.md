@@ -1,7 +1,7 @@
 ---
 title: Suporte de idioma – API do Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Esta é uma lista de linguagens naturais às quais a API de Content Moderator de serviços cognitivas do Azure dá suporte.
+description: Esta é uma lista de linguagens naturais que a API de Moderador de Conteúdo de Serviços Cognitivos do Azure suporta.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744371"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte de idioma para a API do Content Moderator
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language**, atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
 >
 > Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
 
-| Detecção de idioma | Linguagem obscena   | OCR    | Correção automática     |
+| Detecção de idioma | Conteúdo ofensivo   | OCR    | Correção automática     |
 | -------------------- |-------------|--------|---------------------|
 | Árabe (romanizado)   | Africâner   | Árabe   | Árabe |
 | Balinês | Albanês | Chinês (Simplificado)    | Dinamarquês |
-| Bengalês | Amárico | Chinês (Tradicional)     | Holandês |
+| Bengali | Amárico | Chinês (Tradicional)     | Holandês |
 | Bugi | Árabe | Tcheco                     | Inglês |
 | Buhid | Armênia | Dinamarquês                     | Finlandês |
 | Cariano | Assamês | Holandês                     | Francês |
@@ -40,7 +40,7 @@ ms.locfileid: "73744371"
 | Tcheco |  Bielorrusso | Grego (moderno)         | Polonês |
 | Dhivehi | Bósnio - Cirílico | Húngaro      | Português |
 | Holandês | Bósnio - Latim | Italiano             | Romeno |
-| Inglês (haitiano) | Bretão [não GeoPol] | Japonês  | Russo |
+| Inglês (crioulo) | Bretão [não GeoPol] | Japonês  | Russo |
 | Farsi | Búlgaro | Coreano                        | Eslovaco |
 | Francês | Catalão | Norueguês                        | Espanhol |
 | Alemão | Curdo Central | Polonês        | Turco |
@@ -76,12 +76,12 @@ ms.locfileid: "73744371"
 | Saurashtra | isiZulu | | |
 | Sérvio (cirílico) | Italiano | | |
 | Sérvio (latino) | Japonês | | |
-| Sinhala | Canarim | | |
+| Sinhala | canarim | | |
 | Esloveno | Cazaque | | |
 | Espanhol | Khmer | | |
 | Sueco | K'iche | | |
 | Sylheti | Quiniaruanda | | |
-| Siríaco | Kiswahili | | |
+| Siríaco | Suaíli | | |
 | Tagbanwa | Concani | | |
 | Tai (Nua) | Coreano | | |
 | Tamashek | Kyrgyz | | |
@@ -92,14 +92,14 @@ ms.locfileid: "73744371"
 | Vai | Macedônio | | |
 | Yi | Malaio | | |
 | Zhuang, Chuang | Malaiala | | |
-| | Maltese | | |
+| | Maltês | | |
 | | Maori | | |
 | | Marati | | |
 | | Mongol | | |
 | | Nepali | | |
 | | Norueguês (Bokmål) | | |
 | | Norueguês (Nynorsk) | | |
-| | Odia | | |
+| | Oriá | | |
 | | Pashto | | |
 | | Persa | | |
 | | Polonês | | |
@@ -108,7 +108,7 @@ ms.locfileid: "73744371"
 | | Pulaar | | |
 | | Panjabi | | |
 | | Panjabi (Paquistão) | | |
-| | Quechua (Peru) | | |
+| | Quíchua (Peru) | | |
 | | Romeno | | |
 | | Russo | | |
 | | Gaélico escocês | | |

@@ -1,5 +1,5 @@
 ---
-title: Personalizar e sugerir consultas de pesquisa de imagem - API de pesquisa de imagem do Bing
+title: Personalize e sugira consultas de pesquisa de imagens - Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como personalizar as consultas de pesquisa enviadas à API de Pesquisa de Imagem do Bing.
 services: cognitive-services
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67542752"
 ---
-# <a name="customize-and-suggest-image-search-queries"></a>Personalizar e sugerir consultas de pesquisa de imagem
+# <a name="customize-and-suggest-image-search-queries"></a>Personalize e sugira consultas de pesquisa de imagens
 
-Use este artigo para aprender a personalizar as consultas e sugerir os termos de pesquisa para enviar para a API de pesquisa de imagem do Bing.
+Use este artigo para aprender a personalizar consultas e sugerir termos de pesquisa para enviar à API de pesquisa de imagens de Bing.
 
-## <a name="suggest-search-terms"></a>Sugerir os termos de pesquisa
+## <a name="suggest-search-terms"></a>Sugerir termos de pesquisa
 
 Se o aplicativo tiver uma caixa de pesquisa em que os termos de pesquisa são inseridos, use a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API pode exibir os termos de pesquisa sugeridos em tempo real. A API retorna cadeias de consulta sugeridas com base em termos de pesquisa parciais e nos serviços cognitivos do Azure.
 
@@ -30,7 +30,7 @@ Se o aplicativo tiver uma caixa de pesquisa em que os termos de pesquisa são in
 
 Se o Bing conseguir segmentar a consulta de pesquisa original, o objeto [Imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contém `pivotSuggestions`. Dinamizar sugestões pode ser exibido como termos de pesquisa opcional para o usuário. Por exemplo, se a consulta original foi *Microsoft Surface*, o Bing pode segmentar a consulta entre *Microsoft* e *Surface* e fornecer pivôs sugeridos para cada um. Essas sugestões podem ser exibidas como termos de pesquisa opcionais para o usuário.
 
-O seguinte exemplo mostra as sugestões de pivô para o *Microsoft Surface*:  
+O exemplo a seguir mostra as sugestões pivôs para *o Microsoft Surface*:  
 
 ```json
 {

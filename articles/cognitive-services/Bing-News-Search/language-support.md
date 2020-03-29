@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220188"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Idiomas e regiões compatíveis com a API de Pesquisa de Notícias do Bing
@@ -31,7 +31,7 @@ Para o ponto de extremidade `/news/search`, a tabela a seguir lista os valores d
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Linguagem|Código de mercado|  
+|País/Região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Áustria|Alemão|de-AT|
@@ -80,7 +80,7 @@ Para o ponto de extremidade `/news`, a tabela a seguir lista os valores de códi
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Linguagem|Código de mercado|  
+|País/Região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Alemanha|Alemão|de-DE|
@@ -103,7 +103,7 @@ Para o ponto de extremidade `/news/trendingtopics`, a tabela a seguir lista os v
 
 Para obter uma lista de códigos de país/região que podem ser especificados no parâmetro de consulta `cc`, consulte [Códigos do País](#countrycodes).  
 
-|País/Região|Linguagem|Código de mercado|  
+|País/Região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|

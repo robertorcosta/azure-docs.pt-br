@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72935949"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Verificar o texto em relação a uma lista de termos personalizados em C#
 
 A lista de termos global padrão do Content Moderator do Azure é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, você precisará de examinar os termos que são específicos para sua organização. Por exemplo, você talvez queira marcar nomes de concorrentes para análise adicional. 
 
-Você pode usar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para criar listas de termos personalizados para serem usadas com a API de Moderação de Texto.
+Você pode usar o [SDK moderador de conteúdo para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para criar listas personalizadas de termos para usar com a API de moderação de texto.
 
-Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar SDK do Content Moderator para .NET para:
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar o SDK do Content Moderator para .NET para:
 - Cria uma lista.
 - Adicionar termos a uma lista.
 - Examinar termos com os termos em uma lista.
@@ -34,13 +34,13 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para serviços do Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se nos serviços do Content Moderator
 
 Uma chave de assinatura será necessária antes de usar os serviços do Content Moderator através da API REST ou do SDK. Assine o serviço de Content Moderator no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) para obter um.
 
-## <a name="create-your-visual-studio-project"></a>Criar um projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
 
-1. Adicione um novo projeto de **Aplicativo do console (.NET Framework)** à solução.
+1. Adicione um novo projeto do **Aplicativo do console (.NET Framework)** à solução.
 
 1. Nomeie o projeto como **TermLists**. Escolha esse projeto como o único projeto de inicialização para a solução.
 
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
 
-Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize os campos `AzureEndpoint` e `CMSubscriptionKey` com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
+Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e os campos com os valores de sua URL de ponto final e chave de assinatura. Você pode encontrá-los na guia **Início Rápido** do seu recurso no portal Azure.
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ Tela de texto usando uma lista de termos com **ContentModeratorClient.TextModera
 - Um tipo MIME, que pode ser "text/html", "texto/xml", "texto/markdown" ou "texto/simples".
 - O texto para a tela.
 - Um valor booliano. Defina este campo como **verdadeiro** para a correção automática de texto antes de colocar na tela.
-- Um valor booliano. Defina esse campo como **true** para detectar dados pessoais no texto.
+- Um valor booliano. Defina este campo **como verdadeiro** para detectar dados pessoais no texto.
 - ID de Lista de termos.
 
 Para obter mais informações, confira a [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -305,7 +305,7 @@ Excluir um termo ou uma lista é simples. Você pode usar o SDK para realizar as
 
 - Excluir um termo. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
 - Excluir todos os termos em uma lista sem excluir a lista. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- Exclua uma lista e todo seu conteúdo. (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- Excluir uma lista e todo seu conteúdo. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>Excluir um termo
 
@@ -362,7 +362,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Compor o método Main
+## <a name="compose-the-main-method"></a>Componha o método principal
 
 Adicione a definição de método **Principal** para o namespace **TermLists** da classe **Programa**. Por fim, feche a classe **Programa** e o namespace **TermLists**.
 
@@ -404,7 +404,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Execute o aplicativo de console para ver a saída
 
-A saída do console se parecerá com o seguinte:
+A saída do console será pareada com a seguinte:
 
 ```console
 Creating term list.
@@ -436,6 +436,6 @@ Deleting term list with ID 252.
 Press ENTER to close the application.
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Obtenha o [SDK do .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar em seu processo de integração.

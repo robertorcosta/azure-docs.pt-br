@@ -1,5 +1,5 @@
 ---
-title: Entidade predefinida keyphrase-LUIS
+title: Chavefrase entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações da entidade pré-compilada KeyPhrase no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -12,24 +12,24 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270521"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida keyPhrase para um aplicativo LUIS
-A entidade keyPhrase extrai uma variedade de frases-chave de um expressão. Você não precisa adicionar o exemplo declarações que contém keyPhrase ao aplicativo. A entidade keyPhrase tem suporte em [muitas culturas](luis-language-support.md#languages-supported) como parte dos recursos de [análise de texto](../text-analytics/overview.md) .
+A entidade keyPhrase extrai uma variedade de frases-chave de um enunciado. Você não precisa adicionar expressões de exemplo contendo keyPhrase para o aplicativo. A entidade keyPhrase é suportada em [muitas culturas](luis-language-support.md#languages-supported) como parte dos recursos de análise de [texto.](../text-analytics/overview.md)
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução para entidade keyPhrase pré-compilada
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para a consulta:
 
 `where is the educational requirements form for the development and engineering group`
 
-#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O JSON a `verbose` seguir está `false`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -39,8 +39,8 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
+O JSON a `verbose` seguir está `true`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -76,7 +76,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
 O exemplo a seguir mostra a resolução da entidade **builtin.keyPhrase**.
 
@@ -98,7 +98,7 @@ O exemplo a seguir mostra a resolução da entidade **builtin.keyPhrase**.
 ```
 * * *
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 

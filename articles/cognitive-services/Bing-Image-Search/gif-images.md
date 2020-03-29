@@ -12,15 +12,15 @@ ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: ad33b5a28728a8e7f9c0a70ff81ea5a9e65624bd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072648"
 ---
 # <a name="search-for-gif-images"></a>Pesquisar imagens GIF 
 
-A API de Pesquisa de Imagem do Bing permite que você pesquise em toda a Web para obter as imagens .gif mais relevantes.  Os desenvolvedores podem integrar GIFs envolventes em vários cenários de conversa. 
+A API de Pesquisa de Imagem do Bing permite que você pesquise em toda a Web para obter as imagens .gif mais relevantes.Os desenvolvedores podem integrar GIFs de engajamento em vários cenários de conversa. 
 
 A URL a seguir é uma consulta de imagens .gif animadas.
 ```
@@ -208,5 +208,5 @@ O código obtém os seguintes resultados como objetos JSON:
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em C#](quickstarts/csharp.md)
+- [Início Rápido do C#](quickstarts/csharp.md)
 - [Tutorial do aplicativo de página única de Pesquisa de Imagem](tutorial-bing-image-search-single-page-app.md)

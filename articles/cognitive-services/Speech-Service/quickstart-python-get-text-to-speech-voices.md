@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77119800"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obter a lista de vozes da conversão de texto em fala usando Python
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a obter a lista completa de vozes neurais e padr�
 
 Este artigo exige uma conta dos [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o recurso do serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Python 2.7.x ou 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
@@ -123,7 +123,7 @@ E, pronto, você já pode executar o exemplo. Na linha de comando (ou sessão de
 python get-voices.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 
@@ -135,5 +135,5 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 ## <a name="see-also"></a>Confira também
 
 * [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Criar fontes de voz personalizada](how-to-customize-voice-font.md)
+* [Criar fontes de voz personalizadas](how-to-customize-voice-font.md)
 * [Grave amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

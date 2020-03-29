@@ -1,7 +1,7 @@
 ---
 title: Chamar a API da Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Este artigo explica como você pode chamar os serviços cognitivas do Azure Análise de Texto a API REST e o postmaster.
+description: Este artigo explica como você pode chamar a API e Carteiro de Serviços Cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219297"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
@@ -27,7 +27,7 @@ Lembre-se de que a Análise de Texto é sem estado, portanto não há ativos de 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -80,19 +80,19 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
 
 5. Cole alguns documentos JSON em um formato válido para a análise pretendida. Para saber mais sobre uma análise específica nos tópicos a seguir:
 
-  + [Detecção de idioma](text-analytics-how-to-language-detection.md)  
+  + [Detecção de idiomas](text-analytics-how-to-language-detection.md)  
   + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md)  
   + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconhecimento de entidade](text-analytics-how-to-entity-linking.md)  
+  + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
 
 
-6. Clique em **Enviar** para enviar a solicitação. Consulte a seção [limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o número de solicitações que você pode enviar por minuto e segundo.
+6. Clique em **Enviar** para enviar a solicitação. Consulte a seção [de limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o número de solicitações que você pode enviar por minuto e segundo.
 
    No Postman, a resposta é exibida na próxima janela, como um único documento JSON, com um item para cada ID do documento fornecido na solicitação.
 
 ## <a name="see-also"></a>Confira também 
 
- [Visão geral da Análise de Texto](../overview.md)  
+ [Visão geral do análise de texto](../overview.md)  
  [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)
 
 ## <a name="next-steps"></a>Próximas etapas

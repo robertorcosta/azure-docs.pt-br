@@ -1,5 +1,5 @@
 ---
-title: Região predefinida da geography v2 – LUIS
+title: Geografia V2 entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações da entidade predefinida geographyV2 no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273504"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade GeographyV2 predefinida para um aplicativo LUIS
@@ -35,13 +35,13 @@ As localizações geográficas têm subtipos:
 
 ## <a name="resolution-for-geographyv2-entity"></a>Resolução para a entidade GeographyV2
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para a consulta:
 
 `Carol is visiting the sphinx in gizah egypt in africa before heading to texas.`
 
-#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O JSON a `verbose` seguir está `false`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -70,11 +70,11 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 }
 ```
 
-No JSON anterior, `poi` é uma abreviação de **ponto de interesse**.
+No JSON anterior, `poi` é uma abreviação de Point of **Interest**.
 
-#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+O JSON a `verbose` seguir está `true`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -161,7 +161,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
 O exemplo a seguir mostra a resolução da entidade **builtin.geographyV2**.
 
@@ -207,7 +207,7 @@ O exemplo a seguir mostra a resolução da entidade **builtin.geographyV2**.
 ```
 * * *
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 

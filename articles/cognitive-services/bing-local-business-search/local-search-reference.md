@@ -1,5 +1,5 @@
 ---
-title: Referência do Bing local da API de pesquisa de negócios v7
+title: Bing Local Business Search API v7 Reference
 titleSuffix: Azure Cognitive Services
 description: Este artigo fornece detalhes técnicos sobre os objetos de resposta e os parâmetros de consulta e cabeçalhos que afetam os resultados da pesquisa.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: db764a73aa1bb18ef2fc0f8f6e5ffe8fd60d388c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74075691"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API v7 da Pesquisa de empresa local do Bing
 
-A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. Os resultados de entidade incluem pessoas, lugares ou coisas. O local neste contexto é entidades de negócios, Estados, países/regiões, etc.  
+A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. Os resultados de entidade incluem pessoas, lugares ou coisas. Nesse contexto estão entidades empresariais, estados, países/regiões, etc.  
 
 Esta seção fornece detalhes técnicos sobre os objetos de resposta e os parâmetros e cabeçalhos de consulta que afetam os resultados da pesquisa. Para exemplos que mostram como fazer solicitações, consulte [Início rápido da Pesquisa C# de empresa local](quickstarts/local-quickstart.md) ou [Início rápido de Java da Pesquisa de empresa local](quickstarts/local-search-java-quickstart.md). 
   
@@ -41,7 +41,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 
 ```
   
-A solicitação precisa usar o protocolo HTTPS.  
+A solicitação deve usar o protocolo HTTPS.  
   
 > [!NOTE]
 > O tamanho máximo da URL é de 2.048 caracteres. Para garantir que o tamanho da URL não exceda o limite, o tamanho máximo dos parâmetros de consulta deve ser inferior a 1.500 caracteres. Se a URL excede 2.048 caracteres, o servidor retorna 404 Não encontrado.  
@@ -50,10 +50,10 @@ A solicitação precisa usar o protocolo HTTPS.
 ## <a name="headers"></a>headers  
 Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma resposta.  
   
-|Cabeçalho|DESCRIÇÃO|  
+|Cabeçalho|Descrição|  
 |------------|-----------------|  
 |Aceitar|Cabeçalho de solicitação opcional.<br /><br /> O tipo de mídia padrão é application/json. Para especificar que a resposta usará [JSON-LD](https://json-ld.org/), defina o cabeçalho Accept como application/ld+json.|  
-|<a name="acceptlanguage" />Accept-Language|Cabeçalho de solicitação opcional.<br /><br /> Uma lista delimitada por vírgula de idiomas a serem usados para as cadeias de caracteres de interface do usuário. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, confira [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Esse cabeçalho e o parâmetro de consulta [setLang](#setlang) são mutuamente exclusivos – não especifique ambos.<br /><br /> Se você definir esse cabeçalho, também deverá especificar o parâmetro de consulta cc. Para determinar o mercado para o qual retornar os resultados, o Bing usa o primeiro idioma compatível suporte encontrado na lista e combina-o com o valor de parâmetro `cc`. Se a lista não inclui um idioma compatível, o Bing encontra o idioma e o mercado mais próximos que dão suporte à solicitação ou usa um mercado padrão ou agregado para os resultados. Para determinar o mercado usado pelo Bing, confira o cabeçalho BingAPIs-Market.<br /><br /> Use esse cabeçalho e o parâmetro de consulta `cc` somente se você especificar vários idiomas. Caso contrário, use os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|  
+|<a name="acceptlanguage" />Accept-Language|Cabeçalho de solicitação opcional.<br /><br /> Uma lista delimitada por vírgula de idiomas a serem usados para as cadeias de caracteres de interface do usuário. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, confira [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Esse cabeçalho e o parâmetro de consulta [](#setlang)setLang&mdash; são mutuamente exclusivos – não especifique ambos.<br /><br /> Se você definir esse cabeçalho, também deverá especificar o parâmetro de consulta cc. Para determinar o mercado para o qual retornar os resultados, o Bing usa o primeiro idioma compatível suporte encontrado na lista e combina-o com o valor de parâmetro `cc`. Se a lista não inclui um idioma compatível, o Bing encontra o idioma e o mercado mais próximos que dão suporte à solicitação ou usa um mercado padrão ou agregado para os resultados. Para determinar o mercado usado pelo Bing, confira o cabeçalho BingAPIs-Market.<br /><br /> Use esse cabeçalho e o parâmetro de consulta `cc` somente se você especificar vários idiomas. Caso contrário, use os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|  
 |<a name="market" />BingAPIs-Market|Cabeçalho de resposta.<br /><br /> O mercado usado pela solicitação. O formulário é \<languageCode\>-\<countryCode\>. Por exemplo, en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Cabeçalho de resposta.<br /><br /> A ID da entrada de log que contém os detalhes da solicitação. Quando ocorrer um erro, capture essa ID. Se você não conseguir determinar e resolver o problema, inclua essa ID juntamente com outras informações fornecidas à equipe de Suporte.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Cabeçalho de solicitação obrigatório.<br /><br /> A chave de assinatura que você recebeu quando se inscreveu nesse serviço nos [Serviços Cognitivos](https://www.microsoft.com/cognitive-services/).|  
@@ -71,31 +71,31 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL.  
   
   
-|NOME|Valor|Digite|obrigatórios|  
+|Nome|Valor|Type|Obrigatório|  
 |----------|-----------|----------|--------------|
-|<a name="count" />Contagem|O número de resultados a serem retornados, começando com o índice especificado pelo parâmetro `offset`.|String|Não|   
+|<a name="count" />Contagem|O número de resultados a retornar, começando `offset` pelo índice especificado pelo parâmetro.|String|Não|   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócio.  Consulte [categorias de negócios locais de pesquisa](local-categories.md)|String|Não|  
-|<a name="mkt" />mkt|O mercado de onde vêm os resultados. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira Códigos de mercado.<br /><br /> **OBSERVAÇÃO:** Atualmente, a API de pesquisa de empresa local suporta apenas o mercado e o idioma do en-us.<br /><br />|String|sim|
-|<a name="offset"/>deslocamento|O índice para iniciar os resultados especificados pelo parâmetro `count`.|Inteiro|Não|  
+|<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira Códigos de mercado.<br /><br /> **OBSERVAÇÃO:** Atualmente, a API de pesquisa de empresa local suporta apenas o mercado e o idioma do en-us.<br /><br />|String|Sim|
+|<a name="offset"/>deslocamento|O índice para iniciar os resultados especificados pelo parâmetro `count`.|Integer|Não|  
 |<a name="query" />q|Termo de pesquisa do usuário.|String|Não|  
 |<a name="responseformat" />responseFormat|O tipo de mídia a ser usado para a resposta. Veja a seguir os possíveis valores que não diferenciam maiúsculas de minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON contidos na resposta, confira [Objetos de resposta](#response-objects).<br /><br />  Se você especificar JsonLd, o corpo da resposta incluirá objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, confira [JSON-LD](https://json-ld.org/).|String|Não|  
 |<a name="safesearch" />Pesquisa Segura|Um filtro usado para filtrar o conteúdo para adulto. Veja a seguir os possíveis valores de filtro que não diferenciam maiúsculas de minúsculas.<br /><ul><li>Desativado – retorna páginas da Web com texto, imagens ou vídeos para adulto.<br /><br/></li><li>Moderado – retorna páginas da Web com texto para adulto, mas não imagens nem vídeos para adulto.<br /><br/></li><li>Estrito – não retorna páginas da Web com texto, imagens ou vídeos para adulto.</li></ul><br /> O padrão é Moderado.<br /><br /> **OBSERVAÇÃO:** se a solicitação for proveniente de um mercado cuja política de conteúdo para adulto do Bing exija que `safeSearch` seja definido como Estrito, o Bing ignorará o valor `safeSearch` e usará Estrito.<br/><br/>**OBSERVAÇÃO:** se você usar o operador de consulta `site:`, há a possibilidade de que a resposta possa trazer um conteúdo para adulto, seja qual for a definição do parâmetro de consulta `safeSearch`. Só use `site:` se estiver ciente do conteúdo do site e se o cenário der suporte à possibilidade de conteúdo para adulto. |String|Não|  
-|<a name="setlang" />setLang|O idioma a ser usado para cadeias de caracteres de interface do usuário. Especifique o idioma usando o código de idioma ISO 639-1 de 2 letras. Por exemplo, o código de idioma para o inglês é EN. O padrão é EN (inglês).<br /><br /> Embora isso seja opcional, você sempre deve especificar o idioma. Normalmente, você define `setLang` com o mesmo idioma especificado por `mkt`, a menos que o usuário deseje exibir as cadeias de caracteres de interface do usuário em outro idioma.<br /><br /> Esse parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos – não especifique ambos.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Além disso, todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|Não| 
+|<a name="setlang" />setLang|O idioma a ser usado para cadeias de caracteres de interface do usuário. Especifique o idioma usando o código de idioma ISO 639-1 de 2 letras. Por exemplo, o código de idioma para o inglês é EN. O padrão é EN (inglês).<br /><br /> Embora isso seja opcional, você sempre deve especificar o idioma. Normalmente, você define `setLang` com o mesmo idioma especificado por `mkt`, a menos que o usuário deseje exibir as cadeias de caracteres de interface do usuário em outro idioma.<br /><br /> Esse parâmetro e o cabeçalho [](#acceptlanguage)Accept-Language&mdash; são mutuamente exclusivos – não especifique ambos.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Além disso, todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|Não| 
 
 
 ## <a name="response-objects"></a>Objetos de resposta  
 A seguir estão os objetos de resposta JSON que a resposta pode incluir. Se a solicitação for bem-sucedida, o objeto de nível superior na resposta é o objeto [SearchResponse](#searchresponse). Se a solicitação falha, o objeto de nível superior é o objeto [ErrorResponse](#errorresponse).
 
 
-|Objeto|DESCRIÇÃO|  
+|Objeto|Descrição|  
 |------------|-----------------|  
-|[Local](#place)|Define informações sobre uma empresa local, como um restaurante ou hotel.|  
+|[Lugar](#place)|Define informações sobre uma empresa local, como um restaurante ou hotel.|  
 
   
 ### <a name="error"></a>Erro  
 Define o erro ocorrido.  
   
-|Elemento|DESCRIÇÃO|Digite|  
+|Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|O código de erro que identifica a categoria de erro. Para obter uma lista dos possíveis códigos, confira [Códigos de erro](#error-codes).|String|  
 |<a name="error-message" />message|Uma descrição do erro.|String|  
@@ -108,17 +108,17 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior incluído pela resposta quando a solicitação falha.  
   
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
-|<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Error](#error)[]|  
+|<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Erro](#error)[]|  
 
   
   
 ### <a name="license"></a>Licença  
 Define a licença sob a qual a foto ou o texto pode ser usado.  
   
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |name|O nome da licença.|String|  
 |url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|String|  
@@ -127,10 +127,10 @@ Define a licença sob a qual a foto ou o texto pode ser usado.
 ### <a name="link"></a>Link  
 Define os componentes de um hiperlink.  
   
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
-|texto|O texto de exibição.|String|  
+|text|O texto de exibição.|String|  
 |url|Uma URL. Use a URL e exiba o texto para criar um hiperlink.|String|  
   
 
@@ -141,7 +141,7 @@ Define um editor.
   
 Observe que um editor pode fornecer seu nome, seu site ou ambos.  
   
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |name|O nome do editor.|String|  
 |url|A URL para o site do editor.<br /><br /> Observe que o editor pode não fornecer um site.|String|  
@@ -151,13 +151,13 @@ Observe que um editor pode fornecer seu nome, seu site ou ambos.
 ### <a name="place"></a>Posicionar  
 Define informações sobre uma empresa local, como um restaurante ou hotel.  
   
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Digite hint, que pode ser definido como um dos seguintes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
-|endereço|O endereço postal em que a entidade está localizada.|PostalAddress|  
+|address|O endereço postal em que a entidade está localizada.|PostalAddress|  
 |entityPresentationInfo|Informações adicionais sobre a entidade, como dicas que você pode usar para determinar o tipo da entidade. Por exemplo, seja um restaurante ou hotel. O campo `entityScenario` está definido como ListItem.|EntityPresentationInfo|  
 |name|O nome da entidade.|String|  
-|Telefone|Número de telefone da entidade.|String|  
+|telefone|Número de telefone da entidade.|String|  
 |url|A URL para o site da entidade.<br /><br /> Use este URL junto com o nome da entidade para criar um hiperlink que, quando clicado, leva o usuário ao site da entidade.|String|  
 |webSearchUrl|A URL para o resultado da pesquisa do Bing para esse local.|String| 
   
@@ -165,7 +165,7 @@ Define informações sobre uma empresa local, como um restaurante ou hotel.
 ### <a name="querycontext"></a>QueryContext  
 Define o contexto de consulta usado pelo Bing para a solicitação.  
   
-|Elemento|DESCRIÇÃO|Digite|  
+|Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|Boolean|  
 |alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *velejando na direção do vento*, a cadeia de caracteres de consulta de substituição será *+velejando na direção do vento*. Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *%2Bvelejando+na direção do vento*.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|String|  
@@ -175,31 +175,31 @@ Define o contexto de consulta usado pelo Bing para a solicitação.
 
 ### <a name="identifiable"></a>Identifiable
 
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |-------------|-----------------|----------|
-|ID|Um identificador de recurso|String|
+|id|Um identificador de recurso|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados da pesquisa, como linha principal.
 
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |-------------|-----------------|----------|
-|items|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
+|itens|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado da pesquisa a ser exibido.
 
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Inteiro|
+|resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Integer|
 |answerType|A resposta que contém o item a ser exibido. Por exemplo, Notícias.<br /><br />Use o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo de valor; caso contrário, ignore-o.|String|
 |textualIndex|O índice da resposta em textualAnswers a ser exibido.| Inteiro sem sinal|
-|Valor|A ID que identifica uma resposta a ser exibida ou um item de uma resposta a ser exibido. Se a ID identificar uma resposta, exiba todos os itens da resposta.|Identifiable|
+|value|A ID que identifica uma resposta a ser exibida ou um item de uma resposta a ser exibido. Se a ID identificar uma resposta, exiba todos os itens da resposta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Define o local em que o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
   
-|NOME|Valor|  
+|Nome|Valor|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Os resultados da pesquisa a serem exibidos na linha principal.|  
 |<a name="ranking-pole" />pole|Os resultados da pesquisa que devem receber o tratamento mais visível (por exemplo, exibidos acima da linha principal e da barra lateral).|  
@@ -210,7 +210,7 @@ Define o objeto de nível superior incluído pela resposta quando a solicitaçã
   
 Observe que se o serviço suspeitar de um ataque de negação de serviço, a solicitação será bem-sucedida (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|NOME|Valor|Digite|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|String|  
 |Locais|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  
@@ -221,7 +221,7 @@ Observe que se o serviço suspeitar de um ataque de negação de serviço, a sol
 
 Veja a seguir os possíveis códigos de status HTTP retornados por uma solicitação.  
   
-|Código de status|DESCRIÇÃO|  
+|Código de status|Descrição|  
 |-----------------|-----------------|  
 |200|Sucesso.|  
 |400|Um dos parâmetros de consulta está ausente ou é inválido.|  
@@ -261,7 +261,7 @@ Se a solicitação falha, a resposta contém um objeto [ErrorResponse](#errorres
 
 Veja a seguir os possíveis valores de código de erro e de código de suberro.
 
-|Código|Subcódigo|DESCRIÇÃO
+|Código|Subcódigo|Descrição
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O código de status HTTP é 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retornará InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se você usar o protocolo HTTP em vez de HTTPS, o Bing retornará HttpNotAllowed, e o código de status HTTP será 410.
@@ -271,6 +271,6 @@ Veja a seguir os possíveis valores de código de erro e de código de suberro.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
-- [Início rápido de Java de pesquisa de local de negócios](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)
 - [Início Rápido do Python em Pesquisa de empresa local](quickstarts/local-search-python-quickstart.md)

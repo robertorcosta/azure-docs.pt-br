@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: pafarley
 ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72754167"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
 
-Use a [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) e [moderação de vídeo](video-moderation-api.md) assistida por computador Content moderator para vídeos moderados e transcrições para conteúdo adulto (explícito) e erótico (Sugestor) para obter os melhores resultados para seus negócios.
+Use a [moderação](Review-Tool-User-Guide/human-in-the-loop.md) de [vídeo](video-moderation-api.md) assistida por máquina do Moderador e a ferramenta de revisão humana para moderar vídeos e transcrições para conteúdo adulto (explícito) e picante (sugestivo) para obter os melhores resultados para o seu negócio.
 
 ## <a name="video-trained-classifier-preview"></a>Classificador treinado para vídeo (versão prévia)
 
@@ -100,7 +100,7 @@ Os vídeos normalmente têm narração que também precisa de moderação para f
 
 ![exibição de transcrição da ferramenta de análise de vídeo](images/video-review-transcript-view.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Introdução com o [Início rápido de moderação de vídeo](video-moderation-api.md).
 - Saiba como gerar [análises de vídeos](video-reviews-quickstart-dotnet.md) para seus revisores humanos do seu resultado moderado.

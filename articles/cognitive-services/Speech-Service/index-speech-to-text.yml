@@ -1,30 +1,33 @@
 ### YamlMime:Landing
-title: Documentação de conversão de fala em texto
-summary: A conversão de fala em texto do serviço de fala, também conhecida como reconhecimento de fala, permite a transcrição em tempo real de fluxos de áudio em texto.
+title: Documentação de fala para texto
+summary: A fala-para-texto do serviço Speech, também conhecido como reconhecimento de fala, permite a transcrição em tempo real e em lote de fluxos de áudio em texto.
 metadata:
-  title: Documentação de fala em texto-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  title: Documentação de fala para texto - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: 7f3486e9944cf7f01c2a53ca101c5cc26530e086
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: b6f2fed7b5d6722b07b7f996c46e48ea0d86f755
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79370348"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "80052834"
 landingContent:
-- title: Sobre a conversão de fala em texto
+- title: Sobre a fala-para-texto
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é conversão de fala em texto?
+    - text: O que é discurso em tempo real?
       url: speech-to-text.md
+    - text: O que é discurso em lote para texto?
+      url: batch-transcription.md
+    - text: O básico do reconhecimento de fala?
+      url: speech-to-text-basics.md
   - linkListType: quickstart
     links:
     - text: Reconhecer uma fala com a entrada do microfone
@@ -33,7 +36,7 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Reconhecer uma fala armazenada no Armazenamento de Blobs
       url: quickstarts/from-blob.md
-- title: Desenvolver com conversão de fala em texto
+- title: Desenvolver com fala-para-texto
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -45,9 +48,13 @@ landingContent:
       url: how-to-custom-speech.md
     - text: Usar formatos de entrada de áudio compactados
       url: how-to-use-codec-compressed-audio-input-streams.md
+  - linkListType: tutorial
+    links:
+    - text: Melhorar a precisão com modelos de locatário
+      url: tutorial-tenant-model.md
   - linkListType: concept
     links:
-    - text: Preparar dados para Fala Personalizada
+    - text: Preparar dados para discurso personalizado
       url: how-to-custom-speech-test-data.md
     - text: Treinar um modelo para Fala Personalizada
       url: how-to-custom-speech-train-model.md
@@ -61,5 +68,5 @@ landingContent:
       url: language-support.md#speech-to-text
     - text: Perguntas frequentes sobre conversão de fala em texto
       url: faq-stt.md
-    - text: Preços de fala a texto
+    - text: Preços de fala para texto
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

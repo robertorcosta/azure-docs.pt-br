@@ -1,7 +1,7 @@
 ---
-title: Executar Pesquisa Visual Computacional contêiner em instâncias de contêiner do Azure
+title: Executar o contêiner Computer Vision em instâncias de contêiner do Azure
 titleSuffix: Azure Cognitive Services
-description: Implante o contêiner Pesquisa Visual Computacional em uma instância de contêiner do Azure e teste-o em um navegador da Web.
+description: Implante o contêiner Computer Vision em uma instância de contêiner do Azure e teste-o em um navegador da Web.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.openlocfilehash: 1c858432a3382e6dbc8e479aab11b18dc5eebfe4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73499109"
 ---
-# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Implantar o contêiner de Pesquisa Visual Computacional em instâncias de contêiner do Azure
+# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Implantar o contêiner Visão de Computador em Instâncias de Contêiner do Azure
 
-Saiba como implantar os serviços cognitivas [Pesquisa Visual computacional](computer-vision-how-to-install-containers.md) contêiner nas [instâncias de contêiner](https://docs.microsoft.com/azure/container-instances/)do Azure. Este procedimento demonstra a criação do recurso de Pesquisa Visual Computacional. Em seguida, discutimos a extração da imagem de contêiner associada. Por fim, destacamos a capacidade de exercitar a orquestração dos dois em um navegador. O uso de contêineres pode mudar a atenção dos desenvolvedores para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
+Saiba como implantar o contêiner Cognitive Services [Computer Vision](computer-vision-how-to-install-containers.md) em Instâncias [de Contêiner](https://docs.microsoft.com/azure/container-instances/)do Azure . Este procedimento demonstra a criação do recurso Visão computacional. Em seguida, discutimos puxar a imagem do contêiner associado. Finalmente, destacamos a capacidade de exercitar a orquestração dos dois a partir de um navegador. O uso de contêineres pode desviar a atenção dos desenvolvedores do gerenciamento da infra-estrutura para, em vez disso, focar no desenvolvimento de aplicativos.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

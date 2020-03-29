@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219242"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplos de cenário do usuário para a API de Análise de Texto
@@ -45,11 +45,11 @@ Monitore comentários do usuário sobre o produto no Twitter ou na página do Fa
 
 ![Uma imagem descrevendo como monitorar comentários sobre seu produto e sua empresa em redes sociais usando extração de frases-chave](media/use-cases/social-feed.svg)
 
-## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Classificar e redigir documentos que têm informações confidenciais
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Classificar e redigir documentos que tenham informações confidenciais
 
-Use o reconhecimento de entidade nomeada para identificar informações pessoais e confidenciais em documentos. Use os dados para classificar documentos ou redação-los para que eles possam ser compartilhados com segurança.
+Use o Reconhecimento de Entidade Nomeado para identificar informações pessoais e confidenciais em documentos. Use os dados para classificar documentos ou redigi-los para que possam ser compartilhados com segurança.
 
-![Uma imagem que descreve como usar o NER para detectar informações pessoais e classificar e redigir documentos](media/use-cases/sensitive-docs.jpg)
+![Uma imagem descrevendo como usar ner para detectar informações pessoais e classificar e redigir documentos](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Próximas etapas
 

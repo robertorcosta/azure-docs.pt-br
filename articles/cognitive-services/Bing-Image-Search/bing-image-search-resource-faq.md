@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 6841e573446103466e2719797da9e4161b70b5a6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881691"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>FAQ (perguntas frequentes) sobre a API de Pesquisa de Imagem do Bing
@@ -35,9 +35,9 @@ Os cabeçalhos a seguir podem ocorrer nas respostas da API de Pesquisa de Imagem
 
 No entanto, quando você chama a API de Pesquisa de Imagem do Bing a partir do JavaScript, os recursos de segurança incorporados do navegador (CORS) podem impedi-lo de acessar os valores desses cabeçalhos.
 
-Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa de Imagem do Bing por meio de um proxy CORS. A resposta desse proxy possui um cabeçalho `Access-Control-Expose-Headers` que coloca na lista de permissões cabeçalhos de resposta e os disponibiliza para JavaScript.
+Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa de Imagem do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](tutorial-bing-image-search-single-page-app.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, digite o comando a seguir em um prompt de comando.
+É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](tutorial-bing-image-search-single-page-app.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, insira o comando a seguir em um prompt de comando.
 
     npm install -g cors-proxy-server
 
@@ -45,11 +45,11 @@ Em seguida, altere o ponto de extremidade da API de Pesquisa de Imagem do Bing n
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Finalmente, inicie o proxy CORS com o comando a seguir:
+Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 ## <a name="response-headers-in-production"></a>Cabeçalhos de resposta na produção
 
@@ -63,6 +63,6 @@ Essa abordagem também protege a chave de API da exposição ao público, já qu
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar no nosso [site Voz do Usuário](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
  [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/bing-api)

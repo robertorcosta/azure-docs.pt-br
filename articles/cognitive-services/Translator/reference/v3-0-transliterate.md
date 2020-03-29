@@ -1,7 +1,7 @@
 ---
 title: Método de Transliteração de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Converta o texto em um idioma de um script para outro com o método transliterate API de Tradução de Texto.
+description: Converta texto em um idioma de um script para outro com o método Transliterrate Do Texto tradutor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837274"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: transliteração
@@ -35,32 +35,32 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
-    <td>idioma</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](./v3-0-languages.md).</td>
+    <td>Linguagem</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto a converter de um script para outro. Idiomas possíveis estão listados no escopo de `transliteration` obtido consultando o serviço para os seus [idiomas compatíveis](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script usado pelo texto de entrada. Pesquisa [linguagens compatíveis](./v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de entrada disponíveis para a linguagem selecionada.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o script usado pelo texto de entrada. Pesquisa [linguagens compatíveis](./v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de entrada disponíveis para a linguagem selecionada.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o script de saída. Pesquisa [linguagens compatíveis](./v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de saída disponíveis para a combinação selecionada de linguagem de entrada e script de entrada.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o script de saída. Pesquisa [linguagens compatíveis](./v3-0-languages.md) usando o escopo `transliteration` para localizar os scripts de saída disponíveis para a combinação selecionada de linguagem de entrada e script de entrada.</td>
   </tr>
 </table> 
 
-Os cabeçalhos da solicitação incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Descrição</th>
   <tr>
-    <td>Cabeçalho (s) de autenticação</td>
+    <td>Cabeçalho de autenticação(s)</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
@@ -114,8 +114,8 @@ Um exemplo de resposta JSON é:
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Descrição</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
@@ -128,7 +128,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Sucesso.</td>

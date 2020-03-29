@@ -1,7 +1,7 @@
 ---
-title: Detecção de Idioma as etapas de configuração e implantação do kubernetes
+title: Kubernetes de detecção de linguagem config e implantação de etapas
 titleSuffix: Azure Cognitive Services
-description: Detecção de Idioma as etapas de configuração e implantação do kubernetes
+description: Kubernetes de detecção de linguagem config e implantação de etapas
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,45 +10,45 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: addb044d82429a4471e7ecd302351dd7b7eada84
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78262681"
 ---
-### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Implantar o contêiner de Detecção de Idioma em um cluster AKS
+### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Implantar o contêiner de detecção de idiomas em um cluster AKS
 
-1. Abra o CLI do Azure e entre no Azure.
+1. Abra o Azure CLI e entre no Azure.
 
     ```azurecli
     az login
     ```
 
-1. Entre no cluster AKS. Substitua `your-cluster-name` e `your-resource-group` pelos valores apropriados.
+1. Faça login no cluster AKS. `your-cluster-name` Substitua `your-resource-group` e com os valores apropriados.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    Depois que esse comando é executado, ele relata uma mensagem semelhante à seguinte:
+    Depois que este comando é executado, ele relata uma mensagem semelhante à seguinte:
 
     ```output
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Se você tiver várias assinaturas disponíveis em sua conta do Azure e o comando `az aks get-credentials` retornar com um erro, um problema comum é que você está usando a assinatura incorreta. Defina o contexto de sua sessão de CLI do Azure para usar a mesma assinatura com a qual você criou os recursos e tente novamente.
+    > Se você tiver várias assinaturas disponíveis para você `az aks get-credentials` em sua conta do Azure e o comando retornar com um erro, um problema comum é que você está usando a assinatura errada. Defina o contexto da sessão CLI do Azure para usar a mesma assinatura com a que você criou os recursos e tente novamente.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Abra o editor de texto de sua escolha. Este exemplo usa Visual Studio Code.
+1. Abra o editor de texto escolhido. Este exemplo usa o Visual Studio Code.
 
     ```console
     code .
     ```
 
-1. No editor de texto, crie um novo arquivo chamado *Language. YAML*e cole o YAML a seguir nele. Certifique-se de substituir `billing/value` e `apikey/value` com suas próprias informações.
+1. Dentro do editor de texto, crie um novo arquivo chamado *language.yaml*e cole o Seguinte YAML nele. Certifique-se `billing/value` de `apikey/value` substituir e com suas próprias informações.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,25 +95,25 @@ ms.locfileid: "78262681"
     ```
 
 1. Salve o arquivo e feche o editor de texto.
-1. Execute o comando kubernetes `apply` com o arquivo *Language. YAML* como seu destino:
+1. Execute o comando `apply` Kubernetes com o arquivo *language.yaml* como alvo:
 
     ```console
     kubectl apply -f language.yaml
     ```
 
-    Depois que o comando aplicar com êxito a configuração de implantação, uma mensagem será semelhante à seguinte saída:
+    Depois que o comando aplica com sucesso a configuração de implantação, uma mensagem aparece semelhante à seguinte saída:
 
     ```output
     deployment.apps "language" created
     service "language" created
     ```
-1. Verifique se o Pod foi implantado:
+1. Verifique se a cápsula foi implantada:
 
     ```console
     kubectl get pods
     ```
 
-    A saída do status de execução do pod:
+    A saída para o status de execução do pod:
 
     ```output
     NAME                         READY     STATUS    RESTARTS   AGE
@@ -126,7 +126,7 @@ ms.locfileid: "78262681"
     kubectl get services
     ```
 
-    A saída do status de execução do serviço de *idioma* no pod:
+    A saída para o status de execução do serviço de *idioma* no pod:
 
     ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

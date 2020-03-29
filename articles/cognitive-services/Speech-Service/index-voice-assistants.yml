@@ -1,31 +1,30 @@
 ### YamlMime:Landing
-title: Documentação de assistentes de voz
-summary: Os assistentes de voz que usam o serviço de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências.
+title: Documentação dos assistentes de voz
+summary: Os assistentes de voz que usam o serviço Speech capacitam os desenvolvedores a criar interfaces de conversação naturais e humanas para seus aplicativos e experiências.
 metadata:
-  title: Documentação de assistentes de voz-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  title: Documentação de assistentes de voz - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 369213485934236a05ecb3fcb458bdd28fd76136
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 6ae919317269753cbc3c8bf5b0df11e19a47989f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79365552"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415148"
 landingContent:
-- title: Sobre assistentes de voz
+- title: Sobre os assistentes de voz
   linkLists:
   - linkListType: overview
     links:
     - text: O que é um assistente de voz?
       url: voice-assistants.md
-    - text: O que é um aplicativo de comandos personalizados?
+    - text: O que é um aplicativo de Comandos Personalizados?
       url: custom-commands.md
     - text: O que é o Direct Line Speech?
       url: direct-line-speech.md
@@ -39,23 +38,23 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Criar um aplicativo de comandos personalizados
+    - text: Crie um aplicativo de comandos personalizados
       url: quickstart-custom-speech-commands-create-new.md
-    - text: Criar um comando personalizado com parâmetros
+    - text: Crie um comando personalizado com parâmetros
       url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Usar comandos personalizados com voz personalizada
+    - text: Use comandos personalizados com voz personalizada
       url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Usar comandos personalizados com o SDK de fala
+    - text: Use comandos personalizados com o SDK de voz
       url: quickstart-custom-speech-commands-speech-sdk.md
   - linkListType: how-to-guide
     links:
-    - text: Preencher comandos de um cliente
+    - text: Cumprir comandos de um cliente
       url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Adicionar validação de parâmetro
+    - text: Adicionar validação de parâmetros
       url: how-to-custom-speech-commands-validations.md
-    - text: Adicionar uma confirmação
+    - text: Adicione uma confirmação
       url: how-to-custom-speech-commands-confirmations.md
-    - text: Adicionar uma correção de uma etapa
+    - text: Adicione uma correção de uma etapa
       url: how-to-custom-speech-commands-one-step-correction.md
 - title: Desenvolver com fala de linha direta
   linkLists:
@@ -75,9 +74,9 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Criar uma palavra-chave personalizada
+    - text: Crie uma palavra-chave personalizada
       url: speech-devices-sdk-create-kws.md
   - linkListType: reference
     links:
-    - text: Diretrizes de nomenclatura de palavras-chave personalizadas
+    - text: Diretrizes de nomeação de palavras-chave personalizadas
       url: speech-devices-sdk-kws-guidelines.md

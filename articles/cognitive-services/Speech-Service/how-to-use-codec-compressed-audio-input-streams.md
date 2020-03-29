@@ -1,7 +1,7 @@
 ---
-title: Áudio compactado do codec de fluxo com o SDK de fala-serviço de fala
+title: Stream codec compactaáudio com o Speech SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como transmitir áudio compactado para o serviço de fala com o SDK de fala. Disponível para C++o C#, o e o Java para Linux, Java no Android e Objective-C no Ios.
+description: Aprenda a transmitir áudio compactado para o serviço Speech com o Speech SDK. Disponível para C++, C#, e Java para Linux, Java no Android e Objective-C no iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,23 +12,23 @@ ms.date: 03/09/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
 ms.openlocfilehash: 3fab02d3dc567a2c54edad5bfb05abe7d99f7b7c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943733"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usar a entrada de áudio compactada por codec com o SDK de fala
+# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Use a entrada de áudio compactada codec com o Speech SDK
 
-A API de **fluxo de entrada de áudio compactada** do SDK do serviço de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando um `PullStream` ou `PushStream`.
+O serviço de fala SDK **Compactd Audio Input Stream** API fornece uma `PullStream` maneira `PushStream`de transmitir áudio compactado para o serviço Speech usando um ou .
 
 > [!IMPORTANT]
-> O áudio de entrada compactado de streaming C#tem C++suporte no momento para o, o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 8, CentOS 8). Também há suporte para Java no Android e no Objective-C na plataforma iOS.
-> O Speech SDK versão 1.7.0 ou superior é necessário (versão 1.10.0 ou superior para RHEL 8, CentOS 8).
+> Streaming de áudio de entrada compactada é atualmente suportado para C#, C++, Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Ele também é suportado para Java em Android e Objective-C na plataforma iOS.
+> Fala SDK versão 1.7.0 ou superior é necessário (versão 1.10.0 ou superior para RHEL 8, CentOS 8).
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/csharp/prerequisites.md)]
@@ -46,7 +46,7 @@ A API de **fluxo de entrada de áudio compactada** do SDK do serviço de fala fo
 [!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/objectivec/prerequisites.md)]
 ::: zone-end
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo usando a entrada de áudio compactado por codec
+## <a name="example-code-using-codec-compressed-audio-input"></a>Exemplo de código usando entrada de áudio compactada codec
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/csharp/examples.md)]
@@ -67,4 +67,4 @@ A API de **fluxo de entrada de áudio compactada** do SDK do serviço de fala fo
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba como reconhecer a fala](quickstarts/speech-to-text-from-microphone.md)
+> [Aprenda a reconhecer a fala](quickstarts/speech-to-text-from-microphone.md)

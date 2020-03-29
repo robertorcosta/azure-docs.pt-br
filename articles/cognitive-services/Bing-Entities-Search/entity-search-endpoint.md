@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: e7f5af42d0bb0079746cc9e64b621adfebd565d1
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072663"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Ponto de extremidade da API de Pesquisa de Entidade do Bing
@@ -35,6 +35,6 @@ Para obter os resultados da entidade usando a **API do Bing**, envie uma solicit
 > [!div class="nextstepaction"]
 > [O que é a API de Pesquisa de Entidade do Bing?](overview.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Confira também 
 
 Para obter mais informações sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros e outros, confira o artigo de referência da [API de Pesquisa de Entidade do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

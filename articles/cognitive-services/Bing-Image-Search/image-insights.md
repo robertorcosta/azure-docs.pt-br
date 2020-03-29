@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: f84c6329c2a4dd0a9ad9e81f3700c9e31de95a2a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883421"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obter insights de imagem com a API de Pesquisa de Imagem do Bing
@@ -43,7 +43,7 @@ Para obter insights sobre uma imagem, capture o token [imageInsightsToken](https
 
 Em seguida, chame o ponto de extremidade Detalhes da Imagem e defina o parâmetro de consulta [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) com o token em `imageInsightsToken`.  
 
-Para especificar os insights que você deseja obter, defina o parâmetro de consulta `modules`. Para obter todos os insights, defina `modules` como `All`. Para obter somente os insights da legenda e da coleção, defina `modules` como `Caption%2CCollection`. Para obter uma lista completa de possíveis insights, confira [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Nem todos os insights estão disponíveis para todas as imagens. A resposta inclui todos os insights que você solicitou se disponíveis.
+Para especificar os insights que você deseja obter, defina o parâmetro de consulta `modules`. Para obter todos os insights, defina `modules` como `All`. Para obter somente os insights da legenda e da coleção, defina `modules` como `Caption%2CCollection`. Para obter uma lista completa de possíveis insights, confira [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Nem todos os insights estão disponíveis para todas as imagens. A resposta inclui os insights solicitados, se disponíveis.
 
 O exemplo a seguir solicita todos os insights disponíveis para a imagem anterior.
 
@@ -216,10 +216,10 @@ O campo `region` identifica a área da imagem na qual o Bing reconheceu a entida
 
 Os valores do retângulo são relativos à largura e à altura da imagem original e estão no intervalo de 0,0 a 1,0. Por exemplo, se a imagem tiver 300x200 e a parte superior esquerda da região estiver no ponto (10, 20) e a parte inferior direita estiver no ponto (290, 150), o retângulo normalizado será:  
 
--   Esquerda: 10 / 300 = 0,03333...  
--   Superior:  20 / 200 = 0,1  
--   Direita: 290 / 300 = 0,9667...  
--   Inferior: 150 / 200 = 0,75  
+-   Esquerda: 10/300 = 0,03333...  
+-   Parte superior: 20/200 = 0,1  
+-   Direita: 290/300 = 0,9667...  
+-   Parte inferior: 150/200 = 0,75  
 
 Use a região que o Bing retorna nas chamadas seguintes de insights. Por exemplo, para obter imagens visualmente semelhantes da entidade reconhecida. Para obter mais informações, confira Cortar imagens para usá-las com imagens visualmente semelhantes e módulos de reconhecimento de entidade. O exemplo a seguir mostra o mapeamento entre os campos de região e os parâmetros de consulta que você usará para cortar as imagens.  
 
@@ -374,7 +374,7 @@ A resposta mostra uma entidade reconhecida.
 
 ## <a name="finding-visually-similar-products"></a>Encontrando produtos visualmente semelhantes  
 
-Para localizar imagens que contêm produtos que são visualmente semelhantes aos produtos encontrados na imagem original, defina o parâmetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) como SimilarProducts.  
+Para encontrar imagens que contenham produtos visualmente semelhantes aos produtos encontrados na imagem original, defina o parâmetro de consulta de [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) como SimilarProducts.  
 
 A solicitação a seguir mostra como obter imagens de produtos visualmente semelhantes. A solicitação usa o parâmetro de consulta [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) para identificar a imagem original retornada em uma solicitação anterior. Para melhorar a relevância, você deve incluir a cadeia de caracteres de consulta do usuário.  
 
@@ -420,7 +420,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-O exemplo a seguir é a resposta para a solicitação anterior.  
+A seguir, a resposta à solicitação anterior.  
 
 ```json  
 {  

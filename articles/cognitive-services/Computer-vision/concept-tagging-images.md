@@ -1,5 +1,5 @@
 ---
-title: Marcas de conteúdo-Pesquisa Visual Computacional
+title: Tags de conteúdo - Visão computacional
 titleSuffix: Azure Cognitive Services
 description: Aprenda mais sobre conceitos relacionados ao recurso de marcação de imagem da API da Pesquisa Visual Computacional.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244504"
 ---
 # <a name="applying-content-tags-to-images"></a>Aplicando as marcas de conteúdo para imagens
 
@@ -83,6 +83,13 @@ A resposta JSON a seguir ilustra o que o Computer Vision retorna ao marcar recur
 }
 ```
 
+## <a name="use-the-api"></a>Usar a API
+
+O recurso de marcação faz parte da API [Analisar imagem.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Tags` no parâmetro de consulta **visualFeatures.** Em seguida, quando você receber a resposta JSON completa, `"tags"` basta analisar a seqüência para o conteúdo da seção.
+
+* [Partida rápida: Visão computacional .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analise uma imagem (Rest API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda conceitos sobre [categorizar imagens](concept-categorizing-images.md) e [descrevendo imagens](concept-describing-images.md).
+Aprenda os conceitos relacionados de [categorizar imagens](concept-categorizing-images.md) e [descrever imagens.](concept-describing-images.md)

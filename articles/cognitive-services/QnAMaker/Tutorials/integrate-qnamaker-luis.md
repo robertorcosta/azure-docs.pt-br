@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71802805"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usar um bot com o QnA Maker e o LUIS para distribuir uma base de dados de conhecimento
@@ -27,23 +27,23 @@ Este artigo usa a estrutura do Bot v3 SDK. Consulte este [artigo do Bot Framewor
 
 ## <a name="architecture"></a>Arquitetura
 
-![QnA Maker com arquitetura de Reconhecimento vocal](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Fabricante de QnA com arquitetura de compreensão de idiomas](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 No cenário anterior, primeiro o QnA Maker obtém a intenção do ponto de entrada de um modelo LUIS e então usa isso para roteá-lo para a base de dados de conhecimento QnA Maker correta.
 
 ## <a name="create-a-luis-app"></a>Criar um aplicativo LUIS
 
-1. Entre no portal do [LUIS](https://www.luis.ai/).
-1. [Criar um aplicativo](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+1. Faça login no portal [LUIS.](https://www.luis.ai/)
+1. [Crie um aplicativo](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Adicione uma intenção](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) para cada base de dados de conhecimento do QnA Maker. As declarações de exemplo devem corresponder às perguntas nas bases de dados de conhecimento do QnA Maker.
 1. [Treine o aplicativo LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publique o aplicativo LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) seu aplicativo LUIS.
-1. Na seção **gerenciar** , anote a ID do aplicativo Luis, a chave do ponto de extremidade Luis e o [nome de domínio personalizado](../../cognitive-services-custom-subdomains.md). Você precisará desses valores mais tarde. 
+1. Na seção **Gerenciar,** anote o iD do aplicativo LUIS, a tecla de ponto final LUIS e [o nome de domínio personalizado](../../cognitive-services-custom-subdomains.md). Você precisará desses valores mais tarde. 
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Criar bases de dados de conhecimento do QnA Maker
 
-1. Entre no [QnA Maker](https://qnamaker.ai).
+1. Faça login no [QnA Maker](https://qnamaker.ai).
 1. [Crie](https://www.qnamaker.ai/Create) uma base de dados de conhecimento para cada intenção no aplicativo LUIS.
-1. Teste e publique as bases de dados de conhecimento. Ao publicar cada KB, anote a ID do KB, o nome do recurso (subdomínio personalizado antes de _. azurewebsites.net/qnamaker_) e a chave do ponto de extremidade de autorização. Você precisará desses valores mais tarde. 
+1. Teste e publique as bases de dados de conhecimento. Ao publicar cada KB, anote o KB ID, o nome do recurso (subdomínio personalizado antes _de .azurewebsites.net/qnamaker)_ e a tecla de ponto final de autorização. Você precisará desses valores mais tarde. 
 
     Este artigo pressupõe que os KBs foram criados na mesma assinatura do Azure QnA Maker.
 
@@ -51,7 +51,7 @@ No cenário anterior, primeiro o QnA Maker obtém a intenção do ponto de entra
 
 ## <a name="web-app-bot"></a>Bot do aplicativo Web
 
-1. [Crie um bot de aplicativo Web "básico"](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) que inclui automaticamente um aplicativo Luis. Selecione C# linguagem de programação.
+1. [Crie um bot "Básico" do Web App](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) que inclui automaticamente um aplicativo LUIS. Selecione a linguagem de programação C#.
 
 1. Após a criação do bot do aplicativo Web, selecione-o no portal do Azure.
 1. Selecione **Configurações do Aplicativo** na navegação do bot do aplicativo Web, depois role para baixo até a seção **Configurações do aplicativo** nas configurações disponíveis.
@@ -224,7 +224,7 @@ No cenário anterior, primeiro o QnA Maker obtém a intenção do ponto de entra
 
 
 ## <a name="build-the-bot"></a>Criar o bot
-1. No editor de código, clique duas vezes em `build.cmd` e selecione **Executar no Console**.
+1. No editor de código, clique com o botão direito do mouse em `build.cmd` e selecione **Executar no Console**.
 
     ![executar no console](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 

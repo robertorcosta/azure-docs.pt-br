@@ -11,46 +11,46 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68882683"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de idioma e região para a API de Pesquisa na Web do Bing
 
 A API de Pesquisa na Web do Bing dá suporte a mais de trinta países ou regiões, muitos com mais de um idioma. Especificar um país ou região com uma consulta ajuda a refinar os resultados da pesquisa com base nos interesses nesse país ou região. Os resultados podem incluir links para o Bing e esses links podem localizar a experiência do usuário do Bing, de acordo com o país/região ou idioma especificado.
 
-É possível especificar um país ou região usando o parâmetro de consulta `cc`. Quando um país ou região é especificado, você deve especificar um ou mais códigos de idioma com o [cabeçalho `Accept-Language`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Use a [tabela de Mercados](#markets) para obter uma lista dos idiomas com suporte com cada mercado.
+É possível especificar um país ou região usando o parâmetro de consulta `cc`. Quando um país ou região é especificado, você deve especificar um ou mais códigos de idioma com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Use a [tabela de Mercados](#markets) para obter uma lista dos idiomas com suporte com cada mercado.
 
 Como alternativa, você pode especificar o mercado usando o parâmetro de consulta `mkt` e um código da tabela **Mercados**. Especificar um mercado, especifica simultaneamente um país ou região e um idioma preferido. Você pode definir explicitamente o idioma com o parâmetro de consulta `setLang`.
 
 ## <a name="countriesregions"></a>Países/regiões
 
-|País/região|Código|
+|País/Região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canada|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|Região Administrativa Especial de Hong Kong|HK|
+|RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|it|
+|Itália|IT|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
 |Nova Zelândia|NZ|
-|Noruega|NÃO|
+|Noruega|Não|
 |China|CN|
 |Polônia|PL|
 |Portugal|PT|
@@ -63,12 +63,12 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |Suíça|CH|
 |Taiwan|TW|
 |Turquia|TR|
-|Reino Unido|GB|
+|United Kingdom|GB|
 |Estados Unidos|EUA|
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Idioma|Código de mercado|
+|País/Região|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -76,14 +76,14 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |Bélgica|Holandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canadá|Inglês|en-CA|
-|Canadá|Francês|fr-CA|
+|Canada|Inglês|en-CA|
+|Canada|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|Região Administrativa Especial de Hong Kong|Chinês Tradicional|zh-HK|
+|RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
@@ -105,12 +105,12 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |Suécia|Sueco|sv-SE|
 |Suíça|Francês|fr-CH|
 |Suíça|Alemão|de-CH|
-|Taiwan|Chinês Tradicional|zh-TW|
+|Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Inglês|en-GB|
+|United Kingdom|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Referência da API de Pesquisa de Imagem do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referência de API da Pesquisa de Imagem do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

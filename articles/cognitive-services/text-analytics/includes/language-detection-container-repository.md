@@ -1,7 +1,7 @@
 ---
-title: Repositório de contêiner
+title: Repositório de contêineres
 titleSuffix: Azure Cognitive Services
-description: Detecção de Idioma repositório de contêiner
+description: Repositório de contêineres de detecção de idiomas
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: bd9a3d5e54f0ad554ffe46b7b3a6134d5ed098e8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70966770"
 ---
 | Contêiner | Repositório |
 |-----------|------------|
-| Detecção de idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
+| Detecção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |

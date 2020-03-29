@@ -1,7 +1,7 @@
 ---
 title: Moderação de texto – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use a moderação de texto para possíveis textos indesejados, dados pessoais e listas personalizadas de termos.
+description: Use moderação de texto para possíveis textos indesejados, dados pessoais e listas personalizadas de termos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538837"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
@@ -32,7 +32,7 @@ A resposta de serviço inclui as informações a seguir:
 - Texto original
 - Idioma
 
-## <a name="profanity"></a>Linguagem obscena
+## <a name="profanity"></a>Conteúdo ofensivo
 
 Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text-Moderation-API-Languages.md), esses termos serão incluídos na resposta. A resposta também contém a localização (`Index`) no texto original. O `ListId` no JSON de exemplo a seguir refere-se aos termos encontrados nas [listas de termos personalizadas](try-terms-list-api.md), se disponíveis.
 
@@ -45,11 +45,11 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
     }
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language**, atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
 >
 > Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
-## <a name="classification"></a>Classificação
+## <a name="classification"></a>classificação
 
 O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para a análise. 
 
@@ -182,6 +182,6 @@ O exemplo a seguir mostra a ID da lista correspondente:
 
 O Content Moderator fornece uma [API de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) com operações para gerenciar listas de termos personalizadas. Inicie com o [Console de API de Listas de Termos](try-terms-list-api.md) e use os exemplos de código de API REST. Consulte também o [Início rápido do .NET das Listas de Termos](term-lists-quickstart-dotnet.md), se você estiver familiarizado com Visual Studio e C#.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Faça test drive do [Console de API de moderação de texto](try-text-api.md) e use os exemplos de código de API REST. Confira também a seção de moderação de texto do [início rápido do SDK do .net](dotnet-sdk-quickstart.md) se você estiver C#familiarizado com o Visual Studio e o.
+Faça test drive do [Console de API de moderação de texto](try-text-api.md) e use os exemplos de código de API REST. Confira também a seção de moderação de texto do [.NET SDK quickstart](dotnet-sdk-quickstart.md) se você estiver familiarizado com visual studio e C#.

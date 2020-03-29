@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72931764"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderar com as listas de imagem personalizada no C#
@@ -32,17 +32,17 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 > [!NOTE]
 > Há um limite máximo de **cinco listas de imagens**, e cada lista **não deve exceder 10.000 imagens**.
 
-O aplicativo de console para este guia simula algumas das tarefas que você pode executar com a API da lista de imagens.
+O aplicativo do console para este guia simula algumas das tarefas que você pode executar com a API da lista de imagens.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para serviços do Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se nos serviços do Content Moderator
 
 Uma chave de assinatura de API será necessária antes de usar os serviços do Content Moderator através da API REST ou do SDK. Assine o serviço de Content Moderator no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) para obtê-lo.
 
-## <a name="create-your-visual-studio-project"></a>Criar um projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
 
-1. Adicione um novo projeto de **Aplicativo do console (.NET Framework)** à solução.
+1. Adicione um novo projeto do **Aplicativo do console (.NET Framework)** à solução.
 
    No código de exemplo, nomeie o projeto como **ImageLists**.
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
 
-Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize os campos `AzureEndpoint` e `CMSubscriptionKey` com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
+Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e os campos com os valores de sua URL de ponto final e chave de assinatura. Você pode encontrá-los na guia **Início Rápido** do seu recurso no portal Azure.
 
 ```csharp
 /// <summary>
@@ -112,7 +112,7 @@ public static class Clients
 ```
 
 
-### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicialize as configurações específicas do aplicativo
 
 Adicione as seguintes classes e campos estáticos à classe **Programa** em Program.cs.
 
@@ -242,7 +242,7 @@ private static Body listDetails;
 
 ## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Criar um método para gravar mensagens no arquivo de log
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -263,7 +263,7 @@ private static void WriteLine(string message = null, bool echo = false)
 
 ## <a name="create-a-method-to-create-the-custom-list"></a>Criar um método para criar a lista personalizada
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -292,7 +292,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Criar um método para adicionar uma coleção de imagens para a lista
 
-Adicione o seguinte método à classe **Programa**. Este guia não demonstra como aplicar marcas a imagens na lista. 
+Adicione o seguinte método à classe **Programa.** Este guia não demonstra como aplicar tags às imagens da lista. 
 
 ```csharp
 /// <summary>
@@ -336,7 +336,7 @@ IEnumerable<string> imagesToAdd, string label)
 
 ## <a name="create-a-method-to-remove-images-from-the-list"></a>Criar um método para remover imagens da lista
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -373,7 +373,7 @@ private static void RemoveImages(
 
 ## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Criar um método para obter todo o conteúdo de IDs para imagens na lista
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -400,7 +400,7 @@ private static ImageIds GetAllImageIds(
 
 ## <a name="create-a-method-to-update-the-details-of-the-list"></a>Criar um método para atualizar os detalhes da lista
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -430,7 +430,7 @@ private static ImageList UpdateListDetails(
 
 ## <a name="create-a-method-to-retrieve-the-details-of-the-list"></a>Criar um método para recuperar os detalhes da lista
 
-Adicione o seguinte método à classe **Programa**.
+Adicione o seguinte método à classe **Programa.**
 
 ```csharp
 /// <summary>
@@ -457,7 +457,7 @@ private static ImageList GetListDetails(
 
 ## <a name="create-a-method-to-refresh-the-search-index-of-the-list"></a>Criar um método para atualizar o índice de busca da lista
 
-Adicione o seguinte método à classe **Programa**. Sempre que você atualizar uma lista, você precisa atualizar o índice de pesquisa antes de usar a lista de imagens da tela.
+Adicione o seguinte método à classe **Programa.** Sempre que você atualizar uma lista, você precisa atualizar o índice de pesquisa antes de usar a lista de imagens da tela.
 
 ```csharp
 /// <summary>
@@ -484,7 +484,7 @@ private static RefreshIndex RefreshSearchIndex(
 
 ## <a name="create-a-method-to-match-images-against-the-list"></a>Criar um método para corresponder as imagens em relação à lista
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -514,7 +514,7 @@ private static void MatchImages(
 
 ## <a name="create-a-method-to-delete-all-images-from-the-list"></a>Criar um método para excluir todas as imagens da lista
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -538,7 +538,7 @@ private static void DeleteAllImages(
 
 ## <a name="create-a-method-to-delete-the-list"></a>Criar um método para excluir a lista
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -562,7 +562,7 @@ private static void DeleteCustomList(
 
 ## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Criar um método para recuperar as IDs para todas as listas de imagens
 
-Adicione o seguinte método à classe **Programa**. 
+Adicione o seguinte método à classe **Programa.** 
 
 ```csharp
 /// <summary>
@@ -587,7 +587,7 @@ private static IList<ImageList> GetAllListIds(ContentModeratorClient client)
 
 ## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Adicione o código para simular o uso de uma lista de imagens
 
-Adicione o código a seguir ao método **Principal**. Esse código simula muitas operações que você executará na definição e gerenciamento da lista, bem como o uso da lista para as imagens da tela. Os recursos de registro em log permitem que você veja os objetos de resposta gerados pelas chamadas do SDK para o serviço do Content Moderator.
+Adicione o seguinte código ao método **Principal.** Esse código simula muitas operações que você executará na definição e gerenciamento da lista, bem como o uso da lista para as imagens da tela. Os recursos de registro em log permitem que você veja os objetos de resposta gerados pelas chamadas do SDK para o serviço do Content Moderator.
 
 ```csharp
 // Create the text writer to use for logging, and cache a static reference to it.
@@ -1078,6 +1078,6 @@ Response:
 []
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Obtenha o [SDK do .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar em seu processo de integração.

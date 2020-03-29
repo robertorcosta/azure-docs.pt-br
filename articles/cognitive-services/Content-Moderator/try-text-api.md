@@ -11,19 +11,19 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: e0930558f31b27a77fa2cd6b44fcea2fe9091086
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538817"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderar texto no console da API
 
-Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
+Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Azure Content Moderator para escanear o conteúdo do texto para obter palavrões e compará-lo com listas personalizadas e compartilhadas.
 
 ## <a name="get-your-api-key"></a>Obter sua chave de API
 
-Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
+Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão geral](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegar até a referência da API
 
@@ -41,16 +41,16 @@ Para **Abrir o console de teste da API**, selecione a região que melhor descrev
 
 ## <a name="select-the-inputs"></a>Selecionar entradas
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Selecione os parâmetros de consulta que você deseja usar em sua tela de texto. Para este exemplo, use o valor padrão para **idioma**. Você também pode deixar em branco porque a operação detectará automaticamente o idioma provável como parte de sua execução.
 
 > [!NOTE]
-> Para o parâmetro **language**, atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
+> Para o parâmetro **language**, atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
 >
 > Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
-Para a **correção automática**, **PII** e **classificar (visualização)** , selecione **true**. Deixe o campo **ListId** vazio.
+Para a **correção automática**, **PII** e **classificar (visualização)**, selecione **true**. Deixe o campo **ListId** vazio.
 
   ![Parâmetros de consulta do console Texto - Tela](images/text-api-console-inputs.PNG)
 
@@ -68,7 +68,7 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.
 
 ## <a name="analyze-the-response"></a>Analisar a resposta
 
-A resposta a seguir mostra as várias informações da API. Ele contém possíveis obscenidades, dados pessoais, classificação (visualização) e a versão corrigida automaticamente.
+A resposta a seguir mostra as várias informações da API. Contém palavrões potenciais, dados pessoais, classificação (visualização) e a versão corrigida automaticamente.
 
 > [!NOTE]
 > O recurso “Classificação” assistido por computador está na visualização e suporta apenas o inglês.
@@ -167,8 +167,8 @@ A resposta a seguir mostra as várias informações da API. Ele contém possíve
 }
 ```
 
-Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de [moderação de texto](text-moderation-api.md) .
+Para obter uma explicação detalhada de todas as seções da resposta JSON, consulte o guia conceitual [de moderação de texto.](text-moderation-api.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Use a API REST em seu código ou siga o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para integrar com seu aplicativo.
+Use a API REST em seu código ou siga o [quickstart do .NET SDK](dotnet-sdk-quickstart.md) para se integrar ao seu aplicativo.

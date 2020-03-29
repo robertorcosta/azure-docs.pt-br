@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: c4c6b95996206cfb38ea3f77b89c3ebe3c2c0026
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883498"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Guia de atualização da API v7 de Pesquisa de Imagem do Bing
@@ -26,7 +26,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, https:\//API.cognitive.Microsoft.com/Bing/\*\*v 7.0 * */images/Search.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo,\/https:\*\*/api.cognitive.microsoft.com/bing/ v7.0**/images/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
@@ -74,7 +74,7 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Renomeado o parâmetro de consulta `modulesRequested` para [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).  
+- Renomeado o parâmetro de consulta `modulesRequested` para [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).  
 
 - Renomeadas as Anotações para Marcações. Consulte o parâmetro de consulta [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) para Marcações.  
 
@@ -103,8 +103,8 @@ Bloqueado|InvalidRequest.Blocked
     -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
     -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
     -   [car](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
-    -   [cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
-    -   [ct](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
+    -   [Gato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+    -   [Ct](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
 
 - Renomeado o objeto `ImageInsightsResponse` para [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights).  
 
@@ -135,7 +135,7 @@ Bloqueado|InvalidRequest.Blocked
 -   Renomeado o campo `nextOffsetAddCount` de [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) para `nextOffset`. A maneira como o deslocamento é utilizado também alterou. Anteriormente, você definiu o parâmetro de consulta [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) para o valor `nextOffsetAddCount`, mais o valor de deslocamento anterior, mais o número de imagens no resultado. Agora, você define `offset` para o valor `nextOffset`.  
 
 
-## <a name="non-breaking-changes"></a>Alterações contínuas
+## <a name="non-breaking-changes"></a>Alterações não relacionadas à falha
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 

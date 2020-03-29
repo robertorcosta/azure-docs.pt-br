@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 05/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 7fc46d06b68dca074da060b4866186a6242ffad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72757373"
 ---
 # <a name="content-moderator-api-reference"></a>Referência da API do Content Moderator
 
-Você pode começar a usar as APIs de Content Moderator do Azure das seguintes maneiras:
+Você pode começar com APIs de moderador de conteúdo do Azure das seguintes maneiras:
 
-- Na portal do Azure, [assine a API do Content moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Consulte [tentar Content moderator na Web](quick-start.md) para se inscrever com a [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/).
+- No portal Azure, [assine a API do Moderador de Conteúdo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
+- Consulte [Tente o Moderador de Conteúdo na web](quick-start.md) para se inscrever na ferramenta Revisão de Moderador de [Conteúdo](https://contentmoderator.cognitive.microsoft.com/).
 
 ## <a name="moderation-apis"></a>APIs de Moderação
 
@@ -30,10 +30,10 @@ Você pode usar as seguintes APIs do Content Moderator para configurar seus flux
 
 | Descrição | Referência |
 | -------------------- |-------------|
-| **API de moderação de imagem**<br /><br />Examine imagens e detecte possíveis conteúdos adultos e obscenos usando marcas, pontuações de confiança e outras informações extraídas. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação. <br /><br />| [Referência da API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Referência da API de moderação de imagem")   |
-| **API de moderação de texto**<br /><br />Examine o conteúdo do texto. Os termos de profanação e os dados pessoais são retornados. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação.<br /><br /> | [Referência de API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Referência de API de moderação de texto")   |
+| **API de Moderação de Imagem**<br /><br />Examine imagens e detecte possíveis conteúdos adultos e obscenos usando marcas, pontuações de confiança e outras informações extraídas. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação. <br /><br />| [Referência de API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Referência de API de moderação de imagem")   |
+| **API de Moderação de Texto**<br /><br />Examine o conteúdo do texto. Termos de profanidade e dados pessoais são devolvidos. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação.<br /><br /> | [Referência de API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Referência de API de moderação de texto")   |
 | **API de moderação de vídeo**<br /><br />Examine vídeos e detectar potencial conteúdo adulto e obsceno. <br /><br />Use essas informações para publicar, rejeitar ou revisar o conteúdo do fluxo de trabalho pós-moderação.<br /><br /> | [Visão geral da API de moderação de vídeo](video-moderation-api.md "Visão geral da API de moderação de vídeo")   |
-| **API de Gerenciamento de Lista**<br /><br />Crie e gerencie listas personalizadas de exclusão ou inclusão de imagens e texto. Se habilitada, as operações **Imagem - Corresponder** e **Texto - Tela** fazem correspondência difusa do conteúdo enviado em suas listas personalizadas. <br /><br />Para eficiência, você pode ignorar a etapa de moderação com base em aprendizado de máquina.<br /><br /> | [Listar referência da API de gerenciamento](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "Listar referência da API de gerenciamento")   |
+| **API de Gerenciamento de Lista**<br /><br />Crie e gerencie listas personalizadas de exclusão ou inclusão de imagens e texto. Se habilitada, as operações **Imagem - Corresponder** e **Texto - Tela** fazem correspondência difusa do conteúdo enviado em suas listas personalizadas. <br /><br />Para eficiência, você pode ignorar a etapa de moderação com base em aprendizado de máquina.<br /><br /> | [Referência de API de gerenciamento de listas](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "Referência de API de gerenciamento de listas")   |
 
 ## <a name="review-apis"></a>Analisar APIs
 

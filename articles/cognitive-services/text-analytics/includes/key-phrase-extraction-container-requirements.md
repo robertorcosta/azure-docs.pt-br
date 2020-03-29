@@ -1,7 +1,7 @@
 ---
 title: Recomendações e requisitos do contêiner
 titleSuffix: Azure Cognitive Services
-description: Requisitos de contêiner de Extração de Frases-chave
+description: Requisitos do contêiner de extração de frases-chave
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 08/20/2019
 ms.author: dapine
 ms.openlocfilehash: 7b479dd8b4d35351c3340d91bd01a8fc20f02f93
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70051402"
 ---
-| Contêiner | Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
+| Contêiner | Mínimo | Recomendadas | Tps<br>(Mínimo, Máximo)|
 |-----------|---------|-------------|--|
-|Extração de Frases-chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
+|Extração de Frases-Chave | 1 núcleo, memória de 2 GB | 1 núcleo, memória de 4 GB |15, 30|

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73044112"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprender os conceitos de moderação de imagem
@@ -66,7 +66,7 @@ Extração de exemplo:
 
 ## <a name="detecting-faces"></a>Detendo faces
 
-A detecção de faces ajuda a detectar dados pessoais, como faces nas imagens. Você detecta faces em potencial e o número de faces em potencial em cada imagem.
+A detecção de rostos ajuda a detectar dados pessoais, como rostos nas imagens. Você detecta faces em potencial e o número de faces em potencial em cada imagem.
 
 Uma resposta inclui estas informações:
 
@@ -106,7 +106,7 @@ Em muitas comunidades online, depois que os usuários fazem upload de imagens ou
 Em vez de moderar a mesma imagem várias vezes, você pode adicionar imagens ofensivas à sua lista personalizada de conteúdo bloqueado. Dessa forma, o sistema de moderação de conteúdo comparará as imagens de entrada com as listas personalizadas e interromperá qualquer processamento adicional.
 
 > [!NOTE]
-> Há um limite máximo de **5 listas de imagens** com cada lista para **não exceder 10.000 imagens**.
+> Há um limite máximo de **cinco listas de imagens**, e cada lista **não deve exceder 10 mil imagens**.
 >
 
 O Content Moderator fornece uma [API de Gerenciamento de Lista de Imagens](try-image-list-api.md) completa com operações para gerenciar listas de imagens personalizadas. Comece com o [Console de API de Listas de Imagens](try-image-list-api.md) e use os exemplos de código da API REST. Confira também o [Início rápido do .NET de Listas de Imagens](image-lists-quickstart-dotnet.md) se você estiver familiarizado com Visual Studio e C#.
@@ -145,6 +145,6 @@ Para casos com mais nuances, use a [ferramenta de análise](Review-Tool-User-Gui
 
 ![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Faça test drive do [console da API de Moderação de Imagem](try-image-api.md) e use os exemplos de código da API REST. Confira também a seção de moderação de imagem do [início rápido do SDK do .net](dotnet-sdk-quickstart.md) se você estiver C#familiarizado com o Visual Studio e o.
+Faça test drive do [console da API de Moderação de Imagem](try-image-api.md) e use os exemplos de código da API REST. Confira também a seção de moderação de imagem do [.NET SDK quickstart](dotnet-sdk-quickstart.md) se você estiver familiarizado com visual studio e C#.

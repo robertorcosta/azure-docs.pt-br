@@ -12,29 +12,29 @@ ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68882759"
 ---
-# <a name="add-analytics-to-the-bing-search-apis"></a>Adicionar análise ao APIs de Pesquisa do Bing
+# <a name="add-analytics-to-the-bing-search-apis"></a>Adicionar análises às APIs de pesquisa do Bing
 
-As estatísticas do Bing fornecem análises para o APIs de Pesquisa do Bing. Essas análises incluem o volume de chamada, as principais cadeias de caracteres de consulta, a distribuição geográfica e muito mais. Você pode habilitar as estatísticas do Bing no [portal do Azure](https://ms.portal.azure.com) navegando até o recurso do Azure e clicando em **habilitar estatísticas do Bing**.
+Bing Statistics fornece análises para as APIs de Pesquisa de Bing. Essas análises incluem volume de chamadas, seqüências de consulta superior, distribuição geográfica e muito mais. Você pode habilitar o Bing Statistics no [portal Azure](https://ms.portal.azure.com) navegando para o seu recurso Azure e clicando **em Ativar estatísticas bing**.
 
 > [!IMPORTANT]
-> * As estatísticas do Bing não estão disponíveis com assinaturas de avaliação gratuitas ou recursos no tipo `F0` de preço gratuito.
+> * Bing Statistics não está disponível com assinaturas de `F0` teste gratuitas ou recursos na camada de preços gratuitos.
 > * Não é possível usar dados disponíveis por meio do painel das Estatísticas do Bing para criar aplicativos para distribuição a terceiros.
-> * A habilitação das estatísticas do Bing aumenta um pouco sua taxa de assinatura. Consulte os [preços](https://aka.ms/bingstatisticspricing) para obter detalhes.
+> * Habilitar o Bing Statistics aumenta ligeiramente a sua taxa de assinatura. Veja [os preços](https://aka.ms/bingstatisticspricing) para mais detalhes.
 
 
-A imagem a seguir mostra a análise disponível para cada ponto de extremidade de API Pesquisa do Bing.
+A imagem a seguir mostra as análises disponíveis para cada ponto final da API de Pesquisa de Bing.
 
 ![Distribuição por matriz de suporte de ponto de extremidade](./media/bing-statistics/bing-statistics-matrix.png)
 
-## <a name="access-your-analytics"></a>Acessar sua análise
+## <a name="access-your-analytics"></a>Acesse suas análises
 
-O Bing atualiza dados de análise a cada 24 horas e mantém um histórico de até 13 meses que você pode acessar por meio do [painel de análise](https://bingapistatistics.com). Verifique se você está conectado usando o mesmo conta Microsoft (MSA) usado para se inscrever nas estatísticas do Bing.
+Bing atualiza dados de análise a cada 24 horas e mantém até 13 meses de histórico que você pode acessar no painel de [análise](https://bingapistatistics.com). Certifique-se de que você está conectado usando a mesma conta microsoft (MSA) que você usou para se inscrever no Bing Statistics.
 
 > [!NOTE]  
 > * Pode demorar até 24 horas para que as métricas apareçam no painel. O painel mostra a data e hora em que os dados foram atualizados pela última vez.  
@@ -42,20 +42,20 @@ O Bing atualiza dados de análise a cada 24 horas e mantém um histórico de at�
 
 ## <a name="filter-the-data"></a>Filtrar os dados
 
-Por padrão, os gráficos exibem todas as métricas e os dados aos quais você tem acesso. É possível filtrar os dados mostrados nos gráficos e grafos, selecionando os recursos, mercados, pontos de extremidade e período de relatório nos quais está interessado. Você pode alterar os seguintes filtros:
+Por padrão, os gráficos e gráficos exibem todas as métricas e dados aos que você tem acesso. É possível filtrar os dados mostrados nos gráficos e grafos, selecionando os recursos, mercados, pontos de extremidade e período de relatório nos quais está interessado. Você pode alterar os seguintes filtros:
 
 - **ID do recurso**: a ID exclusiva do recurso que identifica a assinatura do Azure. Se você assinar mais de uma camada de API de Pesquisa do Bing, a lista conterá várias IDs. Por padrão, todos os recursos são selecionados.  
   
-- **Mercados**: os mercados de onde vêm os resultados. Por exemplo, en-us (inglês, Estados Unidos). Por padrão, todos os mercados são selecionados. O `en-WW` mercado é o mercado que o Bing usa se a chamada não especificar um mercado e o Bing não puder determinar o mercado do usuário.  
+- **Mercados**: os mercados de onde vêm os resultados. Por exemplo, en-us (inglês, Estados Unidos). Por padrão, todos os mercados são selecionados. O `en-WW` mercado é o mercado que Bing usa se a chamada não especificar um mercado e Bing é incapaz de determinar o mercado do usuário.  
   
 - **Pontos de extremidade**: os pontos de extremidade de API de Pesquisa do Bing. A lista contém todos os pontos de extremidade para os quais você tem uma assinatura paga. Por padrão, todos os pontos de extremidade são selecionados.  
 
 - **Período**: o período do relatório. É possível especificar:
-  - **Todas**: Inclui um valor de dados de até 13 meses  
-  - **Últimas 24 horas**: Inclui análise das últimas 24 horas  
-  - **Última semana**: Inclui análise dos sete dias anteriores  
-  - **Mês passado**: Inclui análise dos últimos 30 dias  
-  - **Um intervalo de datas personalizado**: Inclui a análise do intervalo de datas especificado, se disponível  
+  - **Todos**: Inclui até 13 meses de dados  
+  - **Últimas 24 horas**: Inclui análises das últimas 24 horas  
+  - **Semana passada**: Inclui análises dos sete dias anteriores  
+  - **Mês passado**: Inclui análises dos 30 dias anteriores  
+  - **Um intervalo de datas personalizado**: Inclui análises da faixa de data especificada, se disponível  
 
 ## <a name="charts-and-graphs"></a>Gráficos e grafos
 
@@ -65,9 +65,9 @@ O painel mostra gráficos e grafos das métricas disponíveis para o ponto de ex
 For example, if you don't include the User-Agent header in your calls, the dashboard will not include device-related graphs.
 -->
 
-A seguir estão as possíveis métricas e restrições de ponto de extremidade.
+A seguir estão possíveis métricas e restrições de ponto final.
 
-- **Volume de chamadas**: mostra o número de chamadas feitas durante o período do relatório. Se o período do relatório for de um dia, o gráfico mostrará o número de chamadas feitas por hora. Caso contrário, o gráfico mostra o número de chamadas feitas por dia do período do relatório.  
+- **Volume da chamada**: mostra o número de chamadas feitas durante o período do relatório. Se o período do relatório for de um dia, o gráfico mostrará o número de chamadas feitas por hora. Caso contrário, o gráfico mostra o número de chamadas feitas por dia do período do relatório.  
   
   > [!NOTE]
   > O volume de chamadas pode diferir dos relatórios de cobrança, que geralmente incluem apenas chamadas com êxito.
@@ -86,21 +86,21 @@ A seguir estão as possíveis métricas e restrições de ponto de extremidade.
   > [!NOTE]  
   > Alguns termos de consulta podem ser suprimidos para remover informações confidenciais, como emails, números de telefone, SSN etc.
 
-- **Distribuição geográfica**: Os mercados nos quais os resultados da pesquisa se originam. Por exemplo, `en-us` (Inglês, Estados Unidos). O Bing usa o parâmetro de consulta `mkt` para determinar o mercado, se especificado. Caso contrário, o Bing usa sinais como o endereço IP do chamador para determinar o mercado.
+- **Distribuição Geográfica**: Os mercados de origem dos resultados da pesquisa. Por exemplo, `en-us` (Inglês, Estados Unidos). O Bing usa o parâmetro de consulta `mkt` para determinar o mercado, se especificado. Caso contrário, o Bing usa sinais como o endereço IP do chamador para determinar o mercado.
 
-- **Distribuição do código de resposta**: os códigos de status HTTP de todas as chamadas durante o período do relatório.
+- **Distribuição de código de resposta**: os códigos de status HTTP de todas as chamadas durante o período do relatório.
 
-- **Distribuição de origem das chamadas**: os tipos de navegadores usados pelos usuários. Por exemplo, Microsoft Edge, Chrome, Safari e FireFox. As chamadas feitas de fora de um navegador (como bots, postmaster ou uso de ondulação de um aplicativo de console) são agrupadas em bibliotecas. A origem é determinada usando o valor do cabeçalho do Agente do Usuário da solicitação. Se a solicitação não incluir o cabeçalho do Agente do Usuário, o Bing tentará derivar a origem de outros sinais.  
+- **Distribuição de origem de chamada**: os tipos de navegadores usados pelos usuários. Por exemplo, Microsoft Edge, Chrome, Safari e FireFox. Chamadas feitas de fora de um navegador (como bots, Carteiro ou usando cacho de um aplicativo de console) são agrupadas em Bibliotecas. A origem é determinada usando o valor do cabeçalho do Agente do Usuário da solicitação. Se a solicitação não incluir o cabeçalho do Agente do Usuário, o Bing tentará derivar a origem de outros sinais.  
 
 - **Distribuição de pesquisa segura**: a distribuição de valores de pesquisa segura. Por exemplo, desativado, moderado ou estrito. O parâmetro de consulta `safeSearch` contém o valor, se especificado. Caso contrário, o Bing padroniza o valor para moderado.  
 
-- **Distribuição de respostas solicitadas**: O pesquisa na Web API responde que você solicitou no `responseFilter` parâmetro de consulta.  
+- **Respostas Distribuição Solicitada**: A API de pesquisa da `responseFilter` Web que você solicitou no parâmetro de consulta.  
 
-- **Distribuição de respostas retornadas**: as respostas que a API de Pesquisa na Web retornou na resposta.
+- **Distribuição de respostas retornadas**: as respostas que a API de Pesquisa da Web retornou na resposta.
 
 - **Distribuição do servidor de resposta**: o servidor de aplicativos que atendeu as solicitações de API. Os valores possíveis são Bing.com (para tráfego veiculado em dispositivos de desktop e laptop) e Bing.com-mobile (para tráfego veiculado em dispositivos móveis). O servidor é determinado usando o valor do cabeçalho do Agente do Usuário da solicitação. Se a solicitação não incluir o cabeçalho do Agente do Usuário, o Bing tentará derivar o servidor de outros sinais.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Quais são os APIs de Pesquisa do Bing?](bing-api-comparison.md)
-* [Requisitos de exibição e uso de API Pesquisa do Bing](use-display-requirements.md)
+* [Quais são as APIs de Pesquisa do Bing?](bing-api-comparison.md)
+* [Requisitos de uso e exibição da API de Pesquisa do Bing](use-display-requirements.md)

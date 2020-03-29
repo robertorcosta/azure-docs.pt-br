@@ -1,5 +1,5 @@
 ---
-title: Como executar um teste em lote-LUIS
+title: Como realizar um teste em lote - LUIS
 titleSuffix: Azure Cognitive Services
 description: Use os conjuntos de testes em lote do KUIS (Reconhecimento vocal) para localizar enunciados com intenções e entidades incorretas.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73904350"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testes em lote com um conjunto de exemplos de enunciados
@@ -32,13 +32,13 @@ ms.locfileid: "73904350"
 
     ![Link de teste de lote](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Selecione **Importar conjunto de dados**. A caixa de diálogo **Importar novo conjunto de dados** é exibida. Selecione **Escolher Arquivo** e localize um arquivo JSON com o [formato JSON](luis-concept-batch-test.md#batch-file-format) correto que contenha *no máximo 1.000* enunciados para testar.
+2. Selecione **Conjunto de dados Importação**. A caixa de diálogo **Importar novo conjunto de dados** é exibida. Selecione **Escolher Arquivo** e localize um arquivo JSON com o [formato JSON](luis-concept-batch-test.md#batch-file-format) correto que contenha * no máximo 1.000 * enunciados para testar.
 
     Erros de importação são relatados em uma barra de notificação vermelha na parte superior do navegador. Quando uma importação tem erros, nenhum conjunto de dados é criado. Para obter mais informações, confira [Erros comuns](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
 3. No campo **Nome do conjunto de dados**, insira um nome para seu arquivo de conjunto de dados. O arquivo de conjunto de dados inclui uma **matriz de declarações** que inclui a *intenção rotulada* e *entidades*. Examine a sintaxe do [arquivo de lote de exemplo](luis-concept-batch-test.md#batch-file-format). 
 
-4. Selecione **Concluído**. O arquivo de conjunto de dados é adicionado.
+4. Selecione **Feito**. O arquivo de conjunto de dados é adicionado.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Executar, renomear, exportar ou excluir o conjunto de dados
 
@@ -105,6 +105,6 @@ As duas seções do gráfico em verde corresponderam à previsão esperada.
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar o desempenho do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
 * [Rotular enunciados sugeridos com o LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
+* [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md) 
 * [Noções básicas sobre o teste de lote com esse tutorial](luis-tutorial-batch-testing.md)
 * [Aprenda conceitos de teste de lote](luis-concept-batch-test.md).

@@ -1,5 +1,5 @@
 ---
-title: Planejar seu aplicativo-LUIS
+title: Planeje seu aplicativo - LUIS
 titleSuffix: Azure Cognitive Services
 description: Descreva intenções e entidades de aplicativo relevantes e crie seus planos de aplicativo no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: diberry
 ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74326785"
 ---
-# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planejar o esquema do aplicativo LUIS com a extração de dados e domínio do assunto
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeje seu esquema de aplicativo LUIS com domínio de assunto e extração de dados
 
-Um esquema de aplicativo LUIS contém [intenções](luis-glossary.md#intent) e [entidades](luis-glossary.md#entity) relevantes para seu [domínio](luis-glossary.md#domain)de assunto. As intenções classificam [declarações](luis-glossary.md#utterance)do usuário e as entidades extraem dados do declarações do usuário.
+Um esquema de aplicativo LUIS contém [intenções](luis-glossary.md#intent) e [entidades relevantes](luis-glossary.md#entity) para o seu [domínio](luis-glossary.md#domain)de assunto. As intenções classificam [as declarações do](luis-glossary.md#utterance)usuário e as entidades extraem dados das declarações do usuário.
 
 ## <a name="identify-your-domain"></a>Identificar seu domínio
 
-Um aplicativo LUIS é centralizado em um domínio de assunto. Por exemplo, você pode ter um aplicativo de viagem que lide com a reserva de ingressos, vôos, hotéis e carros de aluguel. Outro aplicativo pode fornecer conteúdo relacionado a exercícios, acompanhamento de esforços fitness e definição de metas. Identificar o domínio ajuda a localizar palavras ou frases relevantes para seu domínio.
+Um aplicativo LUIS é centrado em torno de um domínio de assunto. Por exemplo, você pode ter um aplicativo de viagem que lida com reservas de passagens, voos, hotéis e carros de aluguel. Outro aplicativo pode fornecer conteúdo relacionado a exercícios, acompanhamento de esforços fitness e definição de metas. Identificar o domínio ajuda a encontrar palavras ou frases relevantes para o seu domínio.
 
 > [!TIP]
 > O LUIS oferece [domínios predefinidos](luis-how-to-use-prebuilt-domains.md) para muitos cenários comuns. Verifique para ver se é possível usar um domínio predefinido como ponto de partida para seu aplicativo.
@@ -33,32 +33,32 @@ Um aplicativo LUIS é centralizado em um domínio de assunto. Por exemplo, você
 
 Pense nas [intenções](luis-concept-intent.md) que são importantes para a tarefa do seu aplicativo.
 
-Vamos usar o exemplo de um aplicativo de viagem, com funções para reservar um voo e verificar o clima no destino do usuário. Você pode definir as tentativas de `BookFlight` e `GetWeather` para essas ações.
+Vamos usar o exemplo de um aplicativo de viagem, com funções para reservar um voo e verificar o clima no destino do usuário. Você pode `BookFlight` definir `GetWeather` as intenções dessas ações.
 
-Em um aplicativo mais complexo com mais funções, você tem mais intenções e deve defini-las com cuidado para que as intenções não sejam muito específicas. Por exemplo, `BookFlight` e `BookHotel` talvez precisem de tentativas separadas, mas `BookInternationalFlight` e `BookDomesticFlight` podem ser muito semelhantes.
+Em um aplicativo mais complexo com mais funções, você tem mais intenções, e você deve defini-las cuidadosamente para que as intenções não sejam muito específicas. Por `BookFlight` exemplo, `BookHotel` e pode precisar ser `BookInternationalFlight` intenções separadas, mas e `BookDomesticFlight` pode ser muito semelhante.
 
 > [!NOTE]
-> É uma melhor prática usar apenas as intenções de que você precisar para executar as funções do seu aplicativo. Se você definir intenções demais, ficará mais difícil para o LUIS classificar declarações corretamente. Se você definir poucos, eles poderão ser tão gerais que se sobrepõem.
+> É uma melhor prática usar apenas as intenções de que você precisar para executar as funções do seu aplicativo. Se você definir intenções demais, ficará mais difícil para o LUIS classificar declarações corretamente. Se você definir muito poucos, eles podem ser tão gerais que eles se sobrepõem.
 
-Se você não precisar identificar a intenção geral do usuário, adicione todos os declarações de usuário de exemplo à intenção de `None`. Se seu aplicativo aumentar a necessidade de mais intenções, você poderá criá-los mais tarde.
+Se você não precisar identificar a intenção geral do usuário, `None` adicione todas as expressões de usuário exemplos à intenção. Se o seu aplicativo crescer e precisar de mais intenções, você pode criá-las mais tarde.
 
 ## <a name="create-example-utterances-for-each-intent"></a>Crie exemplos de declarações para cada intenção
 
-Para começar, Evite criar muitas declarações para cada tentativa. Depois de determinar as intenções, crie um exemplo de 15 a 30 declarações por tentativa. Cada expressão deve ser diferente do declarações fornecido anteriormente. Uma boa variedade no declarações inclui contagem geral de palavras, opções de palavras, conjugação de verbo e pontuação.
+Para começar, evite criar muitas expressões para cada intenção. Depois de determinar as intenções, crie de 15 a 30 enunciados por intenção. Cada enunciado deve ser diferente das declarações fornecidas anteriormente. Uma boa variedade de expressões incluem contagem geral de palavras, escolha de palavras, verbo tenso e pontuação.
 
-Para obter mais informações, consulte [Understanding Good declarações for Luis apps](luis-concept-utterance.md).
+Para obter mais informações, consulte [a compreensão de boas expressões para aplicativos LUIS](luis-concept-utterance.md).
 
 ## <a name="identify-your-entities"></a>Identificar suas entidades
 
-Nos exemplos de declarações, identifique as entidades que você deseja extrair. Para reservar um vôo, você precisa de informações como o destino, a data, a companhia aérea, a categoria de tíquete e a classe de viagem. Crie entidades para esses tipos de dados e marque as [entidades](luis-concept-entity-types.md) no exemplo declarações. As entidades são importantes para realizar uma intenção.
+Nos exemplos de declarações, identifique as entidades que você deseja extrair. Para reservar um voo, você precisa de informações como destino, data, companhia aérea, categoria de passagens e classe de viagem. Crie entidades para esses tipos de dados e marque as [entidades](luis-concept-entity-types.md) nos enunciados de exemplo. Entidades são importantes para realizar uma intenção.
 
-Ao determinar quais entidades usar em seu aplicativo, tenha em mente que existem diferentes tipos de entidades para capturar relações entre tipos de objeto. [Entidades no LUIS](luis-concept-entity-types.md) oferece mais detalhes sobre os tipos diferentes.
+Ao determinar quais entidades usar em seu aplicativo, tenha em mente que existem diferentes tipos de entidades para capturar relações entre tipos de objetos. [Entidades no LUIS](luis-concept-entity-types.md) oferece mais detalhes sobre os tipos diferentes.
 
 > [!TIP]
-> O LUIS oferece [entidades predefinidas](luis-prebuilt-entities.md) para cenários de usuário comuns e de conversação. Considere o uso de entidades predefinidas como um ponto de partida para o desenvolvimento de aplicativos.
+> A LUIS oferece [entidades pré-construídas](luis-prebuilt-entities.md) para cenários comuns e conversacionais de usuários. Considere o uso de entidades pré-construídas como ponto de partida para o desenvolvimento do seu aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Aprendendo o lifecylce de desenvolvimento do LUIS](luis-concept-app-iteration.md)
+> [Aprendendo a vida de desenvolvimento LUIS](luis-concept-app-iteration.md)
 

@@ -1,7 +1,7 @@
 ---
 title: Introdução – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostrará como se inscrever para os serviços cognitivas do Azure API de Tradução de Texto e obter uma chave de assinatura.
+description: Este artigo mostrará como se inscrever na API de texto do Tradutor de Serviços Cognitivos do Azure e obter uma chave de assinatura.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: cfae5318213e8af164c8d0cc9ed378705a5644b0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73835699"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se na API de Tradução de Texto
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 - Não tem uma conta? É possível criar uma [conta gratuita](https://azure.microsoft.com/free/) para experimentar sem custo.
 - Já tem uma conta? [Entrar](https://ms.portal.azure.com/)
@@ -29,7 +29,7 @@ ms.locfileid: "73835699"
 
 Depois de entrar no portal, será possível criar uma assinatura na API de Tradução de Texto da seguinte maneira:
 
-1. Selecione **+ Criar um recurso**.
+1. Selecione **+ Crie um recurso**.
 1. Na caixa de pesquisa **Pesquisar no Marketplace**, digite **Tradução de Texto** e, em seguida, selecione-a nos resultados.
 1. Selecione **Criar** para definir os detalhes da assinatura.
 1. Na lista **Tipo de preço**, selecione o tipo de preço que melhor atende às suas necessidades.

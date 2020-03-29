@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
 ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73499455"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Criar um aplicativo LUIS programaticamente usando o Node.js
@@ -28,16 +28,16 @@ O LUIS fornece uma API programática que faz tudo o que o site do [LUIS](luis-re
 
 * Entre no site do [LUIS](luis-reference-regions.md) e localize a [chave de criação](luis-concept-keys.md#authoring-key) nas Configurações da Conta. Use essa chave para chamar as APIs de criação.
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Este artigo começa com um CSV para os arquivos de log de solicitações do usuário de uma empresa hipotética. Baixe [aqui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
+* Este artigo começa com um CSV para os arquivos de log de uma empresa hipotética de solicitações de usuários. Baixe [aqui](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Instale o Node.js mais recente com o NPM. Baixe-o [aqui](https://nodejs.org/en/download/).
 * **[Recomendado]** O Visual Studio Code para IntelliSense e depuração, baixe-o [aqui](https://code.visualstudio.com/) gratuitamente.
 
-Todo o código deste artigo está disponível no [repositório do GitHub Azure-samples reconhecimento vocal](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
+Todo o código deste artigo está disponível no [repositório GitHub do Azure-Samples Language Understanding GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
 
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Mapear dados preexistentes para entidades e intenções
 Mesmo se tiver um sistema que não foi criado considerando o LUIS, se ele contiver dados textuais que mapeiam diferentes coisas que os usuários desejam fazer, você poderá criar um mapeamento com base nas categorias existentes de entrada de usuário para as intenções no LUIS. Se for possível identificar palavras ou frases importantes no que os usuários disseram, essas palavras poderão ser mapeadas para entidades.
 
-Abra o arquivo [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv). Ele contém um log de consultas de usuário para um serviço de automação residencial hipotético, incluindo como elas foram classificadas, o que o usuário disse e algumas colunas com informações úteis extraídas delas. 
+Abra [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) o arquivo. Ele contém um log de consultas de usuário para um serviço de automação residencial hipotético, incluindo como elas foram classificadas, o que o usuário disse e algumas colunas com informações úteis extraídas delas. 
 
 ![Arquivo CSV de dados pré-existentes](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
@@ -139,14 +139,14 @@ const LUIS_appCulture = "en-us";
 const LUIS_versionId = "0.1";
 ```
 
-### <a name="run-the-script"></a>Execute o script
+### <a name="run-the-script"></a>Executar o script
 Execute o script em um terminal/linha de comando com Node.js.
 
 ```console
 > node index.js
 ```
 
-ou o
+ou
 
 ```console
 > npm start
@@ -197,4 +197,4 @@ Este aplicativo de exemplo usa as seguintes APIs do LUIS:
 - [criar aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [adicionar intenções](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [adicionar entidades](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [adicionar declarações](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)
+- [adicionar expressões](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

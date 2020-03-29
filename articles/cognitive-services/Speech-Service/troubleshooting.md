@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas do SDK de fala-serviço de fala
+title: Solucionar problemas do Speech SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Este artigo traz informações para ajudar você a resolver possíveis problemas ao usar o SDK de Fala.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815420"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Solucionar Problemas do SDK de Fala
@@ -25,7 +25,7 @@ Este artigo traz informações para ajudar você a resolver possíveis problemas
 
 Você pode ter o ponto de extremidade incorreto para a região ou o serviço. Verifique se o URI está correto.
 
-Além disso, pode haver um problema com a chave de assinatura ou o token de autorização. Para obter mais informações, confira a próxima seção.
+Além disso, pode haver um problema com a chave de assinatura ou o token de autorização. Para obter mais informações, consulte a próxima seção.
 
 ## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Erro: HTTP 403 Proibido ou HTTP 401 Não Autorizado
 
@@ -123,6 +123,6 @@ Geralmente, esse problema é causado por dados de áudio. Você poderá ver esse
 
 * O áudio usa um formato de codec sem suporte, fazendo com que os dados de áudio sejam tratados como silêncio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Examinar as notas de versão](releasenotes.md)

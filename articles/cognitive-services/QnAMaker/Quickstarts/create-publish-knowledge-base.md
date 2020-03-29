@@ -1,20 +1,20 @@
 ---
-title: 'Início rápido: criar, treinar e publicar a base de dados de conhecimento-QnA Maker'
+title: 'Quickstart: Crie, treine e publique base de conhecimento - QnA Maker'
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220573"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: criar, treinar e publicar sua base de dados de conhecimento QnA Maker
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique sua base de conhecimento qnA Maker
 
 É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -114,7 +114,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 1. É aberta uma nova guia do navegador para o portal do Azure com a página de criação do Serviço de Bot do Azure. Configure o serviço de bot do Azure. O bot e o QnA Maker podem compartilhar o plano do serviço de aplicativo Web, mas não podem compartilhar o aplicativo Web. Isso significa que o **nome do aplicativo** para o bot deve ser diferente do nome do aplicativo usado para o serviço do QnA Maker.
 
-    * **Deve ser feito**
+    * **Faça**
         * Alterar o identificador de bot se ele não for exclusivo.
         * Selecionar a linguagem de programação do SDK. Depois que o bot for criado, você poderá baixar o código em seu ambiente de desenvolvimento local e continuar o processo de desenvolvimento.
     * **Não deve ser feito**
@@ -124,7 +124,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 
 1. Depois que o bot for criado, abra o recurso **Serviço de bot**.
-1. Em **Gerenciamento de Bot**, selecione **Testar no Webchat**.
+1. Em **Gerenciamento de Bots,** **selecione Teste no Web Chat**.
 1. No prompt de chat de **Digite sua mensagem**, digite:
 
     `Azure services?`
@@ -141,7 +141,7 @@ Depois de publicar a base de dados de conhecimento, você criou e testou um bot.
 
 Isso tudo foi feito em alguns minutos, sem a necessidade de escrever nenhum código nem de limpar o conteúdo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não for prosseguir para o próximo início rápido, exclua os recursos do QnA Maker e do Bot Framework no portal do Azure.
 

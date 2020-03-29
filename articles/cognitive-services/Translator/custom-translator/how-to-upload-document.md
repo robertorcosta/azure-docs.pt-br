@@ -1,7 +1,7 @@
 ---
 title: Como carregar um documento - conversor personalizado
 titleSuffix: Azure Cognitive Services
-description: O recurso de upload de documento carrega documentos paralelos (dois documentos em que um é a origem e o outro é a tradução) no serviço.
+description: O recurso de upload de documentos carrega documentos paralelos (dois documentos onde um é a origem e o outro é a tradução) para o serviço.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647379"
 ---
 # <a name="upload-a-document"></a>Upload de um documento

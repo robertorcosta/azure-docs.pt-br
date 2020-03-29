@@ -1,5 +1,5 @@
 ---
-title: Padrão. qualquer tipo de entidade-LUIS
+title: Pattern.any entity type - LUIS
 titleSuffix: Azure Cognitive Services
 description: Pattern.any é um espaço reservado de tamanho variável usado apenas em um enunciado de modelo para marcar onde a entidade começa e termina.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75979172"
 ---
 # <a name="patternany-entity"></a>Entidade pattern.any
@@ -31,14 +31,14 @@ As entidades Pattern.any devem ser marcadas nos exemplos de modelo [Padrão](lui
 
 Em um determinado aplicativo cliente que pesquisa livros com base no título, o pattern.any extrai o título completo. Um enunciado de modelo usando pattern.any para essa busca de livro é `Was {BookTitle} written by an American this year[?]`.
 
-Na tabela a seguir, cada linha tem duas versões do enunciado. A principal expressão é como a LUIS inicialmente vê o expressão. Não fica claro onde o título do livro começa e termina. O expressão inferior usa um padrão. qualquer entidade para marcar o início e o fim da entidade.
+Na tabela a seguir, cada linha tem duas versões do enunciado. O enunciado superior é como LUIS inicialmente vê a expressão. Não está claro onde o título do livro começa e termina. O enunciado inferior usa um Padrão.qualquer entidade para marcar o início e o fim da entidade.
 
-|Expressão com a entidade em negrito|
+|Pronunciamento com entidade em negrito|
 |--|
 |`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales** foi escrito por um americano este ano?|
 |`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>**Half Asleep in Frog Pajamas** foi escrito por uma americano este ano?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>**O tristeza particular do bolo de limão: um romance** escrito por um American este ano?|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>**There's A Wocket In My Pocket!** foi escrito por um americano este ano?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Foi **A Tristeza Particular do Bolo de Limão: Um Romance** escrito por um americano este ano?|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Havia **um wocket no meu bolso!** escrito por um americano este ano?|
 ||
 
 
@@ -49,11 +49,11 @@ Considere a consulta a seguir.
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-Pelo nome do formulário inserido a ser extraído como padrão. any:
+Com o nome do formulário incorporado para extrair como um Padrão.any:
 
 `Understand your responsibilities as a member of the community`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -67,9 +67,9 @@ Pelo nome do formulário inserido a ser extraído como padrão. any:
 ```
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
 
 ```json
 "entities": {
@@ -79,7 +79,7 @@ Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consul
 }
 ```
 
-Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=true` estiver definido na seqüência de consultas:
 
 ```json
 "entities": {
@@ -106,6 +106,6 @@ Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consult
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Neste [tutorial](luis-tutorial-pattern.md), use o **padrão. qualquer** entidade para extrair dados de declarações em que o declarações está bem formatado e onde o final dos dados pode ser facilmente confundido com as palavras restantes do expressão.
+Neste [tutorial,](luis-tutorial-pattern.md)use a entidade **Pattern.any** para extrair dados de expressões onde as expressões são bem formatadas e onde o final dos dados pode ser facilmente confundido com as palavras restantes do enunciado.

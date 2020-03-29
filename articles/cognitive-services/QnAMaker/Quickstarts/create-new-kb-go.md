@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 221220345f4f3b7aff2a32c956d921f677ca0627
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851911"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: criar uma base de dados de conhecimento no QnA Maker usando o Go
@@ -20,11 +20,11 @@ Este início rápido chama as APIs de QnA Maker:
 * [Criar uma base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [Obter detalhes da operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Exemplo de Go](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [GO Amostra](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Go 1.10.1](https://golang.org/dl/)
 * Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **Início Rápido** para o recurso no portal do Azure.
@@ -72,7 +72,7 @@ Depois, adicione as seguintes funções de suporte.
 
 ## <a name="add-function-to-create-kb"></a>Adicionar funções para criar a base de dados de conhecimento
 
-Adicione as seguintes funções para fazer uma solicitação HTTP POST para criar a base de dados de conhecimento. A _ID da Operação_ de **criação** é retornada na **Localização** do campo de cabeçalho da resposta POST e, em seguida, usada como parte da rota na solicitação GET. O `Ocp-Apim-Subscription-Key` é a chave de serviço do QnA Maker, usada para autenticação.
+Adicione as seguintes funções para fazer uma solicitação HTTP POST para criar a base de dados de conhecimento. O **ID de operação** _de criação_ é devolvido no campo de cabeçalho de resposta POST **Location**, em seguida, usado como parte da rota na solicitação GET. O `Ocp-Apim-Subscription-Key` é a chave de serviço do QnA Maker, usada para autenticação.
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 

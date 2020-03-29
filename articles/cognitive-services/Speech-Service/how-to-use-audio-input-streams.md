@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74109942"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre a API de fluxo de entrada de áudio do SDK de Fala
 
-A API de **fluxo de entrada de áudio** do SDK de fala fornece uma maneira de transmitir áudio para os reconhecedores em vez de usar o microfone ou as APIs de arquivo de entrada.
+A API de **fluxo** de entrada de áudio do Speech SDK fornece uma maneira de transmitir áudio para os reconhecedores em vez de usar o microfone ou as APIs do arquivo de entrada.
 
 As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
@@ -59,7 +59,7 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
    };
   ```
 
-- Crie uma configuração de áudio com base em seu formato e fluxo de entrada de áudio. Passe sua configuração de fala normal e a configuração de entrada de áudio ao criar seu reconhecedor. Por exemplo:
+- Crie uma configuração de áudio com base em seu formato e fluxo de entrada de áudio. Passe sua configuração de fala normal e a configuração de entrada de áudio ao criar seu reconhecedor. Por exemplo: 
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
@@ -75,5 +75,5 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 - [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

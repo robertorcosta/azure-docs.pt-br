@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73486685"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testando os enunciados de exemplo no LUIS
 
 O teste é o processo de fornecer exemplo de declarações ao LUIS e obter uma resposta de intenções e entidades reconhecidas pelo LUIS. 
 
-Você pode testar LUIS interativamente, um expressão por vez ou fornecer um de declarações. Durante o teste, você pode comparar a resposta de previsão do modelo ativo atual com a resposta de previsão do modelo publicado. 
+Você pode testar LUIS interativamente, uma expressão de cada vez, ou fornecer um de declarações. Durante os testes, você pode comparar a resposta de previsão do modelo ativo atual com a resposta de previsão do modelo publicado. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -32,13 +32,13 @@ Você pode testar LUIS interativamente, um expressão por vez ou fornecer um de 
 Confira os conceitos [Pontuação de previsão](luis-concept-prediction-score.md) para saber mais sobre as pontuações de previsão.
 
 ## <a name="interactive-testing"></a>Teste interativo
-O teste interativo é feito no painel de **teste** do portal do Luis. É possível inserir uma declaração para ver como as intenções e entidades são identificadas e pontuadas. Se LUIS não estiver prevendo as intenções e entidades esperadas em um expressão no painel de teste, copie-as para a página de **intenção** como um novo expressão. Em seguida, rotule as partes do expressão para entidades e treine o LUIS. 
+O teste interativo é feito a partir do painel de **teste** do portal LUIS. É possível inserir uma declaração para ver como as intenções e entidades são identificadas e pontuadas. Se luis não está prevendo as intenções e entidades como você espera em uma declaração no painel de testes, copie-a para a página **Intenção** como um novo enunciado. Em seguida, rotular as partes desse enunciado para entidades, e treinar LUIS. 
 
-## <a name="batch-testing"></a>Teste de lote
+## <a name="batch-testing"></a>Teste em lote
 Confira o [teste de lote](luis-concept-batch-test.md) se estiver testando mais de uma declaração por vez.
 
 ## <a name="endpoint-testing"></a>Teste do ponto de extremidade
-É possível testar usando o [ponto de extremidade](luis-glossary.md#endpoint) com no máximo duas versões do seu aplicativo. Com sua versão principal ou em tempo real do seu aplicativo definida como o ponto de extremidade de **produção**, adicione uma segunda versão ao ponto de extremidade de **preparo**. Essa abordagem oferece três versões de um enunciado: o modelo atual no painel de Teste do site do [LUIS](luis-reference-regions.md) e as duas versões nos dois pontos de extremidade diferentes. 
+É possível testar usando o [ponto de extremidade](luis-glossary.md#endpoint) com no máximo duas versões do seu aplicativo. Com sua versão principal ou em tempo real do seu aplicativo definida como o ponto de extremidade de **produção**, adicione uma segunda versão ao ponto de extremidade de **preparo**. Essa abordagem oferece três versões de uma declaração: o modelo atual no painel de teste do site do [LUIS](luis-reference-regions.md) e as duas versões nos dois pontos de extremidade diferentes. 
 
 Todo o teste de ponto de extremidade conta para sua cota de uso. 
 
@@ -46,9 +46,9 @@ Todo o teste de ponto de extremidade conta para sua cota de uso.
 Se você fizer testes com relação a um ponto de extremidade e não quiser que a declaração fique registrada, lembre-se de usar a configuração da cadeia de caracteres de consulta `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Onde encontrar declarações
-O LUIS armazena todos os declarações registrados no log de consultas, disponível para download no portal do LUIS na página de lista de **aplicativos** , bem como as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087)do Luis. 
+Luis armazena todas as declarações registradas no registro de consultas, disponíveis para download no portal LUIS a partir da página da lista **de aplicativos,** bem como nas [APIs de autoria do](https://go.microsoft.com/fwlink/?linkid=2092087)LUIS. 
 
-Os enunciados que o LUIS não tiver certeza estarão listados na página **[Examinar enunciados de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** no site do [LUIS](luis-reference-regions.md). 
+Quaisquer declarações das quais o LUIS não tem certeza são listadas na página **[Examinar declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** do site do [LUIS](luis-reference-regions.md). 
 
 ## <a name="remember-to-train"></a>Lembrar-se de treinar
 Lembre-se de [treinar](luis-how-to-train.md) o LUIS após fazer alterações no modelo. As alterações no aplicativo LUIS não são vistas no teste até que o aplicativo seja treinado. 

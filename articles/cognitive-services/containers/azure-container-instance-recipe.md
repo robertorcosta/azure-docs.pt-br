@@ -1,7 +1,7 @@
 ---
-title: Receita da instância de contêiner do Azure
+title: Receita de Instância do Recipiente do Azure
 titleSuffix: Azure Cognitive Services
-description: Saiba como implantar contêineres de serviços cognitivas na instância de contêiner do Azure
+description: Saiba como implantar contêineres de serviços cognitivos na instância de contêineres do Azure
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,41 +11,41 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
 ms.openlocfilehash: 78f35042678aa7c30cebf73796df3e5d564b4502
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76717007"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Implantar e executar em Instância de Contêiner do Azure
 
-Com as etapas a seguir, dimensione facilmente os aplicativos de serviços cognitivas do Azure na nuvem com as [instâncias de contêiner](https://docs.microsoft.com/azure/container-instances/)do Azure. A criação de contêineres ajuda você a se concentrar em criar seus aplicativos em vez de gerenciar a infraestrutura. Para obter mais informações sobre como usar contêineres, consulte [recursos e benefícios](../cognitive-services-container-support.md#features-and-benefits).
+Com as etapas a seguir, dimensione facilmente as aplicações do Azure Cognitive Services na nuvem com [instâncias de contêiner do](https://docs.microsoft.com/azure/container-instances/)Azure . A containerização ajuda você a se concentrar na construção de seus aplicativos em vez de gerenciar a infra-estrutura. Para obter mais informações sobre o uso de contêineres, consulte [recursos e benefícios](../cognitive-services-container-support.md#features-and-benefits).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-A receita funciona com qualquer contêiner de serviços cognitivas. O recurso de serviço cognitiva deve ser criado no portal do Azure antes de usar a receita. Cada serviço cognitiva que dá suporte a contêineres tem um documento "como instalar", especificamente para instalar e configurar o serviço para um contêiner. Alguns serviços exigem um arquivo ou conjunto de arquivos como entrada para o contêiner, é importante que você entenda e tenha usado o contêiner com êxito antes de usar essa solução.
+A receita funciona com qualquer recipiente de Serviços Cognitivos. O recurso serviço cognitivo deve ser criado no portal Azure antes de usar a receita. Cada Serviço Cognitivo que suporta contêineres tem um documento "Como instalar" especificamente para instalar e configurar o serviço para um contêiner. Alguns serviços exigem um arquivo ou conjunto de arquivos como entrada para o contêiner, é importante que você entenda e tenha usado o contêiner com sucesso antes de usar esta solução.
 
-* Um recurso de serviço cognitiva, criado em portal do Azure.
-* URL do **ponto de extremidade** de serviço cognitiva-examine o "como instalar" do seu serviço específico para o contêiner, para descobrir onde a URL do ponto de extremidade está dentro do portal do Azure e a aparência do exemplo correto da URL. O formato exato pode mudar de serviço para serviço.
-* **Chave** de serviço cognitiva-as chaves estão na página **chaves** do recurso do Azure. Você precisa apenas de uma das duas chaves. A chave é uma cadeia de caracteres de 32 alfanuméricos.
-* Um único contêiner de serviços cognitivas no host local (seu computador). Verifique se você pode:
-  * Puxe a imagem com um comando `docker pull`.
-  * Execute o contêiner local com êxito com todas as definições de configuração necessárias com um comando `docker run`.
-  * Chame o ponto de extremidade do contêiner, obtendo uma resposta de HTTP 2xx e uma resposta JSON de volta.
+* Um recurso de Serviço Cognitivo, criado no portal Azure.
+* URL **de ponto final** do Serviço Cognitivo - revise o "Como instalar" do seu serviço específico para o contêiner, para descobrir de onde a URL de ponto final é do portal do Azure e como é um exemplo correto da URL. O formato exato pode mudar de serviço para serviço.
+* Tecla **key** Cognitive Service - as chaves estão na página **Chaves** para o recurso Do Zure. Você precisa apenas de uma das duas chaves. A chave é uma seqüência de 32 caracteres alfa-numéricos.
+* Um único contêiner de serviços cognitivos em seu host local (seu computador). Certifique-se de que você pode:
+  * Puxe a imagem `docker pull` com um comando.
+  * Execute o contêiner local com sucesso com `docker run` todas as configurações necessárias com um comando.
+  * Ligue para o ponto final do contêiner, recebendo uma resposta de HTTP 2xx e uma resposta JSON de volta.
 
-Todas as variáveis entre colchetes angulares, `<>`, precisam ser substituídas por seus próprios valores. Essa substituição inclui os colchetes angulares.
+Todas as variáveis em `<>`suportes angulares, precisam ser substituídas por seus próprios valores. Esta substituição inclui os suportes angulares.
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
-## <a name="use-the-container-instance"></a>Usar a instância de contêiner
+## <a name="use-the-container-instance"></a>Use a instância do contêiner
 
 1. Selecione a **visão geral** e copie o endereço IP. Será um endereço IP numérico, como `55.55.55.55`.
-1. Abra uma nova guia do navegador e use o endereço IP, por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000`). Você verá o home page do contêiner, informando que o contêiner está em execução.
+1. Abra uma nova guia do navegador e `http://<IP-address>:5000 (http://55.55.55.55:5000`use o endereço IP, por exemplo, ). Você verá a página inicial do contêiner, informando que o contêiner está em execução.
 
-1. Selecione **Descrição da API de serviço** para exibir a página do Swagger para o contêiner.
+1. Selecione **API de serviço descrição** para exibir a página de swagger para o contêiner.
 
-1. Selecione qualquer uma das APIs **post** e selecione **experimentar**.  Os parâmetros são exibidos, incluindo a entrada. Preencha os parâmetros.
+1. Selecione qualquer uma das APIs **post** e **selecione Experimente- a**.  Os parâmetros são exibidos, incluindo a entrada. Preencha os parâmetros.
 
-1. Selecione **executar** para enviar a solicitação para a instância de contêiner.
+1. Selecione **Executar** para enviar a solicitação à sua instância de contêiner.
 
-    Você criou e usou contêineres de serviços cognitivas na instância de contêiner do Azure.
+    Você criou e usou com sucesso contêineres de Serviços Cognitivos na Instância de Contêiner do Azure.

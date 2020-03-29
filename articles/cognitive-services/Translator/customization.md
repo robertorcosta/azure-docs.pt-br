@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71257618"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
@@ -29,7 +29,7 @@ Com o Tradutor Personalizado, você pode compilar sistemas de tradução neural 
 
 ### <a name="how-does-it-work"></a>Como ele funciona?
 
-Use seus documentos traduzidos anteriormente (leaflets, páginas da Web, documentação, etc.) para criar um sistema de tradução que reflita sua terminologia e estilo específicos de domínio, melhor do que um sistema de tradução padrão. Os usuários podem fazer upload de documentos TMX XLIFF, TXT, DOCX e XLSX.  
+Use seus documentos traduzidos anteriormente (folhetos, páginas da web, documentação, etc.) para construir um sistema de tradução que reflita sua terminologia e estilo específicos de domínio, melhor do que um sistema de tradução padrão. Os usuários podem fazer upload de documentos TMX XLIFF, TXT, DOCX e XLSX.  
 
 O sistema também aceita dados que são paralelos no nível do documento, mas ainda não estão alinhados no nível de frase. Se os usuários tiverem acesso às versões do mesmo conteúdo em vários idiomas, mas em documentos separados, o Tradutor Personalizado conseguirá criar automaticamente a correspondência de frases entre os documentos.  O sistema também pode usar dados monolíngues em um ou ambos os idiomas para complementar os dados de treinamento paralelos para melhorar as traduções.
 
@@ -43,7 +43,7 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 ## <a name="microsoft-translator-hub"></a>Hub do Microsoft Translator
 
 > [!NOTE]
-> O Hub herdado do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).  
+> O legado Microsoft Translator Hub será aposentado em 17 de maio de 2019. [Exibir informações e datas importantes de migração](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor Personalizado versus Hub
 

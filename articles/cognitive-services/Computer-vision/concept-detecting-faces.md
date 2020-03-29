@@ -1,7 +1,7 @@
 ---
-title: Detecção facial-Pesquisa Visual Computacional
+title: Detecção facial - Visão computacional
 titleSuffix: Azure Cognitive Services
-description: Conheça os conceitos relacionados ao recurso de detecção facial do API da Pesquisa Visual Computacional.
+description: Aprenda conceitos relacionados ao recurso de detecção facial da API de visão computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945240"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244691"
 ---
 # <a name="face-detection-with-computer-vision"></a>Detecção facial com Pesquisa Visual Computacional
 
@@ -111,6 +111,9 @@ O próximo exemplo demonstra a resposta JSON retornada de uma imagem contendo v�
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="use-the-api"></a>Usar a API
 
-Consulte a documentação de referência de [Analisar imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para saber mais sobre como usar o recurso de detecção facial.
+O recurso de detecção facial faz parte da API [Analisar imagem.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Faces` no parâmetro de consulta **visualFeatures.** Em seguida, quando você receber a resposta JSON completa, `"faces"` basta analisar a seqüência para o conteúdo da seção.
+
+* [Partida rápida: Visão computacional .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analise uma imagem (Rest API)](./quickstarts/csharp-analyze.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881916"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de Pesquisa de Imagem do Bing
@@ -34,30 +34,30 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="countriesregions"></a>Países/Regiões
 
-|País/região|Código|
+|País/Região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canada|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|Região Administrativa Especial de Hong Kong|HK|
+|RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|it|
+|Itália|IT|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
 |Nova Zelândia|NZ|
-|Noruega|NÃO|
+|Noruega|Não|
 |China|CN|
 |Polônia|PL|
 |Portugal|PT|
@@ -70,13 +70,13 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Suíça|CH|
 |Taiwan|TW|
 |Turquia|TR|
-|Reino Unido|GB|
+|United Kingdom|GB|
 |Estados Unidos|EUA|
 
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Idioma|Código de mercado|
+|País/Região|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -84,14 +84,14 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Bélgica|Holandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canadá|Inglês|en-CA|
-|Canadá|Francês|fr-CA|
+|Canada|Inglês|en-CA|
+|Canada|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|Região Administrativa Especial de Hong Kong|Chinês Tradicional|zh-HK|
+|RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
@@ -112,9 +112,9 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Suécia|Sueco|sv-SE|
 |Suíça|Francês|fr-CH|
 |Suíça|Alemão|de-CH|
-|Taiwan|Chinês Tradicional|zh-TW|
+|Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Inglês|en-GB|
+|United Kingdom|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
 |Estados Unidos|Espanhol|es-US|
 

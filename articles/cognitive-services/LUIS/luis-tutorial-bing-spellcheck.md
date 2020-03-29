@@ -1,5 +1,5 @@
 ---
-title: Corrigir palavras incorretas-LUIS
+title: Corrigir palavras mal escritas - LUIS
 titleSuffix: Azure Cognitive Services
 description: Corrija palavras grafadas incorretamente na declaração adicionando a API de Verificação Ortográfica do Bing V7 para consultas de ponto de extremidade do LUIS.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74225458"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corrigir palavras grafas incorretamente com a Verificação Ortográfica do Bing
@@ -96,12 +96,12 @@ A URL do ponto de extremidade tem vários valores que precisam ser passados corr
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorar erros de ortografia
 
-Se você não quiser usar o serviço do Verificação Ortográfica do Bing API v7, será necessário adicionar a grafia correta e incorreta. 
+Se você não quiser usar o serviço Bing Spell Check API v7, você precisa adicionar a ortografia correta e incorreta. 
 
 Duas soluções são:
 
-* Exemplo de rótulo declarações que têm todas as diferentes ortografias para que o LUIS possa aprender a grafia adequada, bem como erros de digitação. Essa opção exige mais esforço de aplicação de rótulos do que o uso de um verificador ortográfico.
-* Crie uma lista de frases com todas as variações da palavra. Com essa solução, você não precisa rotular as variações de palavras no exemplo declarações. 
+* Rotular frases de exemplo que têm todas as diferentes ortografias para que LUIS possa aprender ortografia adequada, bem como erros de digitação. Essa opção exige mais esforço de aplicação de rótulos do que o uso de um verificador ortográfico.
+* Crie uma lista de frases com todas as variações da palavra. Com esta solução, você não precisa rotular as variações da palavra nas enunciadas de exemplo. 
 
 ## <a name="publishing-page"></a>Página de publicação
 A página de [publicação](luis-how-to-publish-app.md) tem uma caixa de seleção **Habilitar o verificador ortográfico do Bing**. Isso é uma conveniência para criar a chave e entender como a URL de ponto de extremidade é alterada. Você ainda precisará usar os parâmetros de ponto de extremidade corretos para que a ortografia seja corrigida em cada declaração. 

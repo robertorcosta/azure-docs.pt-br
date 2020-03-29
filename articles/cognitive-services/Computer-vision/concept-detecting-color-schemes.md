@@ -1,5 +1,5 @@
 ---
-title: Detecção de esquema de cores-Pesquisa Visual Computacional
+title: Detecção de esquema de cores - Visão computacional
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados à detecção do esquema de cores em imagens usando a API do Computer Vision.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945286"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244725"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detectar esquemas de cores em imagens
 
@@ -30,7 +30,7 @@ A Pesquisa Visual Computacional também retorna um valor booliano que indica se 
 
 O exemplo a seguir ilustra a resposta JSON retornada pela visão do computador ao detectar o esquema de cores da imagem de exemplo. Nesse caso, a imagem de exemplo não é em preto e branco, mas as cores de primeiro plano e da tela de fundo predominantes são pretas e as cores predominantes da imagem inteira são em preto e branco.
 
-![Montanhas de ar no pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png)
+![Montanha ao ar livre ao pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,16 +54,16 @@ O exemplo a seguir ilustra a resposta JSON retornada pela visão do computador a
 
 A tabela a seguir mostra o primeiro plano, a tela de fundo e as cores da imagem retornados para cada imagem de exemplo.
 
-| Image | Cores predominantes |
+| Imagem | Cores predominantes |
 |-------|-----------------|
-|![Uma flor branca com um fundo verde](./Images/flower.png)| Primeiro plano: Preto<br/>Plano de fundo: Branco<br/>Cores: Preto, Branco, Verde|
-![Um treinamento em execução por meio de uma estação](./Images/train_station.png) | Primeiro plano: Preto<br/>Plano de fundo: Preto<br/>Cores: Preto |
+|![Uma flor branca com um fundo verde](./Images/flower.png)| Em primeiro plano: preto<br/>Em segundo plano: em branco<br/>Cores: Preto, branco, verde|
+![Um treinamento em execução por meio de uma estação](./Images/train_station.png) | Em primeiro plano: preto<br/>Em segundo plano: preto<br/>Cores: preto |
 
 ### <a name="accent-color-examples"></a>Exemplos de cor de ênfase
 
  A tabela a seguir mostra a cor de ênfase retornada, como um valor hexadecimal de cor HTML, para cada imagem de exemplo.
 
-| Image | Cor de destaque |
+| Imagem | Cor de destaque |
 |-------|--------------|
 |![Uma pessoa que está em uma montanha ao pôr do sol](./Images/mountain_vista.png) | #BB6D10 |
 |![Uma flor branca com um fundo verde](./Images/flower.png) | #C6A205 |
@@ -73,11 +73,14 @@ A tabela a seguir mostra o primeiro plano, a tela de fundo e as cores da imagem 
 
 A tabela a seguir mostra a avaliação de preto e branco da Pesquisa Visual Computacional nas imagens de exemplo.
 
-| Image | Preto e branco? |
+| Imagem | Preto e branco? |
 |-------|----------------|
 |![Uma imagem em preto e branco dos edifícios em Manhattan](./Images/bw_buildings.png) | true |
 |![Uma casa azul e o jardim da frente](./Images/house_yard.png) | false |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="use-the-api"></a>Usar a API
 
-Conheça os conceitos [detectar tipos de imagem](concept-detecting-image-types.md).
+O recurso de detecção de esquema de cores faz parte da API [Analisar imagem.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Color` no parâmetro de consulta **visualFeatures.** Em seguida, quando você receber a resposta JSON completa, `"color"` basta analisar a seqüência para o conteúdo da seção.
+
+* [Partida rápida: Visão computacional .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analise uma imagem (Rest API)](./quickstarts/csharp-analyze.md)

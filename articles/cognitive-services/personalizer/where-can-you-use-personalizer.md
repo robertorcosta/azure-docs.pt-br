@@ -1,54 +1,54 @@
 ---
-title: Onde e como usar-personalizar
+title: Onde e como usar - Personalizador
 description: O Personalizador pode ser aplicado em qualquer situação em que seu aplicativo pode selecionar o item, a ação ou o produto correto a ser exibido – visando aprimorar a experiência, alcançar melhores resultados de negócios ou melhorar a produtividade.
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219319"
 ---
-# <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o personalizador
+# <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o Personalr
 
-Use o personalizador em qualquer situação em que seu aplicativo precise selecionar a ação (conteúdo) correta para ser exibida, a fim de melhorar a experiência, obter melhores resultados de negócios ou aumentar a produtividade.
+Use o Personaland em qualquer situação em que seu aplicativo precise selecionar a ação (conteúdo) correta para exibir - a fim de tornar a experiência melhor, alcançar melhores resultados de negócios ou melhorar a produtividade.
 
-O personalizador usa o aprendizado de máquina para selecionar qual ação (conteúdo) mostrar o usuário. A seleção pode variar drasticamente, dependendo da quantidade, da qualidade e da distribuição dos dados enviados ao serviço.
+O personalizador usa aprendizado de máquina para selecionar qual ação (conteúdo) para mostrar ao usuário. A seleção pode variar drasticamente, dependendo da quantidade, da qualidade e da distribuição dos dados enviados ao serviço.
 
 ## <a name="example-use-cases-for-personalizer"></a>Casos de uso de exemplo do Personalizador
 
-* **Esclarecimento da intenção & Desambigüidade**: Ajude seus usuários a ter uma experiência melhor quando sua intenção não estiver clara, fornecendo uma opção personalizada.
-* **Sugestões padrão** para menus & opções: faça com que o bot sugira o item mais provável de uma maneira personalizada como uma primeira etapa, em vez de apresentar um menu ou uma lista de alternativas pessoais.
-* As **características do Bot & Tom**: para bots que podem variar o estilo de Tom, detalhamento e escrita, considere a variação dessas características.
-* **Notificação & conteúdo do alerta**: decida qual texto deve ser usado para alertas a fim de envolver mais usuários.
-* **Tempo de alerta de & de notificação**: tenha aprendizado personalizado de quando enviar notificações aos usuários para que eles se envolvam mais.
+* **Esclarecimento de intenções & desambiguação**: ajude seus usuários a ter uma melhor experiência quando sua intenção não é clara, fornecendo uma opção personalizada.
+* **Sugestões padrão** para menus & opções: faça o bot sugerir o item mais provável de forma personalizada como primeiro passo, em vez de apresentar um menu impessoal ou uma lista de alternativas.
+* **Traços de bot & tom**: para bots que podem variar tom, verbosidade e estilo de escrita, considere variar esses traços.
+* **Notificação & conteúdo de alerta**: decida qual texto usar para alertas, a fim de engajar mais os usuários.
+* **A notificação & tempo de alerta:** ter um aprendizado personalizado de quando enviar notificações aos usuários para engajá-los mais.
 
 
-## <a name="expectations-required-to-use-personalizer"></a>Expectativas necessárias para usar o personalizador
+## <a name="expectations-required-to-use-personalizer"></a>Expectativas necessárias para usar o Personalr
 
-Você pode aplicar o personalizador em situações em que você atende ou pode implementar as diretrizes a seguir.
+Você pode aplicar o Personalr em situações em que você se encontra ou pode implementar as seguintes diretrizes.
 
 |Diretriz|Explicação|
 |--|--|
 |Meta de negócios|Você tem uma meta de negócios ou de usabilidade para seu aplicativo.|
 |Conteúdo|Você tem um lugar em seu aplicativo, em que a tomada de uma decisão contextual do que mostrar aos usuários melhorará essa meta.|
-|Quantidade de conteúdo|Você tem menos de 50 ações a serem classificadas por chamada.|
-|Agregar dados|A melhor opção pode e deve ser aprendida com o comportamento coletivo dos usuários e a pontuação total das recompensas.|
+|Quantidade de conteúdo|Você tem menos de 50 ações para classificar por chamada.|
+|Dados agregados|A melhor opção pode e deve ser aprendida com o comportamento coletivo dos usuários e a pontuação total das recompensas.|
 |Uso ético|O uso do aprendizado de máquina para personalização segue [diretrizes de uso responsável](ethics-responsible-use.md) e as opções escolhidas por você.
 |Melhor opção única|A decisão contextual pode ser expressa como a classificação da melhor opção (ação) de um conjunto limitado de opções.|
-|Resultado da Pontuação|O quão bem a escolha classificada para seu aplicativo pode ser determinada medindo algum aspecto do comportamento do usuário e expressando-o em uma _[Pontuação de recompensa](concept-rewards.md)_ .|
+|Resultado marcado|O quão bem a escolha ranqueada funcionou para o seu aplicativo pode ser determinada medindo algum aspecto do comportamento do usuário e expressando-a em uma _[pontuação de recompensa](concept-rewards.md)_.|
 |Tempo relevante|A pontuação de recompensa não traz muitos fatores de confusão ou externos. A duração do teste é curta o suficiente para que a pontuação de recompensa possa ser computada enquanto ela ainda é relevante.|
-|Recursos de contexto suficientes|Você pode expressar o contexto para a classificação como uma lista de pelo menos 5 [recursos](concepts-features.md) que você imagina que ajudarão a fazer a escolha certa e que não incluem informações de identificação específicas do usuário.|
+|Características suficientes de contexto|Você pode expressar o contexto para a classificação como uma lista de pelo menos 5 [recursos](concepts-features.md) que você acha que ajudariam a fazer a escolha certa, e isso não inclui informações identificáveis específicas do usuário.|
 |Recursos de ação suficientes|Você tem informações sobre cada opção de conteúdo, _ação_, como uma lista de, pelo menos, 5 [recursos](concepts-features.md) que achar que ajudarão o Personalizador a fazer a escolha certa.|
 |Dados diários|Não há eventos suficientes para permanecer acima da personalização ideal se o problema se desloca com o tempo (por exemplo, preferências de notícias ou moda). O Personalizador se adaptará a alterações contínuas no mundo real, mas os resultados não serão ideais se não houver eventos e dados suficientes para aprendizado, a fim de descobrir e estabelecer novos padrões. Você deve escolher um caso de uso que ocorre com uma frequência suficiente. Considere buscar casos de uso que ocorram, pelo menos, 500 vezes por dia.|
-|Dados do histórico|Seu aplicativo pode reter dados por tempo suficiente para acumular um histórico de, pelo menos, 100.000 interações. Isso permite que o personalizado colete dados suficientes para executar avaliações offline e otimização de política.|
+|Dados do histórico|Seu aplicativo pode reter dados por tempo suficiente para acumular um histórico de, pelo menos, 100.000 interações. Isso permite que o Personalr colete dados suficientes para realizar avaliações offline e otimização de políticas.|
 
-**Não use o personalizador** onde o comportamento personalizado não é algo que possa ser descoberto em todos os usuários. Por exemplo, usar o Personalizador para sugerir um primeiro pedido de pizza de uma lista de 20 itens de menu possíveis é útil, mas para qual contato ligar da lista de contatos dos usuários para pedir ajuda ao cuidar de crianças (como “Vovó”) não é algo personalizável em sua base de usuários.
+**Não use o Personalr** onde o comportamento personalizado não é algo que pode ser descoberto em todos os usuários. Por exemplo, usar o Personalizador para sugerir um primeiro pedido de pizza de uma lista de 20 itens de menu possíveis é útil, mas para qual contato ligar da lista de contatos dos usuários para pedir ajuda ao cuidar de crianças (como “Vovó”) não é algo personalizável em sua base de usuários.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Como usar o Personalizador em um aplicativo Web
 
-Adicionar um loop de aprendizado a um aplicativo Web inclui:
+Adicionar um loop de aprendizado a um aplicativo web inclui:
 
 * Determine qual experiência personalizar, quais ações e recursos você tem, quais recursos de contexto usar e qual recompensa você definirá.
 * Adicionar uma referência ao SDK de Personalização em seu aplicativo.
@@ -73,13 +73,13 @@ Neste exemplo, você verá como usar a Personalização para criar uma sugestão
 
 * Faça chamadas à API de Classificação do Personalizador sempre que for necessária uma desambiguação, em vez de armazenar os resultados em cache para cada usuário. O resultado da intenção de desambiguação pode ser alterado com o tempo para uma pessoa e permitir que a API de Classificação explore variações acelerará a aprendizagem geral.
 * Escolha uma intenção comum com muitos usuários para que você tenha dados suficientes para personalizar. Por exemplo, perguntas introdutórias podem ser mais adequadas do que esclarecimentos menores no grafo de conversa que apenas alguns usuários podem acessar.
-* Use as chamadas à API de Classificação para habilitar conversas do tipo “a primeira sugestão é a certa”, em que o usuário é questionado “Você gostaria de X?” ou “Você quis dizer X?” e o usuário pode apenas confirmar; em vez de dar opções para o usuário em que ele deve escolher em um menu. Por exemplo, User: "gostaria de pedir um" bot "de café:" você gostaria de um Double expresso? ". Dessa forma, o sinal de recompensa também é forte, pois refere-se diretamente a essa sugestão.
+* Use as chamadas à API de Classificação para habilitar conversas do tipo “a primeira sugestão é a certa”, em que o usuário é questionado “Você gostaria de X?” ou “Você quis dizer X?” e o usuário pode apenas confirmar; em vez de dar opções para o usuário em que ele deve escolher em um menu. Por exemplo, Usuário: "Eu gostaria de pedir um café" Bot: "Você gostaria de um expresso duplo?". Dessa forma, o sinal de recompensa também é forte, pois refere-se diretamente a essa sugestão.
 
 ## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Como usar o Personalizador com uma solução de recomendação
 
 Muitas empresas usam mecanismos de recomendação, ferramentas de marketing e campanhas, segmentação e clustering de público-alvo, filtragem colaborativa e outros meios para recomendar produtos de um extenso catálogo aos clientes.
 
-O [Repositório Microsoft Recommenders do GitHub](https://github.com/Microsoft/Recommenders) fornece exemplos e as práticas recomendadas para criação de sistemas de recomendação, fornecidos como Jupyter notebooks. Ele fornece exemplos funcionais de preparação de dados, criação de modelos, avaliação, ajuste e operacionalização de mecanismos de recomendação para muitas abordagens comuns, incluindo xDeepFM, SAR, ALS, RBM e DKN.
+O [repositório GitHub recommenders da Microsoft](https://github.com/Microsoft/Recommenders) fornece exemplos e práticas recomendadas para sistemas de recomendação de construção, fornecidos como notebooks Jupyter. Ele fornece exemplos funcionais de preparação de dados, criação de modelos, avaliação, ajuste e operacionalização de mecanismos de recomendação para muitas abordagens comuns, incluindo xDeepFM, SAR, ALS, RBM e DKN.
 
 O Personalizador pode funcionar com um mecanismo de recomendação quando ele está presente.
 
@@ -97,7 +97,7 @@ Se o aplicativo permitir grandes variações no conteúdo mostrado aos usuários
     * Classifique apenas essas ações viáveis.
     * Exiba a ação superior para o usuário.
 
-Em algumas arquiteturas, a sequência acima pode ser difícil de ser implementada. Nesse caso, há uma abordagem alternativa para implementar proteções após a classificação, mas um provisionamento precisa ser feito para que as ações que ficarem fora da proteção não sejam usadas para treinar o modelo personalizado.
+Em algumas arquiteturas, a sequência acima pode ser difícil de ser implementada. Nesse caso, há uma abordagem alternativa para a implementação de salvaguardas após o ranking, mas é necessário fazer uma provisão para que ações que estejam fora da salvaguarda não sejam usadas para treinar o modelo Personalizador.
 
 * Obtenha a lista de ações a ser classificada, com a aprendizagem desativada.
 * Classifique as ações.

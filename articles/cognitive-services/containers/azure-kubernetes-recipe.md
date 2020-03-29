@@ -1,5 +1,5 @@
 ---
-title: Executar Detecção de Idioma contêiner no serviço kubernetes
+title: Executar contêiner de detecção de idiomas no Serviço Kubernetes
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Implante o contêiner de detecção de idioma, com o exemplo em execução, no Serviço de Kubernetes do Azure e teste-o em um navegador da Web.
 services: cognitive-services
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
 ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399168"
 ---
-# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de idioma Análise de Texto no serviço kubernetes do Azure
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de linguagem text analytics no Serviço Azure Kubernetes
 
 Saiba como implantar o contêiner de detecção de idioma. Este procedimento mostra como criar os contêineres locais do Docker, efetuar push dos contêineres para seu próprio registro de contêiner privado, executar o contêiner no cluster de Kubernetes e testá-lo em um navegador da Web.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente. Não use o Azure Cloud Shell.
 
 * Use uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Git](https://git-scm.com/downloads) em seu sistema operacional, para que você possa clonar o [exemplo](https://github.com/Azure-Samples/cognitive-services-containers-samples) usado neste procedimento.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Mecanismo do Docker](https://www.docker.com/products/docker-engine) e valide se a CLI do Docker funciona em uma janela do console.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * Um recurso do Azure com o tipo de preço correto. Nem todos os tipos de preços funcionam com esse contêiner:
@@ -36,7 +36,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 ## <a name="running-the-sample"></a>Executando o exemplo
 
-Este procedimento carrega e executa o exemplo de Contêiner de Serviços Cognitivos para detecção de idioma. O exemplo tem dois contêineres, um para o aplicativo cliente e outro para o contêiner de Serviços Cognitivos. Enviaremos essas duas imagens para o registro de contêiner do Azure. Depois que elas estiverem em seu próprio registro, crie um Serviço de Kubernetes do Azure para acessar essas imagens e executar os contêineres. Quando os contêineres estiverem em execução, use a CLI **kubectl** para observar o desempenho dos contêineres. Acesse o aplicativo cliente com uma solicitação HTTP e veja os resultados.
+Este procedimento carrega e executa o exemplo de Contêiner de Serviços Cognitivos para detecção de idioma. O exemplo tem dois contêineres, um para o aplicativo cliente e outro para o contêiner de Serviços Cognitivos. Vamos levar essas duas imagens para o Registro de Contêineres do Azure. Depois que elas estiverem em seu próprio registro, crie um Serviço de Kubernetes do Azure para acessar essas imagens e executar os contêineres. Quando os contêineres estiverem em execução, use a CLI **kubectl** para observar o desempenho dos contêineres. Acesse o aplicativo cliente com uma solicitação HTTP e veja os resultados.
 
 ![Ideia conceitual da execução de contêineres de amostra](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 
@@ -389,7 +389,7 @@ Abra um navegador e navegue até o IP externo do contêiner `language` da seçã
 
 Altere a URL no navegador para o IP externo do contêiner `language-frontend` usando o seguinte formato: `http://<external-ip>/helloworld`. O texto de cultura inglesa de `helloworld` está previsto como `English`.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você concluir o cluster, exclua o grupo de recursos do Azure.
 
@@ -401,10 +401,10 @@ az group delete --name cogserv-container-rg
 
 * [kubectl para usuários do Docker](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Contêineres de serviços cognitivas](../cognitive-services-container-support.md)
+> [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

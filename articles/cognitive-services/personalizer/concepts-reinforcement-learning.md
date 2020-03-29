@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68662830"
 ---
 # <a name="what-is-reinforcement-learning"></a>O que é o aprendizado de reforço?
@@ -64,7 +64,7 @@ Atualmente, o Personalizador usa o [Vowpal Wabbit](https://github.com/VowpalWabb
 * [Como tomar decisões contextuais com uma dívida técnica baixa](https://arxiv.org/abs/1606.03966)
 * [Uma abordagem de reduções para uma classificação justa](https://arxiv.org/abs/1803.02453)
 * [Bandidos contextuais eficientes em mundos dinâmicos](https://arxiv.org/abs/1708.01799)
-* [Previsão de perda residual: Reforço: aprendizado sem comentários incrementais](https://openreview.net/pdf?id=HJNMYceCW)
+* [Previsão de Perda Residual: Reforço: aprendizado sem feedback incremental](https://openreview.net/pdf?id=HJNMYceCW)
 * [Como mapear instruções e observações visuais para ações com o aprendizado de reforço](https://arxiv.org/abs/1704.08795)
 * [Como aprender a pesquisar melhor do que o seu professor](https://arxiv.org/abs/1502.02206)
 

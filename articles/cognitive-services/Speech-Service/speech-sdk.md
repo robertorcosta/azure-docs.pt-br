@@ -1,5 +1,5 @@
 ---
-title: Sobre o SDK de fala-serviço de fala
+title: Sobre o Speech SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O SDK (Speech Software Development Kit) oferece aos aplicativos acesso nativo às funções do serviço de fala, facilitando o desenvolvimento de software. Este artigo fornece detalhes adicionais sobre o SDK para Windows, Linux e Android.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: dapine
 ms.openlocfilehash: 984d2dfe07faa22756b4be167aa86a69806b1a84
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78331086"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
-O SDK (Software Development Kit) de Fala fornece o acesso de aplicativos às funções do serviço de Fala, tornando mais fácil desenvolver um software habilitado para fala. Atualmente, os SDKs fornecem acesso a voz **-para-texto**, conversão de **texto em fala**, **tradução de fala**, **reconhecimento de intenção**e **canal de fala de linha direta da estrutura de bot**.
+O SDK (Software Development Kit) de Fala fornece o acesso de aplicativos às funções do serviço de Fala, tornando mais fácil desenvolver um software habilitado para fala. Atualmente, os SDKs fornecem acesso a **fala-para-texto,** **texto-para-fala,** tradução de **fala,** **reconhecimento de intenções**e **canal de fala de linha direta do Bot Framework.**
 
-Você pode facilmente capturar áudio de um microfone, ler de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de fala. O SDK de fala dá suporte a WAV/PCM de 16 bits, 16 kHz/8 kHz, áudio de canal único para reconhecimento de fala. Formatos de áudio adicionais têm suporte usando o [ponto de extremidade REST de fala para texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [serviço de transcrição do lote](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Você pode capturar facilmente áudio de um microfone, ler de um fluxo ou acessar arquivos de áudio do armazenamento com o Speech SDK. O Speech SDK suporta WAV/PCM de 16 bits, 16 kHz/8 kHz, áudio de canal único para reconhecimento de voz. Formatos de áudio adicionais são suportados usando o [ponto final REST de fala para texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o serviço de [transcrição em lote](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
-Uma visão geral sobre os recursos e as plataformas com suporte pode ser encontrada na [página de entrada](https://aka.ms/csspeech)de documentação.
+Uma visão geral sobre os recursos e plataformas suportadas pode ser encontrada na [página de entrada](https://aka.ms/csspeech)da documentação .
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -34,23 +34,23 @@ Uma visão geral sobre os recursos e as plataformas com suporte pode ser encontr
 # <a name="windows"></a>[Windows](#tab/windows)
 
 > [!WARNING]
-> O SDK de fala dá suporte ao Windows 10 ou versões posteriores. **Não há suporte para**versões anteriores do Windows.
+> O Speech SDK suporta versões do Windows 10 ou posteriores. As versões anteriores do Windows não são **suportadas**.
 
 Para o Windows, suportamos os seguintes idiomas:
 
-* C# (UWP e .NET), C++: você pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de Fala. O pacote inclui bibliotecas de clientes de 32 e 64 bits e bibliotecas gerenciadas (.NET). O SDK pode ser instalado no Visual Studio usando NuGet, [Microsoft. cognitivaservices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
+* C# (UWP e .NET), C++: você pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de Fala. O pacote inclui bibliotecas de clientes de 32 e 64 bits e bibliotecas gerenciadas (.NET). O SDK pode ser instalado no Visual Studio usando NuGet, [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
 
 * Java: Você pode fazer referência e usar a versão mais recente do nosso pacote Speech SDK Maven, que suporta apenas o Windows x64. Em seu projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/`como um repositório adicional e faça referência`com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` como uma dependência.
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
 > [!NOTE]
-> Atualmente, só há suporte para o Ubuntu 16, 4, o Ubuntu 18, 4, o Debian 9, o Red Hat Enterprise Linux (RHEL) 8 e o CentOS 8 nas seguintes arquiteturas de destino:
-> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) para C++ desenvolvimento
+> Atualmente, só suportamos o Ubuntu 16.04, O Ubuntu 18.04, o Debian 9, o Red Hat Enterprise Linux (RHEL) 8 e o CentOS 8 nas seguintes arquiteturas-alvo:
+> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) para desenvolvimento C++
 > - x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) para Java
 > - x64 para .NET Core e Python
 
-Verifique se você tem as bibliotecas necessárias instaladas executando os seguintes comandos de Shell:
+Certifique-se de ter as bibliotecas necessárias instaladas executando os seguintes comandos shell:
 
 No Ubuntu:
 
@@ -66,7 +66,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-No RHEL/CentOS 8:
+Em RHEL/CentOS 8:
 
 ```sh
 sudo yum update
@@ -74,7 +74,7 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!NOTE]
-> No RHEL/CentOS 8, siga as instruções sobre [como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> No RHEL/CentOS 8, siga as instruções [sobre como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * C#: você pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de Fala. Para referenciar o SDK, adicione a seguinte referência de pacote ao seu projeto:
 
@@ -120,7 +120,7 @@ O SDK do Java também faz parte do [SDK dos Dispositivos de Fala](speech-devices
 
 [!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
 * [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

@@ -1,7 +1,7 @@
 ---
-title: Limitações de contêiner-LUIS
+title: Limitações de contêineres - LUIS
 titleSuffix: Azure Cognitive Services
-description: Os idiomas do contêiner LUIS com suporte.
+description: As línguas de contêiner LUIS que são suportadas.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,42 +11,42 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.openlocfilehash: bd8a7a63113bcf4e972ab08655aa58b35ddff03d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73507853"
 ---
-# <a name="language-understanding-luis-container-limitations"></a>Limitações de contêiner de Reconhecimento vocal (LUIS)
+# <a name="language-understanding-luis-container-limitations"></a>Limitações de contêiner de compreensão de linguagem (LUIS)
 
-Os contêineres LUIS têm algumas limitações notáveis. De dependências sem suporte, a um subconjunto de idiomas com suporte, este artigo detalha essas restrições.
+Os contêineres LUIS têm algumas limitações notáveis. De dependências não suportadas, a um subconjunto de idiomas suportados, este artigo detalha essas restrições.
 
-## <a name="supported-dependencies-for-latest-container"></a>Dependências com suporte para `latest` contêiner
+## <a name="supported-dependencies-for-latest-container"></a>Dependências suportadas `latest` para contêiner
 
-O contêiner LUIS mais recente, lançado em [conferência//build/2019](https://news.microsoft.com/build2019/), dará suporte a:
+O mais recente contêiner LUIS, lançado em [//build/ 2019,](https://news.microsoft.com/build2019/)suportará:
 
-* [Novos domínios pré-criados](luis-reference-prebuilt-domains.md): esses domínios voltados para a empresa incluem entidades, exemplos de declarações e padrões. Estenda esses domínios para seu próprio uso.
+* [Novos domínios pré-construídos](luis-reference-prebuilt-domains.md): esses domínios focados em empresas incluem entidades, enunciados de exemplo e padrões. Amplie esses domínios para seu próprio uso.
 
-## <a name="unsupported-dependencies-for-latest-container"></a>Dependências sem suporte para `latest` contêiner
+## <a name="unsupported-dependencies-for-latest-container"></a>Dependências não suportadas para `latest` contêiner
 
-Para [exportar para o contêiner](luis-container-howto.md#export-packaged-app-from-luis), você deve remover dependências sem suporte do seu aplicativo Luis. Quando você tenta exportar para o contêiner, o portal do LUIS relata esses recursos sem suporte que você precisa remover.
+Para [exportar para contêiner,](luis-container-howto.md#export-packaged-app-from-luis)você deve remover dependências não suportadas do seu aplicativo LUIS. Quando você tenta exportar para o contêiner, o portal LUIS relata esses recursos sem suporte que você precisa remover.
 
 Você pode usar um aplicativo LUIS se ele **não inclui** nenhuma das seguintes dependências:
 
 Configurações de aplicativo sem suporte|Detalhes|
 |--|--|
-|Culturas de contêiner sem suporte| Holandês (`nl-NL`)<br>Japonês (`ja-JP`)<br>O alemão só tem suporte com o [criador 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
+|Culturas de contêiner sem suporte| Holandês`nl-NL`( )<br>Japonês`ja-JP`( )<br>O alemão só é suportado com o [tokenizador 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades sem suporte para todas as culturas|Entidade predefinida [KeyPhrase](luis-reference-prebuilt-keyphrase.md) para todas as culturas|
-|Entidades sem suporte para cultura em inglês (`en-US`)|Entidades predefinidas [GeographyV2](luis-reference-prebuilt-geographyV2.md)|
+|Entidades sem suporte`en-US`para a cultura inglesa ( )|Entidades predefinidas [GeographyV2](luis-reference-prebuilt-geographyV2.md)|
 |Preparação da fala|Não há suporte para dependências externas no contêiner.|
 |Análise de sentimento|Não há suporte para dependências externas no contêiner.|
 |Verificação Ortográfica do Bing|Não há suporte para dependências externas no contêiner.|
 
 ## <a name="languages-supported"></a>Idiomas compatíveis
 
-Os contêineres LUIS dão suporte a um subconjunto dos [idiomas com suporte](luis-language-support.md#languages-supported) do Luis apropriado. Os contêineres LUIS são capazes de entender declarações nos seguintes idiomas:
+Os contêineres LUIS suportam um subconjunto das [línguas suportadas](luis-language-support.md#languages-supported) pelo próprio LUIS. Os contêineres LUIS são capazes de compreender expressões nas seguintes línguas:
 
-| idioma | Localidade | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma | Local | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
@@ -55,11 +55,11 @@ Os contêineres LUIS dão suporte a um subconjunto dos [idiomas com suporte](lui
 | Alemão |`de-DE` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Híndi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italiano |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
-| Coreano |`ko-KR` | ✔️ | ❌ | ❌ | Somente *frase-chave* |
+| Coreano |`ko-KR` | ✔️ | ❌ | ❌ | *Apenas frase-chave* |
 | Português (Brasil) |`pt-BR` | ✔️ | ✔️ | ✔️ | nem todas as subculturas |
 | Espanhol (Espanha) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Espanhol (México)|`es-MX` | ❌ | ❌ |✔️|✔️|
-| Turco | `tr-TR` |✔️| ❌ | ❌ | Somente *sentimentos* |
+| Turco | `tr-TR` |✔️| ❌ | ❌ | *Apenas sentimento* |
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 

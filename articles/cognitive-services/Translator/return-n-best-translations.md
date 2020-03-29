@@ -1,7 +1,7 @@
 ---
-title: Retornar N-melhores conversões-Tradução de Texto
+title: Retorno n-melhores traduções - Texto tradutor
 titleSuffix: Azure Cognitive Services
-description: Retornar N-melhores conversões usando o API de Tradução de Texto.
+description: Retornar as melhores traduções usando a API de texto do tradutor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,16 +12,16 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837251"
 ---
 # <a name="how-to-return-n-best-translations"></a>Como retornar traduções N-Best
 
 > [!NOTE]
-> Este método foi preterido. Ele não está disponível na versão V3.0 da API de Tradução de Texto.
+> Esse método é preterido. Ele não está disponível na versão V3.0 da API de Tradução de Texto.
 
 Os métodos GetTranslations() e GetTranslationsArray() da API do Microsoft Translator incluem um sinalizador Booliano "IncludeMultipleMTAlternatives" opcional.
 O método retornará até maxTranslations alternativas em que o delta é fornecido na lista N-Best do mecanismo tradutor.
@@ -36,14 +36,14 @@ A assinatura é:
 
 **Parâmetros**
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |:---|:---|
 | appId | **Obrigatório** Se o cabeçalho de Autorização for usado, deixe o campo appid vazio, caso contrário, especifique uma cadeia de caracteres contendo "token de portador" + " " + token de acesso.|
-| texto | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder dez mil caracteres.|
-| Da | **Necessário** Uma cadeia de caracteres que representa o código de idioma do texto a ser traduzido. |
+| text | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder dez mil caracteres.|
+| de | **Necessário** Uma cadeia de caracteres que representa o código de idioma do texto a ser traduzido. |
 | para | **Necessário** Uma cadeia de caracteres que representa o código de idioma para o qual o texto será traduzido. |
 | maxTranslations | **Necessário** Um inteiro que representa o número máximo de traduções para retornar. |
-| options | **Opcional** Um objeto TranslateOptions que contém os valores listados abaixo. Eles são todos opcionais e padrão para as configurações mais comuns.
+| opções | **Opcional** Um objeto TranslateOptions que contém os valores listados abaixo. Eles são todos opcionais e usam como padrão as configurações mais comuns.
 
 * Categoria: a única opção padrão com suporte é "geral".
 * ContentType: a única opção padrão com suporte é "text/plain".

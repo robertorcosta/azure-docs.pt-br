@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72755232"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analise o conteúdo de vídeo para material censurável em C#
@@ -40,7 +40,7 @@ Navegue até sua nova assinatura do AMS no portal do Azure e selecione **Acesso 
 
 No **aplicativo do Azure AD** seção, selecione **criar novo** e nomeie o novo registro de aplicativo do Azure AD (por exemplo, "VideoModADApp"). Clique em **salvar** e aguarde alguns minutos enquanto o aplicativo está configurado. Em seguida, você deverá ver o novo registro do aplicativo sob o **aplicativo do Azure AD** seção da página.
 
-Selecione o registro do aplicativo e clique no botão **Gerenciar aplicativo** abaixo dele. Observe o valor de **ID do aplicativo** campo; você precisará dele mais tarde. Selecione **as configurações** > **chaves**e insira uma descrição para uma nova chave (por exemplo, "VideoModKey"). Clique em **salvar**e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salvá-lo em algum lugar seguro.
+Selecione o registro do aplicativo e clique no botão **Gerenciar aplicativo** abaixo dele. Observe o valor de **ID do aplicativo** campo; você precisará dele mais tarde. Selecione **Teclas de** > **configuração**e digite uma descrição para uma nova tecla (como "VideoModKey"). Clique em **salvar**e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salvá-lo em algum lugar seguro.
 
 Para obter uma explicação mais completa do processo acima, consulte [Introdução à autenticação do Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
@@ -62,7 +62,7 @@ O Azure Media Services Explorer é um frontend fácil de usar para o AMS. Use-o 
 
 ## <a name="add-video-moderation-code"></a>Adicionar código de moderação de vídeo
 
-Em seguida, você vai copiar e colar o código deste guia em seu projeto para implementar um cenário básico de moderação de conteúdo.
+Em seguida, você copiará e colará o código deste guia em seu projeto para implementar um cenário básico de moderação de conteúdo.
 
 ### <a name="update-the-programs-using-statements"></a>Atualize o programa usando as instruções
 
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Se você deseja usar um arquivo de vídeo local (caso mais simples), adicione-o ao projeto e insira seu caminho como o valor `INPUT_FILE` (os caminhos relativos são relativos ao diretório de execução).
 
-Você também precisará criar o arquivo _preset.json_ no diretório atual e usá-lo para especificar um número de versão. Por exemplo:
+Você também precisará criar o arquivo _preset.json_ no diretório atual e usá-lo para especificar um número de versão. Por exemplo: 
 
 ```JSON
 {
@@ -158,7 +158,7 @@ RunContentModeratorJob(asset);
 
 ### <a name="create-an-azure-media-context"></a>Criar um contexto de mídia do Azure
 
-Adicione o seguinte método à classe **Programa**. Isso usa suas credenciais do AMS para permitir a comunicação com o AMS.
+Adicione o seguinte método à classe **Programa.** Isso usa suas credenciais do AMS para permitir a comunicação com o AMS.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -179,7 +179,7 @@ static void CreateMediaContext()
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Adicionar o código para criar um Contexto de Armazenamento do Azure
 
-Adicione o seguinte método à classe **Programa**. Você usa o Contexto de Armazenamento, criado a partir de suas credenciais de armazenamento, para acessar seu armazenamento de blobs.
+Adicione o seguinte método à classe **Programa.** Você usa o Contexto de Armazenamento, criado a partir de suas credenciais de armazenamento, para acessar seu armazenamento de blobs.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key
@@ -426,7 +426,7 @@ Depois que o trabalho de Moderação de Conteúdo estiver concluído, analise a 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como gerar [análises de vídeo](video-reviews-quickstart-dotnet.md) usando sua saída de moderação.
 
