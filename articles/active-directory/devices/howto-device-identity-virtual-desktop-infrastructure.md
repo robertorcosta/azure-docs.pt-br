@@ -1,6 +1,6 @@
 ---
-title: Identidade do dispositivo e virtualização de área de trabalho-Azure Active Directory
-description: Saiba como as identidades do dispositivo VDI e do Azure AD podem ser usadas juntas
+title: Identidade do dispositivo e virtualização da área de trabalho - Azure Active Directory
+description: Saiba como as identidades dos dispositivos AD VDI e Azure podem ser usadas juntas
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,79 +12,79 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900365"
 ---
-# <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
+# <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de desktop
 
-Os administradores normalmente implantam plataformas de VDI (Virtual Desktop Infrastructure) que hospedam sistemas operacionais Windows em suas organizações. Os administradores implantam o VDI em:
+Os administradores geralmente implantam plataformas de infra-estrutura de desktop virtual (VDI) que hospedam sistemas operacionais Windows em suas organizações. Os administradores implantam o VDI para:
 
-- Simplifique o gerenciamento.
-- Reduza os custos por meio de consolidação e centralização de recursos.
-- Entregue a mobilidade dos usuários finais e a liberdade de acessar áreas de trabalho virtuais a qualquer momento, de qualquer lugar, em qualquer dispositivo.
+- Agilizar a gestão.
+- Reduzir custos através da consolidação e centralização de recursos.
+- Ofereça aos usuários finais mobilidade e liberdade para acessar desktops virtuais a qualquer hora, de qualquer lugar, em qualquer dispositivo.
 
-Há dois tipos principais de áreas de trabalho virtuais:
+Existem dois tipos principais de desktops virtuais:
 
 - Persistente
 - Não-Persistente
 
-As versões persistentes usam uma imagem de área de trabalho exclusiva para cada usuário ou um pool de usuários. Essas áreas de trabalho exclusivas podem ser personalizadas e salvas para uso futuro. 
+As versões persistentes usam uma imagem de desktop exclusiva para cada usuário ou um pool de usuários. Esses desktops exclusivos podem ser personalizados e salvos para uso futuro. 
 
-Versões não persistentes usam uma coleção de áreas de trabalho que os usuários podem acessar de acordo com a necessidade. Essas áreas de trabalho não persistentes são revertidas para seu estado original após o usuário sair.
+As versões não persistentes usam uma coleção de desktops que os usuários podem acessar conforme necessário. Esses desktops não persistentes são revertidos ao seu estado original após a saída do usuário.
 
-Este artigo abordará as diretrizes da Microsoft para os administradores sobre suporte para a identidade do dispositivo e VDI. Para obter mais informações sobre a identidade do dispositivo, consulte o artigo [o que é uma identidade de dispositivo](overview.md).
+Este artigo cobrirá a orientação da Microsoft aos administradores sobre suporte à identidade do dispositivo e VDI. Para obter mais informações sobre a identidade do dispositivo, consulte o artigo [O que é uma identidade de dispositivo](overview.md).
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente de VDI, familiarize-se com os cenários com suporte. A tabela a seguir ilustra quais cenários de provisionamento têm suporte. O provisionamento neste contexto implica que um administrador pode configurar identidades de dispositivo em escala sem a necessidade de qualquer interação do usuário final.
+Antes de configurar as identidades dos dispositivos no Azure AD para o seu ambiente VDI, familiarize-se com os cenários suportados. A tabela abaixo ilustra quais cenários de provisionamento são suportados. O provisionamento neste contexto implica que um administrador pode configurar identidades de dispositivos em escala sem exigir qualquer interação do usuário final.
 
-| Tipo de identidade do dispositivo | Infraestrutura de identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
+| Tipo de identidade do dispositivo | Infra-estrutura de identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
 | --- | --- | --- | --- | --- |
-| Adicionado ao Azure AD híbrido | Federado | Windows atual * * * e Windows de nível inferior * * * * | Persistente | SIM |
-|   |   | Atual do Windows | Não persistente | Não |
-|   |   | Nível inferior do Windows | Não persistente | SIM |
-|   | Gerenciado * * | Windows atual e Windows de baixo nível | Persistente | SIM |
-|   |   | Atual do Windows | Não persistente | Não |
-|   |   | Nível inferior do Windows | Não persistente | SIM |
-| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
-|   | Gerenciado | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
-| Registrado no Azure AD | Federado | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
-|   | Gerenciado | Atual do Windows | Persistente | Não |
-|   |   |   | Não persistente | Não |
+| Adicionado ao Azure AD híbrido | Federado* | Corrente do Windows*** e Windows de nível baixo**** | Persistente | Sim |
+|   |   | Corrente do Windows | Não-persistente | Não |
+|   |   | Nível inferior do Windows | Não-persistente | Sim |
+|   | Gerenciado** | Corrente do Windows e Windows em baixo nível | Persistente | Sim |
+|   |   | Corrente do Windows | Não-persistente | Não |
+|   |   | Nível inferior do Windows | Não-persistente | Sim |
+| Adicionado ao Azure AD | Federado | Corrente do Windows | Persistente | Não |
+|   |   |   | Não-persistente | Não |
+|   | Gerenciada | Corrente do Windows | Persistente | Não |
+|   |   |   | Não-persistente | Não |
+| Registrado no Azure AD | Federado | Corrente do Windows | Persistente | Não |
+|   |   |   | Não-persistente | Não |
+|   | Gerenciada | Corrente do Windows | Persistente | Não |
+|   |   |   | Não-persistente | Não |
 
-\* um ambiente de infraestrutura de identidade **federada** representa um ambiente com um provedor de identidade, como AD FS ou outros IDP de terceiros.
+\*Um ambiente de infra-estrutura de identidade **federada** representa um ambiente com um provedor de identidade, como o AD FS ou outro IDP de terceiros.
 
-\*\* um ambiente de infraestrutura de identidade **gerenciada** representa um ambiente com o Azure ad como o provedor de identidade implantado com o [PHS (sincronização de hash de senha)](../hybrid/whatis-phs.md) ou [PTA (autenticação de passagem)](../hybrid/how-to-connect-pta.md) com [logon único contínuo](../hybrid/how-to-connect-sso.md).
+\*\*Um ambiente de infra-estrutura de identidade **gerenciada** representa um ambiente com o Azure AD como o provedor de identidade implantado com [sincronia de hash (PHS)](../hybrid/whatis-phs.md) ou [autenticação de passagem (PTA)](../hybrid/how-to-connect-pta.md) com [o login único sem emendas.](../hybrid/how-to-connect-sso.md)
 
-\*\*\* dispositivos **atuais do Windows** representam o Windows 10, o windows Server 2016 e o windows Server 2019.
+\*\*\*Os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 e o Windows Server 2019.
 
-\*\*\*\* dispositivos **de nível inferior do Windows** representam o Windows 7, o Windows 8.1, o windows Server 2008 R2, o windows Server 2012 e o windows Server 2012 R2. Para obter informações de suporte sobre o Windows 7, consulte o [suporte para o Windows 7 está terminando](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Para obter informações de suporte sobre o Windows Server 2008 R2, consulte [preparar para o fim do suporte do Windows server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
+\*\*\*\***Os** dispositivos de nível baixo do Windows representam o Windows 7, o Windows 8.1, o Windows Server 2008 R2, o Windows Server 2012 e o Windows Server 2012 R2. Para obter informações sobre suporte no Windows 7, consulte [o suporte para o Windows 7 está terminando](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Para obter informações sobre suporte no Windows Server 2008 R2, consulte [Prepare-se para o fim do suporte do Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
-## <a name="microsofts-guidance"></a>Diretrizes da Microsoft
+## <a name="microsofts-guidance"></a>Orientação da Microsoft
 
-Os administradores devem referenciar os artigos a seguir, com base em sua infraestrutura de identidade, para saber como configurar o ingresso no Azure AD híbrido.
+Os administradores devem fazer referência aos seguintes artigos, com base em sua infra-estrutura de identidade, para aprender como configurar a adesão híbrida do Azure AD.
 
-- [Configurar a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)
-- [Configurar a junção de Azure Active Directory híbrida para o ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
+- [Configure diretório ativo híbrido do Azure para ambiente federado](hybrid-azuread-join-federated-domains.md)
+- [Configure o Azure Active Directory híbrido para ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
 
-Se você estiver contando com a ferramenta de preparação do sistema (Sysprep. exe) e se estiver usando uma imagem anterior ao Windows 10 1809 para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure AD como ingressado no Azure AD híbrido.
+Se você está confiando na Ferramenta de Preparação do Sistema (sysprep.exe) e se estiver usando uma imagem pré-Windows 10 1809 para instalação, certifique-se de que a imagem não é de um dispositivo que já está registrado no Azure AD como aderiu ao Azure AD híbrido.
 
-Se você estiver contando com um instantâneo de VM (máquina virtual) para criar VMs adicionais, verifique se o instantâneo não é de uma VM que já está registrada com o Azure AD como uma junção híbrida do Azure AD.
+Se você estiver confiando em um instantâneo da Máquina Virtual (VM) para criar VMs adicionais, certifique-se de que o snapshot não é de uma VM que já está registrada no Azure AD como Azure AD híbrido.
 
-Ao implantar o VDI não persistente, os administradores de ti devem prestar atenção próxima ao gerenciamento de dispositivos obsoletos no Azure AD. A Microsoft recomenda que os administradores de ti implementem as diretrizes abaixo. Se você não fizer isso, o diretório terá muitos dispositivos ingressados no Azure AD híbridos que foram registrados em sua plataforma VDI não persistente.
+Ao implantar o VDI não persistente, os administradores de TI devem prestar muita atenção ao gerenciamento de dispositivos obsoletos no Azure AD. A Microsoft recomenda que os administradores de TI implementem a orientação abaixo. Se não o fizer, o diretório terá muitos dispositivos ad híbridos obsoletos que foram registrados a partir de sua plataforma VDI não persistente.
 
 - Crie e use um prefixo para o nome de exibição do computador que indica a área de trabalho como baseada em VDI.
-- Implemente o comando a seguir como parte do script de logoff. Esse comando disparará uma melhor chamada de esforço para o Azure AD para excluir o dispositivo.
-   - Para dispositivos de nível inferior do Windows – autoworkplace. exe/Leave
-- Defina e implemente o processo de [Gerenciamento de dispositivos obsoletos](manage-stale-devices.md).
-   - Depois de ter uma estratégia para identificar seus dispositivos ingressados no Azure AD híbridos não persistentes, você pode ser mais agressivo na limpeza desses dispositivos para garantir que seu diretório não seja consumido com muitos dispositivos obsoletos.
+- Implemente o seguinte comando como parte do script de logoff. Este comando acionará uma chamada de esforço para o Azure AD para excluir o dispositivo.
+   - Para dispositivos de nível baixo do Windows – autoworkplace.exe /leave
+- Definir e implementar o processo para [o gerenciamento de dispositivos obsoletos](manage-stale-devices.md).
+   - Uma vez que você tenha uma estratégia para identificar seus dispositivos híbridos azure AD não persistentes, você pode ser mais agressivo na limpeza desses dispositivos para garantir que seu diretório não seja consumido com muitos dispositivos obsoletos.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Configurando a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)
+[Configuração do Diretório Ativo do Azure híbrido se une para ambiente federado](hybrid-azuread-join-federated-domains.md)

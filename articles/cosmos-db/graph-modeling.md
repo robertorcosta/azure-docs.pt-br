@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: lbosq
 ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898319"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
@@ -71,11 +71,11 @@ A primeira etapa de um modelo de dados de grafo é mapear cada entidade identifi
 
 Uma armadilha comum é mapear propriedades de uma única entidade como vértices separados. Considere o exemplo abaixo, em que a mesma entidade é representada de duas maneiras diferentes:
 
-* **Propriedades baseadas em vértice**: Nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar em latência adicionada, complexidade da consulta e custo de computação. Esse modelo também pode apresentar desafios no particionamento.
+* **Propriedades baseadas em vértices**: Nesta abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar em latência adicionada, complexidade da consulta e custo de computação. Esse modelo também pode apresentar desafios no particionamento.
 
 ![Modelo de entidade com vértices para propriedades.](./media/graph-modeling/graph-modeling-1.png)
 
-* **Vértices inseridos na propriedade**: Essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade em um vértice. Ela fornece complexidade reduzida do modelo, o que leva a consultas mais simples e travessias mais econômicas.
+* **Vértices incorporados à propriedade**: Esta abordagem aproveita a lista de pares de valor-chave para representar todas as propriedades da entidade dentro de um vértice. Ela fornece complexidade reduzida do modelo, o que leva a consultas mais simples e travessias mais econômicas.
 
 ![Modelo de entidade com vértices para propriedades.](./media/graph-modeling/graph-modeling-2.png)
 

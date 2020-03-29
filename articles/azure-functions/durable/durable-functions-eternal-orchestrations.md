@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 572fec4d6e47efd734bc84a40dc974c79bd619fb
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76262972"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas nas Funções Duráveis (Azure Functions)
@@ -18,11 +18,11 @@ ms.locfileid: "76262972"
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 
-Conforme explicado no tópico do [histórico de orquestração](durable-functions-orchestrations.md#orchestration-history) , o Framework de tarefa durável controla o histórico de cada orquestração de função. Esse histórico cresce continuamente, desde que a função de orquestrador continue agendando novos trabalhos. Se a função de orquestrador entrar em um loop infinito e agendar trabalho continuamente, esse histórico poderá ficar muito grande e causar problemas de desempenho significativos. O conceito de *orquestração eterna* foi criado para mitigar esse tipo de problema para aplicativos que precisam de loops infinitos.
+Como explicado no tópico história da [orquestração,](durable-functions-orchestrations.md#orchestration-history) o Quadro de Tarefas Duráveis acompanha a história de cada orquestração de funções. Esse histórico cresce continuamente, desde que a função de orquestrador continue agendando novos trabalhos. Se a função de orquestrador entrar em um loop infinito e agendar trabalho continuamente, esse histórico poderá ficar muito grande e causar problemas de desempenho significativos. O conceito de *orquestração eterna* foi criado para mitigar esse tipo de problema para aplicativos que precisam de loops infinitos.
 
 ## <a name="resetting-and-restarting"></a>Redefinir e reiniciar
 
-Em vez de usar loops infinitos, as funções de orquestrador redefinem seu estado chamando o método `ContinueAsNew` (.NET) ou `continueAsNew` (JavaScript) da [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger). Esse método usa um único parâmetro serializável em JSON, que se torna a nova entrada para geração da próxima função de orquestrador.
+Em vez de usar loops infinitos, as funções do orquestrador redefinem seu estado chamando o `ContinueAsNew` método (.NET) ou `continueAsNew` (JavaScript) da vinculação do gatilho de [orquestração](durable-functions-bindings.md#orchestration-trigger). Esse método usa um único parâmetro serializável em JSON, que se torna a nova entrada para geração da próxima função de orquestrador.
 
 Quando `ContinueAsNew` é chamado, a instância enfileira uma mensagem para si mesma antes de sair. A mensagem reinicia a instância com o novo valor de entrada. A mesma ID de instância é mantida, mas o histórico da função de orquestrador efetivamente é truncado.
 
@@ -33,7 +33,7 @@ Quando `ContinueAsNew` é chamado, a instância enfileira uma mensagem para si m
 
 Um caso de uso das orquestrações eternas é o código que precisa realizar trabalho periódico indefinidamente.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -51,9 +51,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> O exemplo C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O exemplo c# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -74,14 +74,14 @@ module.exports = df.orchestrator(function*(context) {
 
 A diferença entre esse exemplo e uma função disparada por temporizador é que os tempos de gatilho de limpeza aqui não se baseiam em uma agenda. Por exemplo, uma agenda CRON que executa uma função a cada hora a executará às 1:00, 2:00, 3:00 etc. e, potencialmente, poderia se deparar com problemas de sobreposição. Neste exemplo, no entanto, se a limpeza levar 30 minutos, ela será agendada às 1:00, 2:30, 4:00 etc. e não haverá chance de sobreposição.
 
-## <a name="starting-an-eternal-orchestration"></a>Iniciando uma orquestração de eternas
+## <a name="starting-an-eternal-orchestration"></a>Iniciando uma orquestração eterna
 
-Use o método `StartNewAsync` (.NET) ou `startNew` (JavaScript) para iniciar uma orquestração eternas, assim como faria com qualquer outra função de orquestração.  
+Use `StartNewAsync` o método (.NET) ou `startNew` (JavaScript) para iniciar uma orquestração eterna, assim como qualquer outra função de orquestração.  
 
 > [!NOTE]
-> Se você precisar garantir que uma orquestração singleton eternas esteja em execução, é importante manter a mesma instância `id` ao iniciar a orquestração. Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
+> Se você precisa garantir que uma orquestração eterna singleton esteja em `id` execução, é importante manter a mesma instância ao iniciar a orquestração. Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -97,9 +97,9 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 ```
 
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar o atributo `OrchestrationClient` em vez do atributo `DurableClient`, e deve usar o tipo de parâmetro `DurableOrchestrationClient` em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, você `OrchestrationClient` `DurableClient` deve usar atributo `DurableOrchestrationClient` em vez do `IDurableOrchestrationClient`atributo, e você deve usar o tipo de parâmetro em vez de . Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -122,9 +122,9 @@ module.exports = async function (context, req) {
 
 Se uma função de orquestrador precisar ser concluída, tudo que você precisa fazer é *não* chamar `ContinueAsNew` e permitir que a função saia.
 
-Se uma função de orquestrador estiver em um loop infinito e precisar ser interrompida, use o método `TerminateAsync` (.NET) ou `terminate` (JavaScript) da [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) para interrompê-la. Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
+Se uma função orquestradora estiver em um loop `TerminateAsync` infinito e precisar `terminate` ser interrompida, use o método (.NET) ou (JavaScript) do cliente de [orquestração para](durable-functions-bindings.md#orchestration-client) pará-lo. Para obter mais informações, consulte [Gerenciamento de Instâncias](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar orquestrações singleton](durable-functions-singletons.md)

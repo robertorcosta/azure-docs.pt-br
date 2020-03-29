@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de uma VM do Azure com falha usando a virtualização aninhada no Azure | Microsoft Docs
+title: Solucionar problemas de uma VM Azure defeituosa usando virtualização aninhada no Azure | Microsoft Docs
 description: Como solucionar um problema de VM do Azure usando a virtualização aninhada no Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76119611"
 ---
-# <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar problemas de uma VM do Azure com falha usando a virtualização aninhada no Azure
+# <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar problemas de uma VM Azure defeituosa usando virtualização aninhada no Azure
 
-Este artigo mostra como criar um ambiente de virtualização aninhado no Microsoft Azure, para que você possa montar o disco da VM com falha no host do Hyper-V (VM de resgate) para fins de solução de problemas.
+Este artigo mostra como criar um ambiente de virtualização aninhado no Microsoft Azure, para que você possa montar o disco da VM defeituosa no host Hyper-V (Rescue VM) para fins de solução de problemas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para montar a VM com falha, a VM de resgate deve usar o mesmo tipo de conta de armazenamento (Standard ou Premium) que a VM com falha.
+Para montar a VM defeituosa, a VM de resgate deve usar o mesmo tipo de Conta de Armazenamento (Padrão ou Premium) que a VM defeituosa.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Etapa 1: criar uma VM de resgate e instalar a função Hyper-V
 
@@ -36,19 +36,19 @@ Para montar a VM com falha, a VM de resgate deve usar o mesmo tipo de conta de a
 
     -  Tamanho: qualquer série V3 com pelo menos dois núcleos que dão suporte à virtualização aninhada. Para obter mais informações, consulte [Introdução aos novos tamanhos de VM Dv3 e Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-    -  Mesmo local, conta de armazenamento e grupo de recursos que a VM com falha.
+    -  Mesmo local, conta de armazenamento e grupo de recursos como a VM defeituosa.
 
-    -  Selecione o mesmo tipo de armazenamento que a VM com falha (Standard ou Premium).
+    -  Selecione o mesmo tipo de armazenamento que o VM defeituoso (Padrão ou Premium).
 
 2.  Após a VM de resgate ser criada, acesse a VM de resgate via área de trabalho remota.
 
-3.  No Gerenciador do Servidor, selecione **Gerenciar** > **Adicionar Funções e Recursos**.
+3.  No Gerenciador de servidores, **selecione Gerenciar** > **adicionar funções e recursos**.
 
 4.  Na seção **Tipo de Instalação**, selecione **Instalação baseada em função ou recurso**.
 
 5.  Na seção **Selecionar servidor de destino**, verifique se a VM de resgate está selecionada.
 
-6.  Selecione a **Função Hyper-V** > **Adicionar Recursos**.
+6.  Selecione os **recursos de adicionar de função** > **Hyper-V**.
 
 7.  Selecione **Próximo** na seção **Recursos**.
 
@@ -64,17 +64,17 @@ Para montar a VM com falha, a VM de resgate deve usar o mesmo tipo de conta de a
 
 13. Permita que o servidor instale a função Hyper-V. Isso leva alguns minutos e o servidor será reiniciado automaticamente.
 
-## <a name="step-2-create-the-faulty-vm-on-the-rescue-vms-hyper-v-server"></a>Etapa 2: criar a VM defeituosa no servidor Hyper-V da VM de resgate
+## <a name="step-2-create-the-faulty-vm-on-the-rescue-vms-hyper-v-server"></a>Passo 2: Crie a VM defeituosa no servidor Hyper-V da VM de resgate
 
-1.  [Crie um disco de instantâneo](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) para o disco do sistema operacional da VM que tem o problema e anexe o disco de instantâneo à VM recuse.
+1.  [Crie um disco de instantâneo](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) para o disco do SISTEMA OPERACIONAL da VM que tenha problemas e, em seguida, conecte o disco de instantâneo à VM de recusa.
 
 2.  Área de trabalho remota para a VM de resgate.
 
-3.  Abra o Disk Management (diskmgmt.msc). Verifique se o disco da VM com falha está definido como **offline**.
+3.  Abra o Disk Management (diskmgmt.msc). Certifique-se de que o disco da VM defeituosa está definido **como Offline**.
 
 4.  Abra o Gerenciador do Hyper-V: em **Gerenciador do Servidor**, selecione a **Função do Hyper-V**. Clique com o botão direito do mouse no servidor e, em seguida, selecione o **Gerenciador do Hyper-V**.
 
-5.  No Gerenciador do Hyper-V, clique com o botão direito do mouse na VM de resgate e, em seguida, selecione **Novo** > **Máquina Virtual** > **Avançar**.
+5.  No Hyper-V Manager, clique com o botão direito do mouse na VM de resgate e selecione **Nova** > **máquina** > virtual**next**.
 
 6.  Digite um nome para a VM e, em seguida, selecione **Avançar**.
 
@@ -96,7 +96,7 @@ Para montar a VM com falha, a VM de resgate deve usar o mesmo tipo de conta de a
 
     ![a imagem sobre adicionar novo disco rígido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-14. Em **disco rígido físico**, selecione o disco da VM com falha que você ANEXOU à VM do Azure. Se você não vê todos os discos listados, verifique se o disco está definido como offline usando o gerenciamento de disco.
+14. Em **Disco Rígido Físico,** selecione o disco da VM defeituosa que você anexou à VM do Azure. Se você não vê todos os discos listados, verifique se o disco está definido como offline usando o gerenciamento de disco.
 
     ![a imagem sobre montar o disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -107,15 +107,15 @@ Para montar a VM com falha, a VM de resgate deve usar o mesmo tipo de conta de a
 
 17. Agora você pode trabalhar na VM como a VM local. Você poderá seguir as etapas de solução de problemas que forem necessárias.
 
-## <a name="step-3-replace-the-os-disk-used-by-the-faulty-vm"></a>Etapa 3: substituir o disco do sistema operacional usado pela VM com falha
+## <a name="step-3-replace-the-os-disk-used-by-the-faulty-vm"></a>Passo 3: Substitua o disco do sistema operacional usado pela VM defeituosa
 
 1.  Depois de colocar a VM novamente online, desligue-a no Gerenciador do Hyper-V.
 
-2.  [Desmonte e desanexe o disco do sistema operacional reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [Desmontar e desprender o disco do sistema operacional reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
 ).
-3.  [Substitua o disco do sistema operacional usado pela VM pelo disco do sistema operacional reparado](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
-).
+3.  [Substitua o disco do SISTEMA OPERACIONAL usado pela VM pelo disco do sistema operacional reparado.](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
+)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se estiver tendo problemas para se conectar à VM, consulte [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md) (Solucionar conexões RDP a uma VM do Azure). Para problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Windows](troubleshoot-app-connection.md).

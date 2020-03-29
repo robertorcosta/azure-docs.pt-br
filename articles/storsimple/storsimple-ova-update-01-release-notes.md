@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60629281"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
@@ -44,17 +44,17 @@ A Atualização 0.2 inclui todas as alterações da Atualização 0.1, além da 
 ## <a name="whats-new-in-the-update-01"></a>Novidades na Atualização 0.1
 A Atualização 0.1 contém as seguintes correções de bug e aprimoramentos. 
 
-* **Melhor resiliência a interrupções de nuvem**: Esta versão tem várias correções de bugs em torno de recuperação de desastres, backup, restauração e camadas no caso de uma interrupção de conectividade de nuvem. 
-* **Melhor desempenho de restauração**: Esta versão tem correções de bug que reduziram-se significativamente o tempo de conclusão dos trabalhos de restauração.
-* **Automatizada de otimização de reclamação de espaço**: Quando dados são excluídos em volumes com provisionamento dinâmico, os blocos de armazenamento não utilizados deverão ser recuperados. Esta versão aprimorou o processo de recuperação de espaço da nuvem, o que resultou na disponibilização mais rápida do espaço não utilizado, em comparação com versões anteriores.
-* **Novas imagens de disco virtual**: Novo VHD, VHDX e VMDK agora estão disponíveis por meio do portal clássico do Azure. Você pode baixar essas imagens para provisionar novos dispositivos da Atualização 0.1.
-* **Melhorar a precisão de status de trabalhos no portal do**: Na versão anterior do software, os relatórios no portal do status do trabalho não eram granulares. Esse problema foi corrigido nesta versão.
-* **Experiência de ingresso de domínio**: Correções de bugs relacionadas ao domínio e renomeação do dispositivo.
+* **Resiliência aprimorada contra interrupções de nuvem**: esta versão tem várias correções de bug voltadas para recuperação de desastres, backup, restauração e camadas no caso de uma interrupção da conectividade da nuvem. 
+* **Melhor desempenho de restauração**: esta versão tem correções de bug que reduziram significativamente o tempo de conclusão dos trabalhos de restauração.
+* **Otimização de reclamação de espaço automatizada**: quando os dados são excluídos em volumes com provisionamento dinâmico, os blocos de armazenamento não utilizados deverão ser recuperados. Esta versão aprimorou o processo de recuperação de espaço da nuvem, o que resultou na disponibilização mais rápida do espaço não utilizado, em comparação com versões anteriores.
+* **Novas imagens de disco virtual**: os novos VHD e VHDX e VMDK agora estão disponíveis por meio do portal clássico do Azure. Você pode baixar essas imagens para provisionar novos dispositivos da Atualização 0.1.
+* **Melhoria da precisão de status de trabalhos no portal**: na versão anterior do software, os relatórios de status de trabalhos no portal não eram granulares. Esse problema foi corrigido nesta versão.
+* **Experiência de ingresso no domínio**: correções de bugs relacionadas à junção de domínios e renomeação do dispositivo.
 
 ## <a name="issues-fixed-in-the-update-01"></a>Problemas resolvidos na Atualização 0.1
 A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 
-| Nº | Recurso | Problema |
+| Não. | Recurso | Problema |
 | --- | --- | --- |
 | 1 |VMDK |Em algumas versões do VMware, o disco do sistema operacional era visto como esparso, causando alertas e interrompendo as operações normais. Isso foi corrigido nesta versão. |
 | 2 |Servidor iSCSI |Na última versão, o usuário foi solicitado a especificar um gateway para cada interface de rede habilitada do seu dispositivo virtual StorSimple. Esse comportamento mudou nesta versão para que o usuário tenha que configurar pelo menos um gateway para todas as interfaces de rede habilitadas. |
@@ -63,7 +63,7 @@ A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 | 5 |Gráficos de monitoramento |Na versão anterior, após um failover de dispositivo, os gráficos de utilização de capacidade da nuvem exibiam valores incorretos no portal clássico do Azure. Isso foi corrigido na versão atual. |
 
 ## <a name="known-issues-in-the-update-01"></a>Problemas conhecidos na Atualização 0.1
-A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple Virtual Array e inclui os problemas observados das versões anteriores. **Os problemas observados nesta versão estão marcados com um asterisco. Quase todos os problemas nesta lista foram herdados da versão GA do StorSimple Virtual Array.**
+A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple Virtual Array e inclui os problemas observados das versões anteriores. **Os problemas de liberação observados nesta versão são marcados com um asterisco. Quase todos os problemas desta lista foram realizados a partir da versão GA do StorSimple Virtual Array.**
 
 | Não. | Recurso | Problema | Solução alternativa/comentários |
 | --- | --- | --- | --- |
@@ -72,7 +72,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **3.** |Política de grupo |Quando um dispositivo é associado a um domínio, a aplicação de uma política de grupo pode afetar a operação do dispositivo. |Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory e que nenhum GPO (objeto de política de grupo) seja aplicado a ela. |
 | **4.** |Interface do Usuário da Web local |Se os recursos de segurança aprimorados estão habilitados no Internet Explorer (IE ESC), algumas páginas da interface do usuário da Web local, como Solução de Problemas ou Manutenção, podem não funcionar corretamente. Os botões nessas páginas também podem não funcionar. |Desligue os recursos de segurança reforçada do Internet Explorer. |
 | **5.** |Interface do Usuário da Web local |Em uma máquina virtual de Hyper-V, as interfaces de rede na interface do usuário da Web são exibidas como interfaces de 10 Gbps. |Esse comportamento é um reflexo do Hyper-V. O Hyper-V sempre mostra 10 Gbps para adaptadores de rede virtual. |
-| **6.** |Compartilhamentos ou volumes em camadas |Não há suporte para bloqueio de intervalo de bytes para aplicativos que funcionam com os volumes em camadas do StorSimple. Se o bloqueio de intervalo de bytes estiver habilitado, a disposição em camadas do StorSimple não funcionará. |As medidas recomendadas incluem: <br></br>Desligar o bloqueio de intervalo de bytes em sua lógica de aplicativo.<br></br>Optar por colocar dados desse aplicativo em volumes localmente afixados em vez de volumes em camadas.<br></br>*Limitação*: Se usar volumes fixados localmente e bloqueio de intervalo de bytes estiver habilitado, esteja ciente de que o volume localmente afixado pode ficar online antes mesmo da restauração ser concluída. Nesses casos, se uma restauração está em andamento, você deve aguardar a restauração ser concluída. |
+| **6.** |Compartilhamentos ou volumes em camadas |Não há suporte para bloqueio de intervalo de bytes para aplicativos que funcionam com os volumes em camadas do StorSimple. Se o bloqueio de intervalo de bytes estiver habilitado, a disposição em camadas do StorSimple não funcionará. |As medidas recomendadas incluem:  <br></br>Desligar o bloqueio de intervalo de bytes em sua lógica de aplicativo.<br></br>Optar por colocar dados desse aplicativo em volumes localmente afixados em vez de volumes em camadas.<br></br>*Ressalva*: se usar volumes localmente afixados e o bloqueio de intervalo de bytes estiver habilitado, esteja ciente de que o volume localmente afixado pode ficar online antes mesmo da restauração ser concluída. Nesses casos, se uma restauração está em andamento, você deve aguardar a restauração ser concluída. |
 | **7.** |Compartilhamentos em camadas |Trabalhar com arquivos grandes pode resultar em uma divisão em camadas lenta. |Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento. |
 | **8.** |Capacidade utilizada para compartilhamentos |Você pode ver o consumo de compartilhamento na ausência de quaisquer dados no compartilhamento. Isso ocorre porque a capacidade utilizada para compartilhamentos inclui metadados. | |
 | **9.** |Recuperação de desastre |Você só pode executar a recuperação de desastres de um servidor de arquivos no mesmo domínio que o dispositivo de origem. Não há suporte nesta versão para a recuperação de desastres para um dispositivo de destino em outro domínio. |Isso será implementado em uma versão posterior. |
@@ -83,5 +83,5 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **14.** |Servidor de arquivos\* |Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item. | |
 
 ## <a name="next-step"></a>Próxima etapa
-[Instale as Atualizações](storsimple-ova-install-update-01.md) em seu StorSimple Virtual Array.
+[Instale atualizações](storsimple-ova-install-update-01.md) em seu StorSimple Virtual Array.
 

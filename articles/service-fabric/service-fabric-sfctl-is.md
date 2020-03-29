@@ -1,15 +1,15 @@
 ---
-title: CLI do Azure Service Fabric-sfctl é
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar a infraestrutura do.
+title: Azure Service Fabric CLI-sfctl é
+description: Saiba mais sobre a sfctl, a interface de linha de comando azure Service Fabric. Inclui uma lista de comandos para gerenciamento de infra-estrutura.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906082"
 ---
 # <a name="sfctl-is"></a>sfctl is
@@ -17,7 +17,7 @@ Consultar e enviar comandos para o serviço de infraestrutura.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
 | command | Invoca um comando administrativo na instância do serviço de infraestrutura especificada. |
 | Consulta | Invoca uma consulta de somente leitura na instância do serviço de infraestrutura especificada. |
@@ -29,7 +29,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --comando [obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
 | --id do serviço | A identidade do serviço de infraestrutura. <br><br> É o nome completo do serviço de infraestrutura sem o esquema de URI "fabric\:". Esse parâmetro é necessário somente para clusters que têm mais de uma instância do serviço de infraestrutura em execução. |
@@ -37,7 +37,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -52,7 +52,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --comando [obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
 | --id do serviço | A identidade do serviço de infraestrutura. <br><br> É o nome completo do serviço de infraestrutura sem o esquema de URI "fabric\:". Esse parâmetro é necessário somente para clusters que têm mais de uma instância do serviço de infraestrutura em execução. |
@@ -60,7 +60,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -69,6 +69,6 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximos passos
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
+## <a name="next-steps"></a>Próximas etapas
+- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -17,15 +17,15 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264637"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implantar e gerenciar hubs de notificação usando o PowerShell
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Este artigo mostra como usar Criar e Gerenciar Hubs de Notificação de Azure usando o PowerShell. As tarefas de automação comuns a seguir são mostradas neste artigo.
 
@@ -38,7 +38,7 @@ O gerenciamento de hubs de notificação não tem suporte direto dos cmdlets inc
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, confira [Opções de compra], [Ofertas para membros] ou [Teste Gratuito].
+- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, confira [Opções de compra], [Ofertas para membros] ou [Avaliação gratuita].
 - Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure].
 - Um entendimento geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
 
@@ -158,8 +158,8 @@ Alguns scripts prontos também estão disponíveis para download:
 
 [Opções de compra]: https://azure.microsoft.com/pricing/purchase-options/
 [Ofertas para membros]: https://azure.microsoft.com/pricing/member-offers/
-[Teste Gratuito]: https://azure.microsoft.com/pricing/free-trial/
-[Instalar e configurar o PowerShell do Azure]: /powershell/azureps-cmdlets-docs
+[Avaliação gratuita]: https://azure.microsoft.com/pricing/free-trial/
+[Instale e configure o Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API do .NET para Hubs de Notificação]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace

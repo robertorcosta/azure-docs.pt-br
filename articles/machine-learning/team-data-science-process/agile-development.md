@@ -1,6 +1,6 @@
 ---
 title: Desenvolvimento ágil de projetos de ciência de dados – Processo de Ciência de Dados da Equipe
-description: Execute um projeto de ciência de dados de forma sistemática, controlada por versão e colaborativa em uma equipe de projeto usando o processo de ciência de dados de equipe.
+description: Execute um projeto de ciência de dados de forma sistemática, controlada por versão e colaborativa dentro de uma equipe de projeto usando o Processo de Ciência de Dados da Equipe.
 author: marktab
 manager: marktab
 editor: marktab
@@ -11,37 +11,37 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722094"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
 
-Este documento descreve como os desenvolvedores podem executar um projeto de ciência de dados de modo sistemático, com controle de versão e colaborativo em uma equipe de projeto usando o TDSP [(Processo de Ciência de Dados da Equipe)](overview.md). O TDSP é uma estrutura desenvolvida pela Microsoft que fornece uma sequência estruturada de atividades para executar com eficiência soluções de análise preditiva, baseadas em nuvem. Para obter uma descrição das funções e tarefas que são manipuladas por uma equipe de ciência de dados padronizando no TDSP, consulte [funções e tarefas do processo de ciência de dados de equipe](roles-tasks.md). 
+Este documento descreve como os desenvolvedores podem executar um projeto de ciência de dados de modo sistemático, com controle de versão e colaborativo em uma equipe de projeto usando o TDSP [(Processo de Ciência de Dados da Equipe)](overview.md). O TDSP é uma estrutura desenvolvida pela Microsoft que fornece uma seqüência estruturada de atividades para executar eficientemente soluções de análise preditiva baseadas em nuvem. Para um esboço das funções e tarefas que são tratadas por uma equipe de ciência de dados padronizada no TDSP, consulte [funções e tarefas](roles-tasks.md)do Processo de Ciência de Dados da Equipe . 
 
 Este artigo inclui instruções sobre como: 
 
-- Faça o *planejamento do Sprint* para itens de trabalho envolvidos em um projeto.
-- Adicionar *itens de trabalho* a sprints.
-- Crie e use um *modelo de item de trabalho derivado do Agile* que se alinhe especificamente com os estágios do ciclo de vida TDSP.
+- Faça *o planejamento de sprint* para itens de trabalho envolvidos em um projeto.
+- Adicione *itens de trabalho* aos sprints.
+- Crie e use um *modelo de item de trabalho derivado de ágil* que se alinhe especificamente com as etapas do ciclo de vida do TDSP.
 
-As instruções a seguir descrevem as etapas necessárias para configurar um ambiente de equipe do TDSP usando Azure Boards e Azure Repos no Azure DevOps. As instruções usam o Azure DevOps porque é como implementar o TDSP na Microsoft. Se o seu grupo usa uma plataforma de Hospedagem de código diferente, as tarefas do líder de equipe geralmente não são alteradas, mas a maneira de concluir as tarefas é diferente. Por exemplo, vincular um item de trabalho com uma ramificação git pode não ser o mesmo com o GitHub como é com Azure Repos.
+As instruções a seguir descrevem as etapas necessárias para configurar um ambiente de equipe TDSP usando placas azure e repositórios Azure no Azure DevOps. As instruções usam DevOps do Azure porque é assim que se implementa o TDSP na Microsoft. Se o seu grupo usa uma plataforma de hospedagem de código diferente, as tarefas de liderança da equipe geralmente não mudam, mas a maneira de concluir as tarefas é diferente. Por exemplo, vincular um item de trabalho a uma filial do Git pode não ser o mesmo com o GitHub como é com o Azure Repos.
 
-A figura a seguir ilustra um fluxo de trabalho típico de planejamento de Sprint, codificação e controle de origem para um projeto de ciência de dados:
+A figura a seguir ilustra um típico fluxo de trabalho de planejamento, codificação e controle de origem para um projeto de ciência de dados:
 
 ![Processo de ciência de dados de equipe](./media/agile-development/1-project-execute.png)
 
-##  <a name='Terminology-1'></a>Tipos de item de trabalho
+##  <a name="work-item-types"></a><a name='Terminology-1'></a>Tipos de item de trabalho
 
-Na estrutura de planejamento do TDSP Sprint, há quatro tipos de *item de trabalho* usados com frequência: *recursos*, *histórias de usuários*, *tarefas*e *bugs*. A pendência de todos os itens de trabalho está no nível do projeto, não no nível do repositório git. 
+Na estrutura de planejamento de sprint do TDSP, existem quatro tipos de *itens de trabalho* frequentemente *usados: Recursos,* *Histórias do Usuário,* *Tarefas*e *Bugs.* O backlog para todos os itens de trabalho está no nível do projeto, não no nível de repositório do Git. 
 
-Aqui estão as definições para os tipos de item de trabalho:
+Aqui estão as definições para os tipos de itens de trabalho:
 
-- **Recurso**: um recurso corresponde a um envolvimento do projeto. Compromissos diferentes com um cliente são recursos diferentes, e é melhor considerar diferentes fases de um projeto como recursos diferentes. Se você escolher um esquema como *\<clientname >-\<engagementname >* para nomear seus recursos, você poderá reconhecer facilmente o contexto do projeto e do Engagement dos próprios nomes.
+- **Recurso**: Um recurso corresponde a um engajamento do projeto. Diferentes compromissos com um cliente são diferentes Recursos, e é melhor considerar diferentes fases de um projeto como diferentes Recursos. Se você escolher um esquema como * \<ClientName>-\<EngagementName>* para nomear seus Recursos, você poderá reconhecer facilmente o contexto do projeto e o engajamento dos próprios nomes.
   
-- **História de usuário**: as histórias de usuários são itens de trabalho necessários para concluir um recurso de ponta a ponta. Exemplos de histórias de usuários incluem:
+- **História do usuário**: As histórias do usuário são itens de trabalho necessários para concluir um recurso de ponta a ponta. Exemplos de histórias de usuários incluem:
   - Obter dados 
   - Explorar dados 
   - Gerar recursos
@@ -49,174 +49,174 @@ Aqui estão as definições para os tipos de item de trabalho:
   - Operacionalizar modelos 
   - Treinar modelos novamente
   
-- **Tarefa**: tarefas são itens de trabalho atribuíveis que precisam ser feitos para concluir uma história de usuário específica. Por exemplo, as tarefas na história de usuário *obter dados* podem ser:
-  - Obter SQL Server credenciais
-  - Carregar dados para SQL Data Warehouse
+- **Tarefa**: As tarefas são itens de trabalho atribuíveis que precisam ser feitos para concluir uma história de usuário específica. Por exemplo, tarefas na história do usuário *obter dados* podem ser:
+  - Obtenha credenciais do SQL Server
+  - Carregar dados para o SQL Data Warehouse
   
-- **Bug**: bugs são problemas no código ou documentos existentes que devem ser corrigidos para concluir uma tarefa. Se os bugs forem causados por itens de trabalho ausentes, eles poderão ser escalados para serem histórias de usuários ou tarefas. 
+- **Bug**: Bugs são problemas no código ou documentos existentes que devem ser corrigidos para concluir uma Tarefa. Se os bugs forem causados por itens de trabalho perdidos, eles podem se intensificar para serem Histórias de Usuário ou Tarefas. 
 
-Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil que substitui recursos, histórias de usuários e tarefas com estágios e subestágios do ciclo de vida de TDSP. Para criar um modelo derivado de Agile que se alinhe especificamente com os estágios do ciclo de vida TDSP, consulte [usar um modelo de trabalho do Agile TDSP](#set-up-agile-dsp-6).
+Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil que substitui recursos, histórias de usuário e tarefas por estágios e subestágios do ciclo de vida do TDSP. Para criar um modelo de derivação ágil que esteja especificamente alinhado com as etapas do ciclo de vida do TDSP, consulte [Usar um modelo de trabalho TDSP ágil](#set-up-agile-dsp-6).
 
 > [!NOTE]
-> O TDSP empresta os conceitos de recursos, histórias de usuários, tarefas e bugs do SCM (gerenciamento de código de software). Os conceitos de TDSP podem diferir ligeiramente das suas definições de SCM convencionais.
+> O TDSP empresta os conceitos de Recursos, Histórias de Usuário, Tarefas e Bugs do Gerenciamento de Código de Software (SCM). Os conceitos de TDSP podem diferir ligeiramente de suas definições convencionais de SCM.
 
-## <a name='SprintPlanning-2'></a>Planejar sprints
+## <a name="plan-sprints"></a><a name='SprintPlanning-2'></a>Planejar sprints
 
-Muitos cientistas de dados estão envolvidos em vários projetos, o que pode levar meses para ser concluído e prosseguir em diferentes ritmos. O planejamento de sprint é útil para priorização de projeto e planejamento e alocação de recursos. No Azure Boards, você pode facilmente criar, gerenciar e acompanhar itens de trabalho para seus projetos e conduzir o planejamento de Sprint para garantir que os projetos estejam avançando conforme o esperado.
+Muitos cientistas de dados estão envolvidos com vários projetos, que podem levar meses para serem concluídos e prosseguirem em diferentes ritmos. O planejamento de sprint é útil para priorização de projeto e planejamento e alocação de recursos. No Azure Boards, você pode facilmente criar, gerenciar e rastrear itens de trabalho para seus projetos e realizar o planejamento de sprint para garantir que os projetos estejam avançando conforme o esperado.
 
-Para obter mais informações sobre o planejamento do Sprint, consulte [sprints do Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
+Para obter mais informações sobre o planejamento de sprint, consulte [Scrum sprints](https://en.wikipedia.org/wiki/Scrum_(software_development)#Sprint). 
 
-Para obter mais informações sobre o planejamento do Sprint em Azure Boards, consulte [atribuir itens da pendências a um Sprint](/azure/devops/boards/sprints/assign-work-sprint). 
+Para obter mais informações sobre o planejamento de sprint no Azure Boards, consulte [Atribuir itens de atraso a um sprint](/azure/devops/boards/sprints/assign-work-sprint). 
 
-## <a name='AddFeature-3'></a>Adicionar um recurso à pendência 
+## <a name="add-a-feature-to-the-backlog"></a><a name='AddFeature-3'></a>Adicionar um recurso ao backlog 
 
-Depois que o projeto e o repositório de código do projeto forem criados, você poderá adicionar um recurso à lista de pendências para representar o trabalho do seu projeto.
+Depois que seu repositório de código de projeto e projeto for criado, você pode adicionar um recurso ao backlog para representar o trabalho para o seu projeto.
 
-1. Na página do seu projeto, selecione as **placas** > **registros** posteriores na navegação à esquerda. 
+1. Na página do projeto, selecione **Backlogs** > **de placas** na navegação à esquerda. 
    
-1. Na guia lista de **pendências** , se o tipo de item de trabalho na barra superior for **histórias**, menu suspenso e selecione **recursos**. Em seguida, selecione **novo item de trabalho.**
+1. Na guia **Backlog,** se o tipo de item de trabalho na barra superior for **Stories,** baixe e selecione **Recursos**. Em seguida, selecione **Novo item de trabalho.**
    
-   ![Selecionar novo item de trabalho](./media/agile-development/2-sprint-team-overview.png)
+   ![Selecione novo item de trabalho](./media/agile-development/2-sprint-team-overview.png)
    
-1. Insira um título para o recurso, geralmente o nome do projeto e, em seguida, selecione **Adicionar à parte superior**. 
+1. Digite um título para o Recurso, geralmente o nome do projeto e, em seguida, **selecione Adicionar ao topo**. 
    
-   ![Insira um título e selecione Adicionar ao início](./media/agile-development/3-sprint-team-add-work.png)
+   ![Digite um título e selecione Adicionar ao topo](./media/agile-development/3-sprint-team-add-work.png)
    
-1. Na lista de **pendências** , selecione e abra o novo recurso. Preencha a descrição, atribua um membro da equipe e defina parâmetros de planejamento. 
+1. Na lista **Backlog,** selecione e abra o novo Recurso. Preencha a descrição, designe um membro da equipe e defina parâmetros de planejamento. 
    
-   Você também pode vincular o recurso ao repositório de código do Azure Repos do projeto selecionando **Adicionar link** na seção de **desenvolvimento** . 
+   Você também pode vincular o Recurso ao repositório de código Azure Repos do projeto selecionando **adicionar link** na seção **Desenvolvimento.** 
    
-   Depois de editar o recurso, selecione **salvar & fechar**.
+   Depois de editar o Recurso, **selecione Salvar & Fechar**.
    
-   ![Edite o recurso e selecione salvar & fechar](./media/agile-development/3a-add-link-repo.png)
+   ![Editar recurso e selecionar Salvar & Fechar](./media/agile-development/3a-add-link-repo.png)
 
-## <a name='AddStoryunderfeature-4'></a>Adicionar uma história de usuário ao recurso 
+## <a name="add-a-user-story-to-the-feature"></a><a name='AddStoryunderfeature-4'></a>Adicione uma história do usuário ao recurso 
 
-Sob o recurso, você pode adicionar histórias de usuário para descrever as principais etapas necessárias para concluir o projeto. 
+No Recurso, você pode adicionar Histórias de Usuário para descrever os principais passos necessários para concluir o projeto. 
 
 Para adicionar uma nova história de usuário a um recurso:
 
-1. Na guia **registro posterior** , selecione a **+** à esquerda do recurso. 
+1. Na guia **Backlog,** **+** selecione o à esquerda do Recurso. 
    
-   ![Adicionar uma nova história de usuário sob o recurso](./media/agile-development/4-sprint-add-story.png)
+   ![Adicione uma nova história de usuário o recurso](./media/agile-development/4-sprint-add-story.png)
    
-1. Dê um título à história do usuário e edite detalhes como atribuição, status, descrição, comentários, planejamento e prioridade. 
+1. Dê um título ao User Story e edite detalhes como atribuição, status, descrição, comentários, planejamento e prioridade. 
    
-   Você também pode vincular a história de usuário a uma ramificação do repositório de código Azure Repos do projeto selecionando **Adicionar link** na seção de **desenvolvimento** . Selecione o repositório e a ramificação para os quais você deseja vincular o item de trabalho e, em seguida, selecione **OK**.
+   Você também pode vincular o User Story a uma filial do repositório de código Azure Repos do projeto selecionando **adicionar link** na seção **Desenvolvimento.** Selecione o repositório e a filial a que deseja vincular o item de trabalho e, em seguida, selecione **OK**.
    
    ![Adicionar Link](./media/agile-development/5-sprint-edit-story.png)
    
-1. Quando terminar de editar a história do usuário, selecione **salvar & fechar**. 
+1. Quando terminar de editar a história do usuário, **selecione Salvar & Fechar**. 
 
-## <a name='AddTaskunderstory-5'></a>Adicionar uma tarefa a uma história de usuário 
+## <a name="add-a-task-to-a-user-story"></a><a name='AddTaskunderstory-5'></a>Adicionar uma tarefa a uma história de usuário 
 
-Tarefas são etapas detalhadas específicas que são necessárias para concluir cada história de usuário. Depois que todas as tarefas de uma história de usuário forem concluídas, a história de usuário também deverá ser concluída. 
+As tarefas são etapas específicas e detalhadas que são necessárias para concluir cada História do Usuário. Depois que todas as tarefas de uma história de usuário forem concluídas, a História do Usuário também deve ser concluída. 
 
-Para adicionar uma tarefa a uma história de usuário, selecione o **+** ao lado do item de história de usuário e selecione **tarefa**. Preencha o título e outras informações na tarefa.
+Para adicionar uma tarefa a uma **+** história de usuário, selecione o próximo ao item 'História do usuário' e selecione **Tarefa**. Preencha o título e outras informações na Tarefa.
 
 ![Adicionar uma tarefa a uma história de usuário](./media/agile-development/7-sprint-add-task.png)
 
-Depois de criar recursos, histórias de usuários e tarefas, você pode exibi-los nos modos de exibição de **pendências** ou de **placas** para controlar seu status.
+Depois de criar Recursos, Histórias de Usuário e Tarefas, você pode visualizá-los nas **exibições de backlogs** ou **boards** para rastrear seu status.
 
-![Exibição de pendências](./media/agile-development/8-sprint-backlog-view.png)
+![Exibição de atrasos](./media/agile-development/8-sprint-backlog-view.png)
 
-![Exibição de placas](./media/agile-development/8a-sprint-board-view.png)
+![Visualização de placas](./media/agile-development/8a-sprint-board-view.png)
 
-## <a name='set-up-agile-dsp-6'></a>Usar um modelo de trabalho do Agile TDSP
+## <a name="use-an-agile-tdsp-work-template"></a><a name='set-up-agile-dsp-6'></a>Use um modelo de trabalho TDSP ágil
 
-Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil que substitui recursos, histórias de usuários e tarefas com estágios e subestágios do ciclo de vida de TDSP. No Azure Boards, você pode criar um modelo derivado de Agile que usa estágios de ciclo de vida TDSP para criar e acompanhar itens de trabalho. As etapas a seguir orientam a configuração de um modelo de processo ágil específico de ciência de dados e criação de itens de trabalho de ciência de dados com base no modelo.
+Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil que substitui recursos, histórias de usuário e tarefas por estágios e subestágios do ciclo de vida do TDSP. No Azure Boards, você pode criar um modelo derivado de ágil que usa estágios do ciclo de vida do TDSP para criar e rastrear itens de trabalho. As etapas a seguir caminham através da criação de um modelo de processo ágil específico para ciência de dados e criação de itens de trabalho de ciência de dados com base no modelo.
 
-### <a name="set-up-an-agile-data-science-process-template"></a>Configurar um modelo de processo de ciência de dados ágil
+### <a name="set-up-an-agile-data-science-process-template"></a>Configure um modelo de processo ágil de ciência de dados
 
-1. Na página principal da organização DevOps do Azure, selecione **configurações da organização** no painel de navegação esquerdo. 
+1. Na página principal da organização Azure DevOps, selecione **configurações** de Organização a partir da navegação à esquerda. 
    
-1. Nas **configurações da organização** navegação à esquerda, em **placas**, selecione **processar**. 
+1. Nas **Configurações de Organização** navegação esquerda, em **Placas,** selecione **Processo**. 
    
-1. No painel **todos os processos** , selecione **...** ao lado de **Agile**e, em seguida, selecione **criar processo herdado**.
+1. No **painel Todos os processos,** selecione o **...** ao lado do **Ágil**, e, em seguida, selecione **Criar processo herdado**.
    
    ![Criar processo herdado do Agile](./media/agile-development/10-settings.png) 
    
-1. Na caixa de diálogo **criar processo herdado do Agile** , digite o nome *AgileDataScienceProcess*e selecione **criar processo**.
+1. No **processo Criar herdado da** caixa de diálogo Ágil, digite o nome *AgileDataScienceProcess*e selecione **Criar processo**.
    
-   ![Criar processo AgileDataScienceProcess](./media/agile-development/11-agileds.png)
+   ![Crie o processo AgileDataScienceProcess](./media/agile-development/11-agileds.png)
    
-1. Em **todos os processos**, selecione o novo **AgileDataScienceProcess**. 
+1. Em **Todos os processos,** selecione o novo **AgileDataScienceProcess**. 
    
-1. Na guia **tipos de item de trabalho** , desabilite **Epic**, **recurso**, **história de usuário**e **tarefa** selecionando o **...** ao lado de cada item e, em seguida, selecionando **desabilitar**. 
+1. Na guia **Tipos de itens de trabalho,** desabilite **Epic**, **Feature,** **User Story**e **Task** selecionando o **...** ao lado de cada item e, em seguida, selecionando **Desativar**. 
    
-   ![Desabilitar tipos de item de trabalho](./media/agile-development/12-disable.png)
+   ![Desativar tipos de itens de trabalho](./media/agile-development/12-disable.png)
    
-1. Em **todos os processos**, selecione a guia **níveis de pendências** . Em **rependências de portfólios**, selecione **...** ao lado de **Epic (desabilitado)** e, em seguida, selecione **Editar/renomear**. 
+1. Em **Todos os processos,** selecione a guia **Níveis de atraso.** Em **Pastas,** selecione o **...** ao lado de **Epic (desativado)** e, em seguida, **selecione Editar/Renomear**. 
    
-1. Na caixa de diálogo **Editar nível de registro posterior** :
-   1. Em **nome**, substitua **Epic** por *projetos TDSP*. 
-   1. Em **tipos de item de trabalho neste nível de registro posterior**, selecione **novo tipo de item de trabalho**, insira *projeto TDSP*e selecione **Adicionar**. 
-   1. Em **tipo de item de trabalho padrão**, menu suspenso e selecione **projeto TDSP**. 
+1. Na caixa de diálogo **editar nível de atraso:**
+   1. Em **Name,** substitua **a Epic por** Projetos *TDSP*. 
+   1. Em **'Trabalhar tipos de itens' neste nível de atraso,** selecione **Novo tipo de item de trabalho,** insira projeto *TDSP*e selecione **Adicionar**. 
+   1. No **tipo de item de trabalho Padrão,** baixe e selecione **Projeto TDSP**. 
    1. Selecione **Salvar**.
    
-   ![Definir nível de pendência de portfólio](./media/agile-development/13-rename.png)  
+   ![Definir o nível de backlog do Portfolio](./media/agile-development/13-rename.png)  
    
-1. Siga as mesmas etapas para renomear **recursos** para *estágios TDSP*e adicione os seguintes novos tipos de item de trabalho:
+1. Siga as mesmas etapas para renomear **recursos** para *Estágios TDSP*e adicione os seguintes novos tipos de itens de trabalho:
    
-   - *Noções básicas sobre negócios*
-   - *Aquisição de dados*
+   - *Compreensão dos negócios*
+   - *Aquisição de Dados*
    - *Modelagem*
    - *Implantação*
    
-1. Em **pendências de requisito**, renomeie as **histórias** para *subestágios TDSP*, adicione o novo *subestágio TDSP*do tipo de item de trabalho e defina o tipo de item de trabalho padrão como **subestágio TDSP**.
+1. Em **Backlog de requisitos,** renomear **Stories** para *Subestágios TDSP,* adicionar o novo tipo de item de trabalho *TDSP Subestágio*e definir o tipo de item de trabalho padrão para **Subestágio TDSP**.
    
-1. Em **pendências de iteração**, adicione um novo tipo de item de trabalho *TDSP tarefa*e defina-o como o tipo de item de trabalho padrão. 
+1. Em **backlog iteração,** adicione um novo item de trabalho tipo *TDSP Task*e defina-o como o tipo de item de trabalho padrão. 
    
-Depois de concluir as etapas, os níveis de pendências devem ter esta aparência:
+Depois de concluir as etapas, os níveis de backlog devem ficar assim:
    
- ![Níveis de pendências de modelo TDSP](./media/agile-development/14-template.png)  
+ ![Níveis de backlog do modelo TDSP](./media/agile-development/14-template.png)  
 
-### <a name="create-agile-data-science-process-work-items"></a>Criar itens de trabalho do processo de ciência de dados Agile
+### <a name="create-agile-data-science-process-work-items"></a>Crie itens de trabalho do Processo de Ciência de Dados Ágil
 
-Você pode usar o modelo de processo de ciência de dados para criar projetos do TDSP e acompanhar itens de trabalho que correspondem a estágios do ciclo de vida do TDSP.
+Você pode usar o modelo de processo de ciência de dados para criar projetos TDSP e rastrear itens de trabalho que correspondem às etapas do ciclo de vida do TDSP.
 
-1. Na página principal da organização DevOps do Azure, selecione **novo projeto**. 
+1. Na página principal da organização Azure DevOps, selecione **Novo projeto**. 
    
-1. Na caixa de diálogo **criar novo projeto** , dê um nome ao projeto e selecione **avançado**. 
+1. No **Criar novo diálogo de projeto,** dê um nome ao seu projeto e, em seguida, selecione **Avançado**. 
    
-1. Em **processo de item de trabalho**, menu suspenso e selecione **AgileDataScienceProcess**e, em seguida, selecione **criar**.
+1. Em **processo de item de trabalho,** baixe e selecione **AgileDataScienceProcess**e selecione **Criar**.
    
    ![Criar um projeto TDSP](./media/agile-development/15-newproject.png)
    
-1. No projeto recém-criado, selecione **placas** > **registros** posteriores no painel de navegação esquerdo.
+1. No projeto recém-criado, selecione **Backlogs** > **de** placas na navegação à esquerda.
    
-1. Para tornar os projetos do TDSP visíveis, selecione o ícone **definir configurações da equipe** . Na tela **configurações** , marque a caixa de seleção **projetos TDSP** e, em seguida, selecione **salvar e fechar**.
+1. Para tornar visíveis os projetos TDSP, selecione o ícone **Configurar configurações da equipe.** Na tela **Configurações,** selecione a caixa de seleção **Projetos TDSP** e, em seguida, **selecione Salvar e fechar**.
    
-   ![Caixa de seleção selecionar projetos do TDSP](./media/agile-development/16-enabledsprojects1.png)
+   ![Selecione a caixa de seleção de projetos TDSP](./media/agile-development/16-enabledsprojects1.png)
    
-1. Para criar um projeto TDSP específico de ciência de dados, selecione **projetos do TDSP** na barra superior e, em seguida, selecione **novo item de trabalho**. 
+1. Para criar um Projeto TDSP específico para ciência de dados, selecione **Projetos TDSP** na barra superior e selecione **Novo item de trabalho**. 
    
-1. No pop-up, dê um nome ao item de trabalho do projeto TDSP e selecione **Adicionar à parte superior**.
+1. No popup, dê um nome ao item de trabalho do Projeto TDSP e selecione **Adicionar ao topo**.
    
-   ![Criar item de trabalho do projeto de ciência de dados](./media/agile-development/17-dsworkitems0.png)
+   ![Criar item de trabalho de projeto de ciência de dados](./media/agile-development/17-dsworkitems0.png)
    
-1. Para adicionar um item de trabalho no projeto TDSP, selecione o **+** ao lado do projeto e, em seguida, selecione o tipo de item de trabalho a ser criado. 
+1. Para adicionar um item de trabalho no **+** projeto TDSP, selecione o próximo ao projeto e selecione o tipo de item de trabalho a ser criado. 
    
-   ![Selecionar tipo de item de trabalho de ciência de dados](./media/agile-development/17-dsworkitems1.png)
+   ![Selecione o tipo de item de trabalho de ciência de dados](./media/agile-development/17-dsworkitems1.png)
    
-1. Preencha os detalhes no novo item de trabalho e selecione **salvar & fechar**.
+1. Preencha os detalhes do novo item de trabalho e **selecione Salvar & Fechar**.
    
-1. Continue selecionando os símbolos de **+** ao lado de itens de trabalho para adicionar novos estágios, subestágios e tarefas do TDSP. 
+1. Continue a **+** selecionar os símbolos ao lado dos itens de trabalho para adicionar novos Estágios, Subestágios e Tarefas do TDSP. 
    
-Aqui está um exemplo de como os itens de trabalho do projeto de ciência de dados devem aparecer no modo de exibição de **registros** posteriores:
+Aqui está um exemplo de como os itens de trabalho do projeto de ciência de dados devem aparecer na exibição **de Backlogs:**
 
 ![18](./media/agile-development/18-workitems1.png)
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-A [codificação colaborativa com o Git](collaborative-coding-with-git.md) descreve como fazer o desenvolvimento de código colaborativo para projetos de ciência de dados usando o Git como a estrutura de desenvolvimento de código compartilhado e como vincular essas atividades de codificação ao trabalho planejado com o processo ágil.
+[A codificação colaborativa com o Git](collaborative-coding-with-git.md) descreve como fazer o desenvolvimento de código colaborativo para projetos de ciência de dados usando o Git como estrutura de desenvolvimento de código compartilhado e como vincular essas atividades de codificação ao trabalho planejado com o processo ágil.
 
-[Exemplos de orientações passo](walkthroughs.md) a passo de cenários específicos, com descrições de miniaturas e links. Os cenários vinculados ilustram como combinar ferramentas e serviços de nuvem e locais em fluxos de trabalho ou pipelines para criar aplicativos inteligentes.
+[Exemplos de passo a passo](walkthroughs.md) lista passo a passo de cenários específicos, com links e descrições de miniaturas. Os cenários vinculados ilustram como combinar ferramentas e serviços em nuvem e on-premises em fluxos de trabalho ou pipelines para criar aplicativos inteligentes.
   
-Recursos adicionais sobre processos Agile:
+Recursos adicionais em processos ágeis:
 
 - [Processo ágil](/azure/devops/boards/work-items/guidance/agile-process)
   
-- [Fluxo de trabalho e tipos de itens de negócio do processo Agile](/azure/devops/boards/work-items/guidance/agile-process-workflow)
+- [Tipos de itens de trabalho de processo ágeis e fluxo de trabalho](/azure/devops/boards/work-items/guidance/agile-process-workflow)
 

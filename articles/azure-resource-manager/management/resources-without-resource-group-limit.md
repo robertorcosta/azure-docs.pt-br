@@ -4,17 +4,17 @@ description: Lista os tipos de recursos do Azure que podem ter mais de 800 inst�
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937944"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
-Por padrão, você pode implantar até 800 instâncias de um tipo de recurso em cada grupo de recursos. No entanto, alguns tipos de recursos são isentos do limite da instância 800. Este artigo lista os tipos de recursos do Azure que podem ter mais de 800 instâncias em um grupo de recursos. Todos os outros tipos de recursos são limitados a 800 instâncias.
+Por padrão, você pode implantar até 800 instâncias de um tipo de recurso em cada grupo de recursos. No entanto, alguns tipos de recursos estão isentos do limite de 800 instâncias. Este artigo lista os tipos de recursos do Azure que podem ter mais de 800 instâncias em um grupo de recursos. Todos os outros tipos de recursos estão limitados a 800 instâncias.
 
-Para alguns tipos de recursos, você precisa entrar em contato com o suporte para que o limite da instância 800 seja removido. Esses tipos de recursos são indicados neste artigo.
+Para alguns tipos de recursos, você precisa entrar em contato com o suporte para ter o limite de 800 instâncias removido. Esses tipos de recursos são observados neste artigo.
 
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
@@ -26,11 +26,11 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
-* verificationKeys
+* verificaçãoChaves
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
+* botServices - Por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -46,9 +46,9 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 * registries/buildTasks
-* registros/buildTasks/listSourceRepositoryProperties
+* registros/compilaçãoTarefas/listSourceRepositoryProperties
 * registries/buildTasks/steps
-* registros/buildTasks/etapas/listBuildArguments
+* registros/compilaçãoTarefas/etapas/listBuildArguments
 * registries/eventGridFilters
 * registries/replications
 * registries/tasks
@@ -56,17 +56,17 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
-* servidores
+* servers
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-* servidores
+* servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
-* serverGroups
-* servidores
-* serversv2
+* grupos de servidores
+* servers
+* servidoresv2
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -77,18 +77,18 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * clusters
 * namespaces
 
-## <a name="microsoftexperimentation"></a>Microsoft. experimentação
+## <a name="microsoftexperimentation"></a>Microsoft.Experimentação
 
-* experimentWorkspaces
+* experimentoespaços de trabalho
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
-* autoManagedVmConfigurationProfiles
-* configurationProfileAssignments
+* perfis de configuração gerenciados automaticamente
+* configuraçãoAtribuições de perfil
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
-* softwareUpdates
+* atualizações de software
 
 ## <a name="microsoftinsights"></a>Microsoft.insights
 
@@ -101,17 +101,17 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
-* netAppAccounts
-* netAppAccounts/capacityPools
-* netAppAccounts/capacityPools/volumes
-* netAppAccounts/capacityPools/volumes/mountTargets
-* netAppAccounts/capacityPools/volumes/instantâneos
+* netAppContas
+* netAppContas/capacityPools
+* netAppContas/capacityPools/volumes
+* netAppContas/capacityPools/volumes/mountTargets
+* netAppContas/capacityPools/volumes/snapshots
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
-* applicationGatewayWebApplicationFirewallPolicies
+* aplicativoGatewayWebAplicativoDe aplicativosFirewall
 * applicationSecurityGroups
-* bastionHosts
+* bastiõesanfitriões
 * ddosProtectionPlans
 * dnszones
 * dnszones/A
@@ -141,7 +141,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
+* publicIPAddresses - Por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -152,7 +152,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
+* workspaceCollections - Por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -168,7 +168,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
-* aplicativos
+* de dimensionamento da Web
 * containerGroups
 * gateways
 * networks
@@ -184,6 +184,6 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * apiManagementAccounts/apis
 * sites
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma lista completa de cotas e limites, confira [assinatura do Azure e limites de serviço, cotas e restrições](azure-subscription-service-limits.md).
+Para obter uma lista completa de cotas e limites, consulte limites de assinatura e serviço do [Azure, cotas e restrições](azure-subscription-service-limits.md).

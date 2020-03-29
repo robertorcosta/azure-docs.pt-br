@@ -1,6 +1,6 @@
 ---
-title: Adicionar entidades de segurança do cluster para o Azure Data Explorer usando o Python
-description: Neste artigo, você aprende a adicionar as entidades de segurança do cluster para o Azure Data Explorer usando o Python.
+title: Adicionar princípios de cluster para o Azure Data Explorer usando python
+description: Neste artigo, você aprende a adicionar os principais de cluster para o Azure Data Explorer usando python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,20 +8,20 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 637efdfe31d1f2eb0eaa5dd532dd9e9e67de5ce2
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965132"
 ---
-# <a name="add-cluster-principals-for-azure-data-explorer-by-using-python"></a>Adicionar entidades de segurança do cluster para o Azure Data Explorer usando o Python
+# <a name="add-cluster-principals-for-azure-data-explorer-by-using-python"></a>Adicionar princípios de cluster para o Azure Data Explorer usando python
 
 > [!div class="op_single_selector"]
-> * [C#](cluster-principal-csharp.md)
+> * [C #](cluster-principal-csharp.md)
 > * [Python](cluster-principal-python.md)
-> * [Modelo do Azure Resource Manager](cluster-principal-resource-manager.md)
+> * [Modelo de Gerenciador de recursos do Azure](cluster-principal-resource-manager.md)
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Neste artigo, você adiciona entidades de segurança de cluster para o Azure Data Explorer usando o Python.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Neste artigo, você adiciona os princípios de cluster para o Azure Data Explorer usando Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,9 +39,9 @@ pip install azure-mgmt-kusto
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-a-cluster-principal"></a>Adicionar uma entidade de segurança de cluster
+## <a name="add-a-cluster-principal"></a>Adicionar um principal de cluster
 
-O exemplo a seguir mostra como adicionar uma entidade de segurança de cluster programaticamente.
+O exemplo a seguir mostra como adicionar um cluster principal programáticamente.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -80,18 +80,18 @@ poller = kusto_management_client.cluster_principal_assignments.create_or_update(
 
 |**Configuração** | **Valor sugerido** | **Descrição do campo**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID do locatário. Também conhecida como ID de diretório.|
-| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID da assinatura que você usa para a criação de recursos.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
-| client_secret | *xxxxxxxxxxxxxx* | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário. |
-| resource_group_name | *testrg* | O nome do grupo de recursos que contém o cluster.|
-| cluster_name | *mykustocluster* | O nome do cluster.|
-| principal_assignment_name | *clusterPrincipalAssignment1* | O nome do recurso de entidade de segurança do cluster.|
-| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID da entidade, que pode ser email do usuário, ID do aplicativo ou nome do grupo de segurança.|
-| função | *AllDatabasesAdmin* | A função da entidade de segurança do cluster, que pode ser ' AllDatabasesAdmin' ' ou ' AllDatabasesViewer '.|
-| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID do locatário da entidade de segurança.|
-| principal_type | *Aplicativo* | O tipo de entidade de segurança, que pode ser ' user ', ' app ' ou ' Group '|
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID do locatário. Também conhecido como ID do diretório.|
+| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | O ID de assinatura que você usa para criação de recursos.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | O ID do cliente do aplicativo que pode acessar recursos em seu inquilino.|
+| client_secret | *xxxxxxxxxxxxxx* | O segredo do cliente do aplicativo que pode acessar recursos em seu inquilino. |
+| resource_group_name | *testrg* | O nome do grupo de recursos que contém seu cluster.|
+| cluster_name | *mykustocluster* | O nome do seu grupo.|
+| principal_assignment_name | *clusterPrincipalAssignment1* | O nome do seu recurso principal de cluster.|
+| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | O ID principal, que pode ser e-mail do usuário, ID do aplicativo ou nome do grupo de segurança.|
+| função | *Todos os bancos de dadosAdmin* | A função do seu principal de cluster, que pode ser 'AllDatabasesAdmin' ou 'AllDatabasesViewer'.|
+| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A id do inquilino do diretor.|
+| principal_type | *Aplicativo* | O tipo do principal, que pode ser 'Usuário', 'App' ou 'Grupo'|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Adicionar entidades de banco de dados](database-principal-python.md)
+* [Adicionar diretores de banco de dados](database-principal-python.md)

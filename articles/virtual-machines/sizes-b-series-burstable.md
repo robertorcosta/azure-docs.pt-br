@@ -1,5 +1,5 @@
 ---
-title: Série B expansível-máquinas virtuais do Azure
+title: Série B explodida - Azure Virtual Machines
 description: Descreve a série B de tamanhos expansíveis de VM do Azure.
 services: virtual-machines
 author: ayshakeen
@@ -9,86 +9,86 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
 ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78161073"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
-As VMs da série B são ideais para cargas de trabalho que não precisam do desempenho total da CPU continuamente, como servidores Web, prova de conceitos, bancos de dados pequenos e ambientes de compilação de desenvolvimento. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B permite a compra de um tamanho de VM com a linha de base de desempenho, e a instância da VM criará créditos quando estiver usando menos que a linha de base. Quando a VM acumular crédito, ela poderá ultrapassar a linha de base usando até 100% da vCPU quando seu aplicativo exigir um melhor desempenho de CPU.
+As VMs da série B são ideais para cargas de trabalho que não precisam do desempenho completo da CPU continuamente, como servidores web, prova de conceitos, pequenos bancos de dados e ambientes de construção de desenvolvimento. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B permite a compra de um tamanho de VM com a linha de base de desempenho, e a instância da VM criará créditos quando estiver usando menos que a linha de base. Quando a VM acumular crédito, ela poderá ultrapassar a linha de base usando até 100% da vCPU quando seu aplicativo exigir um melhor desempenho de CPU.
 
 A série B vem nos seguintes tamanhos de VM:
 
 Armazenamento Premium: com suporte
 
-Armazenamento em cache Premium: sem suporte
+Cache de armazenamento premium: não suportado
 
-Migração ao Vivo: com suporte
+Migração ao vivo: Suportado
 
-Atualizações de preservação de memória: com suporte
+Atualizações de preservação de memória: suportado
 
-| Size | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Base de desempenho da CPU da VM | Máximo desempenho da CPU da VM | Créditos iniciais | Créditos bancários/hora | Máximo de créditos armazenados | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps | Taxa de transferência máxima do disco não armazenado em cache: IOPS/MBps | Máximo de NICs |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Base de desempenho da CPU da VM | Máximo desempenho da CPU da VM | Créditos Iniciais | Créditos bancários/hora | Máximo de créditos armazenados | Discos de dados máximos | Máximo de armazenamento em cache e de armazenamento temporário: IOPS/MBps | Máximo throughput de disco sem cache: IOPS/MBps | Máximo de NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
 | Standard_B1ms             | 1  | 2   | 4   | 20%  | 100%  | 30  | 12  | 288  | 2  | 800/10    | 640/10    | 2  |
 | Standard_B2s              | 2  | 4   | 8   | 40%  | 200%  | 60  | 24  | 576  | 4  | 1600/15   | 1280/15   | 3  |
-| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 2400/22,5 | 1920/22,5 | 3  |
+| Standard_B2ms             | 2  | 8   | 16  | 60%  | 200%  | 60  | 36  | 864  | 4  | 2400/22.5 | 1920/22.5 | 3  |
 | Standard_B4ms             | 4  | 16  | 32  | 90%  | 400%  | 120 | 54  | 1296 | 8  | 3600/35   | 2880/35   | 4  |
 | Standard_B8ms             | 8  | 32  | 64  | 135% | 800%  | 240 | 81  | 1944 | 16 | 4320/50   | 4320/50   | 4  |
 | Standard_B12ms            | 12 | 48  | 96  | 202% | 1200% | 360 | 121 | 2909 | 16 | 6480/75   | 4320/50   | 6  |
 | Standard_B16ms            | 16 | 64  | 128 | 270% | 1600% | 480 | 162 | 3888 | 32 | 8640/100  | 4320/50   | 8  |
 | Standard_B20ms            | 20 | 80  | 160 | 337% | 2000% | 600 | 203 | 4860 | 32 | 10800/125 | 4320/50   | 8  |
 
-<sup>1</sup> B1ls tem suporte apenas no Linux
+<sup>1</sup> B1ls é suportado apenas no Linux
 
 ## <a name="workload-example"></a>Exemplo de carga de trabalho
 
-Considere um aplicativo de check-in/saída do Office. O aplicativo precisa de picos de CPU durante o horário comercial, mas não muito poder de computação fora do horário de expediente. Neste exemplo, a carga de trabalho requer uma máquina virtual 16vCPU com 64GiB de RAM para trabalhar com eficiência.
+Considere um aplicativo de check-in/out do escritório. O aplicativo precisa de estouros de CPU durante o horário comercial, mas não muito poder de computação durante as horas de folga. Neste exemplo, a carga de trabalho requer uma máquina virtual de 16vCPU com 64GiB de RAM para funcionar de forma eficiente.
 
-A tabela mostra os dados de tráfego por hora e o gráfico é uma representação visual desse tráfego.
+A tabela mostra os dados de tráfego de hora em hora e o gráfico é uma representação visual desse tráfego.
 
-Características do B16:
+Características b16:
 
-Desempenho máximo da CPU: 16vCPU * 100% = 1600%
+Perf de CPU máxima: 16vCPU * 100% = 1600%
 
 Linha de base: 270%
 
 ![Gráfico de dados de tráfego por hora](./media/b-series-burstable/office-workload.png)
 
-| Cenário | Tempo | Uso da CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
+| Cenário | Hora | Uso de CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
 | --- | --- | --- | --- | --- |
-| Implantação do B16ms | Implantação | Implantação  | 480 (créditos iniciais) | 480 |
-| Nenhum tráfego | 0:00 | 0 | 162 | 642 |
-| Nenhum tráfego | 1:00 | 0 | 162 | 804 |
-| Nenhum tráfego | 2:00 | 0 | 162 | 966 |
-| Nenhum tráfego | 3:00 | 0 | 162 | 1128 |
-| Nenhum tráfego | 4:00 | 0 | 162 | 1290 |
-| Nenhum tráfego | 5:00 | 0 | 162 | 1452 |
-| Baixo tráfego | 6:00 | 270 | 0 | 1452 |
-| Os funcionários chegam ao Office (o aplicativo precisa de 80% vCPU) | 7:00 | 1280 | -606 | 846 |
-| Os funcionários continuam chegando ao Office (as necessidades do aplicativo são de 80% vCPU) | 8:00 | 1280 | -606 | 240 |
-| Baixo tráfego | 9:00 | 270 | 0 | 240 |
-| Baixo tráfego | 10:00 | 100 | 102 | 342 |
-| Baixo tráfego | 11:00 | 50 | 132 | 474 |
-| Baixo tráfego | 12:00 | 100 | 102 | 576 |
-| Baixo tráfego | 13:00 | 100 | 102 | 678 |
-| Baixo tráfego | 14:00 | 50 | 132 | 810 |
-| Baixo tráfego | 15:00 | 100 | 102 | 912 |
-| Baixo tráfego | 16:00 | 100 | 102 | 1014 |
-| Os funcionários estão fazendo check-out (o aplicativo precisa de 100% vCPU) | 17:00 | 1600 | -798 | 216 |
-| Baixo tráfego | 18:00 | 270 | 0 | 216 |
-| Baixo tráfego | 19:00 | 270 | 0 | 216 |
-| Baixo tráfego | 20:00 | 50 | 132 | 348 |
-| Baixo tráfego | 21:00 | 50 | 132 | 480 |
-| Nenhum tráfego | 22:00 | 0 | 162 | 642 |
-| Nenhum tráfego | 23:00 | 0 | 162 | 804 |
+| Implantação de B16ms | Implantação | Implantação  | 480 (Créditos Iniciais) | 480 |
+| Sem tráfego | 0:00 | 0 | 162 | 642 |
+| Sem tráfego | 1:00 | 0 | 162 | 804 |
+| Sem tráfego | 2:00 | 0 | 162 | 966 |
+| Sem tráfego | 3:00 | 0 | 162 | 1128 |
+| Sem tráfego | 4:00 | 0 | 162 | 1290 |
+| Sem tráfego | 5:00 | 0 | 162 | 1452 |
+| Tráfego baixo | 6:00 | 270 | 0 | 1452 |
+| Funcionários vêm ao escritório (app precisa de 80% de vCPU) | 7:00 | 1280 | -606 | 846 |
+| Os funcionários continuam chegando ao escritório (o aplicativo precisa de 80% de vCPU) | 8:00 | 1280 | -606 | 240 |
+| Tráfego baixo | 9:00 | 270 | 0 | 240 |
+| Tráfego baixo | 10:00 | 100 | 102 | 342 |
+| Tráfego baixo | 11:00 | 50 | 132 | 474 |
+| Tráfego baixo | 12:00 | 100 | 102 | 576 |
+| Tráfego baixo | 13:00 | 100 | 102 | 678 |
+| Tráfego baixo | 14:00 | 50 | 132 | 810 |
+| Tráfego baixo | 15:00 | 100 | 102 | 912 |
+| Tráfego baixo | 16:00 | 100 | 102 | 1014 |
+| Funcionários verificando (app precisa de 100% de vCPU) | 17:00 | 1600 | -798 | 216 |
+| Tráfego baixo | 18:00 | 270 | 0 | 216 |
+| Tráfego baixo | 19:00 | 270 | 0 | 216 |
+| Tráfego baixo | 20:00 | 50 | 132 | 348 |
+| Tráfego baixo | 21:00 | 50 | 132 | 480 |
+| Sem tráfego | 22:00 | 0 | 162 | 642 |
+| Sem tráfego | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup> os créditos acumulados/créditos usados em uma hora são equivalentes a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+<sup>1</sup> Os créditos acumulados/créditos `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`utilizados em uma hora equivalem a: .  
 
-Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é $0.936 por hora (mensalmente $673.92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é $0.794 por hora (mensalmente $547.86). <b>Isso resulta em uma economia de 15%!</b>
+Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é de US$ 0,936 por hora (mensal $ 673,92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é de US $ 0,794 por hora (mensal $ 547,86). <b>Isso resulta em uma economia de 15%!</b>
 
 ## <a name="q--a"></a>Perguntas e respostas
 
@@ -115,13 +115,13 @@ Durante o horário de pico, meu aplicativo aproveita 60% de utilização de vCPU
 
 Se eu usar os 120 créditos acumulados fora de pico e subtrair os 96 créditos que usei para meu horário de pico, acumulo mais 24 créditos por dia para usar em outras atividades.
 
-### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>P: como posso calcular os créditos acumulados e usados?
+### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>P: Como posso calcular créditos acumulados e usados?
 
-**R**: você pode usar a seguinte fórmula:
+**A:** Você pode usar a seguinte fórmula:
 
-(Desempenho base da CPU da VM-uso da CPU)/100 = banco de créditos ou uso por minuto
+(Fundo de CPU perf de VM - Uso da CPU) / 100 = Banco de créditos ou uso por minuto
 
-por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10% da CPU que está acumulando (20%-10%)/100 = 0,1 crédito por minuto.
+por exemplo, em instância acima, sua linha de base é de 20% e se você usar 10% da CPU que você está acumulando (20%-10%/100 = 0,1 crédito por minuto.
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: a série B dá suporte a discos de dados de Armazenamento Premium?
 
@@ -131,19 +131,19 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 
 **R** : Quando uma VM for “REIMPLANTADA”, ou seja, a VM se move para outro nó e o crédito acumulado é perdido. Se a VM for iniciada/interrompida, mas permanecer no mesmo nó, a VM retém o crédito acumulado. Sempre que a VM iniciar de novo em um nó, ele recebe uma crédito inicial, para Standard_B8ms de 240 minutos.
 
-### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: o que acontecerá se eu implantar uma imagem de sistema operacional sem suporte no B1ls?
+### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: O que acontece se eu implantar uma imagem do sistema operacional sem suporte em B1ls?
 
-**R: o** B1ls só dá suporte a imagens do Linux e, se você implantar qualquer outra imagem do sistema operacional, talvez não obtenha a melhor experiência do cliente.
+**A** : O B1ls só suporta imagens Linux e se você implantar qualquer outra imagem do Sistema Operacional, talvez não obtenha a melhor experiência do cliente.
 
 ## <a name="other-sizes"></a>Outros tamanhos
 
 - [Propósito geral](sizes-general.md)
-- [Computação otimizada](sizes-compute.md)
+- [Otimizado para computação](sizes-compute.md)
 - [Memória otimizada](sizes-memory.md)
-- [Armazenamento otimizado](sizes-storage.md)
+- [Otimizado para armazenamento](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

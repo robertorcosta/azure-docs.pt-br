@@ -1,6 +1,6 @@
 ---
-title: Gerenciar registros de dispositivo usando SDKs do Azure DPS
-description: Como gerenciar registros de dispositivo no DPS (serviço de provisionamento de dispositivos) do Hub IoT usando os SDKs do serviço
+title: Gerenciar matrículas de dispositivos usando SDKs Azure DPS
+description: Como gerenciar as inscrições de dispositivos no DPS (IoT Hub Device Provisioning Service, serviço de provisionamento de dispositivos hub) usando os SDKs de serviço
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975067"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerenciar registros de dispositivo com SDKs do Serviço de Provisionamento de Dispositivos do Azure
@@ -20,10 +20,10 @@ Um *registro de dispositivo* cria um registro de um único dispositivo ou um gru
 ## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha a cadeia de conexão da instância do Serviço de Provisionamento de Dispositivos.
 * Obter os artefatos de segurança do dispositivo para o [mecanismo de atestado](concepts-security.md#attestation-mechanism) usado:
-    * [**TPM (Trusted Platform Module)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Módulo de plataforma confiável (TPM):**](/azure/iot-dps/concepts-security#trusted-platform-module)
         * Registro individual: ID do Registro e Chave de Endosso de TPM de um dispositivo físico ou do Simulador de TPM.
         * O grupo de registros não é aplicável ao atestado de TPM.
-    * [**X.509**](/azure/iot-dps/concepts-security):
+    * [**X.509:**](/azure/iot-dps/concepts-security)
         * Registro individual: o [Certificado de folha](/azure/iot-dps/concepts-security) do dispositivo físico ou do Emulador SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
         * Grupo de registros: o [certificado raiz/CA](/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](/azure/iot-dps/concepts-security#intermediate-certificate), usado para gerar o certificado do dispositivo em um dispositivo físico.  Ele também pode ser gerado no emulador SDK DICE.
 * Chamadas à API exatas podem ser diferentes devido a diferenças de linguagem. Examine os exemplos fornecidos no GitHub para obter detalhes:
@@ -48,7 +48,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
     
     1. Escolha seu mecanismo ```attestation```, que pode ser TPM ou X.509.
         1. **TPM**: usando a Chave de Endosso de um dispositivo físico ou do Simulador de TPM como a entrada, você pode chamar a API do SDK de Serviço ```TpmAttestation``` para criar o atestado para o registro. 
-        2. **X.509**: usando o certificado de cliente como a entrada, você pode chamar a API do SDK de Serviço ```X509Attestation.createFromClientCertificate``` para criar o atestado para registro.
+        2. **X.509**: Usando o certificado do cliente como entrada, ```X509Attestation.createFromClientCertificate``` você pode ligar para a API service SDK para criar atestado para inscrição.
     2. Crie uma nova variável ```IndividualEnrollment``` usando o ```attestation``` criado e um ```registrationId``` exclusivo como entrada, que está em seu dispositivo ou gerado do Simulador de TPM.  Opcionalmente, você pode definir parâmetros como ```Device ID```, ```IoTHubHostName``` e ```ProvisioningStatus```.
     3. Chame a API do SDK de Serviço ```createOrUpdateIndividualEnrollment``` em seu aplicativo de back-end com ```IndividualEnrollment``` para criar um registro individual.
 
@@ -59,7 +59,7 @@ Depois de criar um registro com êxito, o Serviço de Provisionamento do Disposi
 Depois de criar uma entrada de registro, convém atualizar o registro.  Os cenários possíveis incluem a atualização da propriedade desejada, a atualização do método de atestado ou a revogação do acesso do dispositivo.  Há diferentes APIs para o registro individual e para o registro de grupo, mas não um mecanismo de atestação distinto.
 
 Você pode atualizar uma entrada de registro seguindo este fluxo de trabalho:
-* **Registro individual**:
+* **Matrícula individual**:
     1. Obtenha o registro mais recente do serviço de provisionamento primeiro com a API do SDK de Serviço ```getIndividualEnrollment```.
     2. Modifique o parâmetro de registro mais recente, conforme necessário. 
     3. Usando o registro mais recente, chame a API do SDK de Serviço ```createOrUpdateIndividualEnrollment``` para atualizar a entrada de registro.

@@ -1,5 +1,5 @@
 ---
-title: Analisar segurança de rede-exibição do grupo de segurança-API REST do Azure
+title: Analisar a segurança da rede - Security Group View - Api Azure REST
 titleSuffix: Azure Network Watcher
 description: Este artigo descreve como usar o PowerShell para analisar a segurança de uma máquina virtual com o modo de exibição de Grupo de Segurança.
 services: network-watcher
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c9c76e9c06d4c45a096cff79dac82bb80ebe25d1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840733"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analisar a segurança de sua máquina virtual com o modo de exibição de Grupo de Segurança usando a API REST
 
 > [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI do Azure](network-watcher-security-group-view-cli.md)
+> - [Powershell](network-watcher-security-group-view-powershell.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 Exibição de grupo de segurança retorna as regras de segurança de rede configurados e eficaz que são aplicadas a uma máquina virtual. Esse recurso é útil para auditoria e diagnosticar grupos de segurança de rede e as regras configuradas em uma VM para garantir que o tráfego está sendo corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança efetivas e aplicadas para uma máquina virtual usando a API REST
@@ -51,7 +51,7 @@ armclient login
 
 Execute o script a seguir para retornar uma máquina virtual. O código a seguir precisa de variáveis:
 
-- **SubscriptionId** -a ID da assinatura também pode ser recuperada com o cmdlet **Get-AzSubscription** .
+- **subscriptionId** - O id de assinatura também pode ser recuperado com o **cmdlet Get-AzSubscription.**
 - **resourceGroupName** - o nome de um grupo de recursos que contém as máquinas virtuais.
 
 ```powershell
@@ -180,7 +180,7 @@ O exemplo a seguir é a resposta retornada do comando anterior. Os resultados mo
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Visite [auditoria de segurança grupos NSG (rede) com o Observador de Rede](network-watcher-security-group-view-powershell.md) para aprender a automatizar a validação dos grupos de segurança de rede.
 

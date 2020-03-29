@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1293bbf6d2966caf7e6e095c1721e29890a57b76
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 759748124893a8f906a4bc336f835546202b0b62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049485"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -28,15 +28,15 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 
 - Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
 - Se você desabilitar e habilitar novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache, normalmente válidos por 10 horas, tenham se expirado.
-- Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, os [cenários de mapeamento do SharePoint e do OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) não funcionam.
+- Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, [os cenários de mapeamento do SharePoint e do OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) não funcionam.
 - Clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e superiores têm suporte com o uso de um fluxo não interativo. Não há suporte para outras versões; nessas versões, os usuários inserirão seus nomes de usuário, mas não senhas, para entrar. Para o OneDrive, você precisará ativar o [recurso de Configuração silenciosa do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silenciosa.
 - O SSO Contínuo não funciona no modo de navegação particular no Firefox.
 - O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
 - Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.
-- Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com) ) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
-- O SSO contínuo dá suporte aos tipos de criptografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 para Kerberos. É recomendável que o tipo de criptografia para a conta AzureADSSOAcc $ seja definido como AES256_HMAC_SHA1 ou um dos tipos AES vs. RC4 para maior segurança. O tipo de criptografia é armazenado no atributo msDS-SupportedEncryptionTypes da conta no seu Active Directory.  Se o tipo de criptografia da conta AzureADSSOAcc $ for definido como RC4_HMAC_MD5 e você quiser alterá-lo para um dos tipos de criptografia AES, certifique-se de que você primeiro se sobreponha à chave de descriptografia do Kerberos da conta AzureADSSOAcc $, conforme explicado no [documento de perguntas frequentes ](how-to-connect-sso-faq.md)sob a pergunta relevante, caso contrário, o SSO contínuo não ocorrerá.
+- Adicionar o URL de serviço`https://autologon.microsoftazuread-sso.com`Azure AD ( ) à região de sites confiáveis em vez da região intranet local bloqueia a *login dos usuários*.
+- O SSO sem emendas suporta os tipos de criptografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 para Kerberos. Recomenda-se que o tipo de criptografia para a conta AzureADSSOAcc$ esteja definido como AES256_HMAC_SHA1, ou um dos tipos De AES vs. RC4 para maior segurança. O tipo de criptografia é armazenado no atributo MSDS-SupportedEncryptionTypes da conta em seu Active Directory.  Se o tipo de criptografia da conta AzureADSSOAcc$ estiver definido como RC4_HMAC_MD5 e você quiser alterá-lo para um dos tipos de criptografia AES, certifique-se de que você primeiro role a chave de descriptografia Kerberos da conta AzureADSSOAcc$ conforme explicado no [documento FAQ](how-to-connect-sso-faq.md) a questão relevante, caso contrário, o SSO sem emendas não acontecerá.
 
 ## <a name="check-status-of-feature"></a>Verificar o status do recurso
 
@@ -46,15 +46,15 @@ Verifique se o recurso SSO ainda está **Habilitado** em seu locatário. Você p
 
 Clique para ver todas as florestas do AD que foram habilitadas para SSO Contínuo.
 
-![Centro de administração do Azure Active Directory: Painel SSO contínuo](./media/tshoot-connect-sso/sso13.png)
+![Centro de administração do Azure Active Directory: painel SSO Contínuo](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário uma licença Premium)
 
 Se o locatário tiver uma licença do Azure AD Premium associada a ele, você também poderá analisar o [relatório de atividade de entrada](../reports-monitoring/concept-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centro de administração do Azure Active Directory: Relatório de entradas](./media/tshoot-connect-sso/sso9.png)
+![Centro de administração do Azure Active Directory: relatório Entradas](./media/tshoot-connect-sso/sso9.png)
 
-Navegue até **Azure Active Directory** > **Entradas** no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e selecione uma atividade de entrada de um usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
+Navegue pelos**logins** do **Azure Active Directory** > no centro de administradores do [Azure Active Directory](https://aad.portal.azure.com/)e selecione a atividade de login de um usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
 
 |Código de erro de logon|Motivo da falha no logon|Resolução
 | --- | --- | ---
@@ -75,7 +75,7 @@ Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo
 
 - Verifique se o recurso de SSO Contínuo está habilitado no Azure AD Connect. Se você não puder habilitar o recurso (por exemplo, devido a uma porta bloqueada), verifique se você cumpriu com todos os [pré-requisitos](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Se você habilitou o [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) e o SSO Contínuo em seu locatário, verifique se o problema não está com o Ingresso no Azure AD. O SSO por meio do Ingresso no Azure AD terá precedência sobre SSO Contínuo se o dispositivo estiver registrado no Azure AD e ingressado no domínio. Com o SSO por meio do Ingresso no Azure AD, o usuário verá um bloco de entrada com a informação "Conectado ao Windows".
-- Certifique-se de que o URL do Azure AD (https://autologon.microsoftazuread-sso.com) ) faz parte das configurações de zona da Intranet do usuário.
+- Certifique-se de que a`https://autologon.microsoftazuread-sso.com`URL Azure AD () faz parte das configurações da região intranet do usuário.
 - Certifique-se de que o dispositivo corporativo tenha ingressado no domínio do Active Directory. O dispositivo _não_ precisa ser [Ingressado no Azure AD](../active-directory-azureadjoin-overview.md) para que o SSO Contínuo funcione.
 - Certifique-se de que o usuário esteja conectado ao dispositivo por meio de uma conta de domínio do Active Directory.
 - Verifique se a conta do usuário é de uma floresta do Active Directory na qual o SSO Contínuo foi configurado.
@@ -90,7 +90,7 @@ Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo
 
 ### <a name="domain-controller-logs"></a>Logs do controlador de domínio
 
-Se a auditoria de êxito estiver habilitada em seu controlador de domínio, sempre que um usuário entrar usando SSO Contínuo, uma entrada de segurança será registrada no log de eventos. Encontre esses eventos de segurança usando a consulta a seguir. (Procure o evento **4769** associado à conta de computador **AzureADSSOAcc$** .)
+Se a auditoria de êxito estiver habilitada em seu controlador de domínio, sempre que um usuário entrar usando SSO Contínuo, uma entrada de segurança será registrada no log de eventos. Encontre esses eventos de segurança usando a consulta a seguir. (Procure o evento **4769** associado à conta de computador **AzureADSSOAcc$**.)
 
 ```
     <QueryList>
@@ -104,7 +104,7 @@ Se a auditoria de êxito estiver habilitada em seu controlador de domínio, semp
 
 Se a solução de problemas não ajudar, você poderá redefinir manualmente o recurso em seu locatário. Execute estas etapas no servidor local em que você está executando o Azure AD Connect.
 
-### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Etapa 1: Importar o módulo do PowerShell de SSO Contínuo
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Etapa 1: importar o módulo do PowerShell de SSO Contínuo
 
 1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
@@ -115,15 +115,15 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 1. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Quando solicitado, insira as suas credenciais de Administrador global do locatário.
 2. Chame `Get-AzureADSSOStatus`. Esse comando fornece a lista de florestas do Active Directory (veja a lista “Domínios”) em que esse recurso foi habilitado.
 
-### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Etapa 3: Desabilitar o SSO Contínuo para cada floresta do Active Directory em que você configurou o recurso
+### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Etapa 3: Desabilitar o SSO Contínuo para cada floresta do Active Directory onde você configurou o recurso
 
 1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
 
    > [!NOTE]
-   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso. com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
+   >As credenciais de administrador de domínio devem ser inseridas no formato de nome da conta SAM (contoso\johndoe ou contoso.com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o Controlador de Domínio do Administrador de Domínio usando DNS.
 
    >[!NOTE]
-   >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
+   >A conta de administrador de domínio usada não deve ser um membro do grupo Usuários Protegidos. Se assim for, a operação falhará.
 
 2. Chame `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove a conta do computador `AZUREADSSOACC` do controlador de domínio local dessa floresta do Active Directory específica.
 3. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
@@ -133,10 +133,10 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 1. Chame `Enable-AzureADSSOForest`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
 
    > [!NOTE]
-   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso. com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
+   >As credenciais de administrador de domínio devem ser inseridas no formato de nome da conta SAM (contoso\johndoe ou contoso.com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o Controlador de Domínio do Administrador de Domínio usando DNS.
 
    >[!NOTE]
-   >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
+   >A conta de administrador de domínio usada não deve ser um membro do grupo Usuários Protegidos. Se assim for, a operação falhará.
 
 2. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
 

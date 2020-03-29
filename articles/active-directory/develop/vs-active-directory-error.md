@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar erros com o serviço conectado do Azure AD (Visual Studio)
+title: Diagnosticar erros com o serviço conectado ao Azure AD (Visual Studio)
 description: O serviço conectado do Active Directory detectou um tipo de autenticação incompatível
 author: ghogen
 manager: jillfra
@@ -12,25 +12,25 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: a6ec31f0d60c7f6e3737dc4042b05a6d8bf3dd5e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76699964"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticando erros com o Serviço Conectado do Azure Active Directory
 
-Ao detectar o código de autenticação anterior, o serviço conectado do Azure Active Directory detectou um tipo de autenticação incompatível.
+Ao detectar código de autenticação anterior, o serviço conectado Azure Active Directory detectou um tipo de autenticação incompatível.
 
-Para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser recriado. Se você vir esse erro e não tiver um código de autenticação anterior em seu projeto, recompile e tente novamente.
+Para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser reconstruído. Se você vir esse erro e não tiver um código de autenticação anterior em seu projeto, reconstrua e tente novamente.
 
 ## <a name="project-types"></a>Tipos de projeto
 
-O serviço conectado verifica o tipo de projeto que está sendo desenvolvido para que possa injetar a lógica de autenticação adequada ao projeto. Se houver qualquer controlador que derive de `ApiController` no projeto, o projeto será considerado um projeto WebAPI. Se houver apenas controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC. O serviço conectado não oferece suporte a qualquer outro tipo de projeto.
+O serviço conectado verifica o tipo de projeto que está sendo desenvolvido para que possa injetar a lógica de autenticação adequada ao projeto. Se houver algum controlador que `ApiController` deriva no projeto, o projeto é considerado um projeto WebAPI. Se houver apenas controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC. O serviço conectado não oferece suporte a qualquer outro tipo de projeto.
 
 ## <a name="compatible-authentication-code"></a>Código de autenticação compatível
 
-O serviço conectado também verifica configurações de autenticação configuradas anteriormente ou que são compatíveis com o serviço. Se todas as configurações estiverem presentes, será considerado um caso reentrante e o serviço conectado será aberto para exibir as configurações.  Se apenas algumas das configurações estiverem presentes, ele será considerado um caso de erro.
+O serviço conectado também verifica configurações de autenticação configuradas anteriormente ou que são compatíveis com o serviço. Se todas as configurações estiverem presentes, é considerado um caso de reentrada, e o serviço conectado abre exibir as configurações.  Se apenas algumas das configurações estiverem presentes, é considerado um caso de erro.
 
 Em um projeto do MVC, o serviço conectado verifica qualquer uma das configurações a seguir, que são resultado do uso anterior do serviço:
 
@@ -39,7 +39,7 @@ Em um projeto do MVC, o serviço conectado verifica qualquer uma das configuraç
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Além disso, o serviço conectado verifica qualquer uma das seguintes configurações em um projeto de API da Web, que resulta do uso anterior do serviço:
+Além disso, o serviço conectado verifica qualquer uma das seguintes configurações em um projeto de API da Web, que resultam do uso prévio do serviço:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />

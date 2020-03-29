@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 81b53904f85e2ac936195b1e39d7586fd1d47524
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153778"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster do Avere
@@ -41,7 +41,7 @@ Para atingir o desempenho ideal, configure seu servidor DNS para lidar com ender
 
 Um vserver do cluster é mostrado à esquerda e os endereços IP aparecem no centro e à direita. Configure cada ponto de acesso do cliente com registros e ponteiros A conforme ilustrado.
 
-![diagrama de DNS Round Robin do cluster do avere](media/avere-vfxt-rrdns-diagram.png)
+![Diagrama do DNS com round robin no cluster do Avere](media/avere-vfxt-rrdns-diagram.png)
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada endereço IP voltado ao cliente deve ter um nome exclusivo para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são chamados de vs1-client-IP-* para maior clareza, mas na produção você provavelmente deve usar algo mais conciso, como cliente*.)
@@ -74,7 +74,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>Configurações de DNS do cluster
 
-Especifique o servidor DNS que o cluster do vFXT usa na página de configuração **Cluster** > **Rede Administrativa**. As configurações na página incluem:
+Especifique o servidor DNS que o cluster vFXT usa na página Configurações**da Rede Administrativa** de **Cluster.** >  As configurações na página incluem:
 
 * Endereço do servidor DNS
 * Nome de domínio DNS

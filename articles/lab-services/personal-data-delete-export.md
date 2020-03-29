@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169692"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou excluir dados pessoais do Azure DevTest Labs
@@ -39,11 +39,11 @@ O DevTest Labs usa o endereço de email do usuário para enviar notificações d
 ### <a name="user-object-id"></a>ID de objeto de usuário
 O DevTest Labs usa a ID de objeto de usuário para mostrar as tendências de custo mês a mês e o custo das informações do recurso aos administradores de laboratório. Isso permite controlar custos e gerenciar limites do Lab. 
 
-**Tendência de custo estimado para o mês atual:** 
-![Tendência de custo estimado para o mês atual](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
+**Tendência de custo estimado para o mês calendário atual:**
+![Tendência de custo estimado para o mês do calendário atual](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Custo estimado do mês por recurso:** 
-![Custo estimado do mês por recurso](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
+**Custo estimado mês a mês por recurso:**
+![Custo estimado mês a mês por recurso](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
 ## <a name="why-do-we-need-this-personal-data"></a>Por que esses dados pessoais são necessários?
@@ -55,10 +55,10 @@ Como usuário de laboratório, se você quiser excluir esses dados pessoais, pod
 Por exemplo, se você excluir a VM ou remover o endereço de email, o serviço DevTest Labs tornará esses dados anônimos 30 dias após o recurso ser excluído. A política de retenção de 30 dias após a exclusão é garantir que forneça uma projeção de custos de mês a mês precisa ao administrador de laboratório.
 
 ## <a name="how-can-i-request-an-export-on-my-personal-data"></a>Como é possível solicitar uma exportação nos dados pessoais?
-Você pode exportar dados de uso pessoais e de laboratório usando o portal do Azure ou o PowerShell. Os dados são exportados como dois arquivos CSV diferentes:
+Você pode exportar dados pessoais e de uso de laboratório usando o portal Azure ou powerShell. Os dados são exportados como dois arquivos CSV diferentes:
 
-- **disks. csv** -contém informações sobre os discos que estão sendo usados pelas diferentes VMs
-- **VirtualMachines. csv** -contém informações sobre as VMs no laboratório.
+- **disks.csv** - contém informações sobre os discos que estão sendo usados pelas diferentes VMs
+- **virtualmachines.csv** - contém informações sobre as VMs no laboratório.
 
 ### <a name="azure-portal"></a>Portal do Azure
 Como usuário de laboratório, você pode solicitar uma exportação nos dados pessoais armazenados pelo serviço DevTest Labs. Para solicitar uma exportação, navegue até a opção **Dados pessoais** na página de **Visão geral** do laboratório. Selecione o botão **Solicitar exportação** para iniciar a criação de um arquivo do Excel para download na conta de armazenamento do administrador do Lab. Você pode contatar o administrador do laboratório para exibir esses dados.
@@ -144,7 +144,7 @@ else
 }
 ```
 
-Os principais componentes no exemplo acima são:
+Os principais componentes da amostra acima são:
 
 - O comando Invoke-AzureRmResourceAction.
    
@@ -152,67 +152,67 @@ Os principais componentes no exemplo acima são:
     Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
     ```
 - Dois parâmetros de ação
-    - **blobStorageAbsoluteSasUri** -o URI da conta de armazenamento com o token SAS (assinatura de acesso compartilhado). No script do PowerShell, esse valor pode ser passado em vez da chave de armazenamento.
-    - **usageStartDate** -a data de início para efetuar pull de dados, com a data de término sendo a data atual em que a ação é executada. A granularidade está no nível do dia, portanto, mesmo que você adicione informações de tempo, elas serão ignoradas.
+    - **blobStorageAbsoluteSasUri** - A conta de armazenamento URI com o token SAS (SAS) de assinatura de acesso compartilhado. No script PowerShell, esse valor poderia ser passado em vez da chave de armazenamento.
+    - **useStartDate** - A data inicial para puxar dados, com a data final sendo a data atual em que a ação é executada. A granularidade está no nível do dia, então mesmo se você adicionar informações de tempo, ela será ignorada.
 
-### <a name="exported-data---a-closer-look"></a>Dados exportados-uma análise mais detalhada
-Agora, vamos examinar mais de perto os dados exportados. Conforme mencionado anteriormente, depois que os dados são exportados com êxito, haverá dois arquivos CSV. 
+### <a name="exported-data---a-closer-look"></a>Dados exportados - um olhar mais atento
+Agora vamos dar uma olhada mais de perto nos dados exportados. Como mencionado anteriormente, uma vez que os dados são exportados com sucesso, haverá dois arquivos CSV. 
 
-O **VirtualMachines. csv** contém as seguintes colunas de dados:
+O **virtualmachines.csv** contém as seguintes colunas de dados:
 
-| Nome da coluna | Description |
+| Nome da coluna | Descrição |
 | ----------- | ----------- | 
-| SubscriptionId | O identificador de assinatura no qual o laboratório existe. |
-| LabUId | Identificador de GUID exclusivo para o laboratório. |
-| LabName | Nome do laboratório. |
-| LabResourceId | ID de recurso de laboratório totalmente qualificado. |
-| ResourceGroupName | Nome do grupo de recursos que contém a VM | 
-| ResourceId | ID de recurso totalmente qualificado para a VM. |
-| ResourceUId | GUID da VM |
+| SubscriptionId | O identificador de assinatura em que o laboratório existe. |
+| LabUId | Identificador GUID exclusivo para o laboratório. |
+| Nome do Laboratório | Nome do laboratório. |
+| LabResourceId | ID de recursos de laboratório totalmente qualificado. |
+| ResourceGroupName | Nome do grupo de recursos que contém o VM | 
+| ResourceId | ID de recurso totalmente qualificado para o VM. |
+| UID de recursos | GUID para o VM |
 | Nome | Nome da máquina virtual. |
-| CreatedTime | A data e hora em que a VM foi criada. |
-| DeletedDate | A data e hora em que a VM foi excluída. Se estiver vazio, a exclusão ainda não ocorreu. |
-| ResourceOwner | Proprietário da VM. Se o valor estiver vazio, será uma VM declarável ou criada por uma entidade de serviço. |
-| PricingTier | Tipo de preço da VM |
-| ResourceStatus | Estado de disponibilidade da VM. Ativo, se ainda existir ou inativo, se a VM tiver sido excluída. |
-| ComputeResourceId | Identificador de recurso de computação de máquina virtual totalmente qualificado. |
-| Declarável | Definir como true se a VM for uma VM declarável | 
-| Ambienteid | O identificador de recurso de ambiente no qual a máquina virtual foi criada. Ele está vazio quando a VM não foi criada como parte de um recurso de ambiente. |
-| ExpirationDate | Data de validade da VM. Ele será definido como vazio se uma data de expiração não tiver sido definida.
-| GalleryImageReferenceVersion |  Versão da imagem base da VM. |
-| GalleryImageReferenceOffer | Oferta da imagem base da VM. |
-| GalleryImageReferencePublisher | Editor da imagem base da VM. |
-| GalleryImageReferenceSku | SKU da imagem base da VM |
-| GalleryImageReferenceOsType | Tipo de so da imagem base da VM |
-| CustomImageId | ID totalmente qualificada da imagem personalizada base da VM. |
+| CreatedTime | A data-hora em que a VM foi criada. |
+| DeletedDate | A data-hora em que a VM foi excluída. Se está vazio, a exclusão ainda não ocorreu. |
+| Proprietário de recursos | Dono da VM. Se o valor estiver vazio, então é uma VM reivindicada ou criada por um diretor de serviço. |
+| PricingTier | Nível de preços da VM |
+| Status de recursos | Estado de disponibilidade da VM. Ativo, se ainda existir ou Inativo, se a VM tiver sido excluída. |
+| ComputaçãoResourceId | Identificador de recursos de computação de máquina virtual totalmente qualificado. |
+| Reclamado | Definido como verdadeiro se a VM é uma VM reivindicável | 
+| EnvironmentId | O identificador de recursos do ambiente no qual a máquina Virtual foi criada. Está vazio quando a VM não foi criada como parte de um recurso ambiental. |
+| ExpirationDate | Data de validade da VM. Está definido para esvaziar, se uma data de validade não foi definida.
+| GalleryImageReferenceVersion |  Versão da imagem base vm. |
+| GalleryImageReferenceOferta | Oferta da imagem base VM. |
+| GalleryImageReferenceEditor | Editor da imagem base vm. |
+| GalleryImageReferenceSku | Sku da imagem base vm |
+| GalleryImageReferenceOstype | Tipo de sO da imagem base vm |
+| CustomImageId | ID totalmente qualificado da imagem personalizada da base VM. |
 
-As colunas de dados contidas em **disks. csv** estão listadas abaixo:
+As colunas de dados contidas em **disks.csv** estão listadas abaixo:
 
-| Nome da coluna | Description | 
+| Nome da coluna | Descrição | 
 | ----------- | ----------- | 
 | SubscriptionId | ID da assinatura que contém o laboratório |
-| LabUId | GUID do laboratório |
-| LabName | nome do laboratório | 
+| LabUId | GUID para o laboratório |
+| Nome do Laboratório | Nome do laboratório | 
 | LabResourceId | ID de recurso totalmente qualificado para o laboratório | 
 | ResourceGroupName | Nome do grupo de recursos que contém o laboratório | 
-| ResourceId | ID de recurso totalmente qualificado para a VM. |
-| ResourceUId | GUID da VM |
+| ResourceId | ID de recurso totalmente qualificado para o VM. |
+| UID de recursos | GUID para o VM |
  |Nome | O nome do disco anexado |
 | CreatedTime |A data e a hora em que o disco de dados foi criado. |
 | DeletedDate | A data e a hora em que o disco de dados foi excluído. |
-| ResourceStatus | Status do recurso. Ativo, se o recurso existir. Inativo, quando excluído. |
-| DiskBlobName | Nome do blob para o disco de dados. |
+| Status de recursos | Status do recurso. Ativo, se o recurso existir. Inativo, quando excluído. |
+| DiskBlobName | Blob nome para o disco de dados. |
 | DiskSizeGB | O tamanho do disco de dados. |
-| DiskType | Tipo de disco de dados. 0 para Standard, 1 para Premium. |
-| LeasedByVmId | ID de recurso da VM à qual o disco de dados foi anexado. |
+| DiskType | Tipo do disco de dados. 0 para Standard, 1 para Premium. |
+| LeasedByVmId | ID de recursos da VM ao qual o disco de dados foi anexado. |
 
 
 > [!NOTE]
-> Se você estiver lidando com vários laboratórios e quiser obter informações gerais, as duas colunas de chave serão o **LabUID** e o **ResourceUId**, que são as IDs exclusivas entre as assinaturas.
+> Se você está lidando com vários laboratórios e deseja obter informações gerais, as duas colunas-chave são o **LabUID** e o **ResourceUId**, que são os ids únicos entre as assinaturas.
 
-Os dados exportados podem ser manipulados e visualizados usando ferramentas, como SQL Server, Power BI, etc. Esse recurso é especialmente útil quando você deseja relatar o uso de seu laboratório para sua equipe de gerenciamento que talvez não esteja usando a mesma assinatura do Azure que você faz.
+Os dados exportados podem ser manipulados e visualizados usando ferramentas, como SQL Server, Power BI, etc. Esse recurso é especialmente útil quando você deseja relatar o uso do seu laboratório para sua equipe de gerenciamento que pode não estar usando a mesma assinatura do Azure que você.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir: 
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)

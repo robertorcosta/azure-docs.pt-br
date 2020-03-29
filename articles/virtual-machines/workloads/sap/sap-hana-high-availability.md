@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade de SAP HANA em VMs do Azure no SLES | Microsoft Docs
+title: Alta disponibilidade de SAP HANA em VMs Azure em SLES | Microsoft Docs
 description: Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: radeltch
 ms.openlocfilehash: 69dcf91957263cea36f8ff6db6a7af14588998ee
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927219"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
@@ -25,17 +25,17 @@ ms.locfileid: "78927219"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]: https://launchpad.support.sap.com/#/notes/401162
+[401162]:https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -60,8 +60,8 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * O software SAP e combinações de SO (sistema operacional) e banco de dados com suporte.
   * A versão do kernel do SAP necessária para Windows e Linux no Microsoft Azure.
 * A Nota SAP [2015553] lista os pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* A Nota SAP [2205917] tem configurações de SO recomendadas para SUSE Linux Enterprise Server para aplicativos SAP.
-* A Nota SAP [1944799] tem Diretrizes SAP HANA para SUSE Linux Enterprise Server para aplicativos SAP.
+* O SAP Note [2205917] recomendou configurações do SO para o SUSE Linux Enterprise Server para aplicativos SAP.
+* O SAP Note [1944799] tem diretrizes SAP HANA para o SUSE Linux Enterprise Server para aplicativos SAP.
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramento relatadas para SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
 * A Nota SAP [2243692] tem informações sobre o licenciamento do SAP no Linux no Azure.
@@ -69,11 +69,11 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * A Nota SAP [401162] contém informações sobre como evitar o "endereço já em uso" ao configurar a Replicação do Sistema HANA.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
-* [SAP HANA certificada IaaS plataformas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP no][planning-guide] guia do Linux.
+* [Plataformas IaaS certificadas SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* Guia de [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide].
 * [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo).
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP no][dbms-guide] guia do Linux.
-* [Guias de práticas recomendadas do SUSE Linux Enterprise Server para aplicativos SAP 12 SP3][sles-for-sap-bp]
+* Guia de [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide].
+* [Guias de melhores práticas do SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
   * Configuração de uma infraestrutura otimizada de desempenho do SAP HANA SR (SLES para Aplicativos SAP 12 SP1). O guia contém todas as informações necessárias para configurar a Replicação de Sistema do SAP HANA para desenvolvimento local. Use este guia como uma linha de base.
   * Configuração de uma infraestrutura otimizada para custo de SR do SAP HANA (SLES para aplicativos SAP 12 SP1)
 
@@ -101,18 +101,18 @@ O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP
 Para implantar o modelo, siga estas etapas:
 
 1. Abra o [modelo de banco de dados][template-multisid-db] ou o [modelo convergido][template-converged] no portal do Azure. 
-    O modelo de banco de dados cria as regras de balanceamento de carga apenas para um banco de dados. O modelo convergido também cria as regras de balanceamento de carga para uma instância ASCS/SCS e ERS (somente Linux). Se você planeja instalar um sistema baseado no SAP NetWeaver e deseja instalar a instância do ASCS/SCS nos mesmos computadores, use o [modelo convergido][template-converged].
+    O modelo de banco de dados cria as regras de balanceamento de carga apenas para um banco de dados. O modelo convergido também cria as regras de balanceamento de carga para uma instância ASCS/SCS e ERS (somente Linux). Se você planeja instalar um sistema baseado no SAP NetWeaver e quer instalar a instância ASCS/SCS nas mesmas máquinas, use o [modelo convergido][template-converged].
 
 1. Insira os parâmetros s seguir:
     - **ID do sistema SAP**: insira a ID do sistema SAP do sistema SAP que você quer instalar. A ID é usada como um prefixo para os recursos que serão implantados.
-    - **Tipo de pilha**: (esse parâmetro é aplicável somente se você usar o modelo convergido.) Selecione o tipo de pilha do SAP NetWeaver.
+    - **Tipo de pilha:**(Este parâmetro só é aplicável se você usar o modelo convergente.) Selecione o tipo de pilha SAP NetWeaver.
     - **Tipo do SO**: selecione uma das distribuições do Linux. Para este exemplo, selecione **SLES 12**.
     - **Tipo de DB**: selecione **HANA**.
     - **Tamanho do sistema SAP**: insira o número de SAPS que o novo sistema irá fornecer. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
     - Em **SYSTEMAVAILABILITY**, selecione **HA**.
-    - **Nome de usuário e senha de**administrador: um novo usuário é criado e pode ser usado para entrar no computador.
+    - **Nome de usuário e senha de admin:** Um novo usuário é criado que pode ser usado para fazer login na máquina.
     - **Sub-rede nova ou existente**: determina se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-    - **ID de sub-rede**: se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida a VM deve ser atribuída para a ID de sub-rede específico. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>** .
+    - **ID de sub-rede**: Se você quiser implantar a VM em um VNet existente onde você tem uma sub-rede definida para a qual a VM deve ser atribuída, nomeie o ID dessa sub-rede específica. Geralmente, a ID é semelhante a **/subscriptions/\<ID da assinatura ID>/resourceGroups/\<nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual>/subnets/\<nome da sub-rede>**.
 
 ### <a name="manual-deployment"></a>Implantação manual
 
@@ -124,7 +124,7 @@ Para implantar o modelo, siga estas etapas:
 1. Crie uma rede virtual.
 1. Crie um conjunto de disponibilidade.
    - Defina o máximo de domínio de atualização.
-1. Crie um balanceador de carga (interno). Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+1. Crie um balanceador de carga (interno). Recomendamos [o balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    - Selecione a rede virtual criada na etapa 2.
 1. Crie a máquina virtual 1.
    - Use uma imagem SLES4SAP na galeria do Azure que tem suporte para o SAP HANA no tipo de VM que você selecionou.
@@ -138,53 +138,53 @@ Para implantar o modelo, siga estas etapas:
    
       1. Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
       1. Insira o nome do novo pool de IP front-end (por exemplo, **hana-frontend**).
-      1. Defina a **Atribuição** para **Estático** e insira o endereço IP (por exemplo, **10.0.0.13**).
+      1. Defina a **Atribuição** **como Estática** e digite o endereço IP (por exemplo, **10.0.0.13**).
       1. Selecione **OK**.
       1. Depois que o novo pool de IP de front-end for criado, anote o endereço IP do pool.
    
    1. Em seguida, crie um pool de back-end:
    
       1. Abra o balanceador de carga, selecione **pools de back-end** e selecione **Adicionar**.
-      1. Insira o nome do novo pool de back-end (por exemplo, **hana-backend**).
+      1. Digite o nome do novo pool back-end (por exemplo, **hana-backend**).
       1. Selecione **Rede Virtual**.
       1. Selecione **Adicionar uma máquina virtual**.
-      1. Selecione * * máquina virtual * *.
+      1. Selecione ** Máquina virtual**.
       1. Selecione as máquinas virtuais do cluster SAP HANA e seus endereços IP.
       1. Selecione **Adicionar**.
    
    1. Em seguida, crie uma investigação de integridade:
    
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
-      1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
+      1. Digite o nome da nova sonda de saúde (por exemplo, **hana-hp**).
       1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
    
    1. Em seguida, crie as regras de balanceamento de carga:
    
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, **Hana-lb**).
-      1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo, **Hana-frontend**, **Hana-backend** e **Hana-HP**).
-      1. Selecione **portas de alta disponibilidade**.
+      1. Digite o nome da nova regra do balanceador de carga (por exemplo, **hana-lb**).
+      1. Selecione o endereço IP front-end, o pool back-end e o teste de saúde que você criou anteriormente (por exemplo, **hana-frontend**, **hana-backend** e **hana-hp**).
+      1. Selecione **portas HA**.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
 
    > [!Note]
-   > Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > Quando as VMs sem endereços IP públicos forem colocadas no pool de backend do balanceador de carga Padrão Azure(sem endereço IP público), não haverá conectividade de saída da Internet, a menos que a configuração adicional seja executada para permitir o roteamento para pontos finais públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto final público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. Como alternativa, se seu cenário determina o uso do Load Balancer básico, siga estas etapas de configuração:
+1. Alternativamente, se o seu cenário ditar o uso do balanceador de carga básico, siga estas etapas de configuração:
    1. Primeiro, crie um pool de IP de front-end:
    
       1. Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
       1. Insira o nome do novo pool de IP front-end (por exemplo, **hana-frontend**).
-      1. Defina a **Atribuição** para **Estático** e insira o endereço IP (por exemplo, **10.0.0.13**).
+      1. Defina a **Atribuição** **como Estática** e digite o endereço IP (por exemplo, **10.0.0.13**).
       1. Selecione **OK**.
       1. Depois que o novo pool de IP de front-end for criado, anote o endereço IP do pool.
    
    1. Em seguida, crie um pool de back-end:
    
       1. Abra o balanceador de carga, selecione **pools de back-end** e selecione **Adicionar**.
-      1. Insira o nome do novo pool de back-end (por exemplo, **hana-backend**).
+      1. Digite o nome do novo pool back-end (por exemplo, **hana-backend**).
       1. Selecione **Adicionar uma máquina virtual**.
       1. Selecione o conjunto de disponibilidade criado na etapa 3.
       1. Selecione as máquinas virtuais do cluster do SAP HANA.
@@ -193,7 +193,7 @@ Para implantar o modelo, siga estas etapas:
    1. Em seguida, crie uma investigação de integridade:
    
       1. Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
-      1. Insira o nome da nova investigação de integridade (por exemplo, **hana-hp**).
+      1. Digite o nome da nova sonda de saúde (por exemplo, **hana-hp**).
       1. Selecione **TCP** como o protocolo e porta 625**03**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
       1. Selecione **OK**.
    
@@ -211,7 +211,7 @@ Para implantar o modelo, siga estas etapas:
    1. Para o SAP HANA 2.0, crie as regras de balanceamento de carga para o banco de dados do sistema:
    
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
+      1. Digite o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**13).
       1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade que você criou anteriormente (por exemplo, **hana-frontend**).
       1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**13.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
@@ -222,19 +222,19 @@ Para implantar o modelo, siga estas etapas:
    1. Para o SAP HANA 2.0, primeiro crie as regras de balanceamento de carga para o banco de dados do locatário:
    
       1. Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
-      1. Insira o nome da nova regra do balanceador de carga (por exemplo hana-lb-3**03**40).
-      1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **hana-frontend**).
+      1. Digite o nome da nova regra do balanceador de carga (por exemplo, hana-lb-3**03**40).
+      1. Selecione o endereço IP frontend, o pool de backend e o teste de saúde que você criou anteriormente (por exemplo, **hana-frontend**).
       1. Mantenha o **Protocolo** definido como **TCP** e insira a porta 3**03**40.
       1. Aumente o **tempo limite de ociosidade** para 30 minutos.
       1. Certifique-se de **habilitar IP Flutuante**.
       1. Selecione **OK**.
       1. Repita essas etapas para portas 3**03**41 e 3**03**42.
 
-   Para obter mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [conexões a bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [SAP Hana bancos de dados de locatários](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou [SAP Note 2388694][2388694].
+   Para obter mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [Conexões aos bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [Bancos de dados de locatário do SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou[Nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
-> Consulte também SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
+> Não habilite carimbos de tempo TCP em VMs Azure colocados atrás do Azure Load Balancer. A habilitação dos carimbos de tempo do TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para obter detalhes, consulte [testes de saúde load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Veja também a nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Criar um cluster do Pacemaker
 
@@ -243,11 +243,11 @@ Siga as etapas em [Configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 ## <a name="install-sap-hana"></a>Instalar SAP HANA
 
 As etapas nesta seção usam os seguintes prefixos:
-- **[A]** : a etapa aplica-se a todos os nós.
-- **[1]** : a etapa aplica-se apenas ao nó 1.
-- **[2]** : a etapa aplica-se ao nó 2 do cluster do Pacemaker apenas.
+- **[A]**: a etapa aplica-se a todos os nós.
+- **[1]**: a etapa aplica-se apenas ao nó 1.
+- **[2]**: a etapa aplica-se ao nó 2 do cluster do Pacemaker apenas.
 
-1. **[A]** Configure o layout do disco: **LVM (Gerenciador de Volumes Lógicos)** .
+1. **[A]** Configure o layout do disco: **LVM (Gerenciador de Volumes Lógicos) **.
 
    É recomendável que você use o LVM para volumes que armazenam dados e arquivos de log. O exemplo a seguir assume que as máquinas virtuais tenham quatro discos de dados anexados que são usados para criar dois volumes.
 
@@ -386,7 +386,7 @@ Para instalar a Replicação de Sistema do SAP HANA, siga o capítulo 4 do [guia
 
 1. **[A]** Atualize o Agente de Host do SAP.
 
-   Baixe o arquivo mais recente do agente de host do SAP no [centro de software SAP][sap-swcenter] e execute o comando a seguir para atualizar o agente. Substitua o caminho do arquivo para apontar para o arquivo que você baixou:
+   Baixe o último arquivo do Agente de Host do SAP pelo [Centro de Software do SAP][sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho do arquivo para apontar para o arquivo que você baixou:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -395,22 +395,22 @@ Para instalar a Replicação de Sistema do SAP HANA, siga o capítulo 4 do [guia
 
 As etapas nesta seção usam os seguintes prefixos:
 
-* **[A]** : a etapa aplica-se a todos os nós.
-* **[1]** : a etapa aplica-se apenas ao nó 1.
-* **[2]** : a etapa aplica-se ao nó 2 do cluster do Pacemaker apenas.
+* **[A]**: a etapa aplica-se a todos os nós.
+* **[1]**: a etapa aplica-se apenas ao nó 1.
+* **[2]**: a etapa aplica-se ao nó 2 do cluster do Pacemaker apenas.
 
 1. **[1]** Crie o banco de dados de locatário.
 
-   Se você estiver usando o SAP HANA 2.0 ou o MDC, crie um banco de dados de locatário para o sistema SAP NetWeaver. Substitua **NW1** pelo SID do sistema SAP.
+   Se você estiver usando o SAP HANA 2.0 ou o MDC, crie um banco de dados de locatário para o sistema SAP NetWeaver. Substitua **o NW1** pelo SID do seu sistema SAP.
 
-   Execute o seguinte comando como < hanasid\>ADM:
+   Execute o seguinte comando como\><adm hanasid:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
-1. **[1]** Configure a Replicação de Sistema no primeiro nó:
+1. **[1]** Configure a replicação do sistema no primeiro nó:
 
-   Faça backup dos bancos de dados como < hanasid\>ADM:
+   Fazer backup dos bancos de\>dados como <adm hanasid:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -430,7 +430,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[2]** Configure a Replicação de Sistema no segundo nó:
     
-   Registre o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como < hanasid\>ADM:
+   Registre o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como\><adm hanasid:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -440,13 +440,13 @@ As etapas nesta seção usam os seguintes prefixos:
 
 As etapas nesta seção usam os seguintes prefixos:
 
-* **[A]** : a etapa aplica-se a todos os nós.
-* **[1]** : a etapa aplica-se apenas ao nó 1.
-* **[2]** : a etapa aplica-se ao nó 2 do cluster do Pacemaker apenas.
+* **[A]**: a etapa aplica-se a todos os nós.
+* **[1]**: a etapa aplica-se apenas ao nó 1.
+* **[2]**: a etapa aplica-se ao nó 2 do cluster do Pacemaker apenas.
 
 1. **[1]** Crie os usuários necessários.
 
-   Execute o comando a seguir como raiz. Certifique-se de substituir as cadeias em negrito (ID do Sistema HANA **HN1** e o número da instância **03**) pelos valores da sua instalação do SAP HANA:
+   Execute o seguinte comando como raiz. Certifique-se de substituir as strings em negrito (HANA System ID **HN1** e a ocorrência número **03**) com os valores da instalação do SAP HANA:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -456,7 +456,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[A]** Crie a entrada do repositório de chaves.
 
-   Execute o seguinte comando como raiz para criar uma nova entrada de keystore:
+   Execute o seguinte comando como raiz para criar uma nova entrada de armazenamento de chaves:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -477,7 +477,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[1]** Configure a Replicação de Sistema no primeiro nó.
 
-   Crie o site primário como < hanasid\>ADM:
+   Criar o site principal como\><adm hanasid:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -485,7 +485,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[2]** Configure a Replicação de Sistema no nó secundário.
 
-   Registre o site secundário como < hanasid\>ADM:
+   Registre o site secundário como\><adm hanasid:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -513,13 +513,13 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 Em seguida, crie os recursos do HANA:
 
 > [!IMPORTANT]
-> Testes recentes revelaram situações em que o netcat para de responder às solicitações devido à pendência e sua limitação de manipular apenas uma conexão. O recurso netcat para de escutar as solicitações do Azure Load Balancer e o IP flutuante fica indisponível.  
-> Para os clusters pacemaker existentes, recomendamos a substituição de netcat por socat. No momento, é recomendável usar o agente de recursos do Azure-lb, que faz parte do pacote Resource-Agents, com os seguintes requisitos de versão do pacote:
-> - Para o SLES 12 SP4/SP5, a versão deve ser pelo menos Resource-Agents-4.3.018. a7fb5035-3.30.1.  
-> - Para o SLES 15/15 SP1, a versão deve ser pelo menos Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
+> Testes recentes revelaram situações, onde a netcat deixa de responder às solicitações devido ao atraso e sua limitação de lidar com apenas uma conexão. O recurso netcat pára de ouvir as solicitações do balanceador de carga do Azure e o IP flutuante fica indisponível.  
+> Para clusters Pacemaker existentes, recomendamos no passado substituir o netcat por socat. Atualmente recomendamos o uso do agente de recursos azure-lb, que faz parte dos agentes de recursos do pacote, com os seguintes requisitos de versão do pacote:
+> - Para SLES 12 SP4/SP5, a versão deve ser pelo menos agentes de recursos-4.3.018.a7fb5035-3.30.1.  
+> - Para sles 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
 >
 > Observe que a alteração exigirá um breve tempo de inatividade.  
-> Para clusters pacemaker existentes, se a configuração já tiver sido alterada para usar o socat, conforme descrito em [proteção de detecção do balanceador de carga do Azure](https://www.suse.com/support/kb/doc/?id=7024128), não há necessidade de alternar imediatamente para o agente de recursos do Azure-lb.
+> Para os clusters Pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), não há necessidade de mudar imediatamente para o agente de recursos azure-lb.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
@@ -734,7 +734,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 > [!IMPORTANT]
 > Selecione o sistema operacional SAP certificado para o SAP HANA nos tipos de VM específicos que você está usando. A lista de tipos de VM certificados do SAP HANA e suas versões do sistema operacional podem ser pesquisados em [Plataformas de IaaS certificadas do SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Clique nos detalhes do tipo de VM listado para obter a lista completa de versões do sistema operacional com suporte do SAP HANA para o tipo de VM específico
 
-Execute todos os casos de teste listados no guia Cenário otimizado para desempenho do SR do SAP HANA ou Cenário otimizado para custo do SR do SAP HANA, dependendo do caso de uso. Você pode encontrar os guias na [página de práticas recomendadas do SLES for SAP][sles-for-sap-bp].
+Execute todos os casos de teste listados no guia Cenário otimizado para desempenho do SR do SAP HANA ou Cenário otimizado para custo do SR do SAP HANA, dependendo do caso de uso. Os guias podem ser encontrados na [página de melhores práticas do SLES para SAP][sles-for-sap-bp].
 
 Os testes a seguir são uma cópia das descrições de teste do guia de Cenário otimizado para desempenho do SR do SAP HANA do SUSE Linux Enterprise Server para Aplicativos SAP 12 SP1. Para uma versão atualizada, sempre leia também o próprio guia. Antes de iniciar o teste, sempre certifique-se de que o HANA está em sincronização e também que a configuração do Pacemaker está correta.
 
@@ -755,7 +755,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como < hanasid\>ADM no nó hn1-dB-0:
+   Execute os seguintes comandos\>como <adm hanasid no nó hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -796,7 +796,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Execute os comandos a seguir como < hanasid\>ADM no nó hn1-DB-1:
+   Execute os seguintes comandos\>como <adm hanasid no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -837,7 +837,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como < hanasid\>ADM no nó hn1-dB-0:
+   Execute os seguintes comandos\>como <adm hanasid no nó hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -878,7 +878,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Execute os comandos a seguir como < hanasid\>ADM no nó hn1-DB-1:
+   Execute os seguintes comandos\>como <adm hanasid no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1021,7 +1021,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como < hanasid\>ADM no nó hn1-DB-1:
+   Execute os seguintes comandos\>como <adm hanasid no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1058,7 +1058,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como < hanasid\>ADM no nó hn1-DB-1:
+   Execute os seguintes comandos\>como <adm hanasid no nó hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1128,9 +1128,9 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
+* [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP][planning-guide]
+* [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
+* [Implantação do DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
 

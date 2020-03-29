@@ -1,6 +1,6 @@
 ---
-title: Codificação de alta disponibilidade dos serviços de mídia do Azure
-description: Saiba como fazer failover para uma conta de serviços de mídia secundária se ocorrer uma interrupção ou falha de um datacenter regional.
+title: Codificação de alta disponibilidade do Azure Media Services
+description: Saiba como fazer o failover em uma conta secundária dos Serviços de Mídia se ocorrer uma paralisação ou falha no data center regional.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,53 +14,53 @@ ms.custom: ''
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78934187"
 ---
-# <a name="media-services-high-availability-encoding"></a>Codificação de alta disponibilidade dos serviços de mídia 
+# <a name="media-services-high-availability-encoding"></a>Codificação de alta disponibilidade dos Serviços de Mídia 
 
-O serviço de codificação dos serviços de mídia do Azure é uma plataforma de processamento de lote regional e, no momento, não foi projetado para alta disponibilidade em uma única região. O serviço de codificação atualmente não fornece um failover instantâneo do serviço se houver uma interrupção regional do Datacenter ou uma falha do componente subjacente ou dos serviços dependentes (como armazenamento, SQL). Este artigo explica como implantar os serviços de mídia para manter uma arquitetura de alta disponibilidade com failover e garantir a disponibilidade ideal para seus aplicativos.
+O serviço de codificação Azure Media Services é uma plataforma regional de processamento em lote e não foi projetada atualmente para alta disponibilidade em uma única região. O serviço de codificação atualmente não fornece failover instantâneo do serviço se houver uma paralisação regional do datacenter ou falha de componentes subjacentes ou serviços dependentes (como armazenamento, SQL). Este artigo explica como implantar serviços de mídia para manter uma arquitetura de alta disponibilidade com failover e garantir a disponibilidade ideal para seus aplicativos.
 
-Seguindo as diretrizes e as práticas recomendadas descritas no artigo, você reduzirá o risco de falhas de codificação, atrasos e minimizará o tempo de recuperação se ocorrer uma interrupção em uma única região.
+Seguindo as diretrizes e práticas recomendadas descritas no artigo, você reduzirá o risco de falhas de codificação, atrasos e minimizará o tempo de recuperação se ocorrer uma paralisação em uma única região.
 
-## <a name="how-to-build-a-cross-regional-encoding-system"></a>Como criar um sistema de codificação entre regiões
+## <a name="how-to-build-a-cross-regional-encoding-system"></a>Como construir um sistema de codificação inter-regional
 
-* [Crie](create-account-cli-how-to.md) duas (ou mais) contas dos serviços de mídia do Azure.
+* [Crie](create-account-cli-how-to.md) duas (ou mais) contas do Azure Media Services.
 
-    As duas contas precisam estar em regiões diferentes. Para obter mais informações, consulte [regiões nas quais o serviço dos serviços de mídia do Azure está implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
-* Carregue sua mídia na mesma região da qual você está planejando para enviar o trabalho. Para obter mais informações sobre como iniciar a codificação, consulte [criar uma entrada de trabalho de uma URL https](job-input-from-http-how-to.md) ou [criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md).
+    As duas contas precisam estar em regiões diferentes. Para obter mais informações, consulte [as regiões em que o serviço azure Media Services é implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
+* Envie sua mídia para a mesma região da qual você está planejando enviar o trabalho. Para obter mais informações sobre como iniciar a codificação, consulte [Criar uma entrada de trabalho a partir de uma URL HTTPS](job-input-from-http-how-to.md) ou criar uma entrada de trabalho a partir de um arquivo [local](job-input-from-local-file-how-to.md).
 
-    Se você precisar reenviar o [trabalho](transforms-jobs-concept.md) para outra região, poderá usar JobInputHttp ou usar [Copy-blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) para copiar os dados do contêiner de ativos de origem para um contêiner de ativos na região alternativa.
-* Assine mensagens JobStateChange em cada conta por meio da grade de eventos do Azure. Para obter mais informações, consulte:
+    Se você precisar reenviar o [trabalho](transforms-jobs-concept.md) para outra região, você pode usar JobInputHttp ou usar [Copy-Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) para copiar os dados do contêiner De ré para um contêiner De ativos na região alternativa.
+* Inscreva-se em Mensagens JobStateChange em cada conta via Azure Event Grid. Para obter mais informações, consulte:
 
-    * [Exemplo de análise de áudio](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer) que mostra como monitorar um trabalho com a grade de eventos do Azure, incluindo a adição de um fallback, caso as mensagens da grade de eventos do Azure sejam atrasadas por algum motivo.
-    * [Esquemas da grade de eventos do Azure para eventos dos serviços de mídia](media-services-event-schemas.md)
-    * [Registrar-se para eventos por meio do portal do Azure ou da CLI](reacting-to-media-services-events.md) (você também pode fazer isso com o SDK de gerenciamento do EventGrid)
-    * [SDK do Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (que dá suporte a eventos dos serviços de mídia nativamente).
+    * [Amostra de análise de áudio](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer) que mostra como monitorar um trabalho com o Azure Event Grid, incluindo a adição de um recuo no caso de as mensagens do Azure Event Grid serem adiadas por algum motivo.
+    * [Esquemas de Grade de Eventos do Azure para eventos dos Serviços de Mídia](media-services-event-schemas.md)
+    * [Registre-se para eventos através do portal Azure ou da CLI](reacting-to-media-services-events.md) (você também pode fazê-lo com o EventGrid Management SDK)
+    * [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (que suporta eventos de Serviços de Mídia nativamente).
 
-    Você também pode consumir eventos de grade de eventos via Azure Functions.
-* Quando você cria um [trabalho](transforms-jobs-concept.md):
+    Você também pode consumir eventos da Event Grid através de Funções Azure.
+* Quando você cria um [emprego:](transforms-jobs-concept.md)
 
-    * Selecione aleatoriamente uma conta na lista de contas atualmente usadas (essa lista normalmente conterá as duas contas, mas se forem detectadas problemas, ela poderá conter apenas uma conta). Se a lista estiver vazia, gere um alerta para que um operador possa investigar.
-    * As diretrizes gerais são necessárias para uma [unidade reservada de mídia](media-reserved-units-cli-how-to.md) por [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (a menos que você esteja usando [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) em que é recomendado 3 unidades reservadas de mídia por JobOutput).
-    * Obtenha a contagem de unidades reservadas de mídia (MRUs) para a conta escolhida. Se a contagem de **unidades reservadas de mídia** atual ainda não estiver no valor máximo, adicione o número do MRUs necessário para o trabalho e atualize o serviço. Se a taxa de envio do trabalho for alta e você estiver consultando com frequência o MRUs para descobrir que você está no máximo, use um cache distribuído para o valor com um tempo limite razoável.
-    * Mantenha uma contagem do número de trabalhos do em andamento.
+    * Selecione aleatoriamente uma conta da lista de contas usadas atualmente (esta lista normalmente conterá ambas as contas, mas se os problemas forem detectados, ela poderá conter apenas uma conta). Se a lista estiver vazia, levante um alerta para que um operador possa investigar.
+    * A orientação geral é que você precisa de uma [unidade reservada](media-reserved-units-cli-how-to.md) de mídia por [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (a menos que você esteja usando [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) onde 3 unidades reservadas de mídia por JobOutput é recomendada).
+    * Obtenha a contagem de unidades de mídia reservadas (MRUs) para a conta escolhida. Se a contagem de **unidades reservadas** de mídia atual ainda não estiver no valor máximo, adicione o número das MRUs necessárias pelo trabalho e atualize o serviço. Se a taxa de submissão de emprego for alta e você estiver consultando frequentemente as MRUs para descobrir que você está no máximo, use um cache distribuído para o valor com um tempo limite razoável.
+    * Mantenha uma contagem do número de empregos a bordo.
 
-* Quando o manipulador JobStateChange recebe uma notificação de que um trabalho atingiu o estado agendado, registre a hora em que ele entra no estado de agendamento e a região/conta usada.
-* Quando o manipulador JobStateChange receber uma notificação de que um trabalho atingiu o estado de processamento, marque o registro para o trabalho como processamento.
-* Quando o manipulador JobStateChange receber uma notificação de que um trabalho atingiu o estado concluído/com erro/cancelado, marque o registro para o trabalho como final e reduza a contagem de trabalhos em andamento. Obtenha o número de unidades reservadas de mídia para a conta escolhida e compare o número de MRU atual com relação à contagem de trabalhos do em andamento. Se sua contagem de em andamento for menor que a contagem de MRU, decrementar e atualizar o serviço.
-* Ter um processo separado que examina periodicamente os registros dos trabalhos
+* Quando o manipulador JobStateChange recebe uma notificação de que um trabalho atingiu o estado programado, registre a hora em que ele entra no estado de agendamento e na região/conta usada.
+* Quando o manipulador JobStateChange receber uma notificação de que um trabalho atingiu o estado de processamento, marque o recorde para o trabalho como processamento.
+* Quando o manipulador JobStateChange receber uma notificação de que um trabalho atingiu o estado concluído/errado/cancelado, marque o registro para o trabalho como final e decrete a contagem de trabalho de bordo. Obtenha o número de unidades reservadas de mídia para a conta escolhida e compare o número atual de MRU com a sua contagem de trabalho a bordo. Se a contagem de bordo for menor que a contagem de ressonância magnética, decrete-a e atualize o serviço.
+* Tenha um processo separado que periodicamente analisa seus registros dos trabalhos
     
-    * Se você tiver trabalhos no estado agendado que não são avançados para o estado de processamento em um período razoável de tempo para uma determinada região, remova essa região da sua lista de contas atualmente usadas.  Dependendo dos seus requisitos de negócios, você pode optar por cancelar esses trabalhos imediatamente e reenviá-los para a outra região. Ou você pode dar mais tempo para passar para o próximo estado.
-    * Dependendo do número de unidades reservadas de mídia configuradas na conta e da taxa de envio, também poderá haver trabalhos no estado enfileirado que o sistema ainda não tenha selecionado para processamento.  Se a lista de trabalhos no estado de fila aumentar além de um limite aceitável em uma região, esses trabalhos poderão ser cancelados e enviados para a outra região.  No entanto, isso pode ser um sintoma de não ter unidades reservadas de mídia suficientes configuradas na conta para a carga atual.  Você pode solicitar uma cota de unidade reservada de mídia maior por meio do suporte do Azure, se necessário.
-    * Se uma região tiver sido removida da lista de contas, monitore-a para recuperação antes de adicioná-la de volta à lista.  A integridade regional pode ser monitorada por meio dos trabalhos existentes na região (se eles não foram cancelados e reenviados), adicionando a conta de volta à lista após um período de tempo e por operadores monitorando as comunicações do Azure sobre interrupções que podem estar afetando Serviços de mídia do Azure.
+    * Se você tem empregos no estado programado que não avançaram para o estado de processamento em um período razoável de tempo para uma determinada região, remova essa região da sua lista de contas usadas atualmente.  Dependendo dos requisitos do seu negócio, você pode decidir cancelar esses trabalhos imediatamente e reenviá-los para a outra região. Ou, você poderia dar-lhes algum tempo mais para se mudar para o próximo estado.
+    * Dependendo do número de Unidades Reservadas de Mídia configuradas na conta e da taxa de submissão, também pode haver empregos no estado enfileirado que o sistema ainda não pegou para processamento.  Se a lista de empregos no estado enfileirado crescer além do limite aceitável em uma região, esses empregos podem ser cancelados e submetidos à outra região.  No entanto, isso pode ser um sintoma de não ter unidades reservadas de mídia suficientes configuradas na conta para a carga atual.  Você pode solicitar uma cota maior de Unidade Reservada de Mídia através do Suporte Azure, se necessário.
+    * Se uma região foi removida da lista de contas, monitore-a para recuperação antes de adicioná-la de volta à lista.  A saúde regional pode ser monitorada através dos empregos existentes na região (se não foram canceladas e reenviadas), adicionando a conta de volta à lista após um período de tempo, e por operadores monitorando as comunicações do Azure sobre paralisações que podem estar afetando Azure Media Services.
     
-Se você achar que a contagem de MRU é ultrapaginação e verticalmente, mova a lógica de decréscimo para a tarefa periódica. Faça com que a lógica de envio de pré-trabalho Compare a contagem de em andamento com a contagem de MRU atual para ver se precisa atualizar o MRUs.
+Se você achar que a contagem de ressonânciamagnética está batendo muito para cima e para baixo, mova a lógica de decrésia para a tarefa periódica. Faça com que a lógica de envio de pré-trabalho compare a contagem de bordo com a contagem atual de MRU para ver se ele precisa atualizar as MRUs.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar streaming entre regiões de vídeo por demanda](media-services-high-availability-streaming.md)
-* Confira [exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
+* [Construa streaming de região transversal de vídeo demanda](media-services-high-availability-streaming.md)
+* Confira [amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-media-services)

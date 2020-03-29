@@ -1,5 +1,5 @@
 ---
-title: Crie agendas e recorrências de trabalhos avançadas
+title: Construir cronogramas de trabalho avançados e recorrências
 description: Saiba como criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
 services: scheduler
 ms.service: scheduler
@@ -10,18 +10,18 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898598"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Azure Scheduler, que está [sendo aposentado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você criou no Scheduler, [migre para o Azure Logic Apps o](../scheduler/migrate-from-scheduler-to-logic-apps.md) mais rápido possível. 
 >
-> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
+> O agendador não está mais disponível no portal Azure, mas os cmdlets [Do API e](/rest/api/scheduler) [do Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que você possa gerenciar seus trabalhos e coletas de empregos.
 
 Dentro de um trabalho do [Agendador do Azure](../scheduler/scheduler-intro.md), a agenda é o núcleo que determina quando e como o serviço do Agendador executa o trabalho. É possível definir agendamentos recorrentes e únicos para um trabalho com o Agendador. Os agendamentos únicos são executados apenas uma vez no horário especificado e são basicamente agendamentos recorrentes que são executados apenas uma vez. Os agendamentos recorrentes são executados em uma frequência especificada. Com esta flexibilidade, é possível usar o Agendador para vários cenários empresariais, por exemplo:
 
@@ -64,15 +64,15 @@ Para criar um agendamento básico com a [API REST do Agendador do Azure](/rest/a
 
 Esta tabela fornece uma visão geral de alto nível para os principais elementos JSON que podem ser usados ao configurar recorrências e agendamentos para trabalhos. 
 
-| Elemento | Obrigatório | DESCRIÇÃO | 
+| Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------|
-| **startTime** | Não | Um valor de cadeia de caracteres de DateTime em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho é iniciado em um cronograma básico. <p>Para agendas complexas, o trabalho não inicia antes do **startTime**. | 
-| **recurrence** | Não | As regras de recorrência para quando o trabalho é executado. O objeto de **recorrência** tem suporte para estes elementos: **frequency**, **interval**, **schedule**, **count** e **endTime**. <p>Se você usar o elemento **recurrence**, também deverá usar o **frequency**, enquanto outros elementos **recurrence** são opcionais. |
-| **frequency** | Sim, quando você usa **recurrence** | A unidade de tempo entre ocorrências e a compatibilidade desses valores: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
-| **interval** | Não | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base em **frequency**. <p>Por exemplo, se **interval** for 10 e **frequency** for "Week", o trabalho se repetirá a cada 10 semanas. <p>Aqui estão o maior número de intervalos para cada frequência: <p>– 18 meses <br>– 78 semanas <br>– 548 dias <br>– Para horas e minutos, o intervalo é 1 <= <*interval*> <= 1000. | 
+| **Starttime** | Não | Um valor de cadeia de caracteres de DateTime em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho é iniciado em um cronograma básico. <p>Para agendas complexas, o trabalho não inicia antes do **startTime**. | 
+| **Recorrência** | Não | As regras de recorrência para quando o trabalho é executado. O objeto de **recorrência** tem suporte para estes elementos: **frequency**, **interval**, **schedule**, **count** e **endTime**. <p>Se você usar o elemento **recurrence**, também deverá usar o **frequency**, enquanto outros elementos **recurrence** são opcionais. |
+| **frequência** | Sim, quando você usa **recurrence** | A unidade de tempo entre ocorrências e a compatibilidade desses valores: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
+| **Intervalo** | Não | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base em **frequency**. <p>Por exemplo, se **interval** for 10 e **frequency** for "Week", o trabalho se repetirá a cada 10 semanas. <p>Aqui estão o maior número de intervalos para cada frequência: <p>– 18 meses <br>– 78 semanas <br>– 548 dias <br>– Para horas e minutos, o intervalo é 1 <= <*interval*> <= 1000. | 
 | **schedule** | Não | Defina as alterações para a recorrência com base nas marcas de minuto, marcas de hora, dias da semana e dias do mês especificados | 
-| **contagem** | Não | Um número inteiro positivo que especifica o número de vezes que o trabalho é executado antes de ser concluído. <p>Por exemplo, quando um trabalho diário tem **count** definido como 7 e a data de início é Monday, o trabalho conclui a execução em um domingo. Se a data de início já tiver passado, a primeira execução será calculada do momento da criação. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. | 
-| **endTime** | Não | Um valor de cadeia de caracteres de Date ou DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho para de ser executado. Você pode definir um valor para **endTime** que está no passado. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. |
+| **count** | Não | Um número inteiro positivo que especifica o número de vezes que o trabalho é executado antes de ser concluído. <p>Por exemplo, quando um trabalho diário tem **count** definido como 7 e a data de início é Monday, o trabalho conclui a execução em um domingo. Se a data de início já tiver passado, a primeira execução será calculada do momento da criação. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. | 
+| **Endtime** | Não | Um valor de cadeia de caracteres de Date ou DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho para de ser executado. Você pode definir um valor para **endTime** que está no passado. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. |
 |||| 
 
 Por exemplo, esse esquema JSON descreve um agendamento básico e a recorrência para um trabalho: 
@@ -160,13 +160,13 @@ Se você especificar mais de um elemento de agenda, a ordem de avaliação será
 
 A tabela a seguir descreve elementos schedule em detalhes:
 
-| Nome JSON | DESCRIÇÃO | Valores válidos |
+| Nome JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
-| **minutos** |Minutos da hora em que o trabalho executa. |Uma matriz de inteiros. |
-| **horas** |Horas do dia em que o trabalho executa. |Uma matriz de inteiros. |
-| **Dias da semana** |Dias da semana em que o trabalho executa. Pode ser especificado apenas com uma frequência semanal. |Uma matriz de qualquer um dos valores a seguir (o tamanho máximo da matriz é 7):<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Não diferencia maiúsculas de minúsculas. |
-| **monthlyOccurences** |Determina em quais dias do mês o trabalho executa. Pode ser especificado apenas com uma frequência mensal. |Uma matriz de objetos **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** é o dia da semana em que o trabalho executa. Por exemplo, *{Sunday}* são todos os domingos do mês. Obrigatórios.<br /><br />**occurrence** é a ocorrência do dia durante o mês. Por exemplo,  *{Sunday, -1}* é o último domingo do mês. Opcional. |
-| **Dias do mês** |Dia do mês em que o trabalho executa. Pode ser especificado apenas com uma frequência mensal. |Uma matriz dos valores a seguir:<br />- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31|
+| **Minutos** |Minutos da hora em que o trabalho executa. |Uma matriz de inteiros. |
+| **Horas** |Horas do dia em que o trabalho executa. |Uma matriz de inteiros. |
+| **Semana** |Dias da semana em que o trabalho executa. Pode ser especificado apenas com uma frequência semanal. |Uma matriz de qualquer um dos valores a seguir (o tamanho máximo da matriz é 7):<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Não diferencia maiúsculas de minúsculas. |
+| **monthlyOccurrences** |Determina em quais dias do mês o trabalho executa. Pode ser especificado apenas com uma frequência mensal. |Uma matriz de objetos **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** é o dia da semana em que o trabalho executa. Por exemplo, *{Sunday}* são todos os domingos do mês. Obrigatórios.<br /><br />**occurrence** é a ocorrência do dia durante o mês. Por exemplo,  *{Sunday, -1}* é o último domingo do mês. Opcional. |
+| **monthDays** |Dia do mês em que o trabalho executa. Pode ser especificado apenas com uma frequência mensal. |Uma matriz dos valores a seguir:<br />- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
 
@@ -174,7 +174,7 @@ Os exemplos a seguir mostram vários agendamentos de recorrência. Os exemplos c
 
 Esses agendamentos assumem que **intervalo** está definido para 1\. Os exemplos também assumem os valores de **frequência** corretos para os valores na **agenda**. Por exemplo, não é possível usar uma **frequência** de "day" e ter uma modificação **monthDays** na **agenda**. Nós descrevemos essas restrições no início do artigo.
 
-| Exemplo | DESCRIÇÃO |
+| Exemplo | Descrição |
 |:--- |:--- |
 | `{"hours":[5]}` |Executar às 5:00 todos os dias.<br /><br />O Agendador corresponde a cada valor em "hours" com cada valor em "minutes", um a um, para criar uma lista de todos os horários em que o trabalho é executado. |
 | `{"minutes":[15], "hours":[5]}` |Executar às 5h15 todos os dias. |

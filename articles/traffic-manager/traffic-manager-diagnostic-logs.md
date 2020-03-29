@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
 ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938668"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitar o log de diagnósticos no Gerenciador de Tráfego do Microsoft Azure
@@ -24,7 +24,7 @@ Este artigo descreve como habilitar o log de diagnósticos e os dados do log de 
 
 Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gerenciador de Tráfego. Por exemplo, é possível usar os dados do log do perfil para determinar por que as investigações individuais atingiram o tempo limite em um ponto de extremidade.
 
-## <a name="enable-diagnostic-logging"></a>Habilitar o registro em log de diagnósticos
+## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -55,7 +55,7 @@ Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer info
       Assegure-se de que todas as categorias de log associadas ao recurso de perfil do Gerenciador de Tráfego sejam exibidas como habilitadas. Além disso, verifique se a conta de armazenamento está configurada corretamente.
 
 ## <a name="access-log-files"></a>Acessar arquivos de log
-1. Entre no [portal do Azure](https://portal.azure.com). 
+1. Faça login no [portal Azure](https://portal.azure.com). 
 1. Navegue até a conta de Armazenamento do Azure no portal.
 2. Na página de **Visão Geral** da conta de armazenamento do Azure, em **Serviços**, selecione **Blobs**.
 3. Para **Contêineres**, selecione **insights-logs-probehealthstatusevents**, navegue até o arquivo PT1H.json e clique em **Baixar** para baixar e salvar uma cópia desse arquivo de log.
@@ -71,12 +71,12 @@ A tabela a seguir inclui o esquema de logs específico para o recurso de perfil 
 
 |||||
 |----|----|---|---|
-|**Nome do Campo**|**Tipo de campo**|**Definição**|**Exemplo**|
+|**Nome do campo**|**Tipo de campo**|**Definição**|**Exemplo**|
 |EndpointName|String|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
-|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
+|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Para cima**|
 |||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 

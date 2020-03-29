@@ -1,5 +1,5 @@
 ---
-title: Configurar Azure-SSIS Integration Runtime para failover do banco de dados SQL
+title: Configure o runtime de integração Do Azure-SSIS para failover do banco de dados SQL
 description: Este artigo descreve como configurar o Azure-SSIS Integration Runtime com a replicação geográfica e o failover do Banco de Dados SQL do Azure para o banco de dados SSISDB
 services: data-factory
 ms.service: data-factory
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/14/2018
 ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928493"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar o Azure-SSIS Integration Runtime com a replicação geográfica e o failover do Banco de Dados SQL do Azure
@@ -29,13 +29,13 @@ Para obter mais informações sobre a replicação geográfica e o failover do B
 
 ## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Cenário 1 - IR Azure-SSIS está apontando para o ponto de extremidade do ouvinte de leitura / gravação
 
-### <a name="conditions"></a>Conditions
+### <a name="conditions"></a>Condições
 
 Esta seção se aplica quando as seguintes condições forem verdadeiras:
 
 - A prefeitura diz que "os principais problemas de saúde são os seguintes:
 
-  E
+  AND
 
 - O servidor do banco de dados SQL está *não* configurado com a regra de ponto de extremidade de serviço de rede virtual.
 
@@ -45,7 +45,7 @@ Quando ocorre um failover, ele é transparente para o IR do Azure-SSIS. O Azure-
 
 ## <a name="scenario-2---azure-ssis-ir-is-pointing-to-primary-server-endpoint"></a>Cenário 2 - o Azure-SSIS IR está apontando para o terminal principal do servidor
 
-### <a name="conditions"></a>Conditions
+### <a name="conditions"></a>Condições
 
 Esta seção se aplica quando uma das seguintes condições for verdadeira:
 
@@ -100,9 +100,9 @@ Siga estas etapas para interromper o IR do Azure-SSIS, alternar o IR para uma no
 
 3. Inicie o IR novamente.
 
-## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Cenário 3 – anexando um SSISDB existente (catálogo do SSIS) a um novo Azure-SSIS IR
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Cenário 3 - Anexando um ssisdb (catálogo SSIS) existente a um novo IR Azure-SSIS
 
-Quando um ADF ou Azure-SSIS IR desastre ocorre na região atual, você pode fazer com que o SSISDB continue trabalhando com uma nova Azure-SSIS IR em uma nova região.
+Quando um desastre de IR ADF ou Azure-SSIS ocorre na região atual, você pode fazer com que seu SSISDB continue trabalhando com um novo Azure-SSIS IR em uma nova região.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -114,22 +114,22 @@ Quando um ADF ou Azure-SSIS IR desastre ocorre na região atual, você pode faze
 
 Siga estas etapas para interromper o IR do Azure-SSIS, alternar o IR para uma nova região e iniciá-lo novamente.
 
-1. Execute o procedimento armazenado para fazer o SSISDB anexado a **\<new_data_factory_name\>** ou **\<** new_integration_runtime_name\>.
+1. Executar o procedimento armazenado para tornar o SSISDB conectado ao ** \<new_data_factory_name\> ** ou ** \<new_integration_runtime_name\>**.
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
    ```
 
-2. Crie um novo data factory chamado **\<new_data_factory_name\>** na nova região. Para obter mais informações, consulte criar um data factory.
+2. Crie uma nova ** \<fábrica\> ** de dados chamada new_data_factory_name na nova região. Para obter mais informações, consulte Criar uma fábrica de dados.
 
      ```powershell
      Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
                          -Location "new region"`
                          -Name "<new_data_factory_name>"
      ```
-    Para obter mais informações sobre esse comando do PowerShell, consulte [criar um data Factory do Azure usando o PowerShell](quickstart-create-data-factory-powershell.md)
+    Para obter mais informações sobre este comando PowerShell, consulte [Criar uma fábrica de dados do Azure usando o PowerShell](quickstart-create-data-factory-powershell.md)
 
-3. Crie um novo Azure-SSIS IR chamado **\<new_integration_runtime_name\>** na nova região usando Azure PowerShell.
+3. Crie um novo Azure-SSIS IR chamado ** \<new_integration_runtime_name\> ** na nova região usando o Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
@@ -153,12 +153,12 @@ Siga estas etapas para interromper o IR do Azure-SSIS, alternar o IR para uma no
 
 4. Inicie o IR novamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Considere estas outras opções de configuração para o IR do Azure-SSIS:
 
 - [Configurar o Azure-SSIS Integration Runtime para alto desempenho](configure-azure-ssis-integration-runtime-performance.md)
 
-- [Personalizar a instalação para o runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Personalizar configuração do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
 
 - [Provisionar a Enterprise Edition para o Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)

@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de conexões – API REST do Azure
+title: Conexões de solução de problemas - API Azure REST
 titleSuffix: Azure Network Watcher
 description: Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando a API REST do Azure.
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
 ms.openlocfilehash: f1d4b02731f9e0f22fb1eaba03e55e49f84cd87a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845084"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando a API REST do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
-> - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI do Azure](network-watcher-connectivity-cli.md)
+> - [Powershell](network-watcher-connectivity-powershell.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [API REST do Azure](network-watcher-connectivity-rest.md)
 
 Saiba como usar a resolução de problemas de conexão para verificar se uma conexão TCP direta de uma máquina virtual para um determinado ponto de extremidade pode ser estabelecida.
@@ -53,7 +53,7 @@ Execute o script a seguir para retornar para uma máquina virtual. Essas informa
 
 O código a seguir precisa de valores para as variáveis a seguir:
 
-- **subscriptionId** - a Id da assinatura a ser usada.
+- **subscriptionId** - O ID de assinatura para usar.
 - **resourceGroupName** - o nome de um grupo de recursos que contém as máquinas virtuais.
 
 ```powershell
@@ -464,8 +464,8 @@ O exemplo a seguir é a resposta da execução da chamada à API anterior. Uma v
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [Criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md).
+Saiba como automatizar capturas de pacotes com alertas de máquinavirtual visualizando [Criar um alerta acionado de captura de pacotes](network-watcher-alert-triggered-packet-capture.md).
 
-Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](diagnose-vm-network-traffic-filtering-problem.md).
+Descubra se determinado tráfego é permitido dentro ou fora de sua VM visitando [verificar o fluxo ip de verificação](diagnose-vm-network-traffic-filtering-problem.md).

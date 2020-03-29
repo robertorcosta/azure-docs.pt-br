@@ -14,10 +14,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897060"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores que influenciam o desempenho do Azure AD Connect
@@ -35,7 +35,7 @@ O Microsoft Azure Active Directory Connect sincroniza seu Active Directory para 
 A finalidade deste documento é descrever os fatores que influenciam o desempenho do mecanismo de provisionamento do Azure AD Connect. Organizações grandes ou complexas (organizações de provisionamento com mais de 100.000 objetos) podem usar as recomendações para otimizar sua implementação do Azure AD Connect, se enfrentarem problemas de desempenho descritos aqui. Os outros componentes do Azure AD Connect, tais como a integridade [do Azure AD Connect health](how-to-connect-health-agent-install.md) e os agentes não são abordados aqui.
 
 > [!IMPORTANT]
-> A Microsoft não oferece suporte à modificação ou à operação do Azure AD Connect fora das ações formalmente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou sem suporte de Azure AD Connect sincronização. Como resultado, a Microsoft não pode fornecer suporte técnico para essas implantações.
+> A Microsoft não oferece suporte à modificação ou à operação do Azure AD Connect fora das ações formalmente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou não suportado da sincronização do Azure AD Connect. Como resultado, a Microsoft não pode fornecer suporte técnico para tais implantações.
 
 ## <a name="azure-ad-connect-component-factors"></a>Fatores de componente do Azure AD Connect
 
@@ -189,5 +189,5 @@ Para otimizar o desempenho da sua implementação do Azure AD Connect, considere
 - Se esforce para concluir o ciclo de sincronização delta em 30 minutos. Se o perfil de sincronização delta não for concluído em 30 minutos, modifique a frequência de sincronização padrão para incluir um ciclo de sincronização delta completa.
 - Monitor a integridade da [sincronização do Azure AD Connect](how-to-connect-health-agent-install.md) no Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

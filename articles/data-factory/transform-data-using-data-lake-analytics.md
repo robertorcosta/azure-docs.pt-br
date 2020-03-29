@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 257c71f7994b889540ec8cc5d0f384f3f8894f4d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74913271"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
@@ -34,12 +34,12 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 A tabela a seguir apresenta as descrições das propriedades genéricas usadas na definição JSON. 
 
-| Propriedade                 | Descrição                              | obrigatórios                                 |
+| Propriedade                 | Descrição                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | SIM                                      |
-| **accountName**          | Nome da conta da Análise Azure Data Lake.  | SIM                                      |
+| **type**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
+| **Accountname**          | Nome da conta da Análise Azure Data Lake.  | Sim                                      |
 | **dataLakeAnalyticsUri** | URI da Análise Azure Data Lake.           | Não                                       |
-| **subscriptionId**       | ID de assinatura do Azure                    | Não                                       |
+| **Subscriptionid**       | ID de assinatura do Azure                    | Não                                       |
 | **resourceGroupName**    | Nome do grupo de recursos do Azure                | Não                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
@@ -53,11 +53,11 @@ Conceder permissão de entidade de serviço para o seu Azure Data Lake Anatlyics
 
 Use a autenticação de entidade de serviço especificando as seguintes propriedades:
 
-| Propriedade                | Descrição                              | obrigatórios |
+| Propriedade                | Descrição                              | Obrigatório |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | SIM      |
-| **servicePrincipalKey** | Especifique a chave do aplicativo.           | SIM      |
-| **tenant**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | SIM      |
+| **servicePrincipalId**  | Especifique a ID do cliente do aplicativo.     | Sim      |
+| **servicePrincipalKey** | Especifique a chave do aplicativo.           | Sim      |
+| **Inquilino**              | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim      |
 
 **Exemplo: autenticação de entidade de serviço**
 ```json
@@ -117,16 +117,16 @@ O seguinte snippet de código JSON define um pipeline com uma Atividade do U-SQL
 
 A tabela a seguir descreve os nomes e as descrições de propriedades que são específicas a esta atividade. 
 
-| Propriedade            | Descrição                              | obrigatórios |
+| Propriedade            | Descrição                              | Obrigatório |
 | :------------------ | :--------------------------------------- | :------- |
-| Nome                | Nome da atividade no pipeline     | SIM      |
-| Descrição         | Texto que descreve o que a atividade faz.  | Não       |
-| type                | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | SIM      |
-| linkedServiceName   | Serviço vinculado ao Azure Data Lake Analytics. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  |SIM       |
-| scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. | SIM      |
-| scriptLinkedService | Serviço vinculado que vincula o **Azure Data Lake Store** ou **Armazenamento do Azure** que contém o script para o Data Factory | SIM      |
+| name                | Nome da atividade no pipeline     | Sim      |
+| descrição         | Texto que descreve o que a atividade faz.  | Não       |
+| type                | Para a atividade do U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU-SQL**. | Sim      |
+| linkedServiceName   | Serviço vinculado ao Azure Data Lake Analytics. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  |Sim       |
+| scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim      |
+| scriptLinkedService | Serviço vinculado que vincula o **Azure Data Lake Store** ou **Armazenamento do Azure** que contém o script para o Data Factory | Sim      |
 | degreeOfParallelism | O número máximo de nós usados simultaneamente para executar o trabalho. | Não       |
-| prioridade            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não       |
+| priority            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não       |
 | parâmetros          | Parâmetros para passar para o script U-SQL.    | Não       |
 | runtimeVersion      | Versão de runtime do mecanismo U-SQL a ser usado. | Não       |
 | compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores: **Semantic:** apenas realizar verificações de semântica e as verificações de integridade necessárias, **Full:** executar a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** executar a compilação completa, com configuração de TargetType para SingleBox. Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. | Não |
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-No exemplo de script acima, a entrada e a saída para o script são definidas em\@e\@parâmetros **de** **saída** . Os valores para **\@** os parâmetros in e **\@out** no script U-SQL são passados dinamicamente pelo data Factory usando a seção ' Parameters '. 
+No exemplo de script acima, a entrada e saída para o script é definida ** \@em** parâmetros dentro e ** \@fora.** Os valores ** \@** para ** \@** parâmetros de entrada e saída no script U-SQL são passados dinamicamente pela Fábrica de Dados usando a seção 'parâmetros'. 
 
 Você pode especificar outras propriedades, por exemplo, degreeOfParallelism e prioridade, bem como em sua definição de pipeline para os trabalhos executados no serviço Data Lake Analytics.
 
@@ -176,7 +176,7 @@ Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos 
 }
 ```
 
-É possível usar parâmetros dinâmicos em vez disso. Por exemplo: 
+É possível usar parâmetros dinâmicos em vez disso. Por exemplo:  
 
 ```json
 "parameters": {
@@ -187,14 +187,14 @@ Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos 
 
 Nesse caso, os arquivos de entrada ainda são obtidos da pasta /datalake/input e os arquivos de saída são gerados na pasta /datalake/output. Os nomes de arquivo são dinâmicos com base na hora de início de janela que está sendo passada quando o pipeline é disparado.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
 
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
+* [Atividade suína](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
-* [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
+* [Atividade de faísca](transform-data-using-spark.md)
+* [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
-* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
+* [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)

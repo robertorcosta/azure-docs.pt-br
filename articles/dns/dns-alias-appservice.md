@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937360"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos da web do Azure com carga balanceada no apex da zona
@@ -20,7 +20,7 @@ O protocolo DNS impede a atribuição de algo diferente de um registro A ou AAAA
 
 Com registros de alias, esse problema não existe mais. Agora, os proprietários do aplicativo podem apontar seu registro do ápice da zona para um perfil do Gerenciador de Tráfego que tenha nós de extremidade externos. Os proprietários de aplicativos podem apontar para o mesmo perfil do Gerenciador de tráfego que é usado para qualquer outro domínio em sua zona DNS.
 
-Por exemplo, contoso.com e www\.contoso.com podem apontar para o mesmo perfil do Gerenciador de tráfego. Esse é o caso, desde que o perfil do Gerenciador de Tráfego tenha apenas endpoints externos configurados.
+Por exemplo, contoso.com\.e www contoso.com podem apontar para o mesmo perfil de Gerenciador de Tráfego. Esse é o caso, desde que o perfil do Gerenciador de Tráfego tenha apenas endpoints externos configurados.
 
 Neste artigo, você aprende a criar um registro de alias para o seu ápice de domínio e a configurar seu perfil de Gerenciador de Tráfego do Microsoft Azure para seus aplicativos da web.
 
@@ -43,33 +43,33 @@ Crie um grupo de recursos para armazenar todos os recursos usados neste artigo.
 Crie dois planos do Serviço de Aplicativo da Web em seu grupo de recursos usando a tabela a seguir para obter informações de configuração. Para obter mais informações sobre como criar um plano do Serviço de Aplicativo, consulte [Gerenciar um plano do Serviço de Aplicativo no Azure](../app-service/app-service-plan-manage.md).
 
 
-|Nome  |Sistema Operacional  |Local  |Camada de preços  |
+|Nome  |Sistema operacional  |Location  |Camada de preços  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Leste dos EUA|Dev / Teste D1-Compartilhado|
-|ASP-02     |Windows|EUA Central|Dev / Teste D1-Compartilhado|
+|ASP-02     |Windows|Centro dos EUA|Dev / Teste D1-Compartilhado|
 
 ## <a name="create-app-services"></a>Criar Serviços de Aplicativos
 
 Crie dois aplicativos da web, um em cada plano do Serviço de Aplicativo.
 
-1. No canto superior esquerdo da página portal do Azure, selecione **criar um recurso**.
+1. No canto superior esquerdo da página do portal Azure, **selecione Criar um recurso**.
 2. Digite **Web app** na barra de pesquisa e pressione Enter.
-3. Selecione **aplicativo Web**.
+3. Selecione **web app**.
 4. Selecione **Criar**.
 5. Aceite os padrões e use a tabela a seguir para configurar os dois aplicativos da Web:
 
    |Nome<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Pilha de runtime|Região|Plano do serviço de aplicativo/localização
    |---------|---------|-|-|-------|
-   |App-01|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
-   |App-02|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|EUA Central|ASP-02 (D1)|
+   |App-01|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01(D1)|
+   |App-02|Uso existente<br>Selecione o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02(D1)|
 
 ### <a name="gather-some-details"></a>Reúna alguns detalhes
 
-Agora, você precisa anotar o endereço IP e o nome do host para os aplicativos Web.
+Agora você precisa anotar o endereço IP e o nome do host para os aplicativos da Web.
 
-1. Abra seu grupo de recursos e selecione seu primeiro aplicativo Web (**app-01** neste exemplo).
-2. Na coluna à esquerda, selecione **Propriedades**.
-3. Anote o endereço em **URL** e, em **Endereços IP de saída**, observe o primeiro endereço IP na lista. Você usará essas informações posteriormente ao configurar os pontos de extremidade do Gerenciador de tráfego.
+1. Abra seu grupo de recursos e selecione seu primeiro aplicativo web **(App-01** neste exemplo).
+2. Na coluna esquerda, selecione **Propriedades**.
+3. Anote o endereço em **URL** e, em **Endereços IP de saída**, observe o primeiro endereço IP na lista. Você usará essas informações mais tarde quando configurar os pontos finais do Gerenciador de Tráfego.
 4. Repita a operação em **aplicativo-02**.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
@@ -82,64 +82,64 @@ Para obter informações sobre como criar um perfil do Gerenciador de Tráfego d
 
 Agora você pode criar os pontos de extremidade para os dois aplicativos web.
 
-1. Abra seu grupo de recursos e selecione seu perfil do Gerenciador de tráfego.
-2. Na coluna à esquerda, selecione **pontos de extremidade**.
+1. Abra seu grupo de recursos e selecione o perfil do Gerenciador de Tráfego.
+2. Na coluna esquerda, selecione **Endpoints**.
 3. Selecione **Adicionar**.
 4. Use a tabela a seguir para configurar os terminais:
 
-   |Tipo  |Nome  |Escolha o destino  |Local  |Configurações personalizadas de cabeçalho|
+   |Type  |Nome  |Destino  |Location  |Configurações personalizadas de cabeçalho|
    |---------|---------|---------|---------|---------|
    |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|Leste dos EUA|host:\<a URL que você registrou para o aplicativo 01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
-   |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|EUA Central|host:\<a URL que você registrou para o aplicativo-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
+   |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|Centro dos EUA|host:\<a URL que você registrou para o aplicativo-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Criar zona DNS
 
 Você pode usar uma zona DNS existente para teste ou criar uma nova zona. Para criar e delegar uma nova zona DNS no Azure, consulte [Tutorial: hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
-## <a name="add-a-txt-record-for-custom-domain-validation"></a>Adicionar um registro TXT para validação de domínio personalizada
+## <a name="add-a-txt-record-for-custom-domain-validation"></a>Adicione um registro TXT para validação de domínio personalizado
 
-Quando você adiciona um nome de host personalizado aos seus aplicativos Web, ele procurará um registro TXT específico para validar seu domínio.
+Quando você adiciona um nome de host personalizado aos seus aplicativos da Web, ele procurará um registro TXT específico para validar seu domínio.
 
-1. Abra o grupo de recursos e selecione a zona DNS.
+1. Abra seu grupo de recursos e selecione a zona DNS.
 2. Escolha **Conjunto de registros**.
-3. Adicione o conjunto de registros usando a tabela a seguir. Para o valor, use a URL do aplicativo Web real que você gravou anteriormente:
+3. Adicione o conjunto de registros usando a tabela a seguir. Para o valor, use a URL real do aplicativo web que você gravou anteriormente:
 
-   |Nome  |Tipo  |Valor|
+   |Nome  |Type  |Valor|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
 
 ## <a name="add-a-custom-domain"></a>Adicionar um domínio personalizado
 
-Adicione um domínio personalizado para ambos os aplicativos Web.
+Adicione um domínio personalizado para ambos os aplicativos da Web.
 
-1. Abra seu grupo de recursos e selecione seu primeiro aplicativo Web.
-2. Na coluna à esquerda, selecione **domínios personalizados**.
-3. Em **domínios personalizados**, selecione **Adicionar domínio personalizado**.
-4. Em **domínio personalizado**, digite seu nome de domínio personalizado. Por exemplo, contoso.com.
+1. Abra seu grupo de recursos e selecione seu primeiro aplicativo web.
+2. Na coluna à esquerda, selecione **Domínios personalizados**.
+3. Em **Domínios personalizados,** selecione **Adicionar domínio personalizado**.
+4. Em **domínio personalizado,** digite seu nome de domínio personalizado. Por exemplo, contoso.com.
 5. Selecione **Validar**.
 
-   Seu domínio deve passar na validação e Mostrar marcas de seleção verdes ao lado de **disponibilidade do nome do host** e **Propriedade do domínio**.
+   Seu domínio deve passar a validação e mostrar marcas de verificação verdes ao lado da **disponibilidade do Hostname** e **da propriedade do Domínio**.
 5. Selecione **Adicionar domínio personalizado**.
 6. Para ver o novo nome do host em **Hostnames atribuídos ao site**, atualize seu navegador. A atualização na página nem sempre mostra alterações imediatamente.
 7. Repita este procedimento para seu segundo aplicativo web.
 
 ## <a name="add-the-alias-record-set"></a>Adicione o conjunto de registros de alias
 
-Agora, adicione um registro de alias para o Apex da zona.
+Agora adicione um registro de alias para o ápice da região.
 
-1. Abra o grupo de recursos e selecione a zona DNS.
+1. Abra seu grupo de recursos e selecione a zona DNS.
 2. Escolha **Conjunto de registros**.
 3. Adicione o registro definido usando a tabela a seguir:
 
-   |Nome  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
+   |Nome  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
+   |@     |Um|Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
 
 
 ## <a name="test-your-web-apps"></a>Teste seus aplicativos web
 
-Agora você pode testar para ter certeza de que pode acessar seu aplicativo Web e que está sendo balanceado por carga.
+Agora você pode testar para ter certeza de que você pode acessar o seu aplicativo web e que ele está sendo carregado equilibrado.
 
 1. Abra um navegador da web e navegue até seu domínio. Por exemplo, contoso.com. Você deve ver a página de aplicativo web padrão.
 2. Interrompa seu primeiro aplicativo web.
@@ -152,12 +152,12 @@ Agora você pode testar para ter certeza de que pode acessar seu aplicativo Web 
 9. Feche seu navegador da web e aguarde alguns minutos.
 10. Inicie seu navegador da Web e navegue até seu domínio. Novamente, você verá a página de aplicativo web padrão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre registros de alias, consulte os seguintes artigos:
 
-- [Tutorial: configure um registro de alias para se referir a um endereço IP público do Azure](tutorial-alias-pip.md)
+- [Tutorial: Configure um registro de alias para consultar um endereço IP público do Azure](tutorial-alias-pip.md)
 - [Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de tráfego do apex](tutorial-alias-tm.md)
 - [PERGUNTAS FREQUENTES SOBRE O DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
-Para saber como migrar um nome DNS ativo, consulte [migrar um nome DNS ativo para Azure app serviço](../app-service/manage-custom-dns-migrate-domain.md).
+Para saber como migrar um nome DNS ativo, consulte [Migrar um nome DNS ativo para Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

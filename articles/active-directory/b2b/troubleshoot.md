@@ -1,30 +1,32 @@
 ---
-title: Solução de problemas de colaboração B2B – Azure Active Directory | Microsoft Docs
+title: Solução de problemas colaboração B2B - Diretório Ativo do Azure | Microsoft Docs
 description: Correções para problemas comuns com a colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 11/12/2019
+ms.date: 03/19/2020
 tags: active-directory
 ms.author: mimart
-author: v-miegge
-manager: dcscontentpm
+author: msmimart
 ms.reviewer: mal
 ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c0a4567da11b10b9a0571656103ef2f17c7da4
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 5f8bafb04d0a5d9c6d25a7ed7e155888d492e9fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399054"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050775"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solução de problemas de colaboração B2B do Azure Active Directory
 
 Confira aqui algumas correções para problemas comuns da colaboração B2B do Azure Active Directory (Azure AD).
+
+   > [!IMPORTANT]
+   > **A partir de 31 de março de 2021**, a Microsoft não suportará mais o resgate de convites criando contas AD azure não gerenciadas e inquilinos para cenários de colaboração B2B. Na preparação, encorajamos os clientes a optar pela [autenticação única de senha por e-mail.](one-time-passcode.md) Damos as boas-vindas ao seu feedback sobre este recurso de pré-visualização pública e estamos entusiasmados em criar ainda mais maneiras de colaborar.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Adicionei um usuário externo, mas não consigo vê-lo em meu Catálogo de Endereços Global ou no seletor de pessoas
 
@@ -38,9 +40,9 @@ Esse recurso pode ser habilitado usando a configuração 'ShowPeoplePickerSugges
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Os convites foram desabilitados para o diretório
 
-Se você for notificado de que não tem permissões para convidar usuários, verifique se sua conta de usuário está autorizada a convidar usuários externos em Azure Active Directory > configurações de usuário > usuários externos > Gerenciar configurações de colaboração externas:
+Se você for notificado de que não tem permissões para convidar usuários, verifique se sua conta de usuário está autorizada a convidar usuários externos em configurações do Azure Active Directory > usuário > usuários externos > Gerenciar configurações de colaboração externa:
 
-![Captura de tela mostrando as configurações de usuários externos](media/troubleshoot/external-user-settings.png)
+![Captura de tela mostrando as configurações dos Usuários Externos](media/troubleshoot/external-user-settings.png)
 
 Se você tiver modificado essas configurações recentemente ou se tiver atribuído a função Emissor de convite convidado a um usuário, talvez ocorra um atraso de 15 a 60 minutos até que as alterações tenham efeito.
 
@@ -52,7 +54,7 @@ Os erros comuns incluem:
 
 Ao convidar usuários cuja organização está usando o Azure Active Directory onde a conta do usuário específico não existe (por exemplo, o usuário não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política em vigor para impedir a criação de usuários. O usuário deve verificar com o administrador para determinar se os usuários externos são permitidos. A administração de usuário externo pode ter que permitir usuários verificados por email em seu domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) sobre como permitir Usuários de Email Verificados).
 
-![Erro informando que o locatário não permite usuários verificados por email](media/troubleshoot/allow-email-verified-users.png)
+![Erro afirmando que o inquilino não permite usuários verificados por e-mail](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>O usuário externo ainda não existe em um domínio federado
 
@@ -81,28 +83,28 @@ Para cumprir as leis de privacidade, nossas APIs não incluem mensagens personal
 
 Se esse cenário for importante para você, suprima nosso email de convite de API e envie-o por meio de um mecanismo de email de sua escolha. Consulte o departamento jurídico de sua organização para verificar se todo email enviado dessa forma também está em conformidade com as leis de privacidade.
 
-## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Você recebe um erro "AADSTS65005" ao tentar fazer logon em um recurso do Azure
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Você recebe um erro "AADSTS65005" ao tentar fazer login em um recurso do Azure
 
-Um usuário que tem uma conta de convidado não pode fazer logon e está recebendo a seguinte mensagem de erro:
+Um usuário que tenha uma conta de hóspedenão pode fazer logon e está recebendo a seguinte mensagem de erro:
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-O usuário tem uma conta de usuário do Azure e é um locatário viral que foi abandonado ou não gerenciado. Além disso, não há administradores globais ou de empresa no locatário.
+O usuário tem uma conta de usuário do Azure e é um inquilino viral que foi abandonado ou não gerenciado. Além disso, não há administradores globais ou da empresa no inquilino.
 
-Para resolver esse problema, você deve assumir o locatário abandonado. Consulte [assumir um diretório não gerenciado como administrador em Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Você também deve acessar o DNS voltado para a Internet para o sufixo de domínio em questão a fim de fornecer evidências diretas de que você está no controle do namespace. Depois que o locatário for retornado a um estado gerenciado, discuta com o cliente se deixar os usuários e o nome de domínio verificado é a melhor opção para sua organização.
+Para resolver este problema, você deve assumir o inquilino abandonado. Consulte [Assumir um diretório não gerenciado como administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Você também deve acessar o DNS voltado para a internet para o sufixo de domínio em questão, a fim de fornecer evidências diretas de que você está no controle do namespace. Depois que o inquilino é devolvido a um estado gerenciado, por favor, discuta com o cliente se deixar os usuários e o nome de domínio verificado é a melhor opção para sua organização.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um usuário convidado com um locatário just-in-time ou "viral" não pode redefinir sua senha
 
 Se o locatário de identidade for um locatário JIT (just-in-time) ou viral (ou seja, um locatário do Azure não gerenciado e separado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
 
-## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Um usuário convidado não pode usar o módulo AzureAD do PowerShell v1
+## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Um usuário convidado não pode usar o módulo AzureAD PowerShell V1
 
-A partir de 18 de novembro de 2019, os usuários convidados em seu diretório (definidos como contas de usuário em que a propriedade **UserType** é igual a **Guest**) são impedidos de usar o módulo AzureAD do PowerShell v1. No futuro, um usuário precisará ser um usuário membro (em que **UserType** é igual a **Member**) ou usar o módulo AzureAD do PowerShell v2.
+A partir de 18 de novembro de 2019, os usuários convidados em seu diretório (definido como contas de usuário onde a propriedade **userType** é igual **a Guest**) são impedidos de usar o módulo AzureAD PowerShell V1. Daqui para frente, um usuário precisará ser um usuário membro (onde **userType** é igual **a Membro**) ou usar o módulo AzureAD PowerShell V2.
 
-## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Em um locatário do governo dos EUA do Azure, não consigo convidar um usuário convidado de colaboração B2B
+## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Em um inquilino do governo dos EUA azure, eu não posso convidar um usuário convidado de colaboração B2B
 
-Na nuvem do governo dos EUA do Azure, atualmente, a colaboração B2B só tem suporte entre locatários que estão na nuvem do governo dos EUA do Azure e que ambos dão suporte à colaboração B2B. Se você convidar um usuário em um locatário que não faz parte da nuvem do governo dos EUA do Azure ou que ainda não dá suporte à colaboração B2B, você receberá um erro. Para obter detalhes e limitações, consulte [Azure Active Directory Premium as variações P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+Dentro da nuvem do governo dos EUA azure, a colaboração B2B é atualmente apoiada apenas entre inquilinos que estão dentro da nuvem do governo dos EUA azure e que ambos apoiam a colaboração B2B. Se você convidar um usuário em um inquilino que não faz parte da nuvem do Governo dos EUA do Azure ou que ainda não suporta a colaboração B2B, você terá um erro. Para obter detalhes e limitações, consulte [Variações Premium Premium e P2 do Diretório Ativo Do Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Obtenção de suporte para colaboração B2B](get-support.md)

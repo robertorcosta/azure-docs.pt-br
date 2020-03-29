@@ -1,6 +1,6 @@
 ---
-title: Barramento de serviço do Azure – suspender entidades de mensagens
-description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagem do barramento de serviço do Azure (filas, tópicos e assinaturas).
+title: Ônibus de Serviço Azure - suspender entidades de mensagens
+description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagens de ônibus de serviço do Azure (filas, tópicos e assinaturas).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760378"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desabilitar)
@@ -28,7 +28,7 @@ A suspensão de uma entidade normalmente é feita por razões administrativas ur
 
 Uma suspensão ou reativação pode ser executada pelo usuário ou pelo sistema. O sistema suspende entidades apenas por razões administrativas graves como atingir a limite de gastos de assinatura. As entidades desabilitadas pelo sistema não podem ser reativadas pelo usuário, mas serão restauradas quando a causa a suspensão tiver sido resolvida.
 
-No portal, a seção de **Propriedades** para a respectiva entidade permite alterar o estado; a captura de tela a seguir mostra a alternância de uma fila:
+No portal, a seção **Propriedades** para a respectiva entidade permite alterar o estado; a captura de tela a seguir mostra o alternador para uma fila:
 
 ![][1]
 
@@ -57,7 +57,7 @@ $q.Status = "Disabled"
 Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

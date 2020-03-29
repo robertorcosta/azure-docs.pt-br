@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 443ed983a0eec5dfd8f7a917fbc1440cd66c3db3
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78946135"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Usar o portal do Azure para gerenciar usuários no Azure Data Box Edge
@@ -33,7 +33,7 @@ Os usuários podem ter privilégio completo ou somente leitura. Como o nome indi
  - **Usuário com privilégios completo** – um usuário local com acesso completo.
  - **Usuário somente leitura** – um usuário local com acesso somente leitura. Esses usuários estão associados a compartilhamentos que permitem operações somente leitura.
 
-As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. No momento, não há suporte para a modificação de permissões de nível de compartilhamento.
+As permissões do usuário são definidas quando o usuário é criado durante a criação do compartilhamento. A modificação das permissões de nível de ação não é suportada no momento.
 
 ## <a name="add-a-user"></a>Adicionar um usuário
 

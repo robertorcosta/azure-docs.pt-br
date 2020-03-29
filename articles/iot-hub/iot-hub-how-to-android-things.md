@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673392"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desenvolva para a plataforma Android Things usando SDKs de IoT do Azure
@@ -20,7 +20,7 @@ Os [SDKs do Hub IoT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-d
 
 Este tutorial descreve as etapas para criar um aplicativo do lado do dispositivo no Android Things usando o SDK do Java do Azure IoT.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um hardware compatível com Android Things com o SO Android Things em execução.  Você pode seguir a [Documentação do Android Things](https://developer.android.com/things/get-started/kits#flash-at) sobre como iniciar o sistema operacional do Android Things.  Verifique se seu dispositivo Android Things está conectado à Internet com periféricos essenciais, como teclado, vídeo e mouse conectados.  Este tutorial usa o Raspberry Pi 3.
 
@@ -42,14 +42,14 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
-   **MyAndroidThingsDevice** : esse é o nome fornecido para o dispositivo registrado. Use MyAndroidThingsDevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyAndroidThingsDevice** : Este é o nome dado para o dispositivo registrado. Use MyAndroidThingsDevice conforme mostrado. Se você escolher um nome diferente para seu dispositivo, você também precisará usar esse nome ao longo deste artigo e atualizar o nome de dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Execute os seguintes comandos no Azure Cloud Shell para obter a *cadeia de conexão do dispositivo* para o dispositivo que você acabou de registrar. Substitua `YourIoTHubName` abaixo pelo nome que você escolher para o Hub IoT.
+2. Execute os seguintes comandos no Azure Cloud Shell para obter a *seqüência de conexão do dispositivo* para o dispositivo que você acabou de registrar. Substitua `YourIoTHubName` abaixo com o nome escolhido para o seu hub ioT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -65,7 +65,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
 1. A primeira etapa para criar um aplicativo do Android Things é conectar-se a seus dispositivos Android Things. Conecte seu dispositivo Android Things a uma exibição e conecte-se à Internet. O Android Things fornece [documentação](https://developer.android.com/things/get-started/kits) sobre como se conectar ao WiFi. Depois de se conectar à Internet, anote o endereço IP listado em Redes.
 
-2. Use a ferramenta [adb](https://developer.android.com/studio/command-line/adb) para conectar-se ao seu dispositivo Android Things com o endereço IP observado acima. Verifique novamente a conexão usando este comando no seu terminal. Você deve ver seus dispositivos listados como "conectado".
+2. Use a ferramenta [adb](https://developer.android.com/studio/command-line/adb) para conectar-se ao seu dispositivo Android Things com o endereço IP observado acima. Verifique novamente a conexão usando este comando no seu terminal. Você deve ver seus dispositivos listados como "conectados".
 
    ```
    adb devices
@@ -95,7 +95,7 @@ Execute os seguintes comandos no Azure Cloud Shell, substituindo `YourIoTHubName
 az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHubName
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: PowerShell-adicionar uma imagem do Marketplace a um laboratório no Azure DevTest Labs
+title: PowerShell - Adicione uma imagem de mercado a um laboratório no Azure DevTest Labs
 description: Este script do PowerShell adiciona uma imagem de marketplace a um laboratório no Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 3d699a22ed06022c6d9df12ade7f202fb304648c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76166439"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Use o PowerShell adiciona uma imagem de marketplace a um laboratório no Azure DevTest Labs
@@ -45,7 +45,7 @@ Este script usa os seguintes comandos:
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Cria um recurso. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

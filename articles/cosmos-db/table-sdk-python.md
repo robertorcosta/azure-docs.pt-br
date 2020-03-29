@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771282"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK do API de Tabela do Azure Cosmos DB para Python: Notas de versão e recursos
@@ -26,8 +26,8 @@ ms.locfileid: "76771282"
 
 |   |   |
 |---|---|
-|**Baixe o SDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**Download do SDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
+|**Documentação de API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do SDK do Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Plataforma atual com suporte**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.3, 3.4, 3.5 ou 3.6](https://www.python.org/downloads/)|
@@ -38,10 +38,10 @@ ms.locfileid: "76771282"
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 * Versão de disponibilidade geral
 
-### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
+### <a name="0371"></a><a name="0.37.1"/>0.37.1
 * SDK de pré-lançamento
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
@@ -57,9 +57,9 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 | [0.37.1](#0.37.1) |5 de outubro de 2017 |--- |
 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049782"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte a Vários Domínios para Federação com o Azure AD
 A documentação a seguir fornece orientação sobre como usar vários domínios e subdomínios de nível superior ao estabelecer uma federação com o Office 365 ou com domínios do Azure AD.
@@ -69,7 +69,7 @@ O `-SupportMultipleDomain` também garante que o sistema de AD FS inclua o valor
 
 Dessa forma, durante a autenticação no Azure AD ou Office 365, o elemento IssuerURI no token do usuário é usado para localizar o domínio no Azure AD.  Se não houver correspondência, a autenticação falhará.
 
-Por exemplo, se o UPN de um usuário for bsimon@bmcontoso.com, o elemento IssuerUri as emissões do AD FS de token será definido como <http://bmcontoso.com/adfs/services/trust>. Esse elemento corresponderá à configuração do Azure AD, e à autenticação será bem-sucedida.
+Por exemplo, se o UPN de um usuário for bsimon@bmcontoso.com, o elemento IssuerUri as emissões do AD FS de token será definido como `http://bmcontoso.com/adfs/services/trust`. Esse elemento corresponderá à configuração do Azure AD, e à autenticação será bem-sucedida.
 
 Abaixo vemos a regra de declaração personalizada que implementa essa lógica:
 
@@ -82,7 +82,7 @@ Abaixo vemos a regra de declaração personalizada que implementa essa lógica:
 >
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Como atualizar a relação de confiança entre o AD FS e o Azure AD
-Se você não tiver configurado a confiança federada entre o AD FS e a instância do Azure AD, será preciso recriá-la.  Isso ocorre porque quando ela é originalmente configurada sem o parâmetro `-SupportMultipleDomain`, o IssuerUri é definido com o valor padrão.  Na captura de tela abaixo, veja o IssuerUri definido como https://adfs.bmcontoso.com/adfs/services/trust.
+Se você não tiver configurado a confiança federada entre o AD FS e a instância do Azure AD, será preciso recriá-la.  Isso ocorre porque quando ela é originalmente configurada sem o parâmetro `-SupportMultipleDomain`, o IssuerUri é definido com o valor padrão.  Na captura de tela abaixo, veja o IssuerUri definido como `https://adfs.bmcontoso.com/adfs/services/trust`.
 
 Se você conseguir adicionar um novo domínio no Portal do Azure AD e tentar convertê-lo usando `Convert-MsolDomaintoFederated -DomainName <your domain>`, obterá o seguinte erro.
 
@@ -126,18 +126,18 @@ Use as etapas a seguir para adicionar o novo domínio de nível superior usando 
 5. Clique em Instalar
 
 ### <a name="verify-the-new-top-level-domain"></a>Verifique o novo domínio de nível superior
-Usando o comando `Get-MsolDomainFederationSettings -DomainName <your domain>`do PowerShell, você pode exibir o IssuerUri atualizado.  A captura de tela abaixo mostra que as configurações de federação foram atualizadas no domínio original http://bmcontoso.com/adfs/services/trust
+Usando o comando `Get-MsolDomainFederationSettings -DomainName <your domain>`do PowerShell, você pode exibir o IssuerUri atualizado.  A captura de tela abaixo mostra que as configurações de federação foram atualizadas no domínio original `http://bmcontoso.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-E o IssuerUri no novo domínio foi sido definido como https://bmfabrikam.com/adfs/services/trust
+E o IssuerUri no novo domínio foi sido definido como `https://bmfabrikam.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 
 ## <a name="support-for-subdomains"></a>Suporte para subdomínios
 Quando você adiciona um subdomínio, devido à maneira usada pelo Azure AD para tratar domínios, ele herda as configurações do pai.  Por isso, o IssuerUri precisa corresponder aos pais.
 
-Digamos, por exemplo, que eu tenha bmcontoso.com e adicione corp.bmcontoso.com.  O IssuerUri de um usuário de corp.bmcontoso.com precisará ser **http://bmcontoso.com/adfs/services/trust.**  No entanto, a regra padrão implementada acima para o Azure AD irá gerar um token com um emissor como **http://corp.bmcontoso.com/adfs/services/trust.** , que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
+Digamos, por exemplo, que eu tenha bmcontoso.com e adicione corp.bmcontoso.com.  O EmissorUri para um usuário de corp.bmcontoso.com precisará ser ** http://bmcontoso.com/adfs/services/trust.**  No entanto, a regra padrão implementada acima para o Azure AD, irá gerar um token com um emissor como ** http://corp.bmcontoso.com/adfs/services/trust.** , que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Como habilitar o suporte para subdomínios
 Para solucionar esse comportamento, a relação de confiança de terceira parte confiável do AD FS do Microsoft Online precisa ser atualizada.  Para isso, você precisa configurar a regra de declaração personalizada para que ela ignore os subdomínios do sufixo UPN do usuário ao construir o valor de Issuer personalizado.
@@ -173,4 +173,4 @@ Saiba mais sobre estes recursos, que foram habilitados com a instalação: [Atua
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](how-to-connect-sync-feature-scheduler.md).
 
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

@@ -12,16 +12,16 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: a09094cf0d1bd3c2e299e968d7de8410dcd9c3cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721873"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
 
 > [!NOTE]
-> Este item está em manutenção. Incentivamos você a usar o [serviço de API do detector de anomalias](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) fornecido por uma galeria de algoritmos de Machine Learning em serviços cognitivas do Azure para detectar anomalias de métricas de negócios, operacionais e IOT.
+> Este item está em manutenção. Nós encorajamos você a usar o [serviço de API do Detector de Anomalias](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) alimentado por uma galeria de algoritmos de Machine Learning os Serviços Cognitivos Azure para detectar anomalias de métricas de negócios, operacionais e IoT.
 
 ## <a name="overview"></a>Visão geral
 A [API de detecção de anomalias](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) é um exemplo criado com o Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo.
@@ -46,19 +46,19 @@ A oferta da Detecção de Anomalias vem com ferramentas úteis para você começ
 -->
 
 ## <a name="api-deployment"></a>Implantação da API
-Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isso implantará dois serviços da Web Azure Machine Learning Studio (clássico) (e seus recursos relacionados) para sua assinatura do Azure-um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços web Azure Machine Learning Studio (clássico)](https://services.azureml.net/webservices/) .  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isso implantará dois Web Services (clássicos) do Azure Machine Learning Studio (e seus recursos relacionados) para sua assinatura do Azure - um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Uma vez concluída a implantação, você poderá gerenciar suas APIs a partir da página [de serviços web do Azure Machine Learning Studio (clássico).](https://services.azureml.net/webservices/)  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Dimensionando a API
-Por padrão, sua implantação terá um plano de cobrança de desenvolvimento/teste gratuito que inclui 1.000 transações/mês e 2 horas de computação/mês.  Você pode atualizar para outro plano de acordo com suas necessidades.  Os detalhes sobre o preço de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/), em "Preço da API Web de produção".
+Por padrão, sua implantação terá um plano de faturamento de Dev/Teste gratuito que inclui 1.000 transações/mês e 2 horas de cálculo/mês.  Você pode atualizar para outro plano de acordo com suas necessidades.  Os detalhes sobre o preço de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/), em "Preço da API Web de produção".
 
 ## <a name="managing-aml-plans"></a>Gerenciando planos do AML
 Você pode gerenciar seu plano de cobrança [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome do grupo de recursos que você escolheu durante a implantação da API, além de uma cadeia de caracteres que é exclusiva à sua assinatura.  As instruções sobre como atualizar seu plano estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice), na seção "Gerenciando planos de cobranças".
 
 ## <a name="api-definition"></a>Definição da API
-O serviço Web fornece uma API baseada em REST sobre HTTPS que pode ser consumida de diferentes maneiras, incluindo um aplicativo Web ou móvel, R, Python, Excel, etc.  Você envia os dados de série temporal para esse serviço por meio de uma chamada à API REST e executa uma combinação dos três tipos de anomalias descritos abaixo.
+O serviço web fornece uma API baseada em REST sobre HTTPS que pode ser consumida de diferentes maneiras, incluindo um aplicativo web ou móvel, R, Python, Excel, etc.  Você envia seus dados da série temporal para este serviço através de uma chamada de API REST, e ele executa uma combinação dos três tipos de anomalias descritos abaixo.
 
 ## <a name="calling-the-api"></a>Chamando a API
-Para chamar a API, você precisará conhecer o local do ponto de extremidade e chave de API.  Esses dois requisitos, juntamente com o código de exemplo para chamar a API, estão disponíveis na página de [serviços web Azure Machine Learning Studio (clássico)](https://services.azureml.net/webservices/) .  Navegue até a API desejada e clique na guia "Consume" para encontrá-la.  Você pode chamar a API como uma API do Swagger (ou seja, com o parâmetro de URL `format=swagger`) ou como uma API não Swagger (ou seja, sem o parâmetro de URL `format`).  O código de amostra usa o formato Swagger.  Veja abaixo um exemplo de solicitação e resposta em um formato não Swagger.  Esses exemplos são o ponto de extremidade de sazonalidade.  O ponto de extremidade de não sazonalidade é semelhante.
+Para chamar a API, você precisará conhecer o local do ponto de extremidade e chave de API.  Esses dois requisitos, juntamente com o código de exemplo para chamar a API, estão disponíveis na página de [serviços web do Azure Machine Learning Studio (clássico).](https://services.azureml.net/webservices/)  Navegue até a API desejada e clique na guia "Consume" para encontrá-la.  Você pode chamar a API como uma API De `format=swagger`Swagger (ou seja, com o parâmetro URL) ou como uma API não-Swagger (ou seja, sem o `format` parâmetro URL).  O código de amostra usa o formato Swagger.  Veja abaixo um exemplo de solicitação e resposta em um formato não Swagger.  Esses exemplos são o ponto de extremidade de sazonalidade.  O ponto de extremidade de não sazonalidade é semelhante.
 
 ### <a name="sample-request-body"></a>Exemplo de corpo da solicitação
 A solicitação contém dois objetos: `Inputs` e `GlobalParameters`.  No exemplo de solicitação abaixo, alguns parâmetros são enviados explicitamente, enquanto outros, não (role para baixo para ver uma lista completa de parâmetros para cada ponto de extremidade).  Os parâmetros que não são enviados explicitamente na solicitação usarão os valores padrão fornecidos abaixo.
@@ -82,8 +82,8 @@ A solicitação contém dois objetos: `Inputs` e `GlobalParameters`.  No exemplo
         }
     }
 
-### <a name="sample-response"></a>Exemplo de resposta
-Para ver o campo `ColumnNames`, você deve incluir `details=true` como um parâmetro de URL em sua solicitação.  Confira as tabelas abaixo para ver o significado por trás de cada um desses campos.
+### <a name="sample-response"></a>Exemplo de Resposta
+Para ver o `ColumnNames` campo, você `details=true` deve incluir como parâmetro url em sua solicitação.  Confira as tabelas abaixo para ver o significado por trás de cada um desses campos.
 
     {
         "Results": {
@@ -105,39 +105,39 @@ Para ver o campo `ColumnNames`, você deve incluir `details=true` como um parâm
 
 ## <a name="score-api"></a>API de Pontuação
 A API de Pontuação é usada para executar a detecção de anomalias nos dados de série temporal não sazonais. A API executa vários detectores de anomalias nos dados e retorna suas pontuações de anomalias.
-A figura abaixo mostra um exemplo de anomalias que a API de Pontuação pode detectar. Essa série temporal tem duas alterações de nível distintos e três picos. Os pontos vermelhos mostram a hora em que a alteração no nível é detectada, enquanto as setas pretas mostram os picos detectados.
+A figura abaixo mostra um exemplo de anomalias que a API de Pontuação pode detectar. Esta série tem duas mudanças de nível distintas, e três picos. Os pontos vermelhos mostram a hora em que a alteração no nível é detectada, enquanto as setas pretas mostram os picos detectados.
 ![API de Pontuação][1]
 
 ### <a name="detectors"></a>Detectores
-A API de detecção de anomalias dá suporte a detectores em três categorias amplas. Os detalhes sobre determinados parâmetros de entrada e saídas para cada detector podem ser encontrados na tabela a seguir.
+A API de detecção de anomalias suporta detectores em três grandes categorias. Os detalhes sobre determinados parâmetros de entrada e saídas para cada detector podem ser encontrados na tabela a seguir.
 
 | Categoria do Detector | Detector | Descrição | Parâmetros de Entrada | outputs |
 | --- | --- | --- | --- | --- |
 | Detectores de Pico |Detector TSpike |Detectar picos e quedas com base na distância dos valores em relação ao primeiro e terceiro quartis |*tspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1 a 10, padrão: 3; valores mais altos capturam valores mais extremos, tornando-o menos sensível |TSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário |
 | Detectores de Pico | Detector ZSpike |Detecta picos e quedas com base na distância dos pontos de dados em relação à média |*zspikedetector.sensitivity:* usa o valor inteiro no intervalo de 1 a 10, padrão: 3; valores mais altos capturam valores mais extremos, tornando-o menos sensível |ZSpike: valores binários – '1' se um pico/queda for detectado, '0' do contrário |
-| Detector de Tendências Lentas |Detector de Tendências Lentas |Detectar uma tendência positiva lenta de acordo com a sensibilidade definida |*trenddetector. sensibilidade:* limite na pontuação do detector (padrão: 3,25, 3,25 – 5 é um intervalo razoável para selecionar; Quanto maior o menos sensível) |tscore: número flutuante que representa a pontuação de anomalias na tendência |
-| Detectores de Alteração no Nível | Detector de Alteração no Nível Bidirecional |Detectar uma alteração de aumento e diminuição no nível de acordo com a sensibilidade definida |*bileveldetector. sensibilidade:* limite na pontuação do detector (padrão: 3,25, 3,25 – 5 é um intervalo razoável para selecionar; Quanto maior o menos sensível) |rpscore: número flutuante que representa a pontuação de anomalias na alteração de aumento e diminuição no nível |
+| Detector de Tendências Lentas |Detector de Tendências Lentas |Detectar uma tendência positiva lenta de acordo com a sensibilidade definida |*trenddetector.sensitivity:* limiar na pontuação do detector (padrão: 3.25, 3.25 – 5 é um intervalo razoável para selecionar; Quanto mais alto, menos sensível) |tscore: número flutuante que representa a pontuação de anomalias na tendência |
+| Detectores de Alteração no Nível | Detector de Alteração no Nível Bidirecional |Detectar uma alteração de aumento e diminuição no nível de acordo com a sensibilidade definida |*bileveldetector.sensitivity:* limiar na pontuação do detector (padrão: 3.25, 3.25 – 5 é um intervalo razoável para selecionar; Quanto mais alto, menos sensível) |rpscore: número flutuante que representa a pontuação de anomalias na alteração de aumento e diminuição no nível |
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
 | Parâmetros de Entrada | Descrição | Configuração padrão | Type | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
-| detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeradas |Ambos, Picos, Quedas |Ambos |
+| detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeração |Ambos, Picos, Quedas |Ambos |
 | bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | trenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | tspikedetector.sensitivity |Sensibilidade para o Detector TSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
 | zspikedetector.sensitivity |Sensibilidade para o Detector ZSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
-| postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |{1&gt;N/A&lt;1} |
+| postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |N/D |
 
 ### <a name="output"></a>Saída
 A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
 | outputs | Descrição |
 | --- | --- |
-| Tempo |Carimbos de data/hora dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
-| data |Valores dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
+| Hora |Carimbos de data/hora dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
+| Dados |Valores dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
 | TSpike |Indicador binário para indicar se um pico é detectado pelo Detector TSpike |
 | ZSpike |Indicador binário para indicar se um pico é detectado pelo Detector ZSpike |
 | rpscore |Um número flutuante que representa a pontuação de anomalias na alteração bidirecional no nível |
@@ -147,41 +147,41 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 
 ## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
 A API ScoreWithSeasonality é usada para executar a detecção de anomalias na série temporal que têm padrões sazonais. Essa API é útil para detectar desvios nos padrões sazonais.
-A figura a seguir mostra um exemplo de anomalias detectadas em uma série temporal sazonal. A série temporal tem um pico (o primeiro ponto preto), dois DIPs (o segundo ponto preto e outro no final) e uma alteração de nível (ponto vermelho). O DIP no meio da série temporal e a alteração de nível só são discernidos depois que os componentes sazonais são removidos da série.
+A figura a seguir mostra um exemplo de anomalias detectadas em uma série temporal sazonal. A série temporal tem um pico (o primeiro dot preto), dois mergulhos (o segundo dot preto e um no final) e uma mudança de nível (vermelho). Tanto o mergulho no meio da série temporal quanto a mudança de nível só são perceptíveis depois que componentes sazonais são removidos da série.
 ![API de Sazonalidade][2]
 
 ### <a name="detectors"></a>Detectores
 Os detectores no ponto de extremidade de sazonalidade são semelhantes aos do ponto de extremidade de não sazonalidade, mas com nomes de parâmetro ligeiramente diferentes (listados abaixo).
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Informações mais detalhadas sobre esses parâmetros de entrada são listadas na tabela a seguir:
 
 | Parâmetros de Entrada | Descrição | Configuração padrão | Type | Intervalo Válido | Intervalo Sugerido |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalo de agregação em segundos para agregar a série temporal de entrada |0 (nenhuma agregação é realizada) |inteiro |0: ignorar a agregação, > 0 do contrário |5 minutos para 1 dia, dependente da série temporal |
-| preprocess.aggregationFunc |Função usada para agregar dados para o AggregationInterval especificado |média |enumeradas |média, soma, comprimento |{1&gt;N/A&lt;1} |
-| preprocess.replaceMissing |Valores usados para atribuir os dados ausentes |lkv (último valor conhecido) |enumeradas |zero, lkv, média |{1&gt;N/A&lt;1} |
+| preprocess.aggregationFunc |Função usada para agregar dados para o AggregationInterval especificado |média |enumeração |média, soma, comprimento |N/D |
+| preprocess.replaceMissing |Valores usados para atribuir os dados ausentes |lkv (último valor conhecido) |enumeração |zero, lkv, média |N/D |
 | detectors.historywindow |Histórico (no número de pontos de dados) usado para o cálculo da pontuação de anomalias |500 |inteiro |10-2.000 |Dependente da série temporal |
-| detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeradas |Ambos, Picos, Quedas |Ambos |
+| detectors.spikesdips | Se apenas picos, apenas quedas, ou ambos devem ser detectados |Ambos |enumeração |Ambos, Picos, Quedas |Ambos |
 | bileveldetector.sensitivity |Sensibilidade para o detector de alteração no nível bidirecional. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | postrenddetector.sensitivity |Sensibilidade para o detector de tendência positiva. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | negtrenddetector.sensitivity |Sensibilidade para o detector de tendência negativa. |3.25 |double |Nenhum |3.25-5 (valores mais baixos significam mais sensibilidade) |
 | tspikedetector.sensitivity |Sensibilidade para o Detector TSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
 | zspikedetector.sensitivity |Sensibilidade para o Detector ZSpike |3 |inteiro |1-10 |3-5 (valores mais baixos significam mais sensibilidade) |
-| seasonality.enable |Caso a análise da sazonalidade precise ser executada |true |boolean |verdadeiro, falso |Dependente da série temporal |
+| seasonality.enable |Caso a análise da sazonalidade precise ser executada |true |booleano |verdadeiro, falso |Dependente da série temporal |
 | seasonality.numSeasonality |Número máximo de ciclos periódicos a serem detectados |1 |inteiro |1, 2 |1-2 |
-| seasonality.transform |Caso os componentes sazonais (e) de tendência devam ser removidos antes de aplicar a detecção de anomalias |sem sazonalidade |enumeradas |nenhum, sem sazonalidade, sem sazonalidade e tendência |{1&gt;N/A&lt;1} |
-| postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |{1&gt;N/A&lt;1} |
+| seasonality.transform |Caso os componentes sazonais (e) de tendência devam ser removidos antes de aplicar a detecção de anomalias |sem sazonalidade |enumeração |nenhum, sem sazonalidade, sem sazonalidade e tendência |N/D |
+| postprocess.tailRows |Número de pontos de dados mais recentes a serem mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados) ou especificar o número de pontos de nos resultados |N/D |
 
 ### <a name="output"></a>Saída
 A API executa esses detectores em seus dados da série temporal e retorna as pontuações de anomalias e os indicadores de picos binários para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
 | outputs | Descrição |
 | --- | --- |
-| Tempo |Carimbos de data/hora dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
+| Hora |Carimbos de data/hora dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
 | OriginalData |Valores dos dados brutos ou dos dados atribuídos (e/ou) agregados se a atribuição dos dados ausentes (e/ou) de agregação for aplicada |
-| ProcessedData |Uma das seguintes opções: <ul><li>Série temporal ajustada periodicamente caso uma sazonalidade significativa tenha sido detectada e opção sem sazonalidade foi selecionada;</li><li>séries temporais e sem tendência e ajustadas periodicamente caso uma sazonalidade significativa tenha sido detectada e a opção sem sazonalidade e tendência foi selecionada</li><li>caso contrário, essa opção será a mesma que OriginalData</li> |
+| ProcessedData |Qualquer uma das opções a seguir: <ul><li>Série temporal ajustada periodicamente caso uma sazonalidade significativa tenha sido detectada e opção sem sazonalidade foi selecionada;</li><li>séries temporais e sem tendência e ajustadas periodicamente caso uma sazonalidade significativa tenha sido detectada e a opção sem sazonalidade e tendência foi selecionada</li><li>caso contrário, esta opção é a mesma que OriginalData</li> |
 | TSpike |Indicador binário para indicar se um pico é detectado pelo Detector TSpike |
 | ZSpike |Indicador binário para indicar se um pico é detectado pelo Detector ZSpike |
 | BiLevelChangeScore |Um número flutuante que representa a pontuação de anomalias na alteração de nível |

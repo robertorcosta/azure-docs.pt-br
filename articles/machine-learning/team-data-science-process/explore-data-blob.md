@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722179"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
@@ -24,7 +24,7 @@ Este artigos aborda como explorar dados armazenados no contêiner de blob do Azu
 
 Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md)
@@ -33,7 +33,7 @@ Este artigo supõe que você:
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregar os dados em um DataFrame Pandas
 Para explorar e manipular um conjunto de dados, primeiro eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um DataFrame Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do blob do Azure com o seguinte exemplo de código do Python usando o serviço BLOB. Substitua a variável no código abaixo por seus valores específicos:
+1. Baixe os dados do Blob do Azure com a seguinte amostra de código Python usando o serviço Blob. Substitua a variável no código abaixo por seus valores específicos:
 
 ```python
 from azure.storage.blob import BlockBlobService
@@ -62,7 +62,7 @@ dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="blob-dataexploration"></a>Exemplos de exploração de dados usando o Pandas
+## <a name="examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Exemplos de exploração de dados usando pandas
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
 1. Inspecionar o **número de linhas e colunas**

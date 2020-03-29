@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 1418205843fefc76db4e73832736b308d0cc79a3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122603"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
@@ -25,29 +25,29 @@ No momento, todos os tipos de atividade, exceto a atividade personalizada suport
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esse recurso depende da identidade gerenciada data factory. Saiba como ele funciona da [identidade gerenciada para o data Factory](data-factory-service-identity.md) e certifique-se de que seu data Factory tenha um associado.
+Esse recurso se baseia na identidade gerenciada pela fábrica de dados. Saiba como ele funciona a partir da [identidade gerenciada para fábrica de dados](data-factory-service-identity.md) e certifique-se de que sua fábrica de dados tenha uma fábrica de dados associada.
 
 ## <a name="steps"></a>Etapas
 
 Para referenciar uma credencial armazenada no Azure Key Vault, você precisa:
 
-1. **Recupere data Factory identidade gerenciada** copiando o valor de "ID de objeto de identidade gerenciada" gerado junto com sua fábrica. Se você usar a interface do usuário de criação do ADF, a ID de objeto de identidade gerenciada será mostrada na janela de criação do serviço vinculado Azure Key Vault; Você também pode recuperá-lo de portal do Azure, consulte [recuperar data Factory identidade gerenciada](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Conceda o acesso de identidade gerenciada à sua Azure Key Vault.** No cofre de chaves-políticas de acesso de >-> Adicionar New-> Pesquise essa identidade gerenciada para conceder permissão **Get** no menu suspenso permissões secretas. Isso permite que esse factory específico acesse o segredo no cofre de chaves.
-3. **Crie um serviço vinculado que aponte para seu Azure Key Vault.** Consulte [Serviço vinculado do Azure Key Vault](#azure-key-vault-linked-service).
-4. **Crie um serviço vinculado de armazenamento de dados, dentro do qual fazer referência ao segredo correspondente armazenado no cofre de chaves.** Consulte [fazer referência a segredo armazenado no cofre de chaves](#reference-secret-stored-in-key-vault).
+1. **Recupere a identidade gerenciada da fábrica** de dados copiando o valor de "ID de objeto de identidade gerenciada" gerado junto com sua fábrica. Se você usar a UI de autoria do ADF, o ID do objeto de identidade gerenciado será mostrado na janela de criação de serviço selada do Azure Key Vault; você também pode recuperá-lo do portal Azure, consulte recuperar a [identidade gerenciada pela fábrica de dados](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Conceda o acesso de identidade gerenciado ao seu Cofre chave Azure.** Em seu cofre-chave - > políticas de acesso -> adicionar novas -> pesquisar essa identidade gerenciada para conceder permissão **Obter** permissões em permissões secretas. Isso permite que esse factory específico acesse o segredo no cofre de chaves.
+3. **Crie um serviço vinculado apontando para o cofre de chaves do Azure.** Consulte [Serviço vinculado do Azure Key Vault](#azure-key-vault-linked-service).
+4. **Crie serviço vinculado ao armazenamento de dados, dentro do qual fazem referência ao segredo correspondente armazenado no cofre de chaves.** Consulte [fazer referência a segredo armazenado no cofre de chaves](#reference-secret-stored-in-key-vault).
 
 ## <a name="azure-key-vault-linked-service"></a>Serviço vinculado do Azure Key Vault
 
 As propriedades a seguir têm suporte no serviço vinculado do Azure Key Vault:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **AzureKeyVault**. | Sim |
 | baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | Sim |
 
 **Usando a criação da interface do usuário:**
 
-Clique em **Conexões** -> **Serviços vinculados** ->  **+ Novo** -> procure "Azure Key Vault":
+Clique **em Conexões Serviços** -> **Linked Services** -> Vinculados **+Novos** -> busca por "Azure Key Vault":
 
 ![Pesquisar AKV](media/store-credentials-in-key-vault/search-akv.png)
 
@@ -55,7 +55,7 @@ Selecione o Azure Key Vault provisionado onde as credenciais são armazenadas. V
 
 ![Configurar AKV](media/store-credentials-in-key-vault/configure-akv.png)
 
-**Exemplo de JSON:**
+**Exemplo json:**
 
 ```json
 {
@@ -73,10 +73,10 @@ Selecione o Azure Key Vault provisionado onde as credenciais são armazenadas. V
 
 As propriedades a seguir têm suporte quando você configura um campo no serviço vinculado, referenciando um segredo do cofre de chaves:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do campo deve ser definida como: **AzureKeyVaultSecret**. | Sim |
-| secretName | O nome do segredo no Azure Key Vault. | Sim |
+| secretName | O nome secreto em Azure Key Vault. | Sim |
 | secretVersion | A versão do segredo no Azure Key Vault.<br/>Se não for especificada, a versão mais recente do segredo será sempre usada.<br/>Se especificada, a versão especificada será sempre usada.| Não |
 | store | Refere-se a um serviço vinculado do Azure Key Vault que você usa para armazenar a credencial. | Sim |
 
@@ -85,7 +85,7 @@ As propriedades a seguir têm suporte quando você configura um campo no serviç
 Selecione **Azure Key Vault** para os campos secretos ao criar a conexão para seu armazenamento de dados/computação. Selecione o serviço vinculado do Azure Key Vault provisionados e forneça o **Nome secreto**. Opcionalmente, você pode fornecer uma versão do segredo também. 
 
 >[!TIP]
->Para os conectores que usam a cadeia de conexão no serviço vinculado, como SQL Server, armazenamento de BLOBs, etc., você pode optar por armazenar apenas o campo secreto, por exemplo, senha em AKV, ou armazenar a cadeia de conexão inteira em AKV. Você pode encontrar ambas as opções na interface do usuário.
+>Para conectores que usam a seqüência de conexões no serviço vinculado como SQL Server, Blob storage, etc., você pode escolher armazenar apenas o campo secreto, por exemplo, senha no AKV, ou para armazenar toda a cadeia de conexão no AKV. Você pode encontrar ambas as opções na ui.
 
 ![Configurar segredo do AKV](media/store-credentials-in-key-vault/configure-akv-secret.png)
 
@@ -114,5 +114,5 @@ Selecione **Azure Key Vault** para os campos secretos ao criar a conexão para s
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

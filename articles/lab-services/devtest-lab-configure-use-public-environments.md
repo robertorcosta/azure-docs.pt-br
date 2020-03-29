@@ -1,6 +1,6 @@
 ---
 title: Configurar e usar ambientes públicos no Azure DevTest Labs | Microsoft Docs
-description: Este artigo descreve como configurar e usar ambientes públicos (Azure Resource Manager modelos em um repositório git) no Azure DevTest Labs.
+description: Este artigo descreve como configurar e usar ambientes públicos (modelos do Azure Resource Manager em um repo do Git) no Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 127a6986e04cf90f69b2a8ec70b90b877e534708
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721686"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configurar e usar ambientes públicos no Azure DevTest Labs
@@ -46,5 +46,5 @@ Como usuário de laboratório, é possível criar um novo ambiente a partir da l
 
 ![Modelos de ambiente público](media/devtest-lab-configure-use-public-environments/public-environment-templates.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Esse repositório é um repositório de software livre que você pode contribuir para adicionar seus próprios modelos do Resource Manager usados com frequência e úteis. Para contribuir, basta enviar uma solicitação de pull no repositório.  

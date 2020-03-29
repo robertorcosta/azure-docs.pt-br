@@ -1,5 +1,5 @@
 ---
-title: Configurar o roteamento de tráfego de vários valores-Gerenciador de tráfego do Azure
+title: Configurar roteamento de tráfego multivalor - Azure Traffic Manager
 description: Este artigo explica como configurar o Gerenciador de Tráfego para rotear tráfego para pontos de extremidades A/AAAA.
 services: traffic-manager
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: rohink
 ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938774"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de roteamento de Múltiplos Valores no Gerenciador de Tráfego
@@ -38,7 +38,7 @@ Crie um grupo de recursos para o perfil do Gerenciador de Tráfego.
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário enviando-os para o ponto de extremidade com a menor latência.
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
+1. No lado superior esquerdo da tela, selecione **Criar um perfil** > de**gerenciador de tráfego** > **de** > rede de recursos**Criar**.
 2. Em **Criar perfil do Gerenciador de Tráfego**, insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **Criar**:
     
     | Configuração                 | Valor                                              |
@@ -46,8 +46,8 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário e
     | Nome                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento de **Múltiplos valores**.                                       |
     | Subscription            | Selecione sua assinatura.                          |
-    | Grupo de recursos          | Selecione *myResourceGroupTM1*. |
-    | Local                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
+    | Resource group          | Selecione *myResourceGroupTM1*. |
+    | Location                | Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
    |        |           | 
   
    ![Criar um perfil do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -62,7 +62,7 @@ Adicione dois endereços IP como pontos de extremidade externos ao perfil do Ger
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Ponto de extremidade externo                                   |
+    | Type                    | Ponto de extremidade externo                                   |
     | Nome           | myEndpoint1                                        |
     | FQDN (nome de domínio totalmente qualificado) ou IP           | Digite o endereço IP público do ponto de extremidade que você que adicionar a esse perfil do Gerenciador de Tráfego                         |
     |        |           |
@@ -72,11 +72,11 @@ Adicione dois endereços IP como pontos de extremidade externos ao perfil do Ger
 
    ![Adicionar um ponto de extremidade do Gerenciador de Tráfego](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [método de roteamento de tráfego ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Saiba mais sobre o [método de roteamento de prioridade](traffic-manager-configure-priority-routing-method.md).
-- Saiba mais sobre o [método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md)
+- Saiba mais sobre [o método de roteamento de desempenho](traffic-manager-configure-performance-routing-method.md)
 - Saiba mais sobre o [método de roteamento geográfico](traffic-manager-configure-geographic-routing-method.md).
 
 

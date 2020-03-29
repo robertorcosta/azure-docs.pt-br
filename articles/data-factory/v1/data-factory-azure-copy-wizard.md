@@ -1,5 +1,5 @@
 ---
-title: Data Factory o assistente de cópia do Azure
+title: Assistente de cópia do Azure da fábrica de dados
 description: Saiba mais sobre como usar o Assistente de Cópia do Azure Data Factory para copiar dados de fontes de dados com suporte para coletores.
 services: data-factory
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fef9059700e2bd94029c40bb819870a7174e0812
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930128"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de Cópia do Azure Data Factory
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. 
+> Este artigo aplica-se à versão 1 do Data Factory. 
 
 O Assistente de Cópia do Azure Data Factory facilita o processo de ingerir dados, que geralmente é a primeira etapa no cenário de integração completa de dados. Ao executar o Assistente de Cópia do Azure Data Factory, você não precisa entender qualquer definição de JSON para serviços vinculados, conjuntos de dados e pipelines. O assistente cria automaticamente um pipeline para copiar dados da fonte de dados selecionada para o destino selecionado. Além disso, o Assistente de Cópia ajuda você a validar os dados que estão sendo ingeridos no momento da criação. Isso poupa tempo, especialmente quando você está ingerindo dados pela primeira vez da fonte de dados. Para iniciar o Assistente de Cópia, clique no bloco **Copiar dados** na home page da sua fábrica de dados.
 
@@ -49,7 +49,7 @@ O assistente foi projetado com o Big Data em mente desde o começo, com suporte 
 O esquema de dados de entrada pode não coincidir com o esquema dos dados de saída em alguns casos. Nesse cenário, você precisa mapear as colunas do esquema de origem para colunas do esquema de destino.
 
 > [!TIP]
-> Ao copiar dados do Banco de Dados SQL do Azure ou do SQL Server para o Azure SQL Data Warehouse, se a tabela não existir no repositório de destino, o suporte do Data Factory criará a tabela automaticamente usando o esquema da origem. Saiba mais sobre [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Ao copiar dados do Banco de Dados SQL do Azure ou do SQL Server no Azure SQL Data Warehouse, se a tabela não existir no repositório de destino, o suporte do Data Factory criará a tabela automaticamente usando o esquema da origem. Saiba mais sobre [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
 Use uma lista suspensa para selecionar uma coluna do esquema de origem a ser mapeada para uma coluna no esquema de destino. O Assistente de Cópia tenta entender seu padrão para mapeamento de coluna. Ele aplica o mesmo padrão ao restante das colunas, de modo que você não precisa selecionar cada uma das colunas individualmente para concluir o mapeamento do esquema. Se preferir, você pode substituir esses mapeamentos usando as listas suspensas para mapear as colunas individualmente. O padrão se torna mais preciso à medida que você mapeia mais colunas. O Assistente de Cópia atualiza constantemente o padrão e, por fim, atinge o padrão certo para o mapeamento de coluna que você deseja atingir.     
@@ -65,7 +65,7 @@ A captura de tela a seguir mostra uma consulta SQL usando a função `Text.Forma
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados em uma pasta de blobs do Azure
-Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta determinada em runtime com base nas [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis com suporte são: **{ano}** , **{mês}** , **{dia}** , **{hora}** , **{minuto}** e **{personalizado}** . Por exemplo: pastadeentrada/{ano}/{mês}/{dia}.
+Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta determinada em runtime com base nas [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis com suporte são: **{ano}**, **{mês}**, **{dia}**, **{hora}**, **{minuto}** e **{personalizado}**. Por exemplo: pastadeentrada/{ano}/{mês}/{dia}.
 
 Suponha que você tenha pastas de entrada no seguinte formato:
 
@@ -74,7 +74,7 @@ Suponha que você tenha pastas de entrada no seguinte formato:
     2016/03/01/03
     ...
 
-Clique no botão **Procurar** de **Arquivo ou pasta**, navegue até uma dessas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher**. Você verá `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{ano}** , **03** por **{mês}** , **01** por **{dia}** , **02** por **{hora}** e pressione a tecla **Tab**. Você deverá ver listas suspensas para escolher o formato dessas quatro variáveis:
+Clique no botão **Procurar** de **Arquivo ou pasta**, navegue até uma dessas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher**. Você verá `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{ano}**, **03** por **{mês}**, **01** por **{dia}**, **02** por **{hora}** e pressione a tecla **Tab**. Você deverá ver listas suspensas para escolher o formato dessas quatro variáveis:
 
 ![Usando variáveis de sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -89,5 +89,5 @@ Uma operação de cópia única permite, uma única vez, a movimentação de dad
 
 ![Propriedades de agendamento](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para ver um passo a passo rápido sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia, confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).

@@ -1,5 +1,5 @@
 ---
-title: Usar a automação do Azure para iniciar um trabalho no Gerenciador de Dados do StorSimple
+title: Use o Azure Automation para lançar um trabalho no StorSimple Data Manager
 description: Saiba como usar a Automação do Azure para disparar trabalhos do Gerenciador de Dados do StorSimple
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76273986"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usar a Automação do Azure para disparar um trabalho
@@ -26,16 +26,16 @@ Este artigo fornece detalhes sobre como criar um runbook de Automação do Azure
 
 Antes de começar, verifique se você tem:
 
-*   Microsoft Azure PowerShell instalado no computador do cliente. [Fazer o download do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   Microsoft Azure PowerShell instalado no computador do cliente. [Baixe Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   Uma definição de trabalho configurada corretamente em um serviço do Gerenciador de Dados StorSimple dentro de um grupo de recursos.
-*   Fazer o download do arquivo  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) no repositório GitHub. 
-*   Fazer o download do script [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) no repositório GitHub.
+*   Baixar [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) arquivo do repositório GitHub. 
+*   Baixar [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) script do repositório GitHub.
 
 ## <a name="step-by-step-procedure"></a>Procedimento passo a passo
 
 ### <a name="set-up-the-automation-account"></a>Configurar a conta de Automação
 
-1. Crie uma conta de automação Executar Como do Azure no Portal do Azure. Para fazer isso, vá para **Marketplace do Azure > Tudo** e, em seguida, pesquise **Automação**. Selecione **Contas de automação**.
+1. Crie uma conta de automação Executar Como do Azure no Portal do Azure. Para fazer isso, vá para **Marketplace do Azure > Tudo** e, em seguida, pesquise **Automação**. Selecione **contas de automação**.
 
     ![Criar a conta de Automação Executar como](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
@@ -48,7 +48,7 @@ Antes de começar, verifique se você tem:
    1. Forneça o **Nome** da sua Conta de Automação.
    2. Selecione a **Assinatura** vinculada ao seu serviço de Gerenciador de Dados StorSimple.
    3. Crie um novo grupo de recursos ou selecione um existente.
-   4. Selecione um **Local**.
+   4. Selecione um **local**.
    5. Deixe a opção **Criar Conta Executar Como** padrão selecionada.
    6. Para obter um link de acesso rápido no painel, verifique **Fixar no painel**. Clique em **Criar**.
 
@@ -116,6 +116,6 @@ Execute as etapas a seguir para importar, publicar e executar o runbook para dis
 
     ![Adicionar Runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Use a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md).

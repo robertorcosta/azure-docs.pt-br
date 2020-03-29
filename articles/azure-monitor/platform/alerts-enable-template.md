@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
 ms.openlocfilehash: 4f840d3771c2520e239d8ff3416722429f9502f3
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79037235"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
 > [!WARNING]
 > 
-> Este artigo descreve como criar **alertas clássicos de métrica** usando modelos do Resource Manager. Os alertas clássicos foram desativados em agosto de 2019 e foram definidos para serem totalmente preteridos em 2020 de junho. Você não pode criar novos alertas clássicos do Azure público. Algumas versões regionais do Azure ainda podem ter a opção, mas sugerimos que você crie [alertas de métrica mais recentes](../../azure-monitor/platform/alerts-metric-near-real-time.md) usando modelos, se possível. [Este artigo](alerts-metric-create-templates.md) fornece os detalhes.
+> Este artigo descreve como criar **alertas clássicos de métrica** usando modelos do Resource Manager. Os alertas clássicos foram retirados em agosto de 2019 e devem ser totalmente preteridos em junho de 2020. Você não pode criar novos alertas clássicos públicos do Azure. Algumas versões regionais do Azure ainda podem ter a opção, mas sugerimos que você crie [alertas métricos mais recentes](../../azure-monitor/platform/alerts-metric-near-real-time.md) usando modelos, se possível. [Este artigo](alerts-metric-create-templates.md) fornece os detalhes.
 >
 
-Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métrica clássicos do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
+Este artigo mostra como você pode usar um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas métricos clássicos do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
 
 As etapas básicas são as seguintes:
 
 1. Crie um modelo como um arquivo JSON que descreve como criar o alerta.
-2. [Implantar o modelo usando qualquer método de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
+2. [Implante o modelo usando qualquer método de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
 
 A seguir, descrevemos como criar um modelo do Resource Manager pela primeira vez para um alerta apenas, em seguida, para um alerta durante a criação de outro recurso.
 
@@ -398,7 +398,7 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Alertas](alerts-overview.md)
 * [Adicionar Configurações de Diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) ao modelo do Resource Manager
 * Para obter a sintaxe JSON e as propriedades, confira a referência de modelo [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).

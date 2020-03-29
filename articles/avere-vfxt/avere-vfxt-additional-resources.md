@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 78e0500057baf407f1d26afe29d9df1e525cbf3d
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153761"
 ---
 # <a name="additional-documentation"></a>Documentação adicional
@@ -25,7 +25,7 @@ Documentação adicional sobre o cluster do Avere pode ser encontrada no site em
   * [Personaliza configurações de monitoramento e suporte](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>) explica como personalizar configurações de upload de suporte e habilitar o monitoramento remoto.
   * [Configurar VServers e o Namespace Global](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_vserver.html#config-vserver>) tem informações sobre como criar um namespace voltado ao cliente.
   * [Configurar o DNS para o cluster do Avere](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_network.html#dns-overview>) explica como configurar o DNS com round robin.
-  * [Adicionar o armazenamento de back-end](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) documenta como adicionar os principais Filers.
+  * [Adicionando documentos de armazenamento back-end](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) como adicionar arquivos principais.
 
 * O [Guia de Configuração do Cluster](<https://azure.github.io/Avere/#operations>) é uma referência completa de configurações e opções para um cluster do Avere. Um cluster do vFXT usa um subconjunto dessas opções, mas a maioria das mesmas páginas de configuração se aplica.
 
@@ -33,4 +33,4 @@ Documentação adicional sobre o cluster do Avere pode ser encontrada no site em
 
 ## <a name="vfxt-creation-and-management-documentation"></a>documentação sobre criação e gerenciamento de vFXT
 
-Um guia completo para usar o vfxt.py, um utilitário de criação e gerenciamento de cluster de nuvem baseado em script, é fornecido no GitHub: [Gerenciamento de cluster de nuvem com vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).
+Um guia completo para o uso de vfxt.py, um utilitário de criação e gerenciamento de clusters em nuvem baseado em script, é fornecido no GitHub: [Cloud cluster management com vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).

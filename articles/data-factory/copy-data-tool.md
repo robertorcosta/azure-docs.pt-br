@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory ferramenta de Copiar Dados
+title: Copiar ferramenta de dados Azure Data Factory
 description: Fornece informações sobre a ferramenta Copiar Dados na interface de usuário do Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: a6de5c28115d3a451256cc43d26552c269ba245a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927488"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Ferramenta Copiar Dados no Azure Data Factory
@@ -78,7 +78,7 @@ A captura de tela a seguir mostra uma consulta SQL para filtrar os dados.
 ![Filtrar dados em um banco de dados](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrar dados em uma pasta de blobs do Azure
-Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis com suporte são: **{ano}** , **{mês}** , **{dia}** , **{hora}** e **{minuto}** . Por exemplo: pastadeentrada/{ano}/{mês}/{dia}. 
+Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis com suporte são: **{ano}**, **{mês}**, **{dia}**, **{hora}** e **{minuto}**. Por exemplo: pastadeentrada/{ano}/{mês}/{dia}. 
 
 Suponha que você tenha pastas de entrada no seguinte formato: 
 
@@ -91,7 +91,7 @@ Suponha que você tenha pastas de entrada no seguinte formato:
 
 Clique no botão **Procurar** de **Arquivo ou pasta**, navegue até uma dessas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher**. Você verá 2016/03/01/02 na caixa de texto. 
 
-Em seguida, substitua **2016** por **{ano}** , **03** por **{mês}** , **01** por **{dia}** , **02** por **{hora}** e pressione a tecla **Tab**. Você deverá ver listas suspensas para escolher o formato dessas quatro variáveis:
+Em seguida, substitua **2016** por **{ano}**, **03** por **{mês}**, **01** por **{dia}**, **02** por **{hora}** e pressione a tecla **Tab**. Você deverá ver listas suspensas para escolher o formato dessas quatro variáveis:
 
 ![Filtrar arquivo ou pasta](./media/copy-data-tool/filter-file-or-folder.png)
 
@@ -105,7 +105,7 @@ Uma operação de cópia única permite, uma única vez, a movimentação de dad
 ![Opções de agendamento](./media/copy-data-tool/scheduling-options.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Experimente estes tutoriais que usam a ferramenta Copiar Dados:
 
 - [Início Rápido: Criar um data factory usando a ferramenta Copiar Dados](quickstart-create-data-factory-copy-data-tool.md)

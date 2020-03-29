@@ -1,7 +1,7 @@
 ---
-title: 'Avaliar Recomendador: referência de módulo'
+title: 'Avaliar recomendador: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo avaliar Recomendador no Azure Machine Learning para avaliar a precisão das previsões do modelo de recomendação.
+description: Aprenda a usar o módulo Avaliador no Azure Machine Learning para avaliar a precisão das previsões do modelo recomendador.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,85 +9,85 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76312253"
 ---
 # <a name="evaluate-recommender"></a>Avaliar o sistema de recomendação
 
-Este artigo descreve como usar o módulo avaliar Recomendador no Azure Machine Learning designer. O objetivo é medir a precisão das previsões que um modelo de recomendação fez. Usando esse módulo, você pode avaliar diferentes tipos de recomendações:  
+Este artigo descreve como usar o módulo Avaliar recomendador no designer azure Machine Learning (visualização). O objetivo é medir a precisão das previsões que um modelo de recomendação fez. Usando este módulo, você pode avaliar diferentes tipos de recomendações:  
   
 -   Classificações previstas para um usuário e um item    
 -   Itens recomendados para um usuário  
   
-Quando você cria previsões usando um modelo de recomendação, resultados ligeiramente diferentes são retornados para cada um desses tipos de previsão com suporte. O módulo avaliar Recomendador deduz o tipo de previsão do formato de coluna do conjunto de linha de DataSet. Por exemplo, o conjunto de marcação pode conter:
+Quando você cria previsões usando um modelo de recomendação, resultados ligeiramente diferentes são devolvidos para cada um desses tipos de previsão suportadas. O módulo Avaliar Recomendador deduz o tipo de previsão a partir do formato da coluna do conjunto de dados pontuado. Por exemplo, o conjunto de dados pontuado pode conter:
 
-- Usuários-item-processamentos de classificação
+- Triplos da classificação de itens do usuário
 - Usuários e seus itens recomendados
 
 O módulo também aplica as métricas de desempenho apropriadas, com base no tipo de previsão que está sendo feita. 
 
   
-## <a name="how-to-configure-evaluate-recommender"></a>Como configurar avaliar Recomendador
+## <a name="how-to-configure-evaluate-recommender"></a>Como configurar O Recomendador avalia
 
-O módulo avaliar Recomendador compara a saída de previsão usando um modelo de recomendação com os dados de "terra terrestre" correspondentes. Por exemplo, o módulo de [recomendação do SVD de Pontuação](score-svd-recommender.md) produz conjuntos de valores de conjunto de linhas que você pode analisar usando avaliar recomendador.
+O módulo Avaliar Recomendador compara a saída de previsão usando um modelo de recomendação com os dados correspondentes de "verdade de solo". Por exemplo, o módulo [Score SVD Recommender](score-svd-recommender.md) produz conjuntos de dados pontuados que você pode analisar usando O Avaliador.
 
 ### <a name="requirements"></a>Requisitos
 
-Avaliar Recomendador requer os seguintes conjuntos de dados como entrada. 
+O Recommender requer os seguintes conjuntos de dados como entrada. 
   
 #### <a name="test-dataset"></a>Conjunto de dados de teste
 
-O conjunto de dados de teste contém o "princípio de verdade" na forma de processamentos de classificação de usuário-item.  
+O conjunto de dados do teste contém os dados de "verdade terrestre" na forma de triplos de classificação de item do usuário.  
 
 #### <a name="scored-dataset"></a>Conjunto de dados classificado
 
-O conjunto de marcação contém as previsões que o modelo de recomendação gerou.  
+O conjunto de dados pontuado contém as previsões que o modelo de recomendação gerou.  
   
-As colunas nesse segundo conjunto de DataSet dependem do tipo de previsão que você realizou durante o processo de pontuação. Por exemplo, o conjunto de pontos de Pontuação pode conter um dos seguintes:
+As colunas neste segundo conjunto de dados dependem do tipo de previsão que você realizou durante o processo de pontuação. Por exemplo, o conjunto de dados pontuado pode conter qualquer um dos seguintes:
 
 - Usuários, itens e as classificações que o usuário provavelmente daria para o item
 - Uma lista de usuários e itens recomendados para eles 
 
 ### <a name="metrics"></a>Métricas
 
-As métricas de desempenho para o modelo são geradas com base no tipo de entrada. As seções a seguir fornecem detalhes.
+As métricas de desempenho para o modelo são geradas com base no tipo de entrada. As seções a seguir dão detalhes.
 
-## <a name="evaluate-predicted-ratings"></a>Avaliar as classificações previstas  
+## <a name="evaluate-predicted-ratings"></a>Avalie as classificações previstas  
 
-Quando você estiver avaliando as classificações previstas, o conjunto de dados pontuado (a segunda entrada para avaliar o Recomendador) deve conter processamentos de classificação de usuário-item que atendam a estes requisitos:
+Ao avaliar as classificações previstas, o conjunto de dados pontuados (a segunda entrada para o Avaliador) deve conter triplos de classificação de item do usuário que atendam a esses requisitos:
   
--   A primeira coluna do conjunto de um contém os identificadores de usuário.    
--   A segunda coluna contém os identificadores de item.  
--   A terceira coluna contém as classificações de usuário-item correspondentes.  
+-   A primeira coluna do conjunto de dados contém os identificadores do usuário.    
+-   A segunda coluna contém os identificadores do item.  
+-   A terceira coluna contém as classificações correspondentes do item do usuário.  
   
 > [!IMPORTANT] 
-> Para que a avaliação seja bem sucedida, os nomes das colunas devem ser `User`, `Item`e `Rating`, respectivamente.  
+> Para que a avaliação seja `User`bem `Item`sucedida, os nomes das colunas devem ser , e `Rating`, respectivamente.  
   
-Avaliar Recomendador compara as classificações no conjunto de "verdadeiro verdade" com as classificações previstas do conjunto de valores de pontuação. Em seguida, ele computa o erro de média absoluta (MAE) e o erro de raiz quadrada da média (RMSE).
+O Assess Recommender compara as classificações no conjunto de dados "verdade terrestre" com as classificações previstas do conjunto de dados pontuados. Em seguida, calcula o erro absoluto médio (MAE) e o erro quadrado médio da raiz (RMSE).
 
 
 
-## <a name="evaluate-item-recommendations"></a>Avaliar recomendações de item
+## <a name="evaluate-item-recommendations"></a>Avaliar recomendações de itens
 
-Quando você estiver avaliando as recomendações de item, use um conjunto de uma pontuação que inclua os itens recomendados para cada usuário:
+Ao avaliar as recomendações de itens, use um conjunto de dados pontuado que inclua os itens recomendados para cada usuário:
   
--   A primeira coluna do conjunto de um deve conter o identificador de usuário.    
--   Todas as colunas subsequentes devem conter os identificadores de item recomendados correspondentes, ordenados pelo quão relevante um item é para o usuário. 
+-   A primeira coluna do conjunto de dados deve conter o identificador do usuário.    
+-   Todas as colunas subseqüentes devem conter os respectivos identificadores de itens recomendados, ordenados pelo quão relevante um item é para o usuário. 
 
-Antes de conectar esse conjunto de resultados, recomendamos que você classifique o conjunto de resultados para que os itens mais relevantes sejam apresentados primeiro.  
+Antes de conectar este conjunto de dados, recomendamos que você classifique o conjunto de dados para que os itens mais relevantes venham primeiro.  
 
 > [!IMPORTANT] 
-> Para avaliar Recomendador para funcionar, os nomes de coluna devem ser `User`, `Item 1`, `Item 2`, `Item 3` e assim por diante.  
+> Para que o Recomendador avalie `User`para `Item 1` `Item 2`funcionar, os nomes das colunas devem ser , e `Item 3` assim por diante.  
   
-Avaliar Recomendador computa o NDCG (lucro cumulativo médio normalizado) e o retorna no conjunto de saída.  
+O Recommender avalia o ganho acumulado normalizado normalizado (NDCG) e o devolve no conjunto de dados de saída.  
   
-Como é impossível saber a verdadeira "verdadeira verdade" para os itens recomendados, avaliar Recomendador usa as classificações de item de usuário no conjunto de dados de teste como ganhos no cálculo do NDCG. Para avaliar, o módulo de Pontuação de recomendação deve produzir apenas recomendações para itens com classificações de "terra terrestre" (no conjunto de testes).  
+Como é impossível saber a "verdade terrestre" real para os itens recomendados, o Assess Recommender usa as classificações de item do usuário no conjunto de dados do teste como ganhos no cálculo do NDCG. Para avaliar, o módulo de pontuação recomendador deve produzir apenas recomendações para itens com classificações de "verdade de solo" (no conjunto de dados do teste).  
   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

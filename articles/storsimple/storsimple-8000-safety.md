@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60631594"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
@@ -30,10 +30,10 @@ Leia todas as informações de segurança e integridade neste artigo, que aplica
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
 
-| ícone | DESCRIÇÃO |
+| ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
-| ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
+| ![Ícone](./media/storsimple-safety/IC740879.png) de aviso **ATENÇÃO ATENÇÃO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
 | ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
 | ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **Risco de choque elétrico** |Alta tensão |
@@ -90,7 +90,7 @@ Para reduzir a probabilidade de lesões causadas por tombamento:
 * Ao montar um rack, preencha-o de baixo para cima e esvazie-o de cima para baixo.
 * Não retire mais de um gabinete do rack por vez para evitar o risco de o rack tombar.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
 
 Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
@@ -109,7 +109,7 @@ Para o resfriamento correto do seu sistema de rack:
 ## <a name="power-cooling-module-pcm-precautions"></a>Precauções do PCM (Módulo de Resfriamento de Energia)
 Este dispositivo foi projetado para operar com dois PCMs. Cada PCMs tem uma fonte de energia e uma ventoinha de dois eixos. Durante uma condição crítica, o sistema dá suporte à falha de uma fonte de alimentação e continua com suas operações normais. Dois PCMs (e, portanto, duas fontes de alimentação) sempre devem estar instalados. Um único PCM não oferece fontes de alimentação redundantes. Por isso, a falha de um dos PCMs pode resultar em tempo de inatividade ou possível perda de dados.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **AVISO!**
 
 Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
@@ -135,7 +135,7 @@ Observe as seguintes precauções relacionada a ESD.
 ## <a name="battery-disposal-precautions"></a>Precauções de descarte de bateria
 A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante interrupções de energia temporárias e de curto prazo. A bateria está encaixada no PCM. Lembre-se das informações a seguir sobre a bateria.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!**
+![Ícone](./media/storsimple-safety/IC740879.png) de aviso **ATENÇÃO ATENÇÃO!**
 
 Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
@@ -145,7 +145,7 @@ Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Ao transportar ou transportar as baterias por via aérea, siga o documento de orientação da bateria de lítio da IATA disponível em [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao enviar ou transportar as baterias por via aérea, siga o documento de orientação da bateria de lítio IATA disponível em[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 

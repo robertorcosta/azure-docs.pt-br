@@ -11,10 +11,10 @@ author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
 ms.openlocfilehash: 9b49eb6237346a76903202a118331383c5a8f623
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944250"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu com o Workbench de aprendizado de máquina do Azure?
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá sobre o que mudou e como isso afeta seu trabalho 
 A última versão do Azure Machine Learning inclui os seguintes recursos:
 + Um [modelo simplificado de recursos do Azure](concept-azure-machine-learning-architecture.md).
 + Uma [nova interface do usuário do portal](how-to-track-experiments.md) para gerenciar suas experiências e destinos de computação.
-+ Um novo, mais abrangente <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> do Python.
++ Um novo E mais abrangente <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a>.
 + A nova [extensão de CLI do Azure](reference-azure-machine-learning-cli.md) expandida para aprendizado de máquina.
 
 A [arquitetura](concept-azure-machine-learning-architecture.md) foi reprojetada visando facilidade de uso. Em vez de várias contas e recursos do Azure, você só precisa de um [Workspace do Azure Machine Learning](concept-workspace.md). Você pode criar workspaces rapidamente no [Portal do Azure](how-to-manage-workspace.md). Usando um workspace, múltiplos usuários podem armazenar destinos de computação de treinamento e de implantação, experimentos de modelo, imagens do Docker, modelos implementados e assim por diante.
@@ -47,7 +47,7 @@ Embora existam novos clientes da CLI e do SDK aprimorados na versão atual, o pr
 
 ## <a name="support-timeline"></a>Linha do tempo de suporte
 
-Em 9 de janeiro de 2019, foi encerrado o suporte para as contas do Machine Learning Workbench, da Experimentação do Azure Machine Learning e do Gerenciamento de Modelos e para as CLIs e os SDKs associados.
+Em 9 de janeiro de 2019, o suporte para o Machine Learning Workbench, a azure Machine Learning Experimentation and Model Management contas, e suas contas associadas de SDK e CLI terminaram.
 
 Todas as funcionalidades mais recentes estão disponíveis usando este <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, a [CLI](reference-azure-machine-learning-cli.md) e o [portal](how-to-manage-workspace.md).
 
@@ -65,9 +65,9 @@ Comece treinando seus modelos e acompanhando os históricos de execução usando
 
 ## <a name="will-projects-persist"></a>Projetos persistirá?
 
-Você não perderá nenhum código ou trabalho. Na versão mais antiga, os projetos são entidades na nuvem com um diretório local. Na última versão, você anexa diretórios locais ao Workspace do Azure Machine Learning usando um arquivo de configuração local. Confira um [diagrama da arquitetura mais recente](concept-azure-machine-learning-architecture.md).
+Você não perderá nenhum código ou trabalho. Na versão mais antiga, os projetos são entidades na nuvem com um diretório local. Na última versão, você anexa diretórios locais ao Workspace do Azure Machine Learning usando um arquivo de configuração local. Veja um [diagrama da arquitetura mais recente](concept-azure-machine-learning-architecture.md).
 
-Grande parte do conteúdo do projeto já estava em seu computador local. Sendo assim, você só precisa criar um arquivo de configuração nesse diretório e referenciá-lo em seu código para se conectar ao seu workspace. Para continuar usando o diretório local que contém seus arquivos e scripts, especifique o nome do diretório no comando de Python ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ou usando o comando da CLI `az ml project attach`.  Por exemplo:
+Grande parte do conteúdo do projeto já estava em seu computador local. Sendo assim, você só precisa criar um arquivo de configuração nesse diretório e referenciá-lo em seu código para se conectar ao seu workspace. Para continuar usando o diretório local que contém seus arquivos e scripts, especifique o nome do diretório no comando de Python ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) ou usando o comando da CLI `az ml project attach`.  Por exemplo: 
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)
@@ -89,7 +89,7 @@ Na versão mais recente, os modelos são implantados como serviços Web para clu
 
 Saiba mais nestes artigos:
 + [Onde e como implantar modelos](how-to-deploy-and-where.md)
-+ [Tutorial: Implantar modelos com o Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Tutorial: Implante modelos com o Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

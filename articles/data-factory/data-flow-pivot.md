@@ -1,6 +1,6 @@
 ---
-title: Mapeando a transformação dinâmica do fluxo de dados
-description: Dados dinâmicos de linhas para colunas usando Azure Data Factory mapeamento dinâmico do fluxo de dados
+title: Mapeamento da transformação pivô do fluxo de dados
+description: Dados pivôs de linhas para colunas usando o Azure Data Factory mapeando o fluxo de dados Transformação pivô
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: 8f23b5e61e1aee83172a12466fac8d5b5003fea8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930297"
 ---
-# <a name="azure-data-factory-pivot-transformation"></a>Transformação dinâmica do Azure data factory
+# <a name="azure-data-factory-pivot-transformation"></a>Transformação pivô da fábrica de dados do Azure
 
 
 Use Dinamizar no Fluxo de Dados do ADF como uma agregação em que uma ou mais colunas de agrupamento tem seus valores de linha distintos transformados em colunas individuais. Basicamente, você pode dinamizar os valores de linha em novas colunas (transformar dados em metadados).
 
-![Opções dinâmicas](media/data-flow/pivot1.png "pivô 1")
+![Opções de pivô](media/data-flow/pivot1.png "pivô 1")
 
 ## <a name="group-by"></a>Agrupar por
 
-![Opções dinâmicas](media/data-flow/pivot2.png "pivô 2")
+![Opções de pivô](media/data-flow/pivot2.png "pivô 2")
 
 Primeiro, defina as colunas pelas quais você deseja agrupar para sua agregação de tabela dinâmica. Você pode definir mais de uma coluna aqui com o sinal + ao lado da lista de colunas.
 
-## <a name="pivot-key"></a>Chave dinâmica
+## <a name="pivot-key"></a>Chave pivô
 
-![Opções dinâmicas](media/data-flow/pivot3.png "pivô 3")
+![Opções de pivô](media/data-flow/pivot3.png "pivô 3")
 
-A chave de dinamização é a coluna que o ADF dinamizará de linha para coluna. Por padrão, cada valor único no conjunto de dados para o campo será dinamizado para uma coluna. No entanto, é possível inserir, opcionalmente, os valores do conjunto de dados que você deseja dinamizar para valores de coluna. Esta é a coluna que determinará as novas colunas que serão criadas.
+A Chave de dinamização é a coluna que o ADF dinamizará de linha para coluna. Por padrão, cada valor único no conjunto de dados para o campo será dinamizado para uma coluna. No entanto, é possível inserir, opcionalmente, os valores do conjunto de dados que você deseja dinamizar para valores de coluna. Esta é a coluna que determinará as novas colunas que serão criadas.
 
-## <a name="pivoted-columns"></a>Colunas dinâmicas
+## <a name="pivoted-columns"></a>Colunas pivotadas
 
-![Opções dinâmicas](media/data-flow/pivot4.png "tabela dinâmica 4")
+![Opções de pivô](media/data-flow/pivot4.png "pivô 4")
 
 Por fim, você escolherá a agregação que deseja usar para os valores dinamizados e como gostaria que as colunas fossem exibidas na nova projeção de saída da transformação.
 
 (Opcional) É possível definir um padrão de nomenclatura com um prefixo, um intermediário e um sufixo a serem adicionados a cada novo nome de coluna com base nos valores de linha.
 
-Por exemplo, dinamizar "vendas" por "Region" resultaria em novos valores de coluna de cada valor de vendas, ou seja, "25", "50", "1000" etc. No entanto, se você definir um valor de prefixo "Sales-", cada valor de coluna adicionará "Sales" ao início do valor.
+Por exemplo, "Vendas" por "Região" resultaria em novos valores de coluna de cada valor de venda, ou seja, "25", "50", "1000", etc. No entanto, se você definir um valor de prefixo de "Vendas", cada valor de coluna adicionaria "Vendas-" ao início do valor.
 
-![Opções dinâmicas](media/data-flow/pivot5.png "pivô 5")
+![Opções de pivô](media/data-flow/pivot5.png "pivô 5")
 
-Definir a Disposição de Colunas como “Normal” agrupará todas as colunas dinâmicas com seus valores agregados. Definir a disposição de colunas como “Lateral” alternará entre coluna e valor.
+Definir a Disposição de Colunas como “Normal” agrupará todas as colunas dinamizadas com seus valores agregados. Definir a disposição de colunas como “Lateral” alternará entre coluna e valor.
 
 ### <a name="aggregation"></a>Agregação
 
@@ -53,27 +53,27 @@ Para definir a agregação que você deseja usar para os valores de dinamizaçã
 
 Use a Linguagem de Expressão do Fluxo de Dados do ADF para descrever as transformações da coluna dinamizada no Construtor de Expressões: https://aka.ms/dataflowexpressions.
 
-## <a name="pivot-metadata"></a>Metadados dinâmicos
+## <a name="pivot-metadata"></a>Metadados pivôs
 
-A transformação dinâmica produzirá novos nomes de coluna dinâmicos com base em seus dados de entrada. A chave dinâmica produz os valores para cada novo nome de coluna. Se você não especificar valores individuais e desejar criar nomes de coluna dinâmicos para cada valor exclusivo em sua chave dinâmica, a interface do usuário não exibirá os metadados em inspeção e não haverá nenhuma propagação de coluna para a transformação do coletor. Se você definir valores para a chave dinâmica, o ADF poderá determinar os novos nomes de coluna e esses nomes de coluna estarão disponíveis para você no mapeamento de inspeção e de coletor.
+A transformação pivô produzirá novos nomes de coluna suspidos com base nos seus dados de entrada. A Chave Pivô produz os valores para cada novo nome da coluna. Se você não especificar valores individuais e desejar criar nomes de colunadinâmica para cada valor único em sua Chave Dinâmica, então a ui não exibirá os metadados em Inspecionar e não haverá propagação de colunas para a transformação do Sink. Se você definir valores para a chave pivô, o ADF poderá determinar os novos nomes da coluna e os nomes das colunas estarão disponíveis para você no mapeamento Inspecionar e Afundar.
 
 ### <a name="generate-a-new-model-from-dynamic-columns"></a>Gerar um novo modelo a partir de colunas dinâmicas
 
-A tabela dinâmica gera novos nomes de coluna dinamicamente com base em valores de linha. Você pode transformar essas novas colunas em metadados que podem ser referenciados posteriormente no fluxo de dados. Para fazer isso, clique na guia Visualização de dados. Todas as novas colunas geradas pela transformação dinâmica aparecem com um ícone "descompasso" no cabeçalho da tabela. Clique no botão "mapear descompassos" para transformar essas novas colunas em metadados, tornando-as parte do modelo do fluxo de dados.
+O pivô gera novos nomes de coluna dinamicamente com base nos valores da linha. Você pode transformar essas novas colunas em metadados que podem ser referenciados mais tarde no seu fluxo de dados. Para fazer isso, clique na guia Visualização de dados. Todas as novas colunas geradas pela sua transformação pivô aparecem com um ícone "à deriva" no cabeçalho da tabela. Clique no botão "Mapa à deriva" para transformar essas novas colunas em metadados, tornando-as parte do modelo do seu fluxo de dados.
 
-![Colunas dinâmicas](media/data-flow/newpivot1.png "Mapear colunas dinâmicas descompassos")
+![Colunas pivôs](media/data-flow/newpivot1.png "Mapa decolunas pivôs à deriva")
 
-### <a name="landing-new-columns-in-sink"></a>Novas colunas de aterrissagem no coletor
+### <a name="landing-new-columns-in-sink"></a>Aterrissando novas colunas em Sink
 
-Mesmo com nomes de coluna dinâmicas em pivô, você ainda pode coletar seus novos nomes de coluna e valores em seu repositório de destino. Basta definir "permitir descompasso de esquema" em nas configurações do coletor. Você não verá os novos nomes dinâmicos em seus metadados de coluna, mas a opção de descompasso de esquema permitirá que você pouse os dados.
+Mesmo com nomes de colunas dinâmicas no Pivot, você ainda pode afundar seus novos nomes e valores de coluna em sua loja de destino. Basta definir "Permitir deriva de esquema" em suas configurações de Sink. Você não verá os novos nomes dinâmicos em seus metadados de coluna, mas a opção de deriva de esquema permitirá que você aterrisse os dados.
 
 ### <a name="view-metadata-in-design-mode"></a>Exibir metadados no modo de design
 
-Se você quiser exibir os novos nomes de coluna como metadados na inspeção e desejar ver as colunas propagadas explicitamente para a transformação do coletor, defina valores explícitos na guia chave dinâmica.
+Se você deseja visualizar os novos nomes de coluna como metadados em Inspecionar e deseja ver as colunas se propagarem explicitamente para a transformação De Sink, defina valores explícitos na guia Tecla pivô.
 
 ### <a name="how-to-rejoin-original-fields"></a>Como reingressar nos campos originais
-A transformação dinâmica só projetará as colunas usadas nas ações de agregação, agrupamento e dinamização. Se você quiser incluir as outras colunas da etapa anterior em seu fluxo, use uma nova ramificação da etapa anterior e use o padrão de autojunção para conectar o fluxo com os metadados originais.
+A transformação dinâmica só projetará as colunas usadas nas ações de agregação, agrupamento e dinamização. Se você deseja incluir as outras colunas da etapa anterior em seu fluxo, use um Novo Ramo da etapa anterior e use o padrão de auto-adesão para conectar o fluxo com os metadados originais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Experimente a [transformação não dinâmica](data-flow-unpivot.md) para transformar valores de coluna em valores de linha. 
+Tente a [transformação sem pivô](data-flow-unpivot.md) para transformar valores de coluna em valores de linha. 
