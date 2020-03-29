@@ -1,6 +1,6 @@
 ---
-title: Usar modelos de Azure Resource Manager para carregar Gerenciamento de Atualizações | Microsoft Docs
-description: Você pode usar um modelo de Azure Resource Manager para carregar a solução de Gerenciamento de Atualizações de automação do Azure.
+title: Use os modelos do Azure Resource Manager para gerenciamento de atualizações a bordo | Microsoft Docs
+description: Você pode usar um modelo do Azure Resource Manager para embarcar na solução azure Automation Update Management.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
@@ -8,24 +8,24 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/27/2020
 ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925794"
 ---
-# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Integração de Gerenciamento de Atualizações solução usando Azure Resource Manager modelo
+# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Solução de gerenciamento de atualização a bordo usando o modelo do Azure Resource Manager
 
-Você pode usar [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para habilitar a solução de gerenciamento de atualizações de automação do Azure em seu grupo de recursos. Este artigo fornece um modelo de exemplo que automatiza o seguinte:
+Você pode usar [os modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para ativar a solução azure Automation Update Management em seu grupo de recursos. Este artigo fornece um modelo de exemplo que automatiza o seguinte:
 
-* Criação de um Azure Monitor espaço de trabalho Log Analytics.
-* Criação de uma conta de automação do Azure.
-* Vincula a conta de automação ao espaço de trabalho Log Analytics se ainda não estiver vinculada.
-* Carregar a solução de Gerenciamento de Atualizações de automação do Azure
+* Criação de um espaço de trabalho do Azure Monitor Log Analytics.
+* Criação de uma conta do Azure Automation.
+* Vincula a conta de Automação ao espaço de trabalho do Log Analytics se ainda não estiver vinculado.
+* A bordo da solução azure Automation Update Management
 
-O modelo não automatiza a integração de uma ou mais VMs do Azure ou não Azure.
+O modelo não automatiza o onboarding de uma ou mais VMs Azure ou não-Azure.
 
-Se você já tiver um espaço de trabalho Log Analytics e uma conta de automação implantada em uma região com suporte em sua assinatura, elas não estarão vinculadas e o espaço de trabalho ainda não tiver a solução Gerenciamento de Atualizações implantada, usando esse modelo criará com êxito o link e implanta a solução Gerenciamento de Atualizações. 
+Se você já tem uma conta de espaço de trabalho e automação do Log Analytics implantada em uma região suportada em sua assinatura, elas não estão vinculadas e o espaço de trabalho ainda não tem a solução de Gerenciamento de atualizações implantada, usando esse modelo cria com sucesso o link e implanta a solução Update Management. 
 
 ## <a name="api-versions"></a>Versões de API
 
@@ -34,35 +34,35 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
 | Workspace | workspaces | 2017-03-15-preview |
-| Conta de automação | automação | 2015-10-31 | 
-| Solução | soluções | 2015-11-01-preview |
+| Conta de automação | automação | 31-10-2015 | 
+| Solução | solutions | 2015-11-01-preview |
 
 ## <a name="before-using-the-template"></a>Antes de usar o modelo
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo Azure PowerShell AZ. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure. Com o Azure PowerShell, a implantação usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se você optar por instalar e usar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure. Com o Azure PowerShell, a implantação usa [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.1.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com CLI do Azure, essa implantação usa [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se você optar por instalar e usar o CLI localmente, este artigo requer que você esteja executando a versão 2.1.0 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, essa implantação usa [a criação de implantação de grupo AZ](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 O modelo JSON está configurado para solicitar:
 
 * O nome do workspace
-* A região na qual criar o espaço de trabalho
-* O nome da conta de automação
-* A região na qual criar a conta
+* A região para criar o espaço de trabalho em
+* O nome da conta automação
+* A região para criar a conta em
 
-O modelo JSON especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Você pode armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado em sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [implantar recursos com modelos do Resource Manager e CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
+O modelo JSON especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Você pode armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado em sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [Implantar recursos com modelos do Gerenciador de Recursos e CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
 
-Os seguintes parâmetros no modelo são definidos com um valor padrão para o espaço de trabalho Log Analytics:
+Os seguintes parâmetros no modelo são definidos com um valor padrão para o espaço de trabalho do Log Analytics:
 
 * SKU – assume por padrão o novo tipo de preço por GB lançado no modelo de preço de abril de 2018
-* retenção de dados-padrão para trinta dias
+* retenção de dados - padrão para trinta dias
 
 >[!WARNING]
 >Se criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**.
 >
 
 >[!NOTE]
->Antes de usar esse modelo, examine [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade. Se você for novo no Azure Monitor logs e ainda não tiver implantado um espaço de trabalho, examine as diretrizes de [design do espaço de trabalho](../azure-monitor/platform/design-logs-deployment.md) para saber mais sobre o controle de acesso e uma compreensão das estratégias de implementação de design recomendadas para sua organização.
+>Antes de usar este modelo, revise [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender completamente as opções de configuração do espaço de trabalho, como modo de controle de acesso, nível de pricing, retenção e nível de reserva de capacidade. Se você é novo nos registros do Azure Monitor e ainda não implantou um espaço de trabalho, você deve rever a orientação de design do [espaço de trabalho](../azure-monitor/platform/design-logs-deployment.md) para aprender sobre controle de acesso e uma compreensão das estratégias de implementação de design que recomendamos para sua organização.
 
 ## <a name="deploy-template"></a>Implantar modelo
 
@@ -233,17 +233,17 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
 
 2. Edite o modelo para atender às suas necessidades.
 
-3. Salve esse arquivo como deployUMSolutiontemplate. JSON em uma pasta local.
+3. Salve este arquivo como deployUMSolutiontemplate.json em uma pasta local.
 
-4. Você está pronto para implantar o modelo. Você pode usar o PowerShell ou o CLI do Azure. Quando for solicitado um nome de espaço de trabalho e de conta de automação, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
+4. Você está pronto para implantar o modelo. Você pode usar o PowerShell ou o Azure CLI. Quando você for solicitado para um nome de conta de espaço de trabalho e automação, forneça um nome que seja globalmente único em todas as assinaturas do Azure.
 
-    **PowerShell**
+    **Powershell**
 
     ```powershell
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
     ```
 
-    **CLI do Azure**
+    **Azure CLI**
 
     ```cli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
@@ -253,12 +253,12 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
 
     ![Resultados de exemplo, quando a implantação for concluída](media/automation-update-management-deploy-template/template-output.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Agora que você tem a solução Gerenciamento de Atualizações implantada, você pode habilitar VMs para gerenciamento, examinar avaliações de atualização e implantar atualizações para colocá-las em conformidade.
+Agora que você tem a solução update management implantada, você pode habilitar VMs para gerenciamento, revisar avaliações de atualização e implantar atualizações para trazê-las em conformidade.
 
-- Da sua [conta de automação do Azure](automation-onboard-solutions-from-automation-account.md) para um ou mais computadores do Azure e manualmente para computadores não Azure.
+- A partir de sua [conta Azure Automation](automation-onboard-solutions-from-automation-account.md) para uma ou mais máquinas Azure e manualmente para máquinas não-Azure.
 
-- Para uma única VM do Azure da página da máquina virtual no portal do Azure. Esse cenário está disponível para VMs [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) .
+- Para uma única VM Azure da página da máquina virtual no portal Azure. Este cenário está disponível para [VMs Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows.](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
 
-- Para [várias VMs do Azure](manage-update-multi.md) , selecione-as na página **máquinas virtuais** no portal do Azure. 
+- Para [várias VMs do Azure,](manage-update-multi.md) selecionando-as na página **de máquinas virtuais** no portal Azure. 

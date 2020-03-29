@@ -1,54 +1,54 @@
 ---
-title: Mover um aplicativo para outra região
-description: Saiba como mover os recursos do serviço de aplicativo de uma região para outra.
+title: Mova um aplicativo para outra região
+description: Aprenda a mover recursos do App Service de uma região para outra.
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925703"
 ---
-# <a name="move-an-app-service-app-to-another-region"></a>Mover um aplicativo do serviço de aplicativo para outra região
+# <a name="move-an-app-service-app-to-another-region"></a>Mova um aplicativo de serviço de aplicativo para outra região
 
-Este artigo descreve como mover os recursos do serviço de aplicativo para uma região diferente do Azure. Você pode mover seus recursos para outra região por vários motivos. Por exemplo, para aproveitar uma nova região do Azure, para implantar recursos ou serviços disponíveis somente em regiões específicas, para atender aos requisitos internos de políticas e governança, ou em resposta aos requisitos de planejamento de capacidade.
+Este artigo descreve como mover os recursos do App Service para uma região diferente do Azure. Você pode transferir seus recursos para outra região por uma série de razões. Por exemplo, aproveitar uma nova região do Azure, implantar recursos ou serviços disponíveis apenas em regiões específicas, atender aos requisitos internos de política e governança ou em resposta aos requisitos de planejamento de capacidade.
 
-Os recursos do serviço de aplicativo são específicos da região e não podem ser movidos entre regiões. Você deve criar uma cópia dos recursos do serviço de aplicativo existentes na região de destino, mover o conteúdo para o novo aplicativo. Se o aplicativo de origem usar um domínio personalizado, você poderá [migrá-lo para o novo aplicativo na região de destino](manage-custom-dns-migrate-domain.md) quando tiver terminado.
+Os recursos do App Service são específicos da região e não podem ser movidos entre regiões. Você deve criar uma cópia dos recursos existentes do App Service na região de destino, mova seu conteúdo para o novo aplicativo. Se o aplicativo de origem usar um domínio personalizado, você pode [migrá-lo para o novo aplicativo na região de destino](manage-custom-dns-migrate-domain.md) quando estiver concluído.
 
-Para facilitar a cópia do seu aplicativo, você pode [clonar um aplicativo de serviço de aplicativo individual](app-service-web-app-cloning.md) em um plano do serviço de aplicativo em outra região, mas ele tem [limitações](app-service-web-app-cloning.md#current-restrictions), especialmente que ele não dá suporte a aplicativos do Linux.
+Para facilitar a cópia do seu aplicativo, você pode [clonar um aplicativo individual do App Service](app-service-web-app-cloning.md) em um plano de Serviço de Aplicativo em outra região, mas ele tem [limitações](app-service-web-app-cloning.md#current-restrictions), especialmente que ele não suporta aplicativos Linux.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Verifique se o aplicativo do serviço de aplicativo está na região do Azure da qual você deseja mover.
-- Verifique se a região de destino dá suporte ao serviço de aplicativo e a qualquer serviço relacionado, cujos recursos você deseja mover.
+- Certifique-se de que o aplicativo App Service está na região do Azure da qual você deseja se mover.
+- Certifique-se de que a região de destino suporta o App Service e qualquer serviço relacionado, cujos recursos você deseja mover.
 <!-- - Domain bindings, certificates, and managed identities can't replicated using the **Export template** method. You must create them manually. -->
 
 ## <a name="prepare"></a>Preparar
 
-Identifique todos os recursos do serviço de aplicativo que você está usando no momento. Por exemplo:
+Identifique todos os recursos do App Service que você está usando no momento. Por exemplo: 
 
 - Aplicativos do Serviço de Aplicativo
-- [Planos do Serviço de Aplicativo](overview-hosting-plans.md)
+- [Planos de serviço de aplicativos](overview-hosting-plans.md)
 - [Slots de implantação](deploy-staging-slots.md)
 - [Domínios personalizados comprados no Azure](manage-custom-dns-buy-domain.md)
 - [Certificados SSL](configure-ssl-certificate.md)
-- [Integração de rede virtual do Azure](web-sites-integrate-with-vnet.md)
+- [Integração da Rede Virtual Do Azure](web-sites-integrate-with-vnet.md)
 - [Conexões híbridas](app-service-hybrid-connections.md).
 - [Identidades gerenciadas](overview-managed-identity.md)
 - [Configurações de backup](manage-backup.md)
 
-Determinados recursos, como certificados importados ou conexões híbridas, contêm integração com outros serviços do Azure. Para obter informações sobre como mover esses recursos entre regiões, consulte a documentação para os respectivos serviços.
+Certos recursos, como certificados importados ou conexões híbridas, contêm integração com outros serviços do Azure. Para obter informações sobre como movimentar esses recursos em todas as regiões, consulte a documentação dos respectivos serviços.
 
 ## <a name="move"></a>Mover
 
 1. [Crie um backup do aplicativo de origem](manage-backup.md).
-1. [Crie um aplicativo em um novo plano do serviço de aplicativo, na região de destino](app-service-plan-manage.md#create-an-app-service-plan).
+1. [Crie um aplicativo em um novo plano de Serviço de Aplicativo, na região alvo.](app-service-plan-manage.md#create-an-app-service-plan)
 2. [Restaurar o backup no aplicativo de destino](web-sites-restore.md)
-2. Se você usar um domínio personalizado, [associe-o preventivamente ao aplicativo de destino](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) com `awverify.` e [habilite o domínio no aplicativo de destino](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
-3. Configure tudo o mais em seu aplicativo de destino para ser o mesmo que o aplicativo de origem e verifique sua configuração.
-4. Quando você estiver pronto para o domínio personalizado apontar para o aplicativo de destino, [remapeie o nome de domínio](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
+2. Se você usar um domínio personalizado, [vincule-o preventivamente ao aplicativo de destino](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) e `awverify.` [habilite o domínio no aplicativo de destino](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+3. Configure tudo o resto em seu aplicativo de destino para ser o mesmo que o aplicativo de origem e verifique sua configuração.
+4. Quando estiver pronto para o domínio personalizado para apontar para o aplicativo de destino, [remapeie o nome de domínio](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 
 <!-- 1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source App Service resources and click on it.
@@ -102,10 +102,10 @@ Determinados recursos, como certificados importados ou conexões híbridas, cont
 8. Click **BASICS** > **Create new** to create a new resource group. Type the group name and click **OK**.
 9. In **BASICS** > **Location**, select the region you want.   -->
 
-## <a name="clean-up-source-resources"></a>Limpar recursos de origem
+## <a name="clean-up-source-resources"></a>Limpar os recursos de origem
 
-Exclua o aplicativo de origem e o plano do serviço de aplicativo. [Um plano do serviço de aplicativo na camada não livre carrega um encargo, mesmo que nenhum aplicativo esteja sendo executado nele.](app-service-plan-manage.md#delete-an-app-service-plan)
+Exclua o aplicativo de origem e o plano de serviço de aplicativo. [Um plano de Serviço de Aplicativo no nível não gratuito carrega uma taxa, mesmo que nenhum aplicativo esteja sendo executado nele.](app-service-plan-manage.md#delete-an-app-service-plan)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-[Clonagem de aplicativo de serviço Azure App usando o PowerShell](app-service-web-app-cloning.md)
+[Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o Azure PowerShell](app-service-web-app-cloning.md)

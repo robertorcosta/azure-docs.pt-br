@@ -1,5 +1,5 @@
 ---
-title: Como redimensionar uma VM Linux com o CLI do Azure
+title: Como redimensionar um VM Linux com o Azure CLI
 description: Como escalar ou reduzir verticalmente uma máquina virtual Linux, alterando o tamanho da VM.
 author: mikewasson
 ms.service: virtual-machines-linux
@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.openlocfilehash: 20e7db80b55347c4a4a76b7c95d4d8bec368abda
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969270"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Redimensionar uma máquina virtual do Linux usando a CLI do Azure 
 
-Depois de provisionar uma VM (máquina virtual), você pode escalar ou reduzir verticalmente a VM alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Você precisará desalocar a VM se o tamanho desejado não estiver disponível no cluster de hardware que está hospedando a VM. Este artigo detalha como redimensionar uma VM Linux com a CLI do Azure. 
+Depois de provisionar uma VM (máquina virtual), é possível escalar ou reduzir verticalmente a VM alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Você precisará desalocar a VM se o tamanho desejado não estiver disponível no cluster de hardware que está hospedando a VM. Este artigo detalha como redimensionar uma VM Linux com a CLI do Azure. 
 
 ## <a name="resize-a-vm"></a>Redimensionar uma VM
 Para redimensionar uma VM, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index).
@@ -45,8 +45,8 @@ Para redimensionar uma VM, é preciso ter a [CLI do Azure](/cli/azure/install-az
    > [!WARNING]
    > Desalocar a VM também libera os endereços IP dinâmicos atribuídos à VM. Os discos do sistema operacional e de dados não são afetados.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-Para obter escalabilidade adicional, execute várias instâncias de VM e expanda horizontalmente. Para obter mais informações, consulte [dimensionar automaticamente computadores Linux em um conjunto de dimensionamento de máquinas virtuais][scale-set]. 
+## <a name="next-steps"></a>Próximas etapas
+Para escalabilidade adicional, execute várias instâncias de VM e escoe-se. Para obter mais informações, consulte [Dimensionar automaticamente as máquinas Linux em um conjunto de escala de máquina virtual][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

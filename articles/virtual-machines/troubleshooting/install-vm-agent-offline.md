@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920851"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o Agente de Máquina Virtual do Azure no modo offline 
@@ -37,19 +37,19 @@ Use as etapas a seguir para instalar o Agente de VM no modo offline.
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Etapa 1: anexar o disco do sistema operacional da VM a uma outra VM como um disco de dados
 
-1. Tire um instantâneo do disco do sistema operacional da VM afetada, crie um disco do instantâneo e, em seguida, anexe o disco a uma VM de solução de problemas. Para obter mais informações, consulte [solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure](troubleshoot-recovery-disks-portal-windows.md). Para a VM clássica, exclua a VM e mantenha o disco do sistema operacional e anexe o disco do sistema operacional à VM de solução de problemas.
+1. Pegue um instantâneo para o disco do SISTEMA OPERACIONAL da VM afetada, crie um disco a partir do snapshot e, em seguida, conecte o disco a uma VM solucionar problemas. Para obter mais informações, consulte [Solucionar problemas de uma VM do Windows anexando o disco do SISTEMA OPERACIONAL a uma VM de recuperação usando o portal Azure](troubleshoot-recovery-disks-portal-windows.md). Para a VM clássica, exclua a VM e mantenha o disco do Sistema Operacional e, em seguida, conecte o disco do sistema operacional à VM de solução de problemas.
 
-2.  Conecte-se à VM de solução de problemas. Abra **Gerenciamento do computador** > **Gerenciamento de disco**. Confirme que o disco do sistema operacional está online e que as letras de unidade estão atribuídas às partições de disco.
+2.  Conecte-se à VM de solução de problemas. Gerenciamento **de disco de gerenciamento de computador** > **aberto**. Confirme que o disco do sistema operacional está online e que as letras de unidade estão atribuídas às partições de disco.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Etapa 2: modificar o disco do sistema operacional para instalar o Agente de VM do Azure
 
 1.  Inicie uma conexão de área de trabalho remota para a VM de solução de problemas.
 
-2.  Na VM do solucionador de problemas, navegue até o disco do sistema operacional que você anexou, abra a pasta \Windows\System32\config. Copie todos os arquivos nesta pasta como um backup, para o caso de necessidade de uma reversão.
+2.  Na VM solucionador de problemas, navegue até o disco do SISTEMA OPERACIONAL que você anexou, abra a pasta \windows\system32\config. Copie todos os arquivos nesta pasta como um backup, para o caso de necessidade de uma reversão.
 
 3.  Inicie o **Editor do Registro** (regedit.exe).
 
-4.  Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione **Arquivo** > **Carregar Hive**:
+4.  Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione**Colmeia de carga de** **arquivos** > :
 
     ![Carregar o hive](./media/install-vm-agent-offline/load-hive.png)
 
@@ -94,11 +94,11 @@ Use as etapas a seguir para instalar o Agente de VM no modo offline.
 
              ![Copiar a pasta GuestAgent](./media/install-vm-agent-offline/copy-files.png)
 
-9.  Selecione **BROKENSYSTEM**. No menu, selecione **Arquivo** > **Descarregar Hive**.
+9.  Selecione **BROKENSYSTEM**. No menu,**selecione Colmeia de descarga de** **arquivos** > .
 
-10.  Selecione **BROKENSOFTWARE**. No menu, selecione **Arquivo** > **Descarregar Hive**.
+10.  Selecione **BROKENSOFTWARE**. No menu,**selecione Colmeia de descarga de** **arquivos** > .
 
-11.  Desanexe o disco do sistema operacional e, em seguida, [altere o disco do sistema operacional para a VM afetada](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Para a VM clássica, crie uma nova VM usando o disco do sistema operacional reparado.
+11.  Desconecte o disco do sistema operacional e, em seguida, [altere o disco do sistema operacional para a VM afetada](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Para a VM clássica, crie uma nova VM usando o disco do Sistema Operacional reparado.
 
 12.  Acesse a VM. Observe que o RdAgent está em execução e os logs estão sendo gerados.
 
@@ -125,7 +125,7 @@ Em seguida, execute o `Get-AzureVM` comando. Observe que a propriedade **GuestAg
    GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
    ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral do Agente de Máquina Virtual do Azure](../extensions/agent-windows.md)
 - [Recursos e extensões da máquina virtual para Windows](../extensions/features-windows.md)

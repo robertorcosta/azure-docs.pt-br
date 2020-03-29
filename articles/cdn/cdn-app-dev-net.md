@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594175"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução ao desenvolvimento de CDN do Azure
@@ -51,7 +51,7 @@ Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NuGet.  Va
 1. Clique no menu **Ferramentas**, **Gerenciador de Pacotes Nuget** e, em seguida, **Console do Gerenciador de Pacotes**.
    
     ![Gerenciar pacotes NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. No Console do Gerenciador de Pacotes, execute o seguinte comando para instalar a **ADAL (Biblioteca de Autenticação do Active Directory)** :
+2. No Console do Gerenciador de Pacotes, execute o seguinte comando para instalar a **ADAL (Biblioteca de Autenticação do Active Directory)**:
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Execute o seguinte para instalar a **biblioteca de gerenciamento do Azure CDN**:
@@ -73,7 +73,7 @@ Vejamos a estrutura básica do nosso programa gravado.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Precisamos definir algumas constantes que serão usadas nos nossos métodos.  Na classe `Program`, mas antes do método `Main`, adicione o seguinte.  Certifique-se de substituir os espaços reservados, inclusive os **&lt;colchetes angulares&gt;** , por seus próprios valores, conforme necessário.
+2. Precisamos definir algumas constantes que serão usadas nos nossos métodos.  Na classe `Program`, mas antes do método `Main`, adicione o seguinte.  Certifique-se de substituir os espaços reservados, incluindo os ** &lt;suportes&gt;angulares,** com seus próprios valores conforme necessário.
    
     ```csharp
     //Tenant app constants
@@ -329,7 +329,7 @@ Agora podemos compilar e executar o programa clicando no botão **Iniciar** no V
 
 Quando o programa atingir o prompt acima, você poderá retornar a seu grupo de recursos no portal do Azure e ver que o perfil foi criado.
 
-![Sucesso!](./media/cdn-app-dev-net/cdn-success.png)
+![Êxito!](./media/cdn-app-dev-net/cdn-success.png)
 
 Em seguida, podemos confirmar as solicitações para executar o restante do programa.
 

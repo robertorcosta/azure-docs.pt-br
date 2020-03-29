@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
 ms.openlocfilehash: 398575cc5c3dea96aa644533eb6ce8a262d1981c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164484"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Windows no Azure
 
 Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuais do Azure que você pode usar para executar seus aplicativos Windows e cargas de trabalho. Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos.  Este artigo também está disponível para [máquinas virtuais Linux](../linux/sizes.md).
 
-| Tipo | Tamanhos | Descrição |
+| Type | Tamanhos | Descrição |
 |------|-------|-------------|
 | [Propósito geral](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2 | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
-| [Computação otimizada](../sizes-compute.md) | Fsv2 | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo. |
+| [Otimizado para computação](../sizes-compute.md) | Fsv2 | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo. |
 | [Memória otimizada](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória. |
-| [Armazenamento otimizado](../sizes-storage.md)  | Lsv2 | Taxa de transferência de disco alta e de E/S são ideais para bancos de dados Big Data, SQL, NoSQL, armazenamento de dados e grandes dados transacionais.  |
-| [GPU](../sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (visualização), NV, NVv3, NVv4 | Máquinas virtuais especializadas direcionadas para edição de vídeo e renderização gráfica pesada, assim como inferência e treinamento do modelo (ND) com aprendizado profundo. Disponível com uma ou várias GPUs. |
+| [Otimizado para armazenamento](../sizes-storage.md)  | Lsv2 | Taxa de transferência de disco alta e de E/S são ideais para bancos de dados Big Data, SQL, NoSQL, armazenamento de dados e grandes dados transacionais.  |
+| [GPU](../sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (Visualização), NV, NVv3, NVv4 | Máquinas virtuais especializadas direcionadas para edição de vídeo e renderização gráfica pesada, assim como inferência e treinamento do modelo (ND) com aprendizado profundo. Disponível com uma ou várias GPUs. |
 | [Computação de alto desempenho](../sizes-hpc.md) | HB, HBv2, HC, H | Nossas máquinas virtuais de CPU mais rápidas e potentes com adaptadores de rede de alta taxa de transferência (RDMA) opcionais. |
 
 - Para obter informações sobre os preços dos vários tamanhos, consulte [Preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
@@ -55,14 +55,14 @@ Saiba mais sobre como as [ACUs (unidade de computação do Azure)](../acu.md) po
 
 Saiba mais sobre desempenho de computação para VMs do Windows usando as [pontuações de parâmetro de comparação CoreMark](compute-benchmark-scores.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os diferentes tamanhos de VM que estão disponíveis:
 
 - [Propósito geral](../sizes-general.md)
-- [Computação otimizada](../sizes-compute.md)
+- [Otimizado para computação](../sizes-compute.md)
 - [Memória otimizada](../sizes-memory.md)
-- [Armazenamento otimizado](../sizes-storage.md)
+- [Otimizado para armazenamento](../sizes-storage.md)
 - [GPU otimizada](../sizes-gpu.md)
 - [Computação de alto desempenho](../sizes-hpc.md)
 - Verifique a página [Geração anterior](../sizes-previous-gen.md) para Standard A, Dv1 (D1-4 e D11-14 v1) e série A8-A11

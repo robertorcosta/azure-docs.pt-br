@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
 ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77912353"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Entenda as recomendações do contêiner da Central de Segurança do Azure
@@ -35,7 +35,7 @@ A Central de Segurança do Azure oferece os recursos a seguir para ajudá-lo a p
 
     ![guia contêiner](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Proteção contra ameaças de contêiner em tempo real**<br> A central de segurança fornece proteção contra ameaças em tempo real para seus contêineres em computadores Linux com componente auditado. Os alertas identificam várias atividades suspeitas do Docker, como a criação de um contêiner com privilégios no host, uma indicação de servidor SSH (Secure Shell) em execução dentro de um contêiner do Docker ou o uso de mineradores de criptografia. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
+- **Proteção contra ameaças de contêineres em tempo real**<br> O Security Center oferece proteção contra ameaças em tempo real para seus contêineres em máquinas Linux com componente AuditD. Os alertas identificam várias atividades suspeitas do Docker, como a criação de um contêiner com privilégios no host, uma indicação de servidor SSH (Secure Shell) em execução dentro de um contêiner do Docker ou o uso de mineradores de criptografia. É possível usar essas informações para corrigir os problemas rapidamente e aumentar a segurança de seus contêineres.
 
     ![guia contêiner](./media/security-center-container-recommendations/docker-threat-detection.png)
 
@@ -44,10 +44,10 @@ Use as tabelas abaixo como referência para ajudá-lo a entender os contêineres
 
 | Recomendação | Descrição | Correção |
 | --- | --- | --- |
-|Corrigir as vulnerabilidades em configurações de segurança de contêiner |Corrigi as vulnerabilidades em configurações de segurança de contêiner com base em práticas recomendadas de configuração.| Para corrigir as vulnerabilidades nas configurações de segurança de contêiner:<br>1. Examine a lista de regras com falha.<br>2. corrija cada regra de acordo com as instruções especificadas.|
+|Corrigir as vulnerabilidades em configurações de segurança de contêiner |Corrigi as vulnerabilidades em configurações de segurança de contêiner com base em práticas recomendadas de configuração.| Para corrigir as vulnerabilidades nas configurações de segurança de contêiner:<br>1. Revise a lista de regras falhadas.<br>2. Fixar cada regra de acordo com as instruções especificadas.|
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as recomendações que se aplicam aos outros tipos de recursos do Azure, consulte o seguinte:
 
 * [Monitorar identidade e acesso na Central de Segurança do Azure](security-center-identity-access.md)
@@ -56,6 +56,6 @@ Para saber mais sobre as recomendações que se aplicam aos outros tipos de recu
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Protegendo suas máquinas e aplicativos na Central de segurança do Azure](security-center-virtual-machine-protection.md)
-* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
+* [Protegendo suas máquinas e aplicativos na Central de Segurança do Azure](security-center-virtual-machine-protection.md)
+* [Definindo políticas de segurança no Azure Security Center](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) -- Saiba como gerenciar e responder a alertas de segurança.

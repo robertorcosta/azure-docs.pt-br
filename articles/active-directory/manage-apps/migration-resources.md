@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b30469858a5dd83f7f5f707f74466302b3000510
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968723"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para migrar aplicativos para o Azure Active Directory
@@ -32,6 +32,6 @@ Recursos para ajudá-lo a migrar o acesso e a autenticação de aplicativos para
 | [Plano de implantação: migrar do AD FS para a autenticação de passagem](https://aka.ms/ADFSTOPTADPDownload)|A autenticação de passagem do Azure AD ajuda os usuários a entrar nos aplicativos locais e baseados em nuvem usando a mesma senha. Esse recurso melhora a experiência dos usuários, já que terão uma senha a menos a ser lembrada. Além disso, reduz os custos de assistência técnica de TI porque é menos provável que os usuários esqueçam como entrar quando é necessário lembrar de apenas uma senha. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local.|
 | [Plano de implantação: habilitar logon único em um aplicativo SaaS com Azure AD](https://aka.ms/SSODPDownload) | O SSO (logon único) ajuda a acessar todos os aplicativos e recursos necessários para fazer negócios, ao conectar apenas uma vez, usando uma única conta de usuário. Por exemplo, depois que um usuário conecta-se, o usuário poderá passar do Microsoft Office para o SalesForce, para o Box sem autenticar (por exemplo, digitar uma senha) uma segunda vez. 
 | [Plano de implantação: estender aplicativos para Azure AD com Proxy de Aplicativo](https://aka.ms/AppProxyDPDownload)| Fornecer acesso de laptops e outros dispositivos de funcionários a aplicativos locais envolve tradicionalmente VPNs (redes privadas virtuais) ou DMZs (zonas desmilitarizadas). Essas soluções são complexas e difíceis de proteger, além de serem caras para configurar e gerenciar. O Proxy de Aplicativo do Azure Active Directory facilita o acesso a aplicativos locais. |
-| [Planos de implantação](../fundamentals/active-directory-deployment-plans.md) | Encontre mais planos de implantação para implantar recursos, como autenticação multifator, acesso condicional, provisionamento de usuário, SSO contínuo, redefinição de senha de autoatendimento e muito mais! |
+| [Planos de implantação](../fundamentals/active-directory-deployment-plans.md) | Encontre mais planos de implantação para implantar recursos como autenticação multifatorial, acesso condicional, provisionamento de usuários, SSO perfeito, redefinição de senha de autoatendimento e muito mais! |
 
 

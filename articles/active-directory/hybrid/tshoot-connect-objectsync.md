@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Solucionando de problemas durante a sincronização | Microsoft Docs'
+title: 'Azure AD Connect: solucionando de problemas durante a sincronização | Microsoft Docs'
 description: Este tópico fornece etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64919113"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de objetos com a sincronização do Azure AD Connect
@@ -37,13 +37,13 @@ Para executar a tarefa de solução de problemas no assistente, execute as etapa
 4.  Navegue até a página Tarefas Adicionais, selecione Solucionar problemas e clique em Avançar.
 5.  Na página de solução de problemas, clique em Iniciar para iniciar o menu de solução de problemas no PowerShell.
 6.  No menu principal, selecione Solucionar Problemas de Sincronização de Senha.
-![Solucionar problemas de sincronização de objeto](media/tshoot-connect-objectsync/objsynch11.png)
+![Solucionar problemas na sincronização de objetos](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Parâmetros de entrada para a solução de problemas
 Os parâmetros de entrada a seguir são necessários para a tarefa de solução de problemas:
 1.  **Nome distinto do objeto** – este é o nome distinto do objeto que precisa de solução de problemas
 2.  **Nome do Conector AD** – este é o nome da floresta do AD em que reside o objeto acima.
-3.  Credenciais de administrador global do locatário AD do Azure ![credenciais de administrador global](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Credenciais de administrador global ![do administrador global do azure AD](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Entender os resultados da tarefa de solução de problemas
 A tarefa de solução de problemas executa as seguintes verificações:
@@ -60,12 +60,12 @@ O restante desta seção descreve resultados específicos que são retornados pe
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>O sufixo UPN não foi verificado com locatário do Azure Active Directory
 Quando o sufixo de UserPrincipalName (UPN)/ID de logon alternativo não é verificado com o locatário do Azure Active Directory, os sufixos de UPN são substituídos pelo nome de domínio padrão "onmicrosoft.com".
 
-![O Azure AD substitui UPN](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD substitui upn](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Alterando o sufixo de UPN de um domínio federado para outro domínio federado
 O Azure Active Directory não permite a sincronização de mudança de sufixo de UserPrincipalName (UPN)/ID de login alternativo de um domínio federado para outro domínio. Isso se aplica a domínios, que são verificados com o locatário do Azure Active Directory e têm o Tipo de Autenticação como Federada.
 
-![Nenhuma sincronização UPN de um domínio federado para outro](media/tshoot-connect-objectsync/objsynch3.png) 
+![Sem sincronização UPN de um domínio federado para outro](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>O recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado
 Quando o recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado, o Azure Active Directory não permite atualizações de sincronização para UserPrincipalName/ID de logon alternativo para contas de usuário licenciado com autenticação gerenciada.
@@ -102,4 +102,4 @@ Além de analisar o objeto, a tarefa de solução de problemas também gera um r
 ![Relatório HTML](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

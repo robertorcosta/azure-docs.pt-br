@@ -2,35 +2,28 @@
 title: Guia de Publicação da Oferta de Máquina Virtual para o Azure Marketplace
 description: Este artigo descreve os requisitos para publicar uma máquina virtual e uma avaliação gratuita de software para implantação no Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288709"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guia de Publicação da Oferta de Máquina Virtual
 
 As imagens de Máquina Virtual são uma das principais formas de publicar uma solução no Azure Marketplace. Use este guia para compreender os requisitos dessa oferta. 
 
-Essas são ofertas de transação que são implantadas e cobradas pelo Marketplace. A chamada à ação que um usuário vê é "Obtenha agora."
+Essas são ofertas de transação que são implantadas e cobradas pelo Marketplace. A chamada à ação que um usuário vê é "Obtenha agora".
 
 ## <a name="free-trial"></a>Avaliação gratuita 
 
-Você pode solicitar que os usuários testem sua oferta acessando licenças de software de prazo limitado ao usar o modelo de faturamento Bring Your Own License (BYOL). Abaixo estão os requisitos para implantar essa oferta. 
-
-|Requisitos  |Detalhes  |
-|---------|---------|
-|Período de avaliação gratuita e experiência de avaliação     |   Seus clientes podem experimentar seu aplicativo gratuitamente por tempo limitado. Seus clientes não precisam pagar nenhuma taxa de licença ou assinatura pela sua oferta. Seu cliente não precisa pagar pelo produto ou serviço interno subjacente da Microsoft. Todas as opções da versão de avaliação são implantadas em sua assinatura do Azure. Você tem o controle exclusivo do gerenciamento e da otimização de custos. Você deve escolher uma avaliação gratuita ou uma demonstração interativa. Não importa o que você escolher, sua avaliação gratuita deve fornecer aos clientes um período de tempo predefinido para testar sua oferta sem custos adicionais.|
-|Solução facilmente configurável, pronta para uso    |  Seu aplicativo deve ser rápido para configurar e fácil de usar.       |
-|Disponibilidade/tempo de atividade    |    Seu aplicativo ou plataforma SaaS deve ter um tempo de atividade de pelo menos 99,9%.     |
-|Azure Active Directory     |    Sua oferta deve permitir o SSO (logon único) federado do Azure AD (Azure Active Directory) (SSO federado do Azure AD) com o consentimento habilitado.     |
+Você pode solicitar que os usuários testem sua oferta acessando licenças de software de prazo limitado ao usar o modelo de faturamento Bring Your Own License (BYOL). 
 
 ## <a name="test-drive"></a>Test drive
 
@@ -63,7 +56,7 @@ Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual
 | VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. <ul> <li>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD Windows, consulte [Criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 >[!Note]
->A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
+>O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](./cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP.
 
 ## <a name="next-steps"></a>Próximas etapas
 

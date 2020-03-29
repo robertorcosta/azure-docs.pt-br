@@ -1,5 +1,5 @@
 ---
-title: Fazer referência a uma imagem personalizada em um modelo do conjunto de dimensionamento do Azure
+title: Referenciar uma imagem personalizada em um modelo de conjunto de escala szure
 description: Saiba como adicionar uma imagem personalizada a um modelo existente do conjunto de dimensionamento de máquinas virtuais do Azure
 author: mayanknayar
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: manayar
 ms.openlocfilehash: fd1a567af1c35cf6b659995e998b11a61a526508
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275583"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento do Azure
 
-Este artigo mostra como modificar o [modelo de conjunto de dimensionamento básico](virtual-machine-scale-sets-mvss-start.md) para implantar a partir de uma imagem personalizada.
+Este artigo mostra como modificar o [modelo de conjunto de escala básica](virtual-machine-scale-sets-mvss-start.md) para implantar a partir de imagem personalizada.
 
 ## <a name="change-the-template-definition"></a>Alterar a definição do modelo
-Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md) , criamos um modelo de conjunto de dimensionamento básico. Agora vamos usar esse modelo anterior e modificá-lo para criar um modelo que implanta um conjunto de dimensionamento de uma imagem personalizada.  
+Em um [artigo anterior,](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo de conjunto de escala supérdia. Agora usaremos esse modelo anterior e o modificaremos para criar um modelo que implante um conjunto de escalas a partir de uma imagem personalizada.  
 
 ### <a name="creating-a-managed-disk-image"></a>Criando uma imagem de disco gerenciada
 

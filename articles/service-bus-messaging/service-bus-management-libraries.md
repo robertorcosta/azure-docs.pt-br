@@ -1,6 +1,6 @@
 ---
 title: Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microsoft Docs
-description: Este artigo explica como usar as bibliotecas de gerenciamento do barramento de serviço do Azure para provisionar dinamicamente as entidades e namespaces do barramento de serviço.
+description: Este artigo explica como usar bibliotecas de gerenciamento de ônibus de serviço do Azure para provar dinamicamente os namespaces e entidades do Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756259"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
@@ -36,7 +36,7 @@ As bibliotecas de gerenciamento do Barramento de Serviço do Azure podem provisi
 
 Para começar a usar as bibliotecas de gerenciamento do Barramento de Serviço, você deve se autenticar com o serviço Azure Active Directory (Azure AD). O Microsoft Azure Active Directory exige que você autentique como uma entidade de serviço que forneça acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
-* [Usar o portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Use o portal Azure para criar o aplicativo e o principal de serviços do Active Directory que podem acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
@@ -77,7 +77,7 @@ O padrão para manipular qualquer recurso do Barramento de Serviço segue um pro
    ```
 
 ## <a name="complete-code-to-create-a-queue"></a>Código completo para criar uma fila
-Este é o código completo para criar uma fila do barramento de serviço: 
+Aqui está o código completo para criar uma fila de Ônibus de Serviço: 
 
 ```csharp
 using System;
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> Para obter um exemplo completo, consulte o [exemplo de gerenciamento do .net no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
+> Para um exemplo completo, consulte a [amostra de gerenciamento .NET no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Referência de API de Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

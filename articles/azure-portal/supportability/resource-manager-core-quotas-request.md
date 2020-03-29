@@ -8,20 +8,20 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: cdbf7364a275eb246615f398044456645a96d1a5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76843660"
 ---
 # <a name="quota-increase-requests"></a>Solicitações de um aumento de cota
 
-As cotas de vCPU do Resource Manager para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais são impostas em duas camadas para cada assinatura, em cada região.
+As cotas de vCPU do Gerenciador de Recursos para máquinas virtuais e conjuntos de escala de máquinas virtuais são aplicadas em dois níveis para cada assinatura, em cada região.
 
-A primeira camada é o limite de vCPUs regional total em todas as séries de VM. A segunda camada é o limite de vCPUs por série de VMs, como a vCPUs da série D. Sempre que uma nova máquina virtual for implantada, a soma do uso de vCPUs novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Além disso, a contagem de vCPU total e nova e existente implantada em toda a série de VMs não deve exceder a cota de vCPUs regional total aprovada para a assinatura. Se uma dessas cotas for excedida, a implantação da VM não será permitida.
-Você pode solicitar um aumento do limite de cota de vCPUs para a série de VMs de portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPUs regional total pelo mesmo valor.
+O primeiro nível é o limite de vCPUs regionais totais em todas as séries de VM. O segundo nível é o limite de vCPUs da série VM, como os vCPUs da série D. Sempre que uma nova máquina virtual for implantada, a soma do uso de vCPUs novos e existentes para essa série VM não deve exceder a cota de vCPU aprovada para aquela série VM em particular. Além disso, a contagem total de vCPU novo e existente implantado em todas as séries de VM não deve exceder a cota total de vCPUs regionais aprovada para a assinatura. Se qualquer uma dessas cotas for excedida, a implantação da VM não será permitida.
+Você pode solicitar um aumento do limite de cotas vCPUs para a série VM do portal Azure. Um aumento na cota da série VM aumenta automaticamente o limite total de vCPUs regionais pelo mesmo valor.
 
-Quando uma nova assinatura é criada, o vCPUs regional total padrão pode não ser igual à soma de cotas de vCPU padrão para todas as séries de VMs individuais. Esse fato pode resultar em uma assinatura com cota suficiente para cada série de VM individual que você deseja implantar. Ele pode não ter cota suficiente para o total de vCPUs regionais para todas as implantações. Nesse caso, você precisará enviar uma solicitação para aumentar o limite de vCPUs regional total explicitamente. O limite de vCPUs regional total não pode exceder a soma da cota aprovada em todas as séries de VM para a região.
+Quando uma nova assinatura é criada, os vCPUs regionais totais padrão podem não ser iguais à soma das cotas vCPU padrão para todas as séries de VM individuais. Este fato pode resultar em uma assinatura com cota suficiente para cada série de VM individual que você deseja implantar. Poderia faltar cota suficiente para vCPUs regionais totais para todas as implantações. Neste caso, você precisará apresentar uma solicitação para aumentar explicitamente o limite de vCPUs regionais totais. O limite total de VCPUs regionais não pode exceder a soma da cota aprovada em todas as séries de VM para a região.
 
-Para obter mais informações sobre cotas, consulte [cotas de vCPU de máquina virtual](../../virtual-machines/windows/quotas.md) e [assinatura do Azure e limites de serviço, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Para obter mais informações sobre cotas, consulte [cotas de vCPU de máquinavirtual](../../virtual-machines/windows/quotas.md) e limites de assinatura e serviço do [Azure, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 

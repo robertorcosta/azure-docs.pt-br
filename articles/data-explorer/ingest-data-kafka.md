@@ -1,6 +1,6 @@
 ---
 title: ingerir dados do Kafka no Azure Data Explorer
-description: Neste artigo, você aprenderá a ingestão de dados (carga) no Data Explorer do Azure, do Kafka.
+description: Neste artigo, você aprende como ingerir dados (carregar) no Azure Data Explorer da Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66497277"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>ingerir dados do Kafka no Azure Data Explorer
  
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece ingestão (carregamento de dados) do Kafka. Kafka é uma plataforma de streaming distribuída que permite a criação de pipelines de dados de fluxo em tempo real, os quais movem os dados entre sistemas ou aplicativos de modo confiável.
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
  
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar. 
  
 * [Um cluster de teste e um banco de dados](create-cluster-database-portal.md).
  
-* [Um aplicativo de exemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que gera dados e os envia ao Kafka.
+* [Um aplicativo de exemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que gera dados e os envia para Kafka.
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) para executar o aplicativo de exemplo.
  
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Compilação
+#### <a name="build"></a>Build
 
 Compilar localmente com o Maven para produzir um `.jar` com dependências.
 
@@ -64,7 +64,7 @@ Carregar o plug-in no Kafka. Um exemplo de implantação usando o Docker pode se
 
 Mais documentos sobre conectores de Kafka e como implantá-los podem ser encontradas em [Kafka Connect](https://kafka.apache.org/documentation/#connect) 
 
-### <a name="example-configuration"></a>Exemplo de configuração 
+### <a name="example-configuration"></a>Configuração de exemplo 
  
 ```config
 name=KustoSinkConnector 
@@ -121,7 +121,7 @@ git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
 
-### <a name="run-the-app"></a>Execute o aplicativo
+### <a name="run-the-app"></a>Executar o aplicativo
 
 1. Abrir o aplicativo de exemplo no Visual Studio.
 
@@ -162,4 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Próximas etapas
  
-* [Consultar dados no Data Explorer do Azure](web-query-data.md)
+* [Consultar dados no Azure Data Explorer](web-query-data.md)

@@ -1,5 +1,5 @@
 ---
-title: Como usar os hubs de notificação do Azure com Java
+title: Como usar hubs de notificação do Azure com Java
 description: Aprenda a usar Hubs de notificação do Azure de um back-end do Java.
 services: notification-hubs
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263856"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como usar os Hubs de notificação do Java
@@ -28,7 +28,7 @@ ms.locfileid: "76263856"
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Este tópico descreve os principais recursos do totalmente novo do Java SDK do Hub de notificação do Azure com suporte oficial.
-Este é um projeto de software livre e você pode exibir todo o código do SDK no [Java SDK].
+Este é um projeto de software livre e você pode exibir todo o código do SDK no [SDK do Java].
 
 Normalmente, você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end de Java/PHP/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](https://msdn.microsoft.com/library/dn223264.aspx). Esse SDK Java fornece um wrapper estreito em relação a essas interfaces REST em Java.
 
@@ -41,7 +41,7 @@ O SDK atualmente oferece suporte para:
 * Envio regular
 * Envio agendado
 * Operações assíncronas via NIO Java
-* Plataformas com suporte: APNS (iOS), FCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem Google Services)
+* Plataformas suportadas: APNS (iOS), FCM (Android), WNS (aplicativos windows store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem serviços google)
 
 ## <a name="sdk-usage"></a>Uso do SDK
 
@@ -53,7 +53,7 @@ Para construir:
 
     mvn package
 
-## <a name="code"></a>Codificar
+## <a name="code"></a>Código
 
 ### <a name="notification-hub-cruds"></a>CRUDs do Hub de notificação
 
@@ -142,7 +142,7 @@ Remova duplicatas devido a todas as respostas perdidas se armazenar ids de regis
     hub.upsertRegistration(reg);
     ```
 
-**Atualize os registros:**
+**Atualizar registros:**
 
     ```java
     hub.updateRegistration(reg);
@@ -372,11 +372,11 @@ O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns méto
 
 A execução do código Java agora deve produzir uma notificação que aparece no dispositivo de destino.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a><a name="next-steps"></a>Próximos passos
 
 Este tópico mostrou como criar um cliente REST simples do Java para Hubs de Notificação. Nela você pode:
 
-* Baixe o [Java SDK]completo, que contém todo o código do SDK.
+* Baixe o [SDK do Java]completo, que contém todo o código do SDK.
 * Brincar com os exemplos:
   * [Introdução aos Hubs de Notificação]
   * [Enviar últimas notícias]

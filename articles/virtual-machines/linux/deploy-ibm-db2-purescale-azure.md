@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968888"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implantar o IBM DB2 pureScale no Azure
@@ -34,21 +34,21 @@ O script deploy.sh cria e configura os recursos do Azure para essa arquitetura. 
 
 -   Configura o grupo de recursos, a rede virtual e as sub-redes no Azure para a instalação.
 
--   Configura os grupos de segurança de rede e o SSH para o ambiente.
+-   Configura os grupos de segurança de rede e SSH para o meio ambiente.
 
--   Configura várias NICs no armazenamento compartilhado e nas máquinas virtuais do DB2 pureScale.
+-   Configura vários NICs tanto no armazenamento compartilhado quanto nas máquinas virtuais DB2 pureScale.
 
--   Cria as máquinas virtuais de armazenamento compartilhado. Se você usar Espaços de Armazenamento Diretos ou outra solução de armazenamento, consulte [espaços de armazenamento diretos visão geral](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+-   Cria as máquinas virtuais de armazenamento compartilhado. Se você usar o Storage Spaces Direct ou outra solução de armazenamento, consulte [a visão geral do Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
 
 -   Cria a máquina virtual de jumpbox.
 
--   Cria as máquinas virtuais do DB2 pureScale.
+-   Cria as máquinas virtuais DB2 pureScale.
 
--   Cria a máquina virtual de testemunha que o DB2 pureScale efetua ping. Ignore esta parte da implantação se sua versão do DB2 pureScale não exigir uma testemunha.
+-   Cria a máquina virtual de testemunha que o DB2 pureScale pings. Pule esta parte da implantação se sua versão do Db2 pureScale não exigir uma testemunha.
 
--   Cria uma máquina virtual do Windows a ser usada para teste, mas não instala nada nela.
+-   Cria uma máquina virtual do Windows para ser usada para testes, mas não instala nada nela.
 
-Em seguida, os scripts de implantação configuram a vSAN (rede de área de armazenamento virtual) do iSCSI para armazenamento compartilhado no Azure. Neste exemplo, o iSCSI se conecta ao cluster de armazenamento compartilhado. Na solução de cliente original, o GlusterFS foi usado. No entanto, a IBM não dá mais suporte a essa abordagem. Para manter o suporte da IBM, você precisa usar um sistema de arquivos compatível com iSCSI com suporte. A Microsoft oferece Espaços de Armazenamento Diretos (S2D) como uma opção.
+Em seguida, os scripts de implantação configuram a vSAN (rede de área de armazenamento virtual) do iSCSI para armazenamento compartilhado no Azure. Neste exemplo, o iSCSI se conecta ao cluster de armazenamento compartilhado. Na solução original do cliente, foi utilizado glusterFS. No entanto, a IBM não suporta mais essa abordagem. Para manter seu suporte da IBM, você precisa usar um sistema de arquivos compatível com iSCSI suportado. A Microsoft oferece o Storage Spaces Direct (S2D) como opção.
 
 Essa solução também oferece a opção de instalar os destinos iSCSI como um único nó do Windows. O iSCSI fornece uma interface de armazenamento de bloco compartilhado sobre TCP/IP que permite que o procedimento de configuração DB2 pureScale use uma interface de dispositivo para se conectar ao armazenamento compartilhado.
 
@@ -56,7 +56,7 @@ Os scripts de implantação executam estas etapas gerais:
 
 1.  Configure um cluster de armazenamento compartilhado no Azure. Essa etapa envolve pelo menos dois nós do Linux.
 
-2.  Configure uma interface iSCSI direta em servidores Linux de destino para o cluster de armazenamento compartilhado.
+2.  Configure uma interface iSCSI Direct em servidores Linux de destino para o cluster de armazenamento compartilhado.
 
 3.  Configure o iniciador iSCSI nas máquinas virtuais do Linux. O iniciador acessará o cluster de armazenamento compartilhado usando um destino iSCSI. Para detalhes da configuração, confira [Como configurar um iniciador e um destino iSCSI no Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) na documentação do RootUsers.
 
@@ -71,9 +71,9 @@ O repositório do GitHub inclui o DB2server.rsp, um arquivo de resposta (.rsp) q
 > [!NOTE]
 > Um arquivo de resposta de amostra, DB2server.rsp, está incluso no repositório [DB2onAzure](https://aka.ms/db2onazure) no GitHub. Se você usar esse arquivo, deverá editá-lo antes que ele funcione em seu ambiente.
 
-| Nome da tela               | Campo                                        | {1&gt;Valor&lt;1}                                                                                                 |
+| Nome da tela               | Campo                                        | Valor                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Bem-vindo                   |                                              | Nova instalação                                                                                           |
+| Bem-Vindo                   |                                              | Nova instalação                                                                                           |
 | Escolha um produto          |                                              | Versão do DB2 11.1.3.3. Edições de servidor com o DB2 pureScale                                              |
 | Configuração             | Diretório                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Selecione o tipo de instalação                 | Típico                                                                                               |
@@ -111,7 +111,7 @@ O repositório do GitHub inclui o DB2server.rsp, um arquivo de resposta (.rsp) q
 
 - Os scripts de configuração usam aliases para os discos iSCSI para que os nomes reais possam ser encontrados facilmente.
 
-- Quando o script de configuração é executado em d0, os valores de  **/ dev / dm- \*** podem ser diferentes em d1, cf0 e cf1. A diferença nos valores não afeta a configuração do DB2 pureScale.
+- Quando o script de configuração é executado em d0, os valores de ** / dev / dm- \*** podem ser diferentes em d1, cf0 e cf1. A diferença nos valores não afeta a configuração do DB2 pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Solução de problemas e problemas conhecidos
 
@@ -133,7 +133,7 @@ O repositório do GitHub inclui uma base de dados de conhecimento mantida pelos 
 
 Para obter mais informações sobre esses e outros problemas conhecidos, confira o arquivo kb.md no repositório [DB2onAzure](https://aka.ms/DB2onAzure).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 -   [Criação de usuários necessários para uma instalação do Recurso DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 

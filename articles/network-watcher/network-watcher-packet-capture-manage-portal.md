@@ -1,5 +1,5 @@
 ---
-title: Gerenciar capturas de pacote-portal do Azure
+title: Gerenciar capturas de pacotes - Portal Azure
 titleSuffix: Azure Network Watcher
 description: Aprenda a gerenciar o recurso de captura de pacote do Observador de Rede usando o portal do Azure.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
 ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840820"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
@@ -32,7 +32,7 @@ A captura de pacotes requer a seguinte conectividade:
 * Conectividade de entrada e saída para 169.254.169.254
 * Conectividade de entrada e saída para 168.63.129.16
 
-Se um grupo de segurança de rede estiver associado ao adaptador de rede ou à sub-rede na qual o adaptador de rede está, verifique se de existem regras que permitem as portas anteriores. Da mesma forma, adicionar rotas de tráfego definidas pelo usuário à sua rede pode impedir a conectividade com os IPs e as portas mencionados acima. Verifique se eles estão acessíveis. 
+Se um grupo de segurança de rede estiver associado ao adaptador de rede ou à sub-rede na qual o adaptador de rede está, verifique se de existem regras que permitem as portas anteriores. Da mesma forma, adicionar rotas de tráfego definidas pelo usuário à sua rede pode impedir a conectividade com os IPs e portas acima mencionados. Por favor, certifique-se de que eles são alcançáveis. 
 
 ## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacotes
 
@@ -52,7 +52,7 @@ Se um grupo de segurança de rede estiver associado ao adaptador de rede ou à s
 
    - **Máximo de bytes por pacote**: o número de bytes de cada pacote capturado. Se deixado em branco, todos os bytes serão capturados.
    - **Máximo de bytes por sessão**: o número total de bytes capturados. Quando o valor é atingido, a captura de pacotes é interrompida.
-   - **Tempo limite (segundos)** : o limite de tempo antes que a captura de pacotes seja interrompida. O padrão é de 18 mil segundos.
+   - **Tempo limite (segundos)**: o limite de tempo antes que a captura de pacotes seja interrompida. O padrão é de 18 mil segundos.
    - Filtragem (Opcional). Selecione **+Adicionar filtro**
      - **Protocolo**: o protocolo para filtrar a captura de pacotes. Os valores disponíveis são TCP, UDP e Qualquer.
      - **Endereço IP local**: filtra a captura de pacote para pacotes em que o endereço IP local corresponde a esse valor.
@@ -70,12 +70,12 @@ Depois de o limite de tempo definido na captura de pacotes expirar, a captura é
 > [!NOTE]
 > O portal automaticamente:
 >  * Cria um observador de rede na mesma região que a região em que a máquina virtual que você selecionou existe, se a região ainda não tem um observador de rede.
->  * Adiciona a extensão de máquina virtual *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) ou [Windows](../virtual-machines/windows/extensions-nwa.md) à máquina virtual, se ainda não estiver instalada.
+>  * Adiciona a extensão da máquina virtual *AzureNetworkWatcherExtension, * [Linux](../virtual-machines/linux/extensions-nwa.md) ou [Windows](../virtual-machines/windows/extensions-nwa.md) à máquina virtual se ela ainda não está instalada.
 
 ## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 
 1. Na exibição da captura de pacote, selecione **…** no lado direito da captura de pacote, ou clique com o botão direito do mouse em uma captura de pacote existente e selecione **Excluir**.
-2. Você será solicitado a confirmar se deseja excluir a captura de pacotes. Selecione **Sim** na barra superior.
+2. Você será solicitado a confirmar se deseja excluir a captura de pacotes. Selecione **Sim**.
 
 > [!NOTE]
 > Excluir uma captura de pacotes não exclui o arquivo de captura na conta de armazenamento nem na máquina virtual.
@@ -96,7 +96,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Se você selecionou **Arquivo** ao criar a captura, pode exibir ou baixar o arquivo do caminho configurado na máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como automatizar a captura de pacote com alertas de máquina virtual, veja [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md).
 - Para determinar se um tráfego específico é permitido dentro ou fora de uma máquina virtual, veja [Diagnosticar um problema de filtro de tráfego de rede de máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).

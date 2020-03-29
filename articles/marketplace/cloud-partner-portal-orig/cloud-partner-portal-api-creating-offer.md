@@ -1,19 +1,18 @@
 ---
-title: Criar ou modificar uma oferta | Azure Marketplace
+title: Criar ou modificar uma oferta | Mercado Azure
 description: API para criar uma oferta nova ou atualizar uma existente.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 681e71fae161100c8804f95980b9e9567dcf1863
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819711"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288607"
 ---
 <a name="create-or-modify-an-offer"></a>Criar ou modificar uma oferta
 =========================
@@ -28,9 +27,9 @@ Essa chamada atualiza uma oferta específica no namespace do editor ou cria uma 
 
 |  **Nome**         |  **Descrição**                      |  **Tipo de dados**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador do publicador, por exemplo `contoso` |   Cadeia de caracteres |
-| offerId           |  Identificador da oferta                     |   Cadeia de caracteres        |
-| api-version       |  Versão mais recente da API            |   Data           |
+| publisherId       |  Identificador do editor, por exemplo `contoso` |   String |
+| offerId           |  Identificador da oferta                     |   String        |
+| api-version       |  Última versão da API            |   Data           |
 |  |  |  |
 
 <a name="header"></a>Cabeçalho

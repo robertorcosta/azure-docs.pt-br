@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
 ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365749"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
@@ -37,7 +37,7 @@ As seguintes coisas são criadas automaticamente:
 
 Para resumir, você precisa configurar um ambiente com:
 
-- Um domínio do Active Directory (gerenciado pelo Azure AD DS). **O nome de domínio deve ter 39 caracteres ou menos para funcionar com o Azure HDInsight.**
+- Um domínio do Active Directory (gerenciado pelo Azure AD DS). **O nome de domínio deve ser de 39 caracteres ou menos para trabalhar com o Azure HDInsight.**
 - LDAP Seguro (LDAPS) habilitado no Azure AD DS.
 - Conectividade de rede adequada da rede virtual do HDInsight para a rede virtual do Azure AD DS, se você escolher redes virtuais separadas para elas. Uma VM dentro da rede virtual do HDInsight deve ter uma linha de visão para o Azure AD DS por meio de emparelhamento de rede virtual. Se o HDInsight e o Azure AD DS forem implantados na mesma rede virtual, a conectividade será fornecida automaticamente e nenhuma outra ação será necessária.
 
@@ -59,19 +59,19 @@ Se você tiver uma instância do Active Directory local ou configurações mais 
 
 Como o Kerberos depende de hashes de senha, é necessário [habilitar a sincronização de hash de senha no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
 
-Se você estiver usando a Federação com Serviços de Federação do Active Directory (AD FS) (AD FS), deverá habilitar a sincronização de hash de senha. (Para uma instalação recomendada, consulte [este vídeo](https://youtu.be/qQruArbu2Ew).) A sincronização de hash de senha ajuda na recuperação de desastres caso sua infraestrutura de AD FS falhe e também ajude a fornecer proteção contra credenciais vazadas. Para obter mais informações, consulte [Habilitar sincronização de hash de senha com a sincronização do Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
+Se você estiver usando a federação com o Active Directory Federation Services (AD FS), você deve ativar a sincronização de hash de senha. (Para uma configuração recomendada, consulte [este vídeo](https://youtu.be/qQruArbu2Ew).) A sincronização de hash por senha ajuda na recuperação de desastres no caso de sua infra-estrutura AD FS falhar, e também ajuda a fornecer proteção de credencial vazada. Para obter mais informações, consulte [Habilitar sincronização de hash de senha com a sincronização do Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
 O uso do Active Directory local ou do Active Directory somente em VMs IaaS, sem o Azure AD e o Azure AD DS, não é uma configuração com suporte para clusters HDInsight com ESP.
 
-Se a Federação estiver sendo usada e os hashes de senha forem sincronizados corretamente, mas você estiver obtendo falhas de autenticação, verifique se a autenticação de senha de nuvem está habilitada para a entidade de serviço do PowerShell. Se não, você deverá definir uma [política de HRD (Home Realm Discovery)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para seu locatário do Azure AD. Para verificar e definir a política de HRD:
+Se a federação estiver sendo usada e os hashes de senha forem sincronizados corretamente, mas você estiver recebendo falhas de autenticação, verifique se a autenticação de senha na nuvem está habilitada para o principal do serviço PowerShell. Se não, você deverá definir uma [política de HRD (Home Realm Discovery)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para seu locatário do Azure AD. Para verificar e definir a política de HRD:
 
-1. Instale o módulo versão prévia do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Instale o [módulo Ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)de visualização azure .
 
    ```powershell
    Install-Module AzureAD
    ```
 
-2. Conecte-se usando credenciais de administrador global (administrador de locatários).
+2. Conecte-se usando credenciais de administrador global (administrador de inquilinos).
 
    ```powershell
    Connect-AzureAD
@@ -83,7 +83,7 @@ Se a Federação estiver sendo usada e os hashes de senha forem sincronizados co
    Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
    ```
 
-4. Se ele não existir, crie a entidade de serviço.
+4. Se ele não existe, então crie o diretor de serviço.
 
    ```powershell
    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
@@ -115,4 +115,4 @@ Se a Federação estiver sendo usada e os hashes de senha forem sincronizados co
 
 - [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md)
 - [Configurar políticas do Apache Hive para clusters HDInsight com ESP](apache-domain-joined-run-hive.md)
-- [Gerenciar clusters do HDInsight com ESP](apache-domain-joined-manage.md)
+- [Gerencie clusters HDInsight com ESP](apache-domain-joined-manage.md)

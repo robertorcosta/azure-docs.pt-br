@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773594"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Criptografia do seu conteúdo com criptografia de armazenamento 
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).   > Nenhum novo recursos ou funcionalidade está sendo adicionado ao Media Services v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 Recomendamos que você criptografe seu conteúdo localmente usando a criptografia AES de 256 bits e, em seguida, o carregue no Armazenamento do Microsoft Azure no qual ele está armazenado e criptografado em repouso.
@@ -42,11 +42,11 @@ Este artigo fornece uma visão geral da criptografia de armazenamento do AMS e m
 
 Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Para obter mais informações, confira a seção [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md)(Configurando as Políticas de Entrega de Ativos).
 
-Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md). 
+Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md). 
 
 ### <a name="storage-side-encryption"></a>Criptografia do armazenamento
 
-|Opção de criptografia|Description|Serviços de Mídia v2|Serviços de Mídia v3|
+|Opção de criptografia|Descrição|Serviços de Mídia v2|Serviços de Mídia v3|
 |---|---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia|Criptografia AES-256, chave gerenciada pelos Serviços de Mídia|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
 |[Criptografia do Serviço de Armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Com suporte|Com suporte|
@@ -56,7 +56,7 @@ Ao acessar entidades nos serviços de mídia, você deve definir valores e campo
 
 <sup>2</sup> Nos Serviços de Mídia v3, a criptografia de armazenamento (criptografia AES-256) somente terá suporte para compatibilidade com versões anteriores quando os Ativos tiverem sido criados com os Serviços de Mídia v2. Isso significa que o v3 funciona com recursos criptografados de armazenamento existentes, mas não permite a criação de novos recursos.
 
-## <a name="connect-to-media-services"></a>Conectar aos Serviços de Mídia
+## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -113,9 +113,9 @@ A seguir, estão as etapas gerais para gerar chaves de conteúdo que você assoc
 
     Na criptografia de armazenamento, as propriedades a seguir devem ser incluídas no corpo da solicitação.
 
-    Propriedade do corpo da solicitação    | Description
+    Propriedade do corpo da solicitação    | Descrição
     ---|---
-    ID | A ID ContentKey é gerada usando o seguinte formato, "NB: Kid: UUID:\<novo GUID >".
+    ID | O ID ContentKey é gerado usando o seguinte formato, "nb:kid:UUID:\<NEW GUID>".
     ContentKeyType | O tipo de chave de conteúdo é um inteiro que define a chave. Para o formato de criptografia de armazenamento, o valor é 1.
     EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey. Como um exemplo, confira o seguinte código do .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar nossa chave de conteúdo.
@@ -193,9 +193,9 @@ Depois de recuperar o certificado X.509 e usar sua chave pública para criptogra
 
 Um dos valores que você deve definir quando criar o conteúdo chave é o tipo. Ao usar criptografia de armazenamento, o valor deve ser definido como '1'. 
 
-O exemplo a seguir mostra como criar um **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que a ID da chave de proteção é a impressão digital do certificado X.509.  
+O exemplo a seguir mostra como criar uma **ContentKey** com um conjunto **ContentKeyType** para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que o ID da chave de proteção é a impressão digital do certificado X.509.  
 
-Solicitar
+Solicitação
 
     POST https://media.windows.net/api/ContentKeys HTTP/1.1
     Content-Type: application/json

@@ -4,10 +4,10 @@ description: Use o Visual Studio para criar um projeto do grupo de recursos do A
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76152724"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
@@ -20,7 +20,7 @@ Este artigo mostra como usar o [Visual Studio 2019 ou posterior com as cargas de
 
 Nesta seção, você cria um projeto do Grupo de Recursos do Azure com um modelo do **Aplicativo Web**.
 
-1. No Visual Studio, escolha **Arquivo**>**Novo**>**Projeto**.
+1. No Visual Studio, escolha **File**>**New**>**Project**.
 1. Selecione o modelo de projeto **Grupo de Recursos do Azure** e **Avançar**.
 
     ![Criar projeto](./media/create-visual-studio-deployment-project/create-project.png)
@@ -41,7 +41,7 @@ Nesta seção, você cria um projeto do Grupo de Recursos do Azure com um modelo
 
     Como você escolheu o modelo de aplicativo Web, os seguintes arquivos serão exibidos:
 
-   | Nome do arquivo | Description |
+   | Nome do arquivo | Descrição |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell a implantar para o Azure Resource Manager. O Visual Studio usa esse script do PowerShell para implantar seu modelo. |
    | WebSite.json |O modelo do Resource Manager que define a infraestrutura que você deseja implantar no Azure e os parâmetros que você pode fornecer durante a implantação. Também define as dependências entre os recursos para que o Resource Manager implante-os na ordem correta. |
@@ -139,7 +139,7 @@ Para o script do módulo Az, abra um console do PowerShell e execute:
 
 Para o script do módulo AzureRM, use o Visual Studio:
 
-1. No menu de atalho do nó do projeto de implantação, escolha **Implantar** > **Novo**.
+1. No menu de atalho do nó de projeto de implantação, escolha **Implantar** > **novo**.
 
     ![Item de menu da nova implantação](./media/create-visual-studio-deployment-project/deploy.png)
 
@@ -167,7 +167,7 @@ Vamos verificar os resultados.
 
 Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há nenhum código real implantado com o projeto.
 
-1. Adicione esse projeto à sua solução do Visual Studio. Clique com o botão direito na solução e selecione **Adicionar** > **Novo Projeto**.
+1. Adicione esse projeto à sua solução do Visual Studio. Clique com o botão direito do mouse na solução e selecione **Adicionar** > **novo projeto**.
 
     ![Adicionar projeto](./media/create-visual-studio-deployment-project/add-project.png)
 
@@ -245,7 +245,7 @@ Sua aparência deve ser parecida com esta:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Observe que no exemplo anterior não há `'/',` entre **parameters('_artifactsLocation')** e **parameters('ExampleAppPackageFolder')** .
+Observe que no exemplo anterior não há `'/',` entre **parameters('_artifactsLocation')** e **parameters('ExampleAppPackageFolder')**.
 
 Recompile o projeto. Compilar o projeto garante que os arquivos que precisam ser implantados sejam adicionados à pasta de preparo.
 
@@ -372,7 +372,7 @@ Você não está limitado apenas aos recursos disponíveis por meio da interface
 
 É possível gerenciar o acesso ao painel usando grupos RBAC. Você também pode personalizar a aparência do painel após a implantação. No entanto, se você reimplantar o grupo de recursos, o painel será redefinido para o estado padrão em seu modelo. Para saber mais sobre a criação de painéis, consulte [Criar programaticamente os painéis do Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos.
 
@@ -382,9 +382,9 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 1. Escolha **Excluir grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a criar e implantar modelos usando o Visual Studio. Para saber mais sobre o desenvolvimento de modelos, confira nossa nova série de tutoriais para iniciantes:
 
 > [!div class="nextstepaction"]
-> [Tutoriais para iniciante](./template-tutorial-create-first-template.md)
+> [Tutoriais para iniciantes](./template-tutorial-create-first-template.md)

@@ -1,5 +1,5 @@
 ---
-title: Instalação do driver de GPU da série N do Azure para Windows
+title: Configuração do driver GPU da série Azure N para Windows
 description: Como configurar drivers de GPU NVIDIA para VMs da série N executando Windows Server ou Windows no Azure
 services: virtual-machines-windows
 author: cynthn
@@ -15,10 +15,10 @@ ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 631266f983886e3ca34d609b425f8a71b808b39f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919389"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar drivers de GPU NVIDIA em VMs da série N que executam o Windows 
@@ -41,7 +41,7 @@ Uma reinicialização é necessária após a instalação do driver de GRID em u
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 
-Observe que o painel de controle NVIDIA só está acessível com a instalação do driver de grade. Se você tiver instalado drivers CUDA, o painel de controle nvidia não estará visível.
+Observe que o painel Nvidia Control só está acessível com a instalação do driver GRID. Se você tiver instalado drivers CUDA, então o painel de controle Nvidia não estará visível.
 
 É possível verificar a instalação de drivers no Gerenciador de Dispositivos. O exemplo a seguir mostra uma configuração bem-sucedida da placa Tesla K80 em uma VM NC do Azure.
 
@@ -51,7 +51,7 @@ Para consultar o estado do dispositivo GPU, execute o utilitário de linha de co
 
 1. Abra um prompt de comando e mude para o diretório **C:\Program Files\NVIDIA Corporation\NVSMI**.
 
-2. Execute `nvidia-smi`. Se o driver estiver instalado, você verá uma saída parecida com a mostrada a seguir. O **GPU-Util** mostra **0%** , a menos que você esteja atualmente executando uma carga de trabalho de GPU na VM. Sua versão de driver e os detalhes GPU podem ser diferentes daqueles mostrados.
+2. Execute `nvidia-smi`. Se o driver estiver instalado, você verá uma saída parecida com a mostrada a seguir. O **GPU-Util** mostra **0%**, a menos que você esteja atualmente executando uma carga de trabalho de GPU na VM. Sua versão de driver e os detalhes GPU podem ser diferentes daqueles mostrados.
 
 ![Status do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)  
 
@@ -68,7 +68,7 @@ Para instalar a última extensão HpcVMDrivers versão 1.1 em uma VM compatível
 A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) ou Intel MPI 5.x. 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Desenvolvedores compilando aplicativos acelerados por GPU para GPUs NVIDIA Tesla também podem baixar e instalar o [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Para obter mais informações, consulte o [Guia de instalação do CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 

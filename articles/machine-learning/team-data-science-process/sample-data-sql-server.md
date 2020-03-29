@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717652"
 ---
-# <a name="heading"></a>Dados de exemplo no SQL Server no Azure
+# <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
 Este artigo mostra como obter amostras de dados armazenados no SQL Server no Azure usando o SQL ou a linguagem de programação Python. Também mostra como mover dados de amostra para o Azure Machine Learning, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Azure Machine Learning.
 
@@ -30,14 +30,14 @@ A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/
 > 
 
 **Por que fazer amostragem dos dados?**
-Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. A amostragem facilita a compreensão dos dados, a exploração e a engenharia de recursos. Sua função no [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. A amostragem facilita a compreensão, exploração e engenharia de recursos. Sua função no [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="SQL"></a>Usando o SQL
+## <a name="using-sql"></a><a name="SQL"></a>Usando o SQL
 Esta seção descreve vários métodos usando SQL para executar uma amostragem aleatória simples em relação aos dados no banco de dados. Escolha um método com base no tamanho e na distribuição dos seus dados.
 
-Os dois itens a seguir mostram como usar `newid` no SQL Server para executar a amostra. O método escolhido depende do quão aleatório você deseja que o exemplo seja (pk_id no código de exemplo a seguir é considerado uma chave primária gerada automaticamente).
+Os dois itens a seguir mostram como usar `newid` no SQL Server para executar a amostra. O método escolhido depende de quão aleatória você deseja que a amostra seja (pk_id no código de amostra a seguir é assumida como uma chave primária gerada automaticamente).
 
 1. Menos rígido do exemplo aleatório
    
@@ -48,7 +48,7 @@ Os dois itens a seguir mostram como usar `newid` no SQL Server para executar a a
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample pode ser usado para amostragem de dados também. Essa opção pode ser uma abordagem melhor se o tamanho dos dados for grande (supondo que os dados em diferentes páginas não estejam correlacionados) e para que a consulta seja concluída em um tempo razoável.
+Tablesample pode ser usado para amostragem de dados também. Essa opção pode ser uma abordagem melhor se o tamanho dos dados for grande (assumindo que os dados em diferentes páginas não estão correlacionados) e para que a consulta seja concluída em um tempo razoável.
 
     SELECT *
     FROM <table_name> 
@@ -59,19 +59,19 @@ Tablesample pode ser usado para amostragem de dados também. Essa opção pode s
 > 
 > 
 
-### <a name="sql-aml"></a>Conectando ao Azure Machine Learning
-Você pode usar diretamente as consultas de exemplo acima no módulo Azure Machine Learning [importar dados][import-data] para reduzir a amostra dos dados em tempo real e colocá-los em um experimento de Azure Machine Learning. Uma captura de tela do uso do módulo leitor para ler os dados de amostra é mostrada aqui:
+### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conectando ao Azure Machine Learning
+É possível usar diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um teste do Azure Machine Learning. Uma captura de tela de usar o módulo do leitor para ler os dados amostrados é mostrada aqui:
 
 ![sql leitor][1]
 
-## <a name="python"></a>Usando a linguagem de programação Python
-Esta seção demonstra como usar a [biblioteca pyodbc](https://code.google.com/p/pyodbc/) para estabelecer uma conexão ODBC com um banco de dados do SQL Server no Python. A cadeia de conexão do banco de dados é a seguinte: (substitua ServerName, dbname, username e password por sua configuração):
+## <a name="using-the-python-programming-language"></a><a name="python"></a>Usando a linguagem de programação Python
+Esta seção demonstra como usar a [biblioteca pyodbc](https://code.google.com/p/pyodbc/) para estabelecer uma conexão ODBC com um banco de dados do SQL Server no Python. A seqüência de conexão de banco de dados é a seguinte: (substitua nome do servidor, dbname, nome de usuário e senha por sua configuração):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-A biblioteca [Pandas](https://pandas.pydata.org/) no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados em programação Python. O código a seguir lê uma amostra de 0,1% dos dados de uma tabela no banco de dados SQL do Azure em um dado pandas:
+A biblioteca [Pandas](https://pandas.pydata.org/) no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados em programação Python. O código a seguir lê uma amostra de 0,1% dos dados de uma tabela no Banco de Dados SQL do Azure em um dado do Pandas:
 
     import pandas as pd
 
@@ -80,8 +80,8 @@ A biblioteca [Pandas](https://pandas.pydata.org/) no Python fornece um conjunto 
 
 Agora você pode trabalhar com os dados de amostra no quadro de dados Pandas. 
 
-### <a name="python-aml"></a>Conectando ao Azure Machine Learning
-Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um teste de Azure Machine Learning usando o módulo [importar dados][import-data] . As etapas são as seguintes: 
+### <a name="connecting-to-azure-machine-learning"></a><a name="python-aml"></a>Conectando ao Azure Machine Learning
+Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um Teste do Azure Machine Learning usando o módulo [Importar Dados][import-data]. As etapas são as seguintes: 
 
 1. Gravar o quadro de dados Pandas em um arquivo local
    
@@ -107,12 +107,12 @@ Você pode usar o código de exemplo a seguir para salvar os dados convertidos e
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Leia dados do blob do Azure usando Azure Machine Learning módulo [importar dados][import-data] , conforme mostrado na seguinte captura de tela:
+3. Leia dados do blob do Azure usando o módulo [Importar Dados][import-data] do Azure Machine Learning, como mostrado na captura de tela abaixo:
 
 ![blob de leitor][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Exemplo do Processo de Ciência de Dados de Equipe em ação
-Para percorrer um exemplo do processo de ciência de dados de equipe usando um conjunto de dados público, confira [processo de ciência de dado de equipe em ação: usando SQL Server](sql-walkthrough.md).
+Para conhecer um exemplo do Processo de Ciência de Dados da Equipe usando um conjunto de dados público, consulte [Team Data Science Process in Action: using SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

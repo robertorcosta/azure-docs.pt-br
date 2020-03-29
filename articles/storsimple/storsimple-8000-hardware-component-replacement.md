@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60321651"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
@@ -34,12 +34,12 @@ Os tutoriais de substituição de componentes de hardware descrevem os component
 ### <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Preste muita atenção a esses ícones de segurança ao percorrer as etapas para remover e substituir componentes do dispositivo.
 
-| ícone | Text | Informações adicionais |
+| ícone | Texto | Informações adicionais |
 |:--- |:--- |:--- |
-| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra de sinalização limita-se às situações mais graves. |
-| ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
-| ![Ícone de cuidado](./media/storsimple-hardware-component-replacement/Caution.png) |**CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
-| ![Ícone de observação](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
+| ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**Perigo!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra de sinalização limita-se às situações mais graves. |
+| ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**Aviso!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
+| ![Ícone de cuidado](./media/storsimple-hardware-component-replacement/Caution.png) |**Cuidado!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
+| ![Ícone de observação](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**Aviso:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
 | ![Ícone de choque elétrico](./media/storsimple-hardware-component-replacement/Electric.png) |**Risco de choque elétrico** |Indica alta tensão. |
 | ![ícone de peso pesado](./media/storsimple-hardware-component-replacement/Weight.png) |**Peso pesado** | |
 | ![Ícone de nenhuma peça operada pelo usuário](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**Nenhuma peça é operada pelo usuário** |Não acesse a menos que seja devidamente treinado. |
@@ -70,7 +70,7 @@ Os principais componentes de hardware do dispositivo são resumidos nas tabelas 
 | Chassi |1 |Não |[Substituir o chassi em seu dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controladores principais |2 |Sim |[Substituir um módulo de controlador em seu dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
 | Módulos de energia e resfriamento (PCMs) de 764W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Bateria de backup |2 |Sim |[Substituir o módulo de bateria de backup em seu dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
+| Bateria de backup |2 |Sim |[Substitua o módulo de bateria de backup no dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
 | Unidades de disco |12 |Sim |[Substituir uma unidade de disco em seu dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabela 1** Componentes de hardware no compartimento primário
@@ -88,11 +88,11 @@ O compartimento primário e o compartimento EBOD têm módulos de E/S diferentes
 
 Os módulos plug-in no dispositivo são realçados nos diagramas frontal e traseiro a seguir. É possível usar esses diagramas para determinar a localização de vários módulos plug-in caso uma substituição seja necessária. O diagrama frontral mostra as unidades de disco e os diagramas traseiros do compartimento EBOD e do compartimento primário mostram os módulos plug-in.
 
-![Painel frontal do dispositivo com unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Painel frontal do dispositivo com drives de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **Figura 1** Parte frontal do dispositivo
 
-| Rotular | DESCRIÇÃO |
+| Rótulo | Descrição |
 |:--- |:--- |
 | 0 - 11 |Unidades de disco (total de 12) |
 
@@ -102,7 +102,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 2** Parte posterior do compartimento primário
 
-| Rotular | DESCRIÇÃO |
+| Rótulo | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 3** Parte posterior do compartimento EBOD
 
-| Rotular | DESCRIÇÃO |
+| Rótulo | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -132,7 +132,7 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 * Módulo de bateria de backup
 * Kit do trilho de montagem em rack
 
-[Entre em contato com o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para pedir qualquer uma dessas unidades de reposição.
+Entre em contato com o [Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para pedir qualquer uma dessas unidades de substituição.
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.

@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784487"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problema ao adicionar um aplicativo inexistente na galeria
@@ -28,13 +28,13 @@ Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrent
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e meu aplicativo demorou muito para aparecer
 
-Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada **Criar aplicativo**.
+Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora este não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [portal Azure](https://portal.azure.com/) e procurando um aplicativo de notificação **em andamento** ou **concluído** rotulado **Criar**.
 
 Se seu aplicativo nunca for adicionado, ou se você encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado de **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "adicionar" e meu aplicativo não apareceu
 
-Às vezes, devido a problemas temporários, problemas de rede ou um bug, a adição de um aplicativo falha. Você sabe que isso aconteceu quando clica no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure e vê um ícone vermelho (!) ao lado de sua notificação **Criar aplicativo**. Isso indica que ocorreu um erro ao criar o aplicativo.
+Às vezes, devido a problemas temporários, problemas de rede ou um bug, a adição de um aplicativo falha. Você pode dizer que isso acontece quando você **clica** no ícone Notificações (o sino) no canto superior direito do portal Azure e você vê um ícone vermelho (!) ao lado da notificação do **aplicativo Criar.** Isso indica que ocorreu um erro ao criar o aplicativo.
 
 Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notificação** em um estado **Erro**. Se quiser mais detalhes sobre o erro para saber mais ou para compartilhar com um engenheiro de suporte, você poderá ver mais informações sobre o erro seguindo as etapas na seção [Como ver os detalhes de uma notificação do portal](#how-to-see-the-details-of-a-portal-notification).
 
@@ -46,7 +46,7 @@ Se você precisar de ajuda para aprender mais sobre aplicativos personalizados, 
 
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
-1. Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
+1. clique no ícone **Notificações** (o sino) no canto superior direito do portal Azure
 
 2. Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
 
@@ -78,11 +78,11 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
   *  Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
 
-- **ID da Notificação** – a ID exclusiva da notificação
+- **ID de notificação** – o ID único da notificação
 
   *  Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
-- **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
+- **ID de solicitação do cliente** – o ID de solicitação específico feito pelo seu navegador
 
   *  Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -90,7 +90,7 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
   *  Exemplo – **2017-03-23T19:50:43.7583681Z**
 
-- **ID de Transação Interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
+- **ID de transação interna** – o ID interno que podemos usar para procurar o erro em nossos sistemas
 
   *  Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -98,11 +98,11 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
   *  Exemplo – **tperkins\@f128.info**
 
-- **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
+- **ID do inquilino** – a identificação única do inquilino que o usuário que realizou a operação era membro de
 
   *  Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
-- **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
+- **ID do objeto do usuário** – o ID exclusivo do usuário que realizou a operação
 
   *  Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -116,13 +116,13 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
   *  Exemplo – **Falha**
 
-- **ID do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
+- **ID do objeto** – **(pode estar vazio)** o ID do objeto contra o qual a operação foi realizada
 
   *  Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
 - **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-  *  Exemplo – **url interna `https://bing.com/` é inválido, pois ele já está em uso**
+  *  Exemplo – **Url interno `https://bing.com/` é inválido, pois já está em uso**
 
 - **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um suporte ou grupo de produtos 
 - engenheiro

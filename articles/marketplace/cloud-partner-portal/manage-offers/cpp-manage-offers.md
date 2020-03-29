@@ -1,19 +1,18 @@
 ---
-title: Gerenciar ofertas do Azure e do AppSource Marketplace | Azure Marketplace
+title: Gerencie ofertas do Azure e AppSource Marketplace | Mercado Azure
 description: Gerenciando ofertas nos Marketplaces do Azure e do AppSource
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pabutler
-ms.openlocfilehash: 9bbbad0434cf0e3b27d985b10bd0552d1fb4315a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8b964075a7ad38cae43b8f3bda15f7d8c76318ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826762"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286431"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Gerenciar ofertas dos Marketplaces do Azure e do AppSource
 
@@ -24,7 +23,7 @@ Esta seção apresenta operações gerais usadas para gerenciar as ofertas para 
 
 O Portal do Cloud Partner permite que um publicador execute as operações básicas a seguir em uma oferta.
 
-|     Operação      |  DESCRIÇÃO                                           |
+|     Operação      |  Descrição                                           |
 |     ---------      |  -----------                                           |
 | [Criar oferta](./cpp-create-offer.md)   | Cria uma entrada de oferta pendente no repositório de integração, mas não publica-o automaticamente em um Microsoft Marketplace | 
 | [Exibir status da oferta](./cpp-view-status-offer.md)   | Fornece o status da publicação de uma oferta.  Há vários locais no portal em que as informações de status são exibidas. |

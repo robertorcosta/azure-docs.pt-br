@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61436487"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de armazenamento de Blobs do Azure Data Box
 
-Este artigo lista as versões das APIs do Azure, bibliotecas de cliente do Azure e ferramentas de suporte com o armazenamento de blobs de caixa de dados. O armazenamento de Blobs do Azure Data Box fornece a funcionalidade de gerenciamento de Blobs com a semântica consistente do Azure. Além disso, este artigo resume as diferenças de armazenamento de Blobs do Azure Data Box dos serviços de Armazenamento do Microsoft Azure.
+Este artigo lista as versões das APIs do Azure, bibliotecas de clientes do Azure e ferramentas suportadas com o armazenamento Blob da Caixa de Dados. O armazenamento de Blobs do Azure Data Box fornece a funcionalidade de gerenciamento de Blobs com a semântica consistente do Azure. Além disso, este artigo resume as diferenças de armazenamento de Blobs do Azure Data Box dos serviços de Armazenamento do Microsoft Azure.
 
 Recomendamos que você leia as informações com atenção antes de se conectar ao armazenamento de Blobs do Azure Data Box e consulte-as quando precisar.
 
@@ -29,7 +29,7 @@ Recomendamos que você leia as informações com atenção antes de se conectar 
 |    Armazenamento de arquivos do Azure                                   |    Compartilhamentos de arquivos SMB baseado em nuvem com suporte              |    Sem suporte      |
 |    Criptografia do Serviço para dados inativos                  |    Criptografia AES de 256 bits                             |    Criptografia AES de 256 bits |
 |    Tipo de conta de armazenamento                                 |    Contas de armazenamento de Blobs do Azure e de uso geral    |    Uso geral v1 apenas|
-|    Nome de blob                                            |    1\.024 caracteres (2.048 bytes)                     |    880 caracteres (1.760 bytes)|
+|    Nome de blob                                            |    1.024 caracteres (2.048 bytes)                     |    880 caracteres (1.760 bytes)|
 |    Tamanho máximo do blob de blocos                              |    4,75 TB (100 MB X 50.000 blocos)                   |    4,75 TB (100 MB x 50.000 blocos) para o Azure Data Box v1.8 em diante.|
 |    Tamanho máximo de blob de páginas                               |    8 TB                                               |    1 TB                   |
 |    Tamanho da página do blob de páginas                                  |    512 bytes                                          |    4 KB                   |
@@ -42,11 +42,11 @@ Azure Data Box 1.8 em diante
 
 - [09-11-2017](/rest/api/storageservices/version-2017-11-09)
 - [29-07-2017](/rest/api/storageservices/version-2017-07-29)
-- [2017-04-17](/rest/api/storageservices/version-2017-04-17)
-- [2016-05-31](/rest/api/storageservices/version-2016-05-31)
+- [17-04-2017](/rest/api/storageservices/version-2017-04-17)
+- [31-05-2016](/rest/api/storageservices/version-2016-05-31)
 - [11-12-2015](/rest/api/storageservices/version-2015-12-11)
 - [08-07-2015](/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](/rest/api/storageservices/version-2015-04-05) |
+- [2015-04-05](/rest/api/storageservices/version-2015-04-05)|
 ## <a name="supported-azure-client-libraries"></a>Bibliotecas de cliente do Azure compatíveis
 
 Para o armazenamento de Blob do Azure Data Box, há bibliotecas específicas de clientes e requisitos de sufixo de ponto de extremidade específicos. Os pontos de extremidade de armazenamento de Blobs do Azure Data Box não têm paridade completa com a versão mais recente da API REST do Armazenamento de Blobs do Azure, consulte [versões com suporte para Azure Data Box 1.8 em diante](#supported-api-versions). Para as bibliotecas de cliente de armazenamento, é necessário estar ciente da versão que é compatível com a API REST.
@@ -57,7 +57,7 @@ Para o armazenamento de Blob do Azure Data Box, há bibliotecas específicas de 
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Pacote Nuget:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Versão do GitHub:  https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config file                 |
 |    Java                |    7.0.0                                           |    Maven Package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Configuração de cadeia de conexão         |
-|    Node.js             |    2.8.3                                           |    Link do NPM:   https://www.npmjs.com/package/azure-storage   (Run: `npm install azure-storage@2.7.0` )   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Declaração de instância de serviço    |
+|    Node.js             |    2.8.3                                           |    Link NPM: https://www.npmjs.com/package/azure-storage (Executar: `npm install azure-storage@2.7.0`)   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Declaração de instância de serviço    |
 |    C++                 |    5.2.0                                           |    Pacote Nuget:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Versão do GitHub:  https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Configuração de cadeia de conexão         |
 |    PHP                 |    1.2.0                                           |    Versão do GitHub:<br>Comum: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Instalar por meio do Composer (para saber mais, veja os detalhes abaixo).                                                                                                             |    Configuração de cadeia de conexão         |
 |    Python              |    1.1.0                                           |    Versão do GitHub:<br>Comum:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Declaração de instância de serviço    |
@@ -83,7 +83,7 @@ Para instalar por meio do Compoer: (tome blob como exemplo).
 
 ### <a name="endpoint-declaration"></a>Declaração de ponto de extremidade
 
-Um ponto de extremidade de armazenamento de Blob do Azure Data Box inclui duas partes: nome de uma região e o domínio do Data Box. No SDK de armazenamento do Blob de caixa de dados, o ponto de extremidade padrão é `\<serial no. of the device>.microsoftdatabox.com`.  Para obter mais informações sobre o ponto de extremidade de serviço blob, acesse [Conectar por meio do armazenamento de blobs do Azure Data Box](data-box-deploy-copy-data-via-rest.md).
+Um ponto de extremidade de armazenamento de Blob do Azure Data Box inclui duas partes: nome de uma região e o domínio do Data Box. No SDK de armazenamento Blob da caixa `\<serial no. of the device>.microsoftdatabox.com`de dados, o ponto final padrão é .  Para obter mais informações sobre o ponto de extremidade de serviço blob, acesse [Conectar por meio do armazenamento de blobs do Azure Data Box](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Exemplos
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: 92d93fbf9fa2f8df15acb62802d7ac53db836dc1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593855"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
@@ -37,7 +37,7 @@ O cache pode ocorrer em vários níveis entre o servidor de origem e o usuário 
 
 - Servidor Web: usa um cache compartilhado (para vários usuários).
 - Rede de distribuição de conteúdo: usa um cache compartilhado (para vários usuários).
-- Provedor de serviços de Internet (ISP): usa um cache compartilhado (para vários usuários).
+- ISP (Provedor de Serviços de Internet): usa um cache compartilhado (para vários usuários).
 - Navegador da Web: usa um cache privado (para um usuário).
 
 Cada cache normalmente gerencia sua própria atualização de recurso e executa a validação quando um arquivo está obsoleto. Esse comportamento é definido na especificação de cache HTTP, [RFC 7234](https://tools.ietf.org/html/rfc7234).
@@ -65,7 +65,7 @@ Dois cabeçalhos podem ser utilizados para definir a atualização de cache: `Ca
 ## <a name="cache-directive-headers"></a>Cabeçalhos de diretiva de cache
 
 > [!IMPORTANT]
-> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN Standard do Azure da Verizon**  e **CDN Standard do Azure da Akamai**, é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN Premium do Azure da Verizon** você usa o [mecanismo de regras](cdn-rules-engine.md) para habilitar cache.
+> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN Standard do Azure da Verizon ** e **CDN Standard do Azure da Akamai**, é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN Premium do Azure da Verizon** você usa o [mecanismo de regras](cdn-rules-engine.md) para habilitar cache.
 
 A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HTTP, que definem a duração do cache e o compartilhamento de cache.
 
@@ -103,7 +103,7 @@ Quando o cache está obsoleto, validadores de cache HTTP são usados para compar
 - Fornece suporte para validação de alta segurança e validação de baixa segurança. No entanto, a CDN do Azure fornece suporte apenas para validação de alta segurança. Para uma validação de alta segurança, as duas representações de recursos devem ser de byte a byte idênticos. 
 - Um cache valida um arquivo que usa `ETag` enviando um cabeçalho `If-None-Match` com um ou mais validadores `ETag` na solicitação. Por exemplo, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Se a versão do servidor coincidir com um validador `ETag` na lista, ele enviará o código de status 304 (Não Modificado) em sua resposta. Se a versão for diferente, o servidor responderá com o código de status 200 (OK) e o recurso atualizado.
 
-**Last-Modified:**
+**Última modificação:**
 - Para a **CDN Standard/Premium do Azure da Verizon somente**, `Last-Modified` se usado se `ETag` não for parte da resposta HTTP. 
 - Especifica a data e a hora em que o servidor de origem determinou que o recurso foi modificado pela última vez. Por exemplo, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Um cache valida um arquivo utilizando `Last-Modified` enviando um cabeçalho `If-Modified-Since` com uma data e hora na solicitação. O servidor de origem compara essa data com o cabeçalho `Last-Modified` do recurso mais recente. Se o recurso não foi modificado desde a hora especificada, o servidor retornará o código de status 304 (Não Modificado) em sua resposta. Se o recurso foi modificado, o servidor retornará o código de status 200 (OK) e o recurso atualizado.
@@ -115,7 +115,7 @@ Nem todos os recursos podem ser armazenados em cache. A tabela a seguir mostra q
 |                   | CDN do Azure da Microsoft          | CDN do Azure da Verizon | CDN do Azure do Akamai        |
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | Códigos de status HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| Métodos HTTP      | OBTER, PRINCIPAL                         | OBTER                    | OBTER                          |
+| Métodos HTTP      | OBTER, PRINCIPAL                         | GET                    | GET                          |
 | Limites de tamanho de arquivo  | 300 GB                            | 300 GB                 | - Otimização geral de entrega na Web: 1,8 GB<br />- Otimizações de streaming de mídia: 1,8 GB<br />- Otimização de arquivos grandes: 150 GB |
 
 Para **a CDN do Azure Standard da Microsoft** em cache para funcionar em um recurso, o servidor de origem deve oferecer suporte a qualquer CABEÇALHO e solicitações HTTP GET e os valores de comprimento de conteúdo devem ser o mesmo para todas as respostas de CABEÇALHO e HTTP GET para o ativo. Para uma solicitação de CABEÇALHO, o servidor de origem deve oferecer suporte a solicitação CABEÇALHO e deve responder com os mesmos cabeçalhos como se ele recebeu uma solicitação GET.
@@ -124,10 +124,10 @@ Para **a CDN do Azure Standard da Microsoft** em cache para funcionar em um recu
 
 A tabela a seguir descreve o comportamento de cache padrão para os produtos da CDN do Azure e suas otimizações.
 
-|    | Microsoft: Distribuição na Web geral | Verizon: Distribuição na Web geral | Verizon: DSA | Akamai: Distribuição na Web geral | Akamai: DSA | Akamai: Download de arquivos grandes | Akamai: streaming de mídia geral ou VoD |
+|    | Microsoft: entrega web geral | Verizon: entrega web geral | Verizon: DSA | Akamai: entrega web geral | Akamai: DSA | Akamai: download de arquivo grande | Akamai: streaming de mídia geral ou VoD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Aceitar a origem**       | Sim    | sim   | Não   | Sim    | Não   | Sim   | Sim    |
-| **Duração do cache da CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
+| **Origem da honra**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
+| **Duração do cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Aceitar a origem**: especifica se deve aceitar os cabeçalhos de diretiva de cache com suporte, se eles existirem na resposta HTTP do servidor de origem.
 

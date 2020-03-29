@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65823338"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema de modelo do dispositivo
@@ -22,14 +22,14 @@ ms.locfileid: "65823338"
 Este artigo descreve o esquema de modelo do dispositivo que especifica os recursos e o comportamento de um dispositivo simulado. O modelo de dispositivo é armazenado em um arquivo JSON.
 
 > [!NOTE]
-> Esse esquema de modelo de dispositivo é apenas para dispositivos simulados hospedados no serviço de simulação de dispositivo. Se você quiser criar um dispositivo real, veja [Conectar seu dispositivo ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices.md).
+> Esse esquema de modelo de dispositivo é apenas para dispositivos simulados hospedados no serviço de simulação de dispositivo. Se você quer criar um dispositivo real, confira [Conectar seu dispositivo ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices.md).
 
 Os artigos a seguir estão relacionados ao artigo atual:
 
 * [Implementar o comportamento de modelo do dispositivo](iot-accelerators-remote-monitoring-device-behavior.md) descreve os arquivos JavaScript que são utilizados para implementar o comportamento de um dispositivo simulado.
 * [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md) reúne tudo e mostra como implementar um novo tipo de dispositivo simulado para sua solução.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 >[!div class="checklist"]
 > * Usar um arquivo JSON para definir um modelo de dispositivo simulado
@@ -68,7 +68,7 @@ Cada modelo do dispositivo, como um resfriador ou caminhão, define um tipo de d
 
 A tabela a seguir descreve as entradas de esquema de nível superior:
 
-| Entrada de esquema | DESCRIÇÃO |
+| Entrada de esquema | Descrição |
 | -- | --- |
 | `SchemaVersion` | A versão do esquema sempre é `1.0.0` e específica para o formato desse arquivo. |
 | `Id` | Uma ID exclusiva para esse modelo do dispositivo. |
@@ -114,9 +114,9 @@ O exemplo a seguir mostra a definição do objeto de estado do dispositivo para 
 
 O serviço de simulação executa o arquivo **chiller-01-state.js** a cada cinco segundos para atualizar o estado do dispositivo. É possível ver os arquivos JavaScript para os dispositivos simulados padrão na [pasta de scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) no GitHub. Por convenção, esses arquivos JavaScript têm o sufixo **-state** para distingui-los dos arquivos que implementam comportamentos do método.
 
-## <a name="properties"></a>propriedades
+## <a name="properties"></a>Propriedades
 
-A seção `Properties` do esquema define os valores de propriedade que o dispositivo informa sobre a solução. Por exemplo:
+A seção `Properties` do esquema define os valores de propriedade que o dispositivo informa sobre a solução. Por exemplo: 
 
 ```json
 "Properties": {
@@ -163,11 +163,11 @@ Atualmente, é possível usar somente os esquemas de mensagens JSON. Os campos l
 
 * Objeto - serializado usando JSON
 * Binário - serializado usando base64
-* Text
+* Texto
 * Boolean
-* Número inteiro
+* Integer
 * Double
-* DateTime
+* Datetime
 
 Para enviar mensagens de telemetria em intervalos diferentes, adicione vários tipos de telemetria à matriz `Telemetry`. O exemplo a seguir envia dados de temperatura e umidade a cada 10 segundos e o estado da luz a cada minuto:
 
@@ -249,4 +249,4 @@ Agora que você aprendeu sobre o esquema JSON, a próxima etapa sugerida é sabe
 Para obter informações do desenvolvedor sobre a solução de Monitoramento Remoto, confira:
 
 * [Guia de Referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Guia de Solução de Problemas do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+* [Guia de solução de problemas do desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

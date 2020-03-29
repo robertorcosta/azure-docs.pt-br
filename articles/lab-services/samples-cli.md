@@ -1,6 +1,6 @@
 ---
 title: Exemplos da CLI do Azure para o Azure Lab Services | Microsoft Docs
-description: Este artigo fornece uma lista de exemplos de script CLI do Azure que ajudam a gerenciar laboratórios no Azure Lab Services.
+description: Este artigo fornece uma lista de amostras de scripts azure CLI que ajudam você a gerenciar laboratórios no Azure Lab Services.
 services: lab-services
 author: spelluru
 manager: ''
@@ -14,10 +14,10 @@ ms.date: 01/24/2020
 ms.author: spelluru
 ms.custom: mvc
 ms.openlocfilehash: 35c1a18587ebae1253bd1661a57e21c39f34ee51
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760497"
 ---
 # <a name="azure-cli-samples-for-azure-lab-services"></a>Exemplos da CLI do Azure para o Azure Lab Services

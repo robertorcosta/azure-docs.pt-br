@@ -1,23 +1,23 @@
 ---
-title: Implantação segura entre regiões – Azure Deployment Manager
+title: Implantação segura em todas as regiões - Azure Deployment Manager
 description: Descreve como implantar um serviço em muitas regiões com o Azure Deployment Manager. Ele mostra as práticas de implantação segura para verificar a estabilidade da sua implantação antes de distribuir a todas as regiões.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76152520"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Deployment Manager (visualização pública)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilite práticas seguras de implantação com o Azure Deployment Manager (visualização pública)
 
 Para implantar seu serviço em várias regiões e garantir que ele esteja sendo executado conforme o esperado em cada região, você pode usar o Azure Deployment Manager para coordenar uma implementação gradual do serviço. Assim como você faria em qualquer implantação do Azure, defina os recursos para seu serviço em [ modelos do Resource Manager ](template-syntax.md). Depois de criar os modelos, use o Deployment Manager para descrever a topologia do seu serviço e como ele deve ser implementado.
 
 Gerenciador de implantação é um recurso do Gerenciador de recursos. Ele expande seus recursos durante a implantação. Use o Gerenciador de implantação quando você tiver um serviço complexo que precisa ser implantado em várias regiões. Ao preparar a distribuição do seu serviço, você poderá encontrar problemas em potencial antes de ele ter sido implantado para todas as regiões. Se você não precisar das precauções extras de um lançamento gradual, use as [opções de implantação](deploy-portal.md) padrão para o Gerenciador de recursos. O Deployment Manager integra-se perfeitamente a todas as ferramentas de terceiros existentes que oferecem suporte a implantações do Resource Manager, como ofertas de integração contínua e entrega contínua (CI/CD).
 
-O Deployment Manager do Azure está em versão prévia. Ajude-nos a melhorar o recurso fornecendo [comentários](https://aka.ms/admfeedback).
+O Azure Deployment Manager está em pré-visualização. Ajude-nos a melhorar o recurso fornecendo [feedback](https://aka.ms/admfeedback).
 
 Para usar o Deployment Manager, você precisa criar quatro arquivos:
 
@@ -31,15 +31,15 @@ Você implanta o modelo de topologia antes de implantar o modelo de implementaç
 Recursos adicionais:
 
 - A [referência à API REST do Gerenciador de Implantação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Tutorial: usar o Azure Deployment Manager com modelos do Resource Manager](./deployment-manager-tutorial.md).
-- [Tutorial: usar a verificação de integridade no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Tutorial: Use o Azure Deployment Manager com modelos do Gerenciador de Recursos](./deployment-manager-tutorial.md).
+- [Tutorial: Use o health check no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [Um exemplo do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identidade e acesso
 
 Com o Gerenciador de implantação, uma [atribuída ao usuário a identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) executa as ações de implantação. Você cria essa identidade antes de iniciar sua implantação. Deve ter acesso à assinatura para a qual você está implantando o serviço e permissão suficiente para concluir a implantação. Para obter informações sobre as ações concedidas por meio de funções, consulte [Funções internas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
-A identidade deve residir no mesmo local que a distribuição.
+A identidade deve residir no mesmo local do lançamento.
 
 ## <a name="topology-template"></a>Modelo de topologia
 
@@ -193,7 +193,7 @@ No modelo de implementação, você cria uma fonte de artefato para os binários
 
 ### <a name="steps"></a>Etapas
 
-Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, somente a etapa `wait` e a etapa ' healthCheck ' estão disponíveis.
+Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, apenas `wait` a etapa e a etapa 'healthCheck' estão disponíveis.
 
 A etapa de espera faz uma pausa na implantação antes de continuar. Ele permite que você verifique se seu serviço está sendo executado conforme o esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de uma etapa de espera.
 
@@ -214,7 +214,7 @@ A etapa de espera faz uma pausa na implantação antes de continuar. Ele permite
 
 A propriedade duration usa [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). O exemplo anterior Especifica uma espera de um minuto.
 
-Para obter mais informações sobre a etapa de verificação de integridade, consulte [introduzir implantação de integração de integridade para o Azure Deployment Manager](./deployment-manager-health-check.md) e [tutorial: usar a verificação de integridade no Deployment Manager do Azure](./deployment-manager-tutorial-health-check.md).
+Para obter mais informações sobre a etapa de verificação de saúde, consulte [Introduzir a implementação de integração de saúde no Azure Deployment Manager](./deployment-manager-health-check.md) e [tutorial: Use o health check no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Para obter mais informações, consulte [as etapas de referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
 
@@ -332,11 +332,11 @@ Em seguida, use esse parâmetro em seu modelo:
 
 Gerenciar implantações com controle de versão ao criar novas pastas e passar essa raiz durante a distribuição. O caminho fluem para o modelo que implanta os recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre o Deployment Manager. Vá para o próximo artigo para saber como implantar com o Gerenciador de implantação.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Usar Gerenciador de implantação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md)
 >
-> [Início rápido: Experimente o Azure Deployment Manager em apenas alguns minutos](https://github.com/Azure-Samples/adm-quickstart)
+> [Quickstart: Experimente o Azure Deployment Manager em apenas alguns minutos](https://github.com/Azure-Samples/adm-quickstart)

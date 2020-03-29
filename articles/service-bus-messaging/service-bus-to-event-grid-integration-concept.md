@@ -1,6 +1,6 @@
 ---
 title: Barramento de Serviço do Azure para a visão geral da integração da Grade de Eventos | Microsoft Docs
-description: Este artigo fornece uma descrição de como o sistema de mensagens do barramento de serviço do Azure se integra à grade de eventos do Azure.
+description: Este artigo fornece uma descrição de como as mensagens do Azure Service Bus se integram ao Azure Event Grid.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773471"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
@@ -38,7 +38,7 @@ Para habilitar o recurso, você precisa dos itens a seguir:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se você tem acesso de colaborador
-Vá para o namespace do barramento de serviço e selecione **controle de acesso (iam)** e selecione a guia **atribuições de função** . Verifique se você tem o acesso de colaborador ao namespace. 
+Vá para o espaço de nome do bondão do service bus e, em seguida, selecione **Controle de acesso (IAM)** e selecione a guia **Atribuições de Função.** Verifique se você tem o acesso do colaborador ao namespace. 
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de evento
 
@@ -111,7 +111,7 @@ Por padrão, o Barramento de Serviço emite eventos para todas as entidades no n
 
 ### <a name="use-filters-to-limit-where-you-get-events-from"></a>Use filtros para limitar de onde obter eventos
 
-Caso queira obter apenas eventos, por exemplo, de uma fila ou assinatura em seu namespace, use filtros *Começa com* ou *Termina com* fornecidos pela Grade de Eventos. Em algumas interfaces, os filtros são chamados de filtros *Pré* e *Sufixo*. Caso você queira obter eventos de várias, mas não todas, filas e assinaturas, é possível criar várias assinaturas diferentes da Grade de Eventos e fornecer um filtro para cada uma.
+Caso queira obter apenas eventos, por exemplo, de uma fila ou assinatura em seu namespace, use filtros *Começa com* ou *Termina com* fornecidos pela Grade de Eventos. Em algumas interfaces, os filtros são chamados de filtros *Pré* e *Sufixo.* Caso você queira obter eventos de várias, mas não todas, filas e assinaturas, é possível criar várias assinaturas diferentes da Grade de Eventos e fornecer um filtro para cada uma.
 
 ## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Criar assinaturas da Grade de Eventos para namespaces do Barramento de Serviço
 
@@ -119,14 +119,14 @@ Há três maneiras de criar assinaturas da Grade de Eventos para namespaces do B
 
 * No portal do Azure
 * Na [CLI do Azure](#azure-cli-instructions)
-* No [PowerShell](#powershell-instructions)
+* Em [PowerShell](#powershell-instructions)
 
 ## <a name="azure-portal-instructions"></a>Instruções do Portal do Azure
 
 Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
 1. No Portal do Azure, acesse suas mensagens.
 2. No painel esquerdo, selecione a **Grade de Eventos**. 
-3. Selecione **Assinatura do Evento**.  
+3. Selecione **a assinatura do evento**.  
 
    A imagem a seguir exibe um namespace que tem uma assinatura da Grade de Eventos:
 
@@ -138,7 +138,7 @@ Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X**e abra um novo console PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 Execute o seguinte código:
 
@@ -152,7 +152,7 @@ namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type 
 az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-Se você estiver usando o BASH 
+Se você está usando BASH 
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
@@ -174,10 +174,10 @@ New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTIO
 
 Daqui em diante, você poderá explorar as outras opções de instalação ou testar os eventos que estão fluindo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
-* Saiba mais sobre a [Grade de Eventos](https://docs.microsoft.com/azure/event-grid/).
+* Saiba mais sobre [event grid](https://docs.microsoft.com/azure/event-grid/).
 * Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/).
 * Saiba mais sobre o [Barramento de Serviço](https://docs.microsoft.com/azure/service-bus/).

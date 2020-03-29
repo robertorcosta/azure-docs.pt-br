@@ -1,6 +1,6 @@
 ---
 title: Mover dados de e para o Armazenamento de Blobs do Azure – Processo de Ciência de Dados de Equipe
-description: Mover dados de e para o armazenamento de BLOBs do Azure usando Gerenciador de Armazenamento do Azure, AzCopy, Python e SSIS.
+description: Mova dados para e do armazenamento Azure Blob usando o Azure Storage Explorer, AzCopy, Python e SSIS.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: fc58651bcb3b266b981fb953fd7341427d47fb2c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717581"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Mover dados bidirecionalmente no armazenamento de BLOBs do Azure
@@ -29,7 +29,7 @@ Os artigos a seguir descrevem como mover dados para e do armazenamento do Azure 
 * [Gerenciador de Armazenamento do Azure](move-data-to-azure-blob-using-azure-storage-explorer.md)
 * [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 * [Python](move-data-to-azure-blob-using-python.md)
-* [SSIS](move-data-to-azure-blob-using-ssis.md)
+* [Ssis](move-data-to-azure-blob-using-ssis.md)
 
 O melhor método para você depende de seu cenário. O artigo [Cenários para análises avançadas no Azure Machine Learning](plan-sample-scenarios.md) ajudará você a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada.
 
@@ -49,9 +49,9 @@ Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft
 
 Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
-## <a name="prerequisites"></a>Prerequisites
-Este artigo pressupõe que você tenha uma assinatura do Azure, uma conta de armazenamento e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar dados, você deve saber o nome da conta de armazenamento do Azure e a chave de conta.
+## <a name="prerequisites"></a>Pré-requisitos
+Este artigo pressupõe que você tenha uma assinatura do Azure, uma conta de armazenamento e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar dados, você deve saber o nome da conta do Azure Storage e a chave da conta.
 
-* Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
-* Para obter instruções sobre como criar uma conta de armazenamento e obter informações de conta e chave, consulte [sobre contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
+* Para configurar uma assinatura do Azure, consulte [teste gratuito de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Para obter instruções sobre a criação de uma conta de armazenamento e para obter informações de conta e chaves, consulte [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 

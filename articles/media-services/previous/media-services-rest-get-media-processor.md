@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 3d7b3922c9bb7eb79cd6436ba1b265714678fcc8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774899"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do Processador de Mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
-> * [REST](media-services-rest-get-media-processor.md)
+> * [Resto](media-services-rest-get-media-processor.md)
 > 
 > 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Processadores de Mídia são um componente que manipula uma tarefa de processamento de vídeo ou áudio específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Todas as tarefas enviadas aos Serviços de Mídia exigem um processador de mídia para codificar, criptografar ou converter o conteúdo de áudio ou vídeo. 
 
 ## <a name="azure-media-processors"></a>Processadores de mídia do Azure 
 
 O tópico a seguir fornece listas de processadores de mídia:
 
-* [Codificação de processadores de mídia](scenarios-and-availability.md#encoding-media-processors)
-* [Processadores de mídia do Analytics](scenarios-and-availability.md#analytics-media-processors)
+* [Codificando processadores de mídia](scenarios-and-availability.md#encoding-media-processors)
+* [Processadores de mídia da Análise](scenarios-and-availability.md#analytics-media-processors)
 
 >[!NOTE]
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Conectar aos Serviços de Mídia
+## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 

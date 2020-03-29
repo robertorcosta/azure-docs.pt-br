@@ -1,6 +1,6 @@
 ---
 title: Configurar Postman para chamadas de API de REST dos Serviços de Mídia do Azure
-description: Este artigo descreve como configurar o postmaster para chamadas à API REST dos serviços de mídia.
+description: Este artigo descreve como configurar chamadas de API do Postman para Serviços de Mídia REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 11c9c26e7c0f36e1e3dba732e90a6aef95e6ee14
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76694983"
 ---
-# <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST do Media Services v2  
+# <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurar chamadas de API do Carteiro para Serviços de Mídia v2 REST  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial mostra como configurar **Postman** para que ele possa ser usado para chamar APIs de REST dos Serviços de Mídia do Azure (AMS). O tutorial mostra como importar arquivos do ambiente e da coleção no **Postman**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs de REST dos Serviços de Mídia do Azure (AMS). O arquivo de ambiente contém variáveis que são usadas pela coleção.
 
@@ -33,7 +33,7 @@ Este ambiente e a coleção são usados em artigos que mostram como realizar vá
 
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs de REST mostradas em alguns dos tutoriais do REST AMS. 
 
-    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plugin REST ou **Telerik Fiddler**. 
 
 ## <a name="configure-the-environment"></a>Configure o ambiente 
 
@@ -58,6 +58,6 @@ Este ambiente e a coleção são usados em artigos que mostram como realizar vá
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-import-collection.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira o artigo sobre como [carregar ativos](media-services-rest-upload-files.md).  

@@ -1,19 +1,18 @@
 ---
-title: Considerações sobre API | Azure Marketplace
+title: Considerações da API | Mercado Azure
 description: Problemas de controle de versão, tratamento de erro e autorização ao usar as APIs do Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 07cdb5e44dde0ca655191111d0a23dbab85b4cb2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4e04f521ed2023dfb9cd562549cb2e1bcd319b8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819736"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288624"
 ---
 # <a name="api-considerations"></a>Considerações sobre API
 
@@ -36,7 +35,7 @@ A resposta a uma solicitação com uma versão de API desconhecida ou inválida 
     }
 ```            
 
-<a name="errors"></a>Erros
+<a name="errors"></a>Errors
 ------
 
 A API responde a erros com os códigos de status HTTP correspondentes e, opcionalmente, informações adicionais na resposta serializada como JSON.

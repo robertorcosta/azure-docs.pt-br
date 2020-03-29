@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1c24782285ac9b06d5499351eebe1693ade07297
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78162937"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar o firewall de IP no Azure Cosmos DB
@@ -19,9 +19,9 @@ Você pode proteger os dados armazenados na sua conta do Azure Cosmos DB usando 
 
 * No portal do Azure
 * Declarativamente usando um modelo do Azure Resource Manager
-* Programaticamente por meio da CLI do Azure ou do Azure PowerShell atualizando a propriedade **ipRangeFilter**
+* Programática através do Azure CLI ou Azure PowerShell atualizando a propriedade **ipRangeFilter**
 
-## <a id="configure-ip-policy"></a> Configurar um firewall IP usando o portal do Azure
+## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configurar um firewall IP usando o portal do Azure
 
 Para definir a política de controle de acesso IP no portal do Azure, acesse a página da conta do Azure Cosmos DB e selecione **Firewall e redes virtuais** no menu de navegação. Altere o valor **Permitir acesso de** para **Redes selecionadas** e, em seguida, selecione **Salvar**.
 
@@ -38,22 +38,22 @@ Quando você habilita uma política de controle de acesso IP de forma programát
 
 |Região|Endereço IP|
 |------|----------|
-|Germany|51.4.229.218|
+|Alemanha|51.4.229.218|
 |China|139.217.8.252|
 |Gov dos EUA|52.244.48.71|
 |Todas as outras regiões|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-Você pode habilitar solicitações para acessar o portal do Azure selecionando a opção **permitir acesso de portal do Azure** , conforme mostrado na seguinte captura de tela:
+Você pode habilitar solicitações para acessar o portal Azure selecionando a opção **Permitir acesso do portal Azure,** conforme mostrado na captura de tela a seguir:
 
 ![Captura de tela mostrando como habilitar o acesso ao portal do Azure](./media/how-to-configure-firewall/enable-azure-portal.png)
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Permitir solicitações de datacenters do Azure global ou de outras fontes dentro do Azure
 
-Se você acessar sua conta do Azure Cosmos DB a partir de serviços que não fornecem um IP estático (por exemplo, o Azure Stream Analytics e o Azure Functions), ainda é possível usar o firewall de IP para limitar o acesso. Você pode habilitar o acesso de outras fontes no Azure selecionando a opção **aceitar conexões de dentro de datacenters do Azure** , conforme mostrado na seguinte captura de tela:
+Se você acessar sua conta do Azure Cosmos DB a partir de serviços que não fornecem um IP estático (por exemplo, o Azure Stream Analytics e o Azure Functions), ainda é possível usar o firewall de IP para limitar o acesso. Você pode habilitar o acesso de outras fontes dentro do Azure selecionando as conexões Aceitar a partir da opção De acordo com o **Azure data centers,** conforme mostrado na captura de tela a seguir:
 
 ![Captura de tela mostrando como abrir a página do Firewall no Portal do Azure](./media/how-to-configure-firewall/enable-azure-services.png)
 
-Quando você habilita essa opção, o endereço IP `0.0.0.0` é adicionado à lista de endereços IP permitidos. O endereço IP `0.0.0.0` restringe as solicitações para sua conta de Azure Cosmos DB do intervalo de IP do datacenter do Azure. Essa configuração não permite o acesso de nenhum outro intervalo de IP à sua conta do Azure Cosmos DB.
+Quando você habilita essa opção, o endereço `0.0.0.0` IP é adicionado à lista de endereços IP permitidos. O `0.0.0.0` endereço IP restringe as solicitações à sua conta Azure Cosmos DB a partir da gama IP do data center do Azure. Essa configuração não permite o acesso de nenhum outro intervalo de IP à sua conta do Azure Cosmos DB.
 
 > [!NOTE]
 > Essa opção configura o firewall para permitir todas as solicitações do Azure, incluindo solicitações de assinaturas de outros clientes implantados no Azure. A lista de IPs permitidos por essa opção é ampla, limitando a eficácia de uma política de firewall. Use essa opção somente se suas solicitações não forem originadas de IPs ou sub-redes estáticas em redes virtuais. A escolha desta opção permite automaticamente o acesso do portal do Azure, porque o portal do Azure é implantado no Azure.
@@ -64,7 +64,7 @@ Para simplificar o desenvolvimento, o portal do Azure ajuda a identificar e adic
 
 O portal detecta automaticamente o endereço IP do cliente. Pode ser o endereço IP do cliente da sua máquina ou o endereço IP do seu gateway de rede. Certifique-se de remover este endereço IP antes de levar suas cargas de trabalho para produção.
 
-Para adicionar seu IP atual à lista de IPs, selecione **Adicionar me IP atual**. Em seguida, selecione **Salvar**.
+Para adicionar seu IP atual à lista de IPs, selecione **Adicionar me IP atual**. Em seguida, **selecione Salvar**.
 
 ![Captura de tela mostrando como definir as configurações do firewall para o IP atual](./media/how-to-configure-firewall/enable-current-ip.png)
 
@@ -76,7 +76,7 @@ Você pode recuperar endereços IP de seus serviços de nuvem no Portal do Azure
 
 ![Captura de tela mostrando o endereço IP público de um serviço de nuvem exibido no Portal do Azure](./media/how-to-configure-firewall/public-ip-addresses.png)
 
-Quando você escala horizontalmente o seu serviço de nuvem adicionando instâncias de função, essas novas instâncias automaticamente terão acesso à conta do Azure Cosmos DB, pois fazem parte do mesmo serviço de nuvem.
+Quando você dimensiona seu serviço de nuvem adicionando instâncias de função, essas novas instâncias automaticamente terão acesso à conta do Azure Cosmos DB, pois fazem parte do mesmo serviço de nuvem.
 
 ### <a name="requests-from-virtual-machines"></a>Solicitações de máquinas virtuais
 
@@ -92,9 +92,9 @@ Quando você adiciona instâncias de máquina virtual ao grupo, elas recebem aut
 
 Quando você acessa sua conta do Azure Cosmos DB a partir de um computador na Internet, o endereço IP do cliente ou o intervalo de endereços IP da máquina deve ser adicionado à lista permitida de endereços IP da sua conta.
 
-## <a id="configure-ip-firewall-arm"></a>Configurar um firewall IP usando um modelo do Resource Manager
+## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configurar um firewall IP usando um modelo do Resource Manager
 
-Para configurar o controle de acesso à sua conta do Azure Cosmos DB, certifique-se de que o modelo do Gerenciador de Recursos especifique o atributo **ipRangeFilter** com uma lista de intervalos de IP permitidos. Se estiver configurando o Firewall de IP para uma conta do Cosmos já implantada, verifique se a matriz `locations` corresponde ao que está implantado atualmente. Não é possível modificar simultaneamente a matriz `locations` e outras propriedades. Para obter mais informações e exemplos de modelos de Azure Resource Manager para Azure Cosmos DB consulte [Azure Resource Manager modelos para Azure Cosmos DB](resource-manager-samples.md)
+Para configurar o controle de acesso à sua conta do Azure Cosmos DB, certifique-se de que o modelo do Gerenciador de Recursos especifique o atributo **ipRangeFilter** com uma lista de intervalos de IP permitidos. Se estiver configurando o Firewall de IP para uma conta do Cosmos já implantada, verifique se a matriz `locations` corresponde ao que está implantado atualmente. Não é possível modificar simultaneamente a matriz `locations` e outras propriedades. Para obter mais informações e amostras dos modelos do Azure Resource Manager para o Azure Cosmos DB, consulte [os modelos do Azure Resource Manager para o Azure Cosmos DB](resource-manager-samples.md)
 
 ```json
 {
@@ -113,7 +113,7 @@ Para configurar o controle de acesso à sua conta do Azure Cosmos DB, certifique
 }
 ```
 
-## <a id="configure-ip-firewall-cli"></a>Configurar uma política de controle de acesso IP usando a CLI do Azure
+## <a name="configure-an-ip-access-control-policy-by-using-the-azure-cli"></a><a id="configure-ip-firewall-cli"></a>Configurar uma política de controle de acesso IP usando a CLI do Azure
 
 O comando a seguir mostra como criar uma conta do Azure Cosmos DB com o controle de acesso IP:
 
@@ -132,7 +132,7 @@ az cosmosdb create \
     --ip-range-filter $ipRangeFilter
 ```
 
-## <a id="configure-ip-firewall-ps"></a>Configurar uma política de controle de acesso IP usando o PowerShell
+## <a name="configure-an-ip-access-control-policy-by-using-powershell"></a><a id="configure-ip-firewall-ps"></a>Configurar uma política de controle de acesso IP usando o PowerShell
 
 O script a seguir mostra como criar uma conta do Azure Cosmos DB com o controle de acesso IP:
 
@@ -159,7 +159,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-## <a id="troubleshoot-ip-firewall"></a>Solucione problemas com uma política de controle de acesso IP
+## <a name="troubleshoot-issues-with-an-ip-access-control-policy"></a><a id="troubleshoot-ip-firewall"></a>Solucione problemas com uma política de controle de acesso IP
 
 Você pode solucionar problemas com uma política de controle de acesso IP usando as seguintes opções:
 
@@ -179,7 +179,7 @@ Ative o log de diagnóstico na sua conta do Azure Cosmos DB. Esses logs mostram 
 
 Solicitações de uma sub-rede em uma rede virtual que possui um ponto de extremidade de serviço para o Azure Cosmos DB habilitado envia a identidade da rede virtual e da sub-rede às contas do Azure Cosmos DB. Essas solicitações não têm o IP público da origem, portanto, os filtros IP as rejeitam. Para permitir acesso de sub-redes específicas em redes virtuais, adicione uma lista de controle de acesso, conforme descrito em [Como configurar a rede virtual e o acesso baseado em sub-rede para sua conta do Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md). Pode levar até 15 minutos para as regras de firewall serem aplicadas.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para configurar um ponto de extremidade de serviço de rede virtual para sua conta do Azure Cosmos DB, consulte os seguintes artigos:
 

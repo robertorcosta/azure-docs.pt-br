@@ -1,6 +1,6 @@
 ---
-title: Usar Cloud-init para configurar uma partição de permuta em uma VM do Linux
-description: Como usar Cloud-init para configurar uma partição de permuta em uma VM do Linux durante a criação com o CLI do Azure
+title: Use cloud-init para configurar uma partição de swap em uma VM Linux
+description: Como usar o cloud-init para configurar uma partição de swap em um VM Linux durante a criação com o Azure CLI
 author: rickstercdn
 manager: gwallace
 ms.service: virtual-machines-linux
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969195"
 ---
-# <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Usar Cloud-init para configurar uma partição de permuta em uma VM do Linux
-Este artigo mostra como usar [Cloud-init](https://cloudinit.readthedocs.io) para configurar a partição de permuta em várias distribuições do Linux. A partição de permuta foi tradicionalmente configurada pelo agente do Linux (WALA) com base em quais distribuições exigiam uma.  Este documento descreverá o processo de criação da partição de permuta sob demanda durante o tempo de provisionamento usando Cloud-init.  Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
+# <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Use cloud-init para configurar uma partição de swap em uma VM Linux
+Este artigo mostra como usar [o cloud-init](https://cloudinit.readthedocs.io) para configurar a partição de swap em várias distribuições Linux. A partição de swap foi tradicionalmente configurada pelo Agente Linux (WALA) com base em quais distribuições exigiam uma.  Este documento delineará o processo de construção da partição de swap sob demanda durante o tempo de provisionamento usando cloud-init.  Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
 
-## <a name="create-swap-partition-for-ubuntu-based-images"></a>Criar partição de permuta para imagens baseadas no Ubuntu
-Por padrão no Azure, as imagens da galeria do Ubuntu não criam partições de permuta. Para habilitar a configuração da partição de permuta durante o tempo de provisionamento da VM usando Cloud-init, consulte o [documento AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) no wiki do Ubuntu.
+## <a name="create-swap-partition-for-ubuntu-based-images"></a>Criar partição de swap para imagens baseadas no Ubuntu
+Por padrão no Azure, as imagens da galeria Ubuntu não criam partições de swap. Para habilitar a configuração de partição de swap durante o tempo de provisionamento da VM usando cloud-init - consulte o [documento AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) na wiki Ubuntu.
 
-## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Criar partição de permuta para imagens baseadas em Red Hat e CentOS
+## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Criar partição de swap para imagens baseadas em Red Hat e CentOS
 
-Crie um arquivo em seu shell atual chamado *cloud_init_swappart. txt* e cole a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud_init_swappart.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
+Crie um arquivo em seu shell atual chamado *cloud_init_swappart.txt* e cole a seguinte configuração. Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud_init_swappart.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Verifique se o arquivo cloud-init inteiro foi copiado corretamente, principalmente a primeira linha.  
 
 ```yaml
 #cloud-config
@@ -41,7 +41,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Antes de implantar essa imagem, você precisa criar um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Antes de implantar essa imagem, você precisa criar um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no *local eastus.*
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -58,14 +58,14 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-## <a name="verify-swap-partition-was-created"></a>Verificar se a partição de permuta foi criada
+## <a name="verify-swap-partition-was-created"></a>Verificar partição de swap foi criada
 Conecte-se por SSH ao endereço IP público da VM mostrado na saída do comando anterior. Insira seu próprio **publicIpAddress** da seguinte maneira:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Depois que você tiver SSH'ed na VM, verifique se a partição de permuta foi criada
+Uma vez que você tenha SSH'ed no vm, verifique se a partição de swap foi criada
 
 ```bash
 swapon -s
@@ -79,9 +79,9 @@ Filename                Type        Size    Used    Priority
 ```
 
 > [!NOTE] 
-> Se você tiver uma imagem do Azure existente que tenha uma partição de permuta configurada e quiser alterar a configuração da partição de permuta para novas imagens, deverá remover a partição de permuta existente. Consulte o documento 'Personalizar imagens para provisionar por cloud-init' para obter mais detalhes.
+> Se você tiver uma imagem Azure existente que tenha uma partição de swap configurada e quiser alterar a configuração de partição de swap para novas imagens, você deve remover a partição de swap existente. Consulte o documento 'Personalizar imagens para provisionar por cloud-init' para obter mais detalhes.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter exemplos adicionais de alterações de configuração do cloud-init, consulte o seguinte:
  
 - [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)

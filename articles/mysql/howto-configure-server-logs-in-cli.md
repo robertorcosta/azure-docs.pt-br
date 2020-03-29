@@ -1,30 +1,30 @@
 ---
-title: Acessar logs de consulta lentos-CLI do Azure-banco de dados do Azure para MySQL
-description: Este artigo descreve como acessar os logs de consulta lenta no banco de dados do Azure para MySQL usando o CLI do Azure.
+title: Acesse registros de consulta lenta - Azure CLI - Banco de dados Azure para MySQL
+description: Este artigo descreve como acessar os logs de consulta lenta no Banco de Dados Do Azure para MySQL usando o Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 44c35d6e997b4a9a6d3dfcf3e7eba5328b125fdf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 93840af61a69599447588be01869a20290b2db94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770587"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062474"
 ---
-# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurar e acessar logs de consulta lentos usando CLI do Azure
-Você pode baixar os logs de consulta lenta do banco de dados do Azure para MySQL usando CLI do Azure, o utilitário de linha de comando do Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configure e acesse registros de consulta lenta usando o Azure CLI
+Você pode baixar o banco de dados Azure para logs de consulta lenta MySQL usando o Azure CLI, o utilitário de linha de comando do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
-- [Servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Banco de dados Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - A [CLI do Azure](/cli/azure/install-azure-cli) ou o Azure Cloud Shell no navegador
 
 ## <a name="configure-logging"></a>Configurar o registro em log
 É possível configurar o servidor para acessar os logs de consulta lenta do MySQL executando as seguintes etapas:
-1. Ative o log de consultas lentas definindo a **consulta de\_lenta\_** parâmetro de log como on.
+1. Ative o registro de consulta lenta definindo o parâmetro **de log de consulta\_\_lenta** para ON.
 2. Ajuste outros parâmetros como **long\_query\_time** e **log\_slow\_admin\_statements**.
 
 Para saber como definir o valor desses parâmetros por meio da CLI do Azure, consulte [Como configurar parâmetros do servidor](howto-configure-server-parameters-using-cli.md).
@@ -38,7 +38,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Listar os logs para o servidor do Banco de Dados do Azure para MySQL
-Para listar os arquivos de log de consulta lenta disponíveis para seu servidor, execute o comando [AZ MySQL Server-logs List](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) .
+Para listar os arquivos de log de consulta lenta disponíveis para o servidor, execute o comando [az mysql server-logs.](/cli/azure/mysql/server-logs#az-mysql-server-logs-list)
 
 Você pode listar os arquivos de log para o servidor **mydemoserver.mysql.database.azure.com** no Grupo de Recursos **myresourcegroup**. Em seguida, direcione-os para um arquivo de texto chamado **log\_files\_list.txt**.
 ```azurecli-interactive
@@ -52,5 +52,5 @@ Use o exemplo a seguir para baixar o arquivo de log específico para o servidor 
 az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="next-steps"></a>Próximos passos
-- Saiba mais sobre [logs de consulta lentos no banco de dados do Azure para MySQL](concepts-server-logs.md).
+## <a name="next-steps"></a>Próximas etapas
+- Saiba mais sobre [os logs de consulta lenta no Banco de Dados Azure para MySQL](concepts-server-logs.md).

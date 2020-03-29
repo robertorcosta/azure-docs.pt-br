@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66427575"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Implantar um novo dispositivo simulado
@@ -35,7 +35,7 @@ Para concluir as etapas neste guia de instruções, é necessário ter uma assin
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este guia de instruções, é necessário ter:
 
@@ -140,7 +140,7 @@ Agora, é possível usar os modelos de dispositivo personalizado na solução de
 
 Se você planeja explorar mais, deixe o acelerador de solução de Monitoramento Remoto implantado.
 
-Caso não precise mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e clicando em **Excluir Solução**.
+Se você não precisar mais do acelerador de soluções, exclua-o da página [de soluções provisionadas,](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e, em seguida, clicando **em Excluir solução**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

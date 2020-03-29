@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920154"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Falha de ativação do Windows no cenário de túnel forçado
@@ -26,7 +26,7 @@ Este artigo descreve como resolver o problema de ativação do KMS que pode ocor
 
 ## <a name="symptom"></a>Sintoma
 
-Habilite o [túnel forçado](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) nas sub-redes das redes virtuais do Azure para direcionar todo o tráfego da Internet de volta para a sua rede local. Nesse cenário, as máquinas virtuais (VMs) do Azure que executam o Windows falham ao ativar o Windows.
+Habilite o [túnel forçado](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) nas sub-redes das redes virtuais do Azure para direcionar todo o tráfego da Internet de volta para a sua rede local. Neste cenário, as máquinas virtuais do Azure (VMs) que executam o Windows não conseguem ativar o Windows.
 
 ## <a name="cause"></a>Causa
 
@@ -38,7 +38,7 @@ Para resolver esse problema, use a rota personalizada do Azure para direcionar o
 
 O endereço IP do servidor KMS para a nuvem global do Azure é 23.102.135.246. Seu nome DNS é kms.core.windows.net. Se você usa outras plataformas do Azure, como o Azure Alemanha, deve usar o endereço IP do servidor KMS correspondente. Para obter mais informações, confira a tabela a seguir:
 
-|Platform| KMS DNS|KMS IP|
+|Plataforma| KMS DNS|KMS IP|
 |------|-------|-------|
 |Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Alemanha|kms.core.cloudapi.de|51.4.143.248|
@@ -53,7 +53,7 @@ Para adicionar a rota personalizada, siga essas etapas:
  
 
 > [!NOTE] 
-> A ativação usa endereços IP públicos e será afetada por uma configuração de Load Balancer de SKU padrão. Examine cuidadosamente as [conexões de saída no Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para saber mais sobre os requisitos.
+> A ativação usa endereços IP públicos e será afetada por uma configuração padrão do Balancer de carga SKU. Revise cuidadosamente [as conexões outbound no Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para saber sobre os requisitos.
 
 1. Abra o Azure PowerShell e [conecte-se à sua conta do Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Execute os seguintes comandos:
@@ -111,7 +111,7 @@ Para adicionar a rota personalizada, siga essas etapas:
 
 4. Tente ativar o Windows e veja se o problema foi resolvido.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Chaves de instalação de cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
 )

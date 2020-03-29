@@ -1,5 +1,5 @@
 ---
-title: Mapeando o monitoramento visual do fluxo de dados
+title: Mapeamento do fluxo de dados Monitoramento visual
 description: Como monitorar visualmente os Fluxo de Dados do Azure Data Factory
 author: kromerm
 ms.author: makromer
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ms.openlocfilehash: 93d92286fa9eecbc64229059274cc8f9ed99e21e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928272"
 ---
 # <a name="monitor-data-flows"></a>Monitorar Fluxo de Dados
@@ -25,7 +25,7 @@ Ao executar o pipeline, você poderá monitorar o pipeline e todas as atividades
 
 ![Monitoramento de fluxo de dados](media/data-flow/mon001.png "Monitoramento de fluxo de dados")
 
-Você verá estatísticas nesse nível, bem como os tempos de execução e o status. A ID de Execução no nível de atividade é diferente da ID de Execução no nível de pipeline. A ID de Execução no nível anterior é para o pipeline. Ao clicar no ícone de óculos, os detalhes sobre a execução do fluxo de dados serão exibidos detalhadamente.
+Você verá estatísticas neste nível, incluindo os tempos de execução e status. A ID de Execução no nível de atividade é diferente da ID de Execução no nível de pipeline. A ID de Execução no nível anterior é para o pipeline. Ao clicar no ícone de óculos, os detalhes sobre a execução do fluxo de dados serão exibidos detalhadamente.
 
 ![Monitoramento de fluxo de dados](media/data-flow/mon002.png "Monitoramento de fluxo de dados")
 
@@ -35,24 +35,24 @@ Quando você estiver na exibição de monitoramento de nós de gráfico, uma ver
 
 ## <a name="view-data-flow-execution-plans"></a>Exibir Planos de Execução do Fluxo de Dados
 
-Quando o fluxo de dados é executado no Spark, Azure Data Factory determina caminhos de código ideais com base na totalidade de seu fluxo de dados. Além disso, os caminhos de execução podem ocorrer em diferentes nós de expansão e partições de dados. Portanto, o grafo de monitoramento representa o design do fluxo, levando em conta o caminho de execução de suas transformações. Ao clicar em nós individuais, você verá "agrupamentos" que representam o código que foi executado em conjunto no cluster. As contagens e intervalos exibidos representam esses grupos, ao contrário das etapas individuais no design.
+Quando o fluxo de dados é executado no Spark, a Fábrica de Dados do Azure determina os caminhos de código ideais com base na totalidade do fluxo de dados. Além disso, os caminhos de execução podem ocorrer em diferentes nós de expansão e partições de dados. Portanto, o grafo de monitoramento representa o design do fluxo, levando em conta o caminho de execução de suas transformações. Ao clicar em nós individuais, você verá "agrupamentos" que representam o código que foi executado em conjunto no cluster. As contagens e intervalos exibidos representam esses grupos, ao contrário das etapas individuais no design.
 
 ![Monitoramento de fluxo de dados](media/data-flow/mon004.png "Monitoramento de fluxo de dados")
 
 * Ao clicar no espaço aberto na janela de monitoramento, as estatísticas no painel inferior exibem as contagens de linha e tempo para cada Coletor e as transformações que conduziram aos dados do coletor para a linhagem de transformação.
 
-* Ao selecionar transformações individuais, você receberá comentários adicionais no painel à direita que mostra estatísticas de partição, contagens de colunas, distorção (como uniformemente os dados são distribuídos entre partições) e curtose (como os com picos são os dados).
+* Quando você seleciona transformações individuais, você receberá feedback adicional no painel à direita que mostra estatísticas de partição, contagem de colunas, distorção (quão uniformemente os dados são distribuídos entre partições) e kurtose (quão espinhosos são os dados).
 
 * Ao clicar no Coletor na exibição do nó, a linhagem da coluna é exibida. Há três métodos diferentes em que as colunas são acumuladas ao longo do fluxo de dados para chegar ao Coletor. Eles são:
 
-  * Computado: você usa a coluna para processamento condicional ou dentro de uma expressão em seu fluxo de dados, mas não a Lande no coletor
-  * Derivado: a coluna é uma nova coluna que você gerou em seu fluxo, ou seja, ela não estava presente na origem
-  * Mapeado: a coluna originada da origem e sua está sendo mapeada para um campo de coletor
-  * Status do fluxo de dados: o status atual de sua execução
-  * Tempo de inicialização do cluster: a quantidade de tempo para adquirir o ambiente de computação do Spark JIT para a execução do fluxo de dados
-  * Número de transformações: quantas etapas de transformação estão sendo executadas em seu fluxo
+  * Computado: Você usa a coluna para processamento condicional ou dentro de uma expressão em seu fluxo de dados, mas não aterrissa na Pia
+  * Derivado: A coluna é uma nova coluna que você gerou em seu fluxo, ou seja, não estava presente na Fonte
+  * Mapeado: A coluna originou-se da fonte e você está mapeando-a para um campo de pia
+  * Status do fluxo de dados: O status atual da sua execução
+  * Tempo de inicialização do cluster: quantidade de tempo para adquirir o ambiente de computação JIT Spark para sua execução de fluxo de dados
+  * Número de transformações: Quantas etapas de transformação estão sendo executadas no seu fluxo
   
-![Monitoramento de fluxo de dados](media/data-flow/monitornew.png "Novo monitoramento de fluxo de dados")  
+![Monitoramento de fluxo de dados](media/data-flow/monitornew.png "Monitoramento de fluxo de dados novo")  
   
 ## <a name="monitor-icons"></a>Ícones de monitoramento
 

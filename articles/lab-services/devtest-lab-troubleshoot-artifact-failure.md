@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar falhas de artefato em uma máquina virtual Azure DevTest Labs
-description: O DevTest Labs fornece informações que você pode usar para diagnosticar uma falha de artefato. Este artigo mostra como solucionar problemas de falhas de artefato.
+title: Diagnosticar falhas de artefatos em uma máquina virtual do Azure DevTest Labs
+description: DevTest Labs fornecem informações que você pode usar para diagnosticar uma falha no artefato. Este artigo mostra como solucionar falhas de artefatos.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 7229f1ee4061eb38b7c6da09df21102ab302ab42
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760310"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefato no laboratório 
@@ -52,12 +52,12 @@ Depois de criar um artefato, você pode verificar se ele foi bem-sucedido ou fal
 
 3. Abra o arquivo de **status**.
 
-Para obter instruções sobre como localizar os arquivos de log em uma VM do **Linux** , consulte o seguinte artigo: [usar a extensão de script personalizado do Azure versão 2 com máquinas virtuais do Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+Para obter instruções sobre como encontrar os arquivos de log em um **VM Linux,** consulte o seguinte artigo: [Use o Azure Custom Script Extension Versão 2 com máquinas virtuais Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
 
 
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 * [Ingresse uma VM em um domínio do Active Directory existente usando um modelo do Resource Manager no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [adicionar um repositório Git a um laboratório](devtest-lab-add-artifact-repo.md).
 

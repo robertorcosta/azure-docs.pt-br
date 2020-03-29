@@ -1,6 +1,6 @@
 ---
-title: Modelos de hubs de notificação do Azure
-description: Saiba mais sobre como usar modelos para os hubs de notificação do Azure.
+title: Modelos do Azure Notification Hubs
+description: Saiba como usar modelos para hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263737"
 ---
 # <a name="templates"></a>Modelos
@@ -133,7 +133,7 @@ Os modelos são limitados aos formatos de documento XML ou JSON. Além disso, s�
 
 A tabela a seguir mostra a linguagem permitida nos modelos:
 
-| Expression       | Description |
+| Expression       | Descrição |
 | ---------------- | --- |
 | $(prop)          | Referência para uma propriedade de evento com o nome fornecido. Os nomes de propriedade não diferenciam maiúsculas de minúsculas. Esta expressão é convertida para o valor de texto da propriedade ou em uma sequência de caracteres vazia se a propriedade não estiver presente. |
 | $(prop, n)       | Como consta acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $(title, 20) corta o conteúdo da propriedade de título em 20 caracteres. |
@@ -159,7 +159,7 @@ Por exemplo, o modelo a seguir não é um modelo XML válido:
 </tile>
 ```
 
-Como explicado antes, ao usar concatenação, as expressões devem ser colocadas entre colchetes. Por exemplo:
+Como explicado antes, ao usar concatenação, as expressões devem ser colocadas entre colchetes. Por exemplo: 
 
 ```xml
 <tile>
@@ -171,6 +171,6 @@ Como explicado antes, ao usar concatenação, as expressões devem ser colocadas
 </tile>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre os hubs de notificação do Azure](notification-hubs-push-notification-overview.md)
+[Conheça os Hubs de Notificação do Azure](notification-hubs-push-notification-overview.md)

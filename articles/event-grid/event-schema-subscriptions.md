@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561669"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure para hubs de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos de assinatura do Azure. Para obter uma introdução a esquemas de evento, consulte [esquema de evento da Grade de Eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de assinatura do Azure.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 Grupos de recursos e as assinaturas do Azure emitem os mesmos tipos de evento. Os tipos de eventos estão relacionados a alterações de recursos ou ações. A principal diferença é que grupos de recursos de emissão de eventos para os recursos no grupo de recursos e as assinaturas do Azure emitem eventos de recursos entre a assinatura.
 
@@ -34,7 +34,7 @@ Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do even
 
 As assinaturas do Azure agora podem emitir eventos de gerenciamento do Azure Resource Manager, como quando uma VM é criada ou uma conta de armazenamento é excluída.
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | Gerado quando a ação no recurso é cancelada. |
 | Microsoft.Resources.ResourceActionFailure | Gerado quando ocorre falha na ação no recurso. |
@@ -234,25 +234,25 @@ O exemplo a seguir mostra o esquema para um **ResourceActionSuccess** eventos. O
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
-| data | object | Dados de evento de assinatura. |
+| data | objeto | Dados de evento de assinatura. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
 | metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| authorization | object | A autorização solicitada para a operação. |
-| claims | object | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| autorização | objeto | A autorização solicitada para a operação. |
+| declarações | objeto | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | Uma ID de operação para solução de problemas. |
-| httpRequest | object | Os detalhes da operação. Esse objeto é apenas incluído ao atualizar um recurso existente ou excluir um recurso. |
+| httpRequest | objeto | Os detalhes da operação. Esse objeto é apenas incluído ao atualizar um recurso existente ou excluir um recurso. |
 | ResourceProvider | string | O provedor de recursos para a operação. |
 | resourceUri | string | O URI do recurso na operação. |
 | operationName | string | A operação que foi feita. |
@@ -262,5 +262,5 @@ O objeto de dados tem as seguintes propriedades:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](overview.md).
+* Para uma introdução ao Azure Event Grid, veja [O que é a Grade de Eventos?](overview.md).
 * Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).

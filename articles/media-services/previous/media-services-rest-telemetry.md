@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774875"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurando a telemetria dos Serviços de Mídia do Azure com REST
@@ -34,7 +34,7 @@ As etapas descritas neste tópico são:
 - Obter os Pontos de extremidade de notificação
 - Criar um Ponto de extremidade de notificação para monitoramento. 
 
-    Para criar um ponto de extremidade de notificação, defina o EndpointType como Azuretable (2) e endPontAddress definido como a tabela de armazenamento (por exemplo, https:\//telemetryvalidationstore.table.core.windows.net/).
+    Para criar um ponto final de notificação, defina o EndPointType como AzureTable (2)\/e endPontAddress definido na tabela de armazenamento (por exemplo, https: /telemetryvalidationstore.table.core.windows.net/).
   
 - Obter as configurações de monitoramento
 
@@ -46,7 +46,7 @@ As etapas descritas neste tópico são:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obter a conta de armazenamento associada à conta dos Serviços de Mídia
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.19
@@ -74,7 +74,7 @@ As etapas descritas neste tópico são:
 
 ## <a name="get-the-notification-endpoints"></a>Obter os Pontos de extremidade de notificação
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.19
@@ -107,7 +107,7 @@ As etapas descritas neste tópico são:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Criar um Ponto de extremidade de notificação para monitoramento
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.19
@@ -126,7 +126,7 @@ As etapas descritas neste tópico são:
     }
 
 > [!NOTE]
-> Não se esqueça de alterar o valor "https:\//telemetryvalidationstore.table.core.windows.net" para sua conta de armazenamento.
+> Não se esqueça de alterar\/o valor "https: /telemetryvalidationstore.table.core.windows.net" para sua conta de armazenamento.
 
 ### <a name="response"></a>Resposta
 
@@ -149,7 +149,7 @@ As etapas descritas neste tópico são:
  
 ## <a name="get-the-monitoring-configurations"></a>Obter as configurações de monitoramento
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.19
@@ -179,7 +179,7 @@ As etapas descritas neste tópico são:
 
 ## <a name="add-a-monitoring-configuration"></a>Adicionar a configuração de monitoramento
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.19
@@ -222,7 +222,7 @@ As etapas descritas neste tópico são:
 
 ## <a name="stop-telemetry"></a>Parar telemetria
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitação
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.19
@@ -237,7 +237,7 @@ As etapas descritas neste tópico são:
 
 Para saber mais sobre o consumo de telemetria, consulte [este](media-services-telemetry-overview.md) tópico.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

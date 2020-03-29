@@ -1,6 +1,6 @@
 ---
-title: Chamar uma API da Web de um aplicativo Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo Web que chama APIs da Web (chamando uma API Web protegida)
+title: Chame uma api web de um aplicativo web - plataforma de identidade da Microsoft | Azure
+description: Aprenda a criar um aplicativo web que chama APIs da Web (chamando uma API web protegida)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,19 +15,19 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76758964"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Um aplicativo Web que chama APIs da Web: chamar uma API da Web
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Um aplicativo web que chama APIs da Web: Chame uma API web
 
-Agora que você tem um token, você pode chamar uma API Web protegida.
+Agora que você tem um token, você pode chamar uma API da Web protegida.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aqui está o código simplificado para a ação do `HomeController`. Esse código obtém um token para chamar Microsoft Graph. O código foi adicionado para mostrar como chamar Microsoft Graph como uma API REST. A URL para a API de Microsoft Graph é fornecida no arquivo appSettings. JSON e é lida em uma variável chamada `webOptions`:
+Aqui está um código simplificado `HomeController`para a ação do . Este código recebe um token para chamar microsoft graph. O código foi adicionado para mostrar como chamar o Microsoft Graph como uma API REST. A URL da API do Microsoft Graph é fornecida no arquivo appsettings.json e é lida em uma variável chamada `webOptions`:
 
 ```JSon
 {
@@ -82,11 +82,11 @@ public async Task<IActionResult> Profile()
 ```
 
 > [!NOTE]
-> Você pode usar o mesmo princípio para chamar qualquer API da Web.
+> Você pode usar o mesmo princípio para chamar qualquer API web.
 >
-> A maioria das APIs da Web do Azure fornece um SDK que simplifica a chamada da API. Isso também é verdadeiro para Microsoft Graph. No próximo artigo, você aprenderá onde encontrar um tutorial que ilustra o uso da API.
+> A maioria das APIs web do Azure fornece um SDK que simplifica a chamada da API. Isso também é verdade no Microsoft Graph. No próximo artigo, você aprenderá onde encontrar um tutorial que ilustra o uso da API.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
@@ -112,7 +112,7 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 @app.route("/graphcall")
@@ -129,7 +129,7 @@ def graphcall():
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Mover para produção](scenario-web-app-call-api-production.md)
+> [Mover para ambiente de produção](scenario-web-app-call-api-production.md)

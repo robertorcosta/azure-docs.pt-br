@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921242"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Relatório de Inteligência de Ameaças da Central de Segurança do Azure
 Este documento explica como os Relatórios Inteligentes de Ameças da Central de Segurança do Azure podem ajudá-lo a saber mais sobre uma ameaça que gerou um alerta de segurança.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>O que é um relatório de inteligência de ameaças?
-A proteção contra ameaças da central de segurança funciona monitorando as informações de segurança de seus recursos do Azure, da rede e das soluções de parceiros conectadas. Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças. Para obter mais informações, consulte [como a central de segurança do Azure detecta e responde às ameaças](security-center-alerts-overview.md#detect-threats).
+A proteção contra ameaças do Security Center funciona monitorando informações de segurança dos recursos do Azure, da rede e das soluções de parceiros conectados. Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças. Para obter mais informações, consulte [como o Azure Security Center detecta e responde a ameaças](security-center-alerts-overview.md#detect-threats).
 
 Quando a Central de Segurança identifica uma ameaça, ele dispara um [alerta de segurança](security-center-managing-and-responding-alerts.md), que contém informações sobre um evento específico, incluindo sugestões de correção detalhadas. Para ajudar as equipes de resposta a incidentes a investigar e a corrigir ameaças, a Central de Segurança inclui um relatório de inteligência de ameaças que contém informações sobre a ameaça detectada, incluindo informações como:
 
@@ -43,11 +43,11 @@ Quando a Central de Segurança identifica uma ameaça, ele dispara um [alerta de
 
 A Central de Segurança tem três tipos de relatórios de ameaça, que podem variar de acordo com o ataque. Os relatórios disponíveis são:
 
-* **Relatório de Grupo de Atividades**: fornece análises avançadas sobre os invasores, seus objetivos e táticas.
-* **Relatório de Campanha**: concentra-se nos detalhes de campanhas de ataque específicas.
+* **Relatório do Grupo de Atividades**: fornece mergulhos profundos nos atacantes, seus objetivos e táticas.
+* **Relatório de Campanha**: foca-se em detalhes de campanhas de ataque específicas.
 * **Relatório de Resumo de Ameaças**: abrange todos os itens dos dois relatórios anteriores.
 
-Esse tipo de informação é útil durante o processo de resposta a incidentes, em que há uma investigação contínua para entender a origem do ataque, as motivações do invasor e o que fazer para atenuar esse problema avançando.
+Esse tipo de informação é muito útil durante o processo de resposta a incidentes, em que há uma investigação em andamento para compreender a origem do ataque, as motivações do invasor e o que fazer para atenuar esse problema no futuro.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Como acessar o relatório de inteligência de ameaças?
 Você pode examinar os alertas atuais observando o bloco **Alertas de segurança** . Abra o portal do Azure e siga as etapas abaixo para ver mais detalhes sobre cada alerta:
@@ -56,18 +56,18 @@ Você pode examinar os alertas atuais observando o bloco **Alertas de segurança
 2. Clique no bloco para abrir a folha **Alertas de segurança** que contém mais detalhes sobre os alertas e clique no alerta de segurança sobre o qual você deseja obter mais informações.
 
     ![Alertas de segurança](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. Nesse caso, a folha **Processo suspeito executado** mostra os detalhes sobre o alerta, conforme mostrado na figura a seguir:
+3. Neste caso, a lâmina **executada no processo Suspeito** mostra os detalhes sobre o alerta, conforme mostrado na figura abaixo:
 
     ![Detalhes do alerta de segurança](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. A quantidade de informações disponíveis para cada alerta de segurança varia de acordo com o tipo de alerta. No campo **RELATÓRIOS**, você tem um link para o relatório de inteligência de ameaça. Clique nele e outra janela do navegador será exibida com o arquivo PDF.
+4. A quantidade de informações disponíveis para cada alerta de segurança varia de acordo com o tipo de alerta. No campo **RELATÓRIOS,** você tem uma ligação com o relatório de inteligência de ameaças. Clique nele e outra janela do navegador será exibida com o arquivo PDF.
 
    ![Seleção de armazenamento](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
 Aqui você pode baixar o PDF para esse relatório e ler mais sobre o problema de segurança detectado e executar ações com base nas informações fornecidas.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Neste documento, você aprendeu como os Relatórios de Inteligência de Ameaças da Central de Segurança do Azure podem ajudar durante uma investigação sobre alertas de segurança. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-* [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md). Saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md). Saiba como gerenciar e responder aos alertas de segurança.
-* [Manipulação de incidente de segurança na Central de Segurança do Azure](security-center-incident.md)
+* [Guia de planejamento e operações do Azure Security Center](security-center-planning-and-operations-guide.md). Saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
+* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md). Saiba como gerenciar e responder aos alertas de segurança.
+* [Lidar com incidentes de segurança no Centro de Segurança Do Azure](security-center-incident.md)

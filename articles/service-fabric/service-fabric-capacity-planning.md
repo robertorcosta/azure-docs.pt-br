@@ -1,13 +1,13 @@
 ---
-title: Planejamento de capacidade para aplicativos Service Fabric
+title: Planejamento de capacidade para aplicativos de Malha de Serviço
 description: Descreve como identificar o número de nós de computação necessários para um aplicativo do Service Fabric
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cd5a5c55ff873e4891ac63361d0c4a0b56d70109
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377201"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planejamento de capacidade para Aplicativos do Service Fabric
@@ -48,8 +48,8 @@ Agora, com base em todas essas informações, a planilha mostra que você pode o
 
 ![Planilha para cálculo de custo][Image1]
 
-## <a name="next-steps"></a>Próximos passos
-Confira [particionamento Service Fabric serviços][10] para saber mais sobre como particionar seu serviço.
+## <a name="next-steps"></a>Próximas etapas
+Confira [Particionando serviços do Service Fabric][10] para saber mais sobre como particionar o serviço.
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png

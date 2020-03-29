@@ -8,10 +8,10 @@ ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277758"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(PRETERIDO) Monitorar um cluster de DC/SO do Serviço de Contêiner do Azure com Dynatrace SaaS/gerenciado
@@ -28,12 +28,12 @@ A figura a seguir mostra a interface do usuário do Dynatrace:
 ![Interface do usuário do Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-[Implantar](container-service-deployment.md) e [conectar-se](./../container-service-connect.md) a um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá para [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) para configurar uma conta Dynatrace SaaS.  
+[Implantar](container-service-deployment.md) e [conectar-se](./../container-service-connect.md) a um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) para criar uma conta Dynatrace SaaS.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurar uma implantação do Dynatrace com o Marathon
 Estas etapas mostram como configurar e implantar aplicativos do Dynatrace em seu cluster com o Marathon.
 
-1. Acesse a interface do usuário do DC/OS via [http://localhost:80/](http://localhost:80/). Na interface do usuário do DC?OS, navegue até a guia **Universo** e pesquise pelo **Dynatrace**.
+1. Acesse sua UI DC/OS via [http://localhost:80/](http://localhost:80/). Na interface do usuário do DC?OS, navegue até a guia **Universo** e pesquise pelo **Dynatrace**.
 
     ![Dynatrace no universo de DC/OS](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 
@@ -53,6 +53,6 @@ Estas etapas mostram como configurar e implantar aplicativos do Dynatrace em seu
 
     ![Configuração do Dynatrace nas instâncias de Universo de DC/OS](./media/container-service-monitoring-dynatrace/dynatrace-config2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de instalar o pacote, navegue de volta para o painel do Dynatrace. Você pode explorar as métricas de uso diferentes para os contêineres no seu cluster. 

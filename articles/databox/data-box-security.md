@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
 ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911731"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box
@@ -28,7 +28,7 @@ A solução Microsoft Azure Data Box consiste em quatro componentes principais q
 - **Serviço do Azure Data Box hospedado no Azure** – o serviço de gerenciamento que você usa para criar o pedido do disco, configurar o dispositivo e, em seguida, controlar o pedido até a conclusão.
 - **Dispositivo Data Box** – o dispositivo de transferência que é enviado para você para importar seus dados locais no Azure. 
 - **Clientes/hosts conectados ao dispositivo** – os clientes em sua infraestrutura que se conectam ao dispositivo do Data Box e contêm dados que precisam ser protegidos.
-- **Armazenamento em nuvem** – O local na nuvem do Azure onde os dados são armazenados. Isso geralmente é a conta de armazenamento vinculada ao recurso do Azure Data Box que você criou.
+- **Armazenamento em nuvem** – O local na nuvem do Azure em que os dados ficam armazenados. Isso geralmente é a conta de armazenamento vinculada ao recurso do Azure Data Box que você criou.
 
 O diagrama a seguir indica o fluxo de dados através da solução do Azure Data Box do local para o Azure.
 
@@ -79,10 +79,10 @@ O Azure Data Box reúne e exibe informações pessoais nas seguintes instâncias
 - **Detalhes do pedido** - após a ordem ser criada, o endereço de envio, email e as informações de contato dos usuários são armazenadas no portal do Azure. As informações salvas incluem:
 
   - Nome de contato
-  - Telefone
+  - Número de telefone
   - Email
   - Endereço
-  - Cidade
+  - City
   - CEP/Código postal
   - Estado
   - Região/País/Região
@@ -108,7 +108,7 @@ As seguintes diretrizes de segurança são implementadas no Data Box:
 |[FIPS 140-2 Nível 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para proteção de dados         |
 |Apêndice A para unidades de disco rígido ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para limpeza de dados         |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine os [requisitos do Data Box](data-box-system-requirements.md).
 - Entenda os [limites do Data Box](data-box-limits.md).

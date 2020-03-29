@@ -1,19 +1,18 @@
 ---
-title: Guia de suporte de máquina virtual no Portal do Cloud Partner para o Azure Marketplace
+title: Guia de suporte de máquina virtual no Portal de Parceiros em Nuvem para o Mercado Azure
 description: Descreve a guia Suporte usada na criação de uma oferta de VM do Marketplace do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: fcf7a51e69e901ae04b29c4fb621d401d170d2f1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e8143f33aacbc68653d19ffb72e88af447f8cc40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288845"
 ---
 # <a name="virtual-machine-support-tab"></a>Guia de suporte de máquina virtual
 
@@ -25,7 +24,7 @@ A guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e
 
 A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obrigatórios são indicados por um asterisco (*).
 
-|         Campo                 |       DESCRIÇÃO                                                        |
+|         Campo                 |       Descrição                                                        |
 |        -------                |       ------------                                                       |
 | *Contato de engenharia*     | Serve como um contato técnico entre a Microsoft e sua organização | 
 | **Nome\***                | Nome da pessoa ou grupo que serve como suporte técnico / de engenharia     |
@@ -43,4 +42,4 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, se você ainda não doen, Finalize seus [ativos técnicos da máquina virtual](./cpp-create-technical-assets.md).
+Em seguida, se você ainda não doen assim, finalize seus [ativos técnicos de máquina virtual](./cpp-create-technical-assets.md).

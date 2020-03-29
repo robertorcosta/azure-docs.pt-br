@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76710316"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
@@ -48,14 +48,14 @@ Seus dados são locais ou ficam na nuvem? Os possíveis locais incluem:
 * um endereço HTTP publicamente disponível
 * uma localização de arquivo de rede ou local
 * um banco de dados do SQL Server
-* um contêiner de armazenamento do Azure
+* um contêiner de armazenamento Azure
 
 ### <a name="what-is-the-azure-destination"></a>Qual é o destino do Azure?
 
 Onde seus dados precisam estar para processamento ou modelagem? 
 
 * Armazenamento do Blobs do Azure
-* Bancos de dados SQL Azure
+* Bancos de dados do SQL Azure
 * SQL Server na VM do Azure
 * Tabelas do HDInsight (Hadoop no Azure) ou do Hive
 * Azure Machine Learning
@@ -66,7 +66,7 @@ Onde seus dados precisam estar para processamento ou modelagem?
 Para os procedimentos e os recursos para a ingestão ou o carregamento de dados em uma variedade de ambientes de armazenamento e de processamento diferentes, confira:
 
 * [Carregar dados em ambientes de armazenamento para análise](ingest-data.md)
-* [Importe seus dados de treinamento para Azure Machine Learning Studio (clássico) de várias fontes de dados](../studio/import-data.md)
+* [Importe seus dados de treinamento para o Azure Machine Learning Studio (clássico) de várias fontes de dados](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>Os dados precisam ser movidos em um cronograma regular ou ser modificados durante a migração?
 
@@ -75,11 +75,11 @@ Considere o uso do ADF (Azure Data Factory) quando os dados precisam ser migrado
 * um cenário híbrido que envolve tanto recursos locais quanto na nuvem
 * um cenário em que os dados são transacionados, modificados ou alterados pela lógica de negócios durante a migração
 
-Para obter mais informações, consulte [mover dados de um SQL Server local para SQL Azure com Azure data Factory](move-sql-azure-adf.md).
+Para obter mais informações, consulte [Mover dados de um servidor SQL no local para o SQL Azure com a Fábrica de Dados Do Azure](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quanto dos dados será movido para o Azure?
 
-Grandes conjuntos de dado podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, consulte a discussão sobre limites de tamanho para Machine Learning Studio (clássico) na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
+Grandes conjuntos de dados podem exceder a capacidade de armazenamento de certos ambientes. Por exemplo, veja a discussão dos limites de tamanho para o Machine Learning Studio (clássico) na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Perguntas sobre características de dados: tipo, formato e tamanho
 
@@ -106,7 +106,7 @@ Essas perguntas são essenciais para planejar os ambientes de armazenamento e pr
 * Médio: maior que 2 GB e menor que 10 GB
 * Grande: maior que 10 GB
 
-Considere o ambiente Azure Machine Learning Studio (clássico), por exemplo:
+Veja o ambiente Azure Machine Learning Studio (clássico), por exemplo:
 
 * Para obter uma lista dos formatos e dos tipos de dados com suporte no Azure Machine Learning Studio, confira a seção [Formatos de dados e tipos de dados com suporte](../studio/import-data.md#supported-data-formats-and-data-types) .
 * Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, confira [Assinatura do Azure e Limites de Serviço, Cotas e Restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
@@ -145,20 +145,20 @@ Há muitas opções para ferramentas, ambientes de desenvolvimento e linguagens.
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Quais ferramentas você deve usar para a análise de dados?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview) – uma linguagem de script usada para administrar os recursos do Azure em uma linguagem de script
+* [Microsoft Azure Powershell](/powershell/azure/overview) - um idioma de script usado para administrar seus recursos do Azure em um idioma de script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Ferramentas do Python Visual Studio](https://aka.ms/ptvsdocs)
+* [Ferramentas Python para Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
-* [Notebooks Jupyter](https://jupyter.org/)
+* [Cadernos jupyter](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificar seu cenário de análise avançada
 
 Depois de responder às perguntas na seção anterior, você está pronto para determinar qual cenário melhor se adapta a seu caso. Os cenários de exemplo são descritos em [Cenários para análise avançada no Azure Machine Learning](plan-sample-scenarios.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [O que é o TDSP (Processo de Ciência de Dados de Equipe)?](overview.md)

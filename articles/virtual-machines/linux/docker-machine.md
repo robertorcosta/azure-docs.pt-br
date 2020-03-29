@@ -1,5 +1,5 @@
 ---
-title: Usar o computador do Docker para criar hosts Linux
+title: Use o Docker Machine para criar hosts Linux
 description: Descreve como usar o Docker Machine para criar hosts do Docker no Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: c3165410809d98fd0ac4eeb515fbf30578633ef3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968812"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como usar o Docker Machine para criar hosts no Azure
@@ -129,5 +129,5 @@ Para ver o contêiner em ação, abra um navegador da Web e insira o endereço I
 
 ![Contêiner ngnix em execução](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter exemplos de como usar o Docker Compose, consulte [Introdução ao Docker e ao Compose no Azure](docker-compose-quickstart.md).

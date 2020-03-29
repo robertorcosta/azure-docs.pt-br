@@ -11,13 +11,13 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66473794"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADConnectivityTools
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADConnectivityTools
 
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADConnectivityTools.psm1 que é incluído no Azure AD Connect.
 
@@ -27,16 +27,16 @@ A documentação a seguir fornece informações de referência para o módulo do
 
 Detecta problemas de DNS local.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Executa testes de conectividade de DNS local.
-Para configurar o conector do Active Directory, o usuário deve ter os dois RESOLUÇÃOO nome para a floresta eles está tentando se conectar ao, bem como em controladores de domínio associados a esta floresta.
+Para configurar o conector Active Directory, o usuário deve ter tanto a resolução de nomes para a floresta a que está tentando se conectar, bem como nos controladores de domínio associados a esta floresta.
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -52,7 +52,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM","MYD
 Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -114,13 +114,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Determina se uma floresta especificada existe.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Consulta os endereços IP associados a uma floresta em um servidor DNS.
 
@@ -132,7 +132,7 @@ Consulta os endereços IP associados a uma floresta em um servidor DNS.
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -161,7 +161,7 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Verifica o nível funcional de floresta do AD.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -175,7 +175,7 @@ Confirm-FunctionalLevel -Forest <String> [-RunWithCurrentlyLoggedInUserCredentia
 Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Verifica se o nível funcional de floresta do AD é igual ou maior que um determinado MinAdForestVersion (WindowsServer2003).
 A conta (Domínio\Nome de usuário) e a senha podem ser solicitadas.
@@ -200,7 +200,7 @@ Confirm-FunctionalLevel -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUser
 Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -262,13 +262,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Detecta problemas de conectividade de rede local.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Executa testes de conectividade de rede local.
 
@@ -289,7 +289,7 @@ Confirm-NetworkConnectivity -SkipDnsPort -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO
 Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbose
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-dcs"></a>-DCs
 
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Se o usuário não estiver usando os serviços DNS fornecidos pelo Site do AD / controlador de domínio de Logon, em seguida, eles talvez queira ignorar a verificação de porta 53.
-O usuário ainda deve ser capaz de resolver _.ldap._tcp. \<forestfqdn\> em ordem para a configuração de conector do Active Directory seja bem-sucedida.
+Se o usuário não estiver usando os serviços DeD fornecidos pelo Site AD / Logon DC, então ele pode querer pular a porta de verificação 53.
+O usuário ainda deve ser capaz de resolver _.ldap._tcp. \<forestfqdn\> para que a configuração do Conector de Diretório Ativo tenha sucesso.
 
 ```yml
 Type: SwitchParameter
@@ -352,13 +352,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Determina se uma floresta especificada e seus Controladores de Domínio associados estão acessíveis.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Executa testes de "ping" (se o computador pode acessar um computador de destino por meio da rede e/ou da Internet)
 
@@ -376,7 +376,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM",
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -421,7 +421,7 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Validar se os domínios no FQDN da floresta obtido estão acessíveis
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -435,7 +435,7 @@ Confirm-ValidDomains [-Forest <String>] [-RunWithCurrentlyLoggedInUserCredential
 Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Valida se todos os domínios no FQDN de floresta obtido estão acessíveis por meio da tentativa de recuperar DomainGuid e DomainDN.
 A conta (Domínio\Nome de usuário) e a senha podem ser solicitadas.
@@ -460,7 +460,7 @@ Confirm-ValidDomains -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUserCre
 Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -521,13 +521,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Verifica se um usuário tem credenciais de Admin Corporativo.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Pesquisa se o usuário fornecido tem credenciais de Admin Corporativo.
 A conta (Domínio\Nome de usuário) e a senha podem ser solicitadas.
@@ -546,7 +546,7 @@ Confirm-ValidEnterpriseAdminCredentials -DomainName test.contoso.com -Verbose
 Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
@@ -575,14 +575,14 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Recupera um DomainFQDN de uma combinação de conta e senha.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUserCredentials]
  [-ReturnExceptionOnError] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Tenta obter um objeto domainFQDN de credenciais fornecidas.
 Se o domainFQDN for válido, um DomainFQDNName ou RootDomainName será retornado, dependendo da escolha do usuário.
@@ -602,7 +602,7 @@ Get-DomainFQDNData -DomainFQDNDataType DomainFQDNName -Verbose
 Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInUserCredentials
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-domainfqdndatatype"></a>-DomainFQDNDataType
 
@@ -664,13 +664,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Recupera um ForestFQDN de uma combinação de conta e senha.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Tenta obter um ForestFQDN das credenciais fornecidas.
 A conta (Domínio\Nome de usuário) e a senha podem ser solicitadas.
@@ -689,7 +689,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -Verbose
 Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -734,14 +734,14 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Função principal.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <Boolean> [[-UserName] <String>]
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Executa todos os mecanismos disponíveis que verificam se as credenciais do AD são válidas.
 
@@ -753,7 +753,7 @@ Executa todos os mecanismos disponíveis que verificam se as credenciais do AD s
 Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAccount $True -Verbose
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -773,9 +773,9 @@ Accept wildcard characters: False
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
 
-Para instalações Personalizadas: sinaliza que será $True se o usuário escolher "Criar nova conta do AD" na janela de Conta da Floresta do AD do Assistente do AADConnect.
+Para Custom-installations: sinaliza que será $True se o usuário escolher "Criar nova conta do AD" na janela de Conta da Floresta do AD do Assistente do AADConnect.
 $False se o usuário escolher "Usar conta existente do AD".
-Para instalações Expressas: o valor dessa variável deve ser $True para instalações Expressas.
+Para Express-installations: o valor dessa variável deve ser $True para Express-installations.
 
 ```yml
 Type: Boolean
@@ -816,7 +816,7 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 
 Função principal para testes de conectividade de rede.
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSCredential>
@@ -824,7 +824,7 @@ Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSC
  [-ValidCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 
 Executa testes de conectividade de rede local.
 
@@ -842,7 +842,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM"
 Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TEST.CONTOSO.COM", "DC2.TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 

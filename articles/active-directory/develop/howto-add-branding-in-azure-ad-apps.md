@@ -15,10 +15,10 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: 37d6cd03c07c10bfac5b25e3850c7d3af97bcec7
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76697482"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
@@ -37,7 +37,7 @@ Neste artigo, você vai:
 A Microsoft gerencia dois tipos de contas de usuário:
 
 - **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Essas contas representam a relação entre usuários *individuais* e a Microsoft e são usadas para acessar serviços e dispositivos do cliente da Microsoft. Essas contas são destinadas a uso pessoal.
-- **Contas comerciais ou de estudante.** Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
+- **Contas de trabalho ou escola.**  Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
 
 As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são dominadas diretamente na nuvem (na plataforma do Azure AD) ou sincronizadas para o Azure AD de um diretório local, como o Active Directory do Windows Server. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
 
@@ -56,7 +56,7 @@ Em uma versão anterior dessas diretrizes, recomendamos usar uma imagem de "crac
 
 Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as seções a seguir fornecem orientação visual para os dois cenários.
 
-**Se seu aplicativo suportar a inscrição do usuário final (por exemplo, avaliação gratuita ou modelo freemium)** : Você pode mostrar um botão **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou sua conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
+**Se seu aplicativo suportar a inscrição do usuário final (por exemplo, avaliação gratuita ou modelo freemium)**: Você pode mostrar um botão **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou sua conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
 
 **Se seu aplicativo exigir permissões que somente os administradores podem conferir ou se o aplicativo exigir licenciamento organizacional**: separe a aquisição do administrador de logon do usuário. O **botão "obter esse aplicativo"** redirecionará os administradores para entrar e pedir que eles concedam autorização em nome dos usuários em sua organização, o que tem o benefício adicional da supressão de solicitações de consentimento do usuário final para seu aplicativo.
 
@@ -64,13 +64,13 @@ Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as
 
 O link "obtenha o aplicativo" deve redirecionar o usuário para a página de concessão de acesso (autorização) do Azure AD, para permitir que o administrador da organização autorize seu aplicativo para ter acesso aos dados de sua organização que são hospedados pela Microsoft. Os detalhes sobre como solicitar acesso são debatidos no artigo [Integração de aplicativos com o Active Directory do Azure](quickstart-v1-integrate-apps-with-azure-ad.md) .
 
-Depois que os administradores derem consentimento ao seu aplicativo, eles podem optar por adicioná-lo à experiência do inicializador de aplicativos do Office 365 de seus usuários (acessível do waffle e de [https://portal.office.com/myapps](https://portal.office.com/myapps)). Se você deseja anunciar essa funcionalidade, você pode usar termos como "Adicione esse aplicativo para sua organização" e mostrar um botão como o exemplo a seguir:
+Após o consentimento dos admins ao seu aplicativo, eles podem optar por adicioná-lo à [https://portal.office.com/myapps](https://portal.office.com/myapps)experiência de lançador de aplicativos office 365 de seus usuários (acessível a partir do waffle e de ). Se você deseja anunciar essa funcionalidade, você pode usar termos como "Adicione esse aplicativo para sua organização" e mostrar um botão como o exemplo a seguir:
 
 ![Botão que mostra o logotipo da Microsoft e o texto "Adicionar à minha organização"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo:
+No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo: 
 
-> *Se você já usa o Office 365 ou outro serviço comercial da Microsoft, é possível conceder < your_app_name > acesso aos dados da sua organização. Isso permitirá que os usuários acessem < your_app_name > com suas contas de trabalho existentes.*
+> *Se você já usa o Office 365 ou outro serviço de negócios da Microsoft, você pode conceder <your_app_name> acesso aos dados da sua organização. Isso permitirá que seus usuários acessem <your_app_name> com suas contas de trabalho existentes.*
 
 Para baixar o logotipo oficial da Microsoft para uso em seu aplicativo, clique com o botão direito do mouse naquela que você deseja usar e salve-o em seu computador.
 
@@ -103,7 +103,7 @@ Para baixar as imagens oficiais para uso em seu aplicativo, clique com o botão 
 
 **USE** “conta corporativa ou de estudante” em combinação com o botão "Entre com a Conta da Microsoft" para fornecer uma explicação adicional que ajude os usuários finais a reconhecer se podem usá-lo. **NÃO USE** outros termos, como "conta comercial", "conta empresarial" ou "conta corporativa".
 
-**NÃO** use “ID do Office 365” ou “ID do Azure.” Office 365 também é o nome de uma oferta ao consumidor da Microsoft que não usa o Azure AD para autenticação.
+**NÃO** use "Office 365 ID" ou "Azure ID". Office 365 também é o nome de uma oferta ao consumidor da Microsoft que não usa o Azure AD para autenticação.
 
 **NÃO** altere o logotipo da Microsoft.
 
@@ -111,4 +111,4 @@ Para baixar as imagens oficiais para uso em seu aplicativo, clique com o botão 
 
 ## <a name="navigation-dos-and-donts"></a>Regras de navegação
 
-**Forneça** uma maneira de os usuários fazerem logout e trocarem para outra conta de usuário. Embora a maioria das pessoas tenha uma única conta pessoal da Microsoft/Facebook/Google/Twitter, as pessoas geralmente são associadas a mais de uma organização. O suporte a vários usuários conectados estará disponível em breve.
+**FORNEÇA** uma maneira para que os usuários saiam e alternem para outra conta de usuário. Embora a maioria das pessoas tenha uma única conta pessoal da Microsoft/Facebook/Google/Twitter, as pessoas geralmente são associadas a mais de uma organização. O suporte a vários usuários conectados estará disponível em breve.

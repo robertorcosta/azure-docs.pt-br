@@ -1,19 +1,18 @@
 ---
-title: Criar uma oferta de módulo de Azure IoT Edge | Azure Marketplace
+title: Crie uma oferta de módulo Azure IoT Edge | Mercado Azure
 description: Como publicar um novo módulo do IoT Edge para o Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: c1e2f5ac6078309b7bd8753a3fc57a592a67dcec
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 164b26560020054f4da8bd1aa0ba2a3ecff1875a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826087"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286618"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Criar uma nova oferta de módulo do IoT Edge com o Portal do Cloud Partner
 
@@ -28,7 +27,7 @@ Este artigo descreve como criar e publicar uma entrada de oferta de Módulo do I
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta 
 
-Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com/)e, em seguida, selecione **+ Nova oferta** na barra de menus à esquerda. No menu de Nova Oferta, selecione **Módulos do IoT Edge** para exibir o novo formul´pario de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de Módulo do Edge ioT. 
+Faça login no Portal do [Parceiro na Nuvem](https://cloudpartner.azure.com/)e selecione + Nova **Oferta** na barra de menuà esquerda. No menu de Nova Oferta, selecione **Módulos do IoT Edge** para exibir o novo formul´pario de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de Módulo do Edge ioT. 
 
 ![O novo Módulo do IoT Edge oferece a seleção de interface do usuário](./media/new-iot-edge-module-offer.png)
 
@@ -36,7 +35,7 @@ Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com/)e, em seguida
 
 A página **Nova Oferta** para o tipo de oferta de Módulo do IoT Edge fornece um conjunto de guias e campos de formulário que você usará para criar uma nova oferta. Cada um dos artigos a seguir explica como usar a guia para definir os grupos de ativos e serviços de suporte para sua nova oferta do Módulo do IoT Edge.
 
-- [Guia Configurações da Oferta](./cpp-offer-settings-tab.md)
+- [Guia Configurações de oferta](./cpp-offer-settings-tab.md)
 - [Guia SKUs](./cpp-skus-tab.md)
 - [Guia Marketplace](./cpp-marketplace-tab.md)
 - [Guia Suporte](./cpp-support-tab.md)

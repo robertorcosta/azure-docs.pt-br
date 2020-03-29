@@ -1,22 +1,22 @@
 ---
-title: Configurar um certificado de criptografia em clusters do Linux
+title: Configure um cert de criptografia em clusters Linux
 description: Saiba como configurar um certificado de criptografia e criptografar segredos em clusters Linux.
 author: shsha
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969027"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Configurar um certificado de criptografia e criptografar segredos em clusters Linux
-Este artigo mostra como configurar um certificado de criptografia e criptografar segredos em clusters Linux. Para clusters do Windows, consulte [configurar um certificado de criptografia e criptografar segredos em clusters do Windows][secret-management-windows-specific-link].
+Este artigo mostra como configurar um certificado de criptografia e criptografar segredos em clusters Linux. Para clusters Windows, consulte [Configurar um certificado de criptografia e criptografar segredos em clusters Windows][secret-management-windows-specific-link].
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Obter um certificado de codificação de dados
-Um certificado de codificação de dados é usado estritamente para criptografia e descriptografia de [parâmetros][parameters-link] nas configurações. xml e [variáveis de ambiente][environment-variables-link] do serviço no Service manifest. XML de um serviço. Ele não é usado para autenticação ou assinatura do texto codificado. O certificado deve atender aos seguintes requisitos:
+Um certificado de codificação de dados é usado estritamente para criptografia e descriptografia de [parâmetros][parameters-link] no arquivo Settings.xml de um serviço e nas [variáveis de ambiente][environment-variables-link] do ServiceManifest.xml do serviço. Ele não é usado para autenticação ou assinatura do texto codificado. O certificado deve atender aos seguintes requisitos:
 
 * O certificado deve conter uma chave privada.
 * O uso da chave de certificado deve incluir a Codificação de Dados (10) e não deve incluir a Autenticação de Servidor ou de Cliente.
@@ -44,8 +44,8 @@ A cadeia de caracteres codificada de base 64 resultante que é gerada para encry
 user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der -inkey TestCert.prv
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-Saiba como [especificar segredos criptografados em um aplicativo.][secret-management-specify-encrypted-secrets-link]
+## <a name="next-steps"></a>Próximas etapas
+Saiba como [Especificar segredos criptografados em um aplicativo.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76716671"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de recursos no TDSP (Processo de Ciência de Dados de Equipe)
@@ -32,19 +32,19 @@ Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recurs
 A seleção de recursos pode ser usada para tarefas de classificação ou regressão. O objetivo é selecionar um subconjunto de recursos no conjunto de dados original, reduzindo suas dimensões usando um conjunto mínimo de recursos para representar a quantidade máxima de variação nos dados. Esse subconjunto de recursos é usado para treinar o modelo. A seleção de recursos atende a duas finalidades principais.
 
 * Primeiro, a seleção de recursos frequentemente aumenta a precisão de classificação, eliminando recursos irrelevantes, redundantes ou altamente correlacionados.
-* Em segundo lugar, ela reduz o número de recursos, o que torna o processo de treinamento de modelo mais eficiente. A eficiência é importante para os aprendizes que são caros de treinar, como máquinas de vetor de suporte.
+* Em segundo lugar, ela reduz o número de recursos, o que torna o processo de treinamento de modelo mais eficiente. A eficiência é importante para os alunos que são caros para treinar, como máquinas de suporte vetorial.
 
 Embora a seleção de recursos busque reduzir o número de recursos no conjunto de dados usado para treinar o modelo, ela não é referida pelo termo "redução de dimensionalidade". Métodos de seleção de recursos extraem um subconjunto dos recursos originais dos dados sem alterá-los.  Métodos de redução de dimensionalidade empregam recursos de engenharia que podem transformar os recursos originais e, assim, modificá-los. Exemplos de métodos de redução de dimensionalidade incluem a Análise de Componente Principal, a análise de correlação canônica e a Decomposição de Valor Singular.
 
 Entre outros, uma categoria amplamente aplicada de métodos de seleção de recursos em um contexto supervisionado é a "seleção de recursos baseada em filtro". Ao avaliar a correlação entre cada recurso e o atributo de destino, esses métodos se aplicam a uma medida estatística para atribuir uma pontuação a cada recurso. Em seguida, os recursos são classificados pela pontuação, o que pode ser usado para ajudar a definir o limiar para manter ou eliminar um recurso específico. Correlação de Pearson, informações mútuas e o teste de quadrados de Chi pessoa são exemplos das medidas estatísticas usadas nesses métodos.
 
-No Estúdio do Azure Machine Learning, há módulos fornecidos para seleção de recursos. Conforme mostrado na figura a seguir, esses módulos incluem [seleção de recursos baseada em filtro][filter-based-feature-selection] e [análise de discriminante linear Fisher][fisher-linear-discriminant-analysis].
+No Estúdio do Azure Machine Learning, há módulos fornecidos para seleção de recursos. Conforme mostrado na figura a seguir, esses módulos incluem [Seleção de Recursos Baseada em Filtro][filter-based-feature-selection] e [Análise Discriminante Linear de Fisher][fisher-linear-discriminant-analysis].
 
 ![Módulos de seleção de recursos](./media/select-features/feature-Selection.png)
 
-Considere, por exemplo, o uso do módulo [seleção de recursos baseada em filtro][filter-based-feature-selection] . Para sua conveniência, continue usando o exemplo de mineração de texto. Suponha que você deseja criar um modelo de regressão depois que um conjunto de recursos 256 é criado por meio do módulo [hash de recurso][feature-hashing] e que a variável de resposta é a "Col1" que contém as classificações de análise de livro, variando de 1 a 5. Ao definir o "Método de pontuação de recursos" como "Correlação de Pearson", a “Coluna de destino" como "Col1" e o "Número de recursos desejados" como 50. Em seguida, a [seleção de recursos com base em filtro][filter-based-feature-selection] de módulo produz um conjunto de módulos contendo 50 recursos junto com o atributo de destino "Col1". A figura a seguir mostra o fluxo desse experimento e os parâmetros de entrada:
+Considere, por exemplo, o uso do módulo [Seleção de Recursos Baseada em Filtro][filter-based-feature-selection]. Para sua conveniência, continue usando o exemplo de mineração de texto. Suponha que você deseja criar um modelo de regressão depois que um conjunto de 256 recursos tenha sido criado através do módulo [Hash de Recursos][feature-hashing] e que a variável de resposta é o "Col1" que contém classificações de revisão de livros variando de 1 a 5. Ao definir o "Método de pontuação de recursos" como "Correlação de Pearson", a “Coluna de destino" como "Col1" e o "Número de recursos desejados" como 50. O módulo [Seleção de Recursos Baseada em Filtro][filter-based-feature-selection] produz um conjunto de dados que contém 50 recursos, em conjunto com o atributo de destino "Col1". A figura a seguir mostra o fluxo desse experimento e os parâmetros de entrada:
 
-![Propriedades do módulo seleção de recursos com base em filtro](./media/select-features/feature-Selection1.png)
+![Propriedades do módulo de seleção de recursos baseados em filtro](./media/select-features/feature-Selection1.png)
 
 A figura a seguir mostra os conjuntos de dados resultantes:
 
@@ -56,10 +56,10 @@ As pontuações dos recursos selecionados são mostradas na figura a seguir:
 
 ![Pontuações para o módulo de Seleção de Recursos com Base em Filtro](./media/select-features/feature-Selection3.png)
 
-Ao aplicar esse módulo [seleção de recursos baseada em filtro][filter-based-feature-selection] , 50 de 256 são selecionados porque eles têm os recursos mais correlacionados com a variável de destino "Col1", com base no método de Pontuação "correlação de Pearson".
+Ao aplicar o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection], 50 dos 256 recursos são selecionados, porque eles têm o maior número de recursos correlacionados à variável de destino "Col1", com base no método de pontuação "Correlação de Pearson".
 
 ## <a name="conclusion"></a>Conclusão
-A engenharia de recursos e a seleção de recursos são dois recursos mais projetados e selecionados aumentam a eficiência do processo de treinamento que tenta extrair as principais informações contidas nos dados. Eles também melhoram a capacidade desses modelos de classificar os dados de entrada com precisão e prever resultados de interesse com mais robustez. Também é possível combinar seleção e engenharia de recursos para que o aprendizado seja mais tratável por computação. Ele faz isso aperfeiçoando e, em seguida, reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Matematicamente, os recursos selecionados para treinar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões dos dados e preveem os resultados com êxito.
+Engenharia de recursos e seleção de recursos são duas características comumente projetadas e selecionadas aumentam a eficiência do processo de treinamento que tenta extrair as informações-chave contidas nos dados. Eles também melhoram a capacidade desses modelos de classificar os dados de entrada com precisão e prever resultados de interesse com mais robustez. Também é possível combinar seleção e engenharia de recursos para que o aprendizado seja mais tratável por computação. Ele faz isso aperfeiçoando e, em seguida, reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Matematicamente, os recursos selecionados para treinar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões dos dados e preveem os resultados com êxito.
 
 Nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados coletados, do algoritmo selecionado e do objetivo do experimento.
 

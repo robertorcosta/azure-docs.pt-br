@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67059214"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usar o Azure Webhooks para monitorar as notificações de trabalho dos Serviços de Mídia com o .NET 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode monitorar as notificações de trabalho dos Serviços de Mídia usando o Azure WebHooks ou o [Armazenamento de Filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
@@ -42,12 +42,12 @@ Este artigo mostra como
 
 Encontre definições de várias Azure Functions do .NET dos Serviços de Mídia (incluindo a mostrada neste artigo) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os itens a seguir são necessários para concluir o tutorial:
 
-* Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
+* Uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de serviços de mídia](media-services-portal-create-account.md).
 * Noções básicas de [como usar o Azure Functions](../../azure-functions/functions-overview.md). Além disso, examine [Associações HTTP e de webhook do Azure Functions](../../azure-functions/functions-bindings-http-webhook.md).
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
@@ -61,7 +61,7 @@ Ao desenvolver funções dos Serviços de Mídia, é útil adicionar variáveis 
 
 A seção [configurações de aplicativo](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) define os parâmetros usados no webhook definido neste artigo. Também adicione os parâmetros a seguir às configurações de aplicativo. 
 
-|NOME|Definição|Exemplo| 
+|Nome|Definição|Exemplo| 
 |---|---|---|
 |SigningKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Um endereço do ponto de extremidade do webhook. Depois que a função de webhook for criada, copie a URL do link **Obter URL de função**. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
@@ -72,7 +72,7 @@ Depois que o aplicativo de funções for implantado, você poderá encontrá-lo 
 
 1. Selecione seu aplicativo de funções e clique em **Nova Função**.
 2. Selecione o código **C#** e o cenário **API e Webhooks**. 
-3. Selecione **Webhook Genérico – C#** .
+3. Selecione **Webhook Genérico – C#**.
 4. Nomeie o webhook e pressione **Criar**.
 
 ### <a name="files"></a>Arquivos
@@ -379,7 +379,7 @@ Depois que o webhook é disparado, o exemplo acima produz a saída a seguir. Os 
 Nesta seção, é mostrado o código que adiciona uma notificação webhook a uma tarefa. Você também pode adicionar uma notificação de trabalho de nível, o que seria mais útil para um trabalho com tarefas encadeadas.  
 
 1. No Visual Studio, crie um novo aplicativo de console C#. Digite o nome, o Local e o Nome da solução e OK.
-2. Use o [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar os Serviços de Mídia do Azure.
+2. Use [o NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar o Azure Media Services.
 3. Atualize o arquivo App.config com valores apropriados: 
     
    * Informações de conexão dos Serviços de Mídia do Azure, 

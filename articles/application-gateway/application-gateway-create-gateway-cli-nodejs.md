@@ -1,5 +1,5 @@
 ---
-title: Criar um Gateway de aplicativo do Azure - CLI clássica do Azure
+title: Crie um Gateway de aplicativo Azure - Cli clássico do Azure
 description: Saiba como criar um Gateway de Aplicativo usando a CLI clássica do Azure no Resource Manager
 services: application-gateway
 author: vhorne
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62095973"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um gateway de aplicativo usando a CLI do Azure
 
-O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. Gateway de aplicativo tem os seguintes recursos de entrega de aplicativo: Balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento de Secure Sockets Layer (SSL), investigações de integridade personalizadas e suporte para vários sites.
+O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: Instalar a CLI do Azure
+## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: instalar a CLI do Azure
 
-Para executar as etapas neste artigo, você precisará [instalar a CLI do Azure](../xplat-cli-install.md) e você precisará [entrar no Azure](/cli/azure/authenticate-azure-cli). 
+Para realizar as etapas neste artigo, você precisa [instalar o Azure CLI](../xplat-cli-install.md) e você precisa assinar no [Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Se você não tiver uma conta do Azure, crie uma. Inscreva-se em uma [avaliação gratuita aqui](../active-directory/fundamentals/sign-up-organization.md).
@@ -44,13 +44,13 @@ O Gateway de Aplicativo do Azure requer sua própria sub-rede. Ao criar uma rede
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Abra o **Prompt de comando do Microsoft Azure**e entre.
+Abra o **Prompt de comando do Microsoft Azure**e faça login.
 
 ```azurecli-interactive
 az login
 ```
 
-Depois de digitar o exemplo anterior, um código será fornecido. Navegue até https://aka.ms/devicelogin em um navegador para continuar a entrada no processo.
+Depois de digitar o exemplo anterior, um código será fornecido. Navegue https://aka.ms/devicelogin até em um navegador para continuar o processo de sinal.
 
 ![cmd mostrando logon de dispositivo][1]
 
@@ -104,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
-Depois que a rede virtual e a sub-rede forem criadas, os pré-requisitos para o gateway de aplicativo estarão completos. Além de um certificado. pfx exportado anteriormente e a senha do certificado são necessários para a etapa a seguir: Os endereços IP usados para o back-end são os endereços IP para o servidor de back-end. Esses valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio totalmente qualificados para seus servidores de back-end.
+Depois que a rede virtual e a sub-rede forem criadas, os pré-requisitos para o gateway de aplicativo estarão completos. Além disso, um certificado .pfx exportado anteriormente e a senha do certificado são necessários para a etapa seguinte: os endereços IP usados para o back-end são os endereços IP para seu servidor de back-end. Esses valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio totalmente qualificados para seus servidores de back-end.
 
 ```azurecli-interactive
 azure network application-gateway create \

@@ -13,18 +13,18 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
 ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65872488"
 ---
 # <a name="test-your-app-in-azure"></a>Teste seu aplicativo no Azure 
-Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o DevTest Labs. Primeiro, configure um compartilhamento de arquivo em um laboratório e monte-o como uma unidade em seu computador de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, você deve usar 2019 do Visual Studio para implantar seu aplicativo ao compartilhamento de arquivos para que você pode executar o aplicativo na VM no laboratório.  
+Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o DevTest Labs. Primeiro, configure um compartilhamento de arquivo em um laboratório e monte-o como uma unidade em seu computador de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, você usa o Visual Studio 2019 para implantar seu aplicativo no compartilhamento de arquivos para que você possa executar o aplicativo na VM no laboratório.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 1. Escolha [Criar uma assinatura do Azure](https://azure.microsoft.com/free/) se você ainda não tiver uma e entre no [portal do Azure](https://portal.azure.com).
 2. Siga as instruções [neste artigo](devtest-lab-create-lab.md) para criar um laboratório usando o Azure DevTest Labs. Fixe o laboratório em seu painel para que possa localizá-lo facilmente na próxima vez que entrar. O Azure DevTest Labs permite criar recursos no Azure rapidamente, minimizando o desperdício e controlando os custos. Para saber mais sobre o DevTest Labs, confira a [Visão geral](devtest-lab-overview.md). 
 3. Crie uma conta de Armazenamento do Azure no grupo de recursos do laboratório seguindo as instruções no artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Na página **Criar conta de armazenamento**, selecione **Usar existente** para **Grupo de recursos** e selecione o **grupo de recursos do laboratório**. 
@@ -32,7 +32,7 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Montar o compartilhamento de arquivos em seu computador local
 1. Em seu computador local, use o script da seção [Credenciais persistentes de compartilhamento de arquivo do Azure no Windows](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) do artigo [Usar um compartilhamento de arquivos do Azure com o Windows](../storage/files/storage-how-to-use-files-windows.md). 
-2. Em seguida, use o comando `net use` para montar o compartilhamento de arquivos em seu computador. Aqui está o comando de exemplo: Especifique seu nome de armazenamento do Azure e o nome do compartilhamento de arquivo antes de executar o comando. 
+2. Em seguida, use o comando `net use` para montar o compartilhamento de arquivos em seu computador. Aqui está o comando de exemplo: especifique o nome do seu Armazenamento do Azure e o nome do compartilhamento de arquivo antes de executar o comando. 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`
 
@@ -64,16 +64,16 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
 ## <a name="publish-your-app-from-visual-studio"></a>Publique seu aplicativo do Visual Studio
 Nesta seção, você publica seu aplicativo do Visual Studio para uma VM de teste na nuvem.
 
-1. Crie um aplicativo de área de trabalho/web usando o Visual Studio de 2019.
+1. Crie um aplicativo desktop/web usando o Visual Studio 2019.
 2. Compile seu aplicativo.
 3. Para publicar seu aplicativo, clique com o botão direito do mouse no projeto em **Gerenciador de Soluções**, e selecione **Publicar**. 
 4. No **Assistente de publicação**, insira a **unidade** mapeada para o compartilhamento de arquivos.
 
-    **Aplicativo da área de trabalho:**
+    **Aplicativo para desktop:**
 
     ![Aplicativo da área de trabalho](media/test-app-in-azure/desktop-app.png)
 
-    **Aplicativo Web:**
+    **Aplicativo web:**
 
     ![Aplicativo Web](media/test-app-in-azure/web-app.png)
 

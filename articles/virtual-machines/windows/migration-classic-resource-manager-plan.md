@@ -1,5 +1,5 @@
 ---
-title: Planejando a migração do clássico para o Azure Resource Manager
+title: Planejamento para migração do classic para o Azure Resource Manager
 description: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 62cc33b9cfe1a0dc96f0a6a771b753ff48bfb9f4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919542"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 
 > [!IMPORTANT]
-> Hoje, cerca de 90% das VMs de IaaS estão usando [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir de 28 de fevereiro de 2020, as VMs clássicas foram preteridas e serão totalmente desativadas em 1º de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre essa reprovação e [como ela afeta você](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Hoje, cerca de 90% das VMs IaaS estão usando [o Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir de 28 de fevereiro de 2020, as VMs clássicas foram preteridas e serão totalmente aposentadas em 1º de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre essa depreciação e [como ela afeta você](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração.
 
@@ -56,7 +56,7 @@ Os clientes de sucesso têm planos detalhados para quando as perguntas anteriore
 
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Planejamento para a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Ferramentas da comunidade para ajudar com a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -114,16 +114,16 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
 
 - **Conjuntos de disponibilidade** – para que uma VNET (rede virtual) seja migrada para o Azure Resource Manager, todas as VMs recipientes da implantação Clássica (ou seja, o serviço de nuvem) devem estar em um único conjunto de disponibilidade ou não devem estar em nenhum conjunto de disponibilidade. Ter mais de um conjunto de disponibilidade no serviço de nuvem não é compatível com o Azure Resource Manager e interromperá a migração.  Além disso, não pode haver algumas VMs em um conjunto de disponibilidade e outras VMs que não estão em um conjunto de disponibilidade. Para resolver isso, você precisará corrigir ou reorganizar o serviço de nuvem.  Planeje de forma adequada, pois isso pode ser demorado.
 
-- **Implantações de função web/de trabalho** – Serviços de Nuvem que contém funções web e de trabalho não podem migrar para o Azure Resource Manager. Para migrar o conteúdo de suas funções Web e de trabalho, você precisará migrar o próprio código para serviços de aplicativo PaaS mais recentes (essa discussão está além do escopo deste documento). Se você quiser deixar as funções Web/de trabalho como estão, mas migrar VMs clássicas para o modelo de implantação do Gerenciador de recursos, as funções Web/de trabalho devem primeiro ser removidas da rede virtual antes que a migração possa ser iniciada.  Uma solução típica é apenas mover instâncias de função Web/de trabalho para uma rede virtual clássica separada que também esteja vinculada a um circuito de ExpressRoute. No primeiro caso de reimplantação, crie uma nova rede virtual clássica, mova/reimplante as funções Web/de trabalho para essa nova rede virtual e, em seguida, exclua as implantações da rede virtual que está sendo movida. Não é necessário alterar o código. A nova funcionalidade [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md) pode ser usada para emparelhar a rede virtual clássica que contém as funções web/de trabalho e outras redes virtuais na mesma região do Azure, como a rede virtual que está sendo migrada (**após a conclusão da migração da rede virtual, já que redes virtuais emparelhadas não podem ser migradas**), fornecendo as mesmas funcionalidades, sem perda de desempenho e sem penalidades de latência/largura de banda. Considerando a adição do [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md), as implantações de função web/de trabalho agora podem ser facilmente atenuadas e não impedem a migração para o Azure Resource Manager.
+- **Implantações de função web/de trabalho** – Serviços de Nuvem que contém funções web e de trabalho não podem migrar para o Azure Resource Manager. Para migrar o conteúdo das suas funções web e do trabalhador, você precisará migrar o próprio código para os serviços de aplicativos paas mais novos (essa discussão está além do escopo deste documento). Se você quiser deixar as funções web/trabalhador como está, mas migrar VMs clássicos para o modelo de implantação do Gerenciador de recursos, as funções web/trabalhador devem ser removidas primeiro da rede virtual antes que a migração possa ser iniciada.  Uma solução típica é apenas mover instâncias de função web/trabalhador para uma rede virtual Classic separada que também está vinculada a um circuito ExpressRoute. No primeiro caso de reimplantação, crie uma nova rede virtual Classic, mova/reimplante as funções web/worker para essa nova rede virtual e, em seguida, exclua as implantações da rede virtual que está sendo movida. Não é necessário alterar o código. A nova funcionalidade [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md) pode ser usada para emparelhar a rede virtual clássica que contém as funções web/de trabalho e outras redes virtuais na mesma região do Azure, como a rede virtual que está sendo migrada (**após a conclusão da migração da rede virtual, já que redes virtuais emparelhadas não podem ser migradas**), fornecendo as mesmas funcionalidades, sem perda de desempenho e sem penalidades de latência/largura de banda. Considerando a adição do [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md), as implantações de função web/de trabalho agora podem ser facilmente atenuadas e não impedem a migração para o Azure Resource Manager.
 
-- **Cotas do Azure Resource Manager** – as regiões do Azure têm cotas/limites separados para o Clássico e o Azure Resource Manager. Mesmo que em um cenário de migração o novo hardware não esteja sendo consumido *(estamos trocando VMs existentes do Clássico para o Azure Resource Manager)* , as cotas do Azure Resource Manager ainda precisam estar em vigor com capacidade suficiente antes que a migração possa ser iniciada. Veja abaixo uma lista dos principais limites que observamos que causam problemas.  Abra um tíquete de suporte de cota para aumentar os limites.
+- **Cotas do Azure Resource Manager** – as regiões do Azure têm cotas/limites separados para o Clássico e o Azure Resource Manager. Mesmo que em um cenário de migração o novo hardware não esteja sendo consumido *(estamos trocando VMs existentes do Clássico para o Azure Resource Manager)*, as cotas do Azure Resource Manager ainda precisam estar em vigor com capacidade suficiente antes que a migração possa ser iniciada. Veja abaixo uma lista dos principais limites que observamos que causam problemas.  Abra um tíquete de suporte de cota para aumentar os limites.
 
     > [!NOTE]
     > Esses limites precisam ser acionados na mesma região do ambiente atual a ser migrado.
     >
 
   - Interfaces de Rede
-  - Balanceadores de carga
+  - Balanceadores de Carga
   - IPs Públicos
   - IPs Públicos Estáticos
   - Núcleos
@@ -134,19 +134,19 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
 
 
 
-    **Computação** *(núcleos, conjuntos de disponibilidade)*
+    **Computação** *(Núcleos, Conjuntos de Disponibilidade)*
 
     ```powershell
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **Rede** *(redes virtuais, IPS públicos estáticos, IPS públicos, grupos de segurança de rede, interfaces de rede, balanceadores de carga, tabelas de rotas)*
+    **Rede** *(Redes Virtuais, IPs Públicos Estáticos, IPs Públicos, Grupos de Segurança de Rede, Interfaces de Rede, Balanceadores de Carga, Tabelas de Rotas)*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **Armazenamento** *(conta de armazenamento)*
+    **Armazenamento** *(Conta de Armazenamento)*
 
     ```powershell
     Get-AzStorageUsage
@@ -203,9 +203,9 @@ Itens a serem considerados:
 
 Determine quais serviços você deseja habilitar no Azure Resource Manager agora.  Muitos clientes consideram os itens abaixo interessantes para seus ambientes do Azure:
 
-- [Controle de Acesso Baseado em Função](../../role-based-access-control/overview.md).
+- [Controle de acesso baseado em função](../../role-based-access-control/overview.md).
 - [Modelos do Azure Resource Manager para uma implantação mais fácil e mais controlada](../../azure-resource-manager/templates/overview.md).
-- [Marcas](../../azure-resource-manager/management/tag-resources.md).
+- [Tags](../../azure-resource-manager/management/tag-resources.md).
 - [Controle de Atividades](../../azure-resource-manager/management/view-activity-logs.md)
 - [Políticas do Azure](../../governance/policy/overview.md)
 
@@ -214,7 +214,7 @@ Determine quais serviços você deseja habilitar no Azure Resource Manager agora
 Lembre-se do motivo que fez você iniciar esta jornada de migração do Clássico para o Azure Resource Manager.  Quais foram os motivos comerciais originais? Você concretizou o motivo comercial?
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

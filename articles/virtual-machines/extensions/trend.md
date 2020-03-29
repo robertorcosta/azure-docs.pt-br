@@ -1,5 +1,5 @@
 ---
-title: Instalar o Trend Micro Deep Security em uma VM
+title: Instale a Trend Micro Deep Security em uma VM
 description: Este artigo descreve como instalar e configurar o Trend Micro security em uma VM criada com o modelo de implantação Clássico no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
 ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919916"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows
@@ -77,7 +77,7 @@ Se o Agente de VM estiver instalado, execute estes comandos.
 
     Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso, você precisa ativar o Deep Security na máquina virtual para que ela possa ser gerenciada por um Deep Security Manager. Consulte os artigos a seguir para obter instruções adicionais:
 
 * Artigo de tendência sobre essa solução, [Segurança na nuvem Instant-On do Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=404101)
@@ -87,7 +87,7 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 ## <a name="additional-resources"></a>Recursos adicionais
 [Como fazer logon em uma máquina virtual executando o Windows Server]
 
-[Recursos e extensões de VM do Azure]
+[Extensões e recursos do Azure VM]
 
 <!-- Image references -->
 [1]: ./media/trend/new_vm_Blade3.png
@@ -96,4 +96,4 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 
 <!-- Link references -->
 [Como fazer logon em uma máquina virtual executando o Windows Server]:../windows/classic/connect-logon.md
-[Recursos e extensões de VM do Azure]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Extensões e recursos do Azure VM]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

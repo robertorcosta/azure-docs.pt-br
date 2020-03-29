@@ -1,6 +1,6 @@
 ---
-title: Logs de diagnóstico do barramento de serviço do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral de todos os logs operacionais e de diagnóstico que estão disponíveis para o barramento de serviço do Azure.
+title: Registros de diagnósticos do Azure Service Bus | Microsoft Docs
+description: Este artigo fornece uma visão geral de todos os registros operacionais e diagnósticos disponíveis para o Azure Service Bus.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -16,37 +16,37 @@ ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760991"
 ---
-# <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar logs de diagnóstico para o barramento de serviço
+# <a name="enable-diagnostics-logs-for-service-bus"></a>Habilite registros de diagnóstico saquepara ônibus de serviço
 
-Ao começar a usar o namespace do barramento de serviço do Azure, convém monitorar como e quando o namespace é criado, excluído ou acessado. Este artigo fornece uma visão geral de todos os logs operacionais e de diagnóstico disponíveis.
+Quando você começar a usar o espaço de nome do Ônibus de Serviço do Azure, você pode querer monitorar como e quando seu namespace é criado, excluído ou acessado. Este artigo fornece uma visão geral de todos os registros operacionais e diagnósticos disponíveis.
 
-Atualmente, o barramento de serviço do Azure dá suporte a atividades e logs operacionais, que capturam *operações de gerenciamento* executadas no namespace do barramento de serviço do Azure. Especificamente, esses logs capturam o tipo de operação, incluindo a criação da fila, os recursos usados e o status da operação.
+Aazure Service Bus atualmente suporta registros operacionais e de atividade, que capturam *operações de gerenciamento* que são realizadas no espaço de nome do Ônibus de Serviço Azure. Especificamente, esses logs capturam o tipo de operação, incluindo a criação da fila, os recursos usados e o status da operação.
 
 ## <a name="operational-logs-schema"></a>Esquema de logs operacionais
 
-Todos os logs são armazenados no formato JavaScript Object Notation (JSON) nos dois locais a seguir:
+Todos os logs são armazenados no formato JSON (JavaScript Object Notation, notação de objeto sinuoso) nos dois locais a seguir:
 
-- **AzureActivity**: exibe logs de operações e ações que são realizadas em relação ao seu namespace no portal do Azure ou por meio de implantações de modelo Azure Resource Manager.
-- **AzureDiagnostics**: exibe logs de operações e ações que são realizadas em seu namespace usando a API ou por meio de clientes de gerenciamento no SDK do idioma.
+- **AzureActivity**: Exibe registros de operações e ações que são realizadas contra seu namespace no portal Azure ou através de implantações de modelo do Azure Resource Manager.
+- **AzureDiagnostics**: Exibe registros de operações e ações que são conduzidas contra seu namespace usando a API ou através de clientes de gerenciamento no sdk de idioma.
 
-As cadeias de caracteres JSON do log operacional incluem os elementos listados na tabela a seguir:
+As seqüências JSON de log operacional incluem os elementos listados na tabela a seguir:
 
-| Nome | Description |
+| Nome | Descrição |
 | ------- | ------- |
-| ActivityId | ID interna, usada para identificar a atividade especificada |
+| ActivityId | ID interno, usado para identificar a atividade especificada |
 | EventName | Nome da operação |
 | ResourceId | ID de recurso do Azure Resource Manager |
-| SubscriptionId | ID da Assinatura |
+| SubscriptionId | ID da assinatura |
 | EventTimeString | Tempo de operação |
 | EventProperties | Propriedades da operação |
 | Status | Status da operação |
-| Chamador | Chamador de operação (o portal do Azure ou o cliente de gerenciamento) |
+| Chamador | Chamador de operação (o portal Azure ou cliente de gerenciamento) |
 | Categoria | OperationalLogs |
 
 Este é um exemplo de uma cadeia de caracteres JSON do log operacional:
@@ -65,14 +65,14 @@ Este é um exemplo de uma cadeia de caracteres JSON do log operacional:
 }
 ```
 
-## <a name="events-and-operations-captured-in-operational-logs"></a>Eventos e operações capturados em logs operacionais
+## <a name="events-and-operations-captured-in-operational-logs"></a>Eventos e operações capturados em registros operacionais
 
-Os logs operacionais capturam todas as operações de gerenciamento executadas no namespace do barramento de serviço do Azure. As operações de dados não são capturadas devido ao alto volume de operações de dados que são realizadas no barramento de serviço do Azure.
+Os registros operacionais capturam todas as operações de gerenciamento que são executadas no espaço de nome do Ônibus de Serviço Do Azure. As operações de dados não são capturadas, devido ao alto volume de operações de dados que são realizadas no Ônibus de Serviço Azure.
 
 > [!NOTE]
-> Para ajudá-lo a acompanhar melhor as operações de dados, é recomendável usar o rastreamento do lado do cliente.
+> Para ajudá-lo a rastrear melhor as operações de dados, recomendamos o uso do rastreamento do lado do cliente.
 
-As seguintes operações de gerenciamento são capturadas em logs operacionais: 
+As seguintes operações de gerenciamento são capturadas em registros operacionais: 
 
 | Escopo | Operação|
 |-------| -------- |
@@ -82,42 +82,42 @@ As seguintes operações de gerenciamento são capturadas em logs operacionais:
 | Subscription | <ul> <li> Criar Assinatura </li> <li> Atualizar Assinatura </li> <li> Excluir Assinatura </li> </ul> |
 
 > [!NOTE]
-> Atualmente, as operações de *leitura* não são acompanhadas nos logs operacionais.
+> Atualmente, as operações *read* não são rastreadas nos registros operacionais.
 
-## <a name="enable-operational-logs"></a>Habilitar logs operacionais
+## <a name="enable-operational-logs"></a>Habilitar registros operacionais
 
-Os logs operacionais são desabilitados por padrão. Para habilitar os logs de diagnóstico, faça o seguinte:
+Os registros operacionais são desativados por padrão. Para habilitar registros de diagnóstico, faça o seguinte:
 
-1. Na [portal do Azure](https://portal.azure.com), acesse o namespace do barramento de serviço do Azure e, em **monitoramento**, selecione **configurações de diagnóstico**.
+1. No [portal Azure,](https://portal.azure.com)vá para o espaço de nome do Ônibus de Serviço Do Azure e, em seguida, em **Monitoramento,** **selecione Configurações de diagnóstico**.
 
-   ![O link "configurações de diagnóstico"](./media/service-bus-diagnostic-logs/image1.png)
+   ![O link "Configurações de diagnóstico"](./media/service-bus-diagnostic-logs/image1.png)
 
-1. No painel **configurações de diagnóstico** , selecione **Adicionar configuração de diagnóstico**.  
+1. No painel **de configurações Diagnósticos,** selecione **Adicionar configuração de diagnóstico**.  
 
-   ![O link "adicionar configuração de diagnóstico"](./media/service-bus-diagnostic-logs/image2.png)
+   ![O link "Adicionar configuração de diagnóstico"](./media/service-bus-diagnostic-logs/image2.png)
 
-1. Defina as configurações de diagnóstico fazendo o seguinte:
+1. Configure as configurações de diagnóstico fazendo o seguinte:
 
-   a. Na caixa **nome** , insira um nome para as configurações de diagnóstico.  
+   a. Na **caixa Nome,** digite um nome para as configurações de diagnóstico.  
 
-   b. Selecione um dos três destinos a seguir para seus logs de diagnóstico:  
-   - Se você selecionar **arquivar em uma conta de armazenamento**, precisará configurar a conta de armazenamento onde os logs de diagnóstico serão armazenados.  
-   - Se você selecionar **fluxo para um hub de eventos**, precisará configurar o Hub de eventos para o qual deseja transmitir os logs de diagnóstico.
-   - Se você selecionar **Enviar para log Analytics**, será necessário especificar a qual instância do log Analytics o diagnóstico será enviado.  
+   b. Selecione um dos três destinos a seguir para seus registros de diagnóstico:  
+   - Se você selecionar **Arquivamento para uma conta de armazenamento,** você precisará configurar a conta de armazenamento onde os logs de diagnóstico serão armazenados.  
+   - Se você selecionar **Stream para um hub de eventos,** você precisará configurar o hub de eventos para o que deseja transmitir os registros de diagnóstico.
+   - Se você selecionar **Enviar para O Log Analytics,** você precisa especificar para qual instância do Log Analytics os diagnósticos serão enviados.  
 
-   c. Marque a caixa de seleção **OperationalLogs** .
+   c. Selecione a caixa de seleção **OperationalLogs.**
 
-    ![O painel "configurações de diagnóstico"](./media/service-bus-diagnostic-logs/image3.png)
+    ![O painel "Configurações de diagnóstico"](./media/service-bus-diagnostic-logs/image3.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
-As novas configurações entram em vigor em cerca de 10 minutos. Os logs são exibidos no destino de arquivamento configurado, no painel **logs de diagnóstico** .
+As novas configurações fazem efeito em cerca de 10 minutos. Os logs são exibidos no alvo de arquivamento configurado, no painel **logs diagnósticos.**
 
-Para obter mais informações sobre como definir as configurações de diagnóstico, consulte a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Para obter mais informações sobre a configuração das configurações de diagnóstico, consulte a [visão geral dos registros de diagnósticos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o barramento de serviço, consulte:
+Para saber mais sobre o Service Bus, consulte:
 
 * [Introdução ao Barramento de Serviço](service-bus-messaging-overview.md)
-* [Introdução ao Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Introdução ao Barramento de serviço](service-bus-dotnet-get-started-with-queues.md)

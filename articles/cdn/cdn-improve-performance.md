@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: 9f185f58e1d33a3985777cb22bc7578f9f2c4541
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593796"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
@@ -101,9 +101,9 @@ As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactaç�
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>CDN Standard do Azure dos perfis da Microsoft
 
 Para o **Padrão CDN do Azure dos perfis da Microsoft**, somente arquivos elegíveis são compactados. Para se qualificar para a compactação, um arquivo deve:
-- Ser um tipo MIME que foi [configurado para compactação](#enabling-compression).
-- Ser maior que 1 KB
-- Ser menor do que 8 MB
+- Seja de um tipo MIME [configurado para compactação](#enabling-compression).
+- Seja maior que 1 KB
+- Ser menor que 8 MB
 
 Esses perfis dão suporte às seguintes codificações de compactação:
 - gzip (GNU zip)
@@ -115,9 +115,9 @@ Quando uma solicitação de um ativo especificar a compactação gzip e is resul
 
 ### <a name="azure-cdn-from-verizon-profiles"></a>Perfis da CDN do Azure da Verizon
 
-Para os perfis da **CDN Standard do Azure da Verizon** e  **CDN Premium do Azure da Verizon**, apenas arquivos qualificáveis são comprimidos. Para se qualificar para a compactação, um arquivo deve:
+Para os perfis da **CDN Standard do Azure da Verizon** e ** CDN Premium do Azure da Verizon**, apenas arquivos qualificáveis são comprimidos. Para se qualificar para a compactação, um arquivo deve:
 - Ser maior que 128 bytes
-- Ser menor do que 3 MB
+- Ser menor que 3 MB
 
 Esses perfis dão suporte às seguintes codificações de compactação:
 - gzip (GNU zip)
@@ -139,22 +139,22 @@ Esses perfis dão suporte somente à codificação de compactação gzip. Quando
 As tabelas a seguir descrevem o comportamento de compactação CDN do Azure para cada cenário:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>A compactação é desabilitada ou arquivo não está qualificado para compactação
-| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | A resposta da CDN para o cliente | Observações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | A resposta da CDN para o cliente | &nbsp; &nbsp; Notas&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
-| Compactado |Compactado |Compactado | |
-| Compactado |Não compactado |Não compactado | |
-| Compactado |Não armazenado em cache |Compactada ou descompactada |A resposta de origem determina se a CDN executa uma compactação. |
-| Não compactado |Compactado |Não compactado | |
+| Compressed |Compressed |Compressed | |
+| Compressed |Não compactado |Não compactado | |
+| Compressed |Não armazenado em cache |Compactada ou descompactada |A resposta de origem determina se a CDN executa uma compactação. |
+| Não compactado |Compressed |Não compactado | |
 | Não compactado |Não compactado |Não compactado | |
 | Não compactado |Não armazenado em cache |Não compactado | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>A compactação está habilitada ou o arquivo está qualificado para compactação
 | Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | Resposta CDN para o cliente | Observações |
 | --- | --- | --- | --- |
-| Compactado |Compactado |Compactado |CDN transcodifica entre os formatos com suporte. |
-| Compactado |Não compactado |Compactado |CDN executa uma compactação. |
-| Compactado |Não armazenado em cache |Compactado |A CDN executará compactação se a origem retornar um arquivo descompactado. <br/>**CDN do Azure da Verizon** passa o arquivo descompactado na primeira solicitação e, em seguida, compacta e armazena em cache o arquivo para solicitações subsequentes. <br/>Arquivos com o cabeçalho `Cache-Control: no-cache` nunca são compactados. |
-| Não compactado |Compactado |Não compactado |A CDN executa uma descompactação. |
+| Compressed |Compressed |Compressed |CDN transcodifica entre os formatos com suporte. |
+| Compressed |Não compactado |Compressed |CDN executa uma compactação. |
+| Compressed |Não armazenado em cache |Compressed |A CDN executará compactação se a origem retornar um arquivo descompactado. <br/>**CDN do Azure da Verizon** passa o arquivo descompactado na primeira solicitação e, em seguida, compacta e armazena em cache o arquivo para solicitações subsequentes. <br/>Arquivos com o cabeçalho `Cache-Control: no-cache` nunca são compactados. |
+| Não compactado |Compressed |Não compactado |A CDN executa uma descompactação. |
 | Não compactado |Não compactado |Não compactado | |
 | Não compactado |Não armazenado em cache |Não compactado | |
 
@@ -165,6 +165,6 @@ Para pontos de extremidade habilitados para streaming da CDN dos Serviços de M�
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)    
 

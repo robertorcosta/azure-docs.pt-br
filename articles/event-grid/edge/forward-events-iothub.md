@@ -1,6 +1,6 @@
 ---
-title: Encaminhar eventos de grade de eventos para IoTHub-grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Encaminhar eventos de grade de eventos para IoTHub
+title: Eventos de Frente de Eventos grid para IoTHub - Azure Event Grid IoT Edge | Microsoft Docs
+description: Eventos forward event grid para IoTHub
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,37 +10,37 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844693"
 ---
-# <a name="tutorial-forward-events-to-iothub"></a>Tutorial: encaminhar eventos para IoTHub
+# <a name="tutorial-forward-events-to-iothub"></a>Tutorial: Avance eventos para o IoTHub
 
-Este artigo percorre todas as etapas necessárias para encaminhar eventos de grade de eventos para outros módulos IoT Edge, IoTHub usando rotas. Você pode desejar fazer isso pelos seguintes motivos:
+Este artigo percorre todos os passos necessários para encaminhar eventos do Event Grid para outros módulos de IoT Edge, IoTHub usando rotas. Você pode querer fazê-lo pelas seguintes razões:
 
-* Continue a usar qualquer investimento existente já instalado com o roteamento do edgeHub
-* Preferir rotear todos os eventos de um dispositivo somente por meio do Hub IoT
+* Continue a usar quaisquer investimentos já existentes com o roteamento do EdgeHub
+* Prefira encaminhar todos os eventos de um dispositivo apenas via IoT Hub
 
-Para concluir este tutorial, você precisa entender os seguintes conceitos:
+Para completar este tutorial, você precisa entender os seguintes conceitos:
 
 - [Conceitos da grade de eventos](concepts.md)
-- [Hub de IoT Edge](../../iot-edge/module-composition.md) 
+- [Hub do IoT Edge](../../iot-edge/module-composition.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Para concluir este tutorial, você precisará de:
+Para completar este tutorial, você precisará:
 
-* **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
-* **Hub IOT do Azure e IOT Edge dispositivo** -siga as etapas no início rápido para dispositivos [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) se você ainda não tiver um.
+* **Assinatura do Azure** - Crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
+* **Dispositivo Azure IoT Hub e IoT Edge** - Siga os passos no início rápido para dispositivos [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) se você ainda não tiver um.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
 ## <a name="create-topic"></a>Criar tópico
 
-Como um editor de um evento, você precisa criar um tópico de grade de eventos. O tópico refere-se a um ponto de extremidade em que os editores podem enviar eventos para o.
+Como editor de um evento, você precisa criar um tópico da grade de eventos. O tópico refere-se a um ponto final para onde os editores podem enviar eventos para.
 
-1. Crie topic4. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie topic4.json com o seguinte conteúdo. Consulte nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
 
    ```json
     {
@@ -50,13 +50,13 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
           }
     }
     ```
-1. Execute o comando a seguir para criar o tópico. O código de status HTTP de 200 OK deve ser retornado.
+1. Execute o seguinte comando para criar o tópico. HTTP Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
 
-1. Execute o comando a seguir para verificar se o tópico foi criado com êxito. O código de status HTTP de 200 OK deve ser retornado.
+1. Execute o seguinte comando para verificar se o tópico foi criado com sucesso. HTTP Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
@@ -80,11 +80,11 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
 
 ## <a name="create-event-subscription"></a>Criar assinatura de evento
 
-Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, eles precisarão criar uma assinatura de grade de eventos em um tópico de interesse.
+Os assinantes podem se inscrever para eventos publicados em um tópico. Para receber qualquer evento, eles precisarão criar uma assinatura da grade de eventos em um tópico de interesse.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Crie subscription4. JSON com o conteúdo abaixo. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie a assinatura4.json com o conteúdo abaixo. Consulte nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
 
    ```json
     {
@@ -100,13 +100,13 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
    ```
 
    >[!NOTE]
-   > O `endpointType` especifica que o assinante está `edgeHub`. O `outputName` especifica a saída na qual o módulo de grade de eventos encaminhará eventos que correspondam a essa assinatura para edgeHub. Por exemplo, os eventos que correspondem à assinatura acima serão gravados em `/messages/modules/eventgridmodule/outputs/sampleSub4`.
-2. Execute o comando a seguir para criar a assinatura. O código de status HTTP de 200 OK deve ser retornado.
+   > O `endpointType` especifica que o `edgeHub`assinante é . O `outputName` especifica a saída na qual o módulo Event Grid irá encaminhar eventos que correspondem a esta assinatura ao edgeHub. Por exemplo, os eventos que correspondem `/messages/modules/eventgridmodule/outputs/sampleSub4`à assinatura acima serão gravados para .
+2. Execute o seguinte comando para criar a assinatura. HTTP Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
     ```
-3. Execute o comando a seguir para verificar se a assinatura foi criada com êxito. O código de status HTTP de 200 OK deve ser retornado.
+3. Execute o seguinte comando para verificar se a assinatura foi criada com sucesso. HTTP Status Code of 200 OK deve ser devolvido.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
@@ -131,16 +131,16 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
         }
     ```
 
-## <a name="set-up-an-edge-hub-route"></a>Configurar uma rota do Hub do Edge
+## <a name="set-up-an-edge-hub-route"></a>Configure uma rota de hub de borda
 
-Atualize a rota do Hub do Edge para encaminhar eventos da assinatura de evento a serem encaminhados para IoTHub da seguinte maneira:
+Atualize a rota do hub de borda para encaminhar os eventos de assinatura de eventos a serem encaminhados ao IoTHub da seguinte forma:
 
-1. Entre no [Portal do Azure](https://ms.portal.azure.com)
-1. Navegue até o **Hub IOT**.
-1. Selecione **IOT Edge** no menu
-1. Selecione a ID do dispositivo de destino na lista de dispositivos.
-1. Selecione **Definir Módulos**.
-1. Selecione **Avançar** e para a seção rotas.
+1. Entre no [portal do Azure](https://ms.portal.azure.com)
+1. Navegue até o **IoT Hub**.
+1. Selecione **IoT Edge** no menu
+1. Selecione o ID do dispositivo de destino na lista de dispositivos.
+1. Selecione **Módulos de conjunto**.
+1. Selecione **Next** e para a seção rotas.
 1. Nas rotas, adicione uma nova rota
 
   ```sh
@@ -158,17 +158,17 @@ Atualize a rota do Hub do Edge para encaminhar eventos da assinatura de evento a
   ```
 
    >[!NOTE]
-   > A rota acima encaminhará todos os eventos correspondidos para que essa assinatura seja encaminhada ao Hub IoT. Você pode usar os recursos de [Roteamento do Hub do Edge](../../iot-edge/module-composition.md) para filtrar ainda mais e rotear os eventos da grade de eventos para outros módulos IOT Edge.
+   > A rota acima encaminhará todos os eventos combinados para que esta assinatura seja encaminhada para o hub IoT. Você pode usar os recursos [de roteamento](../../iot-edge/module-composition.md) do hub edge para filtrar ainda mais e encaminhar os eventos da Grade de Eventos para outros módulos de Borda IoT.
 
-## <a name="setup-iot-hub-route"></a>Configurar rota do Hub IoT
+## <a name="setup-iot-hub-route"></a>Rota do Hub IoT de configuração
 
-Consulte o [tutorial de roteamento do Hub IOT](../../iot-hub/tutorial-routing.md) para configurar uma rota do Hub IOT para que você possa exibir eventos encaminhados do módulo de grade de eventos. Use `true` para a consulta para manter o tutorial simples.  
+Consulte o tutorial de [roteamento do IoT Hub](../../iot-hub/tutorial-routing.md) para configurar uma rota a partir do hub IoT para que você possa visualizar eventos encaminhados a partir do módulo Event Grid. Use `true` para a consulta para manter o tutorial simples.  
 
 
 
 ## <a name="publish-an-event"></a>Publicar um evento
 
-1. Crie event4. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
+1. Crie event4.json com o seguinte conteúdo. Consulte nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
 
     ```json
         [
@@ -192,9 +192,9 @@ Consulte o [tutorial de roteamento do Hub IOT](../../iot-hub/tutorial-routing.md
     curl -k -H "Content-Type: application/json" -X POST -g -d @event4.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/events?api-version=2019-01-01-preview
     ```
 
-## <a name="verify-event-delivery"></a>Verificar a entrega de eventos
+## <a name="verify-event-delivery"></a>Verificar a entrega do evento
 
-Consulte o tutorial de [Roteamento](../../iot-hub/tutorial-routing.md) do Hub IOT para ver as etapas para exibir os eventos.
+Consulte o tutorial [de roteamento](../../iot-hub/tutorial-routing.md) do IoT Hub para ver os eventos.
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza
 
@@ -203,15 +203,15 @@ Consulte o tutorial de [Roteamento](../../iot-hub/tutorial-routing.md) do Hub IO
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
-* Exclua todos os recursos criados ao configurar o roteamento IoTHub na nuvem também.
+* Exclua todos os recursos criados durante a configuração do roteamento do IoTHub na nuvem também.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um tópico de grade de eventos, assinatura de Hub de borda e eventos publicados. Agora que você conhece as etapas básicas para encaminhar para um Hub do Edge, consulte os seguintes artigos:
+Neste tutorial, você criou um tópico de grade de eventos, assinatura do edge hub e eventos publicados. Agora que você sabe os passos básicos para avançar para um hub de borda, veja os seguintes artigos:
 
-* Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
-* Usar filtros de rota do [Hub do Edge](../../iot-edge/module-composition.md) para eventos de partição
-* Configurar a persistência do módulo de grade de eventos no [Linux](persist-state-linux.md) ou no [Windows](persist-state-windows.md)
+* Para solucionar problemas com o uso do Azure Event Grid no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
+* Use filtros de rota [do hub de borda](../../iot-edge/module-composition.md) para eventos de partição
+* Configure a persistência do módulo Event Grid no [linux](persist-state-linux.md) ou [Windows](persist-state-windows.md)
 * Siga a [documentação](configure-client-auth.md) para configurar a autenticação do cliente
-* Encaminhar eventos para a grade de eventos do Azure na nuvem seguindo este [tutorial](forward-events-event-grid-cloud.md)
-* [Monitorar tópicos e assinaturas na borda](monitor-topics-subscriptions.md)
+* Encaminhe eventos para a Azure Event Grid na nuvem seguindo este [tutorial](forward-events-event-grid-cloud.md)
+* [Monitore tópicos e assinaturas no limite](monitor-topics-subscriptions.md)

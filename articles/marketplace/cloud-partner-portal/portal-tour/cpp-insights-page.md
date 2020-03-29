@@ -1,23 +1,22 @@
 ---
-title: Página de informações do Azure Marketplace
-description: Visão geral da página de informações no Portal do Cloud Partner para o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Página de insights para Azure Marketplace
+description: Visão geral da página Insights no Portal de Parceiros na Nuvem para o Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/14/2018
-ms.author: pabutler
-ms.openlocfilehash: b1b8d716beec17b7da82968ede8d24ced348e04a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8002d67ebd6dbeb70282bbbae84b115a778cffaf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821516"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288862"
 ---
 # <a name="insights-page"></a>Página de insights
 
-A página de [ **Insights** ](https://cloudpartner.azure.com/#insights) fornece os seguintes conjuntos de painéis para ajudá-lo a entender e maximizar a venda das ofertas do marketplace.  Cada painel é acessado por meio de uma guia de mesmo nome na parte superior da página.
+A página de [**Insights**](https://cloudpartner.azure.com/#insights) fornece os seguintes conjuntos de painéis para ajudá-lo a entender e maximizar a venda das ofertas do marketplace.  Cada painel é acessado por meio de uma guia de mesmo nome na parte superior da página.
 
 
 |  **Painel**    |  **Conteúdo exibido**               |

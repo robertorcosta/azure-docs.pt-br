@@ -1,6 +1,6 @@
 ---
-title: Monitorando a segurança de seus contêineres na central de segurança do Azure
-description: Saiba como verificar a postura de segurança de seus contêineres na central de segurança do Azure
+title: Monitorando a segurança de seus contêineres no Azure Security Center
+description: Saiba como verificar a postura de segurança de seus contêineres no Azure Security Center
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,138 +9,138 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
 ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919525"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Monitorando a segurança de seus contêineres
 
-Esta página explica como usar os recursos de segurança do contêiner descritos no [artigo segurança do contêiner](container-security.md) em nossa seção de conceitos.
+Esta página explica como usar os recursos de segurança de contêineres descritos no artigo de Segurança de [Contêineres](container-security.md) em nossa seção de conceitos.
 
-A central de segurança do Azure abrange os três aspectos de segurança do contêiner a seguir:
+O Azure Security Center abrange os seguintes três aspectos da segurança dos contêineres:
 
-- **Gerenciamento de vulnerabilidades** -se você estiver no tipo de preço Standard da central de segurança (consulte [preços](/azure/security-center/security-center-pricing)), poderá verificar seu registro de contêiner do Azure baseado em ARM toda vez que uma nova imagem for enviada por push. O scanner (da plataforma Qualys) apresenta as conclusões como recomendações da central de segurança.
-    Para obter instruções detalhadas, consulte [verificando os registros de contêiner para vulnerabilidades](#scanning-your-arm-based-container-registries-for-vulnerabilities) abaixo.
+- **Gerenciamento de vulnerabilidades** - Se você estiver no nível de preços padrão do Security Center (veja [preços),](/azure/security-center/security-center-pricing)você pode escanear seu Registro de Contêineres Azure baseado em ARM toda vez que uma nova imagem for empurrada. O scanner (alimentado pela Qualys) apresenta achados como recomendações do Security Center.
+    Para obter instruções [detalhadas, consulte Escaneando os registros de contêineres para obter vulnerabilidades](#scanning-your-arm-based-container-registries-for-vulnerabilities) abaixo.
 
-- **Proteção dos hosts do Docker dos seus contêineres** – a central de segurança localiza os contêineres não gerenciados hospedados em VMs do Linux IaaS ou em outros computadores Linux que executam o Docker e compara continuamente as configurações dos contêineres com o benchmark do Docker do CIS (Center for Internet Security). A central de segurança alertará se seus contêineres não atenderem a nenhum dos controles. O monitoramento contínuo de riscos de segurança devido a configurações incorretas é um componente crucial de qualquer programa de segurança. 
-    Para obter instruções detalhadas, consulte [protegendo os hosts do Docker de seus contêineres](#hardening-your-containers-docker-hosts) abaixo.
+- **Endurecendo os hosts Docker dos contêineres** - o Security Center encontra contêineres não gerenciados hospedados em VMs Linux IaaS ou outras máquinas Linux executando o Docker, e compara continuamente as configurações dos contêineres com o Benchmark do Center for Internet Security (CIS). O Centro de Segurança alerta se seus contêineres não satisfizerem nenhum dos controles. O monitoramento contínuo dos riscos de segurança devido a configurações erradas é um componente crucial de qualquer programa de segurança. 
+    Para obter instruções detalhadas, consulte [endurecendo os hosts Docker dos seus contêineres](#hardening-your-containers-docker-hosts) abaixo.
 
-- **Protegendo seus clusters do serviço kubernetes do Azure** – a central de segurança fornece recomendações quando encontra vulnerabilidades na configuração de seus clusters do serviço kubernetes do Azure. Para obter detalhes sobre as recomendações específicas que podem aparecer, consulte as [recomendações do serviço kubernetes](recommendations-reference.md#recs-containers).
+- **Endurecendo seus clusters de serviço do Azure Kubernetes** - o Security Center fornece recomendações quando encontra vulnerabilidades na configuração de seus clusters do Azure Kubernetes Service. Para obter detalhes sobre as recomendações específicas que podem aparecer, consulte as recomendações do [Serviço Kubernetes](recommendations-reference.md#recs-containers).
 
-- **Proteção de tempo de execução** -se você estiver no tipo de preço Standard da central de segurança, obterá proteção contra ameaças em tempo real para seus ambientes em contêineres. A central de segurança gera alertas para atividades suspeitas no nível de cluster do host e do AKS. Para obter detalhes sobre os alertas de segurança relevantes que podem ser exibidos, consulte as seções [alertas para clusters do serviço kubernetes do Azure](alerts-reference.md#alerts-akscluster) e [alertas para contêineres-nível de host](alerts-reference.md#alerts-containerhost) da tabela de referência de alertas.
+- **Proteção por tempo de execução** - Se você estiver no nível de preços padrão do Security Center, você terá proteção contra ameaças em tempo real para seus ambientes contêineres. O Security Center gera alertas para atividades suspeitas no nível de cluster host e AKS. Para obter detalhes sobre os alertas de segurança relevantes que podem aparecer, consulte os clusters e alertas do [Serviço Alertes para OZure Kubernetes](alerts-reference.md#alerts-akscluster) para [contêineres -](alerts-reference.md#alerts-containerhost) seções de nível de host da tabela de referência de alertas.
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Verificando se há vulnerabilidades nos registros de contêiner baseados em ARM 
+## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Digitalizando seus registros de contêineres baseados em ARM para obter vulnerabilidades 
 
-1. Para habilitar verificações de vulnerabilidade de suas imagens do registro de contêiner do Azure:
+1. Para habilitar varreduras de vulnerabilidade de suas imagens do Registro de Contêiner do Azure:
 
-    1. Verifique se você está no tipo de preço Standard da central de segurança do Azure.
+    1. Certifique-se de que você está no nível de preços padrão do Azure Security Center.
 
-    1. Na página **configurações de & de preços** , habilite o pacote de registros de contêiner opcional para sua assinatura: ![habilitando o grupo de registros de contêiner](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. Na página **de configurações de & de preços,** habilite ![o pacote de registros de contêineres opcional para sua assinatura: Habilitando o pacote Registros de Contêineres](media/monitor-container-security/enabling-container-registries-bundle.png)
 
-        A central de segurança agora está pronta para verificar imagens que são enviadas por push ao registro. 
+        O Centro de Segurança está pronto para escanear imagens que são empurradas para o registro. 
 
         >[!NOTE]
-        >Esse recurso é cobrado por imagem.
+        >Esse recurso é carregado por imagem.
 
 
-1. Para disparar a verificação de uma imagem, envie-a por push para o registro. 
+1. Para ativar a varredura de uma imagem, empurre-a para o seu registro. 
 
-    Quando a verificação for concluída (normalmente após aproximadamente 10 minutos), as descobertas estarão disponíveis nas recomendações da central de segurança.
+    Quando a varredura é concluída (normalmente após aproximadamente 10 minutos), as descobertas estão disponíveis nas recomendações do Security Center.
     
 
-1. Para exibir as descobertas, vá para a página **recomendações** . Se forem encontrados problemas, você verá a seguinte recomendação:
+1. Para ver as descobertas, acesse a página **Recomendações.** Se os problemas forem encontrados, você verá a seguinte recomendação:
 
-    ![Recomendação para corrigir problemas ](media/monitor-container-security/acr-finding.png)
+    ![Recomendação para remediar questões ](media/monitor-container-security/acr-finding.png)
 
 
 1. Selecione a recomendação. 
-    A página detalhes da recomendação é aberta com informações adicionais. Essas informações incluem a lista de registros com imagens vulneráveis ("recursos afetados") e as etapas de correção. 
+    A página de detalhes da recomendação é aberta com informações adicionais. Essas informações incluem a lista de registros com imagens vulneráveis ("Recursos afetados") e as etapas de remediação. 
 
-1. Selecione um registro específico para ver os repositórios dentro dele que têm repositórios vulneráveis.
+1. Selecione um registro específico para ver os repositórios dentro dele que possuem repositórios vulneráveis.
 
-    ![Selecionar um registro](media/monitor-container-security/acr-finding-select-registry.png)
+    ![Selecione um registro](media/monitor-container-security/acr-finding-select-registry.png)
 
-    A página detalhes do registro é aberta com a lista de repositórios afetados.
+    A página de detalhes do registro é aberta com a lista de repositórios afetados.
 
-1. Selecione um repositório específico para ver os repositórios dentro dele que têm imagens vulneráveis.
+1. Selecione um repositório específico para ver os repositórios dentro dele que tenham imagens vulneráveis.
 
     ![Selecionar um repositório](media/monitor-container-security/acr-finding-select-repository.png)
 
-    A página detalhes do repositório é aberta. Ele lista as imagens vulneráveis junto com uma avaliação da gravidade das descobertas.
+    A página de detalhes do repositório é aberta. Ele lista as imagens vulneráveis juntamente com uma avaliação da gravidade dos achados.
 
 1. Selecione uma imagem específica para ver as vulnerabilidades.
 
-    ![Selecionar imagens](media/monitor-container-security/acr-finding-select-image.png)
+    ![Selecione imagens](media/monitor-container-security/acr-finding-select-image.png)
 
-    A lista de conclusões para a imagem selecionada é aberta.
+    A lista de achados para a imagem selecionada é aberta.
 
-    ![Lista de conclusões](media/monitor-container-security/acr-findings.png)
+    ![Lista de achados](media/monitor-container-security/acr-findings.png)
 
-1. Para saber mais sobre uma localização, selecione a localização. 
+1. Para saber mais sobre uma descoberta, selecione o achado. 
 
-    O painel detalhes de conclusões é aberto.
+    Os detalhes das descobertas abrem o painel.
 
-    [painel de detalhes de ![conclusões](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
+    [![Detalhes de resultados painel](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
-    Esse painel inclui uma descrição detalhada do problema e links para recursos externos para ajudar a mitigar as ameaças.
+    Este painel inclui uma descrição detalhada do problema e links para recursos externos para ajudar a mitigar as ameaças.
 
-1. Siga as etapas na seção correção deste painel.
+1. Siga os passos na seção de correção deste painel.
 
-1. Quando você executou as etapas necessárias para corrigir o problema de segurança, substitua a imagem no registro:
+1. Quando você tiver tomado as medidas necessárias para corrigir o problema de segurança, substitua a imagem em seu registro:
 
-    1. Envie por push a imagem atualizada. Isso irá disparar uma verificação. 
+    1. Empurre a imagem atualizada. Isso vai desencadear uma varredura. 
     
-    1. Marque a página recomendações para a recomendação "vulnerabilidades nas imagens do registro de contêiner do Azure devem ser corrigidas". 
+    1. Verifique a página de recomendações para a recomendação "Vulnerabilidades no Registro de Contêineres do Azure devem ser corrigidas". 
     
-        Se a recomendação ainda aparecer e a imagem que você tratou ainda aparecer na lista de imagens vulneráveis, verifique as etapas de correção novamente.
+        Se a recomendação ainda aparecer e a imagem que você lidou ainda aparecer na lista de imagens vulneráveis, verifique novamente as etapas de remediação.
 
-    1. Quando tiver certeza de que a imagem atualizada foi enviada por push, verificada e não está mais aparecendo na recomendação, exclua a imagem "antiga" vulnerável do registro.
+    1. Quando você tiver certeza de que a imagem atualizada foi empurrada, digitalizada e não aparecer mais na recomendação, exclua a imagem vulnerável "antiga" do seu registro.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Protegendo os hosts do Docker de seus contêineres
+## <a name="hardening-your-containers-docker-hosts"></a>Endurecendo os hosts Docker de seus contêineres
 
-A central de segurança monitora constantemente a configuração dos hosts do Docker e gera recomendações de segurança que refletem os padrões do setor.
+O Security Center monitora constantemente a configuração de seus hosts Docker e gera recomendações de segurança que refletem os padrões do setor.
 
-Para exibir as recomendações de segurança da central de segurança do Azure para os hosts do Docker de seus contêineres:
+Para ver as recomendações de segurança do Azure Security Center para os hosts Docker dos seus contêineres:
 
-1. Na barra de navegação da central de segurança, abra **computação & aplicativos** e selecione a guia **contêineres** .
+1. Na barra de navegação do Security Center, abra **os aplicativos do Compute &** e selecione a guia **Contêineres.**
 
-1. Opcionalmente, filtre a lista de seus recursos de contêiner para hosts de contêineres.
+1. Opcionalmente, filtre a lista de recursos de contêiner para hosts de hosts de contêineres.
 
     ![Filtro de recursos de contêiner](media/monitor-container-security/container-resources-filter.png)
 
-1. Na lista de computadores host do contêiner, selecione um para investigar mais.
+1. Na lista de suas máquinas host de contêiner, selecione uma para investigar mais.
 
-    ![Recomendações de host do contêiner](media/monitor-container-security/container-resources-filtered-to-hosts.png)
+    ![Recomendações de host de contêineres](media/monitor-container-security/container-resources-filtered-to-hosts.png)
 
-    A **página informações do host do contêiner** é aberta com detalhes do host e uma lista de recomendações.
+    A **página de informações do host Container** é aberta com detalhes do host e uma lista de recomendações.
 
 1. Na lista de recomendações, selecione uma recomendação para investigar mais.
 
-    ![Lista de recomendações de host do contêiner](media/monitor-container-security/container-host-rec.png)
+    ![Lista de recomendação de host de contêineres](media/monitor-container-security/container-host-rec.png)
 
-1. Opcionalmente, leia a descrição, as informações, as ameaças e as etapas de correção. 
+1. Opcionalmente, leia a descrição, informações, ameaças e etapas de remediação. 
 
-1. Selecione **executar ação** na parte inferior da página.
+1. Selecione **Tomar ação** na parte inferior da página.
 
-    [botão ![executar ação](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
+    [![Tome o botão de ação](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
 
-    Log Analytics é aberto com uma operação personalizada pronta para ser executada. A consulta personalizada padrão inclui uma lista de todas as regras com falha que foram avaliadas, juntamente com as diretrizes para ajudá-lo a resolver os problemas.
+    O Log Analytics é aberto com uma operação personalizada pronta para ser executada. A consulta personalizada padrão inclui uma lista de todas as regras que foram avaliadas, juntamente com diretrizes para ajudá-lo a resolver os problemas.
 
-    [ação de Log Analytics de ![](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
+    [![Ação do Log Analytics](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 
-1. Ajuste os parâmetros de consulta e selecione **executar** quando tiver certeza de que ele está pronto para o host. 
+1. Ajuste os parâmetros de consulta e **selecione Executar** quando tiver certeza de que está pronto para o host. 
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a usar os recursos de segurança do contêiner da central de segurança. 
+Neste artigo, você aprendeu a usar os recursos de segurança de contêineres do Security Center. 
 
-Para obter outros materiais relacionados, consulte as seguintes páginas: 
+Para outros materiais relacionados, consulte as seguintes páginas: 
 
-- [Recomendações da central de segurança para contêineres](recommendations-reference.md#recs-containers)
+- [Recomendações do Security Center para contêineres](recommendations-reference.md#recs-containers)
 - [Alertas para o nível de cluster AKS](alerts-reference.md#alerts-akscluster)
-- [Alertas para o nível de host do contêiner](alerts-reference.md#alerts-containerhost)
+- [Alertas para o nível de host do Contêiner](alerts-reference.md#alerts-containerhost)

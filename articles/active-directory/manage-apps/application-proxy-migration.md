@@ -17,15 +17,15 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108418"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
 
-O Azure Active Directory Application Proxy é uma das duas soluções de acesso remoto que a Microsoft oferece. O outro é o Proxy de Aplicativo Web, a versão local. Estas duas soluções substituem os produtos anteriores oferecidos pela Microsoft: Microsoft Forefront Threat Management Gateway (TMG) e Unified Access Gateway (UAG). Use este artigo para ver uma comparação entre estas quatro soluções. Para aqueles que ainda utilizam as soluções TMG ou UAG preteridas, use este artigo para ajudar a planejar a migração para um Proxy de Aplicativo. 
+O Azure Active Directory Application Proxy é uma das duas soluções de acesso remoto que a Microsoft oferece. O outro é o Proxy de Aplicativo Web, a versão local. Essas duas soluções substituem os produtos anteriores oferecidos pela Microsoft: Microsoft Forefront Threat Management Gateway (TMG) e Unified Access Gateway (UAG). Use este artigo para ver uma comparação entre estas quatro soluções. Para aqueles que ainda utilizam as soluções TMG ou UAG preteridas, use este artigo para ajudar a planejar a migração para um Proxy de Aplicativo. 
 
 
 ## <a name="feature-comparison"></a>Comparação de recursos
@@ -35,28 +35,28 @@ Use essa tabela para entender a comparação entre o Threat Management Gateway (
 | Recurso | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
 | Autenticação de certificado | Sim | Sim | - | - |
-| Publicar seletivamente os aplicativos de navegador | Sim | sim | sim | Sim |
-| Pré-autenticação e logon único | Sim | sim | sim | Sim | 
+| Publicar seletivamente os aplicativos de navegador | Sim | Sim | Sim | Sim |
+| Pré-autenticação e logon único | Sim | Sim | Sim | Sim | 
 | Firewall de Camada 2/3 | Sim | Sim | - | - |
 | Recursos de proxy de encaminhamento | Sim | - | - | - |
 | Funcionalidades de VPN | Sim | Sim | - | - |
 | Suporte avançado a protocolo | - | Sim | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
 | Atua como um servidor proxy do ADFS | - | Sim | Sim | - |
 | Um portal para acesso de aplicativo | - | Sim | - | Sim |
-| Conversão de link de corpo de resposta | Sim | sim | - | Sim | 
+| Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
 | Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
 | Segurança em escala de nuvem | - | - | - | Sim | 
 | Acesso Condicional | - | Sim | - | Sim |
 | Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
 | Nenhuma conexão de entrada | - | - | - | Sim |
 
-Na maioria dos cenários, é recomendável o Proxy de aplicativo do Azure AD como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
+Para a maioria dos cenários, recomendamos o Azure AD Application Proxy como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
 
 O Proxy de Aplicativo do Azure AD oferece benefícios exclusivos quando comparados a produtos semelhantes, incluindo:
 
 - Extensão do AD do Azure para recursos locais
    - Proteção e segurança em escala de nuvem
-   - Recursos como acesso condicional e autenticação multifator são fáceis de habilitar
+   - Recursos como acesso condicional e autenticação multifatorial são fáceis de habilitar
 - Nenhum componente na zona desmilitarizada
 - Nenhuma conexão de entrada necessária
 - Um painel de acesso em que os usuários poderão procurar todos os aplicativos, incluindo o O365, os aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 

@@ -1,19 +1,18 @@
 ---
-title: Suporte para um módulo Azure IoT Edge | Azure Marketplace
+title: Suporte para um módulo Azure IoT Edge | Mercado Azure
 description: Opções de suporte para um módulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: fe8ff895990471107cfaa229f7b4ced28b477afa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813534"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286499"
 ---
 # <a name="iot-edge-module-support-tab"></a>Guia de suporte do módulo do IoT Edge
 

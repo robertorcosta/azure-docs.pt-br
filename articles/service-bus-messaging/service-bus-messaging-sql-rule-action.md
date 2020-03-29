@@ -1,6 +1,6 @@
 ---
-title: Referência de sintaxe sqlruleaction no barramento de serviço do Azure
-description: Este artigo fornece uma referência para a sintaxe sqlruleaction. As ações são gravadas na sintaxe baseada em linguagem SQL executada em uma mensagem orientada.
+title: Referência de sintaxe SQLRuleAction no Ônibus de Serviço Azure
+description: Este artigo fornece uma referência para sintaxe SQLRuleAction. As ações são escritas em sintaxe baseada em linguagem SQL que é realizada contra uma mensagem intermediada.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759621"
 ---
-# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe sqlruleaction para o barramento de serviço do Azure
+# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe SQLRuleAction para ônibus de serviço Azure
 
 Um *SqlRuleAction* é uma instância da classe [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações gravadas na sintaxe baseada na linguagem SQL executada em uma [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
@@ -220,7 +220,7 @@ A função `property(name)` retorna o valor da propriedade referenciada por `nam
 - A ação não falhará se propriedades de usuário inexistentes forem referenciadas.
 - Uma propriedade de usuário inexistente é avaliada como “Desconhecida” internamente, seguindo a mesma semântica de [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar operadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
