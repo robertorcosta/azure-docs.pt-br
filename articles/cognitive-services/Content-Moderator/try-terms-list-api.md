@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75382116"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar com as listas de termos personalizadas no console de API
 
 A lista de termos global padrão do Content Moderator do Azure é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, você precisará de examinar os termos que são específicos para sua organização. Por exemplo, você talvez queira marcar nomes de concorrentes para análise adicional. 
 
-Use a [API de Gerenciamento de Lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) para criar listas de termos personalizadas para usar com a API de Moderação de Texto. A operação de **tela de texto** examina o texto em busca de profanação e também compara o texto com o bloqueio personalizado e compartilhado.
+Use a [API de Gerenciamento de Lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) para criar listas de termos personalizadas para usar com a API de Moderação de Texto. A operação **Texto - Tela** verifica seu texto como palavrão e também compara texto com listas de bloqueio personalizadas e compartilhadas.
 
 > [!NOTE]
 > Há um limite máximo de **5 listas de termos** com cada lista para **não exceder 10.000 termos**.
@@ -38,7 +38,7 @@ Você pode usar a API de Gerenciamento de Lista para realizar as seguintes taref
 
 ## <a name="use-the-api-console"></a>Usar o console de API
 
-Antes de testar a API no console online, você precisa da chave de assinatura. Esta chave está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
+Antes de testar a API no console online, você precisa da chave de assinatura. Esta chave está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar o índice de pesquisa
 
@@ -170,6 +170,6 @@ Você pode editar o nome e a descrição de uma lista e adicionar itens de metad
    ![Edições do Corpo de solicitação do console Lista de Termos - Atualizar detalhes](images/try-terms-list-change-1.png)
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Use a API REST em seu código ou inicie com o [Início rápido do .NET de Lista de Termos](term-lists-quickstart-dotnet.md) para integrar o aplicativo.

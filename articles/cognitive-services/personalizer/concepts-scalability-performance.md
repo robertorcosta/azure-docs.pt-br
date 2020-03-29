@@ -1,5 +1,5 @@
 ---
-title: Escalabilidade e desempenho-personalizador
+title: Escalabilidade e Desempenho - Personalizador
 titleSuffix: Azure Cognitive Services
 description: 'Os aplicativos e os sites de alto desempenho e alto tráfego têm dois principais fatores a considerar com o Personalizador para desempenho e escalabilidade: taxa de transferência de treinamento e latência.'
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: diberry
 ms.openlocfilehash: 5ac9a870cb05328f040febd0f8161a97f0982e09
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73490774"
 ---
 # <a name="scalability-and-performance"></a>Desempenho e escalabilidade
@@ -24,11 +24,11 @@ Os aplicativos e os sites de alto desempenho e de alto tráfego têm dois fatore
 * Como manter a baixa latência ao fazer chamadas à API de Classificação
 * Como garantir que a taxa de transferência de treinamento acompanhe eventos de entrada
 
-A personalização pode retornar uma classificação rapidamente, com a maior parte da duração da chamada dedicada à comunicação por meio da API REST. O Azure fará o dimensionamento automático da capacidade de responder rapidamente às solicitações.
+A personalização pode retornar uma classificação rapidamente, com a maior parte da duração da chamada dedicada à comunicação através da API REST. O Azure fará o dimensionamento automático da capacidade de responder rapidamente às solicitações.
 
 ##  <a name="low-latency-scenarios"></a>Cenários de baixa latência
 
-Alguns aplicativos exigem latências baixas ao retornar uma classificação. São necessárias latências baixas:
+Alguns aplicativos exigem latências baixas ao retornar uma classificação. Baixa latência é necessária:
 
 * Para evitar que usuário tenha que esperar um tempo considerável para exibir o conteúdo classificado.
 * Para ajudar um servidor que esteja enfrentando tráfego extremo a evitar associar conexões de rede e tempo de computação escassos.
@@ -51,4 +51,4 @@ Se você está atingindo esses limites, entre em contato com nossa equipe de sup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar e configurar o Personalizador](how-to-settings.md).
+[Crie e configure o Personalizador](how-to-settings.md).

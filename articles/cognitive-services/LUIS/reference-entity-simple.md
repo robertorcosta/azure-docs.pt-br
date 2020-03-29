@@ -1,7 +1,7 @@
 ---
-title: Tipo de entidade simples-LUIS
+title: Tipo de entidade simples - LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma entidade simples descreve um único conceito do contexto aprendido por máquina. Adicione uma lista de frases ao usar uma entidade simples para melhorar os resultados.
+description: Uma entidade simples descreve um único conceito a partir do contexto aprendido por máquina. Adicione uma lista de frases ao usar uma entidade simples para melhorar os resultados.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74894756"
 ---
 # <a name="simple-entity"></a>Entidade simples
@@ -35,7 +35,7 @@ Na declaração anterior, `Bob Jones` é rotulado como uma entidade `Customer` s
 
 Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto descoberto da declaração, o local do texto descoberto e a pontuação:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -49,9 +49,9 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto 
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
 
 ```json
 "entities": {
@@ -88,11 +88,11 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * *
 
-|Objeto de dados|Nome da entidade|Value|
+|Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
 |Entidade simples|`Customer`|`bob jones`|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Aprenda a sintaxe do padrão](reference-pattern-syntax.md)
+> [Aprenda sintaxe padrão](reference-pattern-syntax.md)

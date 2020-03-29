@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68405407"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guia de atualização da API de Sugestão Automática
@@ -25,7 +25,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, https:\//API.cognitive.Microsoft.com/Bing/\*\*v 7.0 * */suggestions.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo,\/https:\*\*/api.cognitive.microsoft.com/bing/ v7.0**/Sugestões.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 

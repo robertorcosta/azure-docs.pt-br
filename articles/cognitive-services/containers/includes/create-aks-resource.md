@@ -1,7 +1,7 @@
 ---
-title: Criar um recurso de cluster do serviço kubernetes do Azure
+title: Crie um recurso de cluster do Azure Kubernetes Service
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um recurso de AKS (serviço de kubernetes do Azure).
+description: Saiba como criar um recurso Azure Kubernetes Service (AKS).
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,42 +10,42 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 4e3102912e88ef904fed3e680f8cdd23242b1f17
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74383485"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço kubernetes do Azure
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Crie um recurso de cluster do Azure Kubernetes Service
 
-1. Vá para o [serviço kubernetes do Azure](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **criar**.
+1. Vá para [o Serviço Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **Criar**.
 
-1. Na guia **noções básicas** , insira as seguintes informações:
+1. Na guia **Noções Básicas,** digite as seguintes informações:
 
     |Configuração|Valor|
     |--|--|
-    |Assinatura|Selecione a assinatura apropriada.|
-    |Grupo de recursos|Selecione um grupo de recursos disponível.|
-    |Nome do cluster kubernetes|Insira um nome (em minúsculas).|
+    |Subscription|Selecione a assinatura apropriada.|
+    |Resource group|Selecione um grupo de recursos disponível.|
+    |Nome do cluster kubernetes|Digite um nome (minúscula).|
     |Região|Selecione um local próximo.|
-    |Versão do kubernetes|Qualquer que seja o valor marcado como **(padrão)** .|
-    |Prefixo do nome DNS|Criado automaticamente, mas você pode substituir.|
-    |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Contagem de nós|Deixe o controle deslizante no valor padrão.|
+    |Versão Kubernetes|Qualquer valor marcado como **(padrão)**.|
+    |Prefixo de nome DNS|Criado automaticamente, mas você pode substituir.|
+    |Tamanho do nó|Padrão DS2 v2:<br>`2 vCPUs`, `7 GB`|
+    |Contagem de nodos|Deixe o controle deslizante no valor padrão.|
 
-1. Na guia **escala** , deixe **nós virtuais** e **conjuntos de dimensionamento de VM** definidos com seus valores padrão.
-1. Na guia **autenticação** , deixe a **entidade de serviço** e **habilite o RBAC** definido com seus valores padrão.
-1. Na guia **rede** , insira as seguintes seleções:
+1. Na guia **Escala,** deixe os **nós virtuais** e os **conjuntos de escala vm definidos** como valores padrão.
+1. Na guia **Autenticação,** deixe o **diretor do serviço** e a modo **RBAC** definido como valores padrão.
+1. Na guia **Rede, digite** as seguintes seleções:
 
     |Configuração|Valor|
     |--|--|
     |Roteamento de aplicativo HTTP|Não|
-    |Configuração de rede|Básica|
+    |Configuração de rede|Basic|
 
-1. Na guia **monitoramento** , verifique se habilitar o **monitoramento de contêiner** está definido como **Sim**e deixe **log Analytics espaço de trabalho** como o valor padrão.
-1. Na guia **marcas** , deixe os pares nome/valor em branco por enquanto.
-1. Selecione **revisar e criar**.
-1. Depois que a validação for aprovada, selecione **criar**.
+1. Na guia **Monitoramento,** **certifique-se de** que o monitoramento de contêiner enable está definido como **Sim**e deixe o **espaço de trabalho do Log Analytics** como o valor padrão.
+1. Na guia **Tags,** deixe os pares nome/valor em branco por enquanto.
+1. Selecione **Revisar e Criar**.
+1. Após a validação passar, selecione **Criar**.
 
 > [!NOTE]
-> Se a validação falhar, isso pode ser devido a um erro de "entidade de serviço". Volte para a guia **autenticação** e, em seguida, volte para **revisar + criar**, em que a validação deve ser executada e, em seguida, passada.
+> Se a validação falhar, pode ser por causa de um erro "Service principal". Volte para a guia **Autenticação** e, em seguida, volte para **Resenha + criar,** onde a validação deve ser executada e depois passar.

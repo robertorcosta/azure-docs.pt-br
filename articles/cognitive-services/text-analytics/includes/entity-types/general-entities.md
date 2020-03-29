@@ -1,5 +1,5 @@
 ---
-title: Entidades nomeadas gerais
+title: Entidades gerais nomeadas
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,59 +9,59 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77211399"
 ---
-## <a name="general-entity-types"></a>Tipos de entidade geral:
+## <a name="general-entity-types"></a>Tipos de entidades gerais:
 
 ### <a name="person"></a>Person
 
-Reconhece nomes de pessoas no texto.
+Reconheça os nomes das pessoas no texto.
 
 Linguagens:
-* Visualização pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` e `Turkish`
+* Prévia `Arabic`pública: `Czech` `Chinese-Simplified`, `Danish` `Dutch`, `English` `Finnish`, `French` `German`, `Hungarian` `Italian`, `Japanese` `Korean`, `Norwegian (Bokmål)` `Polish`, `Portuguese (Portugal)`, , , , , , , , `Portuguese (Brazil)` `Russian` `Spanish`, e `Swedish``Turkish`
 
-| Nome do subtipo | DESCRIÇÃO                                                      | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                                      | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------------------|---------------------------------------|
-| N/D          | Nomes de pessoas reconhecidos, por exemplo `Bill Gates`, `Marie Curie` | `2019-10-01`                          | 
+| N/D          | Nomes de pessoas `Bill Gates`reconhecidas, por exemplo,`Marie Curie` | `2019-10-01`                          | 
 
-### <a name="persontype"></a>Persontype
-Tipo de trabalho ou função mantida por uma pessoa.
+### <a name="persontype"></a>PersonType
+Tipo de trabalho ou função ocupada por uma pessoa.
 
 Linguagens:
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                                                                                | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                                                                | Disponível a partir da versão do modelo |
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Tipos de trabalho, por exemplo `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
+| N/D          | Tipos de `civil engineer`trabalho, por exemplo, `salesperson` `chef`, , `librarian``nursing aide` | `2020-02-01`                           |
 
 ### <a name="location"></a>Location
 
-Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica.
+Marcos naturais e humanos, estruturas, características geográficas e entidades geopolíticas.
 
 Linguagens:
 
-* Visualização pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` e `Turkish`
+* Prévia `Arabic`pública: `Czech` `Chinese-Simplified`, `Danish` `Dutch`, `English` `Finnish`, `French` `German`, `Hungarian` `Italian`, `Japanese` `Korean`, `Norwegian (Bokmål)` `Polish`, `Portuguese (Portugal)`, , , , , , , , `Portuguese (Brazil)` `Russian` `Spanish`, e `Swedish``Turkish`
 
-| Nome do subtipo              | DESCRIÇÃO                                                                              | Disponível a partir da versão do modelo |
+| Nome do subtipo              | Descrição                                                                              | Disponível a partir da versão do modelo |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D                       | locais, por exemplo `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
-| Geopolítica Entity (GPE) – somente em inglês| Cidades, países, Estados, por exemplo `Seattle`, `Pennsylvania`, `South Africa``Tokyo` | `2020-02-01`                           |
+| N/D                       | locais, por `Atlantic Ocean` `library`exemplo, , `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
+| Entidade Geopolítica (GPE) - Somente inglês| Cidades, países, `Seattle`estados, `South Africa`por exemplo, `Pennsylvania``Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
-Organizações reconhecidas, corporações, agências e outros grupos de pessoas. Por exemplo: empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade. 
+Organizações reconhecidas, corporações, agências e outros grupos de pessoas. Por exemplo: empresas, grupos políticos, bandas musicais, clubes esportivos, órgãos governamentais e organizações públicas. Nacionalidades e religiões não estão incluídas neste tipo de entidade. 
 
 Linguagens: 
 
-* Visualização pública: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` e `Turkish`
+* Prévia `Arabic`pública: `Czech` `Chinese-Simplified`, `Danish` `Dutch`, `English` `Finnish`, `French` `German`, `Hungarian` `Italian`, `Japanese` `Korean`, `Norwegian (Bokmål)` `Polish`, `Portuguese (Portugal)`, , , , , , , , `Portuguese (Brazil)` `Russian` `Spanish`, e `Swedish``Turkish`
 
-| Nome do subtipo | DESCRIÇÃO                                                                                             | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                                                                             | Disponível a partir da versão do modelo |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | organizações, por exemplo `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration``VOA` | `2019-10-01`                           |
+| N/D          | organizações, `Microsoft`por `NASA` `National Oceanic and Atmospheric Administration`exemplo, ,`VOA` | `2019-10-01`                           |
 
 ### <a name="event"></a>Evento  
 
@@ -69,11 +69,11 @@ Eventos históricos, sociais e naturais.
 
 Linguagens: 
 
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                                                            | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                                            | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Eventos como `wedding`, `hurricane`, `car accident`, `solar eclipse`, `American Revolution` | `2020-02-01`                           |
+| N/D          | Eventos `wedding`como, `hurricane` `car accident`, `solar eclipse`, ,`American Revolution` | `2020-02-01`                           |
 
 ### <a name="product"></a>Produto  
 
@@ -81,36 +81,36 @@ Objetos físicos de várias categorias.
 
 Linguagens: 
 
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                                                                        | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                                                        | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Por exemplo, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
+| N/D          | Por `Microsoft Surface laptop`exemplo, `sunglasses` `motorcycle`, `bag`,`Xbox` | `2020-02-01`                           |
 | Computação    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
 ### <a name="skill"></a>Habilidade  
 
-Uma entidade que descreve um recurso ou uma experiência.  
+Uma entidade descrevendo uma capacidade ou experiência.  
 
 Linguagens: 
 
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                                                                 | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                                                 | Disponível a partir da versão do modelo |
 |--------------|-----------------------------------------------------------------------------|----------------------------------------|
 | N/D          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
 
 ### <a name="phone-number"></a>Número do telefone
 
-Números de telefone (somente números de telefone dos EUA). 
+Números de telefone (apenas números de telefone dos EUA). 
 
 Linguagens:
 
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                                    | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                    | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------|----------------------------------------|
-| N/D          | Números de telefone dos EUA, por exemplo `(312) 555-0176` | `2019-10-01`                           |
+| N/D          | Números de telefone dos EUA, por exemplo`(312) 555-0176` | `2019-10-01`                           |
 
 ### <a name="email"></a>Email
 
@@ -118,11 +118,11 @@ Endereço de email.
 
 Linguagens:
 
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                                      | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                      | Disponível a partir da versão do modelo |
 |--------------|--------------------------------------------------|----------------------------------------|
-| N/D          | Endereço de email, por exemplo `support@contoso.com` | `2019-10-01`                           |
+| N/D          | Endereço de e-mail, por exemplo`support@contoso.com` | `2019-10-01`                           |
 
 ### <a name="url"></a>URL
 
@@ -130,33 +130,33 @@ URLs da Internet.
 
 Linguagens:
 
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                                          | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                                          | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------|----------------------------------------|
-| N/D          | URLs para sites, por exemplo `https://www.bing.com` | `2019-10-01`                           |
+| N/D          | URLs para sites, por exemplo`https://www.bing.com` | `2019-10-01`                           |
 
 ### <a name="ip-address"></a>Endereço IP
 
-Endereço de protocolo de Internet
+Endereço do Protocolo da Internet
 
 Linguagens:
 
-* Visualização pública: `English`
+* Pré-visualização pública:`English`
 
-| Nome do subtipo | DESCRIÇÃO                              | Disponível a partir da versão do modelo |
+| Nome do subtipo | Descrição                              | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------|----------------------------------------|
-| N/D          | Endereço de rede, por exemplo `10.0.0.101` | `2019-10-01`                           |
+| N/D          | Endereço de rede, por exemplo,`10.0.0.101` | `2019-10-01`                           |
 
 ###  <a name="datetime"></a>Datetime
 
-Entidades de data e hora. 
+Entidades de Data e Hora. 
 
-* Disponível a partir da versão do modelo `2019-10-01`
+* Disponível a partir da versão do modelo`2019-10-01`
 
 Linguagens:
 
-* Visualização pública: `Chinese-Simplified`, `English`, `French`, `German` e `Spanish`
+* Pré-visualização `English` `French`pública: `Chinese-Simplified`, , e `German``Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
@@ -172,11 +172,11 @@ Linguagens:
 
 Números e quantidades numéricas. 
 
-* Disponível a partir da versão do modelo `2019-10-01`
+* Disponível a partir da versão do modelo`2019-10-01`
 
 Linguagens:
 
-* Visualização pública: `Chinese-Simplified`, `English`, `French`, `German` e `Spanish`
+* Pré-visualização `English` `French`pública: `Chinese-Simplified`, , e `German``Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|

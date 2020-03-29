@@ -1,44 +1,44 @@
 ---
-title: REST (referência de API de fala em texto) – serviço de fala
+title: Referência de API de fala para texto (REST) - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar a API REST de fala em texto. Neste artigo, você aprenderá sobre opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
+description: Aprenda a usar a API REST de fala para texto. Neste artigo, você aprenderá sobre opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: erhopf
-ms.openlocfilehash: 873898ce321100edbaa800d2436d0413c06ce175
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/16/2020
+ms.author: dapine
+ms.openlocfilehash: 759ea697e4093da5bfc1c082c886c6dfda636f42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220441"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474791"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
-Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST. Cada terminal acessível está associado a uma região. Seu aplicativo requer uma chave de assinatura para o endpoint que você planeja usar.
+Como uma alternativa ao [Speech SDK](speech-sdk.md), o serviço Speech permite converter o discurso para o texto usando uma API REST. Cada terminal acessível está associado a uma região. Seu aplicativo requer uma chave de assinatura para o endpoint que você planeja usar. A API REST é muito limitada, e só deve ser usada nos casos em que o [Speech SDK](speech-sdk.md) não puder.
 
-Antes de usar a API REST de fala em texto, entenda:
+Antes de usar a API REST para texto, entenda:
 
-* As solicitações que usam a API REST e transmitem áudio diretamente podem conter até 60 segundos de áudio.
+* As solicitações que usam a API REST e transmitem áudio diretamente só podem conter até 60 segundos de áudio.
 * A API REST de fala para texto só retorna os resultados finais. Resultados parciais não são fornecidos.
 
-Se o envio de áudio mais longo for um requisito para seu aplicativo, considere usar o [SDK de fala](speech-sdk.md) ou uma API REST baseada em arquivo, como a [transcrição do lote](batch-transcription.md).
+Se o envio de áudio mais longo for um requisito para o seu aplicativo, considere usar o [Speech SDK](speech-sdk.md) ou uma API REST baseada em arquivos, como [transcrição em lote](batch-transcription.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## <a name="regions-and-endpoints"></a>Regiões e endpoints
 
-O ponto de extremidade para a API REST tem este formato:
+O ponto final para a API REST tem esse formato:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Substitua `<REGION_IDENTIFIER>` pelo identificador correspondente à região da sua assinatura desta tabela:
+Substitua pelo `<REGION_IDENTIFIER>` identificador que corresponde à região da sua assinatura a partir desta tabela:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
@@ -49,25 +49,25 @@ Substitua `<REGION_IDENTIFIER>` pelo identificador correspondente à região da 
 
 Esses parâmetros podem ser incluídos na string de consulta da solicitação REST.
 
-| Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
+| Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a linguagem falada que está sendo reconhecida. Confira os [Idiomas compatíveis](language-support.md#speech-to-text). | Obrigatório |
+| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas suportados](language-support.md#speech-to-text). | Obrigatório |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem vários resultados com valores de confiança e quatro representações diferentes. A configuração padrão é `simple`. | Opcional |
-| `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked`, que substitui a profanação por asteriscos, `removed`, que remove toda a profanação do resultado, ou `raw`, que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
-| `cid` | Ao usar o [portal de fala personalizada](how-to-custom-speech.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
+| `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked`, que substitui `removed`a profanação por asteriscos, que `raw`remove toda a profanação do resultado, ou , que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
+| `cid` | Ao usar o [portal Custom Speech](how-to-custom-speech.md) para criar modelos personalizados, você pode usar modelos personalizados através de seu **ID endpoint** encontrado na página **Implantação.** Use o **ID endpoint** como `cid` argumento para o parâmetro de seqüência de consulta. | Opcional |
 
 ## <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
 
-|Cabeçalho| DESCRIÇÃO | Obrigatório/Opcional |
+|Cabeçalho| Descrição | Obrigatório/Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
 | `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obrigatório |
 | `Transfer-Encoding` | Especifica que os dados de áudio em partes estão sendo enviados, em vez de um único arquivo. Use este cabeçalho somente se agrupar dados de áudio. | Opcional |
 | `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda os dados adicionais.| Necessário se enviar dados de áudio em partes. |
-| `Accept` | Se fornecido, deve ser `application/json`. O serviço de fala fornece resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept`. | Opcional, mas recomendado. |
+| `Accept` | Se fornecido, deve ser `application/json`. O serviço Speech fornece resultados em JSON. Alguns frameworks de solicitação fornecem um valor padrão incompatível. É uma boa prática `Accept`incluir sempre. | Opcional, mas recomendado. |
 
 ## <a name="audio-formats"></a>Formatos de áudio
 
@@ -79,7 +79,7 @@ O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um 
 | OGG    | OPUS  | 16-bit  | 16 kHz, mono |
 
 >[!NOTE]
->Os formatos acima têm suporte por meio da API REST e do WebSocket no serviço de fala. O [SDK de fala](speech-sdk.md) atualmente dá suporte ao formato WAV com o codec PCM, bem como [outros formatos](how-to-use-codec-compressed-audio-input-streams.md).
+>Os formatos acima são suportados através da API REST e do WebSocket no serviço Speech. O [Speech SDK](speech-sdk.md) atualmente suporta o formato WAV com codec PCM, bem como [outros formatos](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## <a name="sample-request"></a>Solicitação de exemplo
 
@@ -99,19 +99,19 @@ Expect: 100-continue
 
 O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 
-| Código de status HTTP | DESCRIÇÃO | Possível motivo |
+| Código de status HTTP | Descrição | Possível motivo |
 |------------------|-------------|-----------------|
-| `100` | Continue | A solicitação inicial foi aceita. Continue enviando o restante dos dados. (Usado com transferência em partes) |
+| `100` | Continue | A solicitação inicial foi aceita. Continue enviando o restante dos dados. (Usado com transferência em pedaços) |
 | `200` | OK | A solicitação foi bem-sucedida. O corpo da resposta é um objeto JSON. |
-| `400` | Solicitação incorreta | Código de idioma não fornecido, não um idioma com suporte, arquivo de áudio inválido, etc. |
+| `400` | Solicitação incorreta | Código de idioma não fornecido, não um idioma suportado, arquivo de áudio inválido, etc. |
 | `401` | Não Autorizado | Chave de assinatura ou token de autorização inválido na região especificada, ou ponto de extremidade inválido. |
 | `403` | Proibido | Chave de assinatura ou token de autorização ausente. |
 
 ## <a name="chunked-transfer"></a>Transferência em partes
 
-A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento. Ele permite que o serviço de fala comece a processar o arquivo de áudio enquanto ele é transmitido. A API REST não fornece resultados parciais ou provisórios.
+Transferência em`Transfer-Encoding: chunked`pedaços () pode ajudar a reduzir a latência de reconhecimento. Ele permite que o serviço Speech comece a processar o arquivo de áudio enquanto ele é transmitido. A API REST não fornece resultados parciais ou provisórios.
 
-Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request` é um objeto `HttpWebRequest` conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
+Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request`é `HttpWebRequest` um objeto conectado ao ponto final REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -147,16 +147,16 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 Os resultados são fornecidos como JSON. O `simple` formato inclui esses campos de nível superior.
 
-| Parâmetro | DESCRIÇÃO  |
+| Parâmetro | Descrição  |
 |-----------|--------------|
 |`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte a próxima tabela.|
-|`DisplayText`|O texto reconhecido após a capitalização, a pontuação, a normalização inversa de texto (conversão de texto falado em formas mais curtas, como 200 para "200" ou "Dr. Smith" para "médico Smith") e mascaramento de profanação. Apresentar somente em caso de êxito.|
+|`DisplayText`|O texto reconhecido após capitalização, pontuação, normalização de texto inverso (conversão do texto falado para formas mais curtas, como 200 para "duzentos" ou "Dr. Smith" para "doctor smith"), e mascaramento de palavrões. Apresentar somente em caso de êxito.|
 |`Offset`|O tempo (em unidades de 100 nanossegundos) no qual a fala reconhecida começa no fluxo de áudio.|
 |`Duration`|A duração (em unidades de 100 nanossegundos) da fala reconhecida no fluxo de áudio.|
 
 O `RecognitionStatus` campo pode conter estes valores:
 
-| Status | DESCRIÇÃO |
+| Status | Descrição |
 |--------|-------------|
 | `Success` | O reconhecimento foi bem-sucedido e o campo `DisplayText` está presente. |
 | `NoMatch` | A fala foi detectada no fluxo de áudio, mas nenhuma palavra do idioma de destino foi combinada. Normalmente, isso significa que o idioma do reconhecimento é um idioma diferente daquele que o usuário está falando. |
@@ -167,11 +167,11 @@ O `RecognitionStatus` campo pode conter estes valores:
 > [!NOTE]
 > Se o áudio consistir apenas em conteúdo ofensivo e o parâmetro de consulta `profanity` estiver definido como `remove`, o serviço não retornará um resultado de fala.
 
-O formato de `detailed` inclui os mesmos dados que o formato de `simple`, juntamente com `NBest`, uma lista de interpretações alternativas do mesmo resultado de reconhecimento. Esses resultados são classificados da maior probabilidade de menos provável. A primeira entrada é o mesmo que o resultado do reconhecimento principal.  Ao usar o formato `detailed`, `DisplayText` é fornecido como `Display` para cada resultado na lista `NBest`.
+O `detailed` formato inclui os mesmos dados `simple` `NBest`do formato, juntamente com , uma lista de interpretações alternativas do mesmo resultado de reconhecimento. Esses resultados são classificados entre os mais prováveis e menos prováveis. A primeira entrada é o mesmo que o resultado do reconhecimento principal.  Ao usar o formato `detailed`, `DisplayText` é fornecido como `Display` para cada resultado na lista `NBest`.
 
 Cada objeto no `NBest` lista inclui:
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |-----------|-------------|
 | `Confidence` | A pontuação de confiança da entrada de 0,0 (nenhuma confiança) a 1,0 (confiança total) |
 | `Lexical` | O formato lexical do texto reconhecido: as palavras reais reconhecidas. |
@@ -181,7 +181,7 @@ Cada objeto no `NBest` lista inclui:
 
 ## <a name="sample-responses"></a>Respostas de exemplo
 
-Uma resposta típica para o reconhecimento de `simple`:
+Uma resposta `simple` típica para reconhecimento:
 
 ```json
 {
@@ -192,7 +192,7 @@ Uma resposta típica para o reconhecimento de `simple`:
 }
 ```
 
-Uma resposta típica para o reconhecimento de `detailed`:
+Uma resposta `detailed` típica para reconhecimento:
 
 ```json
 {

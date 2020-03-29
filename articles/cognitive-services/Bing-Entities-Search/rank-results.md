@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68423909"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Usar a classificação para exibir os resultados da pesquisa da entidade  
@@ -29,7 +29,7 @@ Em cada grupo, a matriz de [Itens](https://docs.microsoft.com/rest/api/cognitive
 |`answerType` e `resultIndex` | `answerType` identifica a resposta (entidade ou local) e `resultIndex` identifica um resultado dentro dessa resposta (por exemplo, uma entidade). O índice começa em 0.|
 |`value`    | `value` contém uma ID que corresponde à ID de uma resposta ou um resultado dentro da resposta. A resposta ou os resultados contêm a ID, mas não ambos. |
   
-Usar o `answerType` e `resultIndex` é um processo de duas etapas. Primeiro, use `answerType` para identificar a resposta que contém os resultados a serem exibidos. Em seguida, use `resultIndex` para indexar os resultados dessa resposta para obter o resultado a exibir. (O valor `answerType` é o nome do campo no objeto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse).) Se você precisa para exibir todos os resultados da resposta juntos, a resposta de classificação de item não inclui o campo `resultIndex`.
+Usar o `answerType` e `resultIndex` é um processo de duas etapas. Primeiro, use `answerType` para identificar a resposta que contém os resultados a serem exibidos. Em seguida, use `resultIndex` para indexar os resultados dessa resposta para obter o resultado a exibir. (O `answerType` valor é o nome do campo no objeto [SearchResponse.)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) Se você deve exibir todos os resultados da resposta juntos, o item `resultIndex` de resposta do ranking não inclui o campo.
 
 Usar a ID requer correspondência da ID de classificação com a ID de uma resposta ou um dos seus resultados. Se um objeto de resposta inclui um campo `id`, exiba todos os resultados da resposta juntos. Por exemplo, se o objeto `Entities` inclui o campo `id`, exibir todos os artigos de entidades juntos. Se o objeto `Entities` não inclui o campo `id`, em seguida, cada entidade contém um campo `id` e a resposta de classificação mescla as entidades com os resultados de locais.  
   
@@ -72,4 +72,4 @@ Com base nessa resposta de classificação, a barra lateral exibirá os resultad
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](tutorial-bing-entities-search-single-page-app.md)
+> [Crie um aplicativo web de uma página só](tutorial-bing-entities-search-single-page-app.md)

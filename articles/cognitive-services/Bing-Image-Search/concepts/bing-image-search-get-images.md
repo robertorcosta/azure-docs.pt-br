@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67542761"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obter imagens da Web com a API de Pesquisa de Imagem do Bing
@@ -31,7 +31,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Use o [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) parâmetro de consulta para o termo de pesquisa codificado de url. Por exemplo, se você inserir *sailing dinghies* (bote à vela), defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+Use o parâmetro [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) consulta para o termo de pesquisa codificado por url. Por exemplo, se você inserir *sailing dinghies* (bote à vela), defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
 > [!IMPORTANT]
 > * Todas as solicitações precisam ser feitas por meio de um servidor, e não de um cliente.
@@ -80,7 +80,7 @@ A mensagem de resposta do Bing contém uma resposta [Images](https://docs.micros
 
 > [!NOTE]
 > * As imagens precisam ser exibidas na ordem fornecida na resposta.
-> * Porque os formatos de URL e os parâmetros estão sujeitos a alterações sem aviso prévio, use todas as URLs como-está. Você não deveria receber dependências no formato de URL ou parâmetros, exceto onde observado.
+> * Porque os formatos de URL e os parâmetros estão sujeitos a alterações sem aviso prévio, use todas as URLs no estado em que se encontram. Você não deveria receber dependências no formato de URL ou parâmetros, exceto o quando observado.
 
 ```json
 {

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74423934"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar solicitações para os Serviços Cognitivos do Azure
@@ -25,17 +25,17 @@ Cada solicitação para um Serviço Cognitivo do Azure deve incluir um cabeçalh
 * [Autenticar com um token](#authenticate-with-an-authentication-token)
 * [Autenticar com Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de fazer uma solicitação, você precisará de uma conta do Azure e uma assinatura dos Serviços Cognitivos do Azure. Se você já tiver uma conta, pule para a próxima seção. Se você não tiver uma conta, temos um guia para configurá-lo em minutos: [criar uma conta de serviços cognitivas para o Azure](cognitive-services-apis-create-account.md).
+Antes de fazer uma solicitação, você precisará de uma conta do Azure e uma assinatura dos Serviços Cognitivos do Azure. Se você já tiver uma conta, pule para a próxima seção. Se você não tem uma conta, temos um guia para configurar em minutos: [Crie uma conta de Serviços Cognitivos para o Azure](cognitive-services-apis-create-account.md).
 
-Você pode obter sua chave de assinatura do [portal do Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de criar sua conta ou ativar uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Você pode obter sua chave de assinatura no [portal Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de criar sua conta ou ativar uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
 ## <a name="authentication-headers"></a>Cabeçalhos de autenticação
 
 Vamos analisar rapidamente os cabeçalhos de autenticação disponíveis para uso com os Serviços Cognitivos do Azure.
 
-| Cabeçalho | DESCRIÇÃO |
+| Cabeçalho | Descrição |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Use esse cabeçalho para autenticar com uma chave de assinatura para um serviço específico ou uma chave de assinatura para vários serviços. |
 | Ocp-Apim-Subscription-Region | Esse cabeçalho só é necessário ao usar uma chave de assinatura para vários serviços com a [API de Tradução de Texto](./Translator/reference/v3-0-reference.md). Use esse cabeçalho para especificar a região da assinatura. |
@@ -66,13 +66,13 @@ O vídeo a seguir demonstra como usar uma chave dos Serviços Cognitivos.
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autenticar com uma chave de assinatura para vários serviços
 
 >[!WARNING]
-> Neste momento, esses serviços **não** dão suporte a chaves de vários serviços: QnA Maker, serviços de fala, visão personalizada e detector de anomalias.
+> Neste momento, esses serviços **não** suportam chaves de vários serviços: QnA Maker, Speech Services, Custom Vision e Anomaly Detector.
 
 Essa opção também usa uma chave de assinatura para autenticar solicitações. A principal diferença é que uma chave de assinatura não está vinculada a um serviço específico; na verdade, uma mesma chave pode ser usada para autenticar solicitações para vários Serviços Cognitivos. Confira [Preço dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter informações sobre disponibilidade regional, recursos com suporte e preços.
 
 A chave de assinatura é fornecida em cada solicitação como o cabeçalho `Ocp-Apim-Subscription-Key`.
 
-[![Demonstração da chave de assinatura para vários serviços nos Serviços Cognitivos](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
+[![Demonstração de chave de assinatura de vários serviços para serviços cognitivos](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Regiões com suporte
 
@@ -115,11 +115,11 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Alguns Serviços Cognitivos do Azure aceitam (e, em alguns casos, exigem) um token de autenticação. Atualmente, estes serviços dão suporte a tokens de autenticação:
 
 * API de Tradução de Texto
-* Serviços de fala: API REST de fala em texto
-* Serviços de fala: API REST de conversão de texto em fala
+* Serviços de fala: API REST de fala para texto
+* Serviços de fala: API REST de texto para discurso
 
 >[!NOTE]
-> O QnA Maker também usa o cabeçalho Authorization, mas requer uma chave de ponto de extremidade. Para obter mais informações, consulte [QnA Maker: obter resposta da base de dados de conhecimento](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
+> O QnA Maker também usa o cabeçalho Authorization, mas requer uma chave de ponto de extremidade. Para obter mais informações, consulte [QnA Maker: Obtenha resposta da base de conhecimento](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
 > Os serviços que dão suporte a tokens de autenticação podem mudar ao longo do tempo; confira a referência de API do serviço antes de usar esse método de autenticação.
@@ -161,7 +161,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [O que são Serviços Cognitivos?](welcome.md)
 * [Preço dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)
