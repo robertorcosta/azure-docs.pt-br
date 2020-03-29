@@ -1,5 +1,5 @@
 ---
-title: Gerenciar metadados de artefato da conta de integração
+title: Gerenciar metadados de artefato de conta de integração
 description: Adicionar ou obter metadados de artefato de contas de integração nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792478"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerenciar metadados de artefato em contas de integração a Aplicativos Lógicos do Azure e o Enterprise Integration Pack
@@ -28,7 +28,7 @@ ms.locfileid: "74792478"
   * [Parceiro](logic-apps-enterprise-integration-partners.md)
   * [Contrato](logic-apps-enterprise-integration-agreements.md)
   * [Esquema](logic-apps-enterprise-integration-schemas.md)
-  * [Map](logic-apps-enterprise-integration-maps.md)
+  * [Mapa](logic-apps-enterprise-integration-maps.md)
 
 * Um aplicativo lógico que está vinculado à conta de integração e aos metadados de artefato que você deseja usar. Se o aplicativo lógico ainda não estiver vinculado, saiba [como vincular aplicativos lógicos a contas de integração](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
@@ -53,18 +53,18 @@ ms.locfileid: "74792478"
 
 1. No portal do Azure, abra o aplicativo lógico que está vinculado à conta de integração que você deseja. 
 
-1. No Designer do Aplicativo Lógico, se você estiver adicionando a etapa para a obtenção de metadados, abaixo do gatilho ou da última ação no fluxo de trabalho, escolha **Nova etapa** > **Adicionar uma ação**. 
+1. No Logic App Designer, se você estiver adicionando a etapa para obter metadados o gatilho ou última ação no fluxo de trabalho, escolha **Nova etapa** > **Adicione uma ação**. 
 
-1. Na caixa de pesquisa, digite “conta de integração”. Na caixa de pesquisa, escolha **Tudo**. Na lista ações, selecione esta ação: **pesquisa de artefato da conta de integração-conta de integração**
+1. Na caixa de pesquisa, digite “conta de integração”. Na caixa de pesquisa, escolha **Tudo**. Na lista de ações, selecione esta ação: **Integration Account Artifact Lookup - Conta de Integração**
 
    ![Selecione "Pesquisa de Artefato da Conta de Integração"](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 
 1. Forneça estas informações para o artefato que você deseja localizar:
 
-   | Propriedade | obrigatórios | Value | Descrição | 
+   | Propriedade | Obrigatório | Valor | Descrição | 
    |----------|---------|-------|-------------| 
-   | **Tipo de Artefato** | SIM | **Esquema**, **Mapa**, **Parceiro**, **Contrato** ou um tipo personalizado | O tipo do artefato que você deseja | 
-   | **Nome do Artefato** | SIM | <*artifact-name*> | O nome do artefato que você deseja | 
+   | **Tipo de Artefato** | Sim | **Esquema**, **Mapa**, **Parceiro**, **Contrato** ou um tipo personalizado | O tipo do artefato que você deseja | 
+   | **Nome do artefato** | Sim | <*artefato-nome*> | O nome do artefato que você deseja | 
    ||| 
 
    Por exemplo, imagine que você deseje obter os metadados para um artefato de parceiro comercial:
@@ -75,7 +75,7 @@ ms.locfileid: "74792478"
 
    1. Abaixo da ação **Pesquisa de artefato da conta de integração**, escolha **Próxima etapa**e selecione **Adicionar uma ação**. 
 
-   1. Na caixa de pesquisa, digite "http". Na caixa de pesquisa, escolha **interno**e selecione esta ação: **http-http**
+   1. Na caixa de pesquisa, digite "http". Na caixa de pesquisa, escolha **Embutidos**e selecione esta ação: **HTTP - HTTP**
 
       ![Adicionar ação HTTP](media/logic-apps-enterprise-integration-metadata/http-action.png)
 
@@ -83,15 +83,15 @@ ms.locfileid: "74792478"
 
       Por exemplo, imagine que você deseje obter os metadados `routingUrl` que foram adicionados anteriormente neste tópico. Aqui estão os valores de propriedade que você poderá especificar: 
 
-      | Propriedade | obrigatórios | Value | Descrição | 
+      | Propriedade | Obrigatório | Valor | Descrição | 
       |----------|----------|-------|-------------| 
-      | **Método** | SIM | <*operation-to-run*> | A operação de HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa p método **GET**. | 
-      | **URI** | SIM | <*metadata-location*> | Para acessar o valor de metadados `routingUrl` do artefato recuperado, você poderá usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Cabeçalhos** | Não | <*header-values*> | Qualquer cabeçalho de saídas do gatilho que você deseja passar para a ação HTTP. Por exemplo, para passar o valor de propriedade `headers` do gatinho: é possível usar uma expressão: <p>`@triggeroutputs()['headers']` | 
-      | **Corpo** | Não | <*conteúdo do corpo*> | Qualquer outro conteúdo que você deseje passar por meio da propriedade `body` da ação HTTP. Este exemplo passa os valores `properties` do artefato para a ação HTTP: <p>1. Clique dentro da propriedade **corpo** para que a lista de conteúdo dinâmico seja exibida. Se nenhuma propriedade aparecer, escolha **Ver mais**. <br>2. na lista de conteúdo dinâmico, em **pesquisa de artefato da conta de integração**, selecione **Propriedades**. | 
+      | **Método** | Sim | <*operação-para-executar*> | A operação de HTTP a ser executada no artefato. Por exemplo, essa ação HTTP usa p método **GET**. | 
+      | **URI** | Sim | <*localização de metadados*> | Para acessar o valor de metadados `routingUrl` do artefato recuperado, você poderá usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Cabeçalhos** | Não | <*valores de cabeçalho*> | Qualquer cabeçalho de saídas do gatilho que você deseja passar para a ação HTTP. Por exemplo, para passar o valor de propriedade `headers` do gatinho: é possível usar uma expressão: <p>`@triggeroutputs()['headers']` | 
+      | **Corpo** | Não | <*conteúdo corporal*> | Qualquer outro conteúdo que você deseje passar por meio da propriedade `body` da ação HTTP. Este exemplo passa os valores `properties` do artefato para a ação HTTP: <p>1. Clique dentro da propriedade **Corpo** para que a lista de conteúdo dinâmico seja exibida. Se nenhuma propriedade aparecer, escolha **Ver mais**. <br>2. Na lista de conteúdo dinâmico, em **Integration Account Artifact Lookup**, selecione **Propriedades**. | 
       |||| 
 
-      Por exemplo:
+      Por exemplo: 
 
       ![Especificar valores e expressões para a ação HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 
@@ -103,6 +103,6 @@ ms.locfileid: "74792478"
 
       ![Expressões resolvidas no Designer de aplicativos lógicos](media/logic-apps-enterprise-integration-metadata/resolved-expressions.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre contratos](logic-apps-enterprise-integration-agreements.md)

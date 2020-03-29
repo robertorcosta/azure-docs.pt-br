@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978195"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo usando o portal do Azure
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).   > Nenhum novo recursos ou funcionalidade está sendo adicionado ao Media Services v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
  Com os Serviços de Mídia do Azure, você pode proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. É possível usar os Serviços de Mídia para distribuir o conteúdo criptografado dinamicamente com a criptografia AES usando chaves de criptografia de 128 bits. Você também pode usá-los com criptografia comum (CENC) usando o PlayReady e/ou gerenciamento de direitos digitais (DRM) do Widevine e o FairPlay da Apple. 
@@ -51,7 +51,7 @@ Os Serviços de Mídia oferecem suporte a várias maneiras de autenticar os usu�
 A restrição aberta significa que o sistema entrega a chave a qualquer pessoa que faça uma solicitação de chave. Essa restrição pode ser útil para o teste. 
 
 ### <a name="token-authorization"></a>Autorização de token
-A política restrita de token deve ser acompanhada por um token emitido por um STS (serviço de token de segurança). Os Serviços de Mídia oferecem suporte a tokens nos formatos Simple Web Token (SWT) e Token Web JSON (JWT). Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar o Controle de Acesso do Azure para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. Se o token for válido, e as declarações no token corresponderem àquelas configuradas para a chave (ou licença), o serviço de distribuição de chaves dos Serviços de Mídia retornará a chave (ou licença) solicitada para o cliente.
+A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos Simple Web Token (SWT) e Token Web JSON (JWT). Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar o Serviço de Controle de Acesso do Azure para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. Se o token for válido, e as declarações no token corresponderem àquelas configuradas para a chave (ou licença), o serviço de distribuição de chaves dos Serviços de Mídia retornará a chave (ou licença) solicitada para o cliente.
 
 Ao configurar a política restrita do token, você deve especificar os parâmetros de chave de verificação primária, emissor e público. A chave de verificação primária contém a chave com a qual o token foi assinado. O emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
@@ -90,7 +90,7 @@ Para habilitar a criptografia do FairPlay, selecione **Configuração do FairPla
 Para aproveitar a criptografia dinâmica, codifique o arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selecionar o ativo que você deseja criptografar
-Para ver todos os seus ativos, selecione **Configurações** > **Ativos**.
+Para ver todos os seus ativos, selecione **Configurações** > **ativos**.
 
 ![Opção de ativos](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -115,7 +115,7 @@ A criptografia da chave de limpeza do AES é habilitada em todos os protocolos d
     
     e. **FairPlay apenas com HLS** – criptografa dinamicamente seu stream HLS com o FairPlay.
 
-1. Para ativar a criptografia de FairPlay, na folha **Configurações Globais de Proteção de Conteúdo**, selecione **Configuração do FairPlay**. Depois selecione o **Certificado do aplicativo** e insira a **Chave Secreta do Aplicativo**.
+1. Para ativar a criptografia de FairPlay, na folha **Configurações Globais de Proteção de Conteúdo**, selecione **Configuração do FairPlay**. Em seguida, selecione o **certificado app**e digite a **chave secreta**do aplicativo .
 
     ![Tipo de criptografia](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
@@ -126,9 +126,9 @@ A criptografia da chave de limpeza do AES é habilitada em todos os protocolos d
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

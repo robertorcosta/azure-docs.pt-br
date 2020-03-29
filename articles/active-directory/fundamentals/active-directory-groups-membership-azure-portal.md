@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover um grupo de outro grupo-Azure AD
+title: Adicionar ou remover um grupo de outro grupo - Azure AD
 description: Instruções sobre como adicionar ou remover um grupo de outro grupo usando o Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75423075"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Adicionar ou remover um grupo de outro grupo usando o Azure Active Directory
@@ -30,7 +30,7 @@ Este artigo explica como adicionar e remover um grupo de outro grupo usando o Az
 É possível adicionar um grupo de segurança existente a outro grupo de segurança existente (também conhecido como grupos aninhados), criando um grupo de membros (subgrupo) e um grupo pai. O grupo de membros herda os atributos e propriedades do grupo pai, economizando tempo de configuração.
 
 >[!Important]
->No momento, não há suporte para:<ul><li>Adição de grupos a um grupo sincronizado com o Active Directory local.</li><li>Adição de grupos de segurança a grupos do Office 365.</li><li>Adição de grupos do Office 365 a grupos de segurança ou outros grupos do Office 365.</li><li>Atribuição de aplicativos a grupos aninhados.</li><li>Aplicação de licenças a grupos aninhados.</li><li>Adicionar grupos de distribuição em cenários de aninhamento.</li></ul>
+>No momento, não há suporte para:<ul><li>Adição de grupos a um grupo sincronizado com o Active Directory local.</li><li>Adição de grupos de segurança a grupos do Office 365.</li><li>Adição de grupos do Office 365 a grupos de segurança ou outros grupos do Office 365.</li><li>Atribuição de aplicativos a grupos aninhados.</li><li>Aplicação de licenças a grupos aninhados.</li><li>Adicionando grupos de distribuição em cenários de aninhamento.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Para adicionar um grupo como membro de outro grupo
 
@@ -47,13 +47,13 @@ Este artigo explica como adicionar e remover um grupo de outro grupo usando o Az
 
 4. Na página **Política de MDM - Oeste - Associações de grupo**, selecione **Associações de grupo**, selecione **Adicionar**, localize o grupo no qual você quer que seu grupo seja membro e, em seguida, escolha **Selecionar**. Para esse exercício, estamos usando o grupo **Política de MDM - Toda org**.
 
-    O grupo **Política de MDM - Oeste** agora é membro da **Política de MDM - Toda org.** , herdando todas as propriedades e configurações do grupo Política de MDM - Toda org.
+    O grupo **Política de MDM - Oeste** agora é membro da **Política de MDM - Toda org.**, herdando todas as propriedades e configurações do grupo Política de MDM - Toda org.
 
     ![Criar uma associação de grupo, adicionando grupo a outro grupo](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
 5. Revise a página **Política de MDM - Oeste - Associações de grupo** para ver o relacionamento entre o grupo e o membro.
 
-6. Para uma exibição mais detalhada da relação de membro e grupo, selecione o nome do grupo (**Política de MDM - Toda org.** ) e dê uma olhada nos detalhes da página **Política de MDM - Oeste**.
+6. Para uma exibição mais detalhada da relação de membro e grupo, selecione o nome do grupo (**Política de MDM - Toda org.**) e dê uma olhada nos detalhes da página **Política de MDM - Oeste**.
 
 ## <a name="remove-a-group-from-another-group"></a>Remover um grupo de outro grupo
 É possível remover um grupo de segurança existente de outro grupo de segurança. No entanto, a remoção do grupo também remove os atributos e propriedades herdados de seus membros.
@@ -78,6 +78,6 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 - [Editar as configurações de grupo](active-directory-groups-settings-azure-portal.md)
 
-- [Uso de um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)
+- [Usar um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)
 
 - [Cenários, limitações e problemas conhecidos usando grupos para gerenciar o licenciamento no Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

@@ -1,5 +1,5 @@
 ---
-title: Autenticação baseada em certificado no iOS-Azure Active Directory
+title: Autenticação baseada em certificados no iOS - Azure Active Directory
 description: Saiba mais sobre os cenários com suporte e os requisitos para configuração de autenticação baseada em certificado em soluções com dispositivos iOS
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2f9e7d71ab660c4df6f65d6bebe1d3854086bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848792"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
@@ -35,16 +35,16 @@ Esse recurso está disponível na visualização em planos do governo federal e 
 
 | Aplicativos | Suporte |
 | --- | --- |
-| Aplicativo de Proteção de Informações do Azure |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Portal da Empresa do Intune |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Microsoft Teams |![Marca de seleção que significa suporte para este aplicativo][1] |
-| OneNote |![Marca de seleção que significa suporte para este aplicativo][1] |
-| OneDrive |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Outlook |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Power BI |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Skype for Business |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Word/Excel/PowerPoint |![Marca de seleção que significa suporte para este aplicativo][1] |
-| Yammer |![Marca de seleção que significa suporte para este aplicativo][1] |
+| Aplicativo de Proteção de Informações do Azure |![Verifique a marca que significa suporte para este aplicativo][1] |
+| Portal da Empresa do Intune |![Verifique a marca que significa suporte para este aplicativo][1] |
+| Equipes da Microsoft |![Verifique a marca que significa suporte para este aplicativo][1] |
+| OneNote |![Verifique a marca que significa suporte para este aplicativo][1] |
+| OneDrive |![Verifique a marca que significa suporte para este aplicativo][1] |
+| Outlook |![Verifique a marca que significa suporte para este aplicativo][1] |
+| Power BI |![Verifique a marca que significa suporte para este aplicativo][1] |
+| Skype for Business |![Verifique a marca que significa suporte para este aplicativo][1] |
+| Word/Excel/PowerPoint |![Verifique a marca que significa suporte para este aplicativo][1] |
+| Yammer |![Verifique a marca que significa suporte para este aplicativo][1] |
 
 ## <a name="requirements"></a>Requisitos
 
@@ -77,7 +77,7 @@ Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonl
 
 No iOS 9 ou posterior, há suporte para o cliente de email do iOS nativo. Para todos os outros aplicativos do Exchange ActiveSync, para determinar se há suporte para esse recurso, contate o desenvolvedor do aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser configurar a autenticação baseada em certificado em seu ambiente, confira [Get started with certificate-based authentication on Android](../authentication/active-directory-certificate-based-authentication-get-started.md) (Introdução à autenticação baseada em certificado no Android) para obter instruções.
 

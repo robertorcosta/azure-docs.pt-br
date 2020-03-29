@@ -9,10 +9,10 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 257cbd0b1a68ddd2b16235e6f8dec5d5b0eb10e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790649"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens EDIFACT para os Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -25,13 +25,13 @@ Para usar esse conector, você deve adicionar o conector para um gatilho existen
 Veja os itens necessários:
 
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já esteja definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem EDIFACT de codificação. 
+* Uma conta de [integração](logic-apps-enterprise-integration-create-integration-account.md) que já está definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem EDIFACT de codificação. 
 * Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
 * Um [contrato EDIFACT](logic-apps-enterprise-integration-edifact.md) que já está definido em sua conta de integração
 
 ## <a name="encode-edifact-messages"></a>Codificar mensagens EDIFACT
 
-1. [Criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
+1. [Crie um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem EDIFACT de codificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
@@ -52,7 +52,7 @@ Veja os itens necessários:
 
 5.  Quando terminar, os detalhes de conexão devem ser semelhantes a este exemplo. Para concluir a criação da sua conexão, escolha **Criar**.
 
-    ![detalhes da conexão da conta de integração](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
+    ![detalhes da conexão com a conta de integração](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
     A conexão foi criada.
 
@@ -91,6 +91,6 @@ O conector EDIFACT de codificação executa as seguintes tarefas:
 ## <a name="view-swagger-file"></a>Exibir o arquivo do Swagger
 Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
-## <a name="next-steps"></a>Próximos passos
-[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
+## <a name="next-steps"></a>Próximas etapas
+[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Conheça o Enterprise Integration Pack") 
 

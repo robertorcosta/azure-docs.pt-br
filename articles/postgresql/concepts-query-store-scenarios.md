@@ -1,21 +1,21 @@
 ---
-title: Cenários de Repositório de Consultas-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve alguns cenários para o Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
+title: Cenários da Loja de Consulta - Banco de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve alguns cenários para a Query Store no Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74768343"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de uso de Store de consulta
 
-**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
+**Aplica-se a:** Banco de dados Azure para PostgreSQL - Single Server versões 9.6, 10, 11
 
 Você pode usar o Query Store em uma ampla variedade de cenários, nos quais o acompanhamento e a manutenção do desempenho previsível da carga de trabalho são essenciais. Considere os exemplos a seguir: 
 - Identificar e ajustar consultas caras superior 
@@ -57,5 +57,5 @@ Algumas cargas de trabalho não possuem consultas dominantes que você pode ajus
  
 Se você estiver no controle do código do aplicativo, considere reescrever a camada de acesso a dados para usar procedimentos armazenados ou consultas parametrizadas. No entanto, essa situação também pode ser melhorada sem alterações de aplicativo, forçando a parametrização de consulta para todo o banco de dados (todas as consultas) ou para os modelos de consulta individuais com o mesmo hash de consulta. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [práticas recomendadas para usar a consulta Store](concepts-query-store-best-practices.md)

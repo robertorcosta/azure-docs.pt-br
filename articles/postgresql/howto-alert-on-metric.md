@@ -1,19 +1,19 @@
 ---
-title: Configurar alertas-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve como configurar e acessar alertas de métricas para o banco de dados do Azure para PostgreSQL-servidor único do portal do Azure.
+title: Configurar alertas - Portal Azure - Banco de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve como configurar e acessar alertas métricos para o Banco de Dados Azure para PostgreSQL - Servidor Único do portal Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fe099dcb49d176d27466c08749a5873904d1ae2f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74766830"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Use o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL-servidor único
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Use o portal Azure para configurar alertas sobre métricas para O Banco de Dados Do Azure para PostgreSQL - Single Server
 
 Este artigo mostra como configurar alertas do Banco de Dados do Azure para PostgreSQL usando o Portal do Azure. Você pode receber um alerta com base em métricas de monitoramento para seus serviços do Azure.
 
@@ -25,9 +25,9 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 * Chamar um webhook.
 
 Você pode configurar e obter informações sobre as regras de alerta usando:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Monitor do Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Portal Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica no Portal do Azure
 1. No [Portal do Azure](https://portal.azure.com/), selecione o servidor do Banco de Dados do Azure para PostgreSQL que você deseja monitorar.
@@ -48,7 +48,7 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
    
    ![Selecionar métrica](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Os últimos 30 minutos") e **Frequência**.
+7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos"), e **Frequência.**
    
    Selecione **Concluído** ao concluir.
 
@@ -83,6 +83,6 @@ Depois de criar um alerta, você poderá selecioná-lo e executar as seguintes a
 * **Editar** ou **Excluir** a regra de alerta.
 * **Desabilitar** ou **Habilitar** o alerta, se desejar interromper temporariamente ou retomar o recebimento de notificações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.

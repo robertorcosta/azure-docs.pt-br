@@ -1,22 +1,22 @@
 ---
-title: Terminologia da malha de Service Fabric do Azure
-description: Este artigo detalha a terminologia usada pela malha de Service Fabric do Azure para ajudá-lo a entender melhor os termos usados na documentação.
+title: Terminologia para malha de malha de malha de malha de serviço azure
+description: Este artigo detalha a terminologia usada pelo Azure Service Fabric Mesh para ajudá-lo a entender melhor os termos usados na documentação.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75351967"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia da Malha do Service Fabric
 
-A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Este artigo detalha a terminologia usada pela malha de Service Fabric do Azure para ajudá-lo a entender melhor os termos usados na documentação.
+A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Este artigo detalha a terminologia usada pelo Azure Service Fabric Mesh para ajudá-lo a entender melhor os termos usados na documentação.
 
-## <a name="service-fabric"></a>Malha de Serviço
+## <a name="service-fabric"></a>Service Fabric
 
 O [Service Fabric](/azure/service-fabric/) é uma plataforma de sistemas distribuídos de software livre que facilita o empacotamento, a implantação e o gerenciamento de microsserviços escalonáveis e confiáveis. O Service Fabric é o orquestrador que fornece energia à Malha do Service Fabric. O Service Fabric fornece opções de como você pode compilar e executar os aplicativos de microsserviços. É possível usar qualquer estrutura para gravar os serviços e escolher onde executar o aplicativo a partir de várias opções de ambiente.
 
@@ -78,7 +78,7 @@ A tabela a seguir descreve os diferentes modelos de aplicativos e as ferramentas
 | Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | VS 2017 |Sem suporte |Sem suporte | Com suporte - apenas ambiente de Malha | Sem suporte|
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Com suporte|Com suporte|Com suporte|Com suporte|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre Malha do Service Fabric, leia [visão geral sobre Malha do Service Fabric](service-fabric-mesh-overview.md).
 

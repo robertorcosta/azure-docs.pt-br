@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65824951"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
@@ -37,17 +37,17 @@ Determinadas condições devem ser verdadeiras para que um usuário conceda as p
 Esse erro ocorre quando um usuário que não é um administrador de empresa tenta usar um aplicativo que está solicitando permissões, as quais somente um administrador pode conceder. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede concessão de permissões de erro
-* **AADSTS90093:** um administrador do &lt;tenantDisplayName&gt; definiu uma política que impede que você conceda ao &lt;nome do aplicativo&gt; as permissões solicitadas. Contate um administrador de &lt;Nome Exibiçãolocatário&gt; que pode conceder permissões para esse aplicativo em seu nome.
+* **AADSTS90093:** Um administrador do &lt;NomeExibiçãoLocatário&gt; definiu uma política que impede que você conceda ao &lt;nome do aplicativo&gt; as permissões solicitadas. Contate um administrador de &lt;Nome Exibiçãolocatário&gt; que pode conceder permissões para esse aplicativo em seu nome.
 
 Esse erro ocorre quando um administrador da empresa desativa a capacidade de consentimento dos usuários para aplicativos e, em seguida, um usuário não administrador tenta usar um aplicativo que exige consentimento. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 ## <a name="intermittent-problem-error"></a>Erro de problema intermitente
-* **AADSTS90090:** parece que o processo de login encontrou um problema intermitente registrando as permissões que você tentou conceder a &lt;clientAppDisplayName&gt;. tente novamente mais tarde.
+* ** AADSTS90090: ** Parece que o processo de login encontrou um problema intermitente registrando as permissões que você tentou conceder a &lt; clientAppDisplayName &gt;. tente novamente mais tarde.
 
 Esse erro indica que ocorreu um erro de serviço intermitente. Ele pode ser resolvido tentando consentir ao aplicativo novamente.
 
 ## <a name="resource-not-available-error"></a>Erro de recurso não disponível
-* **AADSTS65005:** o aplicativo &lt;clientAppDisplayName&gt; solicitou permissões para acessar um recurso&lt;resourceAppDisplayName&gt; que não está disponível. 
+* **AADSTS65005:** O aplicativo &lt;NomeExibiçãoAplicativoCliente&gt; solicitou permissões para acessar um recurso&lt;NomeExibiçãoAplicativoRecurso&gt; que não está disponível. 
 
 Contate o desenvolvedor do aplicativo.
 
@@ -57,7 +57,7 @@ Contate o desenvolvedor do aplicativo.
 Certifique-se de que esse recurso está disponível ou contate o administrador de &lt;NomeExibiçãoLocatário&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Erro de incompatibilidade de permissões
-* **AADSTS65005:** o aplicativo solicitou consentimento para acessar o recurso &lt;resourceAppDisplayName&gt;. A solicitação falhou porque não corresponde como o aplicativo configurado previamente durante o registro do aplicativo. Contate o fornecedor do aplicativo.**
+* **AADSTS65005:** O aplicativo solicitou consentimento para acessar o recurso &lt;NomeExibiçãoAplicativoRecurso&gt;. A solicitação falhou porque não corresponde como o aplicativo configurado previamente durante o registro do aplicativo. Contate o fornecedor do aplicativo.**
 
 Esses erros ocorrem quando o aplicativo que um usuário está tentando consentir está solicitando permissões para acessar um aplicativo de recurso que não pode ser localizado no diretório da organização (locatário). Essa situação pode ocorrer por vários motivos:
 
@@ -77,6 +77,6 @@ Esses erros ocorrem quando o aplicativo que um usuário está tentando consentir
 
 [Aplicativos, permissões e consentimento no Azure Active Directory (ponto de extremidade v1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
-[Escopos, permissões e consentimento no Azure Active Directory (ponto de extremidade v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+[Escopos, permissões e consentimento no Diretório Ativo do Azure (ponto final v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

@@ -1,19 +1,19 @@
 ---
-title: Otimizar inserções em massa-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve como você pode otimizar operações de inserção em massa em um banco de dados do Azure para PostgreSQL-servidor único.
+title: Otimizar inserções em massa - Banco de dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve como você pode otimizar as operações de inserção em massa em um banco de dados Azure para PostgreSQL - Single Server.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770128"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Otimizar inserções em massa e usar dados transitórios em um banco de dado do Azure para PostgreSQL-servidor único 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Otimizar inserções em massa e usar dados transitórios em um banco de dados Azure para PostgreSQL - Single Server 
 Este artigo descreve como você pode otimizar operações de inserção em massa e usar dados temporários em um servidor do Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="use-unlogged-tables"></a>Usar tabelas não registradas
@@ -34,7 +34,7 @@ Tabelas não registradas não estão livres de falhas. Uma tabela não registrad
 
 Em algumas cargas de trabalho de clientes, observamos um aprimoramento no desempenho de aproximadamente 15% a 20% no uso de tabelas não registradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Analise sua carga de trabalho para usos de dados transitórios e inserções em massa grandes. Confira a seguinte documentação do PostgreSQL:
  
 - [Criar comandos SQL de tabela](https://www.postgresql.org/docs/current/static/sql-createtable.html)

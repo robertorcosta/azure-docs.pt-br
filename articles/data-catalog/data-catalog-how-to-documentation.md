@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950195"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Como documentar fontes de dados no Catálogo de Dados do Azure
@@ -37,9 +37,9 @@ O benefício da documentação do **Catálogo de Dados do Azure** permite que vo
 
 O nível de documentação pode variar desde a descrição das características e do valor de um contêiner de ativos de dados até uma descrição detalhada do esquema de tabela em um contêiner. O nível da documentação fornecido deve ser orientado por suas necessidades comerciais. Porém, em geral, aqui estão alguns prós e contras para a documentação de ativos de dados:
 
-* Documente apenas um contêiner: Todo o conteúdo está em um único lugar, mas talvez não precise de detalhes necessários para que os usuários tomem uma decisão informada.
-* Documente apenas as tabelas: O conteúdo é específico desse objeto, mas os usuários têm vários lugares para documentos.
-* Tabelas e contêineres de documento: A abordagem mais abrangente, mas pode introduzir mais manutenção dos documentos.
+* Documentar apenas um contêiner: todo o conteúdo está em um local, mas talvez não tenha os detalhes necessários para que os usuários a tomem uma decisão embasada.
+* Documentar apenas as tabelas: o conteúdo é específico para o objeto, mas os usuários têm vários lugares para documentos.
+* Documentar tabelas e contêineres: essa é uma abordagem mais abrangente, mas pode exigir mais manutenção dos documentos.
 
 ## <a name="summary"></a>Resumo
 A documentação de fontes de dados com o **Catálogo de Dados do Azure** pode criar uma narrativa sobre seus ativos de dados com todos os detalhes necessários.  Usando links, você pode vincular ao conteúdo armazenado em um repositório de conteúdo existente, que reúne os documentos e os ativos de dados existentes. Depois que os usuários descobrirem ativos de dados apropriados, eles poderão ter um conjunto completo de documentação.

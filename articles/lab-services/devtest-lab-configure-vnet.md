@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cf3d2f82c98a3caab47ff48a600316747932b72
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70390043"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurar uma rede virtual no Azure DevTest Labs
@@ -27,22 +27,22 @@ Conforme explicado no artigo [Adicionar uma VM a um laboratório](devtest-lab-ad
 Este artigo explica como adicionar sua rede virtual existente às configurações de Rede Virtual de um laboratório, para que ela esteja disponível para escolha durante a criação de suas VMs.
 
 > [!NOTE]
-> Para saber mais sobre os custos associados ao serviço de rede virtual do Azure, consulte [preços da rede virtual do Azure](../virtual-network/virtual-networks-overview.md#pricing).
+> Para saber mais sobre os custos associados ao serviço Azure Virtual Network, consulte [Preços para a Rede Virtual Azure](../virtual-network/virtual-networks-overview.md#pricing).
 
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Configurar uma rede virtual para um laboratório usando o Portal do Azure
 As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-rede) existente a um laboratório, para que ela possa ser usada durante a criação de uma VM no mesmo Laboratório. 
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 1. Na lista de laboratórios, selecione o laboratório desejado. 
 1. No painel principal do laboratório, selecione **Configuração e políticas**.
 
     ![Acessar as políticas e configuração do laboratório](./media/devtest-lab-configure-vnet/policies-menu.png)
 1. Na seção **RECURSOS EXTERNOS**, selecione **Redes virtuais**. Uma lista das redes virtuais configuradas para o laboratório atual é exibida, bem como a rede virtual padrão criada para o laboratório. 
-1. Selecione **+ adicionar**.
+1. Selecione **+ Adicionar**.
    
     ![Adicionar uma rede virtual existente ao seu laboratório](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-1. No painel **Rede virtual**, selecione **[Selecionar rede virtual]** .
+1. No painel **Rede virtual**, selecione **[Selecionar rede virtual]**.
    
     ![Selecionar uma rede virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 1. No painel **Escolher rede virtual**, selecione a rede virtual desejada. A lista é exibida mostrando todas as redes virtuais que estão sob a mesma região na assinatura que o laboratório.
@@ -55,10 +55,10 @@ As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-re
     ![Painel Sub-rede do laboratório](./media/devtest-lab-configure-vnet/lab-subnet.png)
      
    - Especifique um **nome da Sub-rede do laboratório**.
-   - Para permitir o uso de uma sub-rede na criação da VM do laboratório, selecione **Usar na criação da máquina virtual**.
+   - Para permitir que uma sub-rede seja usada na criação de VM de laboratório, selecione **Usar na criação de máquinas virtuais**.
    - Para habilitar um [endereço IP público compartilhado](devtest-lab-shared-ip.md), selecione **Habilitar IP público compartilhado**.
    - Para permitir endereços IP públicos em uma sub-rede, selecione **Permitir criação de IP público**.
-   - No campo **Máximo de máquinas virtuais por usuário**, especifique o número máximo de VMs por usuário para cada sub-rede. Se você quiser um número irrestrito de VMs, deixe esse campo em branco.
+   - No **campo Máximo de máquinas virtuais por usuário,** especifique as VMs máximas por usuário para cada sub-rede. Se você quiser um número irrestrito de VMs, deixe esse campo em branco.
 1. Selecione **OK** para fechar o painel Sub-rede do Laboratório.
 1. Selecione **Salvar** para fechar o painel da Rede virtual.
 

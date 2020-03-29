@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65409043"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Agendar trabalhos em vários dispositivos
@@ -66,9 +66,9 @@ A condição de consulta também pode ser em uma única ID de dispositivo ou em 
 "queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 
-A [Linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) aborda a linguagem de consulta do Hub IoT em detalhes adicionais.
+A [Linguagem de consulta de Hub IoT](iot-hub-devguide-query-language.md) aborda a linguagem de consulta de Hub IoT em detalhes adicionais.
 
-O trecho a seguir mostra a solicitação e resposta para um trabalho agendado para chamar um método direto chamado testMethod em todos os dispositivos em contoso-hub-1:
+O trecho a seguir mostra a solicitação e a resposta para um trabalho programado para chamar um método direto chamado testMethod em todos os dispositivos no contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
@@ -121,9 +121,9 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> O *updateTwin* propriedade requer uma correspondência de etag válido; por exemplo, `etag="*"`.
+> A *propriedade updateTwin* requer uma correspondência de etag válida; por exemplo, `etag="*"`.
 
-O trecho a seguir mostra a solicitação e resposta para um trabalho agendado para atualizar propriedades do dispositivo gêmeo de dispositivo de teste em contoso-hub-1:
+O trecho a seguir mostra a solicitação e a resposta para um trabalho programado para atualizar as propriedades gêmeas do dispositivo para dispositivo de teste no contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -177,28 +177,28 @@ O continuationToken é fornecido pela resposta.
 
 A lista a seguir mostra as propriedades e descrições correspondentes que podem ser usadas durante a consulta por trabalhos ou por resultados do trabalho.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 | --- | --- |
-| **jobId** |ID fornecida pelo aplicativo para o trabalho. |
-| **startTime** |Hora de início fornecida pelo aplicativo (ISO 8601) para o trabalho. |
-| **endTime** |Data fornecida pelo Hub IoT (ISO-8601) para a conclusão do trabalho. Válida somente após o trabalho atingir o estado 'concluído'. |
+| **Jobid** |ID fornecida pelo aplicativo para o trabalho. |
+| **Starttime** |Hora de início fornecida pelo aplicativo (ISO 8601) para o trabalho. |
+| **Endtime** |Data fornecida pelo Hub IoT (ISO-8601) para a conclusão do trabalho. Válida somente após o trabalho atingir o estado 'concluído'. |
 | **type** |Tipos de trabalhos: |
-| | **scheduleUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades desejadas ou marcas. |
-| | **scheduleDeviceMethod**: Um trabalho usado para invocar um método de dispositivo em um conjunto de dispositivos gêmeos. |
+| | **agendaAtualizaçãoGêmeo**: Um trabalho usado para atualizar um conjunto de propriedades ou tags desejadas. |
+| | **scheduleDeviceMethod**: Um trabalho usado para invocar um método de dispositivo em um conjunto de gêmeos de dispositivo. |
 | **status** |Estado atual do trabalho. Valores possíveis para o status: |
-| | **pendente**: Agendado e aguardando ser selecionado pelo serviço do trabalho. |
-| | **scheduled**: Agendado para um horário no futuro. |
-| | **Executando**: Trabalho ativo no momento. |
-| | **canceled**: Trabalho foi cancelado. |
-| | **failed**: Falha no trabalho. |
-| | **Concluído**: Trabalho foi concluído. |
+| | **pendente**: agendado e aguardando ser selecionado pelo serviço do trabalho. |
+| | **agendado**: agendado para um horário no futuro. |
+| | **executando**: trabalho ativo no momento. |
+| | **cancelado**: o trabalho foi cancelado. |
+| | **falha**: o trabalho falhou. |
+| | **concluído**: o trabalho foi concluído. |
 | **deviceJobStatistics** |Estatísticas sobre a execução do trabalho. |
-| | Propriedades **deviceJobStatistics**: |
-| | **deviceJobStatistics.deviceCount**: Número de dispositivos no trabalho. |
-| | **deviceJobStatistics.failedCount**: Número de dispositivos nos quais o trabalho falhou. |
-| | **deviceJobStatistics.succeededCount**: Número de dispositivos nos quais o trabalho teve êxito. |
-| | **deviceJobStatistics.runningCount**: Número de dispositivos que estão executando o trabalho no momento. |
-| | **deviceJobStatistics.pendingCount**: Número de dispositivos com execução pendente do trabalho. |
+| | **propriedades do dispositivoJobStatistics:** |
+| | **deviceJobStatistics.deviceCount**: número de dispositivos no trabalho. |
+| | **deviceJobStatistics.failedCount**: número de dispositivos em que trabalho falhou. |
+| | **deviceJobStatistics.succeededCount**: número de dispositivos em que o trabalho foi bem-sucedido. |
+| | **deviceJobStatistics.runningCount**: número de dispositivos que estão executando o trabalho no momento. |
+| | **deviceJobStatistics.pendingCount**: número de dispositivos que tem a execução do trabalho pendente. |
 
 ### <a name="additional-reference-material"></a>Material de referência adicional
 
@@ -212,10 +212,10 @@ Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md) descreve a linguagem de consulta de Hub IoT. Use essa linguagem de consulta para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
 
-* O [suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT ao protocolo MQTT.
+* [Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do Hub IoT a seguir:
 
-* [Agendar e transmitir trabalhos](iot-hub-node-node-schedule-jobs.md)
+* [Programação e difusão de empregos](iot-hub-node-node-schedule-jobs.md)

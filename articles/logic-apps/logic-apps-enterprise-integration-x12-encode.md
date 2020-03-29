@@ -9,10 +9,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792357"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -25,13 +25,13 @@ Para usar esse conector, você deve adicionar o conector para um gatilho existen
 Veja os itens necessários:
 
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já esteja definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem X12 de codificação.
+* Uma conta de [integração](logic-apps-enterprise-integration-create-integration-account.md) que já está definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem X12 de codificação.
 * Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
 * Pelo menos dois [contratos X12](logic-apps-enterprise-integration-x12.md) que já estão definidos em sua conta de integração
 
 ## <a name="encode-x12-messages"></a>Codificar mensagens do X12
 
-1. [Criar um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
+1. [Crie um aplicativo lógico](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem X12 de codificação não possui gatilhos, você deve adicionar um gatilho para iniciar seu aplicativo lógico, como um gatilho de Solicitação. No Designer de Aplicativo Lógico, adicione um gatilho e uma ação ao aplicativo lógico.
 
@@ -56,7 +56,7 @@ Veja os itens necessários:
 
     A conexão foi criada.
 
-    ![detalhes da conexão da conta de integração](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
+    ![detalhes da conexão com a conta de integração](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
 
 #### <a name="encode-x12-messages-by-agreement-name"></a>Codificar mensagens do X12 pelo nome do contrato
 
@@ -90,6 +90,6 @@ O conector de Codificação X12 executa as seguintes tarefas:
 ## <a name="view-the-swagger"></a>Exibir o swagger
 Consulte os [detalhes do Swagger](/connectors/x12/). 
 
-## <a name="next-steps"></a>Próximos passos
-[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
+## <a name="next-steps"></a>Próximas etapas
+[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Conheça o Enterprise Integration Pack") 
 

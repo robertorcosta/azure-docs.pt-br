@@ -1,6 +1,6 @@
 ---
-title: Tratar erros de conectividade transitórios-banco de dados do Azure para PostgreSQL-servidor único
-description: Saiba como lidar com erros de conectividade transitórios para o banco de dados do Azure para PostgreSQL-servidor único.
+title: Lidar com erros de conectividade transitórios - Banco de dados Azure para PostgreSQL - Servidor Único
+description: Aprenda a lidar com erros de conectividade transitórios para o Banco de Dados Azure para PostgreSQL - Servidor Único.
 keywords: conexão do postgresql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
 author: jan-eng
 ms.author: janeng
@@ -8,19 +8,19 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fe5b772946bece165a4e09f170355dc7b595a48f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74768836"
 ---
-# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Tratando erros de conectividade transitórios para o banco de dados do Azure para PostgreSQL-servidor único
+# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Manipulação de erros de conectividade transitória para Banco de Dados do Azure para PostgreSQL – servidor único
 
-Este artigo descreve como lidar com erros transitórios se conectando ao banco de dados do Azure para PostgreSQL.
+Este artigo descreve como lidar com erros transitórios conectados ao Banco de Dados Do Azure para PostgreSQL.
 
 ## <a name="transient-errors"></a>Erros transitórios
 
-Um erro transitório, também conhecido como uma falha transitória, é um erro que será resolvido por si só. Geralmente, esses erros manifestam como uma conexão para o servidor de banco de dados que está sendo descartado. Além disso, as novas conexões com um servidor não podem ser abertas. Os erros transitórios podem ocorrer, por exemplo, quando ocorre uma falha de hardware ou de rede. Outro motivo pode ser uma nova versão de um serviço PaaS que está sendo distribuído. A maioria desses eventos é automaticamente mitigada pelo sistema em menos de 60 segundos. Uma prática recomendada para projetar e desenvolver aplicativos na nuvem é esperar erros transitórios. Suponha que pode acontecer em qualquer componente a qualquer momento e ter a lógica apropriada em vigor para lidar com essas situações.
+Um erro transitório, também conhecido como uma falha transitória, é um erro que será resolvido por si só. Geralmente, esses erros manifestam como uma conexão para o servidor de banco de dados que está sendo descartado. Além disso, as novas conexões com um servidor não podem ser abertas. Os erros transitórios podem ocorrer, por exemplo, quando ocorre uma falha de hardware ou de rede. Outra razão pode ser uma nova versão de um serviço PaaS que está sendo implantado. A maioria desses eventos são automaticamente mitigados pelo sistema em menos de 60 segundos. Uma prática recomendada para projetar e desenvolver aplicativos na nuvem é esperar erros transitórios. Suponha que pode acontecer em qualquer componente a qualquer momento e ter a lógica apropriada em vigor para lidar com essas situações.
 
 ## <a name="handling-transient-errors"></a>Tratamento de erros transitórios
 
@@ -30,7 +30,7 @@ Os erros transitórios devem ser manipulados usando a lógica de repetição. Si
 * Uma conexão ociosa é descartada no lado do servidor. Quando você tenta emitir um comando, ele não pode ser executado
 * Uma conexão ativa que esteja executando um comando é descartada.
 
-A primeira e a segunda ocorrência são razoavelmente diretas de lidar. Tente abrir a conexão novamente. Quando você tiver êxito, o erro transitório terá sido reduzido pelo sistema. Você pode usar seu Banco de Dados do Azure para PostgreSQL novamente. É recomendável ter esperas antes de tentar novamente a conexão. Desista se as tentativas iniciais falharem. Dessa forma, o sistema pode usar todos os recursos disponíveis para superar a situação de erro. Um bom padrão a seguir é:
+A primeira e a segunda ocorrência são razoavelmente diretas de lidar. Tente abrir a conexão novamente. Quando você tiver êxito, o erro transitório terá sido reduzido pelo sistema. Você pode usar seu Banco de Dados do Azure para PostgreSQL novamente. Recomendamos ter esperas antes de tentar novamente a conexão. Desista se as tentativas iniciais falharem. Dessa forma, o sistema pode usar todos os recursos disponíveis para superar a situação de erro. Um bom padrão a seguir é:
 
 * Aguarde cinco segundos até a primeira tentativa.
 * Para cada próxima repetição, a espera aumenta exponencialmente, para até 60 segundos.
@@ -44,6 +44,6 @@ Quando o programa se comunica com o Banco de Dados do Azure para PostgreSQL por 
 
 Teste a lógica de repetição. Por exemplo, tente executar seu código durante o dimensionamento os recursos de computação do seu servidor Banco de Dados do Azure para PostgreSQL. Seu aplicativo deve lidar com o breve tempo de inatividade encontrado durante a operação sem qualquer problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Solucionar problemas de conexão ao Banco de Dados do Azure para PostgreSQL](howto-troubleshoot-common-connection-issues.md)

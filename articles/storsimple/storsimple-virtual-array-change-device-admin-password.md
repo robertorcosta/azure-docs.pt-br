@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580321"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Alterar a senha de administrador do dispositivo StorSimple Virtual Array por meio do Gerenciador de Dispositivos do StorSimple
@@ -46,9 +46,9 @@ Execute as etapas a seguir para alterar a senha do administrador do dispositivo 
 
 4. Na folha **Configurações de segurança**, faça o seguinte:
    
-   1. Role para baixo até a seção **Senha de Administrador do Dispositivo** . Forneça uma senha do administrador que contenha de 8 a 15 caracteres.
+   1. Desça até a seção **Senha do Administrador do Dispositivo.** Forneça uma senha do administrador que contenha de 8 a 15 caracteres.
    2. Confirme a senha.
-   3. Clique em **Salvar** na parte superior da folha.
+   3. Clique em **Salvar** na parte superior da lâmina.
 
 A senha de administrador do dispositivo agora está atualizada. Você pode usar essa senha modificada para acessar o dispositivo localmente.
 
@@ -60,7 +60,7 @@ Execute as etapas a seguir para alterar a senha do administrador do dispositivo 
 
 #### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Para alterar a senha do administrador do dispositivo por meio da interface do usuário da web local
 
-1. Na interface do usuário da Web local, clique em **Manutenção** > **Alteração de senha** para seu dispositivo.
+1. Na web UI local, clique em Alterar**senha** **de manutenção** > para o seu dispositivo.
    
     ![alterar password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Insira a **Senha atual**.

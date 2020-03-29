@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 94ac75c4165b11e343ce5c31480a511ebf978a36
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67838771"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (C)
@@ -51,7 +51,7 @@ Conecte o Raspberry Pi a um Hub IoT criado por você. Em seguida, execute um apl
 
 * Da placa do Raspberry Pi 2 ou do Raspberry Pi 3.
 
-* Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
+* Uma assinatura ativa do Azure. Se você não tiver uma conta no Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
 * Um monitor, um teclado USB e mouse que se conectam ao Pi.
 
@@ -76,7 +76,7 @@ Os itens a seguir são opcionais:
 * Um LED de 10 mm difuso.
 
 > [!NOTE]
-> Esses itens são opcionais, como o código de exemplo dá suporte a dados simulados de sensor.
+> Esses itens são opcionais porque a amostra de código suporta dados simulados do sensor.
 >
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
@@ -89,7 +89,7 @@ Os itens a seguir são opcionais:
 
 ## <a name="set-up-raspberry-pi"></a>Configurar o Raspberry Pi
 
-Agora, configure o Raspberry Pi.
+Agora monte o Raspberry Pi.
 
 ### <a name="install-the-raspbian-operating-system-for-pi"></a>Instalar o sistema operacional Raspbian para o Pi
 
@@ -97,7 +97,7 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 1. Baixe o Raspbian.
 
-   1. [Baixe o Raspbian Stretch com área de trabalho](https://www.raspberrypi.org/downloads/raspbian/) (o arquivo. zip).
+   1. [Baixe Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (o arquivo .zip).
 
    2. Extraia a imagem do Raspbian em uma pasta no computador.
 
@@ -117,9 +117,9 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 ### <a name="enable-ssh-and-spi"></a>Habilitar SSH e SPI
 
-1. Conectar o Pi ao monitor, teclado e mouse, inicie o Pi e, em seguida, entre no Raspbian usando `pi` como o nome de usuário e `raspberry` como a senha.
+1. Conecte Pi ao monitor, teclado e mouse, inicie Pi e, em seguida, faça login no Raspbian usando `pi` como nome de usuário e `raspberry` como senha.
  
-2. Clique no ícone do Raspberry > **Preferências** > **Configuração do Raspberry Pi**.
+2. Clique no ícone Framboesa > **Preferências** > **Framboesa Framboesa ) Configuração**.
 
    ![O menu de Preferências do Raspbian](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
@@ -166,7 +166,7 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 
 ## <a name="run-a-sample-application-on-pi"></a>Executar um aplicativo de exemplo no Pi
 
-### <a name="sign-into-your-raspberry-pi"></a>Logon no seu Raspberry Pi
+### <a name="sign-into-your-raspberry-pi"></a>Inscreva-se em seu Raspberry Pi
 
 1. Use um dos seguintes clientes SSH do seu computador host para se conectar ao Raspberry Pi.
    
@@ -228,11 +228,11 @@ Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens
 
 ![Saída – dados de sensor enviados do Raspberry Pi para o seu Hub IoT](./media/iot-hub-raspberry-pi-kit-c-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo seu hub
+## <a name="read-the-messages-received-by-your-hub"></a>Leia as mensagens recebidas pelo seu hub
 
-Uma maneira para monitorar mensagens recebidas pelo hub IoT do dispositivo é usar as ferramentas do IoT do Azure para Visual Studio Code. Para obter mais informações, consulte [usar as ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Uma maneira de monitorar as mensagens recebidas pelo seu hub ioT do seu dispositivo é usar as Ferramentas De IoT do Azure para o Visual Studio Code. Para saber mais, consulte [Use Azure IoT Tools for Visual Studio Code para enviar e receber mensagens entre seu dispositivo e o IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para obter mais formas processar os dados enviados pelo seu dispositivo, continue na próxima seção.
+Para obter mais maneiras de processar os dados enviados pelo seu dispositivo, continue para a próxima seção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

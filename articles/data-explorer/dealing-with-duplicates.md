@@ -1,5 +1,5 @@
 ---
-title: Manipular dados duplicados no Azure Data Explorer
+title: Manuseie dados duplicados no Azure Data Explorer
 description: Este tópico mostrará várias abordagens para lidar com dados duplicados ao usar o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68608234"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Manipular dados duplicados no Azure Data Explorer
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Manuseie dados duplicados no Azure Data Explorer
 
 Os dispositivo que enviam dados para a nuvem mantêm um cache local dos dados. Dependendo do volume dos dados, o cache local pode armazenar dados por dias, e até meses. Você deseja proteger os seus bancos de dados analíticos contra o funcionamento incorreto de dispositivos que reenviam os dados armazenados em cache e causam a duplicação dos dados no banco de dados analítico. Este tópico descreve as melhores práticas para tratar de dados duplicados nesses tipos de cenário.
 
@@ -41,13 +41,13 @@ _data
 
 ## <a name="solutions-for-handling-duplicate-data"></a>soluções para lidar com dados duplicados
 
-### <a name="solution-1-dont-remove-duplicate-data"></a>Solução 1: não remover os dados duplicados
+### <a name="solution-1-dont-remove-duplicate-data"></a>solução #1: Não remova dados duplicados
 
 Entenda os requisitos de negócios e a tolerância dos dados duplicados. Alguns conjunto de dados podem ser gerenciados com uma determinada porcentagem de dados duplicados. Se os dados duplicados não têm impacto significativo, você pode ignorá-los. A vantagem de não remover os dados duplicados é não ter sobrecarga adicional no processo de ingestão nem no desempenho da consulta.
 
-### <a name="solution-2-handle-duplicate-rows-during-query"></a>Solução 2: lidar com linhas duplicadas durante a consulta
+### <a name="solution-2-handle-duplicate-rows-during-query"></a>solução #2: Manuseie linhas duplicadas durante a consulta
 
-Outra opção é filtrar as linhas duplicadas nos dados durante a consulta. A função de agregação [`arg_max()`](/azure/kusto/query/arg-max-aggfunction) pode ser usada para filtrar os registros duplicados e retornar o último registro com base no carimbo de data/hora (ou outra coluna). A vantagem de usar esse método é a ingestão mais rápida, uma vez que a eliminação de duplicação ocorre durante o tempo de consulta. Além disso, todos os registros (incluindo duplicatas) estão disponíveis para auditoria e solução de problemas. A desvantagem de usar a função `arg_max` é o tempo de consulta adicional e a carga na CPU todas as vezes que os dados são consultados. Dependendo da quantidade de dados que está sendo consultada, essa solução pode se tornar não funcional ou consumir muita memória, o que exige a alternação para outras opções.
+Outra opção é filtrar as linhas duplicadas nos dados durante a consulta. A [`arg_max()`](/azure/kusto/query/arg-max-aggfunction) função agregada pode ser usada para filtrar os registros duplicados e retornar o último registro com base no carimbo de data e hora (ou outra coluna). A vantagem de usar esse método é a ingestão mais rápida, uma vez que a eliminação de duplicação ocorre durante o tempo de consulta. Além disso, todos os registros (incluindo duplicatas) estão disponíveis para auditoria e solução de problemas. A desvantagem de usar a função `arg_max` é o tempo de consulta adicional e a carga na CPU todas as vezes que os dados são consultados. Dependendo da quantidade de dados que está sendo consultada, essa solução pode se tornar não funcional ou consumir muita memória, o que exige a alternação para outras opções.
 
 No seguinte exemplo, consultamos o último registro ingerido para um conjunto de colunas que determina os registros exclusivos:
 
@@ -68,9 +68,9 @@ DeviceEventsAll
 }
 ```
 
-### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Solução 3: filtrar as duplicatas durante o processo de ingestão
+### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Solução #3: Filtrar duplicatas durante o processo de ingestão
 
-Outra solução é filtrar duplicatas durante o processo de ingestão. O sistema ignora os dados duplicados durante a ingestão nas tabelas Kusto. Os dados são ingeridos em uma tabela de preparo e copiados em outra tabela após a remoção das linhas duplicadas. A vantagem dessa solução é que o desempenho da consulta melhora consideravelmente em relação à solução anterior. As desvantagens incluem aumento do tempo de ingestão e custos adicionais com o armazenamento de dados. Adicionalmente, essa solução funcionará somente se as duplicações não estiverem ingeridas simultaneamente. Se houver várias ingestãos simultâneas contendo registros duplicados, todas poderão ser ingeridas, já que o processo de eliminação de duplicação não encontrará nenhum registro correspondente existente na tabela.    
+Outra solução é filtrar duplicatas durante o processo de ingestão. O sistema ignora os dados duplicados durante a ingestão nas tabelas Kusto. Os dados são ingeridos em uma tabela de preparo e copiados em outra tabela após a remoção das linhas duplicadas. A vantagem dessa solução é que o desempenho da consulta melhora consideravelmente em relação à solução anterior. As desvantagens incluem aumento do tempo de ingestão e custos adicionais com o armazenamento de dados. Além disso, essa solução só funciona se as duplicações não forem ingeridas simultaneamente. Se houver várias ingessitions simultâneas contendo registros duplicados, todos podem ser ingeridos, uma vez que o processo de deduplicação não encontrará nenhum registro correspondente existente na tabela.    
 
 O seguinte exemplo descreve esse método:
 
@@ -122,4 +122,4 @@ A duplicação de dados pode ser tratada de várias maneiras. Avalie as opções
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Gravar consultas para Azure Data Explorer](write-queries.md)
+> [Escrever consultas para O Azure Data Explorer](write-queries.md)

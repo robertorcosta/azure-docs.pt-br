@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
 ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60803764"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos em um ponto de extremidade HTTP
@@ -22,7 +22,7 @@ Este artigo descreve como [validar um ponto de extremidade HTTP](security-authen
 > [!NOTE]
 > É **fortemente** recomendado que você use um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md) ao disparar uma função do Azure com a Grade de Eventos. O uso de um gatilho WebHook genérico aqui serve apenas como demonstração.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter um aplicativo de funções com uma função disparada por HTTP.
 

@@ -1,5 +1,5 @@
 ---
-title: Atualizações de esquema para a versão prévia de agosto de 1-2015
+title: Atualizações de esquema para pré-visualização de 1 º de agosto a 2015
 description: Versão prévia de 2015-08-01 do esquema atualizada para definições de aplicativo lógico nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: b6746baaede777eb8c2afcae9eb3fe80b669c468
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792851"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - visualização de 1º de junho de 2015

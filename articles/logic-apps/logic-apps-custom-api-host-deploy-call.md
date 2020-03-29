@@ -1,16 +1,16 @@
 ---
-title: Implantar e chamar APIs Web & APIs REST de aplicativos lógicos do Azure
-description: Implantar e chamar APIs Web & APIs REST para fluxos de trabalho de integração do sistema em aplicativos lógicos do Azure
+title: Implantar e chamar APIs web & APIs REST de aplicativos de lógica do Azure
+description: Implantar e chamar APIs da Web & APIs REST para fluxos de trabalho de integração de sistemas em Aplicativos de Lógica do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790759"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho nos Aplicativos Lógicos do Azure
@@ -31,7 +31,7 @@ Antes de chamar sua API personalizada de um aplicativo lógico, implante sua API
 
    ![Link para o arquivo OpenAPI para sua API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Em **API**, escolha **CORS**. Defina a política de CORS de **Origens permitidas** como **'*'** (permitir todos).
+3. Em **API**, escolha **CORS**. Defina a política cors para **origens permitidas** como **'*'** (permitir a todos).
 
    Essa configuração permite solicitações do Designer de Aplicativo Lógico.
 
@@ -49,6 +49,6 @@ Depois de configurar as propriedades de definição de API e os CORS, os gatilho
 
 *  Para chamar qualquer API, incluindo APIs que não têm ou expõem um documento do OpenAPI, você sempre pode criar uma solicitação com a [ação HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do conector personalizado](../logic-apps/custom-connector-overview.md)

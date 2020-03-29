@@ -1,5 +1,5 @@
 ---
-title: Coleta de dados de usuário do Azure MFA-Azure Active Directory
+title: Coleta de dados de usuários do Azure MFA - Azure Active Directory
 description: Quais informações são usadas para ajudar a autenticar usuários pela Autenticação Multifator do Microsoft Azure?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848282"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
@@ -42,7 +42,7 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Modo de mensagem de texto (OTP, OTP + PIN)
 - Modo de aplicativo móvel (Standard, PIN)
 - Modo de Token OATH (Standard, PIN)
-- Tipo de Autenticação
+- Tipo de autenticação
 - Nome do Aplicativo
 - Código do país da chamada primária
 - Número do telefone da chamada primária
@@ -70,7 +70,7 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 
 Ativações (tentativas de ativar uma conta no aplicativo móvel Microsoft Authenticator):
 - Nome de Usuário
-- Nome da conta
+- Nome da Conta
 - Timestamp
 - Obter resultado do código de ativação
 - Ativar êxito
@@ -86,8 +86,8 @@ Blocos (usados para determinar o estado bloqueado e para relatório):
 - Bloquear carimbo de data/hora
 - Bloquear por nome de usuário
 - Nome de Usuário
-- Código do País
-- Telefone
+- Código do país
+- Número do telefone
 - Número de telefone formatado
 - Extensão
 - Limpar extensão
@@ -106,8 +106,8 @@ Bypass (usado para relatórios):
 - Segundos do bypass
 - Bypass por nome de usuário
 - Nome de Usuário
-- Código do País
-- Telefone
+- Código do país
+- Número do telefone
 - Número de telefone formatado
 - Extensão
 - Limpar extensão
@@ -116,7 +116,7 @@ Bypass (usado para relatórios):
 - Motivo da conclusão
 - Bypass usado
 
-Alterações (usadas para sincronizar as alterações do usuário no servidor MFA ou no Azure AD):
+Alterações (usadas para sincronizar alterações de usuário no MFA Server ou No Azure AD):
 
 - Alterar carimbo de data/hora
 - Nome de Usuário
@@ -138,7 +138,7 @@ Para Servidor MFA versão 8.0 ou superior, o processo a seguir permite que os ad
 - Faça logon no Servidor MFA, navegue até a guia **Usuários** selecione o usuário em questão e clique no botão **Editar**. Faça capturas de tela (Alt-PrtScn) de cada guia para fornecer ao usuário as configurações do MFA atuais.
 - Na linha de comando do Servidor MFA, execute o comando a seguir alterando o caminho de acordo com a instalação `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` para produzir um arquivo no formato JSON.
 - Os administradores também podem usar a operação GetUserGdpr do SDK de Serviço Web como uma opção para exportar todas as informações de serviço de nuvem do MFA coletadas para um determinado usuário ou incorporar em uma solução de relatório maior.
-- Pesquise `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer backups de "\<nome de usuário >" (inclua as aspas na pesquisa) para localizar todas as instâncias do registro de usuário que estão sendo adicionadas ou alteradas.
+- Pesquise `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer\<backups para " username>" (inclua as citações na pesquisa) para encontrar todas as instâncias do registro de usuário sendo adicionadas ou alteradas.
    - Esses registros podem ser limitados (mas não eliminados), desmarcando **“Registrar alterações de usuário”** no UX do Servidor MFA, seção de Log, guia Arquivos de Log.
    - Se o syslog estiver configurado e **“Registrar alterações de usuário”** estiver marcado no UX do Servidor MFA, seção de Log, guia Syslog, as entradas de log poderão ser obtidas do syslog.
 - Outras ocorrências do nome de usuário no MultiFactorAuthSvc.log e outros arquivos de log do Servidor MFA referentes a tentativas de autenticação são consideradas operacionais e duplicadas para as informações fornecidas usando a exportação de MultiFactorAuthGdpr.exe ou GetUserGdpr do SDK de Serviço Web.
@@ -188,6 +188,6 @@ Use o [portal de Privacidade da Microsoft](https://portal.azure.com/#blade/Micro
 
 - Pode demorar até 30 dias para que os dados sejam totalmente removidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Relatórios do Servidor MFA](howto-mfa-reporting.md)

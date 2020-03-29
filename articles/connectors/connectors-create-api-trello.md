@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Trello de aplicativos lógicos do Azure
+title: Conecte-se ao Trello a partir de aplicativos azure logic
 description: Automatizar tarefas e fluxos de trabalho que monitoram e gerenciam listas, quadros e cartões em seus projetos do Trello usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5c4fcb9b4fea1a4d982b5cf665564599d371b7cb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789130"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Monitorar e gerenciar o Trello com os Aplicativos Lógicos do Azure
@@ -24,11 +24,11 @@ Com os Aplicativos Lógicos do Azure e o conector do Trello, você pode criar ta
 * Liste quadros, rótulos de quadro, cartões em quadros, comentários de cartão, membros de cartão, membros da equipe e equipes em que você é um membro. 
 * Obtenha as equipes.
 
-Você pode usar gatilhos para obter respostas da sua conta do Trello e disponibilizar a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Trello. Você também pode fazer com que outras ações usem a saída das ações do Trello. Por exemplo, quando um novo cartão é adicionado ao painel ou à lista, você pode enviar mensagens com o conector do Slack. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos para obter respostas da sua conta do Trello e disponibilizar a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Trello. Você também pode fazer com que outras ações usem a saída das ações do Trello. Por exemplo, quando um novo cartão é adicionado ao painel ou à lista, você pode enviar mensagens com o conector do Slack. Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Suas credenciais de usuário e conta do Trello
 
@@ -53,7 +53,7 @@ Você pode usar gatilhos para obter respostas da sua conta do Trello e disponibi
    Na lista de ações, selecione a ação desejada.
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
 
 1. Se você for solicitado a entrar no Trello, autorize o acesso ao aplicativo lógico e entre.
 
@@ -68,6 +68,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

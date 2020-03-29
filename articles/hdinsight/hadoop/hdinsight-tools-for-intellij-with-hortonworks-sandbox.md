@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/16/2018
 ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647825"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usar ferramentas de HDInsight para IntelliJ com a área restrita do Hortonworks
@@ -49,13 +49,13 @@ Nesta seção, você cria um projeto de exemplo do Scala usando o IntelliJ IDEA.
 
 1. Abra o IntelliJ IDEA no computador. Na caixa de diálogo **Novo Projeto**, siga as etapas:
 
-   1. Selecione **HDInsight** > **Spark no HDInsight (Scala)** .
+   1. Selecione **HDInsight** > **Spark no HDInsight (Scala)**.
    2. Na lista **Ferramenta de build**, selecione uma das opções a seguir, com base no seu cenário:
 
       * **Maven**: para obter suporte ao assistente de criação de projetos Scala.
       * **SBT**: para gerenciar as dependências e a compilação no projeto Scala.
 
-   ![IntelliJ criar novo projeto escalar](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij cria novo projeto scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Selecione **Avançar**.
 3. Na próxima caixa de diálogo **Novo Projeto**, siga as seguintes etapas:
@@ -72,7 +72,7 @@ Nesta seção, você cria um projeto de exemplo do Scala usando o IntelliJ IDEA.
 5. Se a exibição **Projeto** ainda não estiver aberta, pressione **Alt + 1** para abri-la.
 6. Em **Explorador de Projeto**, expanda o projeto e, em seguida, selecione **src**.
 7. Clique com o botão direito do mouse em **src**, aponte para **Novo** e, em seguida, selecione **Classe Scala**.
-8. Na caixa **Nome**, insira um nome. Na caixa **Tipo**, selecione **Objeto**. Depois, selecione **OK**.
+8. Na caixa **Nome**, insira um nome. Na caixa **Tipo**, selecione **Objeto**. Em seguida, selecione **OK**.
 
     ![A caixa de diálogo Criar Nova Classe Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
@@ -124,7 +124,7 @@ Para vincular a um emulador:
 1. Abra o projeto no IntelliJ.
 2. No menu **Exibir**, selecione **Janelas de Ferramentas** e selecione o **Azure Explorer**.
 3. Expanda **Azure**, clique com o botão direito do mouse em **HDInsight** e, em seguida, selecione **Vincular um Emulador**.
-4. Na caixa de diálogo **Vincular um Novo Emulador**, insira a senha definida para a conta raiz da Área Restrita do Hortonworks. Em seguida, insira valores semelhantes àqueles usados na captura de tela a seguir. Depois, selecione **OK**. 
+4. Na caixa de diálogo **Vincular um Novo Emulador**, insira a senha definida para a conta raiz da Área Restrita do Hortonworks. Em seguida, insira valores semelhantes àqueles usados na captura de tela a seguir. Em seguida, selecione **OK**. 
 
    ![A caixa de diálogo Vincular um Novo Emulador](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 
@@ -141,12 +141,12 @@ Para enviar um projeto a um emulador:
 1. No **Explorador de Projetos**, clique com o botão direito do mouse no projeto e selecione **Enviar Aplicativo Spark ao HDInsight**.
 2. Conclua as seguintes etapas:
 
-    1. Na lista suspensa **Cluster Spark (somente no Linux)** , selecione a Área Restrita do Hortonworks local.
+    1. Na lista suspensa **Cluster Spark (somente no Linux)**, selecione a Área Restrita do Hortonworks local.
     2. Na caixa **Nome da classe principal**, escolha ou digite o nome da classe principal. Para este artigo, o nome é **GroupByTest**.
 
 3. Selecione **Enviar**. Os logs de envio de trabalho são mostrados na janela da ferramenta de envio Spark.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [usar as Ferramentas do HDInsight no Azure Toolkit for IntelliJ criar aplicativos Apache Spark para um cluster do Linux do HDInsight Spark](../spark/apache-spark-intellij-tool-plugin.md).
 

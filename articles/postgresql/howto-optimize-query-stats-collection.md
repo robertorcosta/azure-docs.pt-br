@@ -1,19 +1,19 @@
 ---
-title: Otimizar coleta de estatísticas de consulta-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve como você pode otimizar a coleta de estatísticas de consulta em um banco de dados do Azure para PostgreSQL-servidor único
+title: Otimizar a coleta de estatísticas de consulta - Banco de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve como você pode otimizar a coleta de estatísticas de consulta em um banco de dados Do Azure para PostgreSQL - Single Server
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770162"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Otimizar a coleta de estatísticas de consulta em um banco de dados do Azure para PostgreSQL-servidor único
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Otimizar a coleta de estatísticas de consulta em um banco de dados Azure para PostgreSQL - Single Server
 Este artigo descreve como otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="use-pg_stats_statements"></a>Usar pg_stats_statements
@@ -34,9 +34,9 @@ Para definir `pg_stat_statements.track = NONE`:
 ## <a name="use-the-query-store"></a>Usar o Repositório de Consultas 
 O recurso [Repositório de Consultas](concepts-query-store.md) no Banco de Dados do Azure para PostgreSQL fornece um método mais eficaz para rastrear as estatísticas da consulta. Recomendamos esse recurso como uma alternativa ao uso de *pg_stats_statements*. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Considere configurar `pg_stat_statements.track = NONE` no [portal do Azure](howto-configure-server-parameters-using-portal.md) ou usar a [CLI do Azure](howto-configure-server-parameters-using-cli.md).
 
-Para obter mais informações, veja: 
+Para obter mais informações, consulte: 
 - [Cenários de uso do Repositório de Consultas](concepts-query-store-scenarios.md) 
-- [Práticas recomendadas para o Repositório de Consultas](concepts-query-store-best-practices.md) 
+- [As melhores práticas da Loja de Consulta](concepts-query-store-best-practices.md) 

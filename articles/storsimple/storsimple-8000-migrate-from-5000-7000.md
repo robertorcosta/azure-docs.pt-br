@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60631604"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados do StorSimple série 5000-7000 para um dispositivo série 8000
@@ -41,7 +41,7 @@ Você pode mover os dados usando o recurso de migração ou executando uma migra
 
 O recurso de migração simula um processo de DR (recuperação de desastre) da série 7000/5000 para a série 8000. Esse recurso permite migrar os dados do formato da série 5000/7000 para o formato da série 8000 no Azure. O processo de migração é iniciado usando a ferramenta de migração do StorSimple. A ferramenta inicia o download e a conversão de metadados de backup no dispositivo da série 8000 e usa o backup mais recente para expor os volumes no dispositivo.
 
-|      | Prós                                                                                                                                     |Contras                                                                                                                                                              |
+|      | Vantagens                                                                                                                                     |Desvantagens                                                                                                                                                              |
 |------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1.   | O processo de migração preserva o histórico de backups feitos na série 5000/7000.                                               | Quando os usuários tentam acessar os dados, a migração baixa os dados do Azure, incorrendo em custos de download de dados.                                     |
 | 2.   | Nenhum dado é migrado no lado do host.                                                                                                     | O processo precisa de tempo de inatividade entre o início do backup e o backup mais recente que está sendo exposto na série 8000 (pode ser previsto usando a ferramenta de migração). |
@@ -50,7 +50,7 @@ O recurso de migração simula um processo de DR (recuperação de desastre) da 
 
 Uma migração do host permite a configuração da série 8000 independentemente e a cópia dos dados do dispositivo da série 5000/7000 para o dispositivo da série 8000. Isso equivale a migrar dados de um dispositivo de armazenamento para outro. Várias ferramentas, como Diskboss, robocopy, são usadas para copiar os dados.
 
-|      | Prós                                                                                                                      |Contras                                                                                                                                                                                                      |
+|      | Vantagens                                                                                                                      |Desvantagens                                                                                                                                                                                                      |
 |------|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1.   | A migração pode ser abordada em fases ou com base em cada volume.                                               | Os backups anteriores (obtidos na série 5000/7000) não estão disponíveis no dispositivo da série 8000.                                                                                                       |
 | 2.   | Permite a consolidação de dados em uma conta de armazenamento do Azure.                                                       | O primeiro backup na nuvem na série 8000 levará mais tempo porque todos os dados na série 8000 precisam ter o backup feito no Azure.                                                                     |

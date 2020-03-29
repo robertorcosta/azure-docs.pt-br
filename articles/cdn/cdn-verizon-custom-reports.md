@@ -1,6 +1,6 @@
 ---
 title: Relatórios personalizados da Verizon | Microsoft Docs
-description: 'Você pode exibir os padrões de uso para o CDN usando os relatórios a seguir: Largura de banda, dados transferidos, acertos, status do Cache, taxa de IPV4/IPV6 dados transferidos de acertos do Cache.'
+description: 'É possível exibir os padrões de uso da CDN usando os seguintes relatórios: largura de banda, dados transferidos, ocorrências, status do cache, taxa de ocorrências no cache, dados IPV4/IPV6 transferidos.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 15f17ac6556c4ff731372dc7f738d0f58bdc3e31
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593308"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
@@ -45,17 +45,17 @@ O log de dados de relatório personalizado se inicia uma hora depois de você ha
 
 Gere um relatório personalizado definindo as seguintes opções de relatório:
 
-- Métricas: Há suporte para as seguintes opções:
+- Métrica: as seguintes opções contam com suporte:
 
-   - Ocorrências: Indica o número total de solicitações que são direcionadas para um CNAME de borda em que a funcionalidade de relatório personalizada está habilitada. Essa métrica não inclui o código de status retornado ao cliente.
+   - Ocorrências: indica o número total de solicitações direcionadas para um CNAME de borda em que a funcionalidade de geração de relatório personalizado está habilitada. Essa métrica não inclui o código de status retornado ao cliente.
 
-   - Dados transferidos: Indica a quantidade total de dados transferidos dos servidores de borda para os clientes HTTP (por exemplo, navegadores da web) para solicitações que são direcionadas para um CNAME de borda em que a funcionalidade de relatório personalizada está habilitada. A quantidade de dados transferidos é calculada adicionando cabeçalhos de resposta HTTP ao corpo da resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior que o tamanho do arquivo real.
+   - Dados transferidos: indica a quantidade total de dados transferidos dos servidores de borda para os clientes HTTP (por exemplo, navegadores da Web) para solicitações direcionadas a um CNAME de borda no qual a funcionalidade de geração de relatório personalizado está habilitada. A quantidade de dados transferidos é calculada adicionando cabeçalhos de resposta HTTP ao corpo da resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior que o tamanho do arquivo real.
 
-- Agrupamentos: Determina o tipo de estatísticas que são mostrados abaixo do gráfico de barras. Há suporte para as seguintes opções:
+- Agrupamentos: determina o tipo das estatísticas que são mostradas abaixo do gráfico de barras. Há suporte para as seguintes opções:
 
-   - Códigos de resposta HTTP: Organiza as estatísticas por código de resposta HTTP (por exemplo, 200, 403, etc.) retornado ao cliente. 
+   - Códigos de resposta HTTP: organiza as estatísticas por código de resposta HTTP (por exemplo, 200, 403, etc.) retornado ao cliente. 
 
-   - Status do cache: Organiza as estatísticas por status de cache.
+   - Status do cache: organiza as estatísticas por status de cache.
 
 
 Para definir o intervalo de datas do relatório, é possível selecionar um intervalo de datas predefinido na lista suspensa, como **Hoje** ou **Esta semana**, ou selecionar **Personalizado** e inserir manualmente um intervalo de datas clicando nos ícones de calendário. 
@@ -68,7 +68,7 @@ Você pode exportar os dados em formato Excel clicando no símbolo do Excel à d
 
 ## <a name="edge-cnames-custom-report-fields"></a>Campos de relatório personalizado de CNAMEs de borda
 
-| Campo                     | DESCRIÇÃO   |
+| Campo                     | Descrição   |
 |---------------------------|---------------|
 | 2xx                       | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status HTTP do tipo 2xx (por exemplo, 200 OK). |
 | 3xx                       | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status HTTP do tipo 3xx (por exemplo, 302 Encontrado ou 304 Não modificado). |
@@ -77,7 +77,7 @@ Você pode exportar os dados em formato Excel clicando no símbolo do Excel à d
 | Porcentagem de ocorrências no cache               | Indica a porcentagem de solicitações armazenáveis em cache que foram fornecidas diretamente do cache para o solicitante. |
 | Acertos do Cache                | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em uma ocorrência no cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Uma ocorrência no cache acontece quando é encontrada uma versão em cache do conteúdo solicitado. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) de servidores de borda para clientes HTTP (navegadores da Web) do CNAME de borda. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP ao corpo da resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior que o tamanho do arquivo real. |
-| DESCRIÇÃO               | Identifica um CNAME de borda pelo seu nome de host |
+| Descrição               | Identifica um CNAME de borda pelo seu nome de host |
 | Acertos                      | Indica o número total de solicitações para o CNAME de borda |
 | Perdas                    | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em uma perda no cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma perda no cache ocorre quando o conteúdo solicitado não foi armazenado em cache no servidor de borda que cumpriu a solicitação. | 
 | Sem cache                  | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status do cache do tipo CONFIG_NOCACHE.  |

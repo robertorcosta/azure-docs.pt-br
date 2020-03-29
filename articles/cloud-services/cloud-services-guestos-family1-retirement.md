@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359589"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
@@ -32,7 +32,7 @@ Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se apl
 2. Você não tem um valor para osFamily especificado explicitamente no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. Atualmente, o sistema usa o valor padrão de "1" nesse caso.
 3. O Portal do Azure lista o valor da família do Sistema Operacional Convidado como "Windows Server 2008".
 
-Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) primeiro. Para obter mais informações sobre o script, [consulte fim da vida útil da família 1 do SO convidado do Azure: Junho de](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)2014.
+Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) primeiro. Para saber mais sobre o script, consulte [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60616478"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
@@ -33,7 +33,7 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
 3. De __configurações de Diagnóstico__, insira um __Nome__ para essa configuração de registro em log e opções de log, em seguida, selecione.
 
-    ![Ativar o diagnóstico para coletar logs de auditoria e de solicitações](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Habilitar os logs de diagnóstico")
+    ![Ativar o diagnóstico para coletar logs de auditoria e de solicitações](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Habilitar logs de diagnóstico")
 
    * Você pode optar por armazenar/processar os dados de três maneiras diferentes.
 
@@ -41,7 +41,7 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
      * Selecione **Transmitir para um Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Use essa opção se tiver um pipeline de processamento downstream que esteja analisando logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-     * Selecione __enviar para Log Analytics__ para enviar os dados para o serviço do Azure Monitor. Use esta opção se você quiser usar os logs do Azure Monitor para coletar e analisar logs.
+     * Selecione __Enviar para o Log Analytics__ para enviar os dados para o serviço Azure Monitor. Use esta opção se quiser usar os registros do Monitor Do Azure para coletar e analisar logs.
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.  Um log de solicitação captura todas as solicitações da API. Um log de auditoria registra todas as operações disparadas pela solicitação de API.
 
    * Para __Arquivar para uma conta de armazenamento__, especifique o número de dias a reter os dados.
@@ -125,28 +125,28 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| NOME | Type | DESCRIÇÃO |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
-| ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
-| category |Cadeia de caracteres |A categoria do log. Por exemplo, **Solicitações**. |
-| operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, GetAggregatedJobHistory. |
-| resultType |Cadeia de caracteres |O status da operação, por exemplo, 200. |
-| callerIpAddress |Cadeia de caracteres |O endereço IP do cliente que está fazendo a solicitação |
-| correlationId |Cadeia de caracteres |O identificador do log. Esse valor pode ser usado para agrupar um conjunto de entradas de log relacionadas. |
+| time |String |O carimbo de data/hora (em UTC) do log |
+| resourceId |String |O identificador do recurso em que a operação ocorreu |
+| category |String |A categoria do log. Por exemplo, **Solicitações**. |
+| operationName |String |Nome da operação que está registrada. Por exemplo, GetAggregatedJobHistory. |
+| resultType |String |O status da operação, por exemplo, 200. |
+| callerIpAddress |String |O endereço IP do cliente que está fazendo a solicitação |
+| correlationId |String |O identificador do log. Esse valor pode ser usado para agrupar um conjunto de entradas de log relacionadas. |
 | identidade |Objeto |A identidade que gerou o log |
-| propriedades |JSON |Veja a próxima seção (Esquema de propriedades do log de solicitação) para obter detalhes |
+| properties |JSON |Veja a próxima seção (Esquema de propriedades do log de solicitação) para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| NOME | Type | DESCRIÇÃO |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
-| Caminho |Cadeia de caracteres |O caminho em que a operação foi executada |
-| RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
-| ClientRequestId |Cadeia de caracteres |O identificador que identifica essa solicitação com exclusividade |
-| StartTime |Cadeia de caracteres |A hora em que o servidor recebeu a solicitação |
-| EndTime |Cadeia de caracteres |A hora em que o servidor enviou uma resposta |
+| HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
+| Caminho |String |O caminho em que a operação foi executada |
+| RequestContentLength |INT |O comprimento do conteúdo da solicitação HTTP |
+| ClientRequestId |String |O identificador que identifica essa solicitação com exclusividade |
+| StartTime |String |A hora em que o servidor recebeu a solicitação |
+| EndTime |String |A hora em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Logs de auditoria
 
@@ -177,16 +177,16 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| NOME | Type | DESCRIÇÃO |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
-| ResourceId |Cadeia de caracteres |O identificador do recurso em que a operação ocorreu |
-| category |Cadeia de caracteres |A categoria do log. Por exemplo, **Auditoria**. |
-| operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, JobSubmitted. |
-| resultType |Cadeia de caracteres |Um substatus para o status do trabalho (operationName). |
-| resultSignature |Cadeia de caracteres |Detalhes adicionais sobre o status do trabalho (operationName). |
-| identidade |Cadeia de caracteres |O usuário que solicitou a operação. Por exemplo: susan@contoso.com. |
-| propriedades |JSON |Veja a próxima seção (Esquema de propriedades do log de auditoria) para obter detalhes |
+| time |String |O carimbo de data/hora (em UTC) do log |
+| resourceId |String |O identificador do recurso em que a operação ocorreu |
+| category |String |A categoria do log. Por exemplo, **Auditoria**. |
+| operationName |String |Nome da operação que está registrada. Por exemplo, JobSubmitted. |
+| resultType |String |Um substatus para o status do trabalho (operationName). |
+| resultSignature |String |Detalhes adicionais sobre o status do trabalho (operationName). |
+| identidade |String |O usuário que solicitou a operação. Por exemplo, susan@contoso.com. |
+| properties |JSON |Veja a próxima seção (Esquema de propriedades do log de auditoria) para obter detalhes |
 
 > [!NOTE]
 > **resultType** e **resultSignature** fornecem informações sobre o resultado de uma operação e conter apenas um valor caso uma operação tenha sido concluída. Por exemplo, eles contêm um valor somente quando **operationName** contém um valor **JobStarted** ou **JobEnded**.
@@ -195,22 +195,22 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Name | Type | DESCRIÇÃO |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| JobId |Cadeia de caracteres |A ID atribuída ao trabalho |
-| JobName |Cadeia de caracteres |O nome fornecido para o trabalho |
-| JobRunTime |Cadeia de caracteres |O tempo de execução usado para processar o trabalho |
-| SubmitTime |Cadeia de caracteres |A hora (em UTC) em que o trabalho foi enviado |
-| StartTime |Cadeia de caracteres |A hora em que o trabalho começou a ser executado após o envio (em UTC) |
-| EndTime |Cadeia de caracteres |A hora em que o trabalho foi concluído |
-| Paralelismo |Cadeia de caracteres |O número de unidades do Data Lake Analytics solicitadas para esse trabalho durante o envio |
+| JobId |String |A ID atribuída ao trabalho |
+| JobName |String |O nome fornecido para o trabalho |
+| JobRunTime |String |O runtime usado para processar o trabalho |
+| SubmitTime |String |A hora (em UTC) em que o trabalho foi enviado |
+| StartTime |String |A hora em que o trabalho começou a ser executado após o envio (em UTC) |
+| EndTime |String |A hora em que o trabalho foi concluído |
+| Paralelismo |String |O número de unidades do Data Lake Analytics solicitadas para esse trabalho durante o envio |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** fornecem informações sobre uma operação. Essas entradas contêm um valor apenas se operação tiver sido iniciada ou concluída. Por exemplo, **SubmitTime** somente contém um valor após **operationName** ter o valor **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Processar os dados de log
 
-O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar a política de exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)a amostra em .
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)

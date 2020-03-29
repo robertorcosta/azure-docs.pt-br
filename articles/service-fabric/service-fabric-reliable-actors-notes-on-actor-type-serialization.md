@@ -1,19 +1,19 @@
 ---
-title: Reliable Actors observações sobre a serialização do tipo de ator
+title: Atores confiáveis notas sobre serialização tipo ator
 description: Discute os requisitos básicos para definir as classes serializáveis que podem ser usadas para estabelecer as interfaces e o estado dos Reliable Actors do Service Fabric
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 876c4f5f45ff6c81a53274cf32e8bebecc1acfce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75349299"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Observações sobre a serialização de tipo dos Reliable Actors do Service Fabric
-Os argumentos de todos os métodos, os tipos de resultado das tarefas retornados por cada método em uma interface de ator e os objetos armazenados no gerenciador de estado de um ator devem ser [serializáveis por contrato de dados](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Isso também se aplica aos argumentos dos métodos definidos nas [interfaces de evento de ator](service-fabric-reliable-actors-events.md). (Os métodos de interface de eventos de ator sempre retornam nulo).
+Os argumentos de todos os métodos, os tipos de resultados das tarefas retornadas por cada método em uma interface de ator e objetos armazenados no gestor de estado de um ator devem ser [um contrato de dados serializável](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Isso também se aplica aos argumentos dos métodos definidos nas [interfaces de evento de ator](service-fabric-reliable-actors-events.md). (Os métodos de interface de eventos de ator sempre retornam nulo).
 
 ## <a name="custom-data-types"></a>Tipos de dados personalizados
 Neste exemplo, a interface de ator a seguir define um método que retorna um tipo de dados personalizado chamado `VoicemailBox`:
@@ -73,7 +73,7 @@ Neste exemplo, o objeto `VoicemailBox` é serializado quando:
 * O objeto é transmitido entre uma instância do ator e um chamador.
 * O objeto é salvo no gerenciador de estado, local em que é mantido no disco e replicado para outros nós.
 
-A estrutura Reliable Actor usa a serialização DataContract. Portanto, os objetos de dados personalizados e seus membros devem ser anotados com os atributos **DataContract** e **DataMember**, respectivamente.
+A estrutura Reliable Actor usa a serialização DataContract. Portanto, os objetos de dados personalizados e seus membros devem ser anotados com os atributos **DataContract** e **DataMember,** respectivamente.
 
 ```csharp
 [DataContract]
@@ -136,10 +136,10 @@ public class VoicemailBox implements Serializable
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
+* [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)
 * [Polimorfismo de ator e padrões de design orientado a objeto](service-fabric-reliable-actors-polymorphism.md)
 * [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)

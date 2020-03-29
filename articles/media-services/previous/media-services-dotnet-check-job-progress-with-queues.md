@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64868097"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia com .NET 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando você executa trabalhos de codificação, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode configurar os serviços de mídia para entregar notificações para [Armazenamento de Filas do Azure](../../storage/storage-dotnet-how-to-use-queues.md). Você pode monitorar o andamento do trabalho obtendo notificações do Armazenamento de Filas. 
 
@@ -61,13 +61,13 @@ O exemplo de código nesta seção faz o seguinte:
 > [!NOTE]
 > A maneira recomendada de monitorar o estado de um trabalho é ouvir mensagens de notificação, conforme mostrado no exemplo a seguir:
 >
-> Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State** .  Uma mensagem de notificação sobre a conclusão de um trabalho poderá chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **IJob.State** reflete o estado preciso com um pequeno atraso.
+> Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State** .  Uma mensagem de notificação sobre a conclusão de um trabalho poderá chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **iJob.State** reflete o estado preciso com um pequeno atraso.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+1. Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
 2. Crie uma nova pasta (a pasta pode estar em qualquer lugar na unidade local) e copie um arquivo .mp4 que você deseja codificar e transmitir ou fazer o download progressivamente. Neste exemplo, o caminho "C:\Media" é usado.
 3. Adicione uma referência para a biblioteca **System.Runtime.Serialization**.
 
@@ -342,7 +342,7 @@ namespace JobNotification
 }
 ```
 
-O exemplo anterior produziu a saída a seguir: Os valores variarão.
+O exemplo anterior produziu a saída a seguir: Os seus valores variarão.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4
@@ -371,7 +371,7 @@ O exemplo anterior produziu a saída a seguir: Os valores variarão.
 
 
 ## <a name="next-step"></a>Próxima etapa
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

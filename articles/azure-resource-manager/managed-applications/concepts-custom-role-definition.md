@@ -1,32 +1,32 @@
 ---
 title: Visão geral das definições de função personalizadas
-description: Descreve o conceito de criação de definições de função personalizadas para aplicativos gerenciados.
+description: Descreve o conceito de criar definições de função personalizadas para aplicativos gerenciados.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75650754"
 ---
-# <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefato de definição de função personalizada em aplicativos gerenciados do Azure
+# <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefato de definição de função personalizado em aplicativos gerenciados do Azure
 
 A definição de função personalizada é um artefato opcional em aplicativos gerenciados. Ele é usado para determinar quais permissões o aplicativo gerenciado precisa para executar suas funções.
 
-Este artigo fornece uma visão geral do artefato de definição de função personalizada e seus recursos.
+Este artigo fornece uma visão geral do artefato de definição de função personalizado e suas capacidades.
 
-## <a name="custom-role-definition-artifact"></a>Artefato de definição de função personalizada
+## <a name="custom-role-definition-artifact"></a>Artefato de definição de função personalizado
 
-Você precisa nomear o artefato de definição de função personalizada customRoleDefinition. JSON. Coloque-o no mesmo nível que createUiDefinition. JSON e MainTemplate. JSON no pacote. zip que cria uma definição de aplicativo gerenciado. Para saber como criar o pacote. zip e publicar uma definição de aplicativo gerenciado, consulte [publicar uma definição de aplicativo gerenciado.](publish-managed-app-definition-quickstart.md)
+Você precisa nomear o artefato de definição de função personalizado costumeRoleDefinition.json. Coloque-o no mesmo nível que createUiDefinition.json e mainTemplate.json no pacote .zip que cria uma definição de aplicativo gerenciada. Para saber como criar o pacote .zip e publicar uma definição de aplicativo gerenciada, consulte [Publicar uma definição de aplicativo gerenciada.](publish-managed-app-definition-quickstart.md)
 
-## <a name="custom-role-definition-schema"></a>Esquema de definição de função personalizada
+## <a name="custom-role-definition-schema"></a>Esquema de definição de função personalizado
 
-O arquivo customRoleDefinition. JSON tem uma propriedade de `roles` de nível superior que é uma matriz de funções. Essas funções são as permissões que o aplicativo gerenciado precisa para funcionar. Atualmente, somente funções internas são permitidas, mas você pode especificar várias funções. Uma função pode ser referenciada pela ID da definição de função ou pelo nome da função.
+O arquivo customRoleDefinition.json tem `roles` uma propriedade de alto nível que é uma matriz de funções. Essas funções são as permissões que o aplicativo gerenciado precisa para funcionar. Atualmente, apenas funções incorporadas são permitidas, mas você pode especificar várias funções. Uma função pode ser referenciada pelo ID da definição da função ou pelo nome da função.
 
-Exemplo de JSON para definição de função personalizada:
+Amostra json para definição de função personalizada:
 
 ```json
 {
@@ -49,7 +49,7 @@ Exemplo de JSON para definição de função personalizada:
 
 ## <a name="roles"></a>Funções
 
-Uma função é composta por um `$.properties.roleName` ou um `id`:
+Um papel é composto `$.properties.roleName` de `id`um ou um:
 
 ```json
 {
@@ -61,9 +61,9 @@ Uma função é composta por um `$.properties.roleName` ou um `id`:
 ```
 
 > [!NOTE]
-> Você pode usar o campo `id` ou `roleName`. Apenas uma é necessária. Esses campos são usados para pesquisar a definição de função que deve ser aplicada. Se ambos forem fornecidos, o campo `id` será usado.
+> Você pode usar `id` `roleName` o campo ou o campo. Apenas um é necessário. Esses campos são usados para procurar a definição de função que deve ser aplicada. Se ambos forem `id` fornecidos, o campo será utilizado.
 
-|Propriedade|Obrigatório?|Description|
+|Propriedade|Obrigatório?|Descrição|
 |---------|---------|---------|
-|id|Sim|A ID da função interna. Você pode usar a ID completa ou apenas o GUID.|
-|roleName|Sim|O nome da função interna.|
+|id|Sim|A id do papel embutido. Você pode usar o ID completo ou apenas o GUID.|
+|Rolename|Sim|O nome do papel embutido.|

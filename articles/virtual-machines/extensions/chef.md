@@ -1,5 +1,5 @@
 ---
-title: Extensão do chefe para VMs do Azure
+title: Extensão do Chef para VMs azure
 description: Implante o cliente do Chef em uma máquina virtual usando a extensão para VM do Chef.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76544711"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão para VM do Chef para Linux e Windows
@@ -70,8 +70,8 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 | Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publicador | `Chef.Bootstrap.WindowsAzure` | cadeia de caracteres |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | cadeia de caracteres |
+| publicador | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.13` | string (double) |
 
 ### <a name="settings"></a>Configurações
@@ -79,14 +79,14 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 | Nome | Valor/Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | cadeia de caracteres | S |
-| settings/runlist | `recipe[mycookbook::default]` | cadeia de caracteres | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| settings/runlist | `recipe[mycookbook::default]` | string | S |
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
 | Nome | Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | cadeia de caracteres | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings
@@ -104,9 +104,9 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos podem ser usados para implantar uma ou mais máquinas virtuais, instalar o cliente do Chef, conectar-se ao servidor do Chef e executar a configuração inicial no servidor, conforme definido pela [lista de execução](https://docs.chef.io/run_lists.html)
 
-Um modelo do Resource Manager de exemplo que inclui a extensão de VM chefe pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Um modelo de gerenciador de recursos de exemplo que inclui a Extensão Chef VM pode ser encontrado na [galeria Quickstart do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-template-child-resource.md).
+A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir nome e digite para recursos de crianças](../../azure-resource-manager/resource-manager-template-child-resource.md).
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
@@ -153,8 +153,8 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 Informações adicionais sobre solução de problemas podem ser encontradas no [Leiame da extensão para VM do Chef](https://github.com/chef-partners/azure-chef-extension).
 
 > [!NOTE]
-> Para qualquer outra coisa diretamente relacionada ao chefe, entre em contato com o [suporte do chefe](https://www.chef.io/support/).
+> Para qualquer outra coisa diretamente relacionada ao Chef, entre em contato com [o Chef Support](https://www.chef.io/support/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer ponto deste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

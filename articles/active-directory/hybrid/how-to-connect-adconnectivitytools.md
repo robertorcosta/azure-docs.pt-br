@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: O que é o módulo do PowerShell ADConnectivityTool | Microsoft Docs'
-description: Este documento apresenta o novo módulo do ADConnectivity PowerShell e como ele pode ser usado para ajudar a solucionar problemas.
+description: Este documento introduz o novo módulo PowerShell de ADConectividade e como ele pode ser usado para ajudar a solucionar problemas.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,20 +12,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64571120"
 ---
-# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Solucionar problemas de conectividade do Azure AD com o módulo do ADConnectivityTool PowerShell
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Solucionando problemas de conectividade Azure AD com o módulo PowerShell do ADConnectivityTool
 
 A ferramenta ADConnectivity é um módulo do PowerShell que é usado em um dos seguintes:
 
-- Durante a instalação quando um problema de conectividade de rede impede que a validação bem-sucedida do Active Directory credenciais de usuário fornecido no assistente.
+- Durante a instalação, quando um problema de conectividade de rede impede a validação bem-sucedida das credenciais do Active Directory fornecidas pelo usuário no Assistente.
 - Pós-instalação por um usuário que chama as funções de uma sessão do PowerShell.
 
-A ferramenta está localizada em: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
+A ferramenta está localizada em: **C: \ Arquivos de Programas \ Microsoft Active Directory do Azure Conecte \ Tools \ ADConnectivityTool.psm1** 
 
 ## <a name="adconnectivitytool-during-installation"></a>ADConnectivityTool durante a instalação
 
@@ -47,7 +47,7 @@ Por exemplo, quando estamos tentando adicionar um diretório na tela **Conecte s
 
 O que realmente está acontecendo nos bastidores é que o Azure AD Connect está chamando a função `Start-NetworkConnectivityDiagnosisTools`.  Essa função é chamada quando a validação de credenciais falha devido a um problema de conectividade de rede.
 
-Finalmente, um arquivo de log detalhado é gerado sempre que a ferramenta é chamada do assistente. O log está localizado em **C:\ProgramData\AADConnect\ADConnectivityTool-\<date >-\<tempo >. log**
+Finalmente, um arquivo de log detalhado é gerado sempre que a ferramenta é chamada do assistente. O log está localizado em **C:\ProgramData\AADConnect\ADConnectivityTool-\<data>-\<hora>.log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools pós instalação
 Depois que o Azure AD Connect tiver sido instalado, qualquer uma das funções no módulo ADConnectivityTools PowerShell poderá ser usada.  
@@ -74,8 +74,8 @@ Se o usuário executar essa função depois que um problema for resolvido (ou se
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Azure AD Connect: Contas e permissões](reference-connect-accounts-permissions.md)
+- [Azure AD Connect: contas e permissões](reference-connect-accounts-permissions.md)
 - Instalação expressa[Instalação expressa](how-to-connect-install-express.md)
 - [Personalização Instalada](how-to-connect-install-custom.md)
-- [Referência de ADConnectivityTools](reference-connect-adconnectivitytools.md)
+- [Referência do ADConnectivityTools](reference-connect-adconnectivitytools.md)
 

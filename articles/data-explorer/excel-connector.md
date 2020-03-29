@@ -1,6 +1,6 @@
 ---
-title: Visualizar dados usando o conector de Data Explorer do Azure para o Microsoft Excel
-description: Neste artigo, você aprenderá a usar o conector do Excel para o Azure Data Explorer.
+title: Visualize dados usando o conector Azure Data Explorer para Microsoft Excel
+description: Neste artigo, você aprende a usar o conector Excel para o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
@@ -8,73 +8,73 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849047"
 ---
-# <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualizar dados usando o conector do Data Explorer do Azure para Excel
+# <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualize dados usando o conector Azure Data Explorer para Excel
 
-O Azure Data Explorer fornece duas opções para se conectar a dados no Excel: Use o conector nativo ou importe uma consulta do Data Explorer do Azure. Este artigo mostra como usar o conector nativo no Excel e conectar-se ao cluster de Data Explorer do Azure para obter e Visualizar dados.
+O Azure Data Explorer oferece duas opções para se conectar a dados no Excel: usar o conector nativo ou importar uma consulta do Azure Data Explorer. Este artigo mostra como usar o conector nativo no Excel e conectar-se ao cluster Azure Data Explorer para obter e visualizar dados.
 
-O conector nativo do Azure Data Explorer Excel oferece a capacidade de exportar os resultados da consulta para o Excel. Você também pode adicionar uma consulta KQL como uma fonte de dados do Excel para cálculos ou visualizações adicionais.
+O conector nativo do Azure Data Explorer Excel oferece a capacidade de exportar resultados de consulta para o Excel. Você também pode adicionar uma consulta KQL como uma fonte de dados do Excel para cálculos adicionais ou visualizações.
 
-## <a name="define-kusto-query-as-an-excel-data-source-and-load-the-data-to-excel"></a>Definir a consulta Kusto como uma fonte de dados do Excel e carregar os dados para o Excel
+## <a name="define-kusto-query-as-an-excel-data-source-and-load-the-data-to-excel"></a>Defina a consulta kusto como uma fonte de dados do Excel e carregue os dados para o Excel
 
-1. Abra o **Microsoft Excel**.
-1. Na guia **dados** , selecione **obter dados** > **do Azure** > **do Azure data Explorer**.
+1. Abra **o Microsoft Excel**.
+1. Na guia **Dados,** **selecione Obter dados** > **do Azure** > **do Azure Data Explorer**.
 
     ![Obter dados do Azure Data Explorer](media/excel-connector/get-data-from-adx.png)
 
-1. Na janela **Data Explorer do Azure (Kusto)** , preencha os campos a seguir e selecione **OK**.
+1. Na janela **Azure Data Explorer (Kusto),** complete os seguintes campos e selecione **OK**.
 
-    ![Janela do Data Explorer do Azure (Kusto)](media/excel-connector/adx-connection-window.png)
+    ![Janela do Azure Data Explorer (Kusto)](media/excel-connector/adx-connection-window.png)
     
     |Campo   |Descrição |
     |---------|---------|
     |**Cluster**   |   Nome do cluster (obrigatório)      |    
-    |**Banco de dados**     |    Nome do banco de dados      |    
-    |**Nome da tabela ou consulta do Azure Data Explorer**    |     Nome da tabela ou consulta de Data Explorer do Azure    | 
+    |**Database**     |    Nome do banco de dados      |    
+    |**Nome da tabela ou consulta do Azure Data Explorer**    |     Nome da tabela ou consulta do Azure Data Explorer    | 
     
     **Opções avançadas:**
 
      |Campo   |Descrição |
     |---------|---------|
-    |**Limitar o número de registros do resultado da consulta**     |     Limitar o número de registros carregados no Excel  |    
-    |**Limitar o tamanho dos dados de resultado da consulta (bytes)**    |    Limitar o tamanho dos dados      |   
-    |**Desabilitar truncamento do conjunto de resultados**    |         |      
-    |**Instruções SET adicionais (separadas por ponto e vírgula)**    |    Adicionar `set` instruções a serem aplicadas à fonte de dados     |   
+    |**Número de registro de resultado de consulta de limite**     |     Limitar o número de registros carregados no excel  |    
+    |**Limitar o tamanho dos dados do resultado da consulta (bytes)**    |    Limitar o tamanho dos dados      |   
+    |**Desativar a truncação definida por resultados**    |         |      
+    |**Instruções adicionais de conjunto (separadas por ponto e vírgula)**    |    Adicionar `set` instruções para aplicar à fonte de dados     |   
 
-1.  No painel **navegador** , navegue até a tabela correta. No painel visualização de tabela, selecione **transformar dados** para fazer alterações em seus dados ou selecione **carregar** para carregá-los no Excel.
+1.  No painel **Navegador,** navegue até a tabela correta. No painel de visualização da tabela, selecione **Transformar dados** para fazer alterações em seus dados ou selecione **Carregar** para carregá-los no Excel.
 
-![Janela de visualização de tabela](media/excel-connector/navigate-table-preview-window.png)
+![Janela de visualização da tabela](media/excel-connector/navigate-table-preview-window.png)
 
    > [!TIP]
-   > Se o **banco de dados** e/ou o nome da **tabela ou a consulta do Azure data Explorer** já estiverem especificados, o painel de visualização de tabela correto será aberto automaticamente. 
+   > Se o nome **do banco de dados** e/ou a consulta do **Azure Data Explorer** já estiverem especificados, o painel de visualização da tabela correta será aberto automaticamente. 
 
-## <a name="analyze-and-visualize-data-in-excel"></a>Analisar e Visualizar dados no Excel
+## <a name="analyze-and-visualize-data-in-excel"></a>Analisar e visualizar dados no Excel
 
-Depois que os dados forem carregados no Excel e estiverem disponíveis na planilha do Excel, você poderá analisar, resumir e visualizar os dados criando relações e visuais. 
+Uma vez que os dados são carregados para se destacar e estão disponíveis em sua folha de Excel, você pode analisar, resumir e visualizar os dados criando relacionamentos e visuais. 
 
-1.  Na guia **design da tabela** , selecione **resumir com tabela dinâmica**. Na janela **criar tabela dinâmica** , selecione a tabela relevante e selecione **OK**.
+1.  Na guia Design de **tabela,** **selecione Resumir com Tabela Dinâmica**. Na **janela Criar tabela dinâmica,** selecione a tabela relevante e selecione **OK**.
 
-    ![Criar tabela dinâmica](media/excel-connector/create-pivot-table.png)
+    ![Criar tabela pivô](media/excel-connector/create-pivot-table.png)
 
-1. No painel **campos de tabela dinâmica** , selecione as colunas de tabela relevantes para criar tabelas de resumo. No exemplo abaixo, **EventID** e **estado** são selecionados.
+1. No painel **Campos de Tabela Dinâmica,** selecione as colunas de tabela relevantes para criar tabelas de resumo. No exemplo abaixo, **EventId** e **State** são selecionados.
     
-    ![Selecionar campos de tabela dinâmica](media/excel-connector/pivot-table-pick-fields.png)
+    ![Selecione campos de tabela dinâmica](media/excel-connector/pivot-table-pick-fields.png)
 
-1. Na guia **analisar da tabela dinâmica** , selecione **gráfico dinâmico** para criar visuais com base na tabela. 
+1. Na guia **'Análise de tabela dinâmica',** selecione **Gráfico dinâmica** para criar visuais com base na tabela. 
 
-    ![Gráfico dinâmico](media/excel-connector/pivot-table-analyze-pivotchart.png)
+    ![Gráfico pivô](media/excel-connector/pivot-table-analyze-pivotchart.png)
 
-1. No exemplo a seguir, use **ID de evento**, **StartTime**e **EventType** para exibir informações adicionais sobre os eventos meteorológicos.
+1. No exemplo abaixo, use **Event Id,** **StartTime**e **EventType** para visualizar informações adicionais sobre os eventos climáticos.
 
     ![Visualizar dados](media/excel-connector/visualize-excel-data.png)
 
 1. Crie painéis completos para monitorar seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Visualizar dados usando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel](excel-blank-query.md)
+[Visualize dados usando uma consulta do Azure Data Explorer Kusto importada para o Microsoft Excel](excel-blank-query.md)

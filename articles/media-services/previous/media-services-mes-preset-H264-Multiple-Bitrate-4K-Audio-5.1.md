@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2466edb3d14ebbe9296fad087fce432b83005437
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463677"
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Taxas de Bits Múltiplas 4K Audio 5.1
@@ -32,7 +32,7 @@ ms.locfileid: "61463677"
 >  Você deve obter a unidade reservada Premium com condificações 4K. Para saber mais, confira [Como dimensionar a codificação](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
->  Ao modificar os valores de `Width` e `Height` em camadas, certifique-se de que a taxa de proporção permaneça consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Não convém usar uma combinação de taxas de proporção, como: 1280 x 720, 720 x 480, 640 x 360.  
+>  Ao modificar os valores de `Width` e `Height` em camadas, certifique-se de que a taxa de proporção permaneça consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Você não deve usar uma combinação de taxas de proporção, como: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

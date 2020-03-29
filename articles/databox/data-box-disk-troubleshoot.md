@@ -9,25 +9,25 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67805718"
 ---
-# <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Usar logs para solucionar problemas de validação no disco do Azure Data Box
+# <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Use logs para solucionar problemas de validação no Disco de caixa de dados do Azure
 
-Este artigo se aplica ao disco do Microsoft Azure Data Box. O artigo descreve como usar os logs para solucionar os problemas de validação, que você pode ver quando você implanta essa solução.
+Este artigo se aplica ao Microsoft Azure Data Box Disk. O artigo descreve como usar os logs para solucionar problemas de validação que você pode ver ao implantar essa solução.
 
-## <a name="validation-tool-log-files"></a>Arquivos de log da ferramenta de validação
+## <a name="validation-tool-log-files"></a>Arquivos de registro de ferramentas de validação
 
-Quando você validar os dados nos discos usando o [ferramenta de validação](data-box-disk-deploy-copy-data.md#validate-data), um *error.xml* é gerado para registrar erros. O arquivo de log está localizado no `Drive:\DataBoxDiskImport\logs` pasta da unidade. Um link para o log de erros é fornecido quando você executar a validação.
+Quando você valida os dados nos discos usando a [ferramenta de validação,](data-box-disk-deploy-copy-data.md#validate-data)um *erro.xml* é gerado para registrar quaisquer erros. O arquivo de registro `Drive:\DataBoxDiskImport\logs` está localizado na pasta da unidade. Um link para o registro de erro é fornecido quando você executa a validação.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
-Se você executar várias sessões para validação, um log de erro é gerado por sessão.
+Se você executar várias sessões para validação, então um registro de erro será gerado por sessão.
 
-- Aqui está um exemplo de log de erros quando os dados carregados no `PageBlob` pasta não é de 512 bytes alinhados. Todos os dados carregados para PageBlob devem ser de 512 bytes alinhados, por exemplo, um VHD ou VHDX. Os erros nesse arquivo estão na `<Errors>` e avisos no `<Warnings>`.
+- Aqui está uma amostra do registro de erro `PageBlob` quando os dados carregados na pasta não estão alinhados com 512 bytes. Qualquer dado carregado no PageBlob deve estar alinhado com 512 bytes, por exemplo, um VHD ou VHDX. Os erros neste arquivo `<Errors>` estão no `<Warnings>`e avisos em .
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@ Se você executar várias sessões para validação, um log de erro é gerado po
         </ErrorLog>
     ```
 
-- Aqui está um exemplo de log de erros quando o nome do contêiner não é válido. A pasta que você cria em `BlockBlob`, `PageBlob`, ou `AzureFile` pastas no disco se torna um contêiner em sua conta de armazenamento do Azure. O nome do contêiner deve seguir a [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+- Aqui está uma amostra do registro de erro quando o nome do contêiner não é válido. A pasta em `BlockBlob`que `PageBlob`você `AzureFile` cria em , ou pastas no disco torna-se um contêiner em sua conta de armazenamento Azure. O nome do contêiner deve seguir as [convenções de nomeação do Azure.](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)
 
     ```xml
         <?xml version="1.0" encoding="utf-8"?>
@@ -69,31 +69,31 @@ Se você executar várias sessões para validação, um log de erro é gerado po
     </ErrorLog>
     ```
 
-## <a name="validation-tool-errors"></a>Erros de validação de ferramenta
+## <a name="validation-tool-errors"></a>Erros de ferramenta de validação
 
-Os erros contidos na *error.xml* com as ações recomendadas correspondentes são resumidos na tabela a seguir.
+Os erros contidos no *error.xml* com as ações recomendadas correspondentes são resumidos na tabela a seguir.
 
-| Código do erro| DESCRIÇÃO                       | Ações recomendadas               |
+| Código do erro| Descrição                       | Ações recomendadas               |
 |------------|--------------------------|-----------------------------------|
-| `None` | Validado com êxito os dados. | Nenhuma ação é necessária. |
-| `InvalidXmlCharsInPath` |Não foi possível criar um arquivo de manifesto, como o caminho do arquivo tem caracteres que não são válidos. | Remova esses caracteres para continuar.  |
-| `OpenFileForReadFailed`| Não foi possível processar o arquivo. Isso pode ser devido a uma corrupção de sistema de problema ou arquivo de acesso.|Não foi possível ler o arquivo devido a um erro. Os detalhes do erro estão na exceção. |
-| `Not512Aligned` | Esse arquivo não está em um formato válido para a pasta PageBlob.| Somente dados de carregamento que é de 512 bytes alinhado à `PageBlob` pasta. Remova o arquivo da pasta PageBlob ou movê-lo para a pasta BlockBlob. Repita a validação.|
-| `InvalidBlobPath` | Caminho do arquivo não é mapeado para um caminho de blob válido na nuvem de acordo com as convenções de nomenclatura de BLOBs do Azure.|Siga as diretrizes de nomenclatura do Azure para renomear o caminho do arquivo. |
-| `EnumerationError` | Não foi possível enumerar o arquivo para validação. |Pode haver vários motivos para esse erro. Um motivo mais provável é o acesso ao arquivo. |
-| `ShareSizeExceeded` | Esse arquivo causado o tamanho do compartilhamento de arquivos do Azure para exceder o limite do Azure de 5 TB.|Reduzir o tamanho dos dados no compartilhamento de forma que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
-| `AzureFileSizeExceeded` | Tamanho do arquivo excede os limites de tamanho de arquivos do Azure.| Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação.|
-| `BlockBlobSizeExceeded` | Tamanho do arquivo excede os limites de tamanho do Blob de blocos do Azure. | Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
-| `ManagedDiskSizeExceeded` | Tamanho do arquivo excede os limites de tamanho de disco gerenciado do Azure. | Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
-| `PageBlobSizeExceeded` | Tamanho do arquivo excede os limites de tamanho de disco gerenciado do Azure. | Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
-| `InvalidShareContainerFormat`  |Os nomes de diretório não está em conformidade com as convenções de nomenclatura do Azure para contêineres ou compartilhamentos.         |A primeira pasta criada sob as pastas já existentes no disco se torna um contêiner em sua conta de armazenamento. Esse nome de compartilhamento ou um contêiner não estiver de acordo com as convenções de nomenclatura do Azure. Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação.   |
-| `InvalidBlobNameFormat` | Caminho do arquivo não é mapeado para um caminho de blob válido na nuvem de acordo com as convenções de nomenclatura de BLOBs do Azure.|Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação. |
-| `InvalidFileNameFormat` | Caminho do arquivo não é mapeado para um caminho de arquivo válido na nuvem, de acordo com as convenções de nomenclatura de arquivo do Azure. |Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação. |
-| `InvalidDiskNameFormat` | Caminho do arquivo não é mapeado para um nome de disco válido na nuvem, de acordo com as convenções de nomenclatura de disco gerenciado do Azure. |Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação.       |
-| `NotPartOfFileShare` | O caminho de carregamento de arquivos não é válido. Carregue os arquivos para uma pasta de arquivos do Azure.   | Remova os arquivos no erro e carregar esses arquivos em uma pasta pré-criada. Repita a validação. |
-| `NonVhdFileNotSupportedForManagedDisk` | Um arquivo não VHD não pode ser carregado como um disco gerenciado. |Remover os arquivos não-VHD `ManagedDisk` pasta que elas não têm suporte ou mover esses arquivos para um `PageBlob` pasta. Repita a validação. |
+| `None` | Validou com sucesso os dados. | Nenhuma ação é necessária. |
+| `InvalidXmlCharsInPath` |Não foi possível criar um arquivo manifesto, pois o caminho do arquivo tem caracteres que não são válidos. | Remova esses caracteres para prosseguir.  |
+| `OpenFileForReadFailed`| Não foi possível processar o arquivo. Isso pode ser devido a um problema de acesso ou corrupção no sistema de arquivos.|Não foi possível ler o arquivo devido a um erro. Os detalhes do erro estão na exceção. |
+| `Not512Aligned` | Este arquivo não está em um formato válido para pasta PageBlob.| Apenas o upload de dados que são `PageBlob` 512 bytes alinhados à pasta. Remova o arquivo da pasta PageBlob ou mova-o para a pasta BlockBlob. Tente novamente a validação.|
+| `InvalidBlobPath` | O caminho do arquivo não mapeia um caminho blob válido na nuvem, de acordo com as convenções de nomeação do Azure Blob.|Siga as diretrizes de nomeação do Azure para renomear o caminho do arquivo. |
+| `EnumerationError` | Não foi possível enumerar o arquivo para validação. |Pode haver várias razões para este erro. Uma razão mais provável é o acesso ao arquivo. |
+| `ShareSizeExceeded` | Este arquivo fez com que o tamanho do compartilhamento de arquivos do Azure excedesse o limite do Azure de 5 TB.|Reduza o tamanho dos dados no compartilhamento para que ele esteja em conformidade com os [limites de tamanho do objeto Azure](data-box-disk-limits.md#azure-object-size-limits). Tente novamente a validação. |
+| `AzureFileSizeExceeded` | O tamanho do arquivo excede os limites de tamanho do Arquivo Azure.| Reduza o tamanho do arquivo ou dos dados para que ele esteja em conformidade com os [limites de tamanho do objeto Azure](data-box-disk-limits.md#azure-object-size-limits). Tente novamente a validação.|
+| `BlockBlobSizeExceeded` | O tamanho do arquivo excede os limites de tamanho do Azure Block Blob. | Reduza o tamanho do arquivo ou dos dados para que ele esteja em conformidade com os [limites de tamanho do objeto Azure](data-box-disk-limits.md#azure-object-size-limits). Tente novamente a validação. |
+| `ManagedDiskSizeExceeded` | O tamanho do arquivo excede os limites de tamanho do disco gerenciado do Azure. | Reduza o tamanho do arquivo ou dos dados para que ele esteja em conformidade com os [limites de tamanho do objeto Azure](data-box-disk-limits.md#azure-object-size-limits). Tente novamente a validação. |
+| `PageBlobSizeExceeded` | O tamanho do arquivo excede os limites de tamanho do disco gerenciado do Azure. | Reduza o tamanho do arquivo ou dos dados para que ele esteja em conformidade com os [limites de tamanho do objeto Azure](data-box-disk-limits.md#azure-object-size-limits). Tente novamente a validação. |
+| `InvalidShareContainerFormat`  |Os nomes dos diretórios não estão de acordo com as convenções de nomeação do Azure para contêineres ou ações.         |A primeira pasta criada as pastas pré-existentes no disco torna-se um contêiner em sua conta de armazenamento. Este nome de ação ou contêiner não está de acordo com as convenções de nomeação do Azure. Renomeie o arquivo para que ele esteja em conformidade com as [convenções de nomeação do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Tente novamente a validação.   |
+| `InvalidBlobNameFormat` | O caminho do arquivo não mapeia um caminho blob válido na nuvem, de acordo com as convenções de nomeação do Azure Blob.|Renomeie o arquivo para que ele esteja em conformidade com as [convenções de nomeação do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Tente novamente a validação. |
+| `InvalidFileNameFormat` | O caminho do arquivo não mapeia um caminho de arquivo válido na nuvem, de acordo com as convenções de nomeação do Arquivo Azure. |Renomeie o arquivo para que ele esteja em conformidade com as [convenções de nomeação do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Tente novamente a validação. |
+| `InvalidDiskNameFormat` | O caminho do arquivo não mapeia um nome de disco válido na nuvem, de acordo com as convenções de nomeação do Disco Gerenciado do Azure. |Renomeie o arquivo para que ele esteja em conformidade com as [convenções de nomeação do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Tente novamente a validação.       |
+| `NotPartOfFileShare` | O caminho de upload para arquivos não é válido. Faça upload dos arquivos para uma pasta no Azure Files.   | Remova os arquivos em erro e carregue esses arquivos para uma pasta pré-criada. Tente novamente a validação. |
+| `NonVhdFileNotSupportedForManagedDisk` | Um arquivo não-VHD não pode ser carregado como um disco gerenciado. |Remova os arquivos não-VHD da `ManagedDisk` pasta, pois estes `PageBlob` não são suportados ou mova esses arquivos para uma pasta. Tente novamente a validação. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Solucionar problemas [erros de upload de dados](data-box-disk-troubleshoot-upload.md).
+- Solucionar [problemas de upload de dados](data-box-disk-troubleshoot-upload.md).

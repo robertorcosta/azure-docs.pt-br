@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Twitter por meio de aplicativos lógicos do Azure
+title: Conecte-se ao Twitter a partir de aplicativos azure logic
 description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam tweets, além de obter dados sobre seguidores, usuários seguidos, outros usuários, linhas do tempo e mais em sua conta do Twitter usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 8ffd0fd558cf759fadd912de9dff4acf49d9659f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789079"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitore e gerencie o Twitter usando os Aplicativos Lógicos do Azure
@@ -21,11 +21,11 @@ Com os Aplicativos Lógicos do Azure e o conector do Twitter, é possível criar
 * Monitorar, postar e pesquisar tweets.
 * Obter dados como seguidores, usuários seguidos, linhas do tempo e muito mais.
 
-Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Twitter. Você também pode fazer com que outras ações usem a saída das ações do Twitter. Por exemplo, quando um novo tweet com uma hashtag específica aparecer, você poderá enviar mensagens com o conector do Slack. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Twitter. Você também pode fazer com que outras ações usem a saída das ações do Twitter. Por exemplo, quando um novo tweet com uma hashtag específica aparecer, você poderá enviar mensagens com o conector do Slack. Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Suas credenciais de usuário e conta do Twitter
 
@@ -55,7 +55,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponib
        -ou-
 
      * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-     Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+     Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
      
        Na caixa de pesquisa, digite "twitter" como filtro. 
        Na lista de ações, selecione a ação desejada.
@@ -87,6 +87,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

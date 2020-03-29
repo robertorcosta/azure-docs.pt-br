@@ -11,22 +11,22 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ms.openlocfilehash: 1f920f2672c19455a8e8ac979e8d6d1eb14d4c35
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74924291"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
 > [!div class="op_single_selector"]
-> * [Mapeando fluxo de dados](data-flow-create.md)
-> * [Hive](transform-data-using-hadoop-hive.md)  
+> * [Mapeamento do fluxo de dados](data-flow-create.md)
+> * [Colméia](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
-> * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
+> * [Mapreduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Aprendizado de Máquina](transform-data-using-machine-learning.md) 
 > * [Procedimento armazenado](transform-data-using-stored-procedure.md)
 > * [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md)
 > * [Databricks notebook](transform-data-databricks-notebook.md)
@@ -34,24 +34,24 @@ ms.locfileid: "74924291"
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [Personalizado do .NET](transform-data-using-dotnet-custom-activity.md)
 
-## <a name="overview"></a>Visão Geral
-Este artigo explica as atividades de transformação de dados no Azure Data Factory que você pode usar para transformar e processar seus dados brutos em previsões e ideias em escala. Uma atividade de transformação é executada em um ambiente de computação, como o Azure Databricks ou o Azure HDInsight. Ela fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
+## <a name="overview"></a>Visão geral
+Este artigo explica as atividades de transformação de dados na Fábrica de Dados Do Azure que você pode usar para transformar e processar seus dados brutos em previsões e insights em escala. Uma atividade de transformação é executada em um ambiente de computação, como o Azure Databricks ou o Azure HDInsight. Ela fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
 
 O Data Factory dá suporte às seguintes atividades de transformação de dados, que podem ser adicionadas aos [pipelines](concepts-pipelines-activities.md) individualmente ou encadeadas a outra atividade.
 
-## <a name="transform-natively-in-azure-data-factory-with-data-flows"></a>Transformar nativamente em Azure Data Factory com fluxos de dados
+## <a name="transform-natively-in-azure-data-factory-with-data-flows"></a>Transforme nativamente na Fábrica de Dados Do Azure com fluxos de dados
 
 ### <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
 
-O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters Spark expandidos. As atividades de fluxo de dados podem ser operadas por meio de recursos de agendamento, controle, fluxo e monitoramento existentes de Data Factory. Para obter mais informações, consulte [mapeando fluxos de dados](concepts-data-flow-overview.md).
+O mapeamento dos fluxos de dados são transformações de dados projetadas visualmente na Fábrica de Dados Do Azure. Os fluxos de dados permitem que os engenheiros de dados desenvolvam lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro dos pipelines da Fábrica de Dados Azure que usam clusters Spark dimensionados. As atividades de fluxo de dados podem ser operacionalizadas através dos recursos de agendamento, controle, fluxo e monitoramento existentes da Fábrica de Dados. Para obter mais informações, consulte [mapeamento de fluxos de dados](concepts-data-flow-overview.md).
 
-### <a name="wrangling-data-flows"></a>Fluxos de dados Wrangling
+### <a name="wrangling-data-flows"></a>Disputando fluxos de dados
 
-Os fluxos de dados do Wrangling no Azure Data Factory permitem que você faça uma preparação de dados sem código em escala de nuvem iterativamente. Os fluxos de dados do Wrangling integram-se ao [Power Query online](https://docs.microsoft.com/power-query/) e fazem Power Query funções M disponíveis para os dados Wrangling em escala de nuvem por meio da execução do Spark. Para obter mais informações, consulte [fluxos de dados do Wrangling](wrangling-data-flow-overview.md).
+A codificação dos fluxos de dados na Fábrica de Dados Do Azure permite que você faça a preparação de dados sem código na escala de nuvem iterativamente. A disputa de fluxos de dados integra-se ao [Power Query Online](https://docs.microsoft.com/power-query/) e disponibiliza funções de Consulta de Energia M para a disputa de dados em escala de nuvem através da execução de faíscas. Para obter mais informações, consulte [fluxos de dados de disputa](wrangling-data-flow-overview.md).
 
 ## <a name="external-transformations"></a>Transformações externas
 
-Opcionalmente, você pode codificar manualmente as transformações e gerenciar o ambiente de computação externo.
+Opcionalmente, você pode fazer transformações de código manual e gerenciar o ambiente externo de computação você mesmo.
 
 ### <a name="hdinsight-hive-activity"></a>Atividade de Hive do HDInsight
 A atividade de Hive do HDInsight em um pipeline de Data Factory executa consultas de Hive em seu próprio cluster ou no cluster sob demanda do HDInsight baseado em Windows/Linux. Consulte o artigo [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive) para obter detalhes sobre essa atividade. 
@@ -83,7 +83,7 @@ A atividade de U-SQL do Data Lake Analytics executa um script U-SQL em um cluste
 
 ### <a name="databricks-notebook-activity"></a>Atividade de Notebook do Databricks
 
-A atividade de Azure Databricks notebook em um pipeline de Data Factory executa um notebook do databricks em seu espaço de trabalho do Azure Databricks. O Azure Databricks é uma plataforma gerenciada para executar o Apache Spark. Veja [Transformar dados executando um bloco de notas do Databricks](transform-data-databricks-notebook.md).
+A atividade do notebook Azure Databricks em um pipeline de Fábrica de Dados executa um notebook Databricks em seu espaço de trabalho DoZure Databricks. O Azure Databricks é uma plataforma gerenciada para executar o Apache Spark. Veja [Transformar dados executando um bloco de notas do Databricks](transform-data-databricks-notebook.md).
 
 ### <a name="databricks-jar-activity"></a>Atividade do Databricks Jar
 
@@ -106,5 +106,5 @@ Crie um serviço vinculado para o ambiente de computação e, em seguida, usar o
 
 Veja o artigo [Serviços vinculados de computação](compute-linked-services.md) para saber mais sobre os serviços de computação com suporte do Data Factory. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte o tutorial a seguir para obter um exemplo de como usar uma atividade de transformação: [Tutorial: transformar dados usando o Spark](tutorial-transform-data-spark-powershell.md)

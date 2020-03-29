@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60868404"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Criar uma imagem personalizada de uma VM
@@ -29,9 +29,9 @@ ms.locfileid: "60868404"
 
 Você pode criar uma imagem personalizada de uma VM provisionada e depois usá-la para criar VMs idênticas. As etapas a seguir ilustram como criar uma imagem personalizada com base em uma VM:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Todos os serviços**e selecione **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 
@@ -39,7 +39,7 @@ Você pode criar uma imagem personalizada de uma VM provisionada e depois usá-l
  
 1. No painel **Minhas máquinas virtuais**, selecione a VM com base na qual você deseja criar a imagem personalizada.
 
-1. No painel da VM, selecione **Criar imagem personalizada (VHD)** .
+1. No painel da VM, selecione **Criar imagem personalizada (VHD)**.
 
     ![Criar item de menu de imagem personalizada](./media/devtest-lab-create-template/create-custom-image.png)
 

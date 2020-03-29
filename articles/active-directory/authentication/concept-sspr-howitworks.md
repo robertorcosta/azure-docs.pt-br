@@ -1,5 +1,5 @@
 ---
-title: Aprofundamento de redefinição de senha de autoatendimento – Azure Active Directory
+title: Senha de autoatendimento redefinir mergulho profundo - Azure Active Directory
 description: Como a redefinição de senha de autoatendimento funciona
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848571"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
@@ -36,7 +36,7 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
 
 1. O usuário seleciona o link **Não consigo acessar minha conta** ou acessa [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) diretamente.
    * Com base na localidade do navegador, a experiência é renderizada no idioma apropriado. A experiência de redefinição de senha é localizada nos mesmos idiomas para os quais o Office 365 dá suporte.
-   * Para visualizar o portal de redefinição de senha em um idioma localizado diferente, inclua "? Mkt =" no final do URL de redefinição de senha com o exemplo a seguir para o espanhol [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+   * Para visualizar o portal de redefinição de senha em um anexo de idioma localizado diferente "?mkt=" até [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)o final da URL de redefinição de senha com o exemplo que segue a localização para espanhol .
 2. O usuário insere uma ID de usuário e passa um captcha.
 3. O Azure Active Directory verifica se o usuário está apto para usar esse recurso fazendo as seguintes verificações:
    * Verifica se o usuário possui esse recurso habilitado e uma licença do Azure Active Directory atribuída.
@@ -54,7 +54,7 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
-Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes, essas opções referidas como "portões." É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que seus usuários tenham mais flexibilidade caso não consigam acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo [o que são métodos de autenticação?](concept-authentication-methods.md).
+Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes, essas opções referidas como "portões." É altamente recomendável que você **escolha dois ou mais métodos de autenticação** para que seus usuários tenham mais flexibilidade caso não consigam acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontrados no artigo Quais são os [métodos de autenticação?](concept-authentication-methods.md).
 
 * Notificação de aplicativo móvel
 * Código do aplicativo móvel
@@ -66,12 +66,12 @@ Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes
 Os usuários só podem redefinir sua senha se tiverem dados presentes nos métodos de autenticação que o administrador habilitou.
 
 > [!IMPORTANT]
-> A partir de março de 2019, as opções de chamada telefônica não estarão disponíveis para os usuários de MFA e SSPR em locatários gratuitos/de avaliação do Azure AD. As mensagens SMS não são afetadas por essa alteração. A chamada telefônica continuará disponível para os usuários em locatários pagos do Azure AD. Essa alteração afeta apenas os locatários gratuitos/de avaliação do Azure AD.
+> A partir de março de 2019, as opções de chamadas telefônicas não estarão disponíveis para usuários de MFA e SSPR em inquilinos Ad gratuitos/experimentadores. As mensagens SMS não são impactadas por essa mudança. A chamada telefônica continuará disponível para os usuários em inquilinos ad pagos do Azure. Essa alteração só afeta os inquilinos azure AD gratuitos/trial.
 
 > [!WARNING]
 > Contas atribuídas a funções de administrador do Azure será necessárias para usar métodos conforme definido na seção [diferenças de política de redefinição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Seleção de métodos de autenticação no portal do Azure][Authentication]
+![Seleção de métodos de autenticação no portal Azure][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Quantidade necessária de métodos de autenticação
 
@@ -90,18 +90,18 @@ Ao usar um aplicativo móvel, como o aplicativo Microsoft Authenticator, como um
 
 | Número de métodos necessários para redefinir | Um | Dois |
 | :---: | :---: | :---: |
-| Recursos de aplicativos para dispositivos móveis disponíveis | Codificar | Código ou notificação |
+| Recursos de aplicativos para dispositivos móveis disponíveis | Código | Código ou notificação |
 
-Usuários não têm a opção de registrar seu aplicativo móvel ao se registrar para redefinição de senha de autoatendimento do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou na nova visualização do registro de informações de segurança em[https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+Os usuários não têm a opção de registrar seu aplicativo móvel [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)ao se cadastrar para redefinição de senha de autoatendimento a partir de . Os usuários podem registrar [https://aka.ms/mfasetup](https://aka.ms/mfasetup)seu aplicativo móvel em , [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)ou na nova pré-visualização de registro de informações de segurança em .
 
 > [!WARNING]
 > Você deve habilitar o [Registro convergente para a redefinição de senha de autoatendimento e Autenticação Multifator do Azure (visualização pública)](concept-registration-mfa-sspr-converged.md) antes de os usuários poderem acessar a nova experiência em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> O aplicativo autenticador não pode ser selecionado como o único método de autenticação ao configurar uma política de 1 porta. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados durante a configuração de uma política de 2 Gates.
-> Em seguida, ao configurar políticas de SSPR que incluem o aplicativo autenticador como um método, pelo menos um método adicional deve ser selecionado ao configurar uma política de uma porta, e pelo menos dois métodos adicionais devem ser selecionados ao configurar uma política de 2 Gates.
-> O motivo para esse requisito é porque a atual experiência de registro de SSPR não inclui a opção de registrar o aplicativo autenticador. A opção para registrar o aplicativo autenticador está incluída no novo [registro convergido para redefinição de senha de autoatendimento e autenticação multifator do Azure (visualização pública)](concept-registration-mfa-sspr-converged.md).
-> Permitir políticas que usam apenas o aplicativo autenticador (para políticas de 1 Gate) ou o aplicativo autenticador e apenas um método adicional (para políticas de 2 Gates) pode levar os usuários sendo impedidos de se registrarem para SSPR até que tenham sido configurados para usar o novo experiência de registro.
+> O aplicativo autenticador não pode ser selecionado como o único método de autenticação ao configurar uma diretiva de 1 gate. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados ao configurar uma diretiva de 2 portões.
+> Em seguida, ao configurar as políticas SSPR que incluem o aplicativo autenticador como método, pelo menos um método adicional deve ser selecionado ao configurar uma diretiva de 1 portão e pelo menos dois métodos adicionais devem ser selecionados ao configurar uma diretiva de 2 portões.
+> A razão para esse requisito é porque a atual experiência de registro do SSPR não inclui a opção de registrar o aplicativo autenticador. A opção de registrar o aplicativo autenticador está incluída no novo [registro Converged para redefinição de senha de autoatendimento e autenticação multifatorial do Azure (visualização pública)](concept-registration-mfa-sspr-converged.md).
+> Permitir políticas que só usam o aplicativo autenticador (para políticas de 1 gate), ou o aplicativo autenticador e apenas um método adicional (para políticas de 2 portões), poderia levar os usuários a serem bloqueados de se registrar em SSPR até que eles tenham sido configurados para usar o novo experiência de registro.
 
 ### <a name="change-authentication-methods"></a>Alterar métodos de autenticação
 
@@ -120,7 +120,7 @@ Exemplo:
 2. O administrador altera a política para não usar perguntas de segurança, mas permite o uso de telefone celular e um email alternativo.
 3. Os usuários sem o telefone celular ou os campos de e-mail alternativos preenchidos não podem redefinir suas senhas.
 
-## <a name="registration"></a>Inscrição
+## <a name="registration"></a>Registro
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os usuários se cadastram ao entrarem
 
@@ -132,7 +132,7 @@ A ativação dessa opção exige que um usuário conclua o registro de redefini�
 * Aplicativos federados
 * Aplicativos personalizados que usam o Azure AD
 
-Ao exigir que o registro seja desativado, os usuários podem registrar-se manualmente. Os usuários podem visitar [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) ou selecionar o link **Registrar redefinição de senha** na guia **Perfil** no Painel de Acesso.
+Ao exigir que o registro seja desativado, os usuários podem registrar-se manualmente. Eles podem [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) visitar ou selecionar o **link De redefinição de senha na** guia **Perfil** no Painel de Acesso.
 
 > [!NOTE]
 > Os usuários podem ignorar o portal de registro de redefinição de senha selecionando **cancelar** ou fechando a janela. Mas eles são solicitados a registrar cada vez que entrar até que eles concluir seu registro.
@@ -161,7 +161,7 @@ Exemplo: Há quatro administradores em um ambiente. O administrador A redefine s
 
 Se você instalar, configurar e habilitar o Azure Active Directory Connect, você terá as seguintes opções adicionais para integrações no local. Se essas opções estiverem esmaecidas, o write-back não foi configurado corretamente. Para obter mais informações, consulte [Configurar write-back de senha](howto-sspr-writeback.md).
 
-![A validação do write-back de senha está habilitada e funcionando][Writeback]
+![Validar a regravação de senha é habilitado e funcionando][Writeback]
 
 Esta página fornece um status rápido do cliente de write-back no local, uma das seguintes mensagens é exibida com base na configuração atual:
 
@@ -184,7 +184,7 @@ Este controle determina se o write-back de senha está habilitado para este dire
 Esse controle designa se os usuários que visitam o portal de redefinição de senha devem ter a opção de desbloquear suas contas no Active Directory no local sem ter que redefinir sua senha. Por padrão, o Azure Active Directory desbloqueia contas quando ele executa uma redefinição de senha. Use essa configuração para separar essas duas operações.
 
 * Se for definida para **Sim**, então, os usuários terão a opção de redefinir sua senha e desbloquear a conta, ou desbloquear sua conta sem precisar redefinir a senha.
-* Se for definida para **Não**, os usuários só poderão executar uma operação combinada de redefinição de senha e de desbloqueio de conta.
+* Se definido como **Não,** então os usuários só poderão executar uma operação combinada de redefinição de senha e desbloqueio de conta.
 
 ### <a name="on-premises-active-directory-password-filters"></a>Filtros de senha do Active Directory local
 
@@ -203,21 +203,21 @@ Para testar este cenário, acesse https://passwordreset.microsoftonline.com com 
 > [!NOTE]
 > Contas Microsoft que receberam acesso de convidado a seu locatário do Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoal, não podem usar a SSPR do Azure AD. É necessário que definam a senha, utilizando as informações localizadas no artigo [Quando não for possível entrar na sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure Active Directory:
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
-* [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
+* [Registre-se para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
+* [Você tem uma pergunta de licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
 * [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo está quebrado. Como fazer solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está quebrado. Como faço para solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Métodos de autenticação do Azure AD e quantidade necessária"

@@ -1,5 +1,5 @@
 ---
-title: Abrir portas para uma VM usando o portal do Azure
+title: Abra portas para uma VM usando o portal Azure
 description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Resource Manager no Portal do Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75371404"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas para uma máquina virtual com o Portal do Azure
@@ -81,7 +81,7 @@ Os comandos descritos neste artigo permitem que você rapidamente obtenha tráfe
 
 Para aplicativos Web altamente disponíveis, considere colocar suas VMs atrás do Azure Load Balancer. O balanceador de carga distribui o tráfego para VMs, com um Grupo de Segurança de rede que fornece filtragem. Para obter mais informações, veja [Balancear carga de máquinas virtuais do Windows no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um grupo de segurança de rede, criou uma regra de entrada que permite o tráfego HTTP na porta 80 e, então, associou essa regra a uma sub-rede. 
 
 Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:

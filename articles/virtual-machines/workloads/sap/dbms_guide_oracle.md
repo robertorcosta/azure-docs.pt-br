@@ -16,10 +16,10 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645837"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP
@@ -29,7 +29,7 @@ ms.locfileid: "75645837"
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
-[1114181]: https://launchpad.support.sap.com/#/notes/1114181
+[1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
@@ -38,7 +38,7 @@ ms.locfileid: "75645837"
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
@@ -54,23 +54,23 @@ ms.locfileid: "75645837"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2039619]: https://launchpad.support.sap.com/#/notes/2039619
-[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2171857]: https://launchpad.support.sap.com/#/notes/2171857
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2171857]:https://launchpad.support.sap.com/#/notes/2171857
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -320,12 +320,12 @@ As Notas de SAP a seguir estão relacionadas ao SAP no Azure.
 
 | Número da observação | Title |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
-| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
+| [1928533] |Aplicações SAP no Azure: produtos suportados e tipos de VM do Azure |
+| [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Métricas-chave de monitoramento para SAP no Microsoft Azure |
-| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
-| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: produtos e versões com suporte |
+| [2191498] |SAP no Linux com Azure: Monitoramento aprimorado |
+| [2039619] |Aplicativos SAP no Microsoft Azure usando o banco de dados Oracle: produtos e versões suportados |
 | [2243692] |Linux na VM do Microsoft Azure (IaaS): problemas de licença SAP |
 | [2069760] |Atualização e instalação do SAP do Oracle Linux 7.x |
 | [1597355] |Recomendação de troca de espaço para Linux |
@@ -366,18 +366,18 @@ As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo 
 
 Se você estiver usando discos baseados no armazenamento de blobs de páginas do Azure ou Managed Disks, as declarações nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md) também se aplicarão a implantações com o Oracle Database.
 
-Existem cotas na taxa de transferência IOPS para discos do Azure. Este conceito é explicado nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Uma lista de tipos de VM com suas cotas pode ser encontrada em [tamanhos para máquinas virtuais do Windows no Azure][virtual-machines-sizes-windows].
+Existem cotas na taxa de transferência IOPS para discos do Azure. Este conceito é explicado nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Uma lista dos tipos de VMs com suas cotas pode ser encontrada em [Tamanhos para máquinas virtuais do Windows no Azure][virtual-machines-sizes-windows].
 
 Para identificar os tipos de VM do Azure com suporte, confira a Nota SAP [1928533].
 
 A configuração mínima é a seguinte: 
 
-| Componente | Disco | Caching | Pool de armazenamento |
+| Componente | Disco | Cache | Pool de armazenamento |
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA & mirrlogB | Premium | Nenhum | Não é necessário |
 | \oracle\<SID>\origlogaB & mirrlogA | Premium | Nenhum | Não é necessário |
 | \oracle\<SID>\sapdata1...n | Premium | Somente leitura | Pode ser usado |
-| \oracle\<SID>\oraarch | Padrão | Nenhum | Não é necessário |
+| \oracle\<SID>\oraarch | Standard | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | | Não é necessário |
 
 
@@ -385,13 +385,13 @@ A seleção de discos para hospedagem de logs de restauração online deve ser c
 
 A configuração de desempenho é a seguinte:
 
-| Componente | Disco | Caching | Pool de armazenamento |
+| Componente | Disco | Cache | Pool de armazenamento |
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA | Premium | Nenhum | Pode ser usado  |
 | \oracle\<SID>\origlogaB | Premium | Nenhum | Pode ser usado |
 | \oracle\<SID>\mirrlogAB | Premium | Nenhum | Pode ser usado |
 | \oracle\<SID>\mirrlogBA | Premium | Nenhum | Pode ser usado |
-| \oracle\<SID>\sapdata1...n | Premium | Somente leitura | Recomendado  |
+| \oracle\<SID>\sapdata1...n | Premium | Somente leitura | Recomendadas  |
 | \oracle\SID\sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
 | \oracle\<SID>\oraarch* | Premium | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | Não é necessário |
@@ -448,7 +448,7 @@ Para os kernels do Oracle Linux UEK, a versão mínima 4 do UEK é necessária p
 
 É altamente recomendável usar os [Azure Managed Disks](../../windows/managed-disks-overview.md). Também é altamente recomendável usar os [SSDs premium do Azure](../../windows/disks-types.md) para suas implantações do Oracle Database.
 
-As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo do Azure não são compatíveis com os arquivos do Oracle Database. Para saber mais, consulte o seguinte: 
+As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo do Azure não são compatíveis com os arquivos do Oracle Database. Para saber mais, consulte o seguinte:  
 
 - [Apresentando o serviço de arquivo do Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -456,18 +456,18 @@ As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo 
 
 Caso esteja usando discos baseados no Armazenamento de blob de página do Azure ou Managed Disks, as declarações feitas nas [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md) também se aplicarão a implantações com o Oracle Database.
 
- Existem cotas na taxa de transferência IOPS para discos do Azure. Esse conceito é explicado em [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Para obter uma lista de tipos de VM com suas cotas, consulte [tamanhos de máquinas virtuais do Linux no Azure][virtual-machines-sizes-linux].
+ Existem cotas na taxa de transferência IOPS para discos do Azure. Esse conceito é explicado em [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md). As cotas exatas dependem do tipo de VM usado. Para obter uma lista dos tipos de VM com suas cotas, confira [Tamanhos para máquinas virtuais Linux no Azure][virtual-machines-sizes-linux].
 
 Para identificar os tipos de VM do Azure com suporte, confira a Nota SAP [1928533].
 
 Configuração mínima:
 
-| Componente | Disco | Caching | Stripping* |
+| Componente | Disco | Cache | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/\<SID >/origlogaA & mirrlogB | Premium | Nenhum | Não é necessário |
-| /Oracle/\<SID >/origlogaB & mirrlogA | Premium | Nenhum | Não é necessário |
-| /Oracle/\<SID >/sapdata1... p | Premium | Somente leitura | Pode ser usado |
-| /Oracle/\<SID >/oraarch | Padrão | Nenhum | Não é necessário |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | Nenhum | Não é necessário |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | Nenhum | Não é necessário |
+| /oracle/\<SID>/sapdata1... N | Premium | Somente leitura | Pode ser usado |
+| /oracle/\<SID>/oraarch | Standard | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | | Não é necessário |
 
 *Stripping: faixa de LVM ou MDADM usando RAID0
@@ -476,20 +476,20 @@ A seleção de discos para hospedagem de logs de restauração online do Oracle 
 
 Configuração de desempenho:
 
-| Componente | Disco | Caching | Stripping* |
+| Componente | Disco | Cache | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/\<SID >/origlogaA | Premium | Nenhum | Pode ser usado  |
-| /Oracle/\<SID >/origlogaB | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<SID >/mirrlogAB | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<SID >/mirrlogBA | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<SID >/sapdata1... p | Premium | Somente leitura | Recomendado  |
+| /oracle/\<SID>/origlogaA | Premium | Nenhum | Pode ser usado  |
+| /oracle/\<SID>/origlogaB | Premium | Nenhum | Pode ser usado |
+| /oracle/\<SID>/mirrlogAB | Premium | Nenhum | Pode ser usado |
+| /oracle/\<SID>/mirrlogBA | Premium | Nenhum | Pode ser usado |
+| /oracle/\<SID>/sapdata1... N | Premium | Somente leitura | Recomendadas  |
 | /oracle/\<SID>/sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<SID >/oraarch * | Premium | Nenhum | Não é necessário |
+| /oracle/\<SID>/oraarch* | Premium | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | Não é necessário |
 
 *Stripping: faixa de LVM ou MDADM usando RAID0
 
-\* (n + 1): Hospedagem de espaços de tabela, TEMP e desfazer: o padrão de e/s de espaços de tabela de sistema e desfazer são diferentes de outros espaços de tabela que hospedam dados de aplicativo. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
+*(n+1):hosting SYSTEM, TEMP e UNDO tablespaces: O padrão de I/O do System e Undo tablespaces são diferentes de outros espaços de tabela que hospedam dados de aplicativos. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
 
 *oraarch: do ponto de vista do desempenho, o pool de armazenamento não é necessário.
 

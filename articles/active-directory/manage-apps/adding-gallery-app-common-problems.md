@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784438"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar um aplicativo da Galeria do Azure AD
@@ -40,7 +40,7 @@ Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notifi
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei configurar meu aplicativo após tê-lo adicionado
 
-Se você precisar de ajuda com o aprendizado sobre aplicativos, o [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom lugar para começar.
+Se você precisa de ajuda para aprender sobre aplicativos, a [Lista de Tutoriais sobre como integrar aplicativos SaaS com o artigo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) é um bom lugar para começar.
 
 Além disso, a [Biblioteca de documentos de aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda você a saber mais sobre o logon único com o Azure AD e como ele funciona.
 
@@ -48,7 +48,7 @@ Além disso, a [Biblioteca de documentos de aplicativos do Azure AD](https://doc
 
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
 
-1.  Selecione o **notificações** ícone (o sino) no canto superior direito do portal do Azure
+1.  Selecione o ícone **Notificações** (o sino) no canto superior direito do portal Azure
 
 2.  Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
 
@@ -61,7 +61,7 @@ Veja os detalhes de qualquer notificação do portal executando as etapas abaixo
 
 5.  Se ainda precisar de ajuda, você também poderá compartilhar essas informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
 
-6.  Clique no **ícone** de **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
+6.  Clique no **ícone de ** **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
 
@@ -81,11 +81,11 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
   -   Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
 
-- **ID da Notificação** – a ID exclusiva da notificação
+- **ID de notificação** – o ID único da notificação
 
   -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
-- **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
+- **ID de solicitação do cliente** – o ID de solicitação específico feito pelo seu navegador
 
   -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -93,7 +93,7 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
   -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
-- **ID de transação interna** – a ID interna que podemos usar para procurar o erro em nossos sistemas
+- **ID de transação interna** – o ID interno que podemos usar para procurar o erro em nossos sistemas
 
   -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -101,11 +101,11 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
   -   Exemplo – **tperkins\@f128.info**
 
-- **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
+- **ID do inquilino** – a identificação única do inquilino que o usuário que realizou a operação era membro de
 
   -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
-- **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
+- **ID do objeto do usuário** – o ID exclusivo do usuário que realizou a operação
 
   -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -119,13 +119,13 @@ Veja as descrições a seguir para mais detalhes sobre as notificações.
 
     -   Exemplo – **Falha**
 
--   **ID do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
+-   **ID do objeto** – **(pode estar vazio)** o ID do objeto contra o qual a operação foi realizada
 
     -   Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
 -   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
 
-    -   Exemplo – **url interna `https://bing.com/` é inválido, pois ele já está em uso**
+    -   Exemplo – **Url interno `https://bing.com/` é inválido, pois já está em uso**
 
 -   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um suporte ou grupo de produtos 
 -   engenheiro

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: ff63b9b7027e99c70971230936ed98186c2208e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75397715"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Operadores úteis nas consultas de log no Azure Monitor
@@ -34,9 +34,9 @@ Junções e Uniões                        |`join kind=leftouter`, `inner`, `rig
 Classificação, ordem                             |`sort`, `order` 
 Objeto dinâmico (JSON e matriz)         |`parsejson()` <br> `makeset()`, `makelist()` <br> `split()`, `arraylength()` <br> `zip()`, `pack()`
 Operadores lógicos                       |`and`, `or`, `iff(condition, value_t, value_f)` <br> `binary_and()`, `binary_or()`, `binary_not()`, `binary_xor()`
-Machine learning                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
+Aprendizado de máquina                        |`evaluate autocluster`, `basket`, `diffpatterns`, `extractcolumns`
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Faça uma lição sobre como [escrever consultas de log no Azure Monitor](get-started-queries.md).

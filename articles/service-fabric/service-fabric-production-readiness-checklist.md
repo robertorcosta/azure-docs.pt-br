@@ -1,13 +1,13 @@
 ---
-title: Lista de verificação de preparação de produção do Azure Service Fabric
+title: Lista de verificação de preparação da produção do Azure Service Fabric
 description: Prepare o aplicativo do Service Fabric e o cluster prontos para produção seguindo as melhores práticas.
 ms.topic: conceptual
 ms.date: 6/05/2019
 ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75376793"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação de preparação para produção
@@ -15,8 +15,8 @@ ms.locfileid: "75376793"
 O aplicativo e o cluster estão prontos para receber tráfego de produção? Executar e testar o aplicativo e o cluster não significa necessariamente que estão prontos para entrar em produção. Mantenha o aplicativo e o cluster em execução correta, analisando a lista de verificação a seguir. É altamente recomendável que todos esses itens sejam verificados. Obviamente, é possível optar por usar soluções alternativas para um item de linha específico (por exemplo, suas próprias estruturas de diagnóstico).
 
 
-## <a name="prerequisites-for-production"></a>Pré-requisitos para produção
-1. Práticas recomendadas do Azure Service Fabric: [design de aplicativo](./service-fabric-best-practices-applications.md), [segurança](./service-fabric-best-practices-security.md), [rede](./service-fabric-best-practices-networking.md), [planejamento de capacidade e dimensionamento](./service-fabric-best-practices-capacity-scaling.md), [Infraestrutura como código](./service-fabric-best-practices-infrastructure-as-code.md)e [monitoramento e diagnóstico](./service-fabric-best-practices-monitoring.md). 
+## <a name="prerequisites-for-production"></a>Pré-requisitos para a produção
+1. As melhores práticas de malha de serviço do Azure: [Design de aplicativos,](./service-fabric-best-practices-applications.md) [segurança,](./service-fabric-best-practices-security.md) [rede,](./service-fabric-best-practices-networking.md) [planejamento e dimensionamento da capacidade,](./service-fabric-best-practices-capacity-scaling.md) [infra-estrutura como código](./service-fabric-best-practices-infrastructure-as-code.md)e monitoramento e [diagnóstico.](./service-fabric-best-practices-monitoring.md) 
 1. Implementar a configuração de segurança dos Reliable Actors se o modelo de programação de Atores estiver sendo usado
 1. Para clusters com mais de 20 núcleos ou 10 nós, crie um tipo de nó primário dedicado para serviços do sistema. Adicione [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar o tipo de nó primário para serviços do sistema.
 1. Use D2v2 ou SKU superior para o tipo de nó primário. É recomendável separar uma SKU com pelo menos 50 GB de capacidade de disco rígido.
@@ -25,9 +25,9 @@ O aplicativo e o cluster estão prontos para receber tráfego de produção? Exe
 1. Reconheça e defina o [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). É recomendável o nível de durabilidade prata ou superior para tipos de nó que executam cargas de trabalho com estado. O tipo de nó primário deve ter um nível de durabilidade definido como Prata ou superior.
 1. Reconheça e escolha o [nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) do tipo de nó. É recomendável confiabilidade prata ou superior.
 1. Carregue e dimensione o teste das cargas de trabalho para identificar os [requisitos de capacidades](service-fabric-cluster-capacity.md) para o cluster. 
-1. Os serviços e aplicativos são monitorados e os logs dos aplicativos estão sendo gerados e armazenados, com alertas. Por exemplo, consulte [adicionar registro em log ao aplicativo Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorar contêineres com Azure monitor logs](service-fabric-diagnostics-oms-containers.md).
-1. O cluster é monitorado com alertas (por exemplo, com [logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md)). 
-1. A infraestrutura subjacente do conjunto de dimensionamento de máquinas virtuais é monitorada com alertas (por exemplo, com [logs de Azure monitor](service-fabric-diagnostics-oms-agent.md).
+1. Os serviços e aplicativos são monitorados e os logs dos aplicativos estão sendo gerados e armazenados, com alertas. Por exemplo, consulte [Adicionar registro ao aplicativo Service Fabric](service-fabric-how-to-diagnostics-log.md) e monitorar [contêineres com logs do Monitor Do Azure](service-fabric-diagnostics-oms-containers.md).
+1. O cluster é monitorado com alertas (por exemplo, com [registros do Monitor Do Azure).](service-fabric-diagnostics-event-analysis-oms.md) 
+1. A infra-estrutura de conjunto de escala de máquina virtual subjacente é monitorada com alertas (por exemplo, com [logs do Monitor Do Azure](service-fabric-diagnostics-oms-agent.md).
 1. O cluster tem [certificados primários e secundários](service-fabric-cluster-security-update-certs-azure.md) sempre (para que você não seja bloqueado).
 1. Manter clusters separados para desenvolvimento, preparação e produção. 
 1. [Upgrades de aplicativos](service-fabric-application-upgrade.md) e [upgrades de cluster](service-fabric-tutorial-upgrade-cluster.md) primeiro são testados em clusters de preparo e desenvolvimento. 
@@ -54,7 +54,7 @@ Embora as listas acima sejam pré-requisitos para entrar em produção, os segui
 1. Implante um watchdog personalizado que está monitorando o aplicativo e [carregue](service-fabric-cluster-resource-manager-metrics.md) relatórios para [balanceamento de recursos](service-fabric-cluster-resource-manager-balancing.md). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Implantar um cluster do Windows do Service Fabric](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * [Implantar um cluster do Linux do Service Fabric](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.

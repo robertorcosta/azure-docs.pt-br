@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: noções básicas sobre usuários, grupos e contatos | Microsoft Docs'
+title: 'Sincronização do Azure Active Directory Connect: Noções Básicas sobre Usuários, Grupos e Contatos | Microsoft Docs'
 description: Explica usuários, grupos e contatos na sincronização do Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60245488"
 ---
-# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronização do Azure AD Connect: noções básicas sobre usuários, grupos e contatos
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure Active Directory Connect Sync: noções básicas sobre usuários, grupos e contatos
 Há vários motivos diferentes de por que existem várias florestas do Active Directory e várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação do recurso em conta e florestas sincronizadas de GAL (Lista de Endereços Global) após uma fusão e aquisição. Mas mesmo que haja modelos puros, modelos híbridos são comuns também. A configuração padrão da sincronização do Azure AD Connect não assume nenhum modelo específico, mas dependendo de como a compatibilidade de usuário foi selecionada na guia de instalação, comportamentos diferentes podem ser observados.
 
 Neste tópico, veremos como a configuração padrão se comporta em certas topologias. Veremos que a configuração e o Editor de regras de sincronização podem ser usados para examinar a configuração.
@@ -51,12 +51,12 @@ Pontos importantes a serem considerados durante a sincronização de grupos do A
     
       * Um grupo do Active Directory cujo atributo proxyAddress tenha o valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* não será habilitado para e-mail no Azure Active Directory. Ele não tem um endereço SMTP.
       
-      * Um grupo do Active Directory cujo atributo proxyAddress tenha os valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* estará habilitado para email no Azure AD.
+      * Um grupo de Diretório Ativo cujo atributo proxyAddress tem valores *\@{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe contoso.com"}* será ativado por e-mail no Azure AD.
       
-      * Um grupo do Active Directory cujo atributo proxyAddress tenha os valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* também serão habilitados para email no Azure AD.
+      * Um grupo de Diretório Ativo cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup",\@"smtp:johndoe contoso.com"}* também será ativado por e-mail no Azure AD.
 
 ## <a name="contacts"></a>Contatos
-Ter contatos que representam um usuário em uma floresta diferente é comum após uma fusão e aquisição em que uma solução GALSync está fazendo a ponte entre duas ou mais florestas do Exchange. O objeto de contato está sempre unindo o espaço do conector ao metaverso, usando o atributo de email. Se já houver um objeto de contato ou um objeto de usuário com o mesmo endereço de email, os objetos serão unidos. Isso é configurado na regra **Entrada do AD – Junção de Contato**. Há também uma regra denominada **Entrada no AD – Contato Comum** com um fluxo de atributos para o atributo de metaverso **sourceObjectType** com a constante **Contato**. Essa regra tem precedência muito baixa, portanto se nenhum objeto de usuário estiver associado ao mesmo objeto de metaverso, a regra Entrada do **AD – Usuário Comum** contribuirá com o valor Usuário para esse atributo. Com essa regra, esse atributo terá o valor Contato, se nenhum usuário tiver sido associado; e o valor Usuário se pelo menos um usuário tiver sido encontrado.
+Ter contatos que representam um usuário em uma floresta diferente é comum após uma fusão e aquisição em que uma solução GALSync está fazendo a ponte entre duas ou mais florestas do Exchange. O objeto de contato está sempre unindo o espaço do conector ao metaverso, usando o atributo de email. Se já houver um objeto de contato ou um objeto de usuário com o mesmo endereço de email, os objetos serão unidos. Isso é configurado na regra **Entrada do AD – Ingresso do Contato**. Também há uma regra chamada **Entrada do AD – Contato Comum** com um fluxo de atributos para o atributo de metaverso **sourceObjectType** com a constante **Contato**. Essa regra tem precedência muito baixa, de forma que qualquer objeto de usuário será ingressado no mesmo objeto de metaverso, então a regra **Entrada do AD – Usuário Comum** contribuirá com o valor de Usuário para esse atributo. Com essa regra, esse atributo terá o valor Contato, se nenhum usuário tiver sido associado; e o valor Usuário se pelo menos um usuário tiver sido encontrado.
 
 Para o provisionamento de um objeto no Azure AD, a regra **Saída para o AAD – Junção de Contato** criará um objeto de contato se o atributo **sourceObjectType** estiver definido como **Contato**. Se esse atributo estiver definido como **Usuário**, a regra **Saída para o AAD – Junção de Usuário** criará um objeto de usuário, em vez disso.
 É possível que um objeto seja promovido de Contato para Usuário quando mais Active Directories de origem forem importados e sincronizados.
@@ -71,9 +71,9 @@ Contas desabilitadas são sincronizadas também ao AD do Azure. Contas desabilit
 O pressuposto é que, se uma conta de usuário desabilitada for encontrada, não encontraremos outra conta ativa posteriormente e o objeto será provisionado no AD do Azure com o userPrincipalName e sourceAnchor encontrados. Caso outra conta ativa seja associada ao mesmo objeto de metaverso, seu userPrincipalName e sourceAnchor serão usados.
 
 ## <a name="changing-sourceanchor"></a>Alterando o sourceAnchor
-Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar o sourceAnchor. Quando o objeto é exportado do atributo de metaverso **cloudSourceAnchor**, é definido com o valor **sourceAnchor** aceito pelo Azure AD. Se o **sourceAnchor** for alterado e não corresponder a **cloudSourceAnchor**, a regra **Saída para o AAD – Junção de Usuário** gerará o erro **atributo sourceAnchor foi alterado**. Nesse caso, a configuração ou os dados ou devem ser corrigidos para que o mesmo sourceAnchor esteja presente no metaverso novamente antes que o objeto possa ser sincronizado outra vez.
+Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar o sourceAnchor. Quando o objeto é exportado do atributo de metaverso **cloudSourceAnchor**, é definido com o valor **sourceAnchor** aceito pelo Azure AD. Se **sourceAnchor** for alterado e não corresponder a **cloudSourceAnchor**, a regra **Saída para AAD – Ingresso de Usuário** lançará o erro **O atributo sourceAnchor foi alterado**. Nesse caso, a configuração ou os dados ou devem ser corrigidos para que o mesmo sourceAnchor esteja presente no metaverso novamente antes que o objeto possa ser sincronizado outra vez.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Sincronização do Azure AD Connect: personalizando opções de Sincronização](how-to-connect-sync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+* [Azure AD Connect Sync: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
+* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
 

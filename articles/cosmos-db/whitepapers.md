@@ -1,6 +1,6 @@
 ---
 title: White papers que descrevem os conceitos do Azure Cosmos DB
-description: Obtenha a lista de White papers para Azure Cosmos DB, esses White papers descrevem os conceitos em detalhes.
+description: Pegue a lista de whitepapers para Azure Cosmos DB, estes whitepapers descrevem os conceitos em profundidade.
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: adbbdf39875e67552de2f797b94eae89e0aba409
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74869775"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>White papers do Azure Cosmos DB

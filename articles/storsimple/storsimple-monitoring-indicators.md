@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60630539"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
@@ -38,7 +38,7 @@ O restante deste artigo descreve os vários LEDs indicadores de monitoramento, s
 ## <a name="front-panel-indicator-leds"></a>LEDs indicadores no painel frontal
 O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status da agregação de todos os módulos no sistema. O painel frontal é idêntico no compartimento StorSimple primário e no compartimento EBOD, e é ilustrado abaixo.  
 
-   ![Painel frontal do dispositivo][1]
+   ![ Painel frontal do dispositivo][1]
 
 O painel frontal contém os seguintes indicadores:  
 
@@ -55,9 +55,9 @@ Use a tabela a seguir para identificar o status indicado pelos LEDs no painel fr
 
 | Energia do sistema | Falha do módulo | Falha lógica | Alarme | Status |
 | --- | --- | --- | --- | --- |
-| Vermelho-âmbar |DESATIVADO |DESATIVADO |N/D |Perda de energia CA, operando com energia reserva ou energia CA ativada e os módulos do controlador foram removidos. |
+| Vermelho-âmbar |OFF |OFF |N/D |Perda de energia CA, operando com energia reserva ou energia CA ativada e os módulos do controlador foram removidos. |
 | Verde |ATIVADO |ATIVADO |N/D |Estado de teste do painel de operações ligado (5s) |
-| Verde |DESATIVADO |DESATIVADO |N/D |Energia ligada, todas as funções em boas condições |
+| Verde |OFF |OFF |N/D |Energia ligada, todas as funções em boas condições |
 | Verde |ATIVADO |N/D |LEDs de falha do ventilador, LEDs de falha de PCM |Qualquer falha de PCM, falha do ventilador, temperatura acima ou abaixo do recomendado |
 | Verde |ATIVADO |N/D |LEDs de módulo de E/S |Qualquer falha do módulo do controlador |
 | Verde |ATIVADO |N/D |N/D |Falha lógica no compartimento |
@@ -88,24 +88,24 @@ O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositv
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>LEDs indicadores do PCM para a fonte de energia e para o ventilador
 | Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 | --- | --- | --- | --- | --- |
-| Sem energia de CA (para o compartimento) |DESATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
-| Sem energia de CA (somente este PCM) |DESATIVADO |ATIVADO |DESATIVADO |ATIVADO |
-| CA presente PCM ligado - OK |ATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
-| Falha no PCM (falha do ventilador) |DESATIVADO |DESATIVADO |ATIVADO |N/D |
-| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente) |DESATIVADO |ATIVADO |ATIVADO |ATIVADO |
-| PCM (ventilador fora da tolerância) |ATIVADO |DESATIVADO |DESATIVADO |ATIVADO |
-| Modo standby |Piscando |DESATIVADO |DESATIVADO |DESATIVADO |
-| Download de firmware do PCM |DESATIVADO |Piscando |Piscando |Piscando |
+| Sem energia de CA (para o compartimento) |OFF |OFF |OFF |OFF |
+| Sem energia de CA (somente este PCM) |OFF |ATIVADO |OFF |ATIVADO |
+| CA presente PCM ligado - OK |ATIVADO |OFF |OFF |OFF |
+| Falha no PCM (falha do ventilador) |OFF |OFF |ATIVADO |N/D |
+| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente) |OFF |ATIVADO |ATIVADO |ATIVADO |
+| PCM (ventilador fora da tolerância) |ATIVADO |OFF |OFF |ATIVADO |
+| Modo standby |Piscando |OFF |OFF |OFF |
+| Download de firmware do PCM |OFF |Piscando |Piscando |Piscando |
 
 ### <a name="pcm-indicator-leds-for-the-backup-battery"></a>LEDs indicadores do PCM para a bateria de backup
 | Status | Bateria boa (verde) | Falha na bateria (âmbar) |
 | --- | --- | --- |
-| Bateria ausente |DESATIVADO |DESATIVADO |
-| Bateria presente e carregada |ATIVADO |DESATIVADO |
-| Bateria carregando ou descarga de manutenção |Piscando |DESATIVADO |
-| Falha “pequena” na bateria (recuperável) |DESATIVADO |Piscando |
-| Falha “grave” na bateria (não recuperável) |DESATIVADO |ATIVADO |
-| Bateria desarmada |Piscando |DESATIVADO |
+| Bateria ausente |OFF |OFF |
+| Bateria presente e carregada |ATIVADO |OFF |
+| Bateria carregando ou descarga de manutenção |Piscando |OFF |
+| Falha “pequena” na bateria (recuperável) |OFF |Piscando |
+| Falha “grave” na bateria (não recuperável) |OFF |ATIVADO |
+| Bateria desarmada |Piscando |OFF |
 
 ## <a name="pcm-leds-for-the-ebod-enclosure"></a>LEDs de PCM para o compartimento EBOD
 O compartimento EBOD possui um PCM de 580W e nenhuma bateria adicional. O painel do PCM para o compartimento EBOD possui LEDs indicadores para as fontes de energia e para o ventilador. A ilustração a seguir mostra estes LEDs.
@@ -116,14 +116,14 @@ Você pode usar a tabela a seguir para determinar o status do PCM.
 
 | Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 | --- | --- | --- | --- | --- |
-| Sem energia de CA (para o compartimento) |DESATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
-| Sem energia de CA (somente este PCM) |DESATIVADO |ATIVADO |DESATIVADO |ATIVADO |
-| CA presente PCM ligado - OK |ATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
-| Falha no PCM (falha do ventilador) |DESATIVADO |DESATIVADO |ATIVADO |X |
-| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente |DESATIVADO |ATIVADO |ATIVADO |ATIVADO |
-| PCM (ventilador fora da tolerância) |ATIVADO |DESATIVADO |DESATIVADO |ATIVADO |
-| Modelo standby |Piscando |DESATIVADO |DESATIVADO |DESATIVADO |
-| Download de firmware do PCM |DESATIVADO |Piscando |Piscando |Piscando |
+| Sem energia de CA (para o compartimento) |OFF |OFF |OFF |OFF |
+| Sem energia de CA (somente este PCM) |OFF |ATIVADO |OFF |ATIVADO |
+| CA presente PCM ligado - OK |ATIVADO |OFF |OFF |OFF |
+| Falha no PCM (falha do ventilador) |OFF |OFF |ATIVADO |X |
+| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente |OFF |ATIVADO |ATIVADO |ATIVADO |
+| PCM (ventilador fora da tolerância) |ATIVADO |OFF |OFF |ATIVADO |
+| Modelo standby |Piscando |OFF |OFF |OFF |
+| Download de firmware do PCM |OFF |Piscando |Piscando |Piscando |
 
 ## <a name="controller-module-indicator-leds"></a>LEDs indicadores do módulo do controlador
 O dispositivo StorSimple contém LEDs para o controlador primário e para os módulos do controlador EBOD.   
@@ -136,7 +136,7 @@ A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (T
 Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.  
 
 ### <a name="controller-indicator-leds"></a>LEDs indicadores do controlador
-| LED | DESCRIÇÃO |
+| LED | Descrição |
 | --- | --- |
 | LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de falha (âmbar) |Indica uma falha no controlador. |
@@ -160,9 +160,9 @@ Use a tabela a seguir para determinar se o módulo do controlador EBOD está ope
 ### <a name="ebod-controller-module-indicator-leds"></a>LEDs indicadores do módulo do controlador EBOD
 | Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
 | --- | --- | --- | --- |
-| Módulo do controlador OK |ATIVADO |DESATIVADO |- |
-| Falha do módulo do controlador |DESATIVADO |ATIVADO |- |
-| Nenhuma conexão externa de porta de host |- |- |DESATIVADO |
+| Módulo do controlador OK |ATIVADO |OFF |- |
+| Falha do módulo do controlador |OFF |ATIVADO |- |
+| Nenhuma conexão externa de porta de host |- |- |OFF |
 | Conexão externa de porta de host – sem atividade |- |- |ATIVADO |
 | Conexão externa de porta de host – com atividade |- |- |Piscando |
 | Erro de metadados do módulo do controlador |Piscando |- |- |
@@ -179,11 +179,11 @@ Use a tabela a seguir para determinar o estado de cada drive de disco que, por s
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>LEDs do indicador do drive de disco para o compartimento EBOD
 | Status | LED de Atividade OK (verde) | LED de falha (vermelho) | LED do painel de operações associado |
 | --- | --- | --- | --- |
-| Nenhum driver instalado |DESATIVADO |DESATIVADO |Nenhum |
+| Nenhum driver instalado |OFF |OFF |Nenhum |
 | Driver instalado e operacional |Piscando com atividade |X |Nenhum |
 | Conjunto de identidades do dispositivo Enclosure Services do SCSI (SES) |ATIVADO |Piscando 1 segundo ligado/1 segundo desligado |Nenhum |
 | Conjunto de bits de falha do dispositivo SES |ATIVADO |ATIVADO |Falha lógica (vermelha) |
-| Falha no circuito de controle de energia |DESATIVADO |ATIVADO |Falha no módulo (vermelho) |
+| Falha no circuito de controle de energia |OFF |ATIVADO |Falha no módulo (vermelho) |
 
 ## <a name="audible-alarms"></a>Alarmes audíveis
 Um dispositivo StorSimple contém alarmes audíveis associados com o compartimento primário e com o compartimento EBOD. Um alarme audível é localizando no painel frontal (também chamado de painel de operações) de ambos os compartimentos. O alarme audível indica quando uma condição de falha está presente. As condições a seguir ativarão o alarme:  
@@ -203,7 +203,7 @@ A tabela a seguir descreve os vários estados de alarme.
 | Estado de alarme | Ação | Ação com o botão de mudo pressionado |
 | --- | --- | --- |
 | S0 |Modo normal: silencioso |Dois bipes |
-| S1 |Modo com falha: 1 segundo em/1 segundo desligado |Transição para S2 ou S3 (consulte as observações) |
+| S1 |Modo de falha: 1 segundo ligado/1 segundo desligado |Transição para S2 ou S3 (consulte as observações) |
 | S2 |Modo lembrete: bipe intermitente |Nenhum |
 | S3 |Modo mudo: silencioso |Nenhum |
 | S4 |Modo de falha crítica: alarme contínuo |Não disponível: mudo não ativo |
@@ -239,10 +239,10 @@ A tabela a seguir descreve as várias condições de alarme.
 | Falha de controle de energia do drive |Aviso – nenhuma perda de energia no drive |S1 |Falha do módulo |
 | Falha de controle de energia do drive |Falha – crítica; perda de energia do drive |S1 |Falha do módulo |
 | Drive removido |Aviso |Nenhum |Falha do módulo |
-| Energia insuficiente disponível |Aviso |Nenhum |Falha do módulo |
+| Energia insuficiente disponível |Aviso |none |Falha do módulo |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimple-8000-monitor-hardware-status.md).
+Saiba mais sobre [componentes de hardware e status do StorSimple](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

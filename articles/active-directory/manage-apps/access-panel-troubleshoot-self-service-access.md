@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a981dfb1d72c21eccf2ad7119ea219114ed15aed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784272"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problema ao usar o acesso de aplicativo de autoatendimento
@@ -43,7 +43,7 @@ Antes que seus usuários possam descobrir por conta própria aplicativos de seu 
 
 Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga as etapas abaixo:
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**Portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -53,7 +53,7 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Selecione na lista o aplicativo ao qual você deseja habilitar o acesso do autoatendimento.
 
@@ -63,11 +63,11 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 
 9. Em seguida, para selecionar o grupo ao qual os usuários que solicitam acesso a esse aplicativo devem ser adicionados, clique no seletor ao lado do rótulo **A qual grupo os usuários atribuídos devem ser adicionados?** e selecione um grupo.
 
-10. **Opcional:** Se quiser exigir uma aprovação de negócios antes que os usuários tenham permissão de acesso, coloque o controle de alternância **Exigir aprovação antes de conceder acesso a esse aplicativo?** na posição **Sim**.
+10. **Opcional:** se quiser exigir uma aprovação de negócios antes que os usuários tenham permissão de acesso, coloque o controle de alternância **Exigir aprovação antes de conceder acesso a esse aplicativo?** na posição **Sim**.
 
-11. **Opcional: Somente para aplicativos que usam logon único com senha,** se quiser permitir que os aprovadores de negócios especifiquem as senhas que são enviadas para esse aplicativo aos usuários aprovados, coloque o controle de alternância **Permitir que os aprovadores definam senhas do usuário para este aplicativo?** na posição **Sim**.
+11. **Opcional: somente para aplicativos que usam logon único com senha,** se quiser permitir que os aprovadores de negócios especifiquem as senhas que são enviadas para esse aplicativo aos usuários aprovados, coloque o controle de alternância **Permitir que os aprovadores definam senhas do usuário para este aplicativo?** na posição **Sim**.
 
-12. **Opcional:** Para especificar os aprovadores de negócios que têm permissão para aprovar o acesso ao aplicativo, clique no seletor ao lado do rótulo **Quem tem permissão para aprovar o acesso a esse aplicativo?** para selecionar até 10 aprovadores de negócios individuais.
+12. **Opcional:** para especificar os aprovadores de negócios que têm permissão para aprovar o acesso ao aplicativo, clique no seletor ao lado do rótulo **Quem tem permissão para aprovar o acesso a esse aplicativo?** para selecionar até 10 aprovadores de negócios individuais.
 
     >[!NOTE]
     > Não há suporte para grupos.

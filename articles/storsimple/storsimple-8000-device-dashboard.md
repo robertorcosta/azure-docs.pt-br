@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60578118"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usar o resumo de dispositivo do serviço do Gerenciador de Dispositivos do StorSimple
@@ -78,9 +78,9 @@ A área de conceitos básicos captura algumas das propriedades importantes, como
 
      Nesse gráfico, você pode exibir métricas para o armazenamento principal total (a quantidade de dados gravados pelos hosts no seu dispositivo) e o armazenamento em nuvem total consumido pelo dispositivo em um período.
   
-     Nesse contexto, *armazenamento primário* refere-se à quantidade total de dados gravados pelo host e pode ser dividido por tipo de volume: o *armazenamento em camadas primário* inclui tanto dados armazenados localmente quanto dados em camadas na nuvem. O *armazenamento primário fixado localmente* inclui apenas os dados armazenados localmente. O *armazenamento em nuvem*, por outro lado, é uma medição do volume total de dados armazenados na nuvem. Esse armazenamento inclui dados em camadas e backups. Os dados armazenados na nuvem passam pela eliminação de duplicação e são compactados, enquanto o armazenamento primário indica a quantidade de armazenamento usada antes dos dados passarem pela eliminação de duplicação e serem compactados. (Você pode comparar esses dois números para ter uma ideia da taxa de compactação). Tanto para o armazenamento primário, quanto para o armazenamento na nuvem, os volumes mostrados se baseiam na frequência de acompanhamento configurada. Por exemplo, se você escolher a frequência de uma semana, o gráfico mostrará dados para cada dia da semana anterior.
+     Nesse contexto, *armazenamento primário* refere-se à quantidade total de dados gravados pelo host e pode ser dividido por tipo de volume: o *armazenamento em camadas primário* inclui tanto dados armazenados localmente quanto dados em camadas na nuvem. O *armazenamento primário fixado localmente* inclui apenas os dados armazenados localmente. *Armazenamento em nuvem*, por outro lado, é uma medida da quantidade total de dados armazenados na nuvem. Esse armazenamento inclui dados em camadas e backups. Os dados armazenados na nuvem passam pela eliminação de duplicação e são compactados, enquanto o armazenamento primário indica a quantidade de armazenamento usada antes dos dados passarem pela eliminação de duplicação e serem compactados. (Você pode comparar esses dois números para ter uma ideia da taxa de compressão.) Para armazenamento primário e em nuvem, as quantidades mostradas são baseadas na freqüência de rastreamento configurada. Por exemplo, se você escolher a frequência de uma semana, o gráfico mostrará dados para cada dia da semana anterior.
 
-     Para ver o volume de armazenamento em nuvem consumido ao longo do tempo, selecione a opção **ARMAZENAMENTO EM NUVEM USADO**. Para ver o armazenamento total gravado pelo host, selecione as opções **ARMAZENAMENTO PRIMÁRIO EM CAMADAS USADO** e **ARMAZENAMENTO PRIMÁRIO LOCALMENTE AFIXADO USADO**. 
+     Para ver a quantidade de armazenamento em nuvem consumida ao longo do tempo, selecione a opção **ARMAZENAMENTO DE NUVEM USADO**. Para ver o armazenamento total gravado pelo host, selecione as opções **ARMAZENAMENTO PRIMÁRIO EM CAMADAS USADO** e **ARMAZENAMENTO PRIMÁRIO LOCALMENTE AFIXADO USADO**. 
      Para obter mais informações, consulte [Usar o serviço do Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple](storsimple-monitor-device.md).
 
 

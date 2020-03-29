@@ -1,6 +1,6 @@
 ---
 title: Esquema de evento de Registro de Contêiner de Grade de Eventos do Azure
-description: Descreve as propriedades que são fornecidas para eventos de registro de contêiner com a grade de eventos do Azure
+description: Descreve as propriedades fornecidas para eventos de registro de contêineres com o Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,26 +9,26 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345457"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de evento de Grade de Eventos do Azure para Registro de Contêiner
 
-Este artigo apresenta as propriedades e o esquema para eventos de Registro de Contêiner. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo apresenta as propriedades e o esquema para eventos de Registro de Contêiner.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
-O registro de contêiner do Azure emite os seguintes tipos de evento:
+O Registro de Contêineres do Azure emite os seguintes tipos de eventos:
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Gerado quando é efetuado o push de uma imagem. |
 | Microsoft.ContainerRegistry.ImageDeleted | Gerado quando uma imagem é excluída. |
-| Microsoft.ContainerRegistry.ChartPushed | Gerado quando um gráfico do Helm é enviada por push. |
-| Microsoft.ContainerRegistry.ChartDeleted | Gerado quando um gráfico do Helm é excluído. |
+| Microsoft.ContainerRegistry.ChartPushed | Levantado quando um gráfico de Helm é empurrado. |
+| Microsoft.ContainerRegistry.ChartExcluído | Levantado quando um gráfico helm é excluído. |
 
 ## <a name="example-event"></a>Exemplo de evento
 
@@ -95,7 +95,7 @@ O esquema para um evento de exclusão de imagem é semelhante:
 }]
 ```
 
-O esquema para um gráfico de enviada por push o evento é semelhante ao esquema para um evento enviado por push com imagens, mas ele não inclui um objeto de solicitação:
+O esquema para um evento empurrado por gráfico é semelhante ao esquema para um evento com imagem empurrada, mas não inclui um objeto de solicitação:
 
 ```json
 [{
@@ -123,7 +123,7 @@ O esquema para um gráfico de enviada por push o evento é semelhante ao esquema
 }]
 ```
 
-O esquema para um evento de gráfico excluído é semelhante ao esquema para um evento excluído com imagens, mas ele não inclui um objeto de solicitação:
+O esquema para um evento excluído de gráfico é semelhante ao esquema para um evento excluído com imagens, mas não inclui um objeto de solicitação:
 
 ```json
 [{
@@ -155,43 +155,43 @@ O esquema para um evento de gráfico excluído é semelhante ao esquema para um 
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
-| data | object | Dados de eventos do armazenamento de blob. |
+| data | objeto | Dados de eventos do armazenamento de blob. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
 | metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | id | string | A ID do evento. |
-| timestamp | string | A hora em que o evento ocorreu. |
-| action | string | A ação que abrange o evento fornecido. |
-| target | object | O destino do evento. |
-| request | object | A solicitação que gerou o evento. |
+|  timestamp | string | A hora em que o evento ocorreu. |
+| ação | string | A ação que abrange o evento fornecido. |
+| destino | objeto | O destino do evento. |
+| solicitação | objeto | A solicitação que gerou o evento. |
 
 O objeto de destino tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | mediaType | string | O tipo MIME do objeto referenciado. |
-| size | integer | O número de bytes do conteúdo. Mesmo que o campo de Comprimento. |
+| tamanho | inteiro | O número de bytes do conteúdo. Mesmo que o campo de Comprimento. |
 | digest | string | O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2. |
-| length | integer | O número de bytes do conteúdo. O mesmo que o campo Tamanho. |
+| comprimento | inteiro | O número de bytes do conteúdo. O mesmo que o campo Tamanho. |
 | repository | string | Nome do repositório. |
-| tag | string | O nome da marca. |
+| marca | string | O nome da marca. |
 | name | string | O nome do gráfico. |
 | version | string | A versão do gráfico. |
 
 O objeto solicitado tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | id | string | A ID da solicitação que iniciou o evento. |
 | addr | string | O IP ou nome de host e, possivelmente, a porta da conexão do cliente que iniciou o evento. Esse valor é o RemoteAddr da solicitação http padrão. |

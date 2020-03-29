@@ -1,6 +1,6 @@
 ---
-title: Subclipe um vídeo quando estiver codificando com os serviços de mídia do Azure
-description: Este tópico descreve como subclipe um vídeo quando estiver codificando com os serviços de mídia do Azure usando o SDK do .NET
+title: Subclipe um vídeo ao codificar com o Azure Media Services
+description: Este tópico descreve como subclipar um vídeo ao codificar com o Azure Media Services usando .NET SDK
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67304969"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclipe um vídeo quando estiver codificando com os serviços de mídia - .NET
+# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclipe um vídeo ao codificar com serviços de mídia - .NET
 
-Você pode cortar ou subclipe um vídeo quando estiver codificando-o usando um [trabalho](https://docs.microsoft.com/rest/api/media/jobs). Essa funcionalidade funciona com qualquer [transformar](https://docs.microsoft.com/rest/api/media/transforms) que é criado usando o [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) predefinições, ou o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) predefinições.
+Você pode cortar ou subclipar um vídeo ao codificar usando um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). Essa funcionalidade funciona com qualquer [Transformação](https://docs.microsoft.com/rest/api/media/transforms) que seja construída usando as predefinições [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)
 
-O seguinte C# exemplo cria um trabalho que corta um vídeo em um ativo, ele envia um trabalho de codificação. 
+O exemplo C# a seguir cria um trabalho que corta um vídeo em um Ativo à medida que envia um trabalho de codificação. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas descritas neste tópico, você precisa:
 
 - [Criar uma conta dos Serviços de Mídia do Azure](create-account-cli-how-to.md)
-- Criar uma transformação e uma entrada e ativos de saída. Você pode ver como criar uma transformação e ativos de entrada e saídos na [carregar, codificar e transmitir vídeos usando o .NET](stream-files-tutorial-with-api.md) tutorial.
-- Examine os [conceito de codificação](encoding-concept.md) tópico.
+- Crie uma Transformação e um Ativo de entrada e saída. Você pode ver como criar um Transform e input and output Assets no [upload, codificar e transmitir vídeos usando o tutorial .NET.](stream-files-tutorial-with-api.md)
+- Revise o tópico [conceito de codificação.](encoding-concept.md)
 
 ## <a name="example"></a>Exemplo
 

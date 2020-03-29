@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67476752"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Executar scripts na sua VM Windows
@@ -68,7 +68,7 @@ O [Console serial](serial-console.md) fornece acesso direto a uma VM, semelhante
 
 Saiba mais sobre os diferentes recursos disponíveis para executar scripts e comandos dentro de suas VMs.
 
-* [Extensão de Script personalizado](../extensions/custom-script-windows.md)
+* [Extensão de script personalizada](../extensions/custom-script-windows.md)
 * [Executar Comando](run-command.md)
 * [Runbook Worker Híbrido](../../automation/automation-hybrid-runbook-worker.md)
 * [Console serial](serial-console.md)

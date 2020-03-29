@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978383"
 ---
 # <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença do Widevine 
@@ -59,7 +59,7 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
     }
 
 ## <a name="json-message"></a>Mensagem JSON
-| name | Value | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | payload |Cadeia de caracteres codificada em Base64 |A solicitação de licença enviada por um cliente. |
 | content_id |Cadeia de caracteres codificada em Base64 |Identificador usado para gerar a(s) ID(s) de chave e chaves de conteúdo para cada content_key_specs.track_type. |
@@ -73,24 +73,24 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
 | parse_only |Booliano, true ou false |A solicitação de licença é analisada, mas nenhuma licença é emitida. No entanto, os valores da solicitação de licença retornam na resposta. |
 
 ## <a name="content-key-specs"></a>Especificações de chave de conteúdo
-Se houver uma política pré-existente, não será necessário especificar nenhum dos valores na especificação de chave de conteúdo. A política preexistente associada a esse conteúdo é usada para determinar a proteção de saída, como a HDCP (Proteção de Conteúdo Digital de alta largura de banda) e o CGMS (sistema de gerenciamento geral de cópia). Se uma política existente não estiver registrada no servidor de licenças do Widevine, o provedor de conteúdo poderá injetar os valores na solicitação de licença.   
+Se existe uma política pré-existente, não há necessidade de especificar nenhum dos valores na especificação da chave de conteúdo. A política pré-existente associada a este conteúdo é usada para determinar a proteção de saída, como o HDCP (Digital Content Protection, proteção de conteúdo digital de alta largura de banda) e o CgMS (Copy General Management System). Se uma política existente não estiver registrada no servidor de licenças do Widevine, o provedor de conteúdo poderá injetar os valores na solicitação de licença.   
 
 Cada valor content_key_specs deve ser especificado para todos os controles, independentemente da opção use_policy_overrides_exclusively. 
 
-| name | Value | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Um nome de tipo de controle. Se content_key_specs for especificado na solicitação de licença, especifique de forma explícita todos os tipos de controle. Se você não fizer isso, haverá uma falha de reprodução após 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez de reprodução do cliente. <br/> - É necessário aplicar a criptografia whitebox baseada em software. <br/> - É necessário aplicar a criptografia de software e um decodificador ofuscado. <br/> - As principais operações de criptografia e de materiais devem ser executadas em um ambiente de execução confiável com suporte de hardware. <br/> - A criptografia e decodificação do conteúdo devem ser executadas em um ambiente de execução confiável com suporte de hardware.  <br/> - A criptografia, decodificação e qualquer manipulação da mídia (compactada e descompactada) devem ser tratadas em um ambiente de execução confiável com suporte de hardware. |
 | content_key_specs <br/> required_output_protection.hdc |cadeia de caracteres, uma de HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se HDCP é necessário. |
-| content_key_specs <br/>chave |Base64-<br/>Base64 |Chave de conteúdo a ser usada para esta faixa. Se especificado, o track_type ou key_id é necessário. O provedor de conteúdo pode usar essa opção para insirir a chave de conteúdo para este controle em vez de deixar o servidor de licença do Widevine gerar ou procurar uma chave. |
+| content_key_specs <br/>chave |Base64-<br/>Base64 |Chave de conteúdo para usar nesta faixa. Se especificado, é necessário track_type ou key_id. O provedor de conteúdo pode usar essa opção para insirir a chave de conteúdo para este controle em vez de deixar o servidor de licença do Widevine gerar ou procurar uma chave. |
 | content_key_specs.key_id |Binário de cadeia de caracteres codificada em Base64, 16 bytes |Identificador exclusivo para a chave. |
 
 ## <a name="policy-overrides"></a>Substituições de política
-| name | Value | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
-| policy_overrides. can_play |Booliano, true ou false |Indica que a reprodução do conteúdo é permitida. O padrão é falso. |
-| policy_overrides. can_persist |Booliano, true ou false |Indica que a licença pode ser persistente para o armazenamento não volátil para uso offline. O padrão é falso. |
-| policy_overrides. can_renew |Booliano, true ou false |Indica que a renovação dessa licença é permitida. Se for true, a duração da licença poderá ser estendida por pulsação. O padrão é falso. |
+| policy_overrides. can_play |Booliano, true ou false |Indica que a reprodução do conteúdo é permitida. O padrão é false. |
+| policy_overrides. can_persist |Booliano, true ou false |Indica que a licença pode ser persistente para o armazenamento não volátil para uso offline. O padrão é false. |
+| policy_overrides. can_renew |Booliano, true ou false |Indica que a renovação dessa licença é permitida. Se for true, a duração da licença poderá ser estendida por pulsação. O padrão é false. |
 | policy_overrides. license_duration_seconds |int64 |Indica o período para esta licença específica. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
 | policy_overrides. rental_duration_seconds |int64 |Indica o período em que a reprodução é permitida. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
 | policy_overrides. playback_duration_seconds |int64 |O período de exibição após o início da reprodução dentro da duração da licença. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
@@ -101,7 +101,7 @@ Cada valor content_key_specs deve ser especificado para todos os controles, inde
 | policy_overrides. renew_with_usage |Booliano, true ou false |Indica que a licença é enviada para renovação quando o uso inicia. Este campo só será usado se can_renew for true. |
 
 ## <a name="session-initialization"></a>Inicialização da sessão
-| name | Value | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | provider_session_token |Cadeia de caracteres codificada em Base64 |Este token de sessão é repassado na licença e continuará a existir em renovações subsequentes. O token de sessão não persiste além das sessões. |
 | provider_client_token |Cadeia de caracteres codificada em Base64 |Token de cliente para envio na resposta da licença. Se a solicitação de licença contiver um token de cliente, esse valor será ignorado. O token do cliente persiste além das sessões da licença. |
@@ -191,7 +191,7 @@ O exemplo a seguir mostra como usar as APIs do .NET para configurar uma licença
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -199,6 +199,6 @@ O exemplo a seguir mostra como usar as APIs do .NET para configurar uma licença
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 [Usar a criptografia comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade para o servidor MFA do Azure-Azure Active Directory
+title: Alta disponibilidade para Azure MFA Server - Azure Active Directory
 description: Implante várias instâncias do Servidor de Autenticação Multifator do Azure em configurações que fornecem alta disponibilidade.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7b2df4e87dddcfedd10682e4e3ab6c014ad7bbb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848180"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurar o Servidor de Autenticação Multifator do Azure para alta disponibilidade
@@ -23,7 +23,7 @@ ms.locfileid: "74848180"
 Para obter alta disponibilidade com a implantação do Servidor do Azure MFA, você precisa implantar vários servidores do MFA. Esta seção fornece informações sobre um design com balanceamento de carga para atingir suas metas de alta disponibilidade na implantação do Servidor do Azure MFS.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o MFA Server para novas implantações. Novos clientes que gostariam de exigir autenticação multifatorial de seus usuários devem usar a Autenticação Multifatorial baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 ## <a name="mfa-server-overview"></a>Visão geral do Servidor do MFA
 
@@ -39,7 +39,7 @@ Os Servidores mestre e subordinado do MFA se comunicam com o Serviço do MFA qua
 
 Após a autenticação bem-sucedida no AD, o Servidor do MFA se comunicará com o Serviço do MFA. O Servidor do MFA aguarda a notificação do Serviço do MFA para permitir ou negar o acesso do usuário ao aplicativo.
 
-Se o servidor mestre do MFA ficar offline, as autenticações ainda poderão ser processadas, mas as operações que exigem alterações no banco de dados do MFA não poderão ser processadas. (Os exemplos incluem: a adição de usuários, alterações de PIN de autoatendimento, alteração de informações do usuário ou acesso ao portal do usuário)
+Se o servidor mestre do MFA ficar offline, as autenticações ainda poderão ser processadas, mas as operações que exigem alterações no banco de dados do MFA não poderão ser processadas. (Exemplos incluem: aadição de usuários, alterações de PIN de autoatendimento, alteração de informações do usuário ou acesso ao portal do usuário)
 
 ## <a name="deployment"></a>Implantação
 
@@ -51,7 +51,7 @@ Considere os pontos importantes a seguir para o balanceamento de carga do Servid
 
    ![Servidor do MFA com uma rede de perímetro](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
 
-* **A senha avulsa (OTP) por SMS (também conhecida como SMS unidirecional) exige o uso de sessões temporárias se o tráfego apresentar balanceamento de carga**. O SMS unidirecional é uma opção de autenticação que faz com que o Servidor do MFA envie aos usuários uma mensagem de texto que contém um OTP. O usuário insere o OTP em uma janela de prompt para concluir o desafio de MFA. Se você balancear a carga dos Servidores do MFA do Azure, o mesmo servidor que atendeu à solicitação de autenticação inicial deverá ser o servidor que recebe a mensagem OTP do usuário; se outro Servidor do MFA receber a resposta OTP, o desafio de autenticação falhará. Para obter mais informações, consulte [Senha avulsa por SMS adicionada ao Servidor MFA do Azure](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
+* **O OTP (senha avulsa) por SMS (também conhecido como SMS unidirecional) exige o uso de sessões temporárias se o tráfego tem balanceamento de carga**. O SMS unidirecional é uma opção de autenticação que faz com que o Servidor do MFA envie aos usuários uma mensagem de texto que contém um OTP. O usuário insere o OTP em uma janela de prompt para concluir o desafio de MFA. Se você balancear a carga dos Servidores do MFA do Azure, o mesmo servidor que atendeu à solicitação de autenticação inicial deverá ser o servidor que recebe a mensagem OTP do usuário; se outro Servidor do MFA receber a resposta OTP, o desafio de autenticação falhará. Para obter mais informações, consulte [Senha avulsa por SMS adicionada ao Servidor MFA do Azure](https://blogs.technet.microsoft.com/enterprisemobility/2015/03/02/one-time-password-over-sms-added-to-azure-mfa-server).
 * **As implantações com balanceamento de carga do Portal do Usuário e do Serviço Web do Aplicativo Móvel exigem sessões temporárias**. Se você estiver balanceando a carga do Portal do Usuário do MFA e do Serviço Web do Aplicativo Móvel, cada sessão precisará permanecer no mesmo servidor.
 
 ## <a name="high-availability-deployment"></a>Implantação de alta disponibilidade
@@ -72,6 +72,6 @@ Observe os itens a seguir em relação à área numerada correspondente do diagr
    ![Servidor MFA do Azure – HA do Portal do Usuário e do Serviço de Aplicativo Móvel](./media/howto-mfaserver-deploy-ha/mfaportal.png)
 3. O farm de Servidores do AD FS tem balanceamento de carga e é publicado na Internet por meio de proxies do AD FS com balanceamento de carga na rede de perímetro. Cada Servidor do AD FS usa o agente do AD FS para se comunicar com os Servidores MFA do Azure usando uma única URL com balanceamento de carga (mfaapp.contoso.com) pela porta TCP 443.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Instalar e configurar o Servidor MFA do Azure](howto-mfaserver-deploy.md)
+* [Instalar e configurar o Servidor do MFA do Azure](howto-mfaserver-deploy.md)

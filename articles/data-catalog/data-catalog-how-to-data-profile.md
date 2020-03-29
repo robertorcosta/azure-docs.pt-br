@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950231"
 ---
-# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Como fontes de dados de perfil de dados no catálogo de dados do Azure
+# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Como obter fontes de dados de perfil de dados no Azure Data Catalog
 
 ## <a name="introduction"></a>Introdução
 
-**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Quando uma fonte de dados é registrada no **Catálogo de Dados do Azure**, seus metadados são copiados e indexados pelo serviço, mas a história não para por aí.
+**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, **o Azure Data Catalog** tem tudo a ver com ajudar as pessoas a descobrir, entender e usar fontes de dados e ajudar as organizações a obter mais valor a partir de seus dados existentes. Quando uma fonte de dados é registrada no **Catálogo de Dados do Azure**, seus metadados são copiados e indexados pelo serviço, mas a história não para por aí.
 
 O recurso **Criação do Perfil de Dados** do **Catálogo de Dados do Azure** examina os dados nas fontes de dados com suporte no catálogo e coleta estatísticas e informações sobre esses dados. É fácil incluir um perfil de seus ativos de dados. Ao registrar um ativo de dados, escolha **Incluir Perfil de Dados** na ferramenta de registro de fonte de dados.
 
@@ -51,7 +51,7 @@ A inclusão de perfis de dados ao registrar ativos de dados ajuda os usuários a
 
 É fácil incluir um perfil de sua fonte de dados. Quando você registra uma fonte de dados, no painel **Objetos a ser registrados** da ferramenta de registro da fonte de dados, escolha **Incluir Perfil dos Dados**.
 
-![Caixa de seleção incluir perfil de dados](media/data-catalog-data-profile/data-catalog-register-profile.png)
+![Incluir caixa de seleção de perfil de dados](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
 Para saber mais sobre como registrar as fontes de dados, consulte [Como registrar as fontes de dados](data-catalog-how-to-register.md) e [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md).
 
@@ -67,7 +67,7 @@ Para descobrir ativos de dados que incluem um perfil de dados, você pode inclui
 
 Depois de encontrar uma fonte de dados adequada com um perfil, você pode exibir os detalhes do perfil de dados. Para exibir o perfil de dados, selecione um ativo de dados e escolha **Perfil de Dados** na janela do portal do Catálogo de Dados.
 
-![Guia perfil de dados](media/data-catalog-data-profile/data-catalog-view.png)
+![Guia Perfil de Dados](media/data-catalog-data-profile/data-catalog-view.png)
 
 Um perfil de dados no **Catálogo de Dados do Azure** mostra informações de perfil de tabela e coluna, incluindo:
 

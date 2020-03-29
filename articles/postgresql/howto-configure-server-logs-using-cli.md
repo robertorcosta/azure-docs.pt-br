@@ -1,6 +1,6 @@
 ---
-title: Gerenciar logs-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve como configurar e acessar os logs do servidor (arquivos. log) no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure.
+title: Gerenciar logs - Azure CLI - Banco de dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve como configurar e acessar os logs de servidor (.log files) no Azure Database for PostgreSQL - Single Server usando o Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74763565"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
@@ -30,7 +30,7 @@ Você pode configurar o servidor para acessar os logs de erro e os logs de consu
 
 Para mais informações, confira [Personalizando os parâmetros de configuração do servidor](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs"></a>Listar logs
+## <a name="list-logs"></a>Registros de listas
 Para listar os arquivos de log disponíveis para o servidor, execute o comando [az postgres server-logs list](/cli/azure/postgres/server-logs).
 
 Você pode listar os arquivos de log para o servidor **mydemoserver.postgres.database.azure.com** no grupo de recursos **myresourcegroup**. Em seguida, direcione-os para um arquivo de texto chamado **log\_files\_list.txt**.
@@ -44,6 +44,6 @@ Use o exemplo a seguir para baixar o arquivo de log específico para o servidor 
 ```azurecli-interactive
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="next-steps"></a>Próximos passos
-- Para saber mais sobre os logs de servidor, confira [Logs de servidor no Banco de Dados do Azure para PostgreSQL](concepts-server-logs.md).
+## <a name="next-steps"></a>Próximas etapas
+- Para saber mais sobre os logs do servidor, consulte [logs do Servidor no Banco de Dados do Azure para PostgreSQL](concepts-server-logs.md).
 - Para saber mais sobre os parâmetros de servidor, veja [Personalizar os parâmetros de configuração de servidor usando a CLI do Azure](howto-configure-server-parameters-using-cli.md).

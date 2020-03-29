@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Oracle Database
+title: Conecte-se ao banco de dados Oracle
 description: Inserir e gerenciar registros com APIs REST do Oracle Database e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
 ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789419"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
@@ -32,9 +32,9 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 * Instalar o gateway de dados local. [Conectar-se a dados locais de aplicativos lógicos](../logic-apps/logic-apps-gateway-connection.md) lista as etapas. O gateway é necessário para se conectar ao Banco de Dados Oracle local, ou uma VM do Azure com o Banco de Dados Oracle instalado. 
 
     > [!NOTE]
-    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados. Portanto, você pode precisar instalar o gateway apenas uma vez.
+    > O gateway de dados local atua como uma ponte e fornece transferência de dados segura entre dados locais (dados que não estão na nuvem) e seu aplicativo lógico. O mesmo gateway pode ser usado com vários serviços e várias fontes de dados.Assim, você só precisará instalar o gateway uma vez.
 
-* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local. Certifique-se de instalar o Provedor de Dados do Oracle de 64 bits para .NET da Oracle:  
+* Instale o Cliente Oracle no computador onde você instalou o gateway de dados local.Instale o Provedor de Dados do Oracle de 64 bits para .NET a partir do Oracle:  
 
   [ODAC 12c Release 4 (12.1.0.2.4) de 64 bits para Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -47,13 +47,13 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 > [!IMPORTANT]
 > Esse conector não tem gatilhos. Ele tem somente ações. Então, quando você criar seu aplicativo lógico, adicione outro gatilho para iniciar seu aplicativo lógico, como **Agenda - Recorrência** ou **Solicitação / Resposta - Resposta**. 
 
-1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco.
+1. No [portal Azure,](https://portal.azure.com)crie um aplicativo de lógica em branco.
 
 2. No início de seu aplicativo lógico, selecione o gatilho **Solicitação / Resposta - Solicitação**: 
 
     ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Clique em **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
+3. Selecione **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
 
 4. Selecione **Nova etapa** e selecione **Adicionar uma ação**. Digite `oracle` para ver as ações disponíveis: 
 
@@ -95,9 +95,9 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 **Causa**: o gateway de dados local não é capaz de se conectar à nuvem. 
 
-**Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.  Recomendamos não instalar o gateway em um computador que possa ser desligado ou suspenso. Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
+**Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso.Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) a instalação do provedor oficial.
 
 **Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
 
@@ -117,14 +117,14 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
  
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/oracle/). 
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Obtenha ajuda
 
 O [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) é um ótimo lugar para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos estão fazendo. 
 
-Você pode ajudar a melhorar os Aplicativos Lógicos e os conectores vitando e enviando suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
+Você pode ajudar a melhorar os aplicativos e conectores [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)lógicos votando e enviando suas ideias em . 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) e explore os conectores disponíveis nos Aplicativos Lógicos em nossa [Lista de APIs](apis-list.md).

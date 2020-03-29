@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76719986"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo nas tabelas Hive do Azure HDInsight
-Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Ele aborda três métodos de amostragem populares usados:
+Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Abrange três métodos de amostragem popularmente utilizados:
 
 * Amostragem aleatória uniforme
 * Amostragem aleatória por grupos
@@ -31,9 +31,9 @@ Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Como enviar consultas de Hive
-Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop.  Faça logon no nó principal do cluster do Hadoop, abra o console de linha de comando do Hadoop e envie as consultas de Hive a partir daí. Para obter instruções sobre como enviar consultas de Hive no console Linha de Comando do Hadoop, confira [Como enviar consultas de Hive](move-hive-tables.md#submit).
+Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop.  Entre no nó principal do cluster Hadoop, abra o console Hadoop Command-Line e envie as consultas da Colmeia a partir daí. Para obter instruções sobre como enviar consultas de Hive no console Linha de Comando do Hadoop, confira [Como enviar consultas de Hive](move-hive-tables.md#submit).
 
-## <a name="uniform"></a> Amostragem aleatória uniforme
+## <a name="uniform-random-sampling"></a><a name="uniform"></a> Amostragem aleatória uniforme
 A amostragem aleatória uniforme significa que cada linha no conjunto de dados tem a mesma chance de amostra. Isso pode ser implementado adicionando um campo rand() extra ao conjunto de dados na consulta interna "select" e na consulta externa “select”, esta condição estará nesse campo aleatório.
 
 Veja um exemplo de consulta:
@@ -51,7 +51,7 @@ Veja um exemplo de consulta:
 
 Aqui, `<sample rate, 0-1>` especifica a proporção de registros que os usuários desejam como amostra.
 
-## <a name="group"></a> Amostragem aleatória por grupos
+## <a name="random-sampling-by-groups"></a><a name="group"></a> Amostragem aleatória por grupos
 Ao realizar amostragem de dados categóricos, convém incluir ou excluir todas as instâncias de um determinado valor de uma variável categórica. Esse tipo de amostragem é chamado de "amostragem pelo grupo". Por exemplo, se você tiver uma variável categórica "*Estado*", que tem como valores NY, MA, CA, NJ, PA, etc. (siglas de estados dos EUA), o ideal é que registros do mesmo estado estejam sempre juntos, presentes ou não como amostra.
 
 Veja um exemplo de consulta com amostragem por grupo:
@@ -80,7 +80,7 @@ Veja um exemplo de consulta com amostragem por grupo:
         )c
     on b.catfield=c.catfield
 
-## <a name="stratified"></a>Amostragem estratificada
+## <a name="stratified-sampling"></a><a name="stratified"></a>Amostragem estratificada
 A amostragem aleatória é estratificada em relação a uma variável categórica quando as amostras obtidas têm valores da categoria em questão que estão na mesma proporção como a população-mãe. Usando o mesmo exemplo anterior, suponha que os dados têm subpopulações por estados: NJ tem 100 observações, NY tem 60 observações e WA tem 300 observações. Se você especificar a taxa de amostragem estratificada para ser 0,5, a amostra obtida deve ter aproximadamente 50, 30 e 150 observações de NJ, NY e WA, respectivamente.
 
 Veja um exemplo de consulta:

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594101"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
@@ -42,46 +42,46 @@ Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure.
 ## <a name="geography-reports-map-based"></a>Relatórios de Geografia (baseados em mapa)
 Há cinco relatórios que tiram proveito de um mapa para indicar as regiões de onde o conteúdo está sendo solicitado. Esses relatórios são Mapa mundial, Mapa dos Estados Unidos, Mapa do Canadá, Mapa da Europa e Mapa do Pacífico Asiático.
 
-Cada relatório baseado em mapa classifica as entidades geográficas (ou seja, países/regiões, um mapa é fornecido para ajudá-lo a visualizar os locais dos quais o conteúdo está sendo solicitado. É possível fazer isso codificando por cores cada região de acordo com a quantidade da demanda percebida nelas. As regiões com cores mais claras indicam menor demanda por seu conteúdo, enquanto regiões mais escuras indicam altos níveis de demanda por seu conteúdo.
+Cada relatório baseado em mapa classifica entidades geográficas (ou seja, países/regiões, um mapa é fornecido para ajudá-lo a visualizar os locais a partir dos quais seu conteúdo está sendo solicitado. É possível fazer isso codificando por cores cada região de acordo com a quantidade da demanda percebida nelas. As regiões com cores mais claras indicam menor demanda por seu conteúdo, enquanto regiões mais escuras indicam altos níveis de demanda por seu conteúdo.
 
-As informações detalhadas de tráfego e de largura de banda para cada região são fornecidas diretamente abaixo do mapa. Isso permite que você exiba o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos para cada região. Exiba uma descrição para cada uma das métricas. Por fim, quando você focaliza uma região (ou seja, país/região, estado ou província), o nome e a porcentagem de ocorrências na região será exibido como uma dica de ferramenta.
+As informações detalhadas de tráfego e de largura de banda para cada região são fornecidas diretamente abaixo do mapa. Isso permite que você exiba o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos para cada região. Exiba uma descrição para cada uma das métricas. Finalmente, quando você paira sobre uma região (ou seja, país/região, estado ou província), o nome e a porcentagem de acessos ocorridos na região serão exibidos como uma dica de ferramenta.
 
 Uma breve descrição abaixo é apresentada abaixo para cada tipo de relatório geográfico baseado em mapa.
 
-| Nome do relatório | DESCRIÇÃO |
+| Nome do Relatório | Descrição |
 | --- | --- |
-| Mapa mundial |Esse relatório permite que você exiba a demanda mundial por seu conteúdo CDN. Cada país/região é codificado por cor no mapa mundial para indicar a porcentagem de ocorrências originadas dessa região. |
+| Mapa mundial |Esse relatório permite que você exiba a demanda mundial por seu conteúdo CDN. Cada país/região é codificado por cores no mapa-múndi para indicar a porcentagem de acessos originados daquela região. |
 | Mapa dos Estados Unidos |Esse relatório permite que você exiba a demanda por seu conteúdo CDN nos Estados Unidos. Cada estado é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas da região. |
 | Mapa do Canadá |Esse relatório permite que você exiba a demanda por seu conteúdo CDN no Canadá. Cada município é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas da região. |
-| Mapa da Europa |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Europa. Cada país/região é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas dessa região. |
-| Mapa do Pacífico Asiático |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Ásia. Cada país/região é codificado por cor no mapa para indicar a porcentagem de ocorrências originadas dessa região. |
+| Mapa da Europa |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Europa. Cada país/região é codificado por cores neste mapa para indicar a porcentagem de acessos originados dessa região. |
+| Mapa do Pacífico Asiático |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Ásia. Cada país/região é codificado por cores neste mapa para indicar a porcentagem de acessos originados dessa região. |
 
 ## <a name="geography-reports-bar-charts"></a>Relatórios de geografia (gráficos de barras)
-Há dois relatórios adicionais que fornecem informações estatísticas de acordo com a geografia, que são Principais cidades e Principais países. Esses relatórios classificam cidades e países/regiões, respectivamente, acordo com o número de ocorrências originadas desses países/regiões. Ao gerar este tipo de relatório, um gráfico de barras indicará as 10 principais cidades ou países/regiões que solicitaram o conteúdo em uma plataforma específica. Esse gráfico de barras permite avaliar rapidamente as regiões que geram o maior número de solicitações de seu conteúdo.
+Há dois relatórios adicionais que fornecem informações estatísticas de acordo com a geografia, que são Principais cidades e Principais países. Esses relatórios classificam cidades e países/regiões, respectivamente, de acordo com o número de acessos originários desses países/regiões. Ao gerar esse tipo de relatório, um gráfico de barras indicará as 10 principais cidades ou países/regiões que solicitaram conteúdo em uma plataforma específica. Esse gráfico de barras permite avaliar rapidamente as regiões que geram o maior número de solicitações de seu conteúdo.
 
 O lado esquerdo do grafo (eixo y) indica o número de ocorrências na região especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo para cada uma das dez regiões principais.
 
 ### <a name="using-the-bar-charts"></a>Usando gráficos de barras
 * Se você passar o mouse sobre uma barra, o nome e o número total de ocorrências na região serão exibidos como uma dica de ferramenta.
-* A dica de ferramenta para o relatório principais cidades identifica uma cidade pelo seu nome, o estado/província e a abreviação do país/região.
-* Se a cidade ou região (ou seja, estado/província) de onde se originou uma solicitação não puder ser determinada, ela será indicada como desconhecida. Se o país/região for desconhecido, dois pontos de interrogação (isto é,??), será exibida.
-* Um relatório pode incluir as métricas para “Europa” ou para a “Região do Pacífico Asiático”. Esses itens não foram criados para fornecer informações estatísticas sobre todos os endereços IP nessas áreas. Em vez disso, elas se aplicam apenas às solicitações originadas de endereços IP distribuídos pela Europa ou Ásia/Pacífico, em vez de uma cidade específica ou o país/região.
+* A dica de ferramenta para o relatório Top Cities identifica uma cidade pelo nome, estado/província e abreviação de país/região.
+* Se a cidade ou região (ou seja, estado/província) de onde se originou uma solicitação não puder ser determinada, ela será indicada como desconhecida. Se o país/região é desconhecido, então dois pontos de interrogação (ou seja, ??) serão exibidos.
+* Um relatório pode incluir as métricas para “Europa” ou para a “Região do Pacífico Asiático”. Esses itens não foram criados para fornecer informações estatísticas sobre todos os endereços IP nessas áreas. Em vez disso, eles só se aplicam a solicitações que se originam de endereços IP que estão espalhados pela Europa ou Ásia/Pacífico em vez de para uma cidade ou país/região específica.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos para as 250 regiões principais. Exiba uma descrição para cada uma das métricas.
 
 Uma breve descrição é apresentada para ambos os tipos de relatórios abaixo.
 
-| Nome do relatório | DESCRIÇÃO |
+| Nome do Relatório | Descrição |
 | --- | --- |
 | Principais cidades |Este relatório classifica cidades de acordo com o número de ocorrências originadas dessa região. |
-| Principais países |Este relatório classifica países/regiões de acordo com o número de ocorrências originadas desse país/região. |
+| Principais países |Este relatório classifica os países/regiões de acordo com o número de acessos originados daquele país/região. |
 
 ## <a name="daily-summary"></a>Resumo diário
 O relatório Resumo diário permite exibir o número total de ocorrências e de dados transferidos por uma plataforma específica diariamente. Essas informações podem ser usadas de discernir rapidamente padrões de atividade da CDN. Por exemplo, esse relatório pode ajudá-lo a detectar quais dias tiveram tráfego maior ou menor que o esperado.
 
 Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida diariamente ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada dia no relatório. Por exemplo, a seleção do período de tempo "Semana Passada" irá gerar um gráfico de barras com sete barras. Cada barra indica o número total de ocorrências percebidas naquele dia.
 
-O lado esquerdo do grafo (eixo y) indica o número de ocorrências na data especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data (formato: YYYY-MM-DD) para cada dia incluído no relatório.
+O lado esquerdo do grafo (eixo y) indica o número de ocorrências na data especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA) para cada dia incluído no relatório.
 
 > [!TIP]
 > Se você passar o mouse sobre uma barra, o número total de ocorrências naquela data será exibido como uma dica de ferramenta.
@@ -95,7 +95,7 @@ O relatório Por hora permite exibir o número total de ocorrências e de dados 
 
 Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida por hora ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada hora coberta pelo relatório. Por exemplo, a seleção de um período de 24 horas irá gerar um gráfico de barras com vinte e quatro barras. Cada barra indica o número total de ocorrências percebidas naquela hora.
 
-O lado esquerdo do grafo (eixo y) indica o número de ocorrências na hora especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data/hora (formato: YYYY-MM-DD HH: mm) para cada hora incluída no relatório. A hora é relatada usando o formato de 24 horas e é especificada usando o fuso horário UTC/GMT.
+O lado esquerdo do grafo (eixo y) indica o número de ocorrências na hora especificada. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data/hora (formato: DD-MM-AAAA hh:mm) para cada hora incluída no relatório. A hora é relatada usando o formato de 24 horas e é especificada usando o fuso horário UTC/GMT.
 
 > [!TIP]
 > Se você passar o mouse sobre uma barra, o número total de ocorrências durante aquela hora será exibido como uma dica de ferramenta.
@@ -119,7 +119,7 @@ Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. 
 ## <a name="by-file-detail"></a>Por detalhes do arquivo
 O relatório Por detalhes do arquivo permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica para um ativo específico. A opção Por detalhes do arquivo está na parte superior deste relatório. Essa opção fornece uma lista de seus ativos mais solicitados na plataforma selecionada. Para gerar um relatório Por detalhes do arquivo, você precisa selecionar o ativo desejado na opção Detalhes do Arquivo Para. Depois disso, um gráfico de barras indicará a quantidade de demanda diária que ele gerou durante o período de tempo especificado.
 
-O lado esquerdo do grafo (eixo y) indica o número total de solicitações recebidas por um ativo em um dia específico. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data (formato: YYYY-MM-DD) para a qual CDN por demanda para o ativo foi relatada.
+O lado esquerdo do grafo (eixo y) indica o número total de solicitações recebidas por um ativo em um dia específico. Diretamente abaixo do grafo (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA) na qual a demanda da CDN foi relatada para o ativo.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada dia coberto pelo relatório.
 
@@ -199,8 +199,8 @@ O lado esquerdo do grafo (eixo y) indica o nome do arquivo para cada um dos dez 
 
 Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de solicitações que resultaram em código de status 404 Não encontrado, número de vezes que o ativo foi solicitado e a porcentagem de solicitações que resultaram em código de status 404 Não encontrado.
 
-## <a name="see-also"></a>Consulte também
-* [Visão geral da CDN do Azure](cdn-overview.md)
+## <a name="see-also"></a>Confira também
+* [Visão geral do Azure CDN](cdn-overview.md)
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)

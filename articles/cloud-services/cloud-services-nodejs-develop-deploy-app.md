@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386180"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure
@@ -35,7 +35,7 @@ O aplicativo é um aplicativo simples "hello world":
 > [!NOTE]
 > Este tutorial usa o PowerShell do Azure, que requer o Windows.
 
-* Instalar e configurar o [Powershell do Azure].
+* Instale e [configure o Azure Powershell].
 * Baixe e instale o [SDK do Azure para .NET 2.7]. Na configuração da instalação, selecione:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
@@ -154,14 +154,14 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
    > [!NOTE]
    > Excluir o serviço não exclui a conta de armazenamento criada quando o serviço foi inicialmente publicado e você continuará a ser cobrado pelo armazenamento usado. Se ninguém mais está usando o repositório, convém excluí-lo.
 
-## <a name="next-steps"></a>Próximos passos
-Para saber mais, confira o [Centro de desenvolvedores do Node. js].
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 
 <!-- URL List -->
 
 [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [usar um aplicativo Web leve]: ../app-service/app-service-web-get-started-nodejs.md
-[Powershell do Azure]: /powershell/azureps-cmdlets-docs
+[Azure Powershell]: /powershell/azureps-cmdlets-docs
 [SDK do Azure para .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Conecte o PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

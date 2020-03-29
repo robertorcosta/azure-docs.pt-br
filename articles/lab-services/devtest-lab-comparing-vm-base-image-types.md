@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64680293"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparando imagens personalizadas e fórmulas em Laboratórios de Desenvolvimento/Teste
@@ -27,7 +27,7 @@ ms.locfileid: "64680293"
 ## <a name="custom-image-pros-and-cons"></a>Prós e contras das imagens personalizadas
 As imagens personalizadas fornecem uma maneira estática e imutável para criar VMs em um ambiente desejado. 
 
-**Prós**
+**Vantagens**
 
 * O provisionamento da VM de uma imagem personalizada é rápido, uma vez que nada muda depois que a VM é criada por meio da imagem. Em outras palavras, não há nenhuma configuração a ser aplicada, uma vez que a imagem personalizada é apenas uma imagem sem configurações. 
 * VMs criadas por meio de uma única imagem personalizada são idênticas.
@@ -39,7 +39,7 @@ As imagens personalizadas fornecem uma maneira estática e imutável para criar 
 ## <a name="formula-pros-and-cons"></a>Prós e contras da fórmula
 As fórmulas fornecem uma maneira dinâmica de criar VMs por meio das configurações desejadas.
 
-**Prós**
+**Vantagens**
 
 * As alterações no ambiente podem ser capturadas em tempo real por meio de artefatos. Por exemplo, se você deseja uma VM instalada com os bits mais recentes do seu pipeline de lançamento ou inscrever o código mais recente do seu repositório, pode especificar simplesmente um artefato que implanta os bits mais recentes ou inscreve o código mais recente na fórmula juntamente com uma imagem base de destino. Sempre que essa fórmula é usada para criar VMs, os bits/códigos mais recentes são implantados/inscritos na VM. 
 * As fórmulas podem definir as configurações padrão que as imagens personalizadas não podem fornecer, como configurações de rede virtual e tamanhos de VM. 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593775"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de download de arquivos grandes com a CDN do Azure
@@ -110,8 +110,8 @@ A otimização de arquivos grandes usa tempos de expiração de cache padrão di
 
 |    | Web geral | Otimização de arquivos grandes 
 --- | --- | --- 
-Caching: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
-Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo 
+Cache: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |1 dia  
+Cache: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo 
 
 ### <a name="deal-with-origin-failure"></a>Lidar com falhas de origem
 

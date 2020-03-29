@@ -1,5 +1,5 @@
 ---
-title: Conectar-se à margem de atraso dos aplicativos lógicos do Azure
+title: Conecte-se ao Slack a partir de aplicativos de lógica do Azure
 description: Automatize fluxos de trabalho e tarefas que monitoram arquivos e gerenciam canais, grupos e mensagens em sua conta do Slack usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789164"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitore e gerencie o Slack com os Aplicativos Lógicos do Azure
@@ -23,11 +23,11 @@ Com os Aplicativos Lógicos do Azure e o conector do Slack, você pode criar flu
 * Postar mensagens.
 * Criar grupos e configurar “Não perturbar".
 
-Você pode usar gatilhos que obtêm respostas de sua conta do Slack e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Slack. Você também pode fazer com que outras ações usem a saída de ações do Slack. Por exemplo, quando um novo arquivo é criado, você pode enviar um email com o conector do Office 365 Outlook. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos que obtêm respostas de sua conta do Slack e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Slack. Você também pode fazer com que outras ações usem a saída de ações do Slack. Por exemplo, quando um novo arquivo é criado, você pode enviar um email com o conector do Office 365 Outlook. Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Suas credenciais de usuário e conta do [Slack](https://slack.com/)
 
@@ -52,7 +52,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Slack e disponibil
    Na lista de ações, selecione a ação desejada.
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
 
 1. Se for solicitado que você entre no Slack, entre em seu workspace do Slack. 
 
@@ -73,6 +73,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

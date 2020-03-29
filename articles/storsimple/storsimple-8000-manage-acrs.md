@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64693230"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Usar o serviço StorSimple Manager para gerenciar registros de controle de acesso
@@ -59,7 +59,7 @@ Execute as etapas a seguir para adicionar um ACR.
 
     1. Informe um nome para o ACR.
     
-    2. Forneça o nome IQN do host do Windows Server em **Nome do Iniciador iSCSI (IQN)** .
+    2. Forneça o nome IQN do host do Windows Server em **Nome do Iniciador iSCSI (IQN)**.
 
     3. Clique em **Adicionar** para criar o ACR.
 
@@ -91,7 +91,7 @@ Execute as etapas a seguir para editar um ACR.
 
     ![Editar os registros de controle de acesso](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Clique em **Salvar**. Quando solicitado a confirmar, clique em **Sim**. 
+4. Clique em **Salvar**. Quando solicitada a confirmação, clique em **Sim**. 
 
     ![Editar os registros de controle de acesso](./media/storsimple-8000-manage-acrs/editacr3.png)
 
@@ -129,5 +129,5 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-8000-manage-volumes-u2.md).
-* Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Saiba mais sobre como [usar o serviço do StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

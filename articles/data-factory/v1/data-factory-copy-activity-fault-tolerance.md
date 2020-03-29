@@ -1,5 +1,5 @@
 ---
-title: Adicionar tolerância a falhas em Azure Data Factory atividade de cópia ignorando linhas incompatíveis
+title: Adicione tolerância a falhas na atividade de cópia de fábrica de dados do Azure pulando linhas incompatíveis
 description: Saiba como adicionar tolerância a falhas na Atividade de Cópia do Azure Data Factory ignorando linhas incompatíveis durante a cópia
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8ffaee75154fd5fe025bdb683c89f16799d6e86b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926145"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicionar tolerância a falhas na Atividade de Cópia ignorando linhas incompatíveis
@@ -25,7 +25,7 @@ ms.locfileid: "74926145"
 > * [Versão 2 (versão atual)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço do Data Factory, consulte [ tolerância a falhas na atividade de cópia do Data Factory ](../copy-activity-fault-tolerance.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço do Data Factory, consulte [ tolerância a falhas na atividade de cópia do Data Factory ](../copy-activity-fault-tolerance.md).
 
 A [Atividade de Cópia](data-factory-data-movement-activities.md) do Azure Data Factory oferece duas maneiras de manipular linhas incompatíveis ao copiar dados entre os armazenamentos de dados da origem e do coletor:
 
@@ -69,7 +69,7 @@ O seguinte exemplo fornece uma definição de JSON que configura a omissão de l
 }
 ```
 
-| Propriedade | Descrição | Valores permitidos | obrigatórios |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Habilite ou não a omissão das linhas incompatíveis durante a cópia. | True<br/>False (padrão) | Não |
 | **redirectIncompatibleRowSettings** | Um grupo de propriedades que poderá ser especificado quando você desejar registrar as linhas incompatíveis. | &nbsp; | Não |
@@ -89,5 +89,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a Atividade de Cópia do Azure Data Factory, confira [Mover dados usando a Atividade de Cópia](data-factory-data-movement-activities.md).

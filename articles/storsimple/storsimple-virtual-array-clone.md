@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580752"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonar de um backup da Matriz Virtual StorSimple
@@ -107,7 +107,7 @@ Para clonar um backup, você precisa executar etapas semelhantes às da clonagem
    ![Clonar um backup](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. Quando o volume for exibido online na lista de volumes, o volume estará disponível para uso. No host do iniciador iSCSI, atualize a lista de destinos na janela de propriedades do iniciador iSCSI. Um novo destino que contém o nome do volume clonado deve aparecer como 'inativo' na coluna status.
 8. Selecione o destino e clique em **Conectar**. Após o iniciador ser conectado ao destino, o status deverá mudar para **Conectado**.
-9. Na janela **Gerenciamento de Disco**, os volumes montados aparecem conforme mostrado na ilustração a seguir. Clique com o botão direito no volume descoberto (clique no nome do disco) e depois clique em **Online**.
+9. Na janela **Gerenciamento de Disco**, os volumes montados aparecem conforme mostrado na ilustração a seguir. Clique com o botão direito do mouse no volume descoberto (clique no nome do disco) e, em seguida, clique em **Online**.
 
 > [!IMPORTANT]
 > Ao tentar clonar um volume ou um compartilhamento de um conjunto de backup, se o trabalho de clonagem falhar, um volume de destino ou compartilhamento ainda poderá ser criado no portal. É importante excluir este volume de destino ou compartilhá-lo no portal para minimizar quaisquer problemas futuros causado por esse elemento.

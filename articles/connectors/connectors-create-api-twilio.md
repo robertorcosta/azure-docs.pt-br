@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao twilio de aplicativos lógicos do Azure
+title: Conecte-se ao Twilio a partir de aplicativos azure logic
 description: Automatizar tarefas e fluxos de trabalho que gerenciam mensagens globais de SMS, MMS e IP por meio de sua conta do Twilio usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789096"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gerenciar mensagens no Twilio com os Aplicativos Lógicos do Azure
 
-Com os Aplicativos Lógicos do Azure e o conector do Twilio, você pode criar tarefas automatizadas e fluxos de trabalho que obtém, enviam e listam as mensagens do Twilio, que incluem mensagens globais de SMS, MMS e IP. Você pode usar essas ações para executar tarefas com sua conta do Twilio. Você também pode fazer com que outras ações usem a saída das ações do Twilio. Por exemplo, quando uma nova mensagem chega, você pode enviar o conteúdo da mensagem com o conector do Slack. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+Com os Aplicativos Lógicos do Azure e o conector do Twilio, você pode criar tarefas automatizadas e fluxos de trabalho que obtém, enviam e listam as mensagens do Twilio, que incluem mensagens globais de SMS, MMS e IP. Você pode usar essas ações para executar tarefas com sua conta do Twilio. Você também pode fazer com que outras ações usem a saída das ações do Twilio. Por exemplo, quando uma nova mensagem chega, você pode enviar o conteúdo da mensagem com o conector do Slack. Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * No [Twilio](https://www.twilio.com/): 
 
@@ -50,7 +50,7 @@ Com os Aplicativos Lógicos do Azure e o conector do Twilio, você pode criar ta
        -ou-
 
      * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-     Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+     Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
      
        Na caixa de pesquisa, insira "twilio" como o filtro. 
        Na lista de ações, selecione a ação desejada.
@@ -72,6 +72,6 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explic
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

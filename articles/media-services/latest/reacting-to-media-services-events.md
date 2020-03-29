@@ -1,6 +1,6 @@
 ---
 title: Reagir aos eventos dos Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo descreve como usar a grade de eventos do Azure para assinar eventos de serviços de mídia.
+description: Este artigo descreve como usar o Azure Event Grid para se inscrever em eventos de Serviços de Mídia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
 ms.openlocfilehash: e24bacb0ea7ab406442022915872fc77e9cc1a5e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887877"
 ---
 # <a name="handling-event-grid-events"></a>Lidando com os eventos da Grade de Eventos
@@ -24,7 +24,7 @@ Os eventos dos Serviços de Mídia permitem aos aplicativos reagir a diferentes 
 
 A disponibilidade para eventos dos Serviços de Mídia está vinculada à [disponibilidade](../../event-grid/overview.md) da Grade de Eventos e estará disponível em outras regiões, conforme a Grade de Eventos também for disponibilizada.  
 
-## <a name="media-services-events-and-schemas"></a>Esquemas e eventos de serviços de mídia
+## <a name="media-services-events-and-schemas"></a>Eventos e esquemas de serviços de mídia
 
 A Grade de eventos usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media".
 
@@ -40,9 +40,9 @@ Aplicativos que manipulam eventos de Serviços de Mídia devem seguir algumas pr
 * Use a correspondência de prefixo e sufixo "subject" para limitar os eventos para um evento específico.
 
 > [!NOTE]
-> Os eventos estão sujeitos à Contrato de Nível de Serviço de grade de eventos [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Se você quiser obter notificações de eventos usando APIs, consulte exemplos de como consumir eventos, com o SDK do [.net](https://github.com/Azure-Samples/media-services-v3-dotnet) ou o [SDK do Java](https://github.com/Azure-Samples/media-services-v3-java).
+> Os eventos estão sujeitos ao Contrato de Nível de Serviço da Grade de Eventos [(SLA).](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) Se você quiser receber notificações de eventos usando APIs, veja exemplos de como consumir eventos, com [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) ou [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Monitorar eventos-Portal](monitor-events-portal-how-to.md)
-* [Eventos de monitor-CLI](job-state-events-cli-how-to.md)
+* [Monitorde eventos - portal](monitor-events-portal-how-to.md)
+* [Monitorar eventos - CLI](job-state-events-cli-how-to.md)

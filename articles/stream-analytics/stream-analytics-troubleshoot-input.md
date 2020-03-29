@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720292"
 ---
 # <a name="troubleshoot-input-connections"></a>Solucionar problemas de conexões de entrada
@@ -26,16 +26,16 @@ Esta página descreve problemas comuns com conexões de entrada e como solucion�
 
     1. Para verificar se os dados de entrada estão fluindo para o Hub de Eventos, use o [Gerenciador do Barramento de Serviço](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) para se conectar ao Hub de Eventos do Azure (caso a entrada do Hub de Eventos seja usada).
         
-    1. Use o botão [**dados de exemplo**](stream-analytics-sample-data-input.md) para cada entrada. Baixe os dados de exemplo de entrada.
+    1. Use o botão [**Dados de amostra**](stream-analytics-sample-data-input.md) para cada entrada. Baixe os dados da amostra de entrada.
         
-    1. Inspecione os dados de exemplo para entender a forma dos dados – ou seja, o esquema e os [tipos de dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspecione os dados da amostra para entender a forma dos dados — ou seja, o esquema e [os tipos de dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
-3.  Verifique se você selecionou um intervalo de tempo na visualização de entrada. Escolha **selecionar intervalo de tempo**e, em seguida, insira uma duração de amostra antes de testar sua consulta.
+3.  Certifique-se de que selecionou um intervalo de tempo na visualização de entrada. Escolha **Selecionar intervalo de tempo**e, em seguida, digite uma duração de amostra antes de testar sua consulta.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventos de entrada malformados causam erros de desserialização 
 Os problemas de desserialização são causados quando o fluxo de entrada do seu trabalho do Stream Analytics contém mensagens malformadas. Por exemplo, uma mensagem malformada pode ser causada por um parêntese ausente ou uma chave em um objeto JSON ou um formato de registro de data e hora incorreto no campo de hora. 
  
-Quando um trabalho do Stream Analytics recebe uma mensagem malformada de uma entrada, ela solta a mensagem e notifica você com um aviso. Um símbolo de aviso é mostrado no bloco **Entradas** do seu trabalho do Stream Analytics. Este sinal de aviso existe enquanto o trabalho estiver em execução:
+Quando um trabalho do Stream Analytics recebe uma mensagem malformada de uma entrada, ela solta a mensagem e notifica você com um aviso. Um símbolo de aviso é mostrado no bloco **entradas** do seu trabalho do Stream Analytics. Este sinal de aviso existe enquanto o trabalho estiver em execução:
 
 ![Bloco entradas do Stream Analytics do Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
@@ -70,7 +70,7 @@ O erro mostrado quando o número de destinatários excede o máximo é: `The str
 ### <a name="add-a-consumer-group-in-event-hubs"></a>Adicionar um grupo de consumidores nos Hubs de Eventos
 Para adicionar um novo grupo de consumidores à instância dos Hubs de Eventos, execute estas etapas:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Localize seus Hubs de Eventos.
 
@@ -139,12 +139,12 @@ Para consultas em que três ou mais entradas estão conectadas ao mesmo grupo de
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente [nosso fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
+* [Comece a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

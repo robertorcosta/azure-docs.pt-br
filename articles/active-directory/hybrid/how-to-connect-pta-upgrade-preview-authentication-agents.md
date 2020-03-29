@@ -18,13 +18,13 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60386732"
 ---
-# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação de passagem do Azure Active Directory: Fazer upgrade da versão prévia dos Agentes de Autenticação
+# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação de passagem do Azure Active Directory: atualização de agentes de autenticação de versão prévia
 
 ## <a name="overview"></a>Visão geral
 
@@ -35,7 +35,7 @@ Este artigo é para clientes que usam a Autenticação de passagem do Azure AD p
 
 ## <a name="check-versions-of-your-authentication-agents"></a>Verificar as versões dos seus Agentes de autenticação
 
-### <a name="step-1-check-where-your-authentication-agents-are-installed"></a>Etapa 1: Verificar o local em que os Agentes de autenticação estão instalados
+### <a name="step-1-check-where-your-authentication-agents-are-installed"></a>Etapa 1: verificar o local em que os Agentes de autenticação estão instalados
 
 Siga essas etapas para verificar o local em que os Agentes de autenticação estão instalados:
 
@@ -46,7 +46,7 @@ Siga essas etapas para verificar o local em que os Agentes de autenticação est
 
 ![Centro de administração do Azure Active Directory - folha Autenticação de Passagem](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
-### <a name="step-2-check-the-versions-of-your-authentication-agents"></a>Etapa 2: Verificar as versões dos Agentes de autenticação
+### <a name="step-2-check-the-versions-of-your-authentication-agents"></a>Etapa 2: verificar as versões dos seus Agentes de autenticação
 
 Para verificar as versões dos seus Agentes de autenticação em cada servidor identificado na etapa anterior, siga estas instruções:
 
@@ -60,18 +60,18 @@ Para verificar as versões dos seus Agentes de autenticação em cada servidor i
 
 Antes de atualizar, verifique se você tem os seguintes itens no lugar:
 
-1. **Criar conta de administrador global somente em nuvem**: não faça upgrade sem ter uma conta de administrador global somente em nuvem para ser usada em situações de emergência em que seus Agentes de Autenticação de Passagem não estejam funcionando adequadamente. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
-2.  **Garantir a alta disponibilidade**: se não tiver concluído anteriormente, instale um segundo Agente de Autenticação autônomo para fornecer uma alta disponibilidade para solicitações de entrada, usando estas [instruções](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+1. **Criar conta Administrador Global somente de nuvem**: não atualize sem ter uma conta Administrador Global somente de nuvem para ser usada em situações de emergência em que seus Agentes de Autenticação de passagem não estejam funcionando adequadamente. Saiba como [adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
+2.  **Garantir a alta disponibilidade**: se não concluído anteriormente, instale um segundo Agente de autenticação autônomo para fornecer alta disponibilidade para solicitações de conexão, usando essas [instruções](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Atualizando o Agente de autenticação no servidor do Azure AD Connect
 
 Você precisa atualizar o Azure AD Connect antes de atualizar o Agente de autenticação no mesmo servidor. Siga estas etapas em seus servidores primários e de preparo do Azure AD Connect:
 
-1. **Atualizar o Azure AD Connect**: Siga as etapas deste [artigo](how-to-upgrade-previous-version.md) e faça a atualização para a versão mais recente do Azure AD Connect.
-2. **Desinstale a versão prévia do Agente de Autenticação**: Faça o download [deste script do PowerShell](https://aka.ms/rmpreviewagent) e execute-o como Administrador no servidor.
-3. **Faça o download da versão mais recente do Agente de Autenticação (versão 1.5.389.0 ou posteriores)** : Entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais do administrador global do seu locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os [termos de serviço](https://aka.ms/authagenteula) e baixe a versão mais recente do Agente de autenticação. Você também pode baixar o Agente de Autenticação [aqui](https://aka.ms/getauthagent).
-4. **Instale a versão mais recente do Agente de Autenticação**: Execute o arquivo executável baixado na Etapa 3. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
-5. **Verifique se a versão mais recente foi instalada**: conforme mostrado anteriormente, acesse **Painel de Controle -> Programas -> Programas e Recursos** e verifique se há uma entrada para "**Agente de Autenticação do Microsoft Azure AD Connect**".
+1. **Atualizar o Azure AD Connect**: siga esse [artigo](how-to-upgrade-previous-version.md) e atualize para a versão mais recente do Azure AD Connect.
+2. **Desinstalar a versão prévia do Agente de autenticação**: baixe [este script do PowerShell](https://aka.ms/rmpreviewagent) e execute-o como um Administrador no servidor.
+3. **Baixe a versão mais recente do Agente de Autenticação (versões 1.5.389.0 ou posteriores)**: entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de Administrador Global do seu locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os [termos de serviço](https://aka.ms/authagenteula) e baixe a versão mais recente do Agente de autenticação. Você também pode baixar o Agente de Autenticação [aqui](https://aka.ms/getauthagent).
+4. **Instalar a versão mais recente do Agente de autenticação**: execute o executável baixado na Etapa 3. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
+5. **Verificar se a versão mais recente foi instalada**: conforme mostrado antes, acesse **Painel de controle -> Programas -> Programas e recursos** e verifique se há uma entrada para "**Agente de autenticação do Microsoft Azure AD Connect**".
 
 >[!NOTE]
 >Se você verificar a folha Autenticação de Passagem no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) após a conclusão das etapas anteriores, verá duas entradas do Agente de Autenticação por servidor - uma entrada mostrando o Agente de Autenticação como **Ativo** e o outro como **Inativo**. Isso é _esperado_. A entrada **Inativo** é descartada automaticamente depois de alguns dias.
@@ -80,13 +80,13 @@ Você precisa atualizar o Azure AD Connect antes de atualizar o Agente de autent
 
 Siga estas etapas para atualizar os Agentes de autenticação em outros servidores (em que o Azure AD Connect não está instalado):
 
-1. **Desinstale a versão prévia do Agente de Autenticação**: Faça o download [deste script do PowerShell](https://aka.ms/rmpreviewagent) e execute-o como Administrador no servidor.
-2. **Faça o download da versão mais recente do Agente de Autenticação (versão 1.5.389.0 ou posteriores)** : Entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais do administrador global do seu locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os termos do serviço e baixe a versão mais recente.
-3. **Instale a versão mais recente do Agente de Autenticação**: Execute o arquivo executável baixado na Etapa 2. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
-4. **Verifique se a versão mais recente foi instalada**: conforme mostrado anteriormente, acesse **Painel de Controle -> Programas -> Programas e Recursos** e verifique se há uma entrada para **Agente de Autenticação do Microsoft Azure AD Connect**.
+1. **Desinstalar a versão prévia do Agente de autenticação**: baixe [este script do PowerShell](https://aka.ms/rmpreviewagent) e execute-o como um Administrador no servidor.
+2. **Baixe a versão mais recente do Agente de Autenticação (versões 1.5.389.0 ou posteriores)**: entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de Administrador Global do seu locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os termos do serviço e baixe a versão mais recente.
+3. **Instalar a versão mais recente do Agente de autenticação**: execute o executável baixado na Etapa 2. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
+4. **Verificar se a versão mais recente foi instalada**: conforme mostrado antes, acesse **Painel de controle -> Programas -> Programas e recursos** e verifique se há uma entrada chamada "**Agente de autenticação do Microsoft Azure AD Connect**".
 
 >[!NOTE]
 >Se você verificar a folha Autenticação de Passagem no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) após a conclusão das etapas anteriores, verá duas entradas do Agente de Autenticação por servidor - uma entrada mostrando o Agente de Autenticação como **Ativo** e o outro como **Inativo**. Isso é _esperado_. A entrada **Inativo** é descartada automaticamente depois de alguns dias.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [**Solução de problemas**](tshoot-connect-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.
+- [**Solução de problemas**](tshoot-connect-pass-through-authentication.md) - Aprenda a resolver problemas comuns com o recurso.

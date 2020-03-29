@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60349805"
 ---
-# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Atualização automática
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](reference-connect-version-history.md#111050).  Esse recurso foi atualizado na [build 1.1.561](reference-connect-version-history.md#115610) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
 
 ## <a name="overview"></a>Visão geral
@@ -39,18 +39,18 @@ O estado atual da atualização automática pode ser exibido com o cmdlet `Get-A
 
 | Estado | Comentário |
 | --- | --- |
-| Habilitado |A atualização automática está habilitada. |
+| habilitado |A atualização automática está habilitada. |
 | Suspenso |Somente definido pelo sistema. O sistema não está **atualmente** qualificado para receber atualizações automáticas. |
 | Desabilitado |A atualização automática está desabilitada. |
 
-Você pode alterar entre **Habilitado** e **Desabilitado** com o `Set-ADSyncAutoUpgrade`. Somente o sistema deve definir o estado como **Suspenso**.  Antes de 1.1.750.0 o cmdlet Set-ADSyncAutoUpgrade bloquearia Autoupgrade, se o estado de atualização automática foi definido como suspenso. Essa funcionalidade foi alterado para que isso não bloqueie no upgrade automático.
+Você pode alterar entre **Habilitado** e **Desabilitado** com o `Set-ADSyncAutoUpgrade`. Somente o sistema deve definir o estado como **Suspenso**.  Antes do 1.1.750.0, o cmdlet Set-ADSyncAutoUpgrade bloquearia a atualização automática se o estado de atualização automática fosse definido como Suspenso. Essa funcionalidade agora foi alterada para que não bloqueie o AutoUpgrade.
 
 A atualização automática está usando o Azure AD Connect Health para a infraestrutura de atualização. Para que a atualização automática funcione, não deixe de abrir as URLs no seu servidor proxy do **Azure AD Connect Health** conforme documentado em [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 
 Se a interface do usuário **Synchronization Service Manager** estiver em execução no servidor, a atualização será suspensa até que a interface do usuário seja fechada.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 Se a sua instalação do Connect não for atualizada conforme o esperado, siga estas etapas para descobrir o que poderia estar errado.
 
 Primeiro, você não deve esperar que a atualização automática seja tentada no primeiro dia em que uma nova versão for lançada. Há uma aleatoriedade intencional antes que ocorra uma tentativa de atualização. Sendo assim, não se assuste se a instalação não for atualizada imediatamente.
@@ -67,15 +67,15 @@ Agora, você pode ver os logs de eventos associados ao status da atualização a
 
 O código de resultado tem um prefixo com uma visão geral do estado.
 
-| Prefixo do código de resultado | DESCRIÇÃO |
+| Prefixo do código de resultado | Descrição |
 | --- | --- |
-| Êxito |A instalação foi atualizada com êxito. |
+| Sucesso |A instalação foi atualizada com êxito. |
 | UpgradeAborted |Uma condição temporária interrompeu a atualização. Ela será tentada novamente e a expectativa é de que tenha êxito posteriormente. |
 | UpgradeNotSupported |O sistema tem uma configuração que está impedindo que o sistema seja atualizado automaticamente. A atualização será tentada novamente para ver se o estado está mudando, mas a expectativa é de que o sistema precise ser atualizado manualmente. |
 
 Esta é uma lista das mensagens mais comuns que você encontrará. Ela não lista todas as mensagens, mas a mensagem de resultado deve ser clara quanto a qual é o problema.
 
-| Mensagem de resultado | DESCRIÇÃO |
+| Mensagem de resultado | Descrição |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Não foi possível escrever no registro. |
@@ -92,7 +92,7 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 | UpgradeNotSupportedAdfsSignInMethod | Você selecionou o Adfs como o método de entrada. |
 | UpgradeNotSupportedCustomizedSyncRules |Você adicionou suas próprias regras personalizadas à configuração. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Você habilitou o recurso [write-back de dispositivo](how-to-connect-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Você habilitou o recurso [write-back de grupo](how-to-connect-preview.md#group-writeback) . |
+| UpgradeNotSupportedGroupWritebackEnabled |Você habilitou o recurso [de gravação em grupo.](how-to-connect-preview.md#group-writeback) |
 | UpgradeNotSupportedInvalidPersistedState |A instalação não é uma configuração Express ou uma atualização de DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100 mil objetos no metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta. |
@@ -104,4 +104,4 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 | UpgradeNotSupportedUserWritebackEnabled |Você habilitou o recurso [write-back de usuário](how-to-connect-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

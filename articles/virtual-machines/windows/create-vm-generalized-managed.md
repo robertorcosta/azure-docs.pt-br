@@ -1,5 +1,5 @@
 ---
-title: Criar VM de uma imagem gerenciada no Azure
+title: Criar VM a partir de uma imagem gerenciada no Azure
 description: Crie uma máquina virtual do Windows a partir de uma imagem de gerenciada generalizada usando o Azure PowerShell ou o portal do Azure no modelo de implantação do Gerenciador de Recursos.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74841924"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM por meio de uma imagem gerenciada
 
 Você pode criar várias VMs (máquinas virtuais) de uma imagem de VM gerenciada do Azure usando o PowerShell ou o portal do Azure. Uma imagem de VM gerenciada contém as informações necessárias para criar uma VM, incluindo o sistema operacional e os discos de dados. Os VHDs (discos rígidos virtuais) que formam a imagem, incluindo os discos do sistema operacional e quaisquer discos de dados, são armazenados como discos gerenciados. 
 
-Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada](capture-image-resource.md) para usar como a imagem de origem e conceder acesso de leitura na imagem a qualquer usuário que deve ter acesso à imagem. 
+Antes de criar uma nova VM, você precisará [criar uma imagem VM gerenciada](capture-image-resource.md) para usar como imagem de origem e conceder acesso de leitura na imagem a qualquer usuário que deva ter acesso à imagem. 
 
 
 ## <a name="use-the-portal"></a>Usar o portal
 
-1. Vá para a [portal do Azure](https://portal.azure.com) para localizar uma imagem gerenciada. Procure e selecione **imagens**.
+1. Vá até o [portal Azure](https://portal.azure.com) para encontrar uma imagem gerenciada. Procure e selecione **Imagens**.
 3. Selecione a imagem que você deseja usar a partir da lista. A imagem da página **Visão geral** será aberta.
 4. Clique em **Criar VM** no menu.
 5. Insira as informações da máquina virtual. O nome do usuário e a senha inseridos aqui serão usados para fazer logon na máquina virtual. Quando concluir, selecione **OK**. Você pode criar a nova VM em um grupo de recursos existente ou escolher **Criar novo** para criar um novo grupo de recursos para armazenar a VM.
@@ -38,7 +38,7 @@ Antes de criar uma nova VM, você precisará [criar uma imagem de VM gerenciada]
 8. Na página de resumo, você deve ver o nome da sua imagem listado como uma **Imagem privada**. Selecione **OK** para iniciar a implantação da máquina virtual.
 
 
-## <a name="use-powershell"></a>Use o PowerShell
+## <a name="use-powershell"></a>Usar o PowerShell
 
 Você pode usar o PowerShell para criar uma VM por meio de uma imagem usando o conjunto de parâmetro simplificado definido para o novo cmdlet do [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). A imagem precisa estar no mesmo grupo de recursos no qual você criará a VM.
 
@@ -64,6 +64,6 @@ New-AzVm `
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Criar e gerenciar VMs do Windows com o módulo do Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

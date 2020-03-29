@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64867093"
 ---
 # <a name="monitor-job-progress-using-net"></a>Monitorar o andamento do trabalho usando o .NET 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode verificar o andamento definindo um evento StateChanged (conforme descrito neste tópico) ou usando o Armazenamento de Filas do Azure para monitorar as notificações de trabalho dos Serviços de Mídia (conforme descrito [neste](media-services-dotnet-check-job-progress-with-queues.md) tópico).
 
@@ -111,7 +111,7 @@ O exemplo de código a seguir define o manipulador de eventos StateChanged: Esse
 
 
 ## <a name="next-step"></a>Próxima etapa
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

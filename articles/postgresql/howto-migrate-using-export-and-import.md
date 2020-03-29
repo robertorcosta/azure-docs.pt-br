@@ -1,5 +1,5 @@
 ---
-title: Migrar um banco de dados-banco de dados do Azure para PostgreSQL-servidor único
+title: Migrar um banco de dados - Banco de Dados Azure para PostgreSQL - Servidor Único
 description: Descreve como extrair um banco de dados PostgreSQL para um arquivo de script e importar os dados para o banco de dados de destino desse arquivo.
 author: rachel-msft
 ms.author: raagyema
@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: f7cf5d245383b8a58f03e2e3610750866a2f4b5a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770196"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrar seu banco de dados PostgreSQL usando exportar e importar
@@ -44,6 +44,6 @@ Este exemplo usa um utilitário psql e um arquivo de script nomeado **testdb.sql
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
-## <a name="next-steps"></a>Próximos passos
-- Para migrar um banco de dados PostgreSQL usando despejar e restaurar, veja [Migrar seu banco de dados PostgreSQL usando despejar e restaurar](howto-migrate-using-dump-and-restore.md).
+## <a name="next-steps"></a>Próximas etapas
+- Para migrar um banco de dados PostgreSQL usando dump e restore, consulte [Migrar seu banco de dados PostgreSQL usando dump e restore](howto-migrate-using-dump-and-restore.md).
 - Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para PostgreSQL, confira o [Guia de Migração de Banco de Dados](https://aka.ms/datamigration). 

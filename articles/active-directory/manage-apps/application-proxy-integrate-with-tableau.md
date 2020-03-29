@@ -14,17 +14,17 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65783859"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy e Tableau do Aplicativo do Azure Active Directory 
 
 O Proxy de Aplicativo do Active Directory do Azure e o Tableau fizeram uma parceria para garantir que você possa usar facilmente o Proxy de Aplicativo para fornecer acesso remoto à sua implantação do Tableau. Este artigo explica como configurar esse cenário.  
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 O cenário neste artigo pressupõe que você tenha:
 
@@ -50,7 +50,7 @@ Para:
 **Para publicar seu aplicativo**: 
 
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) como um administrador do aplicativo. 
+1. Faça login no [portal Azure](https://portal.azure.com) como administrador de aplicativos. 
 
 2. Selecione **Azure Active Directory > Proxy de Aplicativo**. 
 
@@ -60,9 +60,9 @@ Para:
 
 5. Preencha os campos obrigatórios com informações sobre seu novo aplicativo. Use as diretrizes a seguir para as configurações: 
 
-    - **URL Interna**: Esse aplicativo deve ter um URL interno que seja o próprio URL do Tableau. Por exemplo: `https://adventure-works.tableau.com`. 
+    - **URL interna**: Esse aplicativo deve ter um URL interno que seja o próprio URL do Tableau. Por exemplo, `https://adventure-works.tableau.com`. 
 
-    - **Método de pré-autenticação**: Azure Active Directory (recomendado, mas não obrigatório). 
+    - **Método de pré-autenticação**: Diretório Ativo Azure (recomendado, mas não obrigatório). 
 
 6. Selecione **Adicionar** na parte superior da folha. Seu aplicativo é adicionado e abre o menu de início rápido. 
 
@@ -70,7 +70,7 @@ Para:
 
 8. Selecione **Atribuir** para salvar a atribuição do usuário de teste. 
 
-9. (Opcional) Na folha de gerenciamento do aplicativo, selecione **Logon único**. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios com base na sua configuração do Tableau. Clique em **Salvar**. 
+9. (Opcional) Na folha de gerenciamento do aplicativo, selecione** Logon único**. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios com base na sua configuração do Tableau. Selecione **Salvar**. 
 
  
 

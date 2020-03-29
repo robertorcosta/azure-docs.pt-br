@@ -7,27 +7,27 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75397465"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor
 
 
 > [!NOTE]
-> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas de Azure monitor log](get-started-queries.md) antes de concluir este tutorial.
+> Você deve concluir [Comece com o Azure Monitor Log Analytics](get-started-portal.md) e [comece com as consultas de log do Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Este artigo descreve como editar, comparar, pesquisar e executar uma variedade de outras operações em cadeias de caracteres.
 
-Cada caractere em uma cadeia de caracteres tem um número de índice, de acordo com o local. O primeiro caractere está no índice 0, o próximo caractere é 1 e assim por diante. Diferentes funções de cadeia de caracteres usam números de índice conforme mostrado nas seções a seguir. Muitos dos exemplos a seguir usam o comando **print** para demonstrar a manipulação da cadeia de caracteres sem usar uma fonte de dados específica.
+Cada caractere em uma cadeia de caracteres tem um número de índice, de acordo com o local. O primeiro personagem está no índice 0, o próximo personagem é 1, e assim por diante. Diferentes funções de cadeia de caracteres usam números de índice conforme mostrado nas seções a seguir. Muitos dos exemplos a seguir usam o comando **print** para demonstrar a manipulação da cadeia de caracteres sem usar uma fonte de dados específica.
 
 
 ## <a name="strings-and-escaping-them"></a>Cadeias de caracteres e seus escapes
-Os valores da cadeia de caracteres são encapsulados com caracteres de aspas simples ou duplas. A barra invertida (\\) é usada para escapar caracteres para o caractere após ele, como \t para Tab, \n para nova linha e \" o próprio caractere de aspas.
+Os valores da cadeia de caracteres são encapsulados com caracteres de aspas simples ou duplas. Backslash\\( ) é usado para escapar de caracteres para o personagem que o \" segue, como \t para guia, \n para newline e o próprio caractere de citação.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -46,11 +46,11 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Comparações de cadeias de caracteres
 
-Operador       |Description                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
+Operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
+`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
 `!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
-`=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
+`=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
 `!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo completo no lado esquerdo |Não|`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
@@ -93,7 +93,7 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>Argumentos:
 - `text` - A cadeia de caracteres de entrada 
 - `search` - Cadeia de caracteres sem formatação ou expressão regular a ser correspondida no texto.
-- `kind` - _normal_ | _regex_ (padrão: normal).
+- `kind` - _normal_ | _regex_ normal (padrão: normal).
 
 ### <a name="returns"></a>Retornos
 
@@ -122,7 +122,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>extract
 
-Obtém uma correspondência para uma expressão regular a partir de uma determinada cadeia de caracteres. Opcionalmente também converte a subcadeia de caracteres extraída para o tipo especificado.
+Obtém uma correspondência para uma expressão regular a partir de uma determinada cadeia de caracteres. Opcionalmente também converte a substring extraída para o tipo especificado.
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -361,7 +361,7 @@ print toupper("hello"); // result: "HELLO"
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Continue com os tutoriais avançados:
 * [Funções de agregação](aggregations.md)
 * [Agregações avançadas](advanced-aggregations.md)
