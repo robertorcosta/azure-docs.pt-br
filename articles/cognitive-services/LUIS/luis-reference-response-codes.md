@@ -1,5 +1,5 @@
 ---
-title: Códigos de resposta HTTP da API-LUIS
+title: Códigos de resposta API HTTP - LUIS
 titleSuffix: Azure Cognitive Services
 description: Entender quais códigos de resposta HTTP são retornados pelas APIs de Criação e de Ponto de extremidade
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 405381a2d80ee6469b2b90bcb25923004fe55882
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270243"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta comuns da API e seus significados
@@ -40,6 +40,6 @@ A tabela a seguir lista alguns dos códigos de status de resposta HTTP mais comu
 |414|Ponto de extremidade|a consulta excede o limite máximo de caracteres|
 |429|Criação, ponto de extremidade|O limite de taxa foi excedido (solicitações/segundo)|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Documentação de [ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) e [criação](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) de API REST

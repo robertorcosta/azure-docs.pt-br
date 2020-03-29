@@ -1,21 +1,21 @@
 ---
 title: Método de Tradução de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Entenda os parâmetros, os cabeçalhos e as mensagens de corpo para os serviços cognitivas do Azure API de Tradução de Texto o método translate para traduzir o texto.
+description: Entenda os parâmetros, cabeçalhos e mensagens corporais para o método API De tradução de texto do Tradutor de Serviços Cognitivos do Azure para traduzir texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184801"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052403"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: tradução
 
@@ -23,7 +23,7 @@ Traduz texto.
 
 ## <a name="request-url"></a>URL de Solicitação
 
-Envia uma solicitação `POST` para:
+Envie uma solicitação `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
@@ -37,14 +37,14 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>api-version</td>
-    <td><em>Parâmetro necessário</em>.<br/>Versão da API solicitada pelo cliente. O valor deve ser <code>3.0</code>.</td>
+    <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>Para</td>
-    <td><em>Parâmetro necessário</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas compatíveis</a> incluídos no escopo de <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
+    <td>para</td>
+    <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
   </tr>
 </table>
 
@@ -52,18 +52,18 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
-    <td>from</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o parâmetro <code>from</code> em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
+    <td>de</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve <code>from</code> usar o parâmetro em vez de detecção automática ao usar o recurso <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">de dicionário dinâmico.</a></td>
   </tr>  
   <tr>
     <td>textType</td>
-    <td><em>Parâmetro opcional</em>.<br/>Define se o texto que está sendo traduzido é texto sem formatação ou texto HTML. Qualquer HTML deve ser um elemento completo e bem formado. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Define se o texto que está sendo traduzido é texto sem formatação ou texto HTML. Qualquer HTML precisa ser um elemento bem formado e completo. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
   </tr>
   <tr>
-    <td>categoria</td>
-    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione a ID da categoria de seus <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes do projeto</a> do tradutor personalizado a esse parâmetro para usar seu sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
+    <td>category</td>
+    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione o ID de categoria dos <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes</a> do projeto Do Tradutor Personalizado a este parâmetro para usar o sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -104,14 +104,14 @@ Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
-    <td>Cabeçalho (s) de autenticação</td>
+    <td>Cabeçalho de autenticação(s)</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor aceito é <code>application/json; charset=UTF-8</code>.</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor <code>application/json; charset=UTF-8</code>aceito é .</td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -136,7 +136,7 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 100 elementos.
-* Todo o texto incluído na solicitação não pode exceder cinco mil caracteres incluindo espaços.
+* Todo o texto incluído na solicitação não pode exceder 5.000 caracteres incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
@@ -146,7 +146,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
       * `language`: uma cadeia de caracteres que representa o código do idioma detectado.
 
-      * `score`: um valor de float indicando a confiança no resultado. A pontuação é entre zero e um e uma pontuação baixa indica uma baixa confiança.
+      * `score`: um valor flutuante indicando a confiança no resultado. A pontuação é entre zero e um, e uma pontuação baixa indica uma baixa confiança.
 
     A propriedade `detectedLanguage` somente está presente no objeto de resultado quando a detecção automática de idioma é solicitada.
 
@@ -168,9 +168,9 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
     * `sentLen`: um objeto retornando limites de sentença nos textos de entrada e saída.
 
-      * `srcSentLen`: uma matriz inteira representando os comprimentos das sentenças no texto de entrada. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase.
+      * `srcSentLen`: uma matriz inteira representando os comprimentos das sentenças no texto de entrada. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
 
-      * `transSentLen`:  uma matriz inteira representando os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada frase.
+      * `transSentLen`:  uma matriz inteira representando os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
 
     Limites de sentença serão incluídos somente quando o parâmetro de solicitação `includeSentenceLength` for `true`.
 
@@ -182,7 +182,7 @@ Exemplos de respostas JSON são fornecidos na seção [exemplos](#examples).
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
@@ -199,7 +199,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Sucesso.</td>
@@ -357,7 +357,7 @@ O corpo da resposta é:
 
 ### <a name="handle-profanity"></a>Tratar conteúdo ofensivo
 
-Normalmente o serviço de tradução reterá a linguagem vulgar presente no texto de origem da tradução. O grau de vulgaridade e o contexto que torna palavras vulgar diferem entre as culturas, assim, o grau de vulgaridade no idioma de destino pode ser amplificado ou reduzido.
+Normalmente, o serviço do Translator reterá a linguagem vulgar presente no texto de origem da tradução. O grau de vulgaridade e o contexto que torna palavras vulgar diferem entre as culturas, assim, o grau de vulgaridade no idioma de destino pode ser amplificado ou reduzido.
 
 Se você quiser evitar conteúdo ofensivo na tradução, independentemente da presença de linguagem vulgar no texto de origem, poderá usar a opção de filtragem de linguagem vulgar. A opção permite escolher se você quer ver o conteúdo ofensivo excluído, se quer marcar conteúdos ofensivos com marcas apropriadas (dando a opção de adicionar seu próprio pós-processamento), ou se não quer executar nenhuma ação. Os valores aceitos de `ProfanityAction` são `Deleted`, `Marked` e `NoAction` (padrão).
 
@@ -366,14 +366,14 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
   <th>Ação</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Esse é o comportamento padrão. Vulgaridades passarão da origem para o destino.<br/><br/>
+    <td>Esse é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Tradução de exemplo (inglês)</strong>: Ele é um idiota.
     </td>
   </tr>
   <tr>
     <td><code>Deleted</code></td>
-    <td>Palavras vulgares serão removidas da saída sem substituição.<br/><br/>
+    <td>Palavras ofensivas serão removidas da saída sem substituição.<br/><br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Tradução de exemplo (inglês)</strong>: Ele é um.
     </td>
@@ -383,14 +383,14 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
     <td>Palavras ofensivas são substituídas por um marcador na saída. O marcador depende do parâmetro <code>ProfanityMarker</code>.<br/><br/>
 Para <code>ProfanityMarker=Asterisk</code>, palavras ofensivas são substituídas por <code>***</code>:<br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
-    <strong>Tradução de exemplo</strong>: Ele é um \*\*\*.<br/><br/>
+    <strong>Tradução por Exemplo (Inglês)</strong>: Ele é um \* \* \*.<br/><br/>
 Para <code>ProfanityMarker=Tag</code>, palavras ofensivas são circundadas por marcas XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Exemplo de tradução (inglês)</strong>: Ele é um &lt;profanity&gt;idiota&lt;/profanity&gt;.
   </tr>
 </table> 
 
-Por exemplo:
+Por exemplo: 
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -479,14 +479,15 @@ A resposta é:
 As informações de alinhamento iniciam com `0:2-0:1`, significando que os três primeiros caracteres no texto de origem (`The`) são mapeados para os dois primeiros caracteres no texto traduzido (`La`).
 
 #### <a name="limitations"></a>Limitações
-Observe as seguintes restrições:
+A obtenção de informações de alinhamento é uma característica experimental que possibilitamos para prototipagem de pesquisas e experiências com potenciais mapeamentos de frases. Podemos optar por parar de apoiar isso no futuro. Aqui estão algumas das restrições notáveis onde os alinhamentos não são suportados:
 
-* O alinhamento não está disponível para texto no formato HTML, ou seja, TextType = HTML
+* O alinhamento não está disponível para texto em formato HTML, ou seja, textType=html
 * O alinhamento é retornado apenas para um subconjunto dos pares de idiomas:
   - do inglês para qualquer outro idioma;
   - de qualquer outro idioma para o inglês, exceto chinês simplificado, chinês tradicional e letão para inglês;
   - do japonês para o coreano ou do coreano para o japonês.
 * Você não receberá alinhamento se a sentença for uma tradução predefinida. Exemplo de uma tradução predefinida é "Isso é um teste", "eu te amo", e outras frases de alta frequência.
+* O alinhamento não está disponível quando você aplica qualquer uma das abordagens para impedir a tradução como descrito [aqui](../prevent-translation.md)
 
 ### <a name="obtain-sentence-boundaries"></a>Obter limites de sentença
 
@@ -514,7 +515,7 @@ A resposta é:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Traduzir com dicionário dinâmico
 
-Se você já souber a tradução que deseja aplicar a uma palavra ou frase, poderá fornecê-la como marcação dentro da solicitação. O dicionário dinâmico só é seguro para nomes compostos, como nomes próprios e nomes de produto.
+Se você já souber a tradução que deseja aplicar a uma palavra ou frase, poderá fornecê-la como marcação dentro da solicitação. O dicionário dinâmico é seguro somente para substantivos compostos como nomes próprios e nomes de produtos.
 
 A marcação para fornecer usa a seguinte sintaxe.
 
@@ -540,4 +541,4 @@ O resultado é:
 ]
 ```
 
-Esse recurso funciona da mesma maneira com `textType=text` ou com `textType=html`. O recurso deve ser usado com moderação. A maneira apropriada e muito melhor de personalizar a tradução é usando o Tradutor Personalizado. O Tradutor Personalizado faz uso total das probabilidades de estatística e contexto. Se você tiver ou puder arcar com a criação de dados de treinamento que mostrem seu trabalho ou frase no contexto, obterá resultados muito melhor. [Saiba mais sobre o Tradutor Personalizado](../customization.md).
+Esse recurso funciona da mesma maneira com `textType=text` ou com `textType=html`. O recurso deve ser usado com moderação. A maneira apropriada e muito melhor de personalizar a tradução é usando o Tradutor Personalizado. O Tradutor Personalizado faz uso total das probabilidades de estatística e contexto. Se você tiver ou puder criar dados de treinamento que mostrem o trabalho ou a frase no contexto, obterá resultados muito melhores. [Saiba mais sobre o Tradutor Personalizado](../customization.md).

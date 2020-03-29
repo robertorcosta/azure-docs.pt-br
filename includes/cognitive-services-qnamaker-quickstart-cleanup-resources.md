@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 11/05/2018
 ms.author: diberry
 ms.openlocfilehash: 560d4232e98b656c3ca7023cf8bdfa63e0a413da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172219"
 ---
 ## <a name="clean-up-resources"></a>Limpar recursos

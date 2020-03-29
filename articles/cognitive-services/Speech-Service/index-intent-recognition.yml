@@ -1,35 +1,34 @@
 ### YamlMime:Landing
-title: Documentação do reconhecimento de intenção
-summary: O reconhecimento de intenções com os serviços de fala e Reconhecimento vocal (LUIS) permite a transcrição em tempo real de fluxos de áudio em texto, ao mesmo tempo que identifica a intenção e as entidades.
+title: Documentação de reconhecimento de intenção
+summary: O reconhecimento de intenções com os serviços de Compreensão de Fala e Linguagem (LUIS), permite a transcrição em tempo real de fluxos de áudio em texto, ao mesmo tempo em que identifica intenções e entidades.
 metadata:
-  title: Documentação do reconhecimento de intenção-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  title: Documentação de reconhecimento de intenções - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 63c830b20ad5a3bf322fe2402d72230a80399d45
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 87e698c2a9b09b54c6015293b5be26ea2006a786
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79371453"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415165"
 landingContent:
-- title: Sobre o reconhecimento de intenção
+- title: Sobre o reconhecimento de intenções
   linkLists:
   - linkListType: quickstart
     links:
     - text: Reconhecer uma fala, intenções e entidades
       url: quickstarts/intent-recognition.md
-- title: Desenvolver com reconhecimento de intenção
+- title: Desenvolver com reconhecimento de intenções
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Reconhecer intenções de fala com LUIS e C#
+    - text: 'Reconhecer intenções de fala com LUIS e C #'
       url: how-to-recognize-intents-from-speech-csharp.md
 - title: Referência
   linkLists:
@@ -41,5 +40,5 @@ landingContent:
       url: ../luis/developer-reference-resource.md
     - text: Suporte ao idioma
       url: ../luis/luis-language-support.md#languages-supported
-    - text: Preço do reconhecimento de intenção
+    - text: Preços de reconhecimento de intenção
       url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

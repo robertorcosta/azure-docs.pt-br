@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: 0e8a6a0ffa451337b9e7ea7590cfe614fc1129a1
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943861"
 ---
-Para transmitir em um formato de áudio compactado para o serviço de fala, crie `PullAudioInputStream` ou `PushAudioInputStream`. Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
+Para transmitir em um formato de áudio `PullAudioInputStream` compactado para o serviço Speech, crie ou `PushAudioInputStream`. Em seguida, `AudioConfig` crie uma instância de uma classe de fluxo, especificando o formato de compactação do fluxo.
 
-Vamos supor que você tenha uma classe de fluxo de entrada chamada `pushStream` e esteja usando OPUS/OGG. Seu código pode ter a seguinte aparência:
+Vamos supor que você tem `pushStream` uma classe de fluxo de entrada chamada e está usando OPUS/OGG. Seu código pode parecer assim:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

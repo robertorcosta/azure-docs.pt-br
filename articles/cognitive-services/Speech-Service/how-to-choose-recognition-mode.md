@@ -1,7 +1,7 @@
 ---
-title: Escolha um modo de reconhecimento de fala com o SDK de fala
+title: Escolha um modo de reconhecimento de voz com o Speech SDK
 titleSuffix: Azure Cognitive Services
-description: Saiba como escolher o melhor modo de reconhecimento ao usar o SDK de fala.
+description: Saiba como escolher o melhor modo de reconhecimento ao usar o Speech SDK.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 03/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79079826"
 ---
-# <a name="choose-a-speech-recognition-mode"></a>Escolher um modo de reconhecimento de fala
+# <a name="choose-a-speech-recognition-mode"></a>Escolha um modo de reconhecimento de voz
 
-Ao considerar as operações de reconhecimento de fala em texto, o [SDK de fala](speech-sdk.md) fornece vários modos de processamento de fala. Conceitualmente, às vezes chamado de *modo de reconhecimento*. Este artigo compara os vários modos de reconhecimento.
+Ao considerar as operações de reconhecimento de fala a texto, o [Speech SDK](speech-sdk.md) fornece vários modos para processar a fala. Conceitualmente, às vezes chamado de *modo de reconhecimento.* Este artigo compara os vários modos de reconhecimento.
 
-## <a name="recognize-once"></a>Reconhecer uma vez
+## <a name="recognize-once"></a>Reconheça uma vez
 
-Se você quiser processar cada expressão uma "frase" por vez, use a função "reconhecer uma vez". Esse método detectará um expressão reconhecido a partir da entrada, começando no início da fala detectada até a próxima pausa. Normalmente, uma pausa marca o final de uma frase ou linha de pensamento.
+Se você quiser processar cada expressão uma "frase" de cada vez, use a função "reconhecer uma vez". Este método detectará uma expressão reconhecida a partir da entrada a partir do início da fala detectada até a próxima pausa. Normalmente, uma pausa marca o fim de uma frase ou linha de pensamento.
 
-No final de um expressão reconhecido, o serviço para de processar o áudio dessa solicitação. O limite máximo de reconhecimento é uma duração de sentença de 20 segundos.
+Ao final de uma declaração reconhecida, o serviço deixa de processar áudio a partir dessa solicitação. O limite máximo para reconhecimento é uma duração de sentença de 20 segundos.
 
 ::: zone pivot="programming-language-csharp"
 
-Para obter mais informações sobre como usar a função `RecognizeOnceAsync`, consulte o [.net Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
+Para obter mais `RecognizeOnceAsync` informações sobre o uso da função, consulte os [docs .NET Speech SDK](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
 var result = await recognizer.RecognizeOnceAsync();
@@ -39,7 +39,7 @@ var result = await recognizer.RecognizeOnceAsync();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Para obter mais informações sobre como usar a função `RecognizeOnceAsync`, consulte os [ C++ documentos do SDK de fala](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
+Para obter mais `RecognizeOnceAsync` informações sobre o uso da função, consulte os [docs C++ Speech SDK](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
 
 ```cpp
 auto result = recognize->RecognizeOnceAsync().get();
@@ -48,7 +48,7 @@ auto result = recognize->RecognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Para obter mais informações sobre como usar a função `recognizeOnceAsync`, consulte os [documentos do SDK de fala do Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
+Para obter mais `recognizeOnceAsync` informações sobre o uso da função, consulte os [docs Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
 
 ```java
 SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
@@ -57,7 +57,7 @@ SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Para obter mais informações sobre como usar a função `recognize_once`, consulte os [documentos do SDK de fala do Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
+Para obter mais `recognize_once` informações sobre o uso da função, consulte os [docs Python Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
 
 ```python
 result = speech_recognizer.recognize_once()
@@ -66,13 +66,13 @@ result = speech_recognizer.recognize_once()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Para idiomas adicionais, consulte os [documentos de referência do SDK de fala](speech-to-text.md#speech-sdk-reference-docs).
+Para obter idiomas adicionais, consulte os [docs de referência do Speech SDK](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
 ## <a name="continuous"></a>Contínuo
 
-Se você precisar de um reconhecimento de execução longa, use as funções de início e de parada correspondentes para o reconhecimento contínuo. A função start será iniciada e continuará processando todos os declarações até que você invoque a função STOP ou até que haja muito tempo no silêncio. Ao usar o modo contínuo, não se esqueça de registrar-se nos vários eventos que serão acionados na ocorrência. Por exemplo, o evento "reconhecido" é acionado quando ocorre o reconhecimento de fala. Você precisa ter um manipulador de eventos em vigor para lidar com o reconhecimento.
+Se você precisar de reconhecimento de longa duração, use as funções de início e de parada correspondentes para reconhecimento contínuo. A função de início iniciará e continuará processando todas as expressões até que você invoque a função stop, ou até que muito tempo em silêncio tenha passado. Ao utilizar o modo contínuo, certifique-se de registrar os vários eventos que serão acionados após a ocorrência. Por exemplo, o evento "reconhecido" é acionado quando ocorre o reconhecimento de fala. Você precisa ter um manipulador de eventos no local para lidar com o reconhecimento.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -154,17 +154,17 @@ speech_recognizer.stop_continuous_recognition()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Para idiomas adicionais, consulte os [documentos de referência do SDK de fala](speech-to-text.md#speech-sdk-reference-docs).
+Para obter idiomas adicionais, consulte os [docs de referência do Speech SDK](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
 ## <a name="dictation"></a>Ditado
 
-Ao usar o reconhecimento contínuo, você pode habilitar o processamento de ditado usando a função "Habilitar ditado" correspondente. Esse modo fará com que a instância de configuração de fala interprete as descrições das estruturas de frase, como pontuação. Por exemplo, o expressão "você mora na cidade ponto de interrogação" seria interpretado como o texto "você mora na cidade?".
+Ao usar o reconhecimento contínuo, você pode habilitar o processamento de ditados usando a função correspondente "ativar ditado". Este modo fará com que a instância de configuração de fala interprete descrições de palavras de estruturas de sentença, como pontuação. Por exemplo, o enunciado "Você mora no ponto de interrogação da cidade" seria interpretado como o texto "Você mora na cidade?".
 
 ::: zone pivot="programming-language-csharp"
 
-Para obter mais informações sobre como usar a função `EnableDictation`, consulte o [.net Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
+Para obter mais `EnableDictation` informações sobre o uso da função, consulte os [docs .NET Speech SDK](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
 
 ```csharp
 // Enable diction
@@ -174,7 +174,7 @@ SpeechConfig.EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Para obter mais informações sobre como usar a função `EnableDictation`, consulte os [ C++ documentos do SDK de fala](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
+Para obter mais `EnableDictation` informações sobre o uso da função, consulte os [docs C++ Speech SDK](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
 
 ```cpp
 // Enable diction
@@ -184,7 +184,7 @@ SpeechConfig->EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Para obter mais informações sobre como usar a função `enableDictation`, consulte os [documentos do SDK de fala do Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
+Para obter mais `enableDictation` informações sobre o uso da função, consulte os [docs Java Speech SDK](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
 
 ```java
 // Enable diction
@@ -194,7 +194,7 @@ SpeechConfig.enableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Para obter mais informações sobre como usar a função `enable_dictation`, consulte os [documentos do SDK de fala do Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
+Para obter mais `enable_dictation` informações sobre o uso da função, consulte os [docs Python Speech SDK](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
 
 ```python
 # Enable diction
@@ -204,11 +204,11 @@ SpeechConfig.enable_dictation()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Para idiomas adicionais, consulte os [documentos de referência do SDK de fala](speech-to-text.md#speech-sdk-reference-docs).
+Para obter idiomas adicionais, consulte os [docs de referência do Speech SDK](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Explore os exemplos adicionais do SDK de fala no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar amostras adicionais de SDK de fala no GitHub](https://aka.ms/csspeech/samples)

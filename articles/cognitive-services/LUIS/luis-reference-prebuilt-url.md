@@ -1,5 +1,5 @@
 ---
-title: Entidades predefinidas de URL-LUIS
+title: URL Entidades Pré-Construídas - LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida URL de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: 49f145ce3e9022826abad5d274dd611bb2cc6530
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270358"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidade de URL predefinida para um aplicativo LUIS
@@ -26,13 +26,13 @@ A URL é gerenciada por meio do repositório do GitHub [Recognizers-text](https:
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Resolução para a entidade URL predefinida
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para a consulta:
 
 `https://www.luis.ai is a great cognitive services example of artificial intelligence`
 
-#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O JSON a `verbose` seguir está `false`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -41,9 +41,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+O JSON a `verbose` seguir está `true`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -67,9 +67,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo a seguir mostra a resolução do https://www.luis.ai é um excelente exemplo de serviços cognitivas de inteligência artificial
+O exemplo a seguir https://www.luis.ai mostra que a resolução do é um grande exemplo de serviços cognitivos de inteligência artificial
 
 ```json
 "entities": [
@@ -84,7 +84,7 @@ O exemplo a seguir mostra a resolução do https://www.luis.ai é um excelente e
 
 * * *
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 

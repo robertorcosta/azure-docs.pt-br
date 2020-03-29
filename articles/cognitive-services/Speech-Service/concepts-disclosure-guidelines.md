@@ -1,7 +1,7 @@
 ---
 title: Diretrizes de design de divulgação
 titleSuffix: Azure Cognitive Services
-description: Introdução às diretrizes de design de divulgação e à avaliação do nível de divulgação.
+description: Introdução às diretrizes de design de divulgação e avaliação do nível de divulgação.
 services: cognitive-services
 author: sharonlo101
 manager: nitinme
@@ -11,75 +11,75 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74776378"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de design de divulgação
-Saiba como criar e manter a confiança com os clientes ao ser transparente sobre a natureza sintética da sua experiência de voz.
+Aprenda a construir e manter a confiança com os clientes sendo transparente sobre a natureza sintética de sua experiência de voz.
 
 ## <a name="what-is-disclosure"></a>O que é divulgação?
 
-A divulgação é um meio de permitir que as&#39;pessoas saibam que reagem ou escutando uma voz gerada de forma sintética.
+A divulgação é um meio de deixar as pessoas saberem que&#39;estar interagindo ou ouvindo uma voz que é gerada sinteticamente.
 
 ## <a name="why-is-disclosure-necessary"></a>Por que a divulgação é necessária?
 
-A necessidade de divulgar as origens sintéticas de uma voz gerada por computador é relativamente nova. No passado, as vozes geradas por computador eram obviamente que, ninguém jamais as inequívocoia para uma pessoa real. Todos os dias, no entanto, o realm das vozes sintéticas melhora e tornam-se cada vez mais indistinguíveis das vozes humanas.
+A necessidade de divulgar as origens sintéticas de uma voz gerada por computador é relativamente nova. No passado, as vozes geradas por computador eram obviamente isso — ninguém jamais as confundiria com uma pessoa real. A cada dia, no entanto, o realismo das vozes sintéticas melhora, e elas se tornam cada vez mais indistinguíveis das vozes humanas.
 
 ## <a name="goals"></a>Metas
-Esses são os princípios que devem ser considerados ao criar experiências de voz sintética:
+Estes são os princípios a ter em mente ao projetar experiências de voz sintéticas:
 
-**Reforçar confiança**
-<br>Projete com a intenção de reprovar o teste do Turing sem degradar a experiência. Permita que os usuários no fato de eles estejam interagindo com uma voz sintética, permitindo que eles se envolvam diretamente com a experiência.
+**Reforce a confiança**
+<br>Design com a intenção de falhar no Teste de Turing sem degradar a experiência. Deixe os usuários entrarem no fato de que eles estão interagindo com uma voz sintética, permitindo que eles se envolvam perfeitamente com a experiência.
 
-**Adaptar ao contexto de uso**
-<br>Entenda quando, onde e como os usuários irão interagir com a voz sintética para fornecer o tipo certo de divulgação no momento certo.
+**Adapte-se ao contexto de uso**
+<br>Entenda quando, onde e como seus usuários interagirão com a voz sintética para fornecer o tipo certo de divulgação no momento certo.
 
 **Definir expectativas claras**
-<br>Permita que os usuários descubram e entendam facilmente os recursos do agente. Ofereça oportunidades para saber mais sobre a tecnologia de voz sintética mediante solicitação.
+<br>Permitir que os usuários descubram e entendam facilmente as capacidades do agente. Ofereça oportunidades para aprender mais sobre tecnologia de voz sintética mediante solicitação.
 
-**Adotar falha**
-<br>Use momentos de falha para reforçar os recursos do agente.
+**Abrace o fracasso**
+<br>Use momentos de falha para reforçar as capacidades do agente.
 
 ## <a name="how-to-use-this-guide"></a>Como usar este guia
 
-Este guia ajuda a determinar quais padrões de divulgação são mais adequados para sua experiência de voz sintética. Em seguida, oferecemos exemplos de como e quando usá-los. Cada um desses padrões foi projetado para maximizar a transparência com os usuários sobre a fala sintética enquanto se mantém verdadeiro no design centrado no homem.
+Este guia ajuda você a determinar quais padrões de divulgação são mais adequados para sua experiência de voz sintética. Em seguida, oferecemos exemplos de como e quando usá-los. Cada um desses padrões é projetado para maximizar a transparência com os usuários sobre a fala sintética, mantendo-se fiel ao design centrado no homem.
 
-Considerando o vasto corpo de diretrizes de design sobre experiências de voz, nos concentramos especificamente em:
+Considerando o vasto corpo de orientação de design sobre experiências de voz, focamos aqui especificamente em:
 
-1. [**Avaliação de divulgação**](#disclosure-assessment): um processo para determinar o tipo de divulgação recomendado para sua experiência de voz sintética
+1. [**Avaliação de divulgação**](#disclosure-assessment): Um processo para determinar o tipo de divulgação recomendada para sua experiência de voz sintética
 
-2. [**Como divulgar**](concepts-disclosure-patterns.md): exemplos de padrões de divulgação que podem ser aplicados à sua experiência de voz sintética
+2. [**Como divulgar**](concepts-disclosure-patterns.md): Exemplos de padrões de divulgação que podem ser aplicados à sua experiência de voz sintética
 
-3. [**Quando divulgar**](concepts-disclosure-patterns.md#when-to-disclose): um tempo ideal para divulgar durante o percurso do usuário
+3. [**Quando divulgar**](concepts-disclosure-patterns.md#when-to-disclose): Momentos ideais para divulgar ao longo da jornada do usuário
 
 ## <a name="disclosure-assessment"></a>Avaliação de divulgação
-Considere as expectativas&#39; de seus usuários sobre uma interação e o contexto no qual eles experimentarão a voz. Se o contexto tornar claro que uma voz sintética está &quot;falando, a divulgação de&quot; pode ser mínima, momentânea ou ainda desnecessária. Os principais tipos de contexto que afetam a divulgação incluem tipo persona, tipo de cenário e nível de exposição. Também ajuda a considerar quem pode estar ouvindo.
+Considere seus usuários&#39; expectativas sobre uma interação e o contexto em que eles experimentarão a voz. Se o contexto deixar claro que &quot;uma&quot; voz sintética está falando, a divulgação pode ser mínima, momentânea ou até mesmo desnecessária. Os principais tipos de contexto que afetam a divulgação incluem tipo de persona, tipo de cenário e nível de exposição. Também ajuda a considerar quem pode estar ouvindo.
 
-### <a name="understand-context"></a>Entender o contexto
+### <a name="understand-context"></a>Entenda o contexto
 
-Use esta planilha para determinar o contexto da sua experiência de voz sintética. Você o aplicará na próxima etapa, na qual determinará seu nível de divulgação.
+Use esta planilha para determinar o contexto de sua experiência de voz sintética. Você aplicará isso na próxima etapa onde determinará seu nível de divulgação.
 
-|                                    | Contexto de uso                                                                                                                                                                                                                                                                                                                                                       | Riscos potenciais & desafios                                                                                                                                                                                                                                                                                                                                                                       |
+|                                    | Contexto de uso                                                                                                                                                                                                                                                                                                                                                       | Desafios potenciais & riscos                                                                                                                                                                                                                                                                                                                                                                       |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1. tipo persona**               | **Se qualquer uma das seguintes opções for aplicável, seu persona se ajustará à categoria "persona-like humana":**<br><br><ul><li> A persona incorpora um humano real, seja uma representação fictícia ou não. (por exemplo, fotografia ou um processamento gerado por computador de uma pessoa real)<br><br><li> A voz sintética é baseada na voz de uma pessoa real amplamente reconhecível (por exemplo, celebridade, figura política) | Quanto mais representações humanas você fornecer à sua persona, maior será a probabilidade de um usuário associá-la a uma pessoa real ou fazer com que ele acredite que o conteúdo é falado por uma pessoa real, e não pelo computador. </ul>                                                                                                                                                                      |
-| **2. tipo de cenário**            | **Se qualquer uma das seguintes opções for aplicável, sua experiência de voz se ajustará à categoria "confidencial":**<br><br><ul><li> Obtém ou exibe informações pessoais do usuário <br><br> <li> Transmite notícias/informações confidenciais de tempo (por exemplo, alerta de emergência)<br><br><li> Tem o objetivo de ajudar pessoas reais a se comunicarem entre si (por exemplo, ler emails/textos pessoais)<br><br> <li> Fornece assistência médica/de saúde </ul>            | O uso de voz sintética pode não parecer apropriado ou confiável para as pessoas que o utilizam quando os tópicos estão relacionados a assuntos confidenciais, pessoais ou urgentes. Eles também podem esperar o mesmo nível de empatia e reconhecimento contextual como um humano real. |
-| **3. nível de exposição** |**Sua experiência de voz provavelmente se encaixará na categoria ' alta ' se:** <br><br><ul><li>O usuário ouvirá ou interagir com a voz sintética frequentemente ou por um longo período de tempo </ul>                                                                                                                                                                             | A importância de ser transparente e de criar confiança com os usuários é ainda mais alta ao estabelecer relações de longo prazo.                                                                                                                                                                                                                                                                      |
+| **1. Tipo persona**               | **Se alguma das seguintes se aplicar, sua persona se encaixa na categoria 'Persona humana':**<br><br><ul><li> Persona encarna um humano real, quer seja uma representação fictícia ou não. (por exemplo, fotografia ou uma renderização gerada por computador de uma pessoa real)<br><br><li> A voz sintética é baseada na voz de uma pessoa real amplamente reconhecível (por exemplo, celebridade, figura política) | Quanto mais representações humanas você dá à sua persona, mais provável é que um usuário a associe a uma pessoa real, ou faça com que acredite que o conteúdo é falado por uma pessoa real em vez de gerado por computador. </ul>                                                                                                                                                                      |
+| **2. Tipo de cenário**            | **Se alguma das seguintes se aplicar, sua experiência de voz se encaixa na categoria 'Sensível':**<br><br><ul><li> Obtém ou exibe informações pessoais do usuário <br><br> <li> Transmite notícias/informações confidenciais de tempo (por exemplo, alerta de emergência)<br><br><li> Tem como objetivo ajudar pessoas reais a se comunicarem entre si (por exemplo, lê e-mails/textos pessoais)<br><br> <li> Presta assistência médica/saúde </ul>            | O uso de voz sintética pode não parecer apropriado ou confiável para as pessoas que a utilizam quando os tópicos estão relacionados a assuntos sensíveis, pessoais ou urgentes. Eles também podem esperar o mesmo nível de empatia e consciência contextual como um humano real. |
+| **3. Nível de exposição** |**Sua experiência de voz provavelmente se encaixa na categoria 'Alto' se:** <br><br><ul><li>O usuário ouvirá ou interagirá com a voz sintética com freqüência ou por uma longa duração </ul>                                                                                                                                                                             | A importância de ser transparente e construir confiança com os usuários é ainda maior ao estabelecer relacionamentos de longo prazo.                                                                                                                                                                                                                                                                      |
 
-### <a name="determine-disclosure-level"></a>Determinar o nível de divulgação
+### <a name="determine-disclosure-level"></a>Determine o nível de divulgação
 
-Use o diagrama a seguir para determinar se sua experiência de voz sintética requer uma divulgação alta ou baixa com base no seu contexto de uso.
+Use o diagrama a seguir para determinar se sua experiência de voz sintética requer alta ou baixa divulgação com base no seu contexto de uso.
 
   ![Diagrama de avaliação de divulgação](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Documentos de Referência
 
-* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
-* [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Visão geral da retenção](concepts-gating-overview.md)
+* [Divulgação para O Talento de Voz](https://aka.ms/disclosure-voice-talent)
+* [Diretrizes para implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Visão geral de Gating](concepts-gating-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)

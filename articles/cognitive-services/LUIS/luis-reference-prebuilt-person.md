@@ -1,5 +1,5 @@
 ---
-title: Entidade predefinida Person-LUIS
+title: Entidade pré-construída personname - LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade personName pré-criada no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 768c719211e8a8f2133d3798343d076e795a3da0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273430"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida PersonName para um aplicativo LUIS
@@ -23,15 +23,15 @@ A entidade personName pré-criada detecta nomes de pessoas. Como essa entidade j
 
 ## <a name="resolution-for-personname-entity"></a>Resolução da entidade personName
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para a consulta:
 
 `Is Jill Jones in Cairo?`
 
 
-#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O JSON a `verbose` seguir está `false`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -40,8 +40,8 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
+O JSON a `verbose` seguir está `true`com o parâmetro definido para:
 
 ```json
 "entities": {
@@ -65,7 +65,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
 O exemplo a seguir mostra a resolução da entidade **builtin.personName**.
 
@@ -81,7 +81,7 @@ O exemplo a seguir mostra a resolução da entidade **builtin.personName**.
 ```
 * * *
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 

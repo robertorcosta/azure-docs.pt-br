@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas do SDK de dispositivos de fala-serviço de fala
+title: Solucionar problemas dos dispositivos de fala SDK - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de dispositivos de fala.
+description: Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar quando você usa o Speech Devices SDK.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
 ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815572"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Solução de problemas do SDK de Dispositivos de Fala
 
-Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de dispositivos de fala.
+Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar quando você usa o Speech Devices SDK.
 
 ## <a name="certificate-failures"></a>Falhas de certificado
 
-Se você obtiver falhas de certificado ao usar o serviço de fala, verifique se o dispositivo tem a data e a hora corretas:
+Se você tiver falhas no certificado ao usar o serviço Speech, certifique-se de que seu dispositivo tenha a data e a hora corretas:
 
 1. Vá para **Configurações**. Em **Sistema**, selecione **Data e hora**.
 
@@ -35,6 +35,6 @@ Se você obtiver falhas de certificado ao usar o serviço de fala, verifique se 
 
     Quando você vir que o tempo do kit de desenvolvimento corresponde o tempo em seu computador, o kit de desenvolvimento estará conectado à internet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Examinar as notas de versão](devices-sdk-release-notes.md)

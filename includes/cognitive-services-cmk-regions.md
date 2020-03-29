@@ -9,16 +9,16 @@ ms.date: 03/11/2020
 ms.author: egeaney
 ms.custom: include
 ms.openlocfilehash: a4b8fcaab93144bb73c1a118d266dd871728a6c6
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79372178"
 ---
 ### <a name="regional-availability"></a>Disponibilidade regional
 
-Atualmente, as chaves gerenciadas pelo cliente estão disponíveis nestas regiões:
+As chaves gerenciadas pelo cliente estão disponíveis atualmente nessas regiões:
 
-* Centro-Sul dos Estados Unidos
+* Centro-Sul dos EUA
 * Oeste dos EUA 2
 * Leste dos EUA

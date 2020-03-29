@@ -1,7 +1,7 @@
 ---
-title: Tipo de entidade aprendida por máquina-LUIS
+title: Tipo de entidade aprendida por máquina - LUIS
 titleSuffix: Azure Cognitive Services
-description: A entidade aprendida por máquina é a entidade preferida para a criação de aplicativos LUIS.
+description: A entidade aprendida por máquina é a entidade preferida para a construção de aplicações de LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: reference
 ms.date: 12/30/2019
 ms.author: diberry
 ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75551991"
 ---
 # <a name="machine-learned-entity"></a>Entidade com aprendizado de máquina
 
-A entidade aprendida por máquina é a entidade preferida para a criação de aplicativos LUIS.
+A entidade aprendida por máquina é a entidade preferida para a construção de aplicações de LUIS.
 
 
 ## <a name="example-json"></a>JSON de exemplo
 
-Suponha que o aplicativo receba pedidos de pizza, como o [tutorial de entidade decomposta](tutorial-machine-learned-entity.md). Cada pedido pode incluir várias pizzas diferentes, incluindo tamanhos diferentes.
+Suponha que o aplicativo recebe pedidos de pizza, como o [tutorial de entidade descomposável](tutorial-machine-learned-entity.md). Cada pedido pode incluir várias pizzas diferentes, incluindo tamanhos diferentes.
 
 Expressões de exemplo incluem:
 
-|Exemplo de declarações para o aplicativo de pizza|
+|Exemplos de declarações para aplicativo de pizza|
 |--|
 |`Can I get a pepperoni pizza and a can of coke please`|
 |`can I get a small pizza with onions peppers and olives`|
@@ -36,15 +36,15 @@ Expressões de exemplo incluem:
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Como uma entidade aprendida por máquina pode ter muitos subcomponentes com restrições e descritores, isso é apenas um exemplo. Ele deve ser considerado um guia para o que a sua entidade retornará.
+Como uma entidade aprendida por máquina pode ter muitos subcomponentes com restrições e descritores, este é apenas um exemplo. Deve ser considerado um guia para o que sua entidade vai devolver.
 
 Considere a consulta:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
 
 ```json
 "entities": {
@@ -102,7 +102,7 @@ Esse é o JSON se `verbose=false` for definido na cadeia de caracteres de consul
 
 ```
 
-Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consulta:
+Este é o JSON se `verbose=true` estiver definido na seqüência de consultas:
 
 ```json
 "entities": {
@@ -341,13 +341,13 @@ Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consult
     }
 }
 ```
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
-Esta entidade não está disponível no tempo de execução de previsão v2.
+Esta entidade não está disponível no tempo de execução da previsão v2.
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a entidade aprendida por máquina, incluindo um [tutorial](tutorial-machine-learned-entity.md), [conceitos](luis-concept-entity-types.md#design-entities-for-decomposition)e [Guia de instruções](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Saiba mais sobre a entidade aprendida pela máquina, incluindo um [tutorial,](tutorial-machine-learned-entity.md) [conceitos](luis-concept-entity-types.md#design-entities-for-decomposition) [e guia de como fazer.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
 
-Saiba mais sobre a entidade de [lista](reference-entity-list.md) e a entidade de [expressão regular](reference-entity-regular-expression.md) .
+Conheça a [entidade da lista](reference-entity-list.md) e a entidade de expressão [regular.](reference-entity-regular-expression.md)

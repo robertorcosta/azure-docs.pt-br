@@ -10,20 +10,20 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: c63356ba81aefb2ac28bd5f077bd743488656cfc
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 192d3d1a7bd792779b068a9c0c7ac34c7bee1c80
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77279723"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80116959"
 ---
-Se seus aplicativos precisarem ser criados por outras pessoas, você precisará adicionar os endereços de email associados no recurso de criação do portal do Azure.
+Se seus aplicativos precisarem ser de autoria de outras pessoas, você precisa adicionar os endereços de e-mail associados no recurso de autoria do portal Azure.
 
-Se você for o **proprietário ou administrador da sua assinatura do Azure**, poderá adicionar um colaborador ao recurso.
+Se você é o **proprietário ou administrador da sua assinatura do Azure,** você pode adicionar um contribuinte ao recurso.
 
-Se você **não for o proprietário ou administrador da sua assinatura do Azure**, sua conta do Azure precisará ter permissões de `Microsoft.Authorization/roleAssignments/write`.
+Se você não é **o proprietário ou administrador da sua assinatura do Azure,** sua conta do Azure precisa ter `Microsoft.Authorization/roleAssignments/write` permissões.
 
-Se você tiver problemas com essa atribuição de função, examine:
+Se você tiver problemas com essa atribuição de função, revise:
 
-* [Atribuições de função do Azure](../../../role-based-access-control/role-assignments-portal.md)
- * [Solução de problemas do controle de acesso do Azure](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
+* [Atribuições de função azure](../../../role-based-access-control/role-assignments-portal.md)
+* [Solução de problemas de controle de acesso do Azure](../../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)

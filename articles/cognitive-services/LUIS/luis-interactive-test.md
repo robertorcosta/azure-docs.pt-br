@@ -4,15 +4,15 @@ description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trab
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219814"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
-[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente.
+[O teste](luis-concept-test.md) de um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -22,20 +22,20 @@ ms.locfileid: "79219814"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>Treinar antes do teste
+## <a name="train-before-testing"></a>Treine antes de testar
 
-Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar.
+Para testar a versão mais recente do aplicativo ativo, selecione **Treinar** no menu superior, antes de testar.
 
 ## <a name="test-an-utterance"></a>Testar uma declaração
 
-O expressão de teste não deve ser exatamente o mesmo que qualquer declarações de exemplo no aplicativo. O expressão de teste deve incluir a opção de palavra, o comprimento da frase e o uso da entidade que você espera para um usuário.
+A expressão do teste não deve ser exatamente a mesma que qualquer enunciado de exemplo no aplicativo. O enunciado do teste deve incluir escolha da palavra, comprimento da frase e uso da entidade que você espera para um usuário.
 
 1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
 
-1. Para acessar o painel extensível **Testar**, selecione **Testar** no painel superior do seu aplicativo.
+1. Para acessar o painel de deslizamento **teste,** selecione **Teste** no painel superior do aplicativo.
 
     > [!div class="mx-imgBorder"]
-    > página do aplicativo ![Train & Test](./media/luis-how-to-interactive-test/test.png)
+    > ![Página do aplicativo de teste de & de trem](./media/luis-how-to-interactive-test/test.png)
 
 1. Insira uma declaração na caixa de texto e selecione Enter. É possível digitar quantas declarações de teste você desejar no **Teste**, mas apenas uma declaração por vez.
 
@@ -45,13 +45,13 @@ O expressão de teste não deve ser exatamente o mesmo que qualquer declaraçõe
 
 ## <a name="inspect-score"></a>Inspecionar pontuação
 
-Inspecione detalhes do resultado do teste no painel **Inspecionar**.
+Você inspeciona os detalhes do resultado do teste no painel **Inspecionar.**
 
 1. Com o painel extensível **Testar** aberto, selecione **Inspecionar** para uma declaração que você deseja comparar.
 
     ![Selecione o botão Inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
-1. O painel **Inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
+1. O painel **de inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
 
     ![O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -65,7 +65,7 @@ Inspecione detalhes do resultado do teste no painel **Inspecionar**.
 
 ## <a name="view-sentiment-results"></a>Exibir resultados de sentimento
 
-Se a **Análise de sentimento** estiver configurada na página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)** , os resultados de teste incluirão o sentimento encontrado na declaração.
+Se a **Análise de sentimento** estiver configurada na página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)**, os resultados de teste incluirão o sentimento encontrado na declaração.
 
 ![Imagem do painel de Teste com análise de sentimento](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -91,7 +91,7 @@ Se estiver usando [Padrões](luis-concept-patterns.md) e a declaração tiver co
 Se tiver vários pontos de extremidade LUIS, use o link **Configurações Adicionais** no painel Publicado do Teste para alterar o ponto de extremidade usado para teste. Se não tiver certeza sobre qual ponto de extremidade usar, selecione o **Starter_Key** padrão.
 
 > [!div class="mx-imgBorder"]
-> ![painel de teste com configurações adicionais link realçado](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
+> ![Testar painel com o link Configurações Adicionais realçado](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
 
 ## <a name="batch-testing"></a>Teste em lote

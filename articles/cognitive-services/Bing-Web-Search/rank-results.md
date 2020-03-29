@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66390132"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Como usar a classificação para exibir os resultados da API de Pesquisa na Web do Bing  
@@ -30,7 +30,7 @@ Em cada grupo (linha principal ou barra lateral), a matriz de [Itens](https://do
 
 O uso da ID é mais simples porque você só precisa fazer a correspondência da ID de classificação com a ID de uma resposta ou um de seus resultados. Se um objeto de resposta inclui um campo `id`, exiba todos os resultados da resposta juntos. Por exemplo, se o objeto `News` incluir o campo `id`, exiba todos os artigos de notícias juntos. Se o objeto `News` não incluir o campo `id`, cada artigo de notícias conterá um campo `id` e a resposta de classificação combinará os artigos de notícias com os resultados de outras respostas.  
 
-O uso do `answerType` e do `resultIndex` é um pouco mais complicado. Use `answerType` para identificar a resposta que contém os resultados a serem exibidos. Em seguida, use `resultIndex` para indexar os resultados da resposta para obter o resultado a ser exibido. (O valor `answerType` é o nome do campo no objeto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse).) Se você precisa para exibir todos os resultados da resposta juntos, a resposta de classificação de item não inclui o campo `resultIndex`.  
+O uso do `answerType` e do `resultIndex` é um pouco mais complicado. Use `answerType` para identificar a resposta que contém os resultados a serem exibidos. Em seguida, use `resultIndex` para indexar os resultados da resposta para obter o resultado a ser exibido. (O `answerType` valor é o nome do campo no objeto [SearchResponse.)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) Se você deve exibir todos os resultados da resposta juntos, o item `resultIndex` de resposta do ranking não inclui o campo.  
 
 ## <a name="ranking-response-example"></a>Exemplo de resposta de classificação
 

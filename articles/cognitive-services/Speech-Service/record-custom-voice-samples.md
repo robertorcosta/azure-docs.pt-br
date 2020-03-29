@@ -1,5 +1,5 @@
 ---
-title: Registrar amostras de voz personalizadas-serviço de fala
+title: Gravar amostras de voz personalizadas - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Construa uma voz personalizada com qualidade de produção, preparando um script robusto, contratando bons talentos de voz e gravando profissionalmente.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: b076c642f72e45f58be61d67e887e11b6ccb0aba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74975849"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
@@ -52,7 +52,7 @@ Escolha o ator de voz cuja voz natural você aprecia. É possível criar vozes e
 
 O fator mais importante para a escolha de talentos de voz é a consistência. As gravações devem soar como se fossem feitas no mesmo dia e na mesma sala. É possível aproximar-se desse ideal por meio de melhores práticas de gravação e engenharia.
 
-O ator de voz é a outra metade da equação. Eles devem ser capazes de falar com taxa consistente, nível de volume, densidade e Tom. A dicção clara é uma obrigação. O talento também precisa ser capaz de controlar estritamente a variação de pitch, o efeito emocional e a mannerisms de fala.
+O ator de voz é a outra metade da equação. Eles devem ser capazes de falar com taxa consistente, nível de volume, tom e tom. A dicção clara é uma obrigação. O talento também precisa ser capaz de controlar estritamente sua variação de tom, afeto emocional e maneirismos de fala.
 
 Gravar amostras de voz personalizada pode ser mais exaustivo que outros tipos de trabalho com voz. A maioria dos talentos de voz pode gravar por duas ou três horas por dia. Se possível, limite as sessões a três ou quatro por semana, com um dia de folga entre as seções.
 
@@ -71,7 +71,7 @@ Os enunciados no script podem vir de qualquer lugar: ficção, não ficção, tr
 
 Os enunciados não precisam ser originados da mesma fonte ou do mesmo tipo de fonte. Nem precisam ser relacionados entre si. No entanto, se você usar frases configuradas (por exemplo, "Você fez logon com êxito") no aplicativo de fala, inclua-as no script. Isso dará à voz personalizada uma possibilidade melhor de pronunciar bem essas frases. E, caso decida usar uma gravação no lugar da fala sintetizada, você já a terá na mesma voz.
 
-Embora a consistência seja a chave na escolha do ator de voz, a variedade é a marca registrada de um bom script. O script deve incluir muitas palavras e frases diferentes com uma variedade de comprimentos de frases, estruturas e estados de humor. Cada som no idioma deve ser representado várias vezes e em vários contextos (chamado *cobertura fonética).*
+Embora a consistência seja a chave na escolha do ator de voz, a variedade é a marca registrada de um bom script. O script deve incluir muitas palavras e frases diferentes com uma variedade de comprimentos de frases, estruturas e estados de humor. Cada som na língua deve ser representado várias vezes e em inúmeros contextos (chamado *de cobertura fonética*).
 
 Além disso, o texto deve incorporar todas as maneiras pelas quais um determinado som pode ser representado por escrito e colocar cada som em lugares diferentes nas frases. Tanto as sentenças declarativas quanto as perguntas devem ser incluídas e lidas com entonação apropriada.
 
@@ -89,10 +89,10 @@ Um formato de script básico contém três colunas:
 * Uma coluna em branco na qual você escreverá o número da tomada ou o código de tempo de cada enunciado para ajudar a localizá-lo na gravação finalizada.
 * O texto do próprio enunciado.
 
-![Script de exemplo](media/custom-voice/script.png)
+![Exemplo de script](media/custom-voice/script.png)
 
 > [!NOTE]
-> A maioria dos estúdios grava em pequenos segmentos conhecidos como *tomadas*. Cada tomada normalmente contém de 10 a 24 enunciados. Apenas anotar o número da tomada é o suficiente para localizar um enunciado posteriormente. Se estiver gravando em um estúdio que prefere fazer gravações mais longas, convém anotar o código de tempo. O estúdio terá uma exibição de tempo proeminente.
+> A maioria dos estúdios grava em segmentos curtos conhecidos como *takes*. Cada tomada normalmente contém de 10 a 24 enunciados. Apenas anotar o número da tomada é o suficiente para localizar um enunciado posteriormente. Se estiver gravando em um estúdio que prefere fazer gravações mais longas, convém anotar o código de tempo. O estúdio terá uma exibição de tempo proeminente.
 
 Deixe espaço suficiente após cada linha para escrever notas. Certifique-se de que nenhum enunciado está dividido entre páginas. Numere as páginas e imprima o script em um lado do papel.
 
@@ -108,7 +108,7 @@ Felizmente, é possível evitar completamente esses problemas. Há muitas fontes
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Cerca de 1100 frases selecionadas de obras que não possuem direitos autorais, especificamente para uso em projetos de sintetização de fala. Um excelente ponto de partida.|
 |Obras que não estão mais<br>sob direitos autorais|Normalmente, obras publicadas antes de 1923. Para inglês, o [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de obras desse tipo. Talvez seja conveniente concentra-se em textos mais recentes, pois a linguagem estará mais próxima do inglês moderno.|
-|Obras&nbsp;governamentais|Os trabalhos criados pelo governo Estados Unidos não são protegidos por direitos autorais no Estados Unidos, embora o governo possa reivindicar direitos autorais em outros países/regiões.|
+|Obras&nbsp;governamentais|Obras criadas pelo governo dos Estados Unidos não têm direitos autorais nos Estados Unidos, embora o governo possa reivindicar direitos autorais em outros países/regiões.|
 |Domínio público|Obras para as quais os direitos autorais foram explicitamente renunciados ou foram dedicadas ao domínio público. Pode não ser possível renunciar totalmente aos direitos autorais em algumas jurisdições.|
 |Obras com licença permissiva|Obras distribuídas sob licença como Creative Commons ou GFDL (Licença GNU de Documentação Livre). Wikipedia usa GFDL. Algumas licenças, no entanto, podem impor restrições à performance do conteúdo licenciado que podem afetar a criação de um modelo de voz personalizada, portanto, leia a licença atentamente.|
 
@@ -157,12 +157,12 @@ O ideal é ter pessoas diferentes nas funções de diretor, engenheiro e ator de
 
 ### <a name="before-the-session"></a>Antes da sessão
 
-Para evitar desperdiçar tempo de estúdio, repasse o script com o ator de voz antes da sessão de gravação. Embora o talento de voz se familiarize com o texto, eles podem esclarecer a pronúncia de quaisquer palavras desconhecidas.
+Para evitar desperdiçar tempo de estúdio, repasse o script com o ator de voz antes da sessão de gravação. Enquanto o talento da voz se familiariza com o texto, eles podem esclarecer a pronúncia de qualquer palavra desconhecida.
 
 > [!NOTE]
 > A maioria dos estúdios de gravação oferece exibição eletrônica de scripts na cabine de gravação. Nesse caso, digite diretamente no documento do script as observações a serem repassadas rapidamente. Ainda será necessário ter uma cópia em papel para fazer anotações durante a sessão. A maioria dos engenheiros também vai querer uma cópia impressa. Além disso, é necessário ter uma terceira cópia impressa como backup para o ator de voz, caso o computador esteja inoperante.
 
-O ator de voz pode perguntar qual palavra você quer enfatizar em um enunciado (a "palavra operativa"). Informe que você deseja uma leitura natural sem nenhuma ênfase específica. A ênfase poderá ser adicionada quando a fala for sintetizada e não deve fazer parte da gravação original.
+O ator de voz pode perguntar qual palavra você quer enfatizar em um enunciado (a "palavra operativa"). Diga a eles que você quer uma leitura natural sem ênfase especial. A ênfase poderá ser adicionada quando a fala for sintetizada e não deve fazer parte da gravação original.
 
 Direcione o ator de voz para pronunciar palavras distintamente. Cada palavra do script deve ser pronunciada como escrita. Os sons não devem ser omitidos nem desarticulados, como é comum em fala casual, *a menos que tenham sido escritos dessa maneira no script*.
 
@@ -191,11 +191,11 @@ Grave uns bons cinco segundos de silêncio antes da primeira gravação para cap
 Ouça atentamente, usando fones de ouvido, a performance do ator de voz. Você está procurando uma boa dicção natural, pronúncia correta e ausência de sons indesejados. Não hesite em pedir ao ator de voz para regravar um enunciado que não atenda a esses padrões.
 
 > [!TIP]
-> Se você estiver usando um alto volume de enunciados, um único enunciado poderá não ter um efeito perceptível na voz personalizada resultante. Pode ser mais vantajoso simplesmente anotar qualquer declarações com problemas, excluí-los do conjunto de informações e ver como sua voz personalizada se transforma. Você sempre pode voltar para o estúdio e registrar os exemplos perdidos posteriormente.
+> Se você estiver usando um alto volume de enunciados, um único enunciado poderá não ter um efeito perceptível na voz personalizada resultante. Pode ser mais conveniente simplesmente observar quaisquer expressões com problemas, excluí-las do seu conjunto de dados e ver como sua voz personalizada se torna. Você sempre pode voltar para o estúdio e gravar as amostras perdidas mais tarde.
 
 Observe o número da tomada ou código de tempo no script para cada enunciado. Peça para o engenheiro marcar cada um dos enunciados nos metadados da gravação ou na lista de deixas.
 
-Faça interrupções regulares e forneça uma bebida para ajudar seus talentos de voz a manter sua voz em bom formato.
+Faça pausas regulares e forneça uma bebida para ajudar seu talento de voz a manter sua voz em boa forma.
 
 ### <a name="after-the-session"></a>Após a sessão
 
@@ -215,7 +215,7 @@ Por fim, crie a *transcrição* que associa cada arquivo WAV a uma versão em te
 
 Arquive as gravações originais em um local seguro, caso precise delas posteriormente. Guarde também o script e as anotações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você está pronto para fazer upload as gravações e criar a voz personalizada.
 

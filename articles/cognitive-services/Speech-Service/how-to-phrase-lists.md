@@ -1,7 +1,7 @@
 ---
-title: Listas de frases-serviço de fala
+title: Listas de frases - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como fornecer o serviço de fala com uma lista de frases usando o objeto `PhraseListGrammar` para melhorar os resultados de reconhecimento de fala em texto.
+description: Aprenda a fornecer o serviço Speech com `PhraseListGrammar` uma lista de frases usando o objeto para melhorar os resultados de reconhecimento de voz a texto.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,26 +12,26 @@ ms.date: 02/04/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: f84ea6b2b0f1e8246e1d765e54f663cd01f29b1d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77560840"
 ---
-# <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para conversão de fala em texto
+# <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para discurso-para-texto
 
-Ao fornecer o serviço de fala com uma lista de frases, você pode melhorar a precisão do reconhecimento de fala. As listas de frases são usadas para identificar frases conhecidas em dados de áudio, como o nome de uma pessoa ou um local específico.
+Ao fornecer ao serviço Speech uma lista de frases, você pode melhorar a precisão do reconhecimento de fala. Listas de frases são usadas para identificar frases conhecidas em dados de áudio, como o nome de uma pessoa ou um local específico.
 
-Por exemplo, se você tiver um comando "mover para" e um possível destino de "para trás" que pode ser falado, você poderá adicionar uma entrada de "mover para o mais à frente". A adição de uma frase aumentará a probabilidade de quando o áudio for reconhecido de "mover para o mais para cima" será reconhecido em vez de "ir para".
+Como exemplo, se você tiver um comando "Mover para" e um possível destino de "Ward" que pode ser falado, você pode adicionar uma entrada de "Mover para Ward". Adicionar uma frase aumentará a probabilidade de que quando o áudio for reconhecido que "Mover para Ward" será reconhecido em vez de "Mover-se em direção".
 
-Palavras únicas ou frases completas podem ser adicionadas a uma lista de frases. Durante o reconhecimento, uma entrada em uma lista de frases será usada se uma correspondência exata para a frase inteira for incluída no áudio como uma frase separada. Se uma correspondência exata à frase não for encontrada, o reconhecimento não será assistido.
+Palavras simples ou frases completas podem ser adicionadas a uma lista de frases. Durante o reconhecimento, uma entrada em uma lista de frases é usada se uma correspondência exata para toda a frase for incluída no áudio como uma frase separada. Se uma correspondência exata com a frase não for encontrada, o reconhecimento não será assistido.
 
 >[!Note]
-> Atualmente, as listas de frases dão suporte apenas ao inglês para conversão de fala em texto.
+> Atualmente, as Listas de Frases suportam apenas o inglês para o discurso-a-texto.
 
 ## <a name="how-to-use-phrase-lists"></a>Como usar listas de frases
 
-Os exemplos a seguir ilustram como criar uma lista de frases usando o objeto `PhraseListGrammar`.
+As amostras abaixo ilustram como construir `PhraseListGrammar` uma lista de frases usando o objeto.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -89,9 +89,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ::: zone-end
 
 >[!Note]
-> O número máximo de listas de frases que o serviço de fala usará para corresponder à fala é de 1024 frases.
+> O número máximo de Listas de Frases que o serviço Speech usará para combinar fala é de 1024 frases.
 
-Você também pode limpar as frases associadas à `PhraseListGrammar` chamando Clear ().
+Você também pode limpar as `PhraseListGrammar` frases associadas ao chamado clear().
 
 ::: zone pivot="programming-language-csharp"
 
@@ -134,8 +134,8 @@ phraseListGrammar.clear();
 ::: zone-end
 
 > [!NOTE]
-> As alterações em um objeto `PhraseListGrammar` entram em vigor no próximo reconhecimento ou após uma reconexão com o serviço de fala.
+> As alterações em um `PhraseListGrammar` objeto terão efeito no próximo reconhecimento ou após uma reconexão ao serviço Speech.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Documentação de referência do SDK de fala](speech-sdk.md)
+* [Documentação de referência do Speech SDK](speech-sdk.md)

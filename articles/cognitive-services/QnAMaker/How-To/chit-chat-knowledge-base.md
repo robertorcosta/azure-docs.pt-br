@@ -12,38 +12,38 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220705"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
 
 Adicionar bate-papo ao seu bot o torna mais comunicativo e interessante. O recurso de bate-papo do QnA Maker permite adicionar com facilidade um conjunto previamente populado dos principais bate-papos à sua KB (base de dados de conhecimento). Esse pode ser um ponto de partida para a personalidade do seu bot, o que economizará o tempo e o custo de escrevê-la do zero.  
 
-Esse conjunto de informações tem cerca de 100 cenários de Chit-Chat na voz de várias pessoas, como profissional, amigável e voluntária. Escolha a persona que mais se assemelha à voz do seu bot. Dada uma consulta de usuário, o QnA Maker tenta correspondê-la às perguntas e respostas do bate-papo conhecido mais próximo.  
+Este conjunto de dados tem cerca de 100 cenários de bate-papo na voz de várias personas, como Profissional,Amigável e Espirituoso. Escolha a persona que mais se assemelha à voz do seu bot. Dada uma consulta de usuário, o QnA Maker tenta correspondê-la às perguntas e respostas do bate-papo conhecido mais próximo.  
 
-Veja abaixo alguns exemplos dos diferentes personalidades. Você pode ver todos os [conjuntos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) de informações de personalidade junto com os detalhes do personalidades.
+Alguns exemplos das diferentes personalidades estão abaixo. Você pode ver todos os [conjuntos de dados](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) de personalidade, juntamente com detalhes das personalidades.
 
-Para a consulta do usuário de `When is your birthday?`, cada personalidade tem uma resposta com estilo:
+Para a consulta `When is your birthday?`do usuário de , cada personalidade tem uma resposta estilizada:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalidade|Exemplo|
 |--|--|
-|Professional|A idade não se aplica de fato a mim.|
+|Professional|A idade não se aplica a mim.|
 |Amigável|Eu realmente não tenho uma idade.|
-|Voluntariay|Sou sem idade.|
-|Preocupar|Não tenho uma idade.|
-|Entusiasmado|Sou um bot, então eu não tenho uma idade.|
+|Espirituoso|Estou livre da idade.|
+|Cuidar|Eu não tenho uma idade.|
+|Entusiasmado|Sou um robô, então não tenho idade.|
 ||
 
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-Chit-os conjuntos de dados de chat têm suporte nos seguintes idiomas:
+Os conjuntos de dados do chit-chat são suportados nos seguintes idiomas:
 
-|Linguagem|
+|Idioma|
 |--|
 |Chinês|
 |Inglês|
@@ -69,12 +69,12 @@ Ao editar sua KB, você verá uma nova fonte para bate-papo, com base na persona
 
 ![Editar as perguntas e respostas do bate-papo](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-Para exibir os metadados, selecione **Exibir opções** na barra de ferramentas e selecione **Mostrar metadados**.
+Para exibir os metadados, **selecione 'Exibir opções'** na barra de ferramentas e, em seguida, **selecione Mostrar metadados**.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Adicionar perguntas e respostas adicionais ao bate-papo
-É possível adicionar novas perguntas e respostas ao bate-papo que não estão presentes no conjunto predefinido. Verifique se você não está duplicando um par de pergunta e resposta já abordado no conjunto de bate-papo. Ao adicionar novas perguntas e respostas ao bate-papo, elas são adicionadas à fonte **Editorial**. Para garantir que o classificador entenda que se trata de Chit, adicione o par chave/valor de metadados "editorial: Chitchat", como mostrado na imagem a seguir:
+É possível adicionar novas perguntas e respostas ao bate-papo que não estão presentes no conjunto predefinido. Verifique se você não está duplicando um par de pergunta e resposta já abordado no conjunto de bate-papo. Ao adicionar novas perguntas e respostas ao bate-papo, elas são adicionadas à fonte **Editorial**. Para garantir que o ranker entenda que isso é bate-papo, adicione o par de tecla/valor de metadados "Editorial: chitchat", como visto na imagem a seguir:
    
-![! [Adicionar Chit-Chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![! [Adicionar qnAs de bate-papo] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Excluir o bate-papo de uma KB existente
 Selecione sua KB e, em seguida, navegue para a página **Configurações**. Sua fonte de bate-papo é listada como um arquivo, com o nome de personalidade selecionada. Você pode excluí-lo como um arquivo de origem.

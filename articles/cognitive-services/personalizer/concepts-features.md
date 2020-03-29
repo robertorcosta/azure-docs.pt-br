@@ -1,5 +1,5 @@
 ---
-title: 'Recursos: ação e contexto-personalizador'
+title: 'Características: Ação e contexto - Personalizador'
 titleSuffix: Azure Cognitive Services
 description: O Personalizador usa recursos, informações sobre ações e contexto, para oferecer melhores sugestões de classificação. Os recursos podem ser muitos genéricos ou específicos a um item.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77026142"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
@@ -25,27 +25,27 @@ O Personalizador usa **recursos**, que são informações sobre o **contexto atu
 
 Por exemplo, você pode ter um **recurso** sobre:
 
-* O _usuário persona_ , como um `Sports_Shopper`. Isso não deve ser uma ID de usuário individual. 
+* A _persona do usuário,_ como a `Sports_Shopper`. Este não deve ser um ID de usuário individual. 
 * O _conteúdo_, por exemplo, se um vídeo é um `Documentary`, um `Movie` ou uma `TV Series`, ou se um item de varejo está disponível na loja.
 * O período _atual_, por exemplo, qual é o dia da semana.
 
-O personalizador não prescreve, limita ou corrige quais recursos você pode enviar para ações e contexto:
+O personalize não prescreve, limita ou corrige quais recursos você pode enviar para ações e contexto:
 
 * Você pode enviar alguns recursos para algumas ações e não para outras, caso não os tenha. Por exemplo, uma série de TV pode ter atributos que filmes não têm.
 * Você pode ter alguns recursos disponíveis apenas algumas vezes. Por exemplo, um aplicativo móvel pode fornecer mais informações do que uma página da Web. 
 * Ao longo do tempo, você pode adicionar e remover recursos sobre ações e contexto. O Personalizador continua aprendendo com as informações disponíveis.
 * Deve haver, pelo menos, um recurso para o contexto. O Personalizador não dá suporte a um contexto vazio. Se você enviar apenas um contexto fixo sempre, o Personalizador escolherá a ação para classificações somente referente aos recursos nas ações.
-* Para recursos categóricos, não é necessário definir os valores possíveis, e você não precisa definir os intervalos predefinidos para valores numéricos.
+* Para características categóricas, você não precisa definir os valores possíveis e não precisa pré-definir faixas para valores numéricos.
 
 ## <a name="supported-feature-types"></a>Tipos de recursos compatíveis
 
 O Personalizador dá suporte a recursos de tipos de cadeia de caracteres, numéricos e boolianos.
 
-### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta Machine Learning no Personalizador
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta o aprendizado de máquina no Personalr
 
-* **Strings**: para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
-* **Numeric**: você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
-* Valores **boolianos** enviados com o valor "false" funcionam como se não tivessem sido enviados.
+* **Strings**: Para tipos de cordas, cada combinação de chave e valor cria novos pesos no modelo de aprendizado de máquina Personalr. 
+* **Numérico**: Você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Este é muito dependente do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas ou três vezes mais do que ter 1 animal de estimação. Características que são baseadas em unidades numéricas, mas onde o significado não é linear - como Idade, Temperatura ou Altura da Pessoa - são melhor codificadas como cordas, e a qualidade do recurso pode ser normalmente melhorada usando faixas. Por exemplo, a idade poderia ser codificada como "Idade":"0-5", "Idade":"6-10", etc.
+* **Valores booleanos** enviados com valor de ato "falso" como se não tivessem sido enviados.
 
 Os recursos que não estão presentes devem ser omitidos da solicitação. Evite o envio de recursos com um valor nulo, pois ele será processado como existente e com um valor igual a "nulo" ao treinar o modelo.
 
@@ -56,7 +56,7 @@ O Personalizador aceita recursos organizados em namespaces. Você determina, em 
 Estes são exemplos de namespaces de recurso usados por aplicativos:
 
 * User_Profile_from_CRM
-* Tempo
+* Hora
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -66,15 +66,15 @@ Estes são exemplos de namespaces de recurso usados por aplicativos:
 * current_time
 * NewsArticle_TextAnalytics
 
-Você pode nomear os namespaces de recurso seguindo suas próprias convenções, desde que elas sejam chaves JSON válidas. Os namespaces são usados para organizar recursos em conjuntos distintos e para desambiguar recursos com nomes semelhantes. Você pode considerar os namespaces como um ' prefix ' que é adicionado aos nomes de recursos. Namespaces não podem ser aninhados.
+Você pode nomear os namespaces de recurso seguindo suas próprias convenções, desde que elas sejam chaves JSON válidas. Namespaces são usados para organizar recursos em conjuntos distintos e para desambiguar recursos com nomes semelhantes. Você pode pensar em namespaces como um 'prefixo' que é adicionado aos nomes de recursos. Os namespaces não podem ser aninhados.
 
 
 No JSON a seguir, `user`, `state` e `device` são namespaces de recurso. 
 
 > [!Note]
-> No momento, é altamente recomendável usar nomes para namespaces de recursos que são baseados em UTF-8 e começar com letras diferentes. Por exemplo, `user`, `state`e `device` começar com `u`, `s`e `d`. Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
+> Atualmente recomendamos fortemente o uso de nomes para espaços de nomes de recursos que são baseados em UTF-8 e começam com letras diferentes. Por `user`exemplo, `state`e `device` comece `u` `s`com, `d`e . Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
 
-Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
+Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só pode ser incluída se os itens da matriz forem números. 
 
 ```JSON
 {
@@ -103,10 +103,10 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
 
 ### <a name="restrictions-in-character-sets-for-namespaces"></a>Restrições em conjuntos de caracteres para namespaces
 
-A cadeia de caracteres usada para nomear o namespace deve seguir algumas restrições: 
-* Não pode ser Unicode.
-* Você pode usar alguns dos símbolos imprimíveis com códigos < 256 para os nomes de namespace. 
-* Você não pode usar símbolos com códigos < 32 (não imprimível), 32 (espaço), 58 (dois-pontos), 124 (pipe) e 126 – 140.
+A seqüência de string que você usa para nomear o namespace deve seguir algumas restrições: 
+* Não pode ser unicode.
+* Você pode usar alguns dos símbolos imprimíveis com códigos < 256 para os nomes do namespace. 
+* Você não pode usar símbolos com códigos < 32 (não imprimíveis), 32 (espaço), 58 (cólon), 124 (tubo) e 126-140.
 * Ele não deve começar com um sublinhado "_" ou o recurso será ignorado.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Como tornar os conjuntos de recursos mais efetivos para o Personalizador
@@ -133,12 +133,12 @@ Estas seções a seguir são práticas comuns para melhorar os recursos enviados
 
 Por exemplo, um carimbo de data/hora que inclui os segundos é um recurso muito esparso. Ele pode se tornar mais denso (efetivo) com a classificação das horas em "manhã", "meio-dia", "tarde" etc.
 
-As informações de localização normalmente também se beneficiam da criação de classificações mais amplas. Por exemplo, uma coordenada de latitude-longitude como Lat: 47,67402 ° N, Long: 122,12154 ° W é muito precisa e força o modelo a aprender latitude e longitude como dimensões distintas. Quando você está tentando personalizar com base nas informações de localização, ele ajuda a agrupar informações de local em setores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números de lat-long e combinar latitude e longitude em "areas", tornando-os em uma cadeia de caracteres. Por exemplo, uma boa maneira de representar 47,67402 ° N, Long: 122,12154 ° W em regiões com aproximadamente alguns quilômetros de largura seria "Location": "34.3, 12,1".
+As informações de localização também normalmente se beneficiam da criação de classificações mais amplas. Por exemplo, uma coordenada latitude-longitude como Lat: 47.67402° N, Long: 122.12154° W é muito precisa, e força o modelo a aprender latitude e longitude como dimensões distintas. Quando você está tentando personalizar com base em informações de localização, ele ajuda a agrupar informações de localização em setores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números lat-long, e combinar latitude e longitude em "áreas" transformando-os em uma corda. Por exemplo, uma boa maneira de representar 47,67402° N, Longa: 122,12154° W em regiões de aproximadamente alguns quilômetros de largura seria "localização":"34,3 , 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandir conjuntos de recursos com informações extrapoladas
 
-Você também pode obter mais recursos pensando em atributos inexplorados que podem ser derivados das informações que você já tem. Por exemplo, em uma personalização de lista de filmes fictícias, é possível que um fim de semana em vez de um dia final dos usuários seja diferente do comportamento? A hora pode ser expandida para ter um atributo "fim de semana" ou "dia útil". Os feriados culturais nacionais atraem a atenção para determinados tipos de filme? Por exemplo, um atributo "Dia das Bruxas" é útil em locais em que ele é relevante. É possível que o clima chuvoso tenha impacto significativo na escolha de um filme para muitas pessoas? Com a hora e o local, um serviço de meteorologia pode fornecer essas informações, e você pode adicioná-lo como um recurso extra. 
+Você também pode obter mais recursos pensando em atributos inexplorados que podem ser derivados das informações que você já tem. Por exemplo, em uma personalização fictícia da lista de filmes, é possível que um fim de semana versus dia da semana provoque comportamentos diferentes dos usuários? A hora pode ser expandida para ter um atributo "fim de semana" ou "dia útil". Os feriados culturais nacionais atraem a atenção para determinados tipos de filme? Por exemplo, um atributo "Dia das Bruxas" é útil em locais em que ele é relevante. É possível que o clima chuvoso tenha impacto significativo na escolha de um filme para muitas pessoas? Com a hora e o local, um serviço de meteorologia pode fornecer essas informações, e você pode adicioná-lo como um recurso extra. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Expandir conjuntos de recursos com inteligência artificial e serviços cognitivos
 
@@ -146,7 +146,7 @@ A Inteligência Artificial e os Serviços Cognitivos prontos para execução pod
 
 Ao fazer o pré-processamento dos itens usando os serviços de inteligência artificial, você pode extrair de forma automática informações que provavelmente serão relevantes para a personalização.
 
-Por exemplo:
+Por exemplo: 
 
 * Você pode executar um arquivo de filme por meio do [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) para extrair elementos de cena, texto, sentimento e muitos outros atributos. Esses atributos podem então se tornar mais densos para refletir características que os metadados do item original não tinham. 
 * As imagens podem ser executadas por meio da detecção de objeto, os rostos, por meio de sentimento etc.
@@ -154,16 +154,16 @@ Por exemplo:
 
 Você pode usar vários outros [Serviços Cognitivos do Azure](https://www.microsoft.com/cognitive-services), como
 
-* [Vinculação de entidade](../entitylinking/home.md)
-* [Análise de Texto](../text-analytics/overview.md)
-* [Detecção de Emoções](../emotion/home.md)
+* [Vinculação de entidades](../entitylinking/home.md)
+* [Análise de texto](../text-analytics/overview.md)
+* [Emoção](../emotion/home.md)
 * [Pesquisa Visual Computacional](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 
 Cada ação:
 
-* Tem uma ID de _evento_ . Se você já tiver uma ID de evento, deverá enviá-la. Se você não tiver uma ID de evento, não enviar uma, o personalizador criará uma para você e a retornará na resposta da solicitação de classificação. A ID é associada ao evento de classificação, não ao usuário. Se você criar uma ID, um GUID funcionará melhor. 
+* Tem uma id _de evento._ Se você já tem um ID de evento, você deve enviar isso. Se você não tiver um ID de evento, não envie um, o Personalizador cria um para você e o devolve na resposta da solicitação do Rank. O ID está associado ao evento Rank, não ao usuário. Se você criar um ID, um GUID funciona melhor. 
 * Tem uma lista de recursos.
 * A lista de recursos pode ser grande (centenas), mas recomendamos avaliar a eficácia do recurso para remover recursos que não estejam contribuindo para a obtenção de recompensas. 
 * Os recursos nas **ações** podem ou não ter alguma correlação com os recursos no **contexto** usados pelo Personalizador.
@@ -213,7 +213,7 @@ Em alguns casos, só pode ser determinado posteriormente na lógica de negócios
 
 Ao chamar a Classificação, você enviará várias ações para sua escolha:
 
-Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
+Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só pode ser incluída se os itens da matriz forem números. 
 
 ```json
 {
@@ -294,7 +294,7 @@ Seu aplicativo é responsável por carregar as informações sobre o contexto do
 
 O contexto é expresso como um objeto JSON que é enviado para a API de Classificação:
 
-Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
+Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só pode ser incluída se os itens da matriz forem números. 
 
 ```JSON
 {
@@ -322,6 +322,6 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Aprendizado de reforço](concepts-reinforcement-learning.md) 

@@ -1,41 +1,40 @@
 ### YamlMime:Landing
-title: Documentação de hosting
-summary: Os contêineres de serviço de fala estão disponíveis para cenários de conversão de texto em texto e de textos em fala, que abrangem modelos padrão ou personalizados.
+title: Documentação de hospedagem
+summary: Os contêineres de serviço de fala estão disponíveis para cenários de fala para texto e texto para voz, abrangendo modelos padrão ou personalizados.
 metadata:
-  title: Documentação de hospedagem-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  title: Documentação de hospedagem - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 8298a2e37520e7920f18b7ffd5b49074098e0243
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79366693"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415900"
 landingContent:
 - title: Sobre hospedagem
   linkLists:
   - linkListType: concept
     links:
-    - text: Instalar e executar contêineres de fala
+    - text: Instale e execute recipientes de fala
       url: speech-container-howto.md
-    - text: Contêineres de fala com kubernetes e Helm
+    - text: Recipientes de fala com Kubernetes e Helm
       url: speech-container-howto-on-premises.md
-    - text: Contêineres de fala em instâncias de contêiner do Azure
+    - text: Contêineres de fala em instâncias de contêineres do Azure
       url: deploy-speech-on-container-instances.md
 - title: Criar e configurar
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Criar um recurso de fala do Azure
+    - text: Criar um recurso de Fala do Azure
       url: get-started.md#new-resource
-    - text: Configurar contêineres de fala
+    - text: Configurar recipientes de fala
       url: speech-container-configuration.md
 - title: Referência
   linkLists:

@@ -1,7 +1,7 @@
 ---
 title: Idiomas compatíveis – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: O API de Tradução de Texto dá suporte aos seguintes idiomas para conversão de texto em texto usando a conversão de máquina neural (NMT).
+description: A API de texto tradutor suporta os seguintes idiomas para tradução de texto para texto usando A Tradução de Máquina Neural (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77206116"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
@@ -28,19 +28,19 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 **API do Tradutor V2**
 
 > [!NOTE]
-> O v2 foi preterido em 30 de abril de 2018. Migre seus aplicativos para v3 a fim de aproveitar as novas funcionalidades disponíveis exclusivamente na v3.
+> V2 foi preterido em 30 de abril de 2018. Por favor, migre seus aplicativos para V3 para aproveitar as novas funcionalidades disponíveis exclusivamente em V3.
 
-* Somente estatística: nenhum sistema neural está disponível para este idioma.
-* Neural disponível: um sistema neural está disponível. Use o parâmetro `category=generalnn` para acessar o sistema neural.
-* Padrão neural: neural é o sistema de tradução padrão. Use o parâmetro `category=smt` para acessar o sistema estatístico para uso com o Hub do Microsoft Translator.
-* Somente neural: somente a tradução neural está disponível.
+* Apenas estatística: Nenhum sistema neural está disponível para esta linguagem.
+* Neural disponível: Um sistema neural está disponível. Use o parâmetro `category=generalnn` para acessar o sistema neural.
+* Padrão neural: Neural é o sistema de tradução padrão. Use o parâmetro `category=smt` para acessar o sistema estatístico para uso com o Hub do Microsoft Translator.
+* Somente neural: Apenas a tradução neural está disponível.
 
 **API do Tradutor V3** a API do Tradutor V3 é neural por padrão e sistemas estatísticos estão disponíveis somente quando não houver nenhum sistema neural.
 
 > [!NOTE]
-> Atualmente, um subconjunto dos idiomas neurais está disponível no Tradutor personalizado e estamos adicionando gradualmente outros. [Exiba os idiomas disponíveis no momento no Tradutor personalizado](#customization).
+> Atualmente, um subconjunto das linguagens neurais estão disponíveis no Custom Translator e estamos gradualmente adicionando outras. [Exibir idiomas atualmente disponíveis no Personal Translator](#customization).
 
-|Linguagem|  Código de idioma|  API V3|
+|Idioma|  Código de idioma|  API V3|
 |:-----|:-----:|:-----|
 |Africâner| `af`|   Neural|
 |Árabe|    `ar`    |   Neural|
@@ -114,13 +114,13 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Yucatec Maya|  `yua`   |   Estatística|
 
 > [!NOTE]
-> O código de idioma `pt` usará como padrão `pt-br`, Português (Brasil).
+> O `pt` código de `pt-br`idioma será padrão para , Português (Brasil).
 
 ## <a name="transliteration"></a>Transliteração
 
 O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indica que o idioma pode ser transliterado de ou para qualquer um dos scripts listados. O "->" indica que o idioma só pode ser transliterado de um script para outro.
 
-| Linguagem    | Código de idioma | Script | Para/De | Script|
+| Idioma    | Código de idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 |Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -147,7 +147,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 
 O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos Lookup e Examples.
 
-| Linguagem    | Código de idioma |
+| Idioma    | Código de idioma |
 |:----------- |:-------------:|
 | Africâner      | `af`          |
 | Árabe       | `ar`          |
@@ -202,7 +202,7 @@ O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos
 
 ## <a name="detect"></a>Detect
 
-API de Tradução de Texto detecta todos os idiomas disponíveis para tradução e transliteração.
+A API de texto do tradutor detecta todos os idiomas disponíveis para tradução e transliteração.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Acessar a lista de idiomas da API de Tradução de Texto de forma programática
@@ -213,9 +213,9 @@ Você pode recuperar uma lista de idiomas com suporte para a API de Tradução d
 
 ## <a name="customization"></a>Personalização
 
-Os idiomas a seguir estão disponíveis para personalização de ou para o inglês usando o [Tradutor personalizado](https://aka.ms/CustomTranslator).
+Os seguintes idiomas estão disponíveis para personalização para ou a partir do inglês usando [O Tradutor Personalizado](https://aka.ms/CustomTranslator).
 
-| Linguagem    | Código de idioma |
+| Idioma    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |

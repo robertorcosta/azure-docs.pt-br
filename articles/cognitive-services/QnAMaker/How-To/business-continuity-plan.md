@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
 ms.openlocfilehash: f920a789f1ec631c5d70863b10d8364b3eb81b6c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650462"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Criar um plano de continuidade de negócios para o seu serviço QnA Maker
@@ -27,17 +27,17 @@ A ideia de alto nível como representada acima é a seguinte:
 
 1. Configurar dois [serviços QnA Maker](../How-To/set-up-qnamaker-service-azure.md) em paralelo nas [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-2. Mantenha os índices primário e secundário do Azure Search sincronizados. Use o exemplo do GitHub [aqui](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver como fazer backup-restaurar índices do Azure.
+2. Mantenha os índices de pesquisa azure primários e secundários em sincronia. Use a amostra do GitHub [aqui](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver como restaurar os índices do Azure de backup.
 
 3. Fazer backup do Application Insights usando [exportação contínua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry).
 
 4. Depois que as pilhas primárias e secundárias forem configuradas, use o [gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/) para configurar os dois pontos de extremidade e configurar um método de roteamento.
 
-5. Você precisaria criar um certificado de protocolo SSL (SSL) para o ponto de extremidade do Gerenciador de tráfego. [Associar o certificado SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nos serviços de Aplicativo.
+5. Você precisaria criar um certificado SSL (Secure Sockets Layer, camada de soquetes seguros) para o ponto final do gerenciador de tráfego. [Associar o certificado SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nos serviços de Aplicativo.
 
 6. Por fim, use o ponto de extremidade do gerenciador de tráfego em seu bot ou aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Escolha capactiy](./improve-knowledge-base.md)
+> [Escolha a capactia](./improve-knowledge-base.md)

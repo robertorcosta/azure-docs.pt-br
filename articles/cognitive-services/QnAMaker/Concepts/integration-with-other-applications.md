@@ -1,35 +1,35 @@
 ---
-title: Integre-se a outros aplicativos-QnA Maker
-description: O QnA Maker se integra a aplicativos cliente, como bots de bate-papo, bem como a outros serviços de processamento de idioma natural, como o Reconhecimento vocal (LUIS).
+title: Integre-se com outras aplicações - QnA Maker
+description: O QnA Maker integra-se a aplicativos clientes, como bots de bate-papo, bem como a outros serviços de processamento de linguagem natural, como o Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300512"
 ---
-# <a name="design-knowledge-base-for-client-applications"></a>Criar base de dados de conhecimento para aplicativos cliente
+# <a name="design-knowledge-base-for-client-applications"></a>Projetar base de conhecimento para aplicações de clientes
 
-O QnA Maker se integra a aplicativos cliente, como bots de bate-papo, bem como a outros serviços de processamento de idioma natural, como o Reconhecimento vocal (LUIS).
+O QnA Maker integra-se a aplicativos clientes, como bots de bate-papo, bem como a outros serviços de processamento de linguagem natural, como o Language Understanding (LUIS).
 
-## <a name="integration-with-a-conversational-client"></a>Integração com um cliente de conversação
+## <a name="integration-with-a-conversational-client"></a>Integração com um cliente conversador
 
-O QnA Maker integra-se a aplicativos cliente de conversação, como [o Microsoft bot Framework](https://dev.botframework.com/). O texto enviado para QnA Maker não precisa ser limpo ou transformado. QnA Maker aceita idiomas naturais e retorna a melhor resposta.
+O QnA Maker integra-se a aplicativos clientes conversacionais, como [o Microsoft Bot Framework](https://dev.botframework.com/). O texto enviado ao QnA Maker não precisa ser limpo ou transformado. QnA Maker aceita línguas naturais e retorna a melhor resposta.
 
-## <a name="create-a-bot-without-writing-any-code"></a>Criar um bot sem escrever nenhum código
+## <a name="create-a-bot-without-writing-any-code"></a>Crie um bot sem escrever nenhum código
 
-Depois de publicar sua base de dados de conhecimento, crie um bot na página **publicar** selecionando o botão **criar bot** . Use o [tutorial de bot](../Quickstarts/create-publish-knowledge-base.md) para saber o que acontece depois de selecionar o botão.
+Depois de publicar sua base de conhecimento, crie um bot a partir da página **Publicar,** selecionando o botão **Criar bot.** Use o tutorial do [bot](../Quickstarts/create-publish-knowledge-base.md) para saber o que acontece depois de selecionar o botão.
 
-## <a name="providing-multi-turn-conversations"></a>Fornecendo conversas com vários folheios
+## <a name="providing-multi-turn-conversations"></a>Fornecendo conversas em vários turnos
 
-Um cliente de bot fornece a melhor resposta selecionada de sua base de dados de conhecimento e pode fornecer avisos de acompanhamento se a resposta fizer parte de um conjunto de QnA de vários desligamentos. Saiba [como](../how-to/multiturn-conversation.md) Adicionar conjuntos de perguntas de conversa e de resposta para sua base de dados de conhecimento.
+Um cliente de bot fornece a melhor resposta selecionada de sua base de conhecimento e pode fornecer solicitações de acompanhamento se a resposta for parte de um conjunto de QnA de várias voltas. Aprenda [a](../how-to/multiturn-conversation.md) adicionar conjuntos de perguntas e respostas de vários turnos à sua base de conhecimento.
 
 ## <a name="natural-language-processing"></a>Processamento de idioma natural
 
-Enquanto o QnA Maker processa perguntas que usam o processamento de idioma natural, ele também pode ser usado como parte de um sistema maior que responde a perguntas de várias bases de dados de conhecimento. Você pode combinar QnA Maker com outro serviço cognitiva, Reconhecimento vocal (LUIS), para fornecer processamento de idioma natural antes de chegar a uma base de dados de conhecimento específica. Saiba mais sobre quando e como usar o [Luis e o QnA Maker](../../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json) juntos.
+Embora o QnA Maker processe questões que usam processamento de linguagem natural, ele também pode ser usado uma parte de um sistema maior que responde perguntas de múltiplas bases de conhecimento. Você pode combinar o QnA Maker com outro Serviço Cognitivo, o Entendimento de Linguagem (LUIS), para fornecer processamento de linguagem natural antes de chegar a uma base de conhecimento específica. Saiba mais sobre quando e como usar [o LUIS e o QnA Maker](../../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json) juntos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Aprenda os [conceitos](development-lifecycle-knowledge-base.md) do ciclo de desenvolvimento para QnA Maker.
+Aprenda conceitos do ciclo [de](development-lifecycle-knowledge-base.md) desenvolvimento para QnA Maker.

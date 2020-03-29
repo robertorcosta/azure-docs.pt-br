@@ -1,7 +1,7 @@
 ---
-title: 'Como: adicionar uma confirmação a um comando personalizado (visualização)'
+title: 'Como: Adicionar uma confirmação a um comando personalizado (Visualização)'
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, como implementar confirmações para um comando em comandos personalizados.
+description: Neste artigo, como implementar confirmações para um comando em Comandos Personalizados.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -11,41 +11,41 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
 ms.openlocfilehash: afa197c83b4f66f12863de4185ef7763447f3ed9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75456493"
 ---
-# <a name="how-to-add-a-confirmation-to-a-custom-command-preview"></a>Como: adicionar uma confirmação a um comando personalizado (visualização)
+# <a name="how-to-add-a-confirmation-to-a-custom-command-preview"></a>Como: Adicionar uma confirmação a um comando personalizado (Pré-visualização)
 
-Neste artigo, você aprenderá a adicionar uma confirmação a um comando.
+Neste artigo, você aprenderá como adicionar uma confirmação a um comando.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter concluído as etapas nos seguintes artigos:
+Você deve ter completado as etapas nos seguintes artigos:
 
-- [Início rápido: criar um comando personalizado (versão prévia)](./quickstart-custom-speech-commands-create-new.md)
-- [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)
+- [Quickstart: Crie um comando personalizado (Preview)](./quickstart-custom-speech-commands-create-new.md)
+- [Quickstart: Crie um comando personalizado com parâmetros (Visualização)](./quickstart-custom-speech-commands-create-parameters.md)
 
-## <a name="create-a-setalarm-command"></a>Criar um comando setAlarm
+## <a name="create-a-setalarm-command"></a>Crie um comando SetAlarm
 
-Para demonstrar validações, vamos criar um novo comando, permitindo que o usuário defina um alarme.
+Para demonstrar validações, vamos criar um novo Comando permitindo que o usuário defina um alarme.
 
-1. Abra o aplicativo de comandos personalizados criado anteriormente no [Speech Studio](https://speech.microsoft.com/)
-1. Criar um novo comando **setAlarm**
+1. Abra seu aplicativo de comandos personalizados criado anteriormente no [Speech Studio](https://speech.microsoft.com/)
+1. Crie um novo **SetAlarm** de comando
 1. Adicionar um parâmetro chamado DateTime
 
-   | Configuração           | Valor sugerido                                          | Description                                                                                      |
+   | Configuração           | Valor sugerido                                          | Descrição                                                                                      |
    | ----------------- | ---------------------------------------------------------| ------------------------------------------------------------------------------------------------ |
-   | Nome              | DateTime                                                 | Um nome descritivo para o parâmetro de comando                                                    |
-   | Obrigatório          | true                                                     | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando |
-   | Modelo de resposta | "-Qual é a hora?"                                           | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                              |
-   | Tipo              | DateTime                                                 | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                      |
-   | Padrões de data     | Se a data estiver ausente, use hoje mesmo                             |                                                                                                  |
-   | Padrões de tempo     | Se o tempo estiver ausente, use o início do dia                      |                                                                                                  | 
+   | Nome              | Datetime                                                 | Um nome descritivo para seu parâmetro de comando                                                    |
+   | Obrigatório          | true                                                     | Caixa de seleção indicando se um valor para este parâmetro é necessário antes de completar o Comando |
+   | Modelo de resposta | "- Que horas?"                                           | Um aviso para pedir o valor deste parâmetro quando ele não é conhecido                              |
+   | Type              | Datetime                                                 | O tipo de parâmetro, como número, string ou data                                      |
+   | Padrões de data     | Se a data está faltando uso hoje                             |                                                                                                  |
+   | Padrões de tempo     | Se falta tempo, o uso começa o dia                      |                                                                                                  | 
 
-1. Adicionar algumas frases de exemplo
+1. Adicione algumas frases de exemplo
    
    ```
     set an alarm for {DateTime}
@@ -55,69 +55,69 @@ Para demonstrar validações, vamos criar um novo comando, permitindo que o usu�
 
 1. Adicionar uma regra de conclusão para confirmar o resultado
 
-   | Configuração    | Valor sugerido                                         | Description                                        |
+   | Configuração    | Valor sugerido                                         | Descrição                                        |
    | ---------- | ------------------------------------------------------- | -------------------------------------------------- |
-   | Nome da Regra  | Definir alarme                                               | Um nome que descreve a finalidade da regra          |
-   | Ações    | SpeechResponse-"-Ok, alarme definido para {DateTime}"       | A ação a ser tomada quando a condição da regra for verdadeira |
+   | Nome da Regra  | Definir alarme                                               | Um nome descrevendo o propósito da regra          |
+   | Ações    | SpeechResponse - "- Ok, configuração de alarme para {DateTime}"       | A ação a tomar quando a condição de regra é verdadeira |
 
-## <a name="try-it-out"></a>Faça o teste
+## <a name="try-it-out"></a>Experimentar
 
-Selecione o painel de teste e tente algumas interações.
+Selecione o painel Teste e tente algumas interações.
 
-- Entrada: Definir alarme para amanhã às 12h
+- Entrada: Afina o alarme para amanhã ao meio-dia
 - Saída: "Ok, alarme definido para 12/06/2019 12:00:00"
 
-- Entrada: definir um alarme
-- Saída: "qual vez?"
-- Entrada: 17:00
+- Entrada: Defina um alarme
+- Saída: "Que horas?"
+- Entrada: 17h
 - Saída: "Ok, alarme definido para 12/05/2019 17:00:00"
 
-## <a name="add-the-advanced-rules-for-confirmation"></a>Adicionar as regras avançadas para confirmação
+## <a name="add-the-advanced-rules-for-confirmation"></a>Adicione as regras avançadas para confirmação
 
 1. Adicione uma regra avançada para confirmação. 
 
-    Essa regra solicitará que o usuário confirme a data e a hora do alarme e está esperando uma confirmação (Sim/não) para a próxima vez.
+    Esta regra pedirá ao usuário para confirmar a data e a hora do alarme e está esperando uma confirmação (sim/não) para a próxima volta.
 
-   | Configuração               | Valor sugerido                                                                  | Description                                        |
+   | Configuração               | Valor sugerido                                                                  | Descrição                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Nome da Regra             | Confirmar data e hora                                                                | Um nome que descreve a finalidade da regra          |
-   | Condições            | Parâmetro necessário-DateTime                                                    | Condições que determinam quando a regra pode ser executada    |   
-   | Ações               | SpeechResponse-"-tem certeza de que deseja definir um alarme para {DateTime}?"       | A ação a ser tomada quando a condição da regra for verdadeira |
-   | Estado após a execução | Esperar entrada                                                                   | Estado do usuário após a ativação                  |
-   | As          | Confirmação                                                                     | Expectativa para a próxima rodada                      |
+   | Nome da Regra             | Confirmar a data                                                                | Um nome descrevendo o propósito da regra          |
+   | Condições            | Parâmetro necessário - DataTime                                                    | Condições que determinam quando a regra pode ser executada    |   
+   | Ações               | SpeechResponse - "- Tem certeza de que deseja definir um alarme para {DateTime}?"       | A ação a tomar quando a condição de regra é verdadeira |
+   | Estado após execução | Esperar entrada                                                                   | Estado para o usuário após a volta                  |
+   | Expectativas          | Confirmação                                                                     | Expectativa para a próxima volta                      |
 
-1. Adicione uma regra avançada para lidar com uma confirmação bem-sucedida (o usuário disse sim)
+1. Adicione uma regra avançada para lidar com uma confirmação bem sucedida (o usuário disse sim)
 
-   | Configuração               | Valor sugerido                                                                  | Description                                        |
+   | Configuração               | Valor sugerido                                                                  | Descrição                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Nome da Regra             | Confirmação aceita                                                            | Um nome que descreve a finalidade da regra          |
-   | Condições            | SuccessfulConfirmation & parâmetro necessário-DateTime                           | Condições que determinam quando a regra pode ser executada    |   
-   | Estado após a execução | Pronto para conclusão                                                             | Estado do usuário após a ativação                   |
+   | Nome da Regra             | Confirmação aceita                                                            | Um nome descrevendo o propósito da regra          |
+   | Condições            | SucessoConfirmação & parâmetro necessário - Hora de data                           | Condições que determinam quando a regra pode ser executada    |   
+   | Estado após execução | Pronto para conclusão                                                             | Estado do usuário após a curva                   |
 
-1. Adicione uma regra avançada para lidar com uma confirmação negada (o usuário não disse)
+1. Adicionar uma regra avançada para lidar com uma confirmação negada (o usuário disse não)
 
-   | Configuração               | Valor sugerido                                                                  | Description                                        |
+   | Configuração               | Valor sugerido                                                                  | Descrição                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Nome da Regra             | Confirmação negada                                                                   | Um nome que descreve a finalidade da regra          |
-   | Condições            | DeniedConfirmation & parâmetro necessário-DateTime                               | Condições que determinam quando a regra pode ser executada    |   
-   | Ações               | ClearParameter-DateTime & SpeechResponse-"-sem problema, que tempo então?"     | A ação a ser tomada quando a condição da regra for verdadeira |
-   | Estado após a execução | Esperar entrada                                                                   | Estado do usuário após a ativação                   |
-   | As          | Extrairparameters-DateTime                                                      | Expectativa para a próxima rodada                      |
+   | Nome da Regra             | Negado confirmar                                                                   | Um nome descrevendo o propósito da regra          |
+   | Condições            | NegadoConfirmação & parâmetro necessário - DataTime                               | Condições que determinam quando a regra pode ser executada    |   
+   | Ações               | ClearParameter - DateTime & SpeechResponse - "- Sem problema, que horas então?"     | A ação a tomar quando a condição de regra é verdadeira |
+   | Estado após execução | Esperar entrada                                                                   | Estado do usuário após a curva                   |
+   | Expectativas          | ElicitParameters - DateTime                                                      | Expectativa para a próxima volta                      |
 
-## <a name="try-it-out"></a>Faça o teste
+## <a name="try-it-out"></a>Experimentar
 
-Selecione o painel de teste e tente algumas interações.
+Selecione o painel Teste e tente algumas interações.
 
-- Entrada: Definir alarme para amanhã às 12h
-- Saída: "tem certeza de que deseja definir um alarme para 12/07/2019 12:00:00?"
-- Entrada: não
-- Saída: "sem problema, que tempo então?"
-- Entrada: 17:00
-- Saída: "tem certeza de que deseja definir um alarme para 12/06/2019 17:00:00?"
+- Entrada: Afina o alarme para amanhã ao meio-dia
+- Saída: "Tem certeza de que deseja configurar um alarme para 12/07/2019 12:00:00?"
+- Entrada: Não
+- Saída: "Sem problema, que horas então?"
+- Entrada: 17h
+- Saída: "Tem certeza de que deseja configurar um alarme para 12/06/2019 17:00:00?"
 - Entrada: Sim
 - Saída: "Ok, alarme definido para 12/06/2019 17:00:00"
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como: adicionar uma correção de uma etapa a um comando personalizado (versão prévia)](./how-to-custom-speech-commands-one-step-correction.md)
+> [Como: Adicionar uma correção de uma etapa a um comando personalizado (Visualização)](./how-to-custom-speech-commands-one-step-correction.md)

@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1263e93b1e316cab4afb51cd828737a5bd087fed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: bad0ef849af7c94e63f1dfbebda7f47caef9947d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423849"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294374"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Notícias
 
@@ -25,7 +25,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, https://api.cognitive.microsoft.com/bing/**v7.0**/news/search.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, `https://api.cognitive.microsoft.com/bing/v7.0/news/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
@@ -70,7 +70,7 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Alterações de objeto
 
-- Adicionado o campo `contractualRules` para o objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `contractualRules` contém uma lista de regras que você deve seguir (por exemplo, a atribuição de artigo). Você deve aplicar a atribuição fornecida em `contractualRules` em vez de usar `provider`. O artigo inclui `contractualRules` somente quando a resposta da [API de Pesquisa na Web](../bing-web-search/search-the-web.md) contém uma resposta de notícias.
+- Adicionado o campo `contractualRules` ao objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). O campo `contractualRules` contém uma lista de regras que você deve seguir (por exemplo, a atribuição de artigo). Você deve aplicar a atribuição fornecida em `contractualRules` em vez de usar `provider`. O artigo inclui `contractualRules` somente quando a resposta da [API de Pesquisa na Web](../bing-web-search/search-the-web.md) contém uma resposta de notícias.
 
 ## <a name="non-breaking-changes"></a>Alterações contínuas
 

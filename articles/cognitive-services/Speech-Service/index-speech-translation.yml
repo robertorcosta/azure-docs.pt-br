@@ -1,25 +1,24 @@
 ### YamlMime:Landing
-title: Documentação da tradução de fala
-summary: A tradução de fala do serviço de fala permite a tradução de fala em tempo real, de voz a fala e de fala a texto de fluxos de áudio
+title: Documentação de tradução de fala
+summary: A tradução de fala do serviço Speech permite a tradução em tempo real, em várias línguas, de fonoaudiologia para discurso e de transmissão de áudio em texto
 metadata:
-  title: Documentação de tradução de fala-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
+  title: Documentação de tradução de fala - Tutoriais, Referência de API - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 742b9710fc7ab396aa906c956d6809df9440c78e
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79367968"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415312"
 landingContent:
-- title: Sobre a tradução de fala
+- title: Sobre tradução de fala
   linkLists:
   - linkListType: overview
     links:
@@ -29,7 +28,7 @@ landingContent:
     links:
     - text: Traduzir uma fala em texto
       url: quickstarts/translate-speech-to-text.md
-    - text: Traduzir fala para vários idiomas de destino
+    - text: Traduzir a fala para vários idiomas-alvo
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Traduzir uma fala em fala
       url: quickstarts/translate-speech-to-speech.md
@@ -37,7 +36,7 @@ landingContent:
   linkLists:
   - linkListType: learn
     links:
-    - text: Traduza a fala em tempo real
+    - text: Traduzir discurso em tempo real
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
